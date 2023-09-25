@@ -1,10 +1,11 @@
 import { SplashScreen } from 'expo-router';
+import { FC } from 'react';
 
-import { JsxElement, MasterProvider } from '$core';
+import { MasterProvider } from '$core';
 
 SplashScreen.preventAutoHideAsync();
 
-const Layout = (): JsxElement => {
+const Layout: FC = () => {
   return <MasterProvider>{}</MasterProvider>;
 };
 
