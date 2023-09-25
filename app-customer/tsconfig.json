@@ -1,9 +1,4 @@
 {
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
-  },
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
@@ -12,26 +7,11 @@
       "$core": ["core/index"],
       "$configs": ["configs/index"],
       "$modules": ["modules/index"],
-      "$common": ["../node_modules/hero24-common/index"]
-    },
-    "jsx": "react-native",
-    "lib": ["dom", "es2019"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "noImplicitReturns": true,
-    "strict": true,
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "strictNullChecks": true
+      "$ui-library": ["../node_modules/ui-library/index"], // delete alias after create npm package
+      "$common": ["../node_modules/hero24-common/index"] // delete alias after create npm package
+    }
   },
-  "extends": "expo/tsconfig.base",
+  "extends": "../hero24-common/common-tsconfig.json",
   "exclude": ["node_modules", "dist"],
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
 }

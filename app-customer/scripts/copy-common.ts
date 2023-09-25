@@ -1,4 +1,7 @@
+// We need delete this script after publish in npm
+
 import fs from 'fs';
+import fse from 'fs-extra';
 import path from 'path';
 
 const commonDir = path.join(__dirname, '../../hero24-common');
@@ -15,8 +18,8 @@ try {
     fs.mkdirSync(packageDir);
   }
 
-  fs.copyFileSync(commonSrc, packageSrc);
-  fs.copyFileSync(commonIndex, packageIndex);
+  fse.copySync(commonSrc, packageSrc, { overwrite: true });
+  fse.copySync(commonIndex, packageIndex, { overwrite: true });
 } catch (err) {
   console.error(err);
 }

@@ -1,33 +1,8 @@
 {
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
-  },
   "compilerOptions": {
-    "baseUrl": "./src",
-    "paths": {
-      "$/*": ["*"],
-      "$modules": ["modules/index"],
-      "$types": ["types/index"]
-    },
-    "jsx": "react-native",
-    "lib": ["dom", "es2019"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "noImplicitReturns": true,
-    "strict": true,
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "strictNullChecks": true
+    "baseUrl": "./src"
   },
+  "extends": "./common-tsconfig.json",
   "exclude": ["node_modules", "dist"],
   "include": ["**/*.ts", "**/*.tsx"]
 }

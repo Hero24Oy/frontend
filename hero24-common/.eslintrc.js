@@ -114,7 +114,7 @@ const importRules = {
   'import/extensions': 'off',
   'import/no-extraneous-dependencies': [
     'error',
-    { devDependencies: ['scripts/*.ts'] },
+    { devDependencies: ['**/scripts/**/*.ts'] },
   ],
   ...importSortOrderRule,
 };
