@@ -1,7 +1,7 @@
 import { SplashScreen } from 'expo-router';
 import { FC } from 'react';
 
-import { MasterProvider } from '$core';
+import { MasterProvider } from '$ui-library';
 
 SplashScreen.preventAutoHideAsync();
 
