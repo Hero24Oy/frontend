@@ -1,7 +1,9 @@
-{
+const config = {
   "tabWidth": 2,
   "useTabs": false,
   "singleQuote": true,
   "endOfLine": "lf",
   "trailingComma": "all"
 }
+
+module.exports = config

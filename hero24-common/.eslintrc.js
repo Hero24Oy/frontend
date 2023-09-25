@@ -356,6 +356,7 @@ module.exports = {
   ],
   ignorePatterns: [
     '.eslintrc.js',
+    '.prettierrc.js',
     'babel.config.js',
     'metro.config.js',
     'rn-cli.config.js',
