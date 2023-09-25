@@ -354,7 +354,12 @@ module.exports = {
     'react',
     'react-native',
   ],
-  ignorePatterns: ['.eslintrc.js', 'babel.config.js', 'metro.config.js'],
+  ignorePatterns: [
+    '.eslintrc.js',
+    'babel.config.js',
+    'metro.config.js',
+    'rn-cli.config.js',
+  ],
   rules: {
     ...initialRules,
     ...tsRules,

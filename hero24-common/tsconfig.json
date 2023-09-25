@@ -8,11 +8,8 @@
     "baseUrl": "./src",
     "paths": {
       "$/*": ["*"],
-      "$app": ["app/*"],
-      "$core": ["core/index"],
-      "$configs": ["configs/index"],
       "$modules": ["modules/index"],
-      "$common": ["../node_modules/hero24-common/index"]
+      "$types": ["types/index"]
     },
     "jsx": "react-native",
     "lib": ["dom", "es2019"],
@@ -31,7 +28,6 @@
     "noUnusedLocals": true,
     "strictNullChecks": true
   },
-  "extends": "expo/tsconfig.base",
   "exclude": ["node_modules", "dist"],
-  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
+  "include": ["**/*.ts", "**/*.tsx"]
 }

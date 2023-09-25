@@ -18,16 +18,10 @@
     "lint": "eslint . --fix --rule \"react-hooks/exhaustive-deps: off\"",
     "reinstall:dependencies": "rm -rf node_modules && npm i",
     "reinstall:dependencies:full": "npm cache clean --force && npm run reinstall:dependencies",
-    "prepare": "husky install",
     "check:requirements": "ts-node scripts/check-node-version.ts",
-    "postinstall": "npm run check:requirements",
-    "prestart": "npm run check:requirements"
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "prettier",
-      "eslint --fix"
-    ]
+    "copy-common": "ts-node scripts/copy-common.ts",
+    "postinstall": "npm run check:requirements && npm run copy-common",
+    "prestart": "npm run check:requirements && npm run copy-common"
   },
   "dependencies": {
     "@apollo/client": "^3.8.3",
@@ -36,7 +30,7 @@
     "@gluestack-ui/themed": "^0.1.16",
     "@react-navigation/native": "^6.0.2",
     "expo": "~49.0.11",
-    "expo-application": "^5.4.0",
+    "expo-application": "~5.3.0",
     "expo-constants": "^14.4.2",
     "expo-device": "~5.4.0",
     "expo-font": "~11.4.0",
@@ -61,6 +55,7 @@
   "devDependencies": {
     "@babel/core": "^7.22.7",
     "@cspell/eslint-plugin": "^7.3.6",
+    "@types/fs-extra": "^11.0.2",
     "@types/i18n-js": "^3.8.5",
     "@types/lodash": "^4.14.195",
     "@types/react": "~18.2.14",
@@ -80,8 +75,7 @@
     "eslint-plugin-react-native": "^4.0.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-typescript-sort-keys": "^3.0.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
+    "fs-extra": "^11.1.1",
     "prettier": "^3.0.3",
     "semver": "^7.5.4",
     "ts-node": "^10.9.1",

@@ -9,9 +9,10 @@
     "paths": {
       "$/*": ["*"],
       "$app": ["app/*"],
-      "$core": ["core/index.ts"],
-      "$configs": ["configs/index.ts"],
-      "$modules": ["modules/index.ts"]
+      "$core": ["core/index"],
+      "$configs": ["configs/index"],
+      "$modules": ["modules/index"],
+      "$common": ["../node_modules/hero24-common/index"]
     },
     "jsx": "react-native",
     "lib": ["dom", "es2019"],

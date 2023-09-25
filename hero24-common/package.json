@@ -4,10 +4,6 @@
   "version": "1.0.0",
   "repository": "https://github.com/Helpdor/frontend/hero24-common",
   "license": "private",
-  "engines": {
-    "node": "^18.18",
-    "npm": "^9.8"
-  },
   "scripts": {
     "pretty": "prettier --write . --log-level warn",
     "lint": "eslint . --fix --rule \"react-hooks/exhaustive-deps: off\""
