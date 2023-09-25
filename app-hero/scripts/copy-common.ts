@@ -1,5 +1,4 @@
 import fs from 'fs';
-import fse from 'fs-extra';
 import path from 'path';
 
 const commonDir = path.join(__dirname, '../../hero24-common');
@@ -13,7 +12,7 @@ try {
     fs.mkdirSync(packageDir);
   }
 
-  fse.copySync(commonSrc, packageSrc, { overwrite: true });
+  fs.copyFileSync(commonSrc, packageSrc);
 } catch (err) {
   console.error(err);
 }
