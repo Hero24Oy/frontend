@@ -24,7 +24,7 @@
     "lint": "eslint . --fix --rule \"react-hooks/exhaustive-deps: off\"",
     "copy-common": "ts-node --skipProject scripts/copy-common.ts",
     "update-local-dependencies": "npm run copy-common",
-    "postinstall": "npm run check:requirements && npm run update-local-dependencies",
+    "postinstall": "npm run update-local-dependencies",
     "watch": "npm-watch",
     "update-app-hero-dependencies": "cd ../app-hero && npm run copy-ui-library",
     "update-app-customer-dependencies": "cd ../app-customer && npm run copy-ui-library",
