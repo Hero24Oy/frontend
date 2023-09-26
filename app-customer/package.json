@@ -19,8 +19,8 @@
     "reinstall:dependencies": "rm -rf node_modules && npm i",
     "reinstall:dependencies:full": "npm cache clean --force && npm run reinstall:dependencies",
     "check:requirements": "ts-node ../hero24-common/scripts/check-node-version.ts",
-    "copy-common": "ts-node scripts/copy-common.ts",
-    "copy-ui-library": "ts-node scripts/copy-ui-library.ts",
+    "copy-common": "ts-node --skipProject scripts/copy-common.ts",
+    "copy-ui-library": "ts-node --skipProject scripts/copy-ui-library.ts",
     "update-local-dependencies": "npm run copy-common && npm run copy-ui-library",
     "postinstall": "npm run check:requirements && npm run update-local-dependencies",
     "prestart": "npm run check:requirements && npm run update-local-dependencies"

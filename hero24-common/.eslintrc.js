@@ -99,7 +99,7 @@ const importSortOrderRule = {
     {
       groups: [
         ['^(@?\\w|\\w)'], // libs
-        ['^(api|assets|components|constants|modules|utilities|hooks)\\.*'], // ts-aliases, need update manually
+        ['^$\\.*'], // ts-aliases
         ['^\\.\\./'], // parent folder imports
         ['^\\./'], // relative folder imports
       ],
@@ -322,6 +322,9 @@ const override = {
   },
 };
 
+/**
+ * @type {import('eslint').Linter.Config}
+ */
 module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
