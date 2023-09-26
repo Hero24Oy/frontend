@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src"
+  },
+  "extends": "./common-tsconfig.json",
+  "exclude": ["node_modules", "dist"],
+  "include": ["**/*.ts", "**/*.tsx"]
+}

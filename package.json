@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "name": "frontend",
+  "version": "1.0.0",
+  "repository": "https://github.com/Helpdor/frontend",
+  "license": "private",
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3"
+  }
+}
