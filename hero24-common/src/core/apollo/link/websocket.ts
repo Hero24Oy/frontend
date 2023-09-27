@@ -15,7 +15,7 @@ export const websocketLink = new GraphQLWsLink(
 
       // return the connection param with authorization to handle it on the server side
       return {
-        authorization: 'authorization', // TODO when firebase is migrated
+        authorization: 'authorization', // TODO create factory
       };
     },
   }),
