@@ -1,3 +1,5 @@
+import { InMemoryCacheConfig } from '@apollo/client';
+
 import {
   DEFAULT_INPUT_NAME,
   DEFAULT_RESPONSE_NAME,
@@ -33,4 +35,8 @@ export type GraphQlPaginationArguments<Filter, Columns extends string> = {
 export type GraphQlOrder<Column> = {
   column: Column;
   order: SortOrder;
+};
+
+export type FactoryOptions = {
+  cache: InMemoryCacheConfig;
 };
