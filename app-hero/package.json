@@ -43,6 +43,8 @@
     "expo-system-ui": "~2.4.0",
     "expo-updates": "^0.18.13",
     "expo-web-browser": "~12.3.2",
+    "graphql-ws": "^5.14.0",
+    "lodash": "^4.17.21",
     "react": "18.2.0",
     "react-combine-providers": "^0.9.6",
     "react-dom": "18.2.0",
