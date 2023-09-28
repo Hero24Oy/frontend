@@ -5,6 +5,7 @@ import { FC } from 'react';
 import { apolloClient } from '$/core';
 import { MasterProvider } from '$ui-library';
 
+// TODO fix splash screen
 // SplashScreen.preventAutoHideAsync();
 
 const Layout: FC = () => {
