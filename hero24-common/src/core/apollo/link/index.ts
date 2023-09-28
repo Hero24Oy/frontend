@@ -1,20 +1,32 @@
-import { split } from '@apollo/client';
+import { ApolloLink, split } from '@apollo/client';
 import { getMainDefinition } from '@apollo/client/utilities';
 
-import { authLink } from './auth';
-import { errorLink } from './error';
-import { httpLink } from './http';
-// import { websocketLink } from './websocket';
+import { OPERATION_DEFINITION, SUBSCRIPTION } from '../constants';
+import { LinksOptions } from '../types';
 
-export const link = split(
-  ({ query }) => {
-    const definition = getMainDefinition(query);
+import { createAuthLink } from './auth';
+import { createErrorLink } from './error';
+import { createHttpLink } from './http';
 
-    return (
-      definition.kind === 'OperationDefinition' &&
-      definition.operation === 'subscription'
-    );
-  },
-  // errorLink.concat(websocketLink), // TODO
-  authLink.concat(errorLink).concat(httpLink),
-);
+export const createLink = (options: LinksOptions): ApolloLink => {
+  const { getAuthToken, serverUrl } = options;
+
+  const authLink = createAuthLink({ getAuthToken });
+  const httpLink = createHttpLink({ serverUrl });
+  const errorLink = createErrorLink();
+
+  const link = split(
+    ({ query }) => {
+      const definition = getMainDefinition(query);
+
+      return (
+        definition.kind === OPERATION_DEFINITION &&
+        definition.operation === SUBSCRIPTION
+      );
+    },
+    // errorLink.concat(websocketLink), // TODO don't work properly on web, but works on mobile
+    authLink.concat(errorLink).concat(httpLink),
+  );
+
+  return link;
+};

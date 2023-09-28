@@ -4,18 +4,19 @@ import {
   NormalizedCacheObject,
 } from '@apollo/client';
 
-import { link } from './link';
-import { FactoryOptions } from './types';
+import { createLink } from './link';
+import { CreateApolloClientOptions } from './types';
 
 export * from './constants';
 export * from './hooks';
 export * from './types';
 
-// ? Take options for other settings, like defaultOptions, link etc.?
 export const createApolloClient = (
-  options: FactoryOptions,
+  options: CreateApolloClientOptions,
 ): ApolloClient<NormalizedCacheObject> => {
-  const { cache } = options;
+  const { cache, getAuthToken, serverUrl } = options;
+
+  const link = createLink({ getAuthToken, serverUrl });
 
   const apolloClient = new ApolloClient({
     link,

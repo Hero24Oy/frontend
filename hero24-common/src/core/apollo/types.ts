@@ -37,6 +37,11 @@ export type GraphQlOrder<Column> = {
   order: SortOrder;
 };
 
-export type FactoryOptions = {
-  cache: InMemoryCacheConfig;
+export type LinksOptions = {
+  getAuthToken: () => Promise<string | null>;
+  serverUrl: string;
 };
+
+export type CreateApolloClientOptions = {
+  cache: InMemoryCacheConfig;
+} & LinksOptions;

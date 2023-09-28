@@ -1,22 +1,26 @@
+import { ApolloLink } from '@apollo/client';
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions';
 // eslint-disable-next-line import/no-extraneous-dependencies -- TODO fix it
 import { createClient } from 'graphql-ws';
 
-// import { getIdToken } from '$/api/firebase';
-// import { serverConfig } from '$/config';
+import { LinksOptions } from '../types';
 
-export const websocketLink = new GraphQLWsLink( // TODO
-  createClient({
-    url: "serverConfig.apiUrl.replace('http', 'ws')",
-    shouldRetry: () => true,
-    connectionParams: async () => {
-      // * get the authentication token from firebase if it exists
-      // const authorization = await getIdToken();
+export const createWebsocketLink = (options: LinksOptions): ApolloLink => {
+  const { getAuthToken, serverUrl } = options;
 
-      // return the connection param with authorization to handle it on the server side
-      return {
-        authorization: 'authorization', // TODO create factory
-      };
-    },
-  }),
-);
+  return new GraphQLWsLink(
+    createClient({
+      url: serverUrl,
+      shouldRetry: () => true,
+      connectionParams: async () => {
+        // * get the authentication token from firebase if it exists
+        const authorization = await getAuthToken();
+
+        // return the connection param with authorization to handle it on the server side
+        return {
+          authorization,
+        };
+      },
+    }),
+  );
+};
