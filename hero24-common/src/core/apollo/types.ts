@@ -38,7 +38,7 @@ export type GraphQlOrder<Column> = {
 };
 
 export type LinksOptions = {
-  getAuthToken: () => Promise<string | null>;
+  getAuthToken: () => Promise<string | null> | string;
   serverUrl: string;
 };
 
