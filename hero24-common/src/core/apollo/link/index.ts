@@ -15,10 +15,13 @@ export const createLink = (options: LinksOptions): ApolloLink => {
   const authLink = createAuthLink({ getAuthToken });
   const httpLink = createHttpLink({ serverUrl });
   const errorLink = createErrorLink();
-  const websocketLink = createWebsocketLink({
+  const wsLink = createWebsocketLink({
     getAuthToken,
     serverUrl,
   });
+
+  const linkWithSubscription = wsLink ? errorLink.concat(wsLink) : errorLink;
+  const linkWithoutSubscription = authLink.concat(errorLink).concat(httpLink);
 
   const link = split(
     ({ query }) => {
@@ -29,8 +32,8 @@ export const createLink = (options: LinksOptions): ApolloLink => {
         definition.operation === SUBSCRIPTION
       );
     },
-    websocketLink ? errorLink.concat(websocketLink) : errorLink,
-    authLink.concat(errorLink).concat(httpLink),
+    linkWithSubscription,
+    linkWithoutSubscription,
   );
 
   return link;
