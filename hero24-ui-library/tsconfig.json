@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "paths": {
+      "$ui-library/providers": ["providers"]
+    }
   },
   "extends": "hero24-common/common-tsconfig.json",
   "exclude": ["node_modules", "dist"],

@@ -47,4 +47,22 @@ When you execute a push command, it can take quite a long period of time due to 
 
 ### Path aliases in hero24-common and ui-library
 
-Unfortunately, aliases are not available in these repositories. If you have any ideas on how this can be done, please suggest.
+To create an alias you will also have to duplicate it in the main repositories. Below is an example.
+
+For example, you want to create an alias for the `ui-library` called `providers` for the `providers.ts` file.
+
+In `ui-library` config you create an alias like this:
+
+```
+"$ui-library/providers": ["providers"]
+```
+
+After this you also create aliases in `app-hero` and `app-customer` configs:
+
+```
+"$ui-library/providers": ["@hero24/ui-library/src/providers"],
+```
+
+### Important notes
+
+- In `app-hero` and `app-customer`, the folder with copied submodules is hidden. To display it you need to go to `.vscode/setting.json`and change the value for`**/@hero24` to false

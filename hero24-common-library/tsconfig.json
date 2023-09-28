@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "paths": {
+      "$common/modules": ["modules/index"],
+      "$common/types": ["types/index"]
+    }
   },
   "extends": "./common-tsconfig.json",
   "exclude": ["node_modules", "dist"],

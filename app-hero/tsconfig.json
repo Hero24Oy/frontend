@@ -6,9 +6,15 @@
       "$core": ["core/index"],
       "$configs": ["configs/index"],
       "$modules": ["modules/index"],
-      "$ui-library": ["@hero24/ui-library/index"], // delete alias after create npm package
-      "$common": ["@hero24/common-library/index"], // delete alias after create npm package
-      "$/*": ["*"]
+      "$/*": ["*"],
+      /*
+        Delete next aliases after create npm package
+       */
+      "$ui-library": ["@hero24/ui-library/index"],
+      "$ui-library/providers": ["@hero24/ui-library/src/providers"],
+      "$common": ["@hero24/common-library/index"],
+      "$common/modules": ["@hero24/common-library/src/modules/index"],
+      "$common/types": ["@hero24/common-library/src/types/index"]
     }
   },
   "extends": "./src/@hero24/common-library/common-tsconfig.json",
