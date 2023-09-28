@@ -1,24 +1,19 @@
-import { ApolloProvider } from '@apollo/client';
 import { Slot } from 'expo-router';
 import { FC } from 'react';
 
-import { apolloClient } from '$/core';
-import { providers } from '$ui-library';
-
-providers.push(ApolloProvider, { client: apolloClient, children: null });
-
-const MasterProvider = providers.master();
+import { MasterProvider } from '$/core';
+import { ViewProvider } from '$ui-library';
 
 // TODO fix splash screen
 // SplashScreen.preventAutoHideAsync();
 
 const Layout: FC = () => {
   return (
-    <MasterProvider>
-      <ApolloProvider client={apolloClient}>
+    <ViewProvider>
+      <MasterProvider>
         <Slot />
-      </ApolloProvider>
-    </MasterProvider>
+      </MasterProvider>
+    </ViewProvider>
   );
 };
 

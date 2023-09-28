@@ -5,4 +5,4 @@ export const providers = combineProviders();
 
 providers.push(GluestackUIProvider);
 
-export const MasterProvider = providers.master();
+export const ViewProvider = providers.master();
