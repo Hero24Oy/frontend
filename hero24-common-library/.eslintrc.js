@@ -363,6 +363,7 @@ module.exports = {
     'babel.config.js',
     'metro.config.js',
     'rn-cli.config.js',
+    '@hero24',
   ],
   rules: {
     ...initialRules,
