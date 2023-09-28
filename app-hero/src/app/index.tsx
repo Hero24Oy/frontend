@@ -1,19 +1,19 @@
-import { gql, useQuery } from '@apollo/client';
 import React, { FC } from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
 
-// TODO remove
-const query = gql`
-  query {
-    silly
-  }
-`;
+import { useGetOffer } from '$common';
 
 const Home: FC = () => {
-  const data = useQuery<string>(query);
+  const { getOffer } = useGetOffer({
+    variables: {
+      input: {
+        offerId: '',
+      },
+    },
+  });
 
   // TODO solemnly for debugging purposes and easier development, at final pr will be removed
-  console.log('data', data.data);
+  console.log('getOffer.data', getOffer.data);
 
   return (
     <SafeAreaView>
