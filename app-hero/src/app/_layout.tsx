@@ -1,9 +1,9 @@
-import { Slot, SplashScreen } from 'expo-router';
+import { Slot } from 'expo-router';
 import { FC } from 'react';
 
 import { MasterProvider } from '$ui-library';
 
-SplashScreen.preventAutoHideAsync();
+// SplashScreen.preventAutoHideAsync();
 
 const Layout: FC = () => {
   return (

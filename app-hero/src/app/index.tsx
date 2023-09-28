@@ -1,16 +1,18 @@
 import { ApolloProvider } from '@apollo/client';
-import { Text, View } from '@gluestack-ui/themed';
 import React, { FC } from 'react';
+import { SafeAreaView, Text, View } from 'react-native';
 
 import { apolloInstance } from '$/core';
 
 const Home: FC = () => {
   return (
-    <View>
-      <ApolloProvider client={apolloInstance}>
-        <Text>Hello, world</Text>
-      </ApolloProvider>
-    </View>
+    <SafeAreaView>
+      <View>
+        <ApolloProvider client={apolloInstance}>
+          <Text>Hello, world</Text>
+        </ApolloProvider>
+      </View>
+    </SafeAreaView>
   );
 };
 
