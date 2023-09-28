@@ -1,5 +1,4 @@
-import { useQuery } from '@apollo/client';
-import gql from 'graphql-tag';
+import { gql, useQuery } from '@apollo/client';
 import React, { FC } from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
 

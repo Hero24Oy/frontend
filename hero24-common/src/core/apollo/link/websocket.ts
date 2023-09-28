@@ -5,10 +5,18 @@ import { createClient } from 'graphql-ws';
 
 import { LinksOptions } from '../types';
 
-export const createWebsocketLink = (options: LinksOptions): ApolloLink => {
+export const createWebsocketLink = (
+  options: LinksOptions,
+): ApolloLink | null => {
   const { getAuthToken, serverUrl } = options;
 
-  return new GraphQLWsLink(
+  // * This is need because of SSR, it accesses 'window' property, which does not exist on server
+  // * https://stackoverflow.com/questions/72116940/apollo-graphql-graphqlwslink-subscriptions-troubles-cannot-get-websocket-imp
+  if (typeof window !== 'undefined') {
+    return null;
+  }
+
+  const link = new GraphQLWsLink(
     createClient({
       url: serverUrl,
       shouldRetry: () => true,
@@ -23,4 +31,6 @@ export const createWebsocketLink = (options: LinksOptions): ApolloLink => {
       },
     }),
   );
+
+  return link;
 };
