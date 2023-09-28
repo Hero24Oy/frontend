@@ -14,7 +14,10 @@
     "install-ui-library": "cd ui-library && npm ci",
     "install-app-hero": "cd app-hero && npm ci",
     "install-app-customer": "cd app-customer && npm ci",
-    "install-all": "npm ci && npm run install-common && npm run install-ui-library && npm run install-app-hero && npm run install-app-customer"
+    "install-all": "npm ci && npm run install-common && npm run install-ui-library && npm run install-app-hero && npm run install-app-customer",
+    "watch:ui-library": "cd ui-library && npm run watch",
+    "watch:hero24-common": "cd hero24-common && npm run watch",
+    "watch:all": "npm run watch:ui-library & npm run watch:hero24-common"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

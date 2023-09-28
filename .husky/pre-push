@@ -7,4 +7,6 @@ cd ../app-hero
 npm run lint
 cd ../hero24-common
 npm run lint
+cd ../ui-library
+npm run lint
 echo Pre-push hook ran successfully

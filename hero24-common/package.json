@@ -15,8 +15,7 @@
       ],
       "ignore": "node_modules",
       "extensions": "js,ts,tsx,json",
-      "runOnChangeOnly": false,
-      "clearBuffer": true
+      "runOnChangeOnly": false
     }
   },
   "scripts": {
@@ -26,7 +25,7 @@
     "update-app-hero-dependencies": "cd ../app-hero && npm run copy-common",
     "update-app-customer-dependencies": "cd ../app-customer && npm run copy-common",
     "update-ui-lib-dependencies": "cd ../ui-library && npm run copy-common",
-    "update-dependency-on-this": "echo 'Start update' && npm run update-app-hero-dependencies && npm run update-app-customer-dependencies && npm run update-ui-lib-dependencies"
+    "update-dependency-on-this": "echo 'Start update hero24-common' && npm run update-app-hero-dependencies && npm run update-app-customer-dependencies && npm run update-ui-lib-dependencies"
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^7.3.6",

@@ -15,8 +15,7 @@
       ],
       "ignore": "node_modules",
       "extensions": "js,ts,tsx,json",
-      "runOnChangeOnly": false,
-      "clearBuffer": true
+      "runOnChangeOnly": false
     }
   },
   "scripts": {
@@ -28,7 +27,7 @@
     "watch": "npm-watch",
     "update-app-hero-dependencies": "cd ../app-hero && npm run copy-ui-library",
     "update-app-customer-dependencies": "cd ../app-customer && npm run copy-ui-library",
-    "update-dependency-on-this": "echo 'Start update' && npm run update-app-hero-dependencies && npm run update-app-customer-dependencies"
+    "update-dependency-on-this": "echo 'Start update ui-library' && npm run update-app-hero-dependencies && npm run update-app-customer-dependencies"
   },
   "dependencies": {
     "@gluestack-style/react": "^0.2.46",
