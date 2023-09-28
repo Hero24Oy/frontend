@@ -45,6 +45,6 @@ If you need to install a library in `hero24-common` or `ui-library`, then in the
 
 When you execute a push command, it can take quite a long period of time due to the fact that the script goes through each folder and causes linting there.
 
-### Path aliases in hero24-common in ui-library
+### Path aliases in hero24-common and ui-library
 
 Unfortunately, aliases are not available in these repositories. If you have any ideas on how this can be done, please suggest.
