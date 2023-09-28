@@ -1,3 +1,3 @@
-const commonPrettier = require('hero24-common/.prettierrc');
+const commonPrettier = require('./src/@hero24/common-library/.prettierrc');
 
 module.exports = commonPrettier;

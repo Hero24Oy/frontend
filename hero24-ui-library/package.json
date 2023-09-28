@@ -2,7 +2,7 @@
   "private": true,
   "name": "ui-library",
   "version": "1.0.0",
-  "repository": "https://github.com/Helpdor/frontend/ui-library",
+  "repository": "https://github.com/Helpdor/frontend/hero24-ui-library",
   "license": "private",
   "engines": {
     "node": "^18.18",

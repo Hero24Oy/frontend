@@ -10,13 +10,13 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "install-common": "cd hero24-common && npm ci",
-    "install-ui-library": "cd ui-library && npm ci",
+    "install-common": "cd hero24-common-library && npm ci",
+    "install-ui-library": "cd hero24-ui-library && npm ci",
     "install-app-hero": "cd app-hero && npm ci",
     "install-app-customer": "cd app-customer && npm ci",
     "install-all": "npm ci && npm run install-common && npm run install-ui-library && npm run install-app-hero && npm run install-app-customer",
-    "watch:ui-library": "cd ui-library && npm run watch",
-    "watch:hero24-common": "cd hero24-common && npm run watch",
+    "watch:ui-library": "cd hero24-ui-library && npm run watch",
+    "watch:hero24-common": "cd hero24-common-library && npm run watch",
     "watch:all": "npm run watch:ui-library & npm run watch:hero24-common"
   },
   "lint-staged": {

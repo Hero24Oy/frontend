@@ -4,7 +4,7 @@ import fs from 'fs';
 import fse from 'fs-extra';
 import path from 'path';
 
-const commonDir = path.join(__dirname, '../../hero24-common');
+const commonDir = path.join(__dirname, '../../hero24-common-library');
 const packageDir = path.join(__dirname, '../node_modules/hero24-common');
 
 const commonTsConfig = path.join(commonDir, 'common-tsconfig.json');

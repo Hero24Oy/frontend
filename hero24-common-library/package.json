@@ -2,7 +2,7 @@
   "private": true,
   "name": "app-hero",
   "version": "1.0.0",
-  "repository": "https://github.com/Helpdor/frontend/hero24-common",
+  "repository": "https://github.com/Helpdor/frontend/hero24-common-ui-library",
   "license": "private",
   "engines": {
     "node": "^18.18",
@@ -24,7 +24,7 @@
     "watch": "npm-watch",
     "update-app-hero-dependencies": "cd ../app-hero && npm run copy-common",
     "update-app-customer-dependencies": "cd ../app-customer && npm run copy-common",
-    "update-ui-lib-dependencies": "cd ../ui-library && npm run copy-common",
+    "update-ui-lib-dependencies": "cd ../hero24-ui-library && npm run copy-common",
     "update-dependency-on-this": "echo 'Start update hero24-common' && npm run update-app-hero-dependencies && npm run update-app-customer-dependencies && npm run update-ui-lib-dependencies"
   },
   "devDependencies": {

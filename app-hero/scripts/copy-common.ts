@@ -4,8 +4,10 @@ import fs from 'fs';
 import fse from 'fs-extra';
 import path from 'path';
 
-const commonDir = path.join(__dirname, '../../hero24-common');
-const packageDir = path.join(__dirname, '../node_modules/hero24-common');
+import { packageRootDir } from './constants';
+
+const commonDir = path.join(__dirname, '../../hero24-common-library');
+const packageDir = path.join(packageRootDir, 'common-library');
 
 const commonSrc = path.join(commonDir, 'src');
 const packageSrc = path.join(packageDir, 'src');
@@ -26,6 +28,10 @@ const commonBabel = path.join(commonDir, 'babel.config.js');
 const packageBabel = path.join(packageDir, 'babel.config.js');
 
 try {
+  if (!fs.existsSync(packageRootDir)) {
+    fs.mkdirSync(packageRootDir);
+  }
+
   if (!fs.existsSync(packageDir)) {
     fs.mkdirSync(packageDir);
   }

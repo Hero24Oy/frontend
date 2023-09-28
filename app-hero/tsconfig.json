@@ -2,16 +2,16 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "$/*": ["*"],
       "$app": ["app/*"],
       "$core": ["core/index"],
       "$configs": ["configs/index"],
       "$modules": ["modules/index"],
-      "$ui-library": ["../node_modules/ui-library/index"], // delete alias after create npm package
-      "$common": ["../node_modules/hero24-common/index"] // delete alias after create npm package
+      "$ui-library": ["@hero24/ui-library/index"], // delete alias after create npm package
+      "$common": ["@hero24/common-library/index"], // delete alias after create npm package
+      "$/*": ["*"]
     }
   },
-  "extends": "hero24-common/common-tsconfig.json",
-  "exclude": ["node_modules", "dist"],
+  "extends": "./src/@hero24/common-library/common-tsconfig.json",
+  "exclude": ["node_modules", "dist", "@hero24"],
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
 }
