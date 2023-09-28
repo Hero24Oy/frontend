@@ -1,4 +1,4 @@
-import { capitalize } from 'core/utils';
+import { capitalize } from '../../utils';
 
 export type GetGraphqlRequestKeyReturnType<Type extends string> =
   `get${Capitalize<Type>}`;

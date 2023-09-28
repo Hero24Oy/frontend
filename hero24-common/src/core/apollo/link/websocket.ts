@@ -5,7 +5,7 @@ import { createClient } from 'graphql-ws';
 // import { getIdToken } from '$/api/firebase';
 // import { serverConfig } from '$/config';
 
-export const websocketLink = new GraphQLWsLink(
+export const websocketLink = new GraphQLWsLink( // TODO
   createClient({
     url: "serverConfig.apiUrl.replace('http', 'ws')",
     shouldRetry: () => true,
