@@ -3,7 +3,11 @@ import { Slot } from 'expo-router';
 import { FC } from 'react';
 
 import { apolloClient } from '$/core';
-import { MasterProvider } from '$ui-library';
+import { providers } from '$ui-library';
+
+providers.push(ApolloProvider, { client: apolloClient, children: null });
+
+const MasterProvider = providers.master();
 
 // TODO fix splash screen
 // SplashScreen.preventAutoHideAsync();
