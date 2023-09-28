@@ -12,7 +12,7 @@ export const createWebsocketLink = (
 
   // * This is need because of SSR, it accesses 'window' property, which does not exist on server
   // * https://stackoverflow.com/questions/72116940/apollo-graphql-graphqlwslink-subscriptions-troubles-cannot-get-websocket-imp
-  if (typeof window !== 'undefined') {
+  if (typeof window === 'undefined') {
     return null;
   }
 
