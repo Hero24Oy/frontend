@@ -1,6 +1,8 @@
+import { ApolloProvider } from '@apollo/client';
 import { Slot } from 'expo-router';
 import { FC } from 'react';
 
+import { apolloClient } from '$/core';
 import { MasterProvider } from '$ui-library';
 
 // SplashScreen.preventAutoHideAsync();
@@ -8,7 +10,9 @@ import { MasterProvider } from '$ui-library';
 const Layout: FC = () => {
   return (
     <MasterProvider>
-      <Slot />
+      <ApolloProvider client={apolloClient}>
+        <Slot />
+      </ApolloProvider>
     </MasterProvider>
   );
 };
