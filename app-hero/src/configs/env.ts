@@ -5,7 +5,6 @@ import {
   FACEBOOK_APP_ID,
   IOS_CLIENT_ID,
   IS_DEBUG_MODE,
-  LEGACY_API_URL,
   NODE_ENV,
   WEB_CLIENT_ID,
 } from '@env';
@@ -16,7 +15,6 @@ import { NodeEnv } from './constants';
 const schema = object({
   // * Server
   API_URL: string().required(),
-  LEGACY_API_URL: string().required(),
 
   // * Facebook
   FACEBOOK_APP_ID: string().required(),
@@ -40,6 +38,5 @@ export const envVariables = schema.validateSync({
   FACEBOOK_APP_ID,
   IOS_CLIENT_ID,
   IS_DEBUG_MODE,
-  LEGACY_API_URL,
   WEB_CLIENT_ID,
 });
