@@ -26,7 +26,7 @@
     "prestart": "npm run check:requirements && npm run update-local-dependencies"
   },
   "dependencies": {
-    "@apollo/client": "^3.8.1",
+    "@apollo/client": "^3.8.3",
     "@expo/vector-icons": "^13.0.0",
     "@gluestack-style/react": "^0.2.46",
     "@gluestack-ui/themed": "^0.1.16",

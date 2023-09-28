@@ -5,6 +5,7 @@ import {
   TypedDocumentNode,
   useMutation,
 } from '@apollo/client';
+import { useCallback } from 'react';
 
 import { DEFAULT_RESPONSE_NAME } from '../../constants';
 import { GraphQlInput, GraphQlResponse } from '../../types';
@@ -30,23 +31,24 @@ export const useCustomMutation = <
   >(document, options);
 
   // we need this handler to avoid unhandled promises
-  const handleMutation = async (
-    input: Variables,
-  ): Promise<Data | undefined> => {
-    try {
-      const result = await mutation({
-        variables: {
-          input,
-        },
-      });
+  const handleMutation = useCallback(
+    async (input: Variables): Promise<Data | undefined> => {
+      try {
+        const result = await mutation({
+          variables: {
+            input,
+          },
+        });
 
-      // we do nothing with the error since we use the errorLink to handle this
-      return result.data?.[DEFAULT_RESPONSE_NAME];
-    } catch (error) {
-      console.error(error);
-      return undefined;
-    }
-  };
+        // we do nothing with the error since we use the errorLink to handle this
+        return result.data?.[DEFAULT_RESPONSE_NAME];
+      } catch (error) {
+        console.error(error);
+        return undefined;
+      }
+    },
+    [mutation],
+  );
 
   const mutationResult: CustomMutationResult<Data, Variables> = {
     data: data?.[DEFAULT_RESPONSE_NAME], // * Response must contain field {DEFAULT_RESPONSE_NAME}

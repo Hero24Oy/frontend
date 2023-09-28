@@ -1,10 +1,8 @@
-import { InMemoryCacheConfig } from '@apollo/client';
-
 import {
   DEFAULT_INPUT_NAME,
   DEFAULT_RESPONSE_NAME,
   SortOrder,
-} from './constants';
+} from '../constants';
 
 export type GraphQlResponse<Data> = Record<typeof DEFAULT_RESPONSE_NAME, Data>;
 
@@ -36,12 +34,3 @@ export type GraphQlOrder<Column> = {
   column: Column;
   order: SortOrder;
 };
-
-export type LinksOptions = {
-  getAuthToken: () => Promise<string | null> | string;
-  serverUrl: string;
-};
-
-export type CreateApolloClientOptions = {
-  cache?: InMemoryCacheConfig;
-} & LinksOptions;
