@@ -43,5 +43,5 @@ export type LinksOptions = {
 };
 
 export type CreateApolloClientOptions = {
-  cache: InMemoryCacheConfig;
+  cache?: InMemoryCacheConfig;
 } & LinksOptions;

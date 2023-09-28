@@ -1,9 +1,6 @@
-import {
-  ApolloClient,
-  InMemoryCache,
-  NormalizedCacheObject,
-} from '@apollo/client';
+import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
 
+import { createCache } from './cache';
 import { createLink } from './link';
 import { CreateApolloClientOptions } from './types';
 
@@ -15,15 +12,13 @@ export * from './link';
 export const createApolloClient = (
   options: CreateApolloClientOptions,
 ): ApolloClient<NormalizedCacheObject> => {
-  const { cache, getAuthToken, serverUrl } = options;
+  const { getAuthToken, serverUrl, cache } = options;
 
   const link = createLink({ getAuthToken, serverUrl });
 
   const apolloClient = new ApolloClient({
     link,
-    cache: new InMemoryCache({
-      ...cache,
-    }),
+    cache: createCache(cache),
     defaultOptions: {
       query: {
         errorPolicy: 'all',
