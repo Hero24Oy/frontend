@@ -35,13 +35,13 @@ After installing all the dependencies using `npm run install-all`, VScode watche
 
 #### Other IDE
 
-After any change in `hero24-common` and `ui-library` , in order for them to appear in other repositories in them, you need to manually call the command `npm run update-dependency-on-this` or `npm run update-local-dependencies` in the repository you need.
+After any change in `hero24-common` and `ui-library` , in order for them to appear in other repositories in them, you need to manually call the command `npm run watch:all` in root repo.
 
-### How install lib
+### How to install lib
 
 If you need to install a library in `hero24-common` or `ui-library`, then in them you install them as dev-dependencies, and then in `app-hero` and `app-customer` as dependencies.
 
-### How work pre-push
+### How pre-push works
 
 When you execute a push command, it can take quite a long period of time due to the fact that the script goes through each folder and causes linting there.
 
