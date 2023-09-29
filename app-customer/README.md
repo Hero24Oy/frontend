@@ -18,3 +18,7 @@ Set up `.env` file following `.env.example` file.
 - Run `npm start:ios` to run on ios
 - Run `npm start:android` to run on android
   **NOTE** You can also run mobile version using Expo GO, but auth won't work due to security reasons.
+
+## Watch submodules changes
+
+If you opened this repository separately from the entire monorepo, then use `npm run watch`

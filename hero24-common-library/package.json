@@ -9,7 +9,7 @@
     "npm": "^9.8"
   },
   "watch": {
-    "update-dependency-on-this": {
+    "update:dependents": {
       "patterns": [
         "."
       ],
@@ -22,10 +22,9 @@
     "pretty": "prettier --write . --log-level warn",
     "lint": "eslint . --fix --rule \"react-hooks/exhaustive-deps: off\"",
     "watch": "npm-watch",
-    "update-app-hero-dependencies": "cd ../app-hero && npm run copy-common",
-    "update-app-customer-dependencies": "cd ../app-customer && npm run copy-common",
-    "update-ui-lib-dependencies": "cd ../hero24-ui-library && npm run copy-common",
-    "update-dependency-on-this": "echo 'Start update hero24-common' && npm run update-app-hero-dependencies && npm run update-app-customer-dependencies && npm run update-ui-lib-dependencies"
+    "update:app-hero": "cd ../app-hero && npm run copy:common",
+    "update:app-customer": "cd ../app-customer && npm run copy:common",
+    "update:dependents": "echo 'Start update hero24-common' && npm run update:app-hero && npm run update:app-customer"
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^7.3.6",

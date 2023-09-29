@@ -19,11 +19,11 @@
     "reinstall:dependencies": "rm -rf node_modules && npm i",
     "reinstall:dependencies:full": "npm cache clean --force && npm run reinstall:dependencies",
     "check:requirements": "ts-node ../hero24-common-library/scripts/check-node-version.ts",
-    "copy-common": "ts-node --skipProject scripts/copy-common.ts",
-    "copy-ui-library": "ts-node --skipProject scripts/copy-ui-library.ts",
-    "update-local-dependencies": "npm run copy-common && npm run copy-ui-library",
-    "postinstall": "npm run check:requirements && npm run update-local-dependencies",
-    "prestart": "npm run check:requirements && npm run update-local-dependencies"
+    "copy:common": "mkdir -p ./src/@hero24/common-library && cp -R ../hero24-common-library/src ./src/@hero24/common-library/src",
+    "copy:ui-library": "mkdir -p ./src/@hero24/ui-library && cp -R ../hero24-ui-library/src ./src/@hero24/ui-library/src",
+    "update:local-submodules": "npm run copy:common && npm run copy:ui-library",
+    "postinstall": "npm run check:requirements && npm run update:local-submodules",
+    "prestart": "npm run check:requirements && npm run update:local-submodules"
   },
   "dependencies": {
     "@apollo/client": "^3.8.3",
@@ -77,7 +77,6 @@
     "eslint-plugin-react-native": "^4.0.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-typescript-sort-keys": "^3.0.0",
-    "fs-extra": "^11.1.1",
     "prettier": "^3.0.3",
     "semver": "^7.5.4",
     "ts-node": "^10.9.1",

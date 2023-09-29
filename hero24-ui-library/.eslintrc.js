@@ -1,4 +1,8 @@
-const commonEslint = require('hero24-common/.eslintrc');
+const commonEslint = require('../hero24-common-library/.eslintrc-common');
+
+const importRules = {
+  'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+};
 
 module.exports = {
   ...commonEslint,
@@ -6,5 +10,9 @@ module.exports = {
     ...commonEslint.parserOptions,
     tsconfigRootDir: __dirname,
     project: 'tsconfig.json',
+  },
+  rules: {
+    ...commonEslint.rules,
+    ...importRules,
   },
 };

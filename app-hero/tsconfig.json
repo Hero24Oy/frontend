@@ -8,16 +8,22 @@
       "$modules": ["modules/index"],
       "$/*": ["*"],
       /*
-        Delete next aliases after create npm package
-       */
+        TODO: Delete next aliases after create npm package
+      */
       "$ui-library": ["@hero24/ui-library/index"],
-      "$ui-library/providers": ["@hero24/ui-library/src/providers"],
       "$common": ["@hero24/common-library/index"],
+      /*
+        Common-submodule aliases
+      */
       "$common/modules": ["@hero24/common-library/src/modules/index"],
-      "$common/types": ["@hero24/common-library/src/types/index"]
+      "$common/types": ["@hero24/common-library/src/types/index"],
+      /*
+        Ui-library-submodule aliases
+      */
+      "$ui-library/providers": ["@hero24/ui-library/src/providers"]
     }
   },
-  "extends": "./src/@hero24/common-library/common-tsconfig.json",
+  "extends": "../hero24-common-library/tsconfig-common.json",
   "exclude": ["node_modules", "dist", "@hero24"],
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
 }

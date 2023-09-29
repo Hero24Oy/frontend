@@ -9,7 +9,7 @@
     "npm": "^9.8"
   },
   "watch": {
-    "update-dependency-on-this": {
+    "update:dependents": {
       "patterns": [
         "."
       ],
@@ -21,13 +21,11 @@
   "scripts": {
     "pretty": "prettier --write . --log-level warn",
     "lint": "eslint . --fix --rule \"react-hooks/exhaustive-deps: off\"",
-    "copy-common": "ts-node --skipProject scripts/copy-common.ts",
-    "update-local-dependencies": "npm run copy-common",
     "postinstall": "npm run update-local-dependencies",
     "watch": "npm-watch",
-    "update-app-hero-dependencies": "cd ../app-hero && npm run copy-ui-library",
-    "update-app-customer-dependencies": "cd ../app-customer && npm run copy-ui-library",
-    "update-dependency-on-this": "echo 'Start update ui-library' && npm run update-app-hero-dependencies && npm run update-app-customer-dependencies"
+    "update:app-hero": "cd ../app-hero && npm run copy:ui-library",
+    "update:app-customer": "cd ../app-customer && npm run copy:ui-library",
+    "update:dependents": "echo 'Start update ui-library' && npm run update:app-hero && npm run update:app-customer"
   },
   "dependencies": {
     "@gluestack-style/react": "^0.2.46",
@@ -56,7 +54,6 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-typescript-sort-keys": "^3.0.0",
     "expo": "^49.0.11",
-    "fs-extra": "^11.1.1",
     "npm-watch": "^0.11.0",
     "prettier": "^3.0.3",
     "semver": "^7.5.4",

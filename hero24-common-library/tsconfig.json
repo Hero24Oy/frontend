@@ -6,7 +6,7 @@
       "$common/types": ["types/index"]
     }
   },
-  "extends": "./common-tsconfig.json",
+  "extends": "./tsconfig-common.json",
   "exclude": ["node_modules", "dist"],
   "include": ["**/*.ts", "**/*.tsx"]
 }
