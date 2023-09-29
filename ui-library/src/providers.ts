@@ -1,6 +1,8 @@
 import { GluestackUIProvider } from '@gluestack-ui/themed';
-import { ProviderManager } from './utils';
+import { CombineProviders } from 'react-combine-providers';
 
-export const providers = new ProviderManager()
+export const initializeProviders = (manager: CombineProviders) => {
+    manager.push(GluestackUIProvider);
+}
 
-providers.push(GluestackUIProvider);
+

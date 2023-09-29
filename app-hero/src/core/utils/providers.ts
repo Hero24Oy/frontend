@@ -3,15 +3,15 @@ import { combineProviders } from 'react-combine-providers';
 
 import { apolloClient } from '../apollo';
 
-import { providers as viewProviders } from '$ui-library';
+import { initializeProviders } from '$ui-library';
 
-const providers = combineProviders();
+const manager = combineProviders();
 
-viewProviders.forEach((provider) => providers.push(...provider));
+initializeProviders(manager);
 
-providers.push(ApolloProvider, {
+manager.push(ApolloProvider, {
   children: null,
   client: apolloClient,
 });
 
-export const MasterProvider = providers.master();
+export const MasterProvider = manager.master();
