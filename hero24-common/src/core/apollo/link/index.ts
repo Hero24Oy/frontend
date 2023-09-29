@@ -20,8 +20,8 @@ export const createLink = (options: LinksOptions): ApolloLink => {
     serverUrl,
   });
 
-  const linkWithSubscription = wsLink ? errorLink.concat(wsLink) : errorLink;
-  const linkWithoutSubscription = authLink.concat(errorLink).concat(httpLink);
+  const extendedWsLink = wsLink ? errorLink.concat(wsLink) : errorLink;
+  const extendedHttpLink = authLink.concat(errorLink).concat(httpLink);
 
   const link = split(
     ({ query }) => {
@@ -32,8 +32,8 @@ export const createLink = (options: LinksOptions): ApolloLink => {
         definition.operation === SUBSCRIPTION
       );
     },
-    linkWithSubscription,
-    linkWithoutSubscription,
+    extendedWsLink,
+    extendedHttpLink,
   );
 
   return link;
