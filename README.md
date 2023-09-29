@@ -20,7 +20,7 @@
 
 ### Install order
 
-This repository has very strong dependencies between configs, so if you decide to install dependencies manually rather than using `npm run install-all`, you need to do it in this order:
+This repository has very strong dependencies between configs, so if you decide to install dependencies manually rather than using `npm run install:all`, you need to do it in this order:
 
 1. Install root dependencies
 2. Install hero24-common dependencies
@@ -31,7 +31,7 @@ This repository has very strong dependencies between configs, so if you decide t
 
 #### VScode
 
-After installing all the dependencies using `npm run install-all`, VScode watcher hooks will be automatically enabled when you open the folder. They monitor changes in the `hero24-common` and `ui-library` folders and automatically copy them to the node modules of other repositories.
+After installing all the dependencies using `npm run install:all`, VScode watcher hooks will be automatically enabled when you open the folder. They monitor changes in the `hero24-common` and `ui-library` folders and automatically copy them to the node modules of other repositories.
 
 #### Other IDE
 
