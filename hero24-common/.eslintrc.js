@@ -1,5 +1,6 @@
 const DB_REGEXP = '*.DB';
 const EXCLUDE_NAMES_NAMING_CONVENTION = [
+  'graphQLErrors',
   'photoURL',
   'companyVAT',
   'serviceProviderVAT',

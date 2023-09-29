@@ -12,12 +12,13 @@ export const createAuthLink = (
     // * get the authentication token from firebase if it exists
     const authorization = await getAuthToken();
 
+    const headersWithAuth = { ...headers, authorization } as Record<
+      string,
+      string
+    >;
+
     return {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- Headers are of type Record<string,any>, so this is safe
-      headers: {
-        ...headers,
-        authorization,
-      },
+      headers: headersWithAuth,
     };
   });
 };

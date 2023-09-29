@@ -11,8 +11,8 @@ export type GraphQlInput<Variables> = Record<
   Variables
 >;
 
-export type GraphQlPaginationEdge<Node, C> = {
-  cursor: C;
+export type GraphQlPaginationEdge<Node, Cursor> = {
+  cursor: Cursor;
   node: Node;
 };
 

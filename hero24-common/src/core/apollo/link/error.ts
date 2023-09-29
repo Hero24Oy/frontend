@@ -2,7 +2,6 @@ import { ApolloLink } from '@apollo/client';
 import { onError } from '@apollo/client/link/error';
 
 export const createErrorLink = (): ApolloLink =>
-  // eslint-disable-next-line @typescript-eslint/naming-convention -- It's library parameter
   onError(({ graphQLErrors, networkError }) => {
     if (graphQLErrors) {
       graphQLErrors.forEach(({ message, locations, path }) =>
