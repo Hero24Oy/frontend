@@ -1,14 +1,19 @@
-// import { DEFAULT_RESPONSE_NAME } from '../../../../..';
-// import { Data } from '../queries/offer/query';
+import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
 
-// TODO
-// export const updateOffer = (data: Data[typeof DEFAULT_RESPONSE_NAME]): void => {
-//   apolloClient.writeQuery<Response>({
-//     query: QUERY,
-//     data: {
-//       response: data,
-//     },
-//   });
-// };
+import {
+  DEFAULT_RESPONSE_NAME,
+  GraphQlResponse,
+} from '../../../../core/apollo';
+import { Data, QUERY } from '../queries/offer/query';
 
-export const updateOffer = () => {};
+export const updateOffer = (
+  apolloClient: ApolloClient<NormalizedCacheObject>,
+  data: GraphQlResponse<Data>[typeof DEFAULT_RESPONSE_NAME],
+): void => {
+  apolloClient.writeQuery<GraphQlResponse<Data>>({
+    query: QUERY,
+    data: {
+      response: data,
+    },
+  });
+};

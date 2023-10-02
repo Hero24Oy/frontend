@@ -1,20 +1,21 @@
-// import { Offer } from '../fragments';
-// import { QUERY, Response, Variables } from '../queries/offer/query';
+import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
 
-// import { apolloClient } from '$/modules/Core/apollo';
+import { GraphQlInput, GraphQlResponse } from '../../../../core/apollo';
+import { Offer } from '../fragments';
+import { Data, QUERY, Variables } from '../queries/offer/query';
 
-// export const getOffer = (offerId: string): Offer | null => {
-//   return (
-//     apolloClient.readQuery<Response, Variables>({
-//       query: QUERY,
-//       variables: {
-//         input: {
-//           offerId,
-//         },
-//       },
-//     })?.response ?? null
-//   );
-// };
-
-// TODO
-export const getOffer = () => {};
+export const getOffer = (
+  apolloClient: ApolloClient<NormalizedCacheObject>,
+  offerId: string,
+): Offer | null => {
+  return (
+    apolloClient.readQuery<GraphQlResponse<Data>, GraphQlInput<Variables>>({
+      query: QUERY,
+      variables: {
+        input: {
+          offerId,
+        },
+      },
+    })?.response ?? null
+  );
+};
