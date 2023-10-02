@@ -16,7 +16,7 @@ type Variables = {
   userId?: string;
 };
 
-export function* createUserSaga(variables: Variables): Generator {
+export function* createUserSaga(variables: Variables)w {
   // const result = yield* apolloMutation<Data, Variables>({
   //   mutation: MUTATION,
   //   variables,

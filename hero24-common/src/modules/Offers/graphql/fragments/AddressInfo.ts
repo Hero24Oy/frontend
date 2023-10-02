@@ -6,6 +6,7 @@ export type Address = {
   streetAddress: string;
 };
 
+// TODO do not belong here
 export const ADDRESS_FRAGMENT = gql`
   fragment AddressInfo on AddressDto {
     city
