@@ -11,7 +11,8 @@ export enum OfferUserRole {
   CUSTOMER = 'CUSTOMER',
 }
 
-export enum OfferStatusInput {
+// eslint-disable-next-line @typescript-eslint/naming-convention -- Eslint argues even though it's in exceptions in eslint.js
+export enum GraphQLOfferStatus {
   OPEN = 'OPEN',
   ACCEPTED = 'ACCEPTED',
   COMPLETED = 'COMPLETED',

@@ -1,7 +1,7 @@
 import { GraphQlPaginationArguments } from '../../../../../core';
 import {
+  GraphQLOfferStatus,
   OfferOrderColumn,
-  OfferStatusInput,
   OfferUserRole,
 } from '../../constants';
 
@@ -9,7 +9,7 @@ export type OfferFilter = {
   chatIds?: string[];
   ids?: string[];
   isApproved?: boolean;
-  statuses?: OfferStatusInput[];
+  statuses?: GraphQLOfferStatus[];
 };
 
 export type OffersInput = GraphQlPaginationArguments<

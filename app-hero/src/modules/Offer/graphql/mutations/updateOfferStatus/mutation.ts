@@ -3,8 +3,8 @@ import { gql } from '@apollo/client';
 import {
   capitalize,
   DEFAULT_RESPONSE_NAME,
+  GraphQLOfferStatus,
   OfferIdInput,
-  OfferStatusInput,
 } from '$common';
 
 export const PREFIX = 'updateOfferStatus';
@@ -12,7 +12,7 @@ export const PREFIX = 'updateOfferStatus';
 export type Response = boolean;
 
 export type Variables = OfferIdInput & {
-  status: OfferStatusInput;
+  status: GraphQLOfferStatus;
 };
 
 // TODO lib to make it easier
