@@ -2,8 +2,8 @@ import { gql } from '@apollo/client';
 import { capitalize } from 'lodash';
 
 import { DEFAULT_RESPONSE_NAME } from '../../../../../core/apollo/constants';
-import { OfferIdInput } from '../../../../../core/types';
 import { Offer, OFFER_FRAGMENT } from '../../fragments';
+import { OfferIdInput } from '../../types';
 
 export const OFFER_TYPE_NAME = 'OfferDto';
 
