@@ -1,5 +1,3 @@
-export * from './AddressInfo';
-export * from './TranslationFieldInfo';
 export * from './OfferData';
 export * from './OfferEarnings';
 export * from './OfferInitialData';
