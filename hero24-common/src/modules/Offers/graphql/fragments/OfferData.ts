@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { Maybe } from 'components/types';
+import { Maybe } from '../../../../core';
 
 import {
   OFFER_INITIAL_DATA_FRAGMENT,
@@ -16,7 +16,6 @@ export type OfferData = {
   actualCompletedTime?: Maybe<Date>;
   actualStartTime?: Maybe<Date>;
   extensions?: Maybe<Purchase[]>;
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   pauseDurationMS?: Maybe<number>;
   requestedChangesAccepted?: Maybe<boolean>;
   workTime?: Maybe<WorkTime[]>;

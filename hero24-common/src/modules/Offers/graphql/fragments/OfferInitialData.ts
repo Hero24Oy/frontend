@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { Maybe } from 'components/types';
+import { Maybe } from '../../../../core';
 
 import { Purchase, PURCHASE_FRAGMENT } from './Purchase';
 

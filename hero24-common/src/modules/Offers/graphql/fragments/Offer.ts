@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 import { OFFER_STATUS } from 'hero24-types';
 
-import { Maybe } from 'components/types';
+import { Maybe } from '../../../../core/types';
 
 import { OFFER_DATA_FRAGMENT, OfferData } from './OfferData';
 import { OFFER_EARNINGS_FRAGMENT, OfferEarnings } from './OfferEarnings';

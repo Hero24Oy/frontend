@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { Maybe } from 'components/types';
+import { Maybe } from '../../../../core';
 
 export type Purchase = {
   createdAt: Date;
