@@ -1,8 +1,6 @@
-import { MUTATION, Response, Variables } from './mutation';
+import { MUTATION, PREFIX, Response, Variables } from './mutation';
 
 import { useCustomMutation, UseMutationWrapper } from '$common';
-
-const PREFIX = 'toggleJobStatus';
 
 export type UseToggleJobStatus = UseMutationWrapper<
   typeof PREFIX,

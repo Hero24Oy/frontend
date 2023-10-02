@@ -1,8 +1,10 @@
 import { gql } from '@apollo/client';
 
-import { DEFAULT_RESPONSE_NAME } from '../../../../../core';
+import { capitalize, DEFAULT_RESPONSE_NAME } from '../../../../../core';
 import { OfferRole } from '../../constants';
 import { Offer, OFFER_FRAGMENT } from '../../fragments';
+
+export const PREFIX = 'subscribeToOffers';
 
 export type Response = Offer;
 
@@ -13,7 +15,7 @@ export type Variables = {
 export const SUBSCRIPTION = gql`
   ${OFFER_FRAGMENT}
 
-  subscription SubscribeToOffersUpdates($input: OfferSubscriptionInput!) {
+  subscription ${capitalize(PREFIX)}($input: OfferSubscriptionInput!) {
     ${DEFAULT_RESPONSE_NAME}: offerUpdated(input: $input) {
       ...OfferInfo
     }

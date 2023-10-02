@@ -1,8 +1,6 @@
-import { MUTATION, Response, Variables } from './mutation';
+import { MUTATION, PREFIX, Response, Variables } from './mutation';
 
 import { useCustomMutation, UseMutationWrapper } from '$common';
-
-const PREFIX = 'cancelRequestToExtend';
 
 export type UseCancelRequestToExtend = UseMutationWrapper<
   typeof PREFIX,

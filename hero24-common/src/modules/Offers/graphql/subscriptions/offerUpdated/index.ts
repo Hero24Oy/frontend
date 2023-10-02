@@ -3,9 +3,7 @@ import {
   UseSubscriptionWrapper,
 } from '../../../../../core';
 
-import { Response, SUBSCRIPTION, Variables } from './subscription';
-
-const PREFIX = 'subscribeToOffers';
+import { PREFIX, Response, SUBSCRIPTION, Variables } from './subscription';
 
 export type UseSubscribeToOffers = UseSubscriptionWrapper<
   typeof PREFIX,

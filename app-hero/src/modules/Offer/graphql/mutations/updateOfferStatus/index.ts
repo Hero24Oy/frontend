@@ -1,8 +1,6 @@
-import { MUTATION, Variables } from './mutation';
+import { MUTATION, PREFIX, Variables } from './mutation';
 
 import { useCustomMutation, UseMutationWrapper } from '$common';
-
-const PREFIX = 'updateOfferStatus';
 
 export type UseUpdateOfferStatus = UseMutationWrapper<
   typeof PREFIX,

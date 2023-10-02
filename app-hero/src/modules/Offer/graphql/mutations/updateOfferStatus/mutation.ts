@@ -1,16 +1,23 @@
 import { gql } from '@apollo/client';
 
-import { DEFAULT_RESPONSE_NAME, OfferIdInput, OfferStatusInput } from '$common';
+import {
+  capitalize,
+  DEFAULT_RESPONSE_NAME,
+  OfferIdInput,
+  OfferStatusInput,
+} from '$common';
+
+export const PREFIX = 'updateOfferStatus';
 
 export type Response = boolean;
 
-export type Variables = {
+export type Variables = OfferIdInput & {
   status: OfferStatusInput;
-} & OfferIdInput;
+};
 
 // TODO lib to make it easier
 export const MUTATION = gql`
-  mutation UpdateOfferStatus($input: OfferStatusInput!) {
+  mutation ${capitalize(PREFIX)}($input: OfferStatusInput!) {
     ${DEFAULT_RESPONSE_NAME}: updateOfferStatus(input: $input)
   }
 `;

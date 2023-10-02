@@ -5,9 +5,7 @@ import {
   UseQueryWrapper,
 } from '../../../../../core';
 
-import { Data, QUERY, Variables } from './query';
-
-const PREFIX = 'offer';
+import { Data, PREFIX, QUERY, Variables } from './query';
 
 export type UseGetOffer = UseQueryWrapper<typeof PREFIX, Data, Variables>;
 

@@ -1,8 +1,6 @@
-import { MUTATION, Response, Variables } from './mutation';
+import { MUTATION, PREFIX, Response, Variables } from './mutation';
 
 import { useCustomMutation, UseMutationWrapper } from '$common';
-
-const PREFIX = 'startJob';
 
 export type UseStartJob = UseMutationWrapper<
   typeof PREFIX,

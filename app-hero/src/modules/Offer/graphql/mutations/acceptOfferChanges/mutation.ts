@@ -1,16 +1,18 @@
 import { gql } from '@apollo/client';
 import { Maybe } from 'yup';
 
-import { DEFAULT_RESPONSE_NAME, OfferIdInput } from '$common';
+import { capitalize, DEFAULT_RESPONSE_NAME, OfferIdInput } from '$common';
+
+export const PREFIX = 'acceptOfferChanges';
 
 export type Response = boolean;
 
-export type Variables = {
+export type Variables = OfferIdInput & {
   agreedStartTime?: Maybe<Date>;
-} & OfferIdInput;
+};
 
 export const MUTATION = gql`
-  mutation AcceptOfferChanges($input: OfferChangeInput!) {
+  mutation ${capitalize(PREFIX)}($input: OfferChangeInput!) {
     ${DEFAULT_RESPONSE_NAME}: acceptOfferChanges(input: $input)
   }
 `;
