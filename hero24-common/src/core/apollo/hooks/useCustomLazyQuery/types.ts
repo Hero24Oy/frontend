@@ -4,8 +4,8 @@ import {
   OperationVariables,
 } from '@apollo/client';
 
-import { GetGraphqlRequestKeyReturnType } from '../../helpers';
 import { GraphQlInput, GraphQlResponse } from '../../types';
+import { GetGraphqlRequestKeyReturnType } from '../../utils';
 
 // TODO create custom fetch more when all paginated resolvers at server are of same structure
 export type CustomLazyQueryResult<

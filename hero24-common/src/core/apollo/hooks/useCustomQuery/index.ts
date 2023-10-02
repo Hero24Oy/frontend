@@ -7,8 +7,8 @@ import {
 } from '@apollo/client';
 
 import { DEFAULT_RESPONSE_NAME } from '../../constants';
-import { getGraphqlRequestKey } from '../../helpers';
 import { GraphQlInput, GraphQlResponse } from '../../types';
+import { getGraphqlRequestKey } from '../../utils';
 
 import { CustomQueryResult, PrefixedQueryResult } from './types';
 
