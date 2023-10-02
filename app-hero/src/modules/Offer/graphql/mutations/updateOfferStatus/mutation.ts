@@ -1,7 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { DEFAULT_RESPONSE_NAME, OfferIdInput } from '../../../../../core';
-import { OfferStatusInput } from '../../constants';
+import { DEFAULT_RESPONSE_NAME, OfferIdInput, OfferStatusInput } from '$common';
 
 export type Response = boolean;
 

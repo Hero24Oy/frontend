@@ -7,7 +7,7 @@ export enum OfferOrderColumn {
 }
 
 export enum OfferRole {
-  SELLER = 'SELLER',
+  SELLER = 'SELLER', // TODO change to hero
   CUSTOMER = 'CUSTOMER',
 }
 

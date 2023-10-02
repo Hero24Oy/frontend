@@ -1,9 +1,6 @@
-import {
-  useCustomMutation,
-  UseMutationWrapper,
-} from '../../../../../core/apollo';
-
 import { MUTATION, Response, Variables } from './mutation';
+
+import { useCustomMutation, UseMutationWrapper } from '$common';
 
 const PREFIX = 'startJob';
 

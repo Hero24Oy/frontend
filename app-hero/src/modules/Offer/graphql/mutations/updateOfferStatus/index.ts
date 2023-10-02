@@ -1,9 +1,6 @@
-import {
-  useCustomMutation,
-  UseMutationWrapper,
-} from '../../../../../core/apollo/hooks';
-
 import { MUTATION, Variables } from './mutation';
+
+import { useCustomMutation, UseMutationWrapper } from '$common';
 
 const PREFIX = 'updateOfferStatus';
 
