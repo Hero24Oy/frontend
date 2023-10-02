@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { OFFER_STATUS } from 'hero24-types';
 
+// TODO add path alias
 import { Maybe } from '../../../../core/types';
 
 import { OFFER_DATA_FRAGMENT, OfferData } from './OfferData';

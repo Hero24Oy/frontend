@@ -17,7 +17,7 @@ export const offersTypePolicies: TypePolicies = {
       offer: {
         keyArgs: false,
         read: (
-          _,
+          _cachedKey,
           options: FieldFunctionOptions<Partial<GraphQlInput<Variables>>>,
         ) => {
           const { args, toReference } = options;

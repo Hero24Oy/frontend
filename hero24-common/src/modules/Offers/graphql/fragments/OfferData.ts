@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 
+// TODO add alias
 import { Maybe } from '../../../../core/types';
 
 import {
