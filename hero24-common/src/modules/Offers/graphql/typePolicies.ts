@@ -15,6 +15,7 @@ export const offersTypePolicies: TypePolicies = {
   Query: {
     fields: {
       offer: {
+        keyArgs: false,
         read: (
           _,
           options: FieldFunctionOptions<Partial<GraphQlInput<Variables>>>,

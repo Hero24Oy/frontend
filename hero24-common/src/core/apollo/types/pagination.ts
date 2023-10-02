@@ -16,14 +16,17 @@ export type GraphQlPaginationEdge<Node, Cursor> = {
   node: Node;
 };
 
-export type GraphQlPagination<Node, Cursor = string> = {
+export type GraphQlPagination<Node = unknown, Cursor = string> = {
   edges: GraphQlPaginationEdge<Node, Cursor>[];
   endCursor: Cursor | null;
   hasNextPage: boolean;
   total: number;
 };
 
-export type GraphQlPaginationArguments<Filter, Columns extends string> = {
+export type GraphQlPaginationArguments<
+  Filter = unknown,
+  Columns extends string = string,
+> = {
   filter?: Filter;
   limit?: number;
   offset?: number;

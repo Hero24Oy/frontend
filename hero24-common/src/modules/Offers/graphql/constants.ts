@@ -1,5 +1,3 @@
-export const OFFERS_PER_PAGE = 10;
-
 export enum OfferOrderColumn {
   ID = 'ID',
   STATUS = 'STATUS',

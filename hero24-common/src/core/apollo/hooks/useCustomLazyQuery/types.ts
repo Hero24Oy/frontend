@@ -4,17 +4,23 @@ import {
   OperationVariables,
 } from '@apollo/client';
 
-import { GraphQlInput, GraphQlResponse } from '../../types';
+import {
+  GraphQlInput,
+  GraphQlPaginationArguments,
+  GraphQlResponse,
+} from '../../types';
 import { GetGraphqlRequestKeyReturnType } from '../../utils';
 
-// TODO create custom fetch more when all paginated resolvers at server are of same structure
 export type CustomLazyQueryResult<
   Data,
   Variables extends OperationVariables,
 > = Omit<
   LazyQueryResult<GraphQlResponse<Data>, GraphQlInput<Variables>>,
-  'data'
+  'data' | 'fetchMore'
 > & {
+  fetchMore: (
+    options?: GraphQlPaginationArguments,
+  ) => Promise<Data | undefined>;
   request: (input: Variables) => Promise<Data | undefined>;
   data?: Data;
 };
