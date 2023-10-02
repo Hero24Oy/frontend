@@ -12,9 +12,6 @@ export type OfferFilter = {
   statuses?: GraphQLOfferStatus[];
 };
 
-export type OffersInput = GraphQlPaginationArguments<
-  OfferFilter,
-  OfferOrderColumn
-> & {
+export type OffersInput = {
   role?: OfferUserRole;
-};
+} & GraphQlPaginationArguments<OfferFilter, OfferOrderColumn>;
