@@ -1,5 +1,5 @@
 import { useCustomQuery, UseQueryWrapper } from '../../../../../core';
-import { OfferRole, OFFERS_PER_PAGE } from '../../constants';
+import { OFFERS_PER_PAGE, OfferUserRole } from '../../constants';
 
 import { Data, PREFIX, QUERY, Variables } from './query';
 
@@ -21,7 +21,7 @@ export const useGetOffers: typeof useCustomGetOffers = (
         input: {
           limit: OFFERS_PER_PAGE,
           offset: getOffers.data?.edges.length ?? 0,
-          role: OfferRole.SELLER,
+          role: OfferUserRole.SELLER,
         },
       },
     });

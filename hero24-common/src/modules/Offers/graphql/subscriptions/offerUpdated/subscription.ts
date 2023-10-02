@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 import { capitalize, DEFAULT_RESPONSE_NAME } from '../../../../../core';
-import { OfferRole } from '../../constants';
+import { OfferUserRole } from '../../constants';
 import { Offer, OFFER_FRAGMENT } from '../../fragments';
 
 export const PREFIX = 'subscribeToOffers';
@@ -9,7 +9,7 @@ export const PREFIX = 'subscribeToOffers';
 export type Response = Offer;
 
 export type Variables = {
-  role: OfferRole;
+  role: OfferUserRole;
 };
 
 export const SUBSCRIPTION = gql`

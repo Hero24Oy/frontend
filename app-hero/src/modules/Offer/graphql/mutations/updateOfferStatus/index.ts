@@ -10,9 +10,3 @@ export type UseUpdateOfferStatus = UseMutationWrapper<
 
 export const useUpdateOfferStatus: UseUpdateOfferStatus = (...args) =>
   useCustomMutation(PREFIX, MUTATION, ...args);
-
-export type UseLazyGetOffer = UseMutationWrapper<
-  typeof PREFIX,
-  Response,
-  Variables
->;
