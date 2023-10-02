@@ -1,4 +1,4 @@
-import { GraphQlPaginationArguments } from '../../../../../core';
+import { GraphQlPaginationArguments } from '../../../../../core/apollo/types';
 import {
   GraphQLOfferStatus,
   OfferOrderColumn,

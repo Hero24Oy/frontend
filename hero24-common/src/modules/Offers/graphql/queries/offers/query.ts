@@ -1,10 +1,8 @@
 import { gql } from '@apollo/client';
 
-import {
-  capitalize,
-  DEFAULT_RESPONSE_NAME,
-  GraphQlPagination,
-} from '../../../../../core';
+import { DEFAULT_RESPONSE_NAME } from '../../../../../core/apollo/constants';
+import { GraphQlPagination } from '../../../../../core/apollo/types';
+import { capitalize } from '../../../../../core/utils';
 import { Offer, OFFER_FRAGMENT } from '../../fragments';
 
 import { OffersInput } from './types';
