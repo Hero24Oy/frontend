@@ -6,11 +6,8 @@ import { Maybe } from '../../../../core';
 import {
   USER_DATA_ACTIVE_ROUTE_FRAGMENT,
   UserDataActiveRoute,
-} from './UserDataActiveRouteInfo';
-import {
-  USER_DATA_ADDRESS_FRAGMENT,
-  UserDataAddress,
-} from './UserDataAddressInfo';
+} from './UserDataActiveRoute';
+import { USER_DATA_ADDRESS_FRAGMENT, UserDataAddress } from './UserDataAddress';
 
 export type UserData = {
   createdAt: number;
@@ -42,7 +39,7 @@ export const USER_DATA_FRAGMENT = gql`
   ${USER_DATA_ACTIVE_ROUTE_FRAGMENT}
   ${USER_DATA_ADDRESS_FRAGMENT}
 
-  fragment UserDataInfo on UserDataDto {
+  fragment UserDataFragment on UserDataDto {
     email
     emailVerified
     pushToken

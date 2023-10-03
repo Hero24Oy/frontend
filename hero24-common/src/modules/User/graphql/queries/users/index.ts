@@ -1,13 +1,13 @@
 // import { apolloQuery } from 'modules/ApolloClient/utils/saga';
 // import { GraphQLPagination } from 'modules/Common/graphql/types';
 
-import { User } from '../../fragments';
+// import { User } from '../../fragments';
 
-import { QUERY } from './query';
+// import { QUERY } from './query';
 
-type Data = {
-  users: GraphQLPagination<User>;
-};
+// type Data = {
+//   users: GraphQLPagination<User>;
+// };
 
 type Variables = {
   limit?: number;
@@ -15,7 +15,7 @@ type Variables = {
   search?: string;
 };
 
-export function* getUserListSaga(variables: Variables): Generator {
+export function* getUserListSaga(_variables: Variables): Generator {
   // const { data, error } = yield* apolloQuery<Data, Variables>({
   //   query: QUERY,
   //   variables,

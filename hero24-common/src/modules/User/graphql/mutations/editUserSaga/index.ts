@@ -1,19 +1,17 @@
 // import { apolloMutation } from 'modules/ApolloClient/utils/saga';
 
-import { User, UserData } from '../../fragments';
+import { UserData } from '$common';
 
-import MUTATION from './mutation';
-
-type Data = {
-  editUserData: User;
-};
+// type Data = {
+//   editUserData: User;
+// };
 
 type Variables = {
   data: Omit<Partial<UserData>, 'createdAt' | 'updatedAt' | 'deletedAt'>;
   userId: string;
 };
 
-export function* editUserSaga(variables: Variables): Generator {
+export function* editUserSaga(_variables: Variables): Generator {
   // const result = yield* apolloMutation<Data, Variables>({
   //   mutation: MUTATION,
   //   variables,

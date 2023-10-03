@@ -6,7 +6,7 @@ export type UserOffer = {
 };
 
 export const USER_OFFER_FRAGMENT = gql`
-  fragment UserOfferInfo on UserOfferDto {
+  fragment UserOfferFragment on UserOfferDto {
     offerId
     offerRequestId
   }

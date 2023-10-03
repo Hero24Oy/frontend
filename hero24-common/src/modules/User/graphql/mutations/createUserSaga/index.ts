@@ -1,8 +1,8 @@
 // import { apolloMutation } from 'modules/ApolloClient/utils/saga';
 
-import { UserData } from '../../fragments';
-
 // import MUTATION from './mutation';
+
+import { UserData } from '$common';
 
 // type Data = {
 //   createUser: User;

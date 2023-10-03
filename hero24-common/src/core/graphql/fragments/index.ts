@@ -1,2 +1,2 @@
-export * from './AddressInfo';
-export * from './TranslationFieldFragment';
+export * from './Address';
+export * from './TranslationField';

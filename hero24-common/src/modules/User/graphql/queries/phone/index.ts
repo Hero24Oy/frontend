@@ -1,16 +1,16 @@
 // import { apolloQuery } from 'modules/ApolloClient/utils/saga';
 
-import { QUERY } from './query';
+// import { QUERY } from './query';
 
-type Data = {
-  phone: string;
-};
+// type Data = {
+//   phone: string;
+// };
 
-type Variables = {
-  userId: string;
-};
+// type Variables = {
+//   userId: string;
+// };
 
-export function* getPhoneSaga(userId: string): Generator {
+export function* getPhoneSaga(_userId: string): Generator {
   // const { data, error } = yield* apolloQuery<Data, Variables>({
   //   query: QUERY,
   //   variables: {

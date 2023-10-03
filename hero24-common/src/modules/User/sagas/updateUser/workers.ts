@@ -1,12 +1,13 @@
-import { UserDB } from 'hero24-types';
-import get from 'lodash/get';
-import omit from 'lodash/omit';
+// import { UserDB } from 'hero24-types';
+// import get from 'lodash/get';
+// import omit from 'lodash/omit';
 
-import { UpdateUser } from '../../actions';
-import { UserData } from '../../graphql/fragments';
-import { editUserSaga } from '../../graphql/mutations';
+// import { UpdateUser } from '../../actions';
+// import { UserData } from '../../graphql/fragments';
+// import { editUserSaga } from '../../graphql/mutations';
 
-export function* updateUserWorker(action: UpdateUser): Generator {
+export function* updateUserWorker(): Generator {
+  // _action: UpdateUser
   // const userData: UserDB['data'] = {
   //   ...action.user.data,
   // };

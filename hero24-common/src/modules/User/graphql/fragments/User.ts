@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 import { Maybe } from '../../../../core';
 
-import { USER_DATA_FRAGMENT, UserData } from './UserDataInfo';
+import { USER_DATA_FRAGMENT, UserData } from './UserData';
 import { USER_OFFER_FRAGMENT, UserOffer } from './UserOffer';
 
 export type User = {
@@ -30,7 +30,7 @@ export const USER_FRAGMENT = gql`
   ${USER_DATA_FRAGMENT}
   ${USER_OFFER_FRAGMENT}
 
-  fragment UserInfo on UserDto {
+  fragment UserFragment on UserDto {
     id
     data {
       ...UserDataInfo

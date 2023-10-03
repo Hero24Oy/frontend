@@ -7,7 +7,7 @@ export type UserDataActiveRoute = {
 };
 
 export const USER_DATA_ACTIVE_ROUTE_FRAGMENT = gql`
-  fragment UserDataActiveRouteInfo on UserDataActiveRouteDto {
+  fragment UserDataActiveRouteFragment on UserDataActiveRouteDto {
     chatId
   }
 `;
