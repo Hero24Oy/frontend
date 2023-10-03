@@ -5,9 +5,7 @@ import { User, USER_FRAGMENT, UserData } from '../../fragments';
 
 export const PREFIX = 'createUser';
 
-export type Data = {
-  createUser: User;
-};
+export type Data = User;
 
 export type Variables = {
   data: Omit<

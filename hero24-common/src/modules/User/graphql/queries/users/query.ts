@@ -5,10 +5,9 @@ import { User, USER_FRAGMENT } from '../../fragments';
 
 export const PREFIX = 'users';
 
-export type Data = {
-  users: GraphQlPagination<User>;
-};
+export type Data = GraphQlPagination<User>;
 
+// TODO GraphqlPaginationArguments could be used here
 export type Variables = {
   limit?: number;
   offset?: number;

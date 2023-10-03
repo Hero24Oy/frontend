@@ -4,9 +4,7 @@ import { capitalize, DEFAULT_RESPONSE_NAME } from '../../../../../core';
 
 export const PREFIX = 'unbindUserOfferRequests';
 
-export type Data = {
-  unbindUserOfferRequests: boolean;
-};
+export type Data = boolean;
 
 export type Variables = {
   offerRequestIds: string[];

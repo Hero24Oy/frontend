@@ -4,9 +4,7 @@ import { capitalize, DEFAULT_RESPONSE_NAME } from '../../../../../core';
 
 export const PREFIX = 'phone';
 
-export type Data = {
-  phone: string;
-};
+export type Data = string;
 
 export type Variables = {
   userId: string;

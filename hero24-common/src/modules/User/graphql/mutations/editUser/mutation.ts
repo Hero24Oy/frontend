@@ -5,9 +5,7 @@ import { User, USER_FRAGMENT, UserData } from '../../fragments';
 
 export const PREFIX = 'editUser';
 
-export type Data = {
-  editUserData: User;
-};
+export type Data = User;
 
 export type Variables = {
   data: Omit<Partial<UserData>, 'createdAt' | 'updatedAt' | 'deletedAt'>;

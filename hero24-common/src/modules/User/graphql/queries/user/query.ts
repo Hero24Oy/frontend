@@ -5,12 +5,10 @@ import { User, USER_FRAGMENT } from '../../fragments';
 
 export const PREFIX = 'user';
 
+export type Data = User | null;
+
 export type Variables = {
   id: string;
-};
-
-export type Data = {
-  user: User | null;
 };
 
 export const QUERY = gql`
