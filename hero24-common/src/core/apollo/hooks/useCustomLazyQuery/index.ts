@@ -5,6 +5,7 @@ import {
   TypedDocumentNode,
   useLazyQuery,
 } from '@apollo/client';
+import merge from 'lodash/merge';
 import { useCallback } from 'react';
 
 import { DEFAULT_RESPONSE_NAME } from '../../constants';
@@ -51,11 +52,11 @@ export const useCustomLazyQuery = <
 
   const { fetchMore } = restQueryResult;
   const customFetchMore = useCallback(
-    async (fetchMoreOptions?: Variables): Promise<Data | undefined> => {
-      const input = {
-        ...options?.variables?.input,
-        ...fetchMoreOptions,
-      } satisfies Record<string, string>;
+    async (fetchMoreVariables?: Variables): Promise<Data | undefined> => {
+      const input = merge(
+        options?.variables?.input,
+        fetchMoreVariables,
+      ) satisfies Record<string, string>;
 
       try {
         const result = await fetchMore({

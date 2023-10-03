@@ -10,7 +10,7 @@ export type Variables = {
   offerId: string;
 };
 
-// * Would be better to combine two resolvers *-bySeller, *-byHero into one
+// TODO Would be better to combine two resolvers *-bySeller, *-byHero into one
 export const MUTATION = gql`
   mutation ${capitalize(PREFIX)}($input: OfferIdInput!) {
     ${DEFAULT_RESPONSE_NAME}: markOfferAsSeenBySeller(input: $input)
