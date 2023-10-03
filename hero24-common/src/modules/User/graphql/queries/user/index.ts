@@ -1,31 +1,8 @@
-import { FetchPolicy } from '@apollo/client';
+import { useCustomQuery, UseQueryWrapper } from '../../../../../core';
 
-// import { apolloQuery } from 'modules/ApolloClient/utils/saga';
-// import { User } from '../../fragments';
+import { Data, PREFIX, QUERY, Variables } from './query';
 
-// import { QUERY } from './query';
+export type UseUser = UseQueryWrapper<typeof PREFIX, Data, Variables>;
 
-// type Variables = {
-//   id: string;
-// };
-
-// type Data = {
-//   user: User | null;
-// };
-
-export function* getUserSaga(
-  _id: string,
-  _fetchPolicy?: FetchPolicy,
-): Generator {
-  // const { data, error } = yield* apolloQuery<Data, Variables>({
-  //   query: QUERY,
-  //   variables: {
-  //     id,
-  //   },
-  //   fetchPolicy,
-  // });
-  // return {
-  //   userData: data?.user,
-  //   userError: error,
-  // };
-}
+export const useUser: UseUser = (...args) =>
+  useCustomQuery(PREFIX, QUERY, ...args);

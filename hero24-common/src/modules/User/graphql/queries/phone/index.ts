@@ -13,7 +13,7 @@ export const usePhone: UsePhone = (...args) =>
   useCustomQuery(PREFIX, QUERY, ...args);
 
 // TODO to lazy query folder
-type UseLazyGetOffer = UseLazyQueryWrapper<typeof PREFIX, Data, Variables>;
+type UseLazyPhone = UseLazyQueryWrapper<typeof PREFIX, Data, Variables>;
 
-export const useLazyGetOffer: UseLazyGetOffer = (...args) =>
+export const useLazyPhone: UseLazyPhone = (...args) =>
   useCustomLazyQuery(PREFIX, QUERY, ...args);

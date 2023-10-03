@@ -1,6 +1,19 @@
 import { gql } from '@apollo/client';
 
-import { USER_FRAGMENT } from '../../fragments';
+import { GraphQlPagination } from '../../../../../core';
+import { User, USER_FRAGMENT } from '../../fragments';
+
+export const PREFIX = 'users';
+
+export type Data = {
+  users: GraphQlPagination<User>;
+};
+
+export type Variables = {
+  limit?: number;
+  offset?: number;
+  search?: string;
+};
 
 export const QUERY = gql`
   ${USER_FRAGMENT}
