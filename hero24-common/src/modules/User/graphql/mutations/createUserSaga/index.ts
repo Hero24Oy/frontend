@@ -1,28 +1,12 @@
-// import { apolloMutation } from 'modules/ApolloClient/utils/saga';
+import { useCustomMutation, UseMutationWrapper } from '../../../../../core';
 
-// import MUTATION from './mutation';
+import { MUTATION, PREFIX, Response, Variables } from './mutation';
+// TODO Now all this logic uses one single editUser mutation, but in the future we should create separate mutations for each hook
+export type UseCreateUser = UseMutationWrapper<
+  typeof PREFIX,
+  Response,
+  Variables
+>;
 
-import { UserData } from '$common';
-
-// type Data = {
-//   createUser: User;
-// };
-
-type Variables = {
-  data: Omit<
-    UserData,
-    'createdAt' | 'updatedAt' | 'deletedAt' | 'lastAskedReviewTime'
-  >;
-  userId?: string;
-};
-
-export function* createUserSaga(_variables: Variables): Generator {
-  // const result = yield* apolloMutation<Data, Variables>({
-  //   mutation: MUTATION,
-  //   variables,
-  // });
-  // return {
-  //   createUserData: result.data?.createUser,
-  //   createUserErrors: result.errors,
-  // };
-}
+export const useCreateUser: UseCreateUser = (...args) =>
+  useCustomMutation(PREFIX, MUTATION, ...args);
