@@ -7,7 +7,7 @@ export type Address = {
 };
 
 export const ADDRESS_FRAGMENT = gql`
-  fragment AddressInfo on AddressDto {
+  fragment AddressFragment on AddressDto {
     city
     postalCode
     streetAddress
