@@ -27,7 +27,7 @@ export const useUpdateUserLastAskedReviewTime =
 
           return res;
         } catch (error) {
-          console.error('Error deleting push token', error);
+          console.error('Error updating last asked review time', error);
           return undefined;
         }
       },
