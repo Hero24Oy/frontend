@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
-import { Maybe } from '../../../../core/types';
-
 import { Purchase, PURCHASE_FRAGMENT } from './Purchase';
+
+import { Maybe } from '$common';
 
 export type OfferInitialData = {
   agreedStartTime: Date;

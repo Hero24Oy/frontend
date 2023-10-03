@@ -1,14 +1,13 @@
 import { gql } from '@apollo/client';
 
-// TODO add alias
-import { Maybe } from '../../../../core/types';
-
 import {
   OFFER_INITIAL_DATA_FRAGMENT,
   OfferInitialData,
 } from './OfferInitialData';
 import { Purchase, PURCHASE_FRAGMENT } from './Purchase';
 import { WORK_TIME_FRAGMENT, WorkTime } from './WorkTime';
+
+import { Maybe } from '$common';
 
 export type OfferData = {
   initial: OfferInitialData;

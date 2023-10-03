@@ -1,11 +1,11 @@
+import { Data, PREFIX, QUERY, Variables } from './query';
+
 import {
   useCustomLazyQuery,
   useCustomQuery,
   UseLazyQueryWrapper,
   UseQueryWrapper,
-} from '../../../../../core';
-
-import { Data, PREFIX, QUERY, Variables } from './query';
+} from '$common';
 
 export type UseGetOffer = UseQueryWrapper<typeof PREFIX, Data, Variables>;
 

@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 import { EARNINGS_STATUS } from 'hero24-types';
 
-import { Maybe } from '../../../../core/types';
+import { Maybe } from '$common';
 
 export type OfferEarnings = {
   status: EARNINGS_STATUS;

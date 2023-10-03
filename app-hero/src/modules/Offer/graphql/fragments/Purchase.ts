@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { Maybe } from '../../../../core/types';
+import { Maybe } from '$common';
 
 export type Purchase = {
   createdAt: Date;

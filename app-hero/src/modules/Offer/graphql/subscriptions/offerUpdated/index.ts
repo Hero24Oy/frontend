@@ -1,9 +1,6 @@
-import {
-  useCustomSubscription,
-  UseSubscriptionWrapper,
-} from '../../../../../core';
-
 import { PREFIX, Response, SUBSCRIPTION, Variables } from './subscription';
+
+import { useCustomSubscription, UseSubscriptionWrapper } from '$common';
 
 export type UseSubscribeToOffers = UseSubscriptionWrapper<
   typeof PREFIX,

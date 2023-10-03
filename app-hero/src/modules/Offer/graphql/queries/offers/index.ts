@@ -1,6 +1,6 @@
-import { useCustomQuery, UseQueryWrapper } from '../../../../../core';
-
 import { Data, PREFIX, QUERY, Variables } from './query';
+
+import { useCustomQuery, UseQueryWrapper } from '$common';
 
 type UseGetOffers = UseQueryWrapper<typeof PREFIX, Data, Variables>;
 

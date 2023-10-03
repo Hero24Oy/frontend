@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
-import { capitalize, DEFAULT_RESPONSE_NAME } from '../../../../../core';
-import { OfferUserRole } from '../../constants';
 import { Offer, OFFER_FRAGMENT } from '../../fragments';
+
+import { capitalize, DEFAULT_RESPONSE_NAME, OfferUserRole } from '$common';
 
 export const PREFIX = 'subscribeToOffers';
 

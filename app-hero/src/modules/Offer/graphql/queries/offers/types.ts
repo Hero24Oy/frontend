@@ -1,15 +1,15 @@
-import { GraphQlPaginationArguments } from '../../../../../core/apollo/types';
 import {
-  GraphQLOfferStatus,
+  GraphQlPaginationArguments,
   OfferOrderColumn,
+  OfferStatus,
   OfferUserRole,
-} from '../../constants';
+} from '$common';
 
 export type OfferFilter = {
   chatIds?: string[];
   ids?: string[];
   isApproved?: boolean;
-  statuses?: GraphQLOfferStatus[];
+  statuses?: OfferStatus[];
 };
 
 export type OffersInput = {
