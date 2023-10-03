@@ -2,7 +2,7 @@ import { useCustomQuery, UseQueryWrapper } from '../../../../../core';
 
 import { Data, PREFIX, QUERY, Variables } from './query';
 
-export type UseUser = UseQueryWrapper<typeof PREFIX, Data, Variables>;
+export type UseGetUser = UseQueryWrapper<typeof PREFIX, Data, Variables>;
 
-export const useUser: UseUser = (...args) =>
+export const useGetUser: UseGetUser = (...args) =>
   useCustomQuery(PREFIX, QUERY, ...args);
