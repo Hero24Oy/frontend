@@ -12,5 +12,8 @@ export type UseSubscribeToUser = UseSubscriptionWrapper<
   Variables
 >;
 
+/**
+ * @deprecated until is subscription to user update available
+ */
 export const useSubscribeToUser: UseSubscribeToUser = (...args) =>
   useCustomSubscription(PREFIX, SUBSCRIPTION, ...args);
