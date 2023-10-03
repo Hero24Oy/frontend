@@ -1,5 +1,6 @@
 import { TypePolicies } from '@apollo/client';
-import { mergeObjects } from 'core/utils';
+
+import { mergeObjects } from '../../utils';
 
 /**
  *

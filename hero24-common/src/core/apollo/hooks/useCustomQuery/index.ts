@@ -5,16 +5,16 @@ import {
   TypedDocumentNode,
   useQuery,
 } from '@apollo/client';
+import merge from 'lodash/merge';
+import { useCallback } from 'react';
 
 import { DEFAULT_RESPONSE_NAME } from '../../constants';
-import { getGraphqlRequestKey } from '../../helpers';
 import { GraphQlInput, GraphQlResponse } from '../../types';
+import { getGraphqlRequestKey } from '../../utils';
 
 import { CustomQueryResult, PrefixedQueryResult } from './types';
 
 export * from './types';
-
-// TODO create custom fetch more when all paginated resolvers at server are of same structure
 export const useCustomQuery = <
   Prefix extends string,
   Data,
@@ -31,9 +31,33 @@ export const useCustomQuery = <
     GraphQlInput<Variables>
   >(document, options);
 
+  const { fetchMore } = restQueryResult;
+  const customFetchMore = useCallback(
+    async (fetchMoreVariables: Variables): Promise<Data | undefined> => {
+      const input = merge(
+        options?.variables?.input,
+        fetchMoreVariables,
+      ) satisfies Record<string, string>;
+
+      try {
+        const result = await fetchMore({
+          variables: {
+            input,
+          },
+        });
+
+        return result.data[DEFAULT_RESPONSE_NAME];
+      } catch (error) {
+        return undefined;
+      }
+    },
+    [fetchMore, options?.variables?.input],
+  );
+
   const queryResult: CustomQueryResult<Data, Variables> = {
     data: data?.[DEFAULT_RESPONSE_NAME], // * Response must contain field {DEFAULT_RESPONSE_NAME}
     ...restQueryResult,
+    fetchMore: customFetchMore,
   };
 
   return {

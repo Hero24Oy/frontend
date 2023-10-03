@@ -261,6 +261,10 @@ const namingConventionRule = {
       selector: 'parameter',
       format: ['strictCamelCase'],
       leadingUnderscore: 'allow',
+      filter: {
+        match: false,
+        regex: underscoreAndExcludeNamingConventionRegex,
+      },
     },
     {
       selector: 'variable',

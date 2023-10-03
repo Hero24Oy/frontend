@@ -5,11 +5,12 @@ import {
   TypedDocumentNode,
   useLazyQuery,
 } from '@apollo/client';
+import merge from 'lodash/merge';
 import { useCallback } from 'react';
 
 import { DEFAULT_RESPONSE_NAME } from '../../constants';
-import { getGraphqlRequestKey } from '../../helpers';
 import { GraphQlInput, GraphQlResponse } from '../../types';
+import { getGraphqlRequestKey } from '../../utils';
 
 import { CustomLazyQueryResult, PrefixedLazyQueryResult } from './types';
 
@@ -49,10 +50,34 @@ export const useCustomLazyQuery = <
     [lazyQuery],
   );
 
+  const { fetchMore } = restQueryResult;
+  const customFetchMore = useCallback(
+    async (fetchMoreVariables?: Variables): Promise<Data | undefined> => {
+      const input = merge(
+        options?.variables?.input,
+        fetchMoreVariables,
+      ) satisfies Record<string, string>;
+
+      try {
+        const result = await fetchMore({
+          variables: {
+            input,
+          },
+        });
+
+        return result.data[DEFAULT_RESPONSE_NAME];
+      } catch (error) {
+        return undefined;
+      }
+    },
+    [fetchMore, options?.variables?.input],
+  );
+
   const queryResult: CustomLazyQueryResult<Data, Variables> = {
+    ...restQueryResult,
     data: data?.[DEFAULT_RESPONSE_NAME],
     request: handleLazyQuery,
-    ...restQueryResult,
+    fetchMore: customFetchMore,
   };
 
   return {
