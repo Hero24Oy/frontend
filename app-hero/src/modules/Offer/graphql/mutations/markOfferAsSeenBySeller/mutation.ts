@@ -1,12 +1,14 @@
 import { gql } from '@apollo/client';
 
-import { capitalize, DEFAULT_RESPONSE_NAME, OfferIdInput } from '$common';
+import { capitalize, DEFAULT_RESPONSE_NAME } from '$common';
 
 export const PREFIX = 'markOfferAsSeenBySeller';
 
 export type Response = boolean;
 
-export type Variables = OfferIdInput;
+export type Variables = {
+  offerId: string;
+};
 
 // * Would be better to combine two resolvers *-bySeller, *-byHero into one
 export const MUTATION = gql`

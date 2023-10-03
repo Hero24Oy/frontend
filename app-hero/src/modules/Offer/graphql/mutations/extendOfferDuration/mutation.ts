@@ -1,12 +1,13 @@
 import { gql } from '@apollo/client';
 
-import { capitalize, DEFAULT_RESPONSE_NAME, OfferIdInput } from '$common';
+import { capitalize, DEFAULT_RESPONSE_NAME } from '$common';
 
 export const PREFIX = 'extendOfferDuration';
 
 export type Response = boolean;
 
-export type Variables = OfferIdInput & {
+export type Variables = {
+  offerId: string;
   reasonToExtend: string;
   timeToExtend: number;
 };

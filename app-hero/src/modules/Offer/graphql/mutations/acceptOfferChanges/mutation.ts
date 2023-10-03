@@ -1,13 +1,14 @@
 import { gql } from '@apollo/client';
 import { Maybe } from 'yup';
 
-import { capitalize, DEFAULT_RESPONSE_NAME, OfferIdInput } from '$common';
+import { capitalize, DEFAULT_RESPONSE_NAME } from '$common';
 
 export const PREFIX = 'acceptOfferChanges';
 
 export type Response = boolean;
 
-export type Variables = OfferIdInput & {
+export type Variables = {
+  offerId: string;
   agreedStartTime?: Maybe<Date>;
 };
 

@@ -1,17 +1,13 @@
 import { gql } from '@apollo/client';
 
-import {
-  capitalize,
-  DEFAULT_RESPONSE_NAME,
-  OfferIdInput,
-  OfferStatus,
-} from '$common';
+import { capitalize, DEFAULT_RESPONSE_NAME, OfferStatus } from '$common';
 
 export const PREFIX = 'updateOfferStatus';
 
 export type Response = boolean;
 
-export type Variables = OfferIdInput & {
+export type Variables = {
+  offerId: string;
   status: OfferStatus;
 };
 
