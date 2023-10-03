@@ -6,7 +6,7 @@ export type TranslationField = {
 };
 
 export const TRANSLATION_FIELD_FRAGMENT = gql`
-  fragment TranslationFieldInfo on TranslationFieldDto {
+  fragment TranslationFieldFragment on TranslationFieldDto {
     en
     fi
   }

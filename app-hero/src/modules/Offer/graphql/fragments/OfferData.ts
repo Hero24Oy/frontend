@@ -9,12 +9,12 @@ export const OFFER_DATA_FRAGMENT = gql`
   ${WORK_TIME_FRAGMENT}
   ${OFFER_INITIAL_DATA_FRAGMENT}
 
-  fragment OfferDataInfo on OfferDataDto {
+  fragment OfferDataFragment on OfferDataDto {
     extensions {
-      ...PurchaseInfo
+      ...PurchaseFragment
     }
     workTime {
-      ...WorkTimeInfo
+      ...WorkTimeFragment
     }
     actualStartTime
     actualCompletedTime
@@ -22,7 +22,7 @@ export const OFFER_DATA_FRAGMENT = gql`
     pauseDurationMS
     seenBySeller
     initial {
-      ...OfferInitialData
+      ...OfferInitialDataFragment
     }
     requestedChangesAccepted
   }

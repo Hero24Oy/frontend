@@ -5,7 +5,7 @@ import { PURCHASE_FRAGMENT } from './Purchase';
 export const OFFER_INITIAL_DATA_FRAGMENT = gql`
   ${PURCHASE_FRAGMENT}
 
-  fragment OfferInitialData on OfferInitialDataDto {
+  fragment OfferInitialDataFragment on OfferInitialDataDto {
     createdAt
     buyerProfileId
     sellerProfileId
@@ -13,7 +13,7 @@ export const OFFER_INITIAL_DATA_FRAGMENT = gql`
     agreedStartTime
     categoryId
     purchase {
-      ...PurchaseInfo
+      ...PurchaseFragment
     }
     pricePerHour
   }

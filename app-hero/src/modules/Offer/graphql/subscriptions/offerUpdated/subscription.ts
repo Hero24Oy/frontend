@@ -22,7 +22,7 @@ export const SUBSCRIPTION = gql`
 
   subscription ${capitalize(PREFIX)}($input: OfferSubscriptionInput!) {
     ${DEFAULT_RESPONSE_NAME}: offerUpdated(input: $input) {
-      ...OfferInfo
+      ...OfferFragment
     }
   }
 `;

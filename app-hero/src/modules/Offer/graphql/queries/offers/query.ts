@@ -26,7 +26,7 @@ export const QUERY = gql`
     ${DEFAULT_RESPONSE_NAME}: offers(input: $input) {
       edges {
         node {
-          ...OfferInfo
+          ...OfferFragment
         }
       }
       total

@@ -19,7 +19,7 @@ export const QUERY = gql`
 
   query ${capitalize(PREFIX)}($input: OfferIdInput!) {
     ${DEFAULT_RESPONSE_NAME}: offer(input: $input) {
-      ...OfferInfo
+      ...OfferFragment
     }
   }
 `;

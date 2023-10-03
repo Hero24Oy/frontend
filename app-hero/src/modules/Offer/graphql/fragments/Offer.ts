@@ -7,11 +7,11 @@ export const OFFER_FRAGMENT = gql`
   ${OFFER_DATA_FRAGMENT}
   ${OFFER_EARNINGS_FRAGMENT}
 
-  fragment OfferInfo on OfferDto {
+  fragment OfferFragment on OfferDto {
     id
     status
     data {
-      ...OfferDataInfo
+      ...OfferDataFragment
     }
     seenByBuyer
     isApproved
@@ -20,7 +20,7 @@ export const OFFER_FRAGMENT = gql`
     reasonToExtend
     paymentTransactions
     earnings {
-      ...OfferEarningsInfo
+      ...OfferEarningsFragment
     }
     preDayReminderSent
     preHourReminderSent
