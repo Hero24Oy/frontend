@@ -2,17 +2,17 @@ import { useCallback } from 'react';
 
 import { useEditUser, useGetUser, User } from '../../graphql';
 
-type DeletePushToken = (tokenToDelete: string) => Promise<User | undefined>;
+type AddPushToken = (tokenToAdd: string) => Promise<User | undefined>;
 
-export const useDeletePushToken = (): DeletePushToken => {
+export const useAddPushToken = (): AddPushToken => {
   const { getUser } = useGetUser();
   const { editUser } = useEditUser();
 
-  const deleteToken: DeletePushToken = useCallback(
-    async (tokenToDelete) => {
+  const addToken: AddPushToken = useCallback(
+    async (tokenToAdd) => {
       const existingTokens = getUser.data?.data.pushToken;
 
-      if (!existingTokens?.includes(tokenToDelete)) {
+      if (existingTokens?.includes(tokenToAdd)) {
         return undefined;
       }
 
@@ -22,9 +22,9 @@ export const useDeletePushToken = (): DeletePushToken => {
         throw new Error('User id not found');
       }
 
-      const updatedTokens = existingTokens.filter(
-        (token) => token !== tokenToDelete,
-      );
+      const updatedTokens = existingTokens
+        ? [...existingTokens, tokenToAdd]
+        : [tokenToAdd];
 
       try {
         const res = await editUser.request({
@@ -36,12 +36,12 @@ export const useDeletePushToken = (): DeletePushToken => {
 
         return res;
       } catch (error) {
-        console.error('Error deleting push token', error);
+        console.error('Error adding push token', error);
         return undefined;
       }
     },
     [editUser, getUser.data?.data.pushToken, getUser.data?.id],
   );
 
-  return deleteToken;
+  return addToken;
 };
