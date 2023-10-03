@@ -1,6 +1,10 @@
 import { gql } from '@apollo/client';
 
-import { DEFAULT_RESPONSE_NAME, GraphQlPagination } from '../../../../../core';
+import {
+  capitalize,
+  DEFAULT_RESPONSE_NAME,
+  GraphQlPagination,
+} from '../../../../../core';
 import { User, USER_FRAGMENT } from '../../fragments';
 
 export const PREFIX = 'users';
@@ -17,7 +21,7 @@ export type Variables = {
 export const QUERY = gql`
   ${USER_FRAGMENT}
 
-  query GetUsers($limit: Int, $offset: Int, $search: String) {
+  query ${capitalize(PREFIX)}($limit: Int, $offset: Int, $search: String) {
     ${DEFAULT_RESPONSE_NAME}: users(limit: $limit, offset: $offset, search: $search) {
       total
       hasNextPage

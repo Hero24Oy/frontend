@@ -2,14 +2,14 @@ import { useCallback } from 'react';
 
 import { useEditUser, useGetUser, User } from '../../graphql';
 
-type UpdatePresence = (isPresent: boolean) => Promise<User | undefined>;
+type UpdatePresence = (isOnline: boolean) => Promise<User | undefined>;
 
 export const useUpdatePresence = (): UpdatePresence => {
   const { getUser } = useGetUser();
   const { editUser } = useEditUser();
 
   const updatePresence: UpdatePresence = useCallback(
-    async (presence) => {
+    async (isOnline) => {
       const userId = getUser.data?.id;
 
       if (!userId) {
@@ -19,14 +19,14 @@ export const useUpdatePresence = (): UpdatePresence => {
         const res = await editUser.request({
           userId,
           data: {
-            isActive: presence,
-            activeRoute: presence ? {} : undefined,
+            isActive: isOnline,
+            activeRoute: isOnline ? {} : undefined,
           },
         });
 
         return res;
       } catch (error) {
-        console.error('Error deleting push token', error);
+        console.error('Error setting user presence', error);
         return undefined;
       }
     },
