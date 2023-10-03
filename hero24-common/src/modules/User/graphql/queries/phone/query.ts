@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { capitalize } from '../../../../../core';
+import { capitalize, DEFAULT_RESPONSE_NAME } from '../../../../../core';
 
 export const PREFIX = 'phone';
 
@@ -14,6 +14,6 @@ export type Variables = {
 
 export const QUERY = gql`
   query ${capitalize(PREFIX)}($userId: String!) {
-    phone(userId: $userId)
+    ${DEFAULT_RESPONSE_NAME}: phone(userId: $userId)
   }
 `;

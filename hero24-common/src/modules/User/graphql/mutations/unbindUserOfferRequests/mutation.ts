@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { capitalize } from '../../../../../core';
+import { capitalize, DEFAULT_RESPONSE_NAME } from '../../../../../core';
 
 export const PREFIX = 'unbindUserOfferRequests';
 
@@ -18,6 +18,6 @@ export const MUTATION = gql`
     $offerRequestIds: [String!]!
     $userId: String!
   ) {
-    unbindUserOfferRequests(offerRequestIds: $offerRequestIds, userId: $userId)
+    ${DEFAULT_RESPONSE_NAME}: unbindUserOfferRequests(offerRequestIds: $offerRequestIds, userId: $userId)
   }
 `;

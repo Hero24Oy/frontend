@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { capitalize } from '../../../../../core';
+import { capitalize, DEFAULT_RESPONSE_NAME } from '../../../../../core';
 import { User, USER_FRAGMENT } from '../../fragments';
 
 export const PREFIX = 'user';
@@ -17,7 +17,7 @@ export const QUERY = gql`
   ${USER_FRAGMENT}
 
   query ${capitalize(PREFIX)}($id: String!) {
-    user(id: $id) {
+    ${DEFAULT_RESPONSE_NAME}: user(id: $id) {
       ...UserFragment
     }
   }

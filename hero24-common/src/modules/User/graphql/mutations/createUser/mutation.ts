@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { capitalize } from '../../../../../core';
+import { capitalize, DEFAULT_RESPONSE_NAME } from '../../../../../core';
 import { User, USER_FRAGMENT, UserData } from '../../fragments';
 
 export const PREFIX = 'createUser';
@@ -21,7 +21,7 @@ export const MUTATION = gql`
   ${USER_FRAGMENT}
 
   mutation ${capitalize(PREFIX)}($data: UserDataInput!, $userId: String) {
-    createUser(data: $data, userId: $userId) {
+    ${DEFAULT_RESPONSE_NAME}: createUser(data: $data, userId: $userId) {
       ...UserFragment
     }
   }

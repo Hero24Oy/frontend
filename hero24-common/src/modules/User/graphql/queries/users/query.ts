@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { GraphQlPagination } from '../../../../../core';
+import { DEFAULT_RESPONSE_NAME, GraphQlPagination } from '../../../../../core';
 import { User, USER_FRAGMENT } from '../../fragments';
 
 export const PREFIX = 'users';
@@ -19,7 +19,7 @@ export const QUERY = gql`
   ${USER_FRAGMENT}
 
   query GetUsers($limit: Int, $offset: Int, $search: String) {
-    users(limit: $limit, offset: $offset, search: $search) {
+    ${DEFAULT_RESPONSE_NAME}: users(limit: $limit, offset: $offset, search: $search) {
       total
       hasNextPage
       endCursor
