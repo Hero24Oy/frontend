@@ -1,20 +1,20 @@
-export const OFFERS_PER_PAGE = 10;
-
 export enum OfferOrderColumn {
   ID = 'ID',
   STATUS = 'STATUS',
   START_TIME = 'START_TIME',
 }
 
-export enum OfferRole {
+export enum OfferUserRole {
   SELLER = 'SELLER',
   CUSTOMER = 'CUSTOMER',
 }
 
-export enum OfferStatusInput {
+export enum OfferStatus {
   OPEN = 'OPEN',
   ACCEPTED = 'ACCEPTED',
   COMPLETED = 'COMPLETED',
   CANCELLED = 'CANCELLED',
   EXPIRED = 'EXPIRED',
 }
+
+export const OFFER_TYPE_NAME = 'OfferDto';

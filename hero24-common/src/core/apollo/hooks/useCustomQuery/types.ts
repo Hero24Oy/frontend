@@ -4,16 +4,17 @@ import {
   QueryResult,
 } from '@apollo/client';
 
-import { GetGraphqlRequestKeyReturnType } from '../../helpers';
 import { GraphQlInput, GraphQlResponse } from '../../types';
+import { GetGraphqlRequestKeyReturnType } from '../../utils';
 
 export type CustomQueryResult<
   Data,
   Variables extends OperationVariables,
 > = Omit<
   QueryResult<GraphQlResponse<Data>, GraphQlInput<Variables>>,
-  'data'
+  'data' | 'fetchMore'
 > & {
+  fetchMore: (options: Variables) => Promise<Data | undefined>;
   data?: Data;
 };
 
