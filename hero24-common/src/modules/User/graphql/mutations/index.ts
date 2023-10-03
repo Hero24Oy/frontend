@@ -1,3 +1,3 @@
 export * from './createUserSaga';
-export * from './editUserSaga';
+export * from './editUser';
 export * from './unbindUserOfferRequests';
