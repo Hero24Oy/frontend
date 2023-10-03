@@ -13,7 +13,7 @@ export const QUERY = gql`
       edges {
         cursor
         node {
-          ...UserInfo
+          ...UserFragment
         }
       }
     }

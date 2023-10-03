@@ -7,7 +7,7 @@ const MUTATION = gql`
 
   mutation CreateUser($data: UserDataInput!, $userId: String) {
     createUser(data: $data, userId: $userId) {
-      ...UserInfo
+      ...UserFragment
     }
   }
 `;

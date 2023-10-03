@@ -1,13 +1,27 @@
 import { gql } from '@apollo/client';
 
-import { USER_FRAGMENT } from '../../fragments';
+import { capitalize } from '../../../../../core';
+import { User, USER_FRAGMENT, UserData } from '../../fragments';
+
+export const PREFIX = 'editUser';
+
+export type Response = {
+  editUserData: User;
+};
+
+export type Variables = {
+  data: Omit<Partial<UserData>, 'createdAt' | 'updatedAt' | 'deletedAt'>;
+  userId: string;
+};
 
 const MUTATION = gql`
   ${USER_FRAGMENT}
 
-  mutation EditUser($data: PartialUserDataInput!, $userId: String!) {
+  mutation ${capitalize(
+    PREFIX,
+  )}($data: PartialUserDataInput!, $userId: String!) {
     editUserData(data: $data, userId: $userId) {
-      ...UserInfo
+      ...UserFragment
     }
   }
 `;

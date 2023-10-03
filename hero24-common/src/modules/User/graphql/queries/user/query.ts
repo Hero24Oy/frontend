@@ -7,7 +7,7 @@ export const QUERY = gql`
 
   query GetUser($id: String!) {
     user(id: $id) {
-      ...UserInfo
+      ...UserFragment
     }
   }
 `;
