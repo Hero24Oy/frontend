@@ -1,24 +1,19 @@
-// import { apolloQuery } from 'modules/ApolloClient/utils/saga';
+import {
+  useCustomLazyQuery,
+  useCustomQuery,
+  UseLazyQueryWrapper,
+  UseQueryWrapper,
+} from '../../../../../core';
 
-// import { QUERY } from './query';
+import { Data, PREFIX, QUERY, Variables } from './query';
 
-// type Data = {
-//   phone: string;
-// };
+export type UsePhone = UseQueryWrapper<typeof PREFIX, Data, Variables>;
 
-// type Variables = {
-//   userId: string;
-// };
+export const usePhone: UsePhone = (...args) =>
+  useCustomQuery(PREFIX, QUERY, ...args);
 
-export function* getPhoneSaga(_userId: string): Generator {
-  // const { data, error } = yield* apolloQuery<Data, Variables>({
-  //   query: QUERY,
-  //   variables: {
-  //     userId,
-  //   },
-  // });
-  // return {
-  //   phoneData: data?.phone || null,
-  //   phoneError: error,
-  // };
-}
+// TODO to lazy query folder
+type UseLazyGetOffer = UseLazyQueryWrapper<typeof PREFIX, Data, Variables>;
+
+export const useLazyGetOffer: UseLazyGetOffer = (...args) =>
+  useCustomLazyQuery(PREFIX, QUERY, ...args);
