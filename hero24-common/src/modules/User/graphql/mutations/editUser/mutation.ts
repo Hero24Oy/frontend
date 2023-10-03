@@ -14,7 +14,7 @@ export type Variables = {
   userId: string;
 };
 
-const MUTATION = gql`
+export const MUTATION = gql`
   ${USER_FRAGMENT}
 
   mutation ${capitalize(
@@ -25,5 +25,3 @@ const MUTATION = gql`
     }
   }
 `;
-
-export default MUTATION;
