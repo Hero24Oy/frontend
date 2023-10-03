@@ -8,5 +8,3 @@ import { mergeObjects } from '../../utils/mergeObjects';
 const typePoliciesToMerge: TypePolicies[] = [offersTypePolicies];
 
 export const typePolicies = mergeObjects<TypePolicies>(typePoliciesToMerge);
-
-console.debug('typePolicies', typePolicies);
