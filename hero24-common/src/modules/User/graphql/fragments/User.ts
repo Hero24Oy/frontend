@@ -33,7 +33,7 @@ export const USER_FRAGMENT = gql`
   fragment UserFragment on UserDto {
     id
     data {
-      ...UserDataInfo
+      ...UserDataFragment
     }
     stripeCustomerId
     isCreatedFromWeb
@@ -42,7 +42,7 @@ export const USER_FRAGMENT = gql`
     netvisorSellerId
     phoneVerified
     offers {
-      ...UserOfferInfo
+      ...UserOfferFragment
     }
     offerRequests
     transactions

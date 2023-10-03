@@ -62,10 +62,10 @@ export const USER_DATA_FRAGMENT = gql`
     selectedAppLanguage
     lastAskedReviewTime
     activeRoute {
-      ...UserDataActiveRouteInfo
+      ...UserDataActiveRouteFragment
     }
     addresses {
-      ...UserDataAddressInfo
+      ...UserDataAddressFragment
     }
   }
 `;
