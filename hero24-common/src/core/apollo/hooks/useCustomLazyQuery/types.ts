@@ -4,11 +4,7 @@ import {
   OperationVariables,
 } from '@apollo/client';
 
-import {
-  GraphQlInput,
-  GraphQlPaginationArguments,
-  GraphQlResponse,
-} from '../../types';
+import { GraphQlInput, GraphQlResponse } from '../../types';
 import { GetGraphqlRequestKeyReturnType } from '../../utils';
 
 export type CustomLazyQueryResult<
@@ -18,9 +14,7 @@ export type CustomLazyQueryResult<
   LazyQueryResult<GraphQlResponse<Data>, GraphQlInput<Variables>>,
   'data' | 'fetchMore'
 > & {
-  fetchMore: (
-    options?: GraphQlPaginationArguments,
-  ) => Promise<Data | undefined>;
+  fetchMore: (options: Variables) => Promise<Data | undefined>;
   request: (input: Variables) => Promise<Data | undefined>;
   data?: Data;
 };

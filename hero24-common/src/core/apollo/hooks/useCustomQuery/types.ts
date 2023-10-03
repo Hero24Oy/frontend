@@ -4,11 +4,7 @@ import {
   QueryResult,
 } from '@apollo/client';
 
-import {
-  GraphQlInput,
-  GraphQlPaginationArguments,
-  GraphQlResponse,
-} from '../../types';
+import { GraphQlInput, GraphQlResponse } from '../../types';
 import { GetGraphqlRequestKeyReturnType } from '../../utils';
 
 export type CustomQueryResult<
@@ -18,10 +14,7 @@ export type CustomQueryResult<
   QueryResult<GraphQlResponse<Data>, GraphQlInput<Variables>>,
   'data' | 'fetchMore'
 > & {
-  // TODO add types for filtering in future
-  fetchMore: (
-    options?: GraphQlPaginationArguments,
-  ) => Promise<Data | undefined>;
+  fetchMore: (options: Variables) => Promise<Data | undefined>;
   data?: Data;
 };
 

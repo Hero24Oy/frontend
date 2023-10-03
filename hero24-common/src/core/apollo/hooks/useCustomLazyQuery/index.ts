@@ -5,17 +5,10 @@ import {
   TypedDocumentNode,
   useLazyQuery,
 } from '@apollo/client';
-import get from 'lodash/get';
 import { useCallback } from 'react';
 
-import { OfferUserRole } from '../../../../modules/Offers/graphql/constants';
-import { DEFAULT_RESPONSE_NAME, ITEMS_PER_PAGE } from '../../constants';
-import {
-  GraphQlInput,
-  GraphQlPagination,
-  GraphQlPaginationArguments,
-  GraphQlResponse,
-} from '../../types';
+import { DEFAULT_RESPONSE_NAME } from '../../constants';
+import { GraphQlInput, GraphQlResponse } from '../../types';
 import { getGraphqlRequestKey } from '../../utils';
 
 import { CustomLazyQueryResult, PrefixedLazyQueryResult } from './types';
@@ -58,25 +51,16 @@ export const useCustomLazyQuery = <
 
   const { fetchMore } = restQueryResult;
   const customFetchMore = useCallback(
-    async (
-      fetchMoreOptions?: GraphQlPaginationArguments,
-    ): Promise<Data | undefined> => {
-      // * Endpoint should return response conforming to interface GraphQlResponse<GraphQlPagination>
-      const edgesLength = get(data as GraphQlResponse<GraphQlPagination>, [
-        DEFAULT_RESPONSE_NAME,
-        'edges',
-        'length',
-      ]);
+    async (fetchMoreOptions?: Variables): Promise<Data | undefined> => {
+      const input = {
+        ...options?.variables?.input,
+        ...fetchMoreOptions,
+      } satisfies Record<string, string>;
 
-      // TODO handle ordering and filtering
       try {
         const result = await fetchMore({
           variables: {
-            input: {
-              limit: fetchMoreOptions?.limit || ITEMS_PER_PAGE,
-              offset: fetchMoreOptions?.offset || edgesLength || 0,
-              role: OfferUserRole.SELLER, // TODO handle this dynamically
-            },
+            input,
           },
         });
 
@@ -85,7 +69,7 @@ export const useCustomLazyQuery = <
         return undefined;
       }
     },
-    [data, fetchMore],
+    [fetchMore, options?.variables?.input],
   );
 
   const queryResult: CustomLazyQueryResult<Data, Variables> = {

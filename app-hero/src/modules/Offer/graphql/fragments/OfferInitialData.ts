@@ -1,19 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { Purchase, PURCHASE_FRAGMENT } from './Purchase';
-
-import { Maybe } from '$common';
-
-export type OfferInitialData = {
-  agreedStartTime: Date;
-  buyerProfileId: string;
-  createdAt: Date;
-  offerRequestId: string;
-  pricePerHour: number;
-  purchase: Purchase;
-  sellerProfileId: string;
-  categoryId?: Maybe<string>;
-};
+import { PURCHASE_FRAGMENT } from './Purchase';
 
 export const OFFER_INITIAL_DATA_FRAGMENT = gql`
   ${PURCHASE_FRAGMENT}

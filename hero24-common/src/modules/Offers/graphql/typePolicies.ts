@@ -4,12 +4,9 @@ import {
   TypePolicies,
 } from '@apollo/client';
 
-import { OFFER_TYPE_NAME, Variables } from './queries/offer/query';
-import { Data } from './queries/offers/query';
+import { GraphQlInput, GraphQlPagination } from '../../../core/apollo/types';
 
-const DEFAULT_INPUT_NAME = 'input';
-
-type GraphQlInput<Variables> = Record<typeof DEFAULT_INPUT_NAME, Variables>;
+import { OFFER_TYPE_NAME } from './constants';
 
 export const offersTypePolicies: TypePolicies = {
   Query: {
@@ -18,7 +15,10 @@ export const offersTypePolicies: TypePolicies = {
         keyArgs: false,
         read: (
           _cachedKey,
-          options: FieldFunctionOptions<Partial<GraphQlInput<Variables>>>,
+          options: FieldFunctionOptions<
+            // TODO we need type here
+            Partial<GraphQlInput<{ offerId: string }>>
+          >,
         ) => {
           const { args, toReference } = options;
 
@@ -41,7 +41,7 @@ export const offersTypePolicies: TypePolicies = {
             ...incoming,
             edges: [...existing.edges, ...incoming.edges],
           };
-        }) as FieldMergeFunction<Data>,
+        }) as FieldMergeFunction<GraphQlPagination>,
       },
     },
   },

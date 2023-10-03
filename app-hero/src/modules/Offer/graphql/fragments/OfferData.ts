@@ -1,25 +1,8 @@
 import { gql } from '@apollo/client';
 
-import {
-  OFFER_INITIAL_DATA_FRAGMENT,
-  OfferInitialData,
-} from './OfferInitialData';
-import { Purchase, PURCHASE_FRAGMENT } from './Purchase';
-import { WORK_TIME_FRAGMENT, WorkTime } from './WorkTime';
-
-import { Maybe } from '$common';
-
-export type OfferData = {
-  initial: OfferInitialData;
-  isPaused: boolean;
-  seenBySeller: boolean;
-  actualCompletedTime?: Maybe<Date>;
-  actualStartTime?: Maybe<Date>;
-  extensions?: Maybe<Purchase[]>;
-  pauseDurationMS?: Maybe<number>;
-  requestedChangesAccepted?: Maybe<boolean>;
-  workTime?: Maybe<WorkTime[]>;
-};
+import { OFFER_INITIAL_DATA_FRAGMENT } from './OfferInitialData';
+import { PURCHASE_FRAGMENT } from './Purchase';
+import { WORK_TIME_FRAGMENT } from './WorkTime';
 
 export const OFFER_DATA_FRAGMENT = gql`
   ${PURCHASE_FRAGMENT}

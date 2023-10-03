@@ -1,38 +1,7 @@
 import { gql } from '@apollo/client';
-import { OFFER_STATUS } from 'hero24-types';
 
-import { OFFER_DATA_FRAGMENT, OfferData } from './OfferData';
-import { OFFER_EARNINGS_FRAGMENT, OfferEarnings } from './OfferEarnings';
-
-import { Maybe } from '$common';
-
-export type Offer = {
-  chatId: string;
-  data: OfferData;
-  id: string;
-  isApproved: boolean;
-  seenByBuyer: boolean;
-  status: OFFER_STATUS;
-  earnings?: Maybe<OfferEarnings>;
-  hubSpotDealId?: Maybe<string>;
-  netvisorOrderId?: Maybe<string>;
-  netvisorPurchaseInvoiceBatchId?: Maybe<string>;
-  netvisorPurchaseInvoiceId?: Maybe<string>;
-  netvisorSalesInvoiceId?: Maybe<string>;
-  paymentInfoId?: Maybe<string>;
-  paymentTransactions?: Maybe<string[]>;
-  pre15MinReminderSent?: Maybe<boolean>;
-  pre30MinReminderSent?: Maybe<boolean>;
-  preDayReminderSent?: Maybe<boolean>;
-  preHourReminderSent?: Maybe<boolean>;
-  reasonToExtend?: string;
-  sendToNetvisorPurchaseInvoice?: Maybe<number>;
-  sendToNetvisorSalesInvoice?: Maybe<number>;
-  stripePaymentIntentId?: Maybe<string>;
-  timeEndedAfter15MinReminderSent?: Maybe<boolean>;
-  timeEndedReminderSent?: Maybe<boolean>;
-  timeToExtend?: Maybe<number>;
-};
+import { OFFER_DATA_FRAGMENT } from './OfferData';
+import { OFFER_EARNINGS_FRAGMENT } from './OfferEarnings';
 
 export const OFFER_FRAGMENT = gql`
   ${OFFER_DATA_FRAGMENT}

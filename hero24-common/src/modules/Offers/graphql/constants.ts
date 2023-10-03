@@ -17,3 +17,5 @@ export enum OfferStatus {
   CANCELLED = 'CANCELLED',
   EXPIRED = 'EXPIRED',
 }
+
+export const OFFER_TYPE_NAME = 'OfferDto';
