@@ -5,7 +5,7 @@ import { User, USER_FRAGMENT, UserData } from '../../fragments';
 
 export const PREFIX = 'createUser';
 
-export type Response = {
+export type Data = {
   createUser: User;
 };
 

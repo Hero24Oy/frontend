@@ -4,7 +4,7 @@ import { capitalize } from '../../../../../core';
 
 export const PREFIX = 'unbindUserOfferRequests';
 
-export type Response = {
+export type Data = {
   unbindUserOfferRequests: boolean;
 };
 
