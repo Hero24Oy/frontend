@@ -31,7 +31,7 @@ export const useGoogleAuth = (config: Config): SignInWithGoogle => {
       return;
     }
 
-    console.debug('response', response);
+    // console.debug('response', response);
 
     if (response?.type !== 'success') {
       return;
@@ -41,12 +41,14 @@ export const useGoogleAuth = (config: Config): SignInWithGoogle => {
       response.params.id_token,
     );
 
-    console.debug('credentials', credentials);
+    // console.debug('credentials', credentials);
 
     signInWithCredential(firebaseAuth, credentials)
       .then((res) => {
-        console.debug('signin with credential');
-        console.debug('res', res);
+        console.log('chaning firebase auth');
+        console.log('firebaseAuth', firebaseAuth);
+        // console.debug('signin with credential');
+        // console.debug('res', res);
       })
       .catch((err) => console.error('err', err));
   }, [firebaseAuth, response]);

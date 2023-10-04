@@ -35,7 +35,7 @@ const Home: FC = () => {
     },
   });
 
-  console.log('auth.currentUser', auth.currentUser);
+  // console.log('auth.currentUser', auth.currentUser);
 
   const registerHandler = (): void => {
     signUpWithEmail({
@@ -43,7 +43,7 @@ const Home: FC = () => {
       password: 'testing',
     })
       .then((res) => {
-        console.debug(res);
+        // console.debug(res);
       })
       .catch((err) => console.error(err));
   };
@@ -54,7 +54,7 @@ const Home: FC = () => {
       password: 'maxum320',
     })
       .then((data) => {
-        console.debug('data', data);
+        // console.debug('data', data);
       })
       .catch((err) => console.error(err));
   };

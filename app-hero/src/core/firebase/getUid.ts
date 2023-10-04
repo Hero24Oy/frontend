@@ -1,7 +1,7 @@
 import { auth } from './app';
 
-export const getUid = async (): Promise<string | undefined> => {
-  const token = await auth.currentUser?.getIdToken();
+export const getUid = (): string | undefined => {
+  const token = auth.currentUser?.uid;
 
   return token;
 };

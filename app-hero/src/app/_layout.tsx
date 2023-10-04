@@ -3,7 +3,8 @@ import { Slot } from 'expo-router';
 import { FC } from 'react';
 import { combineProviders } from 'react-combine-providers';
 
-import { apolloClient } from '$/core';
+import { apolloClient, auth } from '$/core';
+import { AuthProvider } from '$common';
 import { attachUiProviders } from '$ui-library';
 
 const manager = combineProviders();
@@ -22,7 +23,9 @@ export const MasterProvider = manager.master();
 const Layout: FC = () => {
   return (
     <MasterProvider>
-      <Slot />
+      <AuthProvider firebaseAuth={auth}>
+        <Slot />
+      </AuthProvider>
     </MasterProvider>
   );
 };
