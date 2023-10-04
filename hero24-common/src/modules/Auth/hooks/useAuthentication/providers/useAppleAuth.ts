@@ -3,14 +3,10 @@
 // import { signInWithProvider } from '../../../actions';
 // import { AppAuthProvider } from '../../../constants';
 
-import { SignInReturn } from './types';
+// TODO
 
-export const useAppleAuth = (): SignInReturn => {
+export const useAppleAuth = (): void => {
   // const dispatch = useDispatch();
 
-  return {
-    signIn: async (): Promise<void> => {
-      // dispatch(signInWithProvider({ provider: AppAuthProvider.APPLE }));
-    },
-  };
+  throw new Error('not implemented');
 };

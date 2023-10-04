@@ -9,18 +9,8 @@ export const useEmailSignIn = (auth: Auth): SignInWithProvider => {
     async (data: EmailPasswordData) => {
       const { email, password } = data;
 
-      const userCredential = await signInWithEmailAndPassword(
-        auth,
-        email,
-        password,
-      );
-
-      const { user } = userCredential;
-      const { uid } = user;
-
-      return {
-        id: uid,
-      };
+      // TODO remake like in google auth
+      await signInWithEmailAndPassword(auth, email, password);
     },
     [auth],
   );

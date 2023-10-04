@@ -44,12 +44,11 @@ export const useGoogleAuth = (config: Config): SignInWithGoogle => {
     // console.debug('credentials', credentials);
 
     signInWithCredential(firebaseAuth, credentials)
-      .then((res) => {
-        console.log('chaning firebase auth');
-        console.log('firebaseAuth', firebaseAuth);
-        // console.debug('signin with credential');
-        // console.debug('res', res);
-      })
+      // .then((res) => {
+      //   console.debug('changing firebase auth');
+      //   console.debug('firebaseAuth', firebaseAuth);
+      //   console.debug('res', res);
+      // })
       .catch((err) => console.error('err', err));
   }, [firebaseAuth, response]);
 

@@ -41,22 +41,14 @@ const Home: FC = () => {
     signUpWithEmail({
       email: 'testingsignup@testing.com',
       password: 'testing',
-    })
-      .then((res) => {
-        // console.debug(res);
-      })
-      .catch((err) => console.error(err));
+    }).catch((err) => console.error(err));
   };
 
   const authHandler = (): void => {
     signInWithEmail({
       email: 'sysgears.login@gmail.com',
       password: 'maxum320',
-    })
-      .then((data) => {
-        // console.debug('data', data);
-      })
-      .catch((err) => console.error(err));
+    }).catch((err) => console.error(err));
   };
 
   return (

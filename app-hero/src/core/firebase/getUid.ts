@@ -1,7 +1,7 @@
 import { auth } from './app';
 
-export const getUid = (): string | undefined => {
+export const getUid = (): string => {
   const token = auth.currentUser?.uid;
 
-  return token;
+  return `Bearer ${token}`;
 };

@@ -18,7 +18,7 @@ export type SignInWithProvider =
   | SignUpWithEmail
   | SignInWithGoogle;
 
-export type SignInWithEmail = (data: EmailPasswordData) => Promise<AuthResult>;
+export type SignInWithEmail = (data: EmailPasswordData) => Promise<void>;
 
 export type SignUpWithEmail = (data: EmailPasswordData) => Promise<AuthResult>;
 
