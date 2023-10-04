@@ -1,26 +1,29 @@
+import { Auth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { useCallback } from 'react';
 
 import { EmailPasswordData } from '../../../types';
+import { SignUpWithEmail } from '../types';
 
-// import { useDispatch } from 'react-redux';
-import { SignUpReturn } from './types';
+export const useEmailSignUp = (auth: Auth): SignUpWithEmail => {
+  const signUpHandler = useCallback(
+    async (data: EmailPasswordData) => {
+      const { email, password } = data;
 
-// import { signInWithProvider } from '$modules/Auth/actions';
-// import { AppAuthProvider } from '$modules/Auth/constants';
-// import { EmailPasswordData } from '$modules/Auth/types';
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
 
-export const useEmailSignUp = (): SignUpReturn => {
-  // const dispatch = useDispatch();
+      const { user } = userCredential;
+      const { uid } = user;
 
-  //
-  return {
-    signUp: useCallback(async (_data: EmailPasswordData) => {
-      // dispatch(
-      //   signInWithProvider({
-      //     provider: AppAuthProvider.EMAIL_PASSWORD_SIGN_UP,
-      //     options: data,
-      //   }),
-      // );
-    }, []),
-  };
+      return {
+        id: uid,
+      };
+    },
+    [auth],
+  );
+
+  return signUpHandler;
 };
