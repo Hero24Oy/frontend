@@ -28,8 +28,14 @@ const Home: FC = () => {
     providers: { signInWithEmail, signUpWithEmail, signInWithGoogle },
   } = useAuthentication({
     firebaseAuth: auth,
-    googleAuth: { ...authConfig } as any,
+    googleAuth: {
+      androidClientId: authConfig.androidClientId,
+      iosClientId: authConfig.iosClientId,
+      webClientId: authConfig.webClientId,
+    },
   });
+
+  console.log('auth.currentUser', auth.currentUser);
 
   const registerHandler = (): void => {
     signUpWithEmail({
