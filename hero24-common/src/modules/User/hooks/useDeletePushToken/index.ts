@@ -21,7 +21,7 @@ export const useDeletePushToken = (): DeletePushToken => {
       if (!userId) {
         throw new Error('User id not found');
       }
-
+      // TODO move logic to server
       const updatedTokens = existingTokens.filter(
         (token) => token !== tokenToDelete,
       );

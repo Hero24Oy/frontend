@@ -16,7 +16,7 @@ export const useUpdateUserLastAskedReviewTime =
         if (!userId) {
           throw new Error('User id not found');
         }
-
+        // TODO move logic to server
         return editUser.request({
           userId,
           data: {

@@ -19,6 +19,7 @@ export const useUpdateActiveRoute = (): UpdateActiveRoute => {
     async (route) => {
       const userId = getUser.data?.id;
 
+      // TODO move logic to server
       const activeRoute = route
         ? {
             chatId: Object.values(route)[0],
