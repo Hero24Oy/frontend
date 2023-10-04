@@ -26,19 +26,12 @@ export const useDeletePushToken = (): DeletePushToken => {
         (token) => token !== tokenToDelete,
       );
 
-      try {
-        const res = await editUser.request({
-          userId,
-          data: {
-            pushToken: updatedTokens,
-          },
-        });
-
-        return res;
-      } catch (error) {
-        console.error('Error deleting push token', error);
-        return undefined;
-      }
+      return editUser.request({
+        userId,
+        data: {
+          pushToken: updatedTokens,
+        },
+      });
     },
     [editUser, getUser.data?.data.pushToken, getUser.data?.id],
   );

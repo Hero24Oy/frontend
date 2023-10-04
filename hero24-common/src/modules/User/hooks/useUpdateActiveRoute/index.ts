@@ -28,19 +28,12 @@ export const useUpdateActiveRoute = (): UpdateActiveRoute => {
       if (!userId) {
         throw new Error('User id not found');
       }
-      try {
-        const res = await editUser.request({
-          userId,
-          data: {
-            activeRoute,
-          },
-        });
-
-        return res;
-      } catch (error) {
-        console.error('Error updating active route', error);
-        return undefined;
-      }
+      return editUser.request({
+        userId,
+        data: {
+          activeRoute,
+        },
+      });
     },
     [editUser, getUser.data?.id],
   );

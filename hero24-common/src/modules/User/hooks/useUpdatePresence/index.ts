@@ -15,20 +15,13 @@ export const useUpdatePresence = (): UpdatePresence => {
       if (!userId) {
         throw new Error('User id not found');
       }
-      try {
-        const res = await editUser.request({
-          userId,
-          data: {
-            isActive: isOnline,
-            activeRoute: isOnline ? {} : undefined,
-          },
-        });
-
-        return res;
-      } catch (error) {
-        console.error('Error setting user presence', error);
-        return undefined;
-      }
+      return editUser.request({
+        userId,
+        data: {
+          isActive: isOnline,
+          activeRoute: isOnline ? {} : undefined,
+        },
+      });
     },
     [editUser, getUser.data?.id],
   );
