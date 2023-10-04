@@ -7,8 +7,13 @@ export const PREFIX = 'editUser';
 
 export type Data = User;
 
+export type PartialUserDataInput = Omit<
+  Partial<UserData>,
+  'createdAt' | 'updatedAt' | 'deletedAt'
+>;
+
 export type Variables = {
-  data: Omit<Partial<UserData>, 'createdAt' | 'updatedAt' | 'deletedAt'>;
+  data: PartialUserDataInput;
   userId: string;
 };
 

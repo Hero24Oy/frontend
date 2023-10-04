@@ -7,11 +7,13 @@ export const PREFIX = 'createUser';
 
 export type Data = User;
 
+export type UserDataInput = Omit<
+  UserData,
+  'createdAt' | 'updatedAt' | 'deletedAt' | 'lastAskedReviewTime'
+>;
+
 export type Variables = {
-  data: Omit<
-    UserData,
-    'createdAt' | 'updatedAt' | 'deletedAt' | 'lastAskedReviewTime'
-  >;
+  data: UserDataInput;
   userId?: string;
 };
 
