@@ -1,23 +1,13 @@
-// import { apolloMutation } from 'modules/ApolloClient/utils/saga';
+import { useCustomMutation, UseMutationWrapper } from '../../../../../core';
 
-// import { MUTATION } from './mutation';
+import { Data, MUTATION, PREFIX, Variables } from './mutation';
 
-// type Data = {
-//   unbindUserOfferRequests: boolean;
-// };
+export type UseUnbindUserOfferRequests = UseMutationWrapper<
+  typeof PREFIX,
+  Data,
+  Variables
+>;
 
-type Variables = {
-  offerRequestIds: string[];
-  userId: string;
-};
-
-export function* unbindUserOfferRequestsSaga(_variables: Variables): Generator {
-  // const { data, errors } = yield* apolloMutation<Data, Variables>({
-  //   mutation: MUTATION,
-  //   variables,
-  // });
-  // return {
-  //   unbindUserOfferRequestsData: data && data.unbindUserOfferRequests,
-  //   unbindUserOfferRequestsErrors: errors,
-  // };
-}
+export const useUnbindUserOfferRequests: UseUnbindUserOfferRequests = (
+  ...args
+) => useCustomMutation(PREFIX, MUTATION, ...args);

@@ -1,24 +1,8 @@
-// import { apolloQuery } from 'modules/ApolloClient/utils/saga';
+import { useCustomQuery, UseQueryWrapper } from '../../../../../core';
 
-// import { QUERY } from './query';
+import { Data, PREFIX, QUERY, Variables } from './query';
 
-// type Data = {
-//   phone: string;
-// };
+export type UseGetPhone = UseQueryWrapper<typeof PREFIX, Data, Variables>;
 
-// type Variables = {
-//   userId: string;
-// };
-
-export function* getPhoneSaga(_userId: string): Generator {
-  // const { data, error } = yield* apolloQuery<Data, Variables>({
-  //   query: QUERY,
-  //   variables: {
-  //     userId,
-  //   },
-  // });
-  // return {
-  //   phoneData: data?.phone || null,
-  //   phoneError: error,
-  // };
-}
+export const useGetPhone: UseGetPhone = (...args) =>
+  useCustomQuery(PREFIX, QUERY, ...args);

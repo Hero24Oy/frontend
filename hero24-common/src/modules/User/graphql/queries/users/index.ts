@@ -1,27 +1,8 @@
-// import { apolloQuery } from 'modules/ApolloClient/utils/saga';
-// import { GraphQLPagination } from 'modules/Common/graphql/types';
+import { useCustomQuery, UseQueryWrapper } from '../../../../../core';
 
-// import { User } from '../../fragments';
+import { Data, PREFIX, QUERY, Variables } from './query';
 
-// import { QUERY } from './query';
+export type UseGetUsers = UseQueryWrapper<typeof PREFIX, Data, Variables>;
 
-// type Data = {
-//   users: GraphQLPagination<User>;
-// };
-
-type Variables = {
-  limit?: number;
-  offset?: number;
-  search?: string;
-};
-
-export function* getUserListSaga(_variables: Variables): Generator {
-  // const { data, error } = yield* apolloQuery<Data, Variables>({
-  //   query: QUERY,
-  //   variables,
-  // });
-  // return {
-  //   userListData: data && data.users,
-  //   userListError: error,
-  // };
-}
+export const useGetUsers: UseGetUsers = (...args) =>
+  useCustomQuery(PREFIX, QUERY, ...args);
