@@ -1,20 +1,14 @@
-// import { authConfig } from 'config';
-// import { AuthSessionResult } from 'expo-auth-session';
-// import * as Google from 'expo-auth-session/providers/google';
-// import { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
+// eslint-disable-next-line eslint-comments/disable-enable-pair -- TODO remove
+/* eslint-disable @typescript-eslint/explicit-function-return-type -- TODO remove it later */
+import * as Google from 'expo-auth-session/providers/google';
 
-import { SignInReturn } from './types';
+import { SignInWithGoogle } from '../types';
 
-// import { signInWithProvider } from '$modules/Auth/actions';
-// import { AppAuthProvider } from '$modules/Auth/constants';
-
-// export const useGoogleAuth = (): SignInReturn<AuthSessionResult> => {
-export const useGoogleAuth = (): SignInReturn => {
-  // const dispatch = useDispatch();
-
-  // const [_request, response, promptAsync] =
-  //   Google.useIdTokenAuthRequest(authConfig);
+export const useGoogleAuth = (
+  config: Google.GoogleAuthRequestConfig,
+): SignInWithGoogle => {
+  const [_request, response, promptAsync] =
+    Google.useIdTokenAuthRequest(config);
 
   // * Expo auth session is not well documented
   // * Github issues about id_token being undefined
@@ -33,9 +27,16 @@ export const useGoogleAuth = (): SignInReturn => {
   //   );
   // }, [dispatch, response]);
 
-  return {
-    // signIn: () => promptAsync(),
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-explicit-any -- Will be dealt with in next PR
-    signIn: () => ({}) as any,
+  const requestHandler = async () => {
+    const authResult = await promptAsync({});
+
+    if (response?.type !== 'success') {
+      return;
+    }
+
+    console.debug('response', response);
+    console.debug(authResult);
   };
+
+  return requestHandler;
 };

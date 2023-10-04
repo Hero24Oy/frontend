@@ -1,3 +1,7 @@
+/* eslint-disable eslint-comments/disable-enable-pair -- TODO remove later */
+/* eslint-disable eslint-comments/require-description  -- TODO remove later */
+/* eslint-disable no-empty-function -- TODO remove later */
+/* eslint-disable @typescript-eslint/explicit-function-return-type -- TODO remove later */
 // import { authConfig } from 'config';
 // import { AuthSessionResult, ResponseType } from 'expo-auth-session';
 // import * as Facebook from 'expo-auth-session/providers/facebook';
