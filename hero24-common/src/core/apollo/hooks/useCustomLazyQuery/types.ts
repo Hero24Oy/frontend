@@ -14,9 +14,9 @@ export type CustomLazyQueryResult<
   LazyQueryResult<GraphQlResponse<Data>, GraphQlInput<Variables>>,
   'data' | 'fetchMore'
 > & {
-  data: Required<Data>;
   fetchMore: (options: Variables) => Promise<Data | undefined>;
   request: (input: Variables) => Promise<Data | undefined>;
+  data?: Data;
 };
 
 export type PrefixedLazyQueryResult<

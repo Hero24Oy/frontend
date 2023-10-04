@@ -75,7 +75,7 @@ export const useCustomLazyQuery = <
 
   const queryResult: CustomLazyQueryResult<Data, Variables> = {
     ...restQueryResult,
-    data: data?.[DEFAULT_RESPONSE_NAME] as Required<Data>,
+    data: data?.[DEFAULT_RESPONSE_NAME],
     request: handleLazyQuery,
     fetchMore: customFetchMore,
   };
