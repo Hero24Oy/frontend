@@ -1,4 +1,5 @@
 import {
+  GraphQlInput,
   GraphQlPaginationArguments,
   OfferOrderColumn,
   OfferStatus,
@@ -12,6 +13,8 @@ export type OfferFilter = {
   statuses?: OfferStatus[];
 };
 
-export type OffersInput = {
-  role?: OfferUserRole;
-} & GraphQlPaginationArguments<OfferFilter, OfferOrderColumn>;
+export type OffersInput = GraphQlInput<
+  {
+    role?: OfferUserRole;
+  } & GraphQlPaginationArguments<OfferFilter, OfferOrderColumn>
+>;

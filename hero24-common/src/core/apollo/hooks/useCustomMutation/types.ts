@@ -4,7 +4,7 @@ import {
   OperationVariables,
 } from '@apollo/client';
 
-import { GraphQlInput, GraphQlResponse } from '../../types';
+import { GraphQlResponse } from '../../types';
 
 export type CustomMutationResult<
   Data,
@@ -25,5 +25,5 @@ export type UseMutationWrapper<
   Data,
   Variables extends OperationVariables,
 > = (
-  options?: MutationHookOptions<GraphQlResponse<Data>, GraphQlInput<Variables>>,
+  options?: MutationHookOptions<GraphQlResponse<Data>, Variables>,
 ) => PrefixedMutationResult<Prefix, Data, Variables>;

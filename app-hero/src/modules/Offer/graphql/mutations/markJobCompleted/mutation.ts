@@ -1,18 +1,18 @@
 import { gql } from '@apollo/client';
 import { WorkTime } from 'hero24-types';
 
-import { capitalize, DEFAULT_RESPONSE_NAME } from '$common';
+import { capitalize, DEFAULT_RESPONSE_NAME, GraphQlInput } from '$common';
 
 export const PREFIX = 'markJobCompleted';
 
 export type Response = boolean;
 
-export type Variables = {
+export type Variables = GraphQlInput<{
   actualCompletedTime: Date;
   actualStartTime: Date;
   offerId: string;
   workTime: WorkTime[];
-};
+}>;
 
 export const MUTATION = gql`
   mutation ${capitalize(PREFIX)}($input: OfferCompletedInput!) {

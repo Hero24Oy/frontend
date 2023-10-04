@@ -5,6 +5,7 @@ import { OFFER_FRAGMENT } from '../../fragments';
 import {
   capitalize,
   DEFAULT_RESPONSE_NAME,
+  GraphQlInput,
   Offer,
   OfferUserRole,
 } from '$common';
@@ -13,9 +14,9 @@ export const PREFIX = 'subscribeToOffers';
 
 export type Response = Offer;
 
-export type Variables = {
+export type Variables = GraphQlInput<{
   role: OfferUserRole;
-};
+}>;
 
 export const SUBSCRIPTION = gql`
   ${OFFER_FRAGMENT}

@@ -4,14 +4,14 @@ import {
   QueryResult,
 } from '@apollo/client';
 
-import { GraphQlInput, GraphQlResponse } from '../../types';
+import { GraphQlResponse } from '../../types';
 import { GetGraphqlRequestKeyReturnType } from '../../utils';
 
 export type CustomQueryResult<
   Data,
   Variables extends OperationVariables,
 > = Omit<
-  QueryResult<GraphQlResponse<Data>, GraphQlInput<Variables>>,
+  QueryResult<GraphQlResponse<Data>, Variables>,
   'data' | 'fetchMore'
 > & {
   fetchMore: (options: Variables) => Promise<Data | undefined>;
@@ -32,5 +32,5 @@ export type UseQueryWrapper<
   Data,
   Variables extends OperationVariables,
 > = (
-  options?: QueryHookOptions<GraphQlResponse<Data>, GraphQlInput<Variables>>,
+  options?: QueryHookOptions<GraphQlResponse<Data>, Variables>,
 ) => PrefixedQueryResult<Prefix, Data, Variables>;

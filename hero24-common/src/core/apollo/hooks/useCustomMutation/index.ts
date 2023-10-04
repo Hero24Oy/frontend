@@ -8,7 +8,7 @@ import {
 import { useCallback } from 'react';
 
 import { DEFAULT_RESPONSE_NAME } from '../../constants';
-import { GraphQlInput, GraphQlResponse } from '../../types';
+import { GraphQlResponse } from '../../types';
 
 import { CustomMutationResult, PrefixedMutationResult } from './types';
 
@@ -20,24 +20,20 @@ export const useCustomMutation = <
   Variables extends OperationVariables,
 >(
   prefix: Prefix,
-  document:
-    | DocumentNode
-    | TypedDocumentNode<GraphQlResponse<Data>, GraphQlInput<Variables>>,
-  options?: MutationHookOptions<GraphQlResponse<Data>, GraphQlInput<Variables>>,
+  document: DocumentNode | TypedDocumentNode<GraphQlResponse<Data>, Variables>,
+  options?: MutationHookOptions<GraphQlResponse<Data>, Variables>,
 ): PrefixedMutationResult<Prefix, Data, Variables> => {
   const [mutation, { data, ...restMutationResult }] = useMutation<
     GraphQlResponse<Data>,
-    GraphQlInput<Variables>
+    Variables
   >(document, options);
 
   // we need this handler to avoid unhandled promises
   const handleMutation = useCallback(
-    async (input: Variables): Promise<Data | undefined> => {
+    async (variables: Variables): Promise<Data | undefined> => {
       try {
         const result = await mutation({
-          variables: {
-            input,
-          },
+          variables,
         });
 
         // we do nothing with the error since we use the errorLink to handle this

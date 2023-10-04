@@ -7,7 +7,7 @@ import {
 } from '@apollo/client';
 
 import { DEFAULT_RESPONSE_NAME } from '../../constants';
-import { GraphQlInput, GraphQlResponse } from '../../types';
+import { GraphQlResponse } from '../../types';
 
 import { CustomSubscriptionResult, PrefixedSubscriptionResult } from './types';
 
@@ -19,17 +19,12 @@ export const useCustomSubscription = <
   Variables extends OperationVariables,
 >(
   prefix: Prefix,
-  document:
-    | DocumentNode
-    | TypedDocumentNode<GraphQlResponse<Data>, GraphQlInput<Variables>>,
-  options?: SubscriptionHookOptions<
-    GraphQlResponse<Data>,
-    GraphQlInput<Variables>
-  >,
+  document: DocumentNode | TypedDocumentNode<GraphQlResponse<Data>, Variables>,
+  options?: SubscriptionHookOptions<GraphQlResponse<Data>, Variables>,
 ): PrefixedSubscriptionResult<Prefix, Data, Variables> => {
   const { data, ...restQueryResult } = useSubscription<
     GraphQlResponse<Data>,
-    GraphQlInput<Variables>
+    Variables
   >(document, options);
 
   const queryResult: CustomSubscriptionResult<Data, Variables> = {
