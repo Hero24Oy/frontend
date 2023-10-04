@@ -16,11 +16,7 @@ export const useAddPushToken = (): AddPushToken => {
         return undefined;
       }
 
-      const userId = getUser.data?.id;
-
-      if (!userId) {
-        throw new Error('User id not found');
-      }
+      const userId = getUser.data!.id;
 
       // TODO move logic to server
       const updatedTokens = existingTokens
@@ -34,7 +30,7 @@ export const useAddPushToken = (): AddPushToken => {
         },
       });
     },
-    [editUser, getUser.data?.data.pushToken, getUser.data?.id],
+    [editUser, getUser.data],
   );
 
   return addToken;

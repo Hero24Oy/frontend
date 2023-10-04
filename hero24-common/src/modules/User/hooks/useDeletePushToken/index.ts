@@ -16,11 +16,8 @@ export const useDeletePushToken = (): DeletePushToken => {
         return undefined;
       }
 
-      const userId = getUser.data?.id;
+      const userId = getUser.data!.id;
 
-      if (!userId) {
-        throw new Error('User id not found');
-      }
       // TODO move logic to server
       const updatedTokens = existingTokens.filter(
         (token) => token !== tokenToDelete,
@@ -33,7 +30,7 @@ export const useDeletePushToken = (): DeletePushToken => {
         },
       });
     },
-    [editUser, getUser.data?.data.pushToken, getUser.data?.id],
+    [editUser, getUser.data],
   );
 
   return deleteToken;

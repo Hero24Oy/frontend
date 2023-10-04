@@ -17,7 +17,7 @@ export const useUpdateActiveRoute = (): UpdateActiveRoute => {
 
   const updateActiveRoute: UpdateActiveRoute = useCallback(
     async (route) => {
-      const userId = getUser.data?.id;
+      const userId = getUser.data!.id;
 
       // TODO move logic to server
       const activeRoute = route
@@ -26,9 +26,6 @@ export const useUpdateActiveRoute = (): UpdateActiveRoute => {
           }
         : {};
 
-      if (!userId) {
-        throw new Error('User id not found');
-      }
       return editUser.request({
         userId,
         data: {
@@ -36,7 +33,7 @@ export const useUpdateActiveRoute = (): UpdateActiveRoute => {
         },
       });
     },
-    [editUser, getUser.data?.id],
+    [editUser, getUser.data],
   );
 
   return updateActiveRoute;
