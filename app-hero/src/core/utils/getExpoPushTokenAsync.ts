@@ -1,6 +1,12 @@
 import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
 
+// * This should be here, not in core
+// * It could be because of ssr, so a lot of things are not available which should be in browser or mobile
+/**
+ *
+ * @deprecated Should not be used now, as in web it's not supported
+ */
 export const getExpoPushTokenAsync: () => Promise<string | null> = async () => {
   const { status } = await Notifications.getPermissionsAsync();
 
