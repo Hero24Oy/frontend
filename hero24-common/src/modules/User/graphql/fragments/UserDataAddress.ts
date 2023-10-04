@@ -13,7 +13,7 @@ export const USER_DATA_ADDRESS_FRAGMENT = gql`
 
   fragment UserDataAddressFragment on UserDataAddressDto {
     address {
-      ...AddressInfo
+      ...AddressFragment
     }
     key
   }
