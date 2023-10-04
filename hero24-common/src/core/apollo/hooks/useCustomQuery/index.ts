@@ -12,18 +12,21 @@ import { DEFAULT_RESPONSE_NAME } from '../../constants';
 import { GraphQlResponse } from '../../types';
 import { getGraphqlRequestKey } from '../../utils';
 
-import { CustomQueryResult, PrefixedQueryResult } from './types';
+import { PrefixedQueryResult, StrictPrefixedQueryResult } from './types';
 
 export * from './types';
 export const useCustomQuery = <
   Prefix extends string,
   Data,
   Variables extends OperationVariables,
+  Strict extends boolean = false,
 >(
   prefix: Prefix,
   document: DocumentNode | TypedDocumentNode<GraphQlResponse<Data>, Variables>,
   options?: QueryHookOptions<GraphQlResponse<Data>, Variables>,
-): PrefixedQueryResult<Prefix, Data, Variables> => {
+): Strict extends true
+  ? StrictPrefixedQueryResult<Prefix, Data, Variables>
+  : PrefixedQueryResult<Prefix, Data, Variables> => {
   const { data, ...restQueryResult } = useQuery<
     GraphQlResponse<Data>,
     Variables
@@ -50,7 +53,7 @@ export const useCustomQuery = <
     [fetchMore, options?.variables],
   );
 
-  const queryResult: CustomQueryResult<Data, Variables> = {
+  const queryResult = {
     data: data?.[DEFAULT_RESPONSE_NAME], // * Response must contain field {DEFAULT_RESPONSE_NAME}
     ...restQueryResult,
     fetchMore: customFetchMore,
@@ -58,5 +61,7 @@ export const useCustomQuery = <
 
   return {
     [getGraphqlRequestKey(prefix)]: queryResult,
-  } as PrefixedQueryResult<Prefix, Data, Variables>;
+  } as Strict extends true
+    ? StrictPrefixedQueryResult<Prefix, Data, Variables>
+    : PrefixedQueryResult<Prefix, Data, Variables>;
 };

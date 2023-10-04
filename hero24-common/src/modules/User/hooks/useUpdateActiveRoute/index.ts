@@ -17,32 +17,23 @@ export const useUpdateActiveRoute = (): UpdateActiveRoute => {
 
   const updateActiveRoute: UpdateActiveRoute = useCallback(
     async (route) => {
-      const userId = getUser.data?.id;
+      const userId = getUser.data.id;
 
+      // TODO move logic to server
       const activeRoute = route
         ? {
             chatId: Object.values(route)[0],
           }
         : {};
 
-      if (!userId) {
-        throw new Error('User id not found');
-      }
-      try {
-        const res = await editUser.request({
-          userId,
-          data: {
-            activeRoute,
-          },
-        });
-
-        return res;
-      } catch (error) {
-        console.error('Error updating active route', error);
-        return undefined;
-      }
+      return editUser.request({
+        userId,
+        data: {
+          activeRoute,
+        },
+      });
     },
-    [editUser, getUser.data?.id],
+    [editUser, getUser.data],
   );
 
   return updateActiveRoute;

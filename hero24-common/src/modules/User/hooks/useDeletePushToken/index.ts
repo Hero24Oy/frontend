@@ -10,37 +10,27 @@ export const useDeletePushToken = (): DeletePushToken => {
 
   const deleteToken: DeletePushToken = useCallback(
     async (tokenToDelete) => {
-      const existingTokens = getUser.data?.data.pushToken;
+      const existingTokens = getUser.data.data.pushToken;
 
       if (!existingTokens?.includes(tokenToDelete)) {
         return undefined;
       }
 
-      const userId = getUser.data?.id;
+      const userId = getUser.data.id;
 
-      if (!userId) {
-        throw new Error('User id not found');
-      }
-
+      // TODO move logic to server
       const updatedTokens = existingTokens.filter(
         (token) => token !== tokenToDelete,
       );
 
-      try {
-        const res = await editUser.request({
-          userId,
-          data: {
-            pushToken: updatedTokens,
-          },
-        });
-
-        return res;
-      } catch (error) {
-        console.error('Error deleting push token', error);
-        return undefined;
-      }
+      return editUser.request({
+        userId,
+        data: {
+          pushToken: updatedTokens,
+        },
+      });
     },
-    [editUser, getUser.data?.data.pushToken, getUser.data?.id],
+    [editUser, getUser.data],
   );
 
   return deleteToken;
