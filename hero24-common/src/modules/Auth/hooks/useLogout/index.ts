@@ -13,9 +13,7 @@ export const useLogout = (): LogoutHandler => {
   const logoutHandler: LogoutHandler = useCallback(
     async (apolloClient) => {
       const token = 'token'; // TODO get firebase token
-
       await removeToken(token);
-
       await apolloClient.clearStore();
     },
     [removeToken],

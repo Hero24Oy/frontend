@@ -1,12 +1,12 @@
 // import { authConfig } from 'config';
-import { AuthSessionResult, ResponseType } from 'expo-auth-session';
-import * as Facebook from 'expo-auth-session/providers/facebook';
-import { useEffect } from 'react';
+// import { AuthSessionResult, ResponseType } from 'expo-auth-session';
+// import * as Facebook from 'expo-auth-session/providers/facebook';
+// import { useEffect } from 'react';
 
 // import { useDispatch } from 'react-redux';
 // import { signInWithProvider } from '../../../actions';
 // import { AppAuthProvider } from '../../../constants';
-import { SignInReturn } from './types';
+// import { SignInReturn } from './types';
 
 /*
  * Facebook auth won't work in dev mode
@@ -20,31 +20,31 @@ import { SignInReturn } from './types';
  * https://youtu.be/Ea7--DkHFPo?si=2mSE6UwF9stSVzR3&t=897
  * */
 
-export const useFacebookAuth = (): SignInReturn<AuthSessionResult> => {
+export const useFacebookAuth = () => {
   // const dispatch = useDispatch();
 
-  const [_request, response, promptAsync] = Facebook.useAuthRequest({
-    responseType: ResponseType.Token,
-    // clientId: authConfig.facebookAppId,
-  });
+  // const [_request, response, promptAsync] = Facebook.useAuthRequest({
+  //   responseType: ResponseType.Token,
+  //   // clientId: authConfig.facebookAppId,
+  // });
 
   // * Expo auth session is not well documented
   // * Github issues about id_token being undefined
   // * https://github.com/expo/expo/issues/12808#issuecomment-1002245022
   // * that's why we are using response from Facebook.useAuthRequest instead of response from promptAsync
-  useEffect(() => {
-    // if (!response) {
-    //   return;
-    // }
-    // dispatch(
-    //   signInWithProvider({
-    //     provider: AppAuthProvider.FACEBOOK,
-    //     options: response,
-    //   }),
-    // );
-  }, [response]);
+  // useEffect(() => {
+  //   // if (!response) {
+  //   //   return;
+  //   // }
+  //   // dispatch(
+  //   //   signInWithProvider({
+  //   //     provider: AppAuthProvider.FACEBOOK,
+  //   //     options: response,
+  //   //   }),
+  //   // );
+  // }, [response]);
 
   return {
-    signIn: () => promptAsync(),
+    signIn: () => {},
   };
 };

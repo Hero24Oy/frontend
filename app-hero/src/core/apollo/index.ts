@@ -1,7 +1,9 @@
+import { getUid } from '../firebase';
+
 import { serverConfig } from '$/configs';
 import { createApolloClient } from '$common';
 
 export const apolloClient = createApolloClient({
-  getAuthToken: () => 'string', // TODO from firebase
+  getAuthToken: getUid,
   serverUrl: serverConfig.apiUrl,
 });

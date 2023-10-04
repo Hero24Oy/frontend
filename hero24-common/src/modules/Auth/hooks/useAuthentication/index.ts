@@ -1,38 +1,34 @@
-import { useCallback } from 'react';
+import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
+import { Auth } from 'firebase/auth';
 
 import {
-  useAppleAuth,
+  // useAppleAuth,
   useEmailSignIn,
-  useEmailSignUp,
-  useFacebookAuth,
-  useGoogleAuth,
+  // useEmailSignUp,
+  // useFacebookAuth,
+  // useGoogleAuth,
 } from './providers';
 
 // TODO: create interface for return
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type -- TODO remove it later
-export const useAuthentication = () => {
-  const { signIn: signInApple } = useAppleAuth();
-  const { signIn: signInGoogle } = useGoogleAuth();
-  const { signIn: signInFacebook } = useFacebookAuth();
-  const { signIn: signInEmail } = useEmailSignIn();
-  const { signUp: signUpEmail } = useEmailSignUp();
-
-  const logoutHandler = useCallback(() => {
-    // dispatch(logout()); // TODO clear store here and use deletePushToken hook
-  }, []);
-
+export const useAuthentication = (
+  apolloClient: ApolloClient<NormalizedCacheObject>,
+  firebaseAuth: Auth,
+) => {
+  // const { signIn: signInApple } = useAppleAuth();
+  // const { signIn: signInGoogle } = useGoogleAuth();
+  // const { signIn: signInFacebook } = useFacebookAuth();
+  const { signIn: signInEmail } = useEmailSignIn(apolloClient, firebaseAuth);
+  // const { signUp: signUpEmail } = useEmailSignUp();
   const providers = {
-    signInApple,
-    signInFacebook,
-    signInGoogle,
+    // signInApple,
+    // signInFacebook,
+    // signInGoogle,
     signInEmail,
-    signUpEmail,
+    // signUpEmail,
   };
 
   return {
     providers,
-    authenticating: false,
-    logOuting: false,
-    logout: logoutHandler,
   };
 };

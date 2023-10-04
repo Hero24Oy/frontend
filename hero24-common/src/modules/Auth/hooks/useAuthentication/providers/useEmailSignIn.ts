@@ -1,23 +1,30 @@
+import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
+import { Auth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useCallback } from 'react';
 
 import { EmailPasswordData } from '../../../types';
 
-// import { AppAuthProvider } from '$modules/Auth/constants';
-// import { useDispatch } from 'react-redux';
-// import { signInWithProvider } from '../../../actions';
-import { SignInReturn } from './types';
-
-export const useEmailSignIn = (): SignInReturn => {
-  // const dispatch = useDispatch();
-
+export const useEmailSignIn = (
+  apolloClient: ApolloClient<NormalizedCacheObject>,
+  auth: Auth,
+) => {
   return {
-    signIn: useCallback(async (_data: EmailPasswordData) => {
-      // dispatch(
-      //   signInWithProvider({
-      //     provider: AppAuthProvider.EMAIL_PASSWORD_SIGN_IN,
-      //     options: data,
-      //   }),
-      // );
-    }, []),
+    signIn: useCallback(
+      async (_data: EmailPasswordData) => {
+        const userCredential = await signInWithEmailAndPassword(
+          auth,
+          _data.email,
+          _data.password,
+        );
+
+        const { user } = userCredential;
+        const { uid } = user;
+
+        return {
+          uid,
+        };
+      },
+      [auth],
+    ),
   };
 };
