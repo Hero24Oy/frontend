@@ -55,7 +55,7 @@ export const useCustomQuery = <
   );
 
   const queryResult: CustomQueryResult<Data, Variables> = {
-    data: data?.[DEFAULT_RESPONSE_NAME], // * Response must contain field {DEFAULT_RESPONSE_NAME}
+    data: data?.[DEFAULT_RESPONSE_NAME] as Required<Data>, // * Response must contain field {DEFAULT_RESPONSE_NAME}
     ...restQueryResult,
     fetchMore: customFetchMore,
   };

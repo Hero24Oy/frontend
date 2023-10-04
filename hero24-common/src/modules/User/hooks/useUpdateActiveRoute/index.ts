@@ -17,7 +17,7 @@ export const useUpdateActiveRoute = (): UpdateActiveRoute => {
 
   const updateActiveRoute: UpdateActiveRoute = useCallback(
     async (route) => {
-      const userId = getUser.data!.id;
+      const userId = getUser.data.id;
 
       // TODO move logic to server
       const activeRoute = route

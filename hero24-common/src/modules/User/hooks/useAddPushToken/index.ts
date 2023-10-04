@@ -10,13 +10,13 @@ export const useAddPushToken = (): AddPushToken => {
 
   const addToken: AddPushToken = useCallback(
     async (tokenToAdd) => {
-      const existingTokens = getUser.data?.data.pushToken;
+      const existingTokens = getUser.data.data.pushToken;
 
       if (existingTokens?.includes(tokenToAdd)) {
         return undefined;
       }
 
-      const userId = getUser.data!.id;
+      const userId = getUser.data.id;
 
       // TODO move logic to server
       const updatedTokens = existingTokens

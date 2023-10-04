@@ -10,13 +10,13 @@ export const useDeletePushToken = (): DeletePushToken => {
 
   const deleteToken: DeletePushToken = useCallback(
     async (tokenToDelete) => {
-      const existingTokens = getUser.data?.data.pushToken;
+      const existingTokens = getUser.data.data.pushToken;
 
       if (!existingTokens?.includes(tokenToDelete)) {
         return undefined;
       }
 
-      const userId = getUser.data!.id;
+      const userId = getUser.data.id;
 
       // TODO move logic to server
       const updatedTokens = existingTokens.filter(

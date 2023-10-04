@@ -10,7 +10,7 @@ export const useUpdatePresence = (): UpdatePresence => {
 
   const updatePresence: UpdatePresence = useCallback(
     async (isOnline) => {
-      const userId = getUser.data!.id;
+      const userId = getUser.data.id;
 
       // TODO move logic to server
       return editUser.request({

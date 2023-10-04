@@ -11,7 +11,7 @@ export const useUpdateUserLastAskedReviewTime =
 
     const updateLastAskedReviewTime: UpdateLastAskedReviewTime = useCallback(
       async (lastAskedReviewTime) => {
-        const userId = getUser.data!.id;
+        const userId = getUser.data.id;
 
         // TODO move logic to server
         return editUser.request({

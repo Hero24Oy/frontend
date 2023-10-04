@@ -14,8 +14,8 @@ export type CustomQueryResult<
   QueryResult<GraphQlResponse<Data>, GraphQlInput<Variables>>,
   'data' | 'fetchMore'
 > & {
+  data: Required<NonNullable<Data>>;
   fetchMore: (options: Variables) => Promise<Data | undefined>;
-  data?: Data;
 };
 
 export type PrefixedQueryResult<

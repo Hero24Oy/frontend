@@ -52,7 +52,7 @@ export const useCustomLazyQuery = <
 
   const { fetchMore } = restQueryResult;
   const customFetchMore = useCallback(
-    async (fetchMoreVariables?: Variables): Promise<Data | undefined> => {
+    async (fetchMoreVariables: Variables): Promise<Data | undefined> => {
       const input = merge(
         options?.variables?.input,
         fetchMoreVariables,
@@ -75,7 +75,7 @@ export const useCustomLazyQuery = <
 
   const queryResult: CustomLazyQueryResult<Data, Variables> = {
     ...restQueryResult,
-    data: data?.[DEFAULT_RESPONSE_NAME],
+    data: data?.[DEFAULT_RESPONSE_NAME] as Required<Data>,
     request: handleLazyQuery,
     fetchMore: customFetchMore,
   };
