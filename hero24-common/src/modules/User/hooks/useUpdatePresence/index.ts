@@ -10,27 +10,18 @@ export const useUpdatePresence = (): UpdatePresence => {
 
   const updatePresence: UpdatePresence = useCallback(
     async (isOnline) => {
-      const userId = getUser.data?.id;
+      const userId = getUser.data.id;
 
-      if (!userId) {
-        throw new Error('User id not found');
-      }
-      try {
-        const res = await editUser.request({
-          userId,
-          data: {
-            isActive: isOnline,
-            activeRoute: isOnline ? {} : undefined,
-          },
-        });
-
-        return res;
-      } catch (error) {
-        console.error('Error setting user presence', error);
-        return undefined;
-      }
+      // TODO move logic to server
+      return editUser.request({
+        userId,
+        data: {
+          isActive: isOnline,
+          activeRoute: isOnline ? {} : undefined,
+        },
+      });
     },
-    [editUser, getUser.data?.id],
+    [editUser, getUser.data],
   );
 
   return updatePresence;

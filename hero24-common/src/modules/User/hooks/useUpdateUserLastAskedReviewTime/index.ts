@@ -11,27 +11,17 @@ export const useUpdateUserLastAskedReviewTime =
 
     const updateLastAskedReviewTime: UpdateLastAskedReviewTime = useCallback(
       async (lastAskedReviewTime) => {
-        const userId = getUser.data?.id;
+        const userId = getUser.data.id;
 
-        if (!userId) {
-          throw new Error('User id not found');
-        }
-
-        try {
-          const res = await editUser.request({
-            userId,
-            data: {
-              lastAskedReviewTime,
-            },
-          });
-
-          return res;
-        } catch (error) {
-          console.error('Error updating last asked review time', error);
-          return undefined;
-        }
+        // TODO move logic to server
+        return editUser.request({
+          userId,
+          data: {
+            lastAskedReviewTime,
+          },
+        });
       },
-      [editUser, getUser.data?.id],
+      [editUser, getUser.data],
     );
 
     return updateLastAskedReviewTime;

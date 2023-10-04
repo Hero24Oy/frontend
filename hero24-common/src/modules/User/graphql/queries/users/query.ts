@@ -11,7 +11,7 @@ export const PREFIX = 'users';
 
 export type Data = GraphQlPagination<User>;
 
-// TODO GraphqlPaginationArguments could be used here
+// TODO move to using object instead of list of arguments
 export type Variables = {
   limit?: number;
   offset?: number;

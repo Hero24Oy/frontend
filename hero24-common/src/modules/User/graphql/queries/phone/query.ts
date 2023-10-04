@@ -10,6 +10,7 @@ export type Variables = {
   userId: string;
 };
 
+// TODO here is userId but in <user> resolver  it's just id
 export const QUERY = gql`
   query ${capitalize(PREFIX)}($userId: String!) {
     ${DEFAULT_RESPONSE_NAME}: phone(userId: $userId)

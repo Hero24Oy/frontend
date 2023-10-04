@@ -18,6 +18,17 @@ export type CustomQueryResult<
   data?: Data;
 };
 
+export type StrictCustomQueryResult<
+  Data,
+  Variables extends OperationVariables,
+> = Omit<
+  QueryResult<GraphQlResponse<Data>, GraphQlInput<Variables>>,
+  'data' | 'fetchMore'
+> & {
+  data: Data;
+  fetchMore: (options: Variables) => Promise<Data>;
+};
+
 export type PrefixedQueryResult<
   Prefix extends string,
   Data,
@@ -27,10 +38,22 @@ export type PrefixedQueryResult<
   CustomQueryResult<Data, Variables>
 >;
 
+export type StrictPrefixedQueryResult<
+  Prefix extends string,
+  Data,
+  Variables extends OperationVariables,
+> = Record<
+  GetGraphqlRequestKeyReturnType<Prefix>,
+  StrictCustomQueryResult<Data, Variables>
+>;
+
 export type UseQueryWrapper<
   Prefix extends string,
   Data,
   Variables extends OperationVariables,
+  Strict extends boolean = false,
 > = (
   options?: QueryHookOptions<GraphQlResponse<Data>, GraphQlInput<Variables>>,
-) => PrefixedQueryResult<Prefix, Data, Variables>;
+) => Strict extends true
+  ? StrictPrefixedQueryResult<Prefix, Data, Variables>
+  : PrefixedQueryResult<Prefix, Data, Variables>;
