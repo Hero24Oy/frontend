@@ -1,0 +1,11 @@
+node_modules/**/*
+.expo/*
+.expo-shared/*
+npm-debug.*
+.DS_Store
+*.jks
+todo.txt
+.vscode/*
+.idea
+.favorites.json
+dist

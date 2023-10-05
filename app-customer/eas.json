@@ -5,19 +5,13 @@
   "build": {
     "development": {
       "channel": "development",
-      "distribution": "internal",
+      "distribution": "store",
       "android": {
         "buildType": "app-bundle",
-        "node": "18.18.0",
-        "env": {
-          "APP_ENV": "development"
-        }
+        "node": "18.18.0"
       },
       "ios": {
-        "node": "18.18.0",
-        "env": {
-          "APP_ENV": "development"
-        }
+        "node": "18.18.0"
       },
       "cache": {
         "key": "0.0.1"
@@ -25,19 +19,13 @@
     },
     "preview": {
       "channel": "preview",
-      "distribution": "internal",
+      "distribution": "store",
       "android": {
         "buildType": "app-bundle",
-        "node": "18.18.0",
-        "env": {
-          "APP_ENV": "preview"
-        }
+        "node": "18.18.0"
       },
       "ios": {
-        "node": "18.18.0",
-        "env": {
-          "APP_ENV": "preview"
-        }
+        "node": "18.18.0"
       },
       "cache": {
         "key": "0.0.1"
@@ -48,16 +36,10 @@
       "distribution": "store",
       "android": {
         "buildType": "app-bundle",
-        "node": "18.18.0",
-        "env": {
-          "APP_ENV": "production"
-        }
+        "node": "18.18.0"
       },
       "ios": {
-        "node": "18.18.0",
-        "env": {
-          "APP_ENV": "production"
-        }
+        "node": "18.18.0"
       },
       "cache": {
         "key": "0.0.1"
