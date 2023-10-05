@@ -23,7 +23,9 @@
     "copy-ui-library": "ts-node --skipProject scripts/copy-ui-library.ts",
     "update-local-dependencies": "npm run copy-common && npm run copy-ui-library",
     "postinstall": "npm run check:requirements && npm run update-local-dependencies",
-    "prestart": "npm run check:requirements && npm run update-local-dependencies"
+    "prestart": "npm run check:requirements && npm run update-local-dependencies",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "dependencies": {
     "@apollo/client": "^3.8.3",

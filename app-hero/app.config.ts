@@ -54,20 +54,20 @@ const productionConfig = {
   originalFullName: '@hero24/hero24',
   extra: {
     eas: {
-      projectId: 'ed1cb104-bebc-48e6-803d-7c29084cf4c8',
+      projectId: 'd1e90bd7-0018-4cc5-baca-5d55a16d069b',
     },
   },
 } satisfies Partial<ExpoConfig>;
 
 // Change/add necessary fields for staging
 const stagingConfig = {
-  name: 'Hero24 (Development)',
-  slug: 'hero24-default',
-  currentFullName: '@hero24/hero24-default',
-  originalFullName: '@hero24/hero24-default',
+  name: 'Hero24 Hero (Development)',
+  slug: 'app-hero',
+  currentFullName: '@hero24/hero24-hero',
+  originalFullName: '@hero24/hero24-hero',
   extra: {
     eas: {
-      projectId: '8bc41976-03c5-45a8-8825-448636f174cc',
+      projectId: 'd1e90bd7-0018-4cc5-baca-5d55a16d069b',
     },
   },
   android: {

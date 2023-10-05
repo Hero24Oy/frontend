@@ -37,7 +37,7 @@ elsif podfile_properties.key?('ios.flipper') then
   end
 end
 
-target 'Hero24Development' do
+target 'Hero24HeroDevelopment' do
   use_expo_modules!
   config = use_native_modules!
 
