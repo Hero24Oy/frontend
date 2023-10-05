@@ -11,10 +11,11 @@ import { useEffect } from 'react';
 import { Config, SignInWithGoogle } from '../types';
 
 // TODO think about simple signInWithProvider hook that takes provider as function or something, calls it and just uses uid returned from it
-// TODO does not work on andoird, redirect uri
+// TODO does not work on android, redirect uri
 export const useGoogleAuth = (config: Config): SignInWithGoogle => {
   const { firebaseAuth, googleAuth } = config;
 
+  // TODO After redirect on android it's automatically redirected by the schema to the app, deal with it
   const [_request, response, promptAsync] = Google.useIdTokenAuthRequest({
     androidClientId: googleAuth.androidClientId,
     iosClientId: googleAuth.iosClientId,
