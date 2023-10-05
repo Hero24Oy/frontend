@@ -1,0 +1,96 @@
+{
+  "cli": {
+    "version": ">= 3.13.3"
+  },
+  "build": {
+    "development": {
+      "channel": "development",
+      "distribution": "internal",
+      "android": {
+        "buildType": "app-bundle",
+        "node": "18.18.0",
+        "env": {
+          "APP_ENV": "development"
+        }
+      },
+      "ios": {
+        "node": "18.18.0",
+        "env": {
+          "APP_ENV": "development"
+        }
+      },
+      "cache": {
+        "key": "0.0.1"
+      }
+    },
+    "preview": {
+      "channel": "preview",
+      "distribution": "internal",
+      "android": {
+        "buildType": "app-bundle",
+        "node": "18.18.0",
+        "env": {
+          "APP_ENV": "preview"
+        }
+      },
+      "ios": {
+        "node": "18.18.0",
+        "env": {
+          "APP_ENV": "preview"
+        }
+      },
+      "cache": {
+        "key": "0.0.1"
+      }
+    },
+    "production": {
+      "channel": "production",
+      "distribution": "store",
+      "android": {
+        "buildType": "app-bundle",
+        "node": "18.18.0",
+        "env": {
+          "APP_ENV": "production"
+        }
+      },
+      "ios": {
+        "node": "18.18.0",
+        "env": {
+          "APP_ENV": "production"
+        }
+      },
+      "cache": {
+        "key": "0.0.1"
+      }
+    }
+  },
+  "submit": {
+    "development": {
+      "android": {
+        "serviceAccountKeyPath": "./google-play-services.json"
+      },
+      "ios": {
+        "appleId": "admin@hero24.com",
+        "ascAppId": "6468482894"
+      }
+    },
+    "preview": {
+      "android": {
+        "serviceAccountKeyPath": "./google-play-services.json"
+      },
+      "ios": {
+        "appleId": "admin@hero24.com",
+        "ascAppId": "6468482894"
+      }
+    },
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./google-play-services.json"
+      },
+      "ios": {
+        "appleId": "admin@hero24.com",
+        "ascAppId": "6468482894"
+      }
+    }
+  }
+}

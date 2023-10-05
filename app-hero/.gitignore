@@ -69,6 +69,7 @@ expo-env.d.ts
 
 # Credentials
 .env
+google-play-services.json
 google-services-prod.json
 google-services.json
 GoogleService-Info-prod.plist
