@@ -1,10 +1,17 @@
-import { Slot, SplashScreen } from 'expo-router';
+import { Slot } from 'expo-router';
 import { FC } from 'react';
+import { combineProviders } from 'react-combine-providers';
 
-import { MasterProvider } from '$ui-library';
+import { attachUiProviders } from '$ui-library';
 
-SplashScreen.preventAutoHideAsync();
+const manager = combineProviders();
 
+attachUiProviders(manager);
+
+export const MasterProvider = manager.master();
+
+// TODO fix splash screen
+// SplashScreen.preventAutoHideAsync();
 const Layout: FC = () => {
   return (
     <MasterProvider>

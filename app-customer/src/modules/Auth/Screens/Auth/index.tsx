@@ -15,7 +15,7 @@ import {
   VStack,
 } from '$ui-library';
 
-const AuthView: FC = () => {
+export const AuthScreen: FC = () => {
   const toast = useToast();
 
   const showToast = (description?: string, title?: string): void => {
@@ -80,5 +80,3 @@ const AuthView: FC = () => {
     </SafeAreaView>
   );
 };
-
-export default AuthView;
