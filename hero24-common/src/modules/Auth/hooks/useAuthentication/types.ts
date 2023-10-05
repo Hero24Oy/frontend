@@ -1,7 +1,10 @@
 import { AuthSessionResult, GoogleAuthRequestConfig } from 'expo-auth-session';
 import { Auth } from 'firebase/auth';
 
-import { EmailPasswordData } from '../../types';
+export type EmailPasswordData = {
+  email: string;
+  password: string;
+};
 
 export type AuthResult = {
   id: string;

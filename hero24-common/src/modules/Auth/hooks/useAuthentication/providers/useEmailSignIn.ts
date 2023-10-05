@@ -1,8 +1,7 @@
 import { Auth, signInWithEmailAndPassword } from 'firebase/auth';
 import { useCallback } from 'react';
 
-import { EmailPasswordData } from '../../../types';
-import { SignInWithProvider } from '../types';
+import { EmailPasswordData, SignInWithProvider } from '../types';
 
 export const useEmailSignIn = (auth: Auth): SignInWithProvider => {
   const signInHandler = useCallback(

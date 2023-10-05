@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import { Config, SignInWithGoogle } from '../types';
 
 // TODO think about simple signInWithProvider hook that takes provider as function or something, calls it and just uses uid returned from it
-// TODO convert to obj
+// TODO does not work on andoird, redirect uri
 export const useGoogleAuth = (config: Config): SignInWithGoogle => {
   const { firebaseAuth, googleAuth } = config;
 
@@ -31,8 +31,6 @@ export const useGoogleAuth = (config: Config): SignInWithGoogle => {
       return;
     }
 
-    // console.debug('response', response);
-
     if (response?.type !== 'success') {
       return;
     }
@@ -41,15 +39,9 @@ export const useGoogleAuth = (config: Config): SignInWithGoogle => {
       response.params.id_token,
     );
 
-    // console.debug('credentials', credentials);
-
-    signInWithCredential(firebaseAuth, credentials)
-      // .then((res) => {
-      //   console.debug('changing firebase auth');
-      //   console.debug('firebaseAuth', firebaseAuth);
-      //   console.debug('res', res);
-      // })
-      .catch((err) => console.error('err', err));
+    signInWithCredential(firebaseAuth, credentials).catch((err) =>
+      console.error('err', err),
+    );
   }, [firebaseAuth, response]);
 
   return () => promptAsync();
