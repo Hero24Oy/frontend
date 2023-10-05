@@ -1,25 +1,34 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair -- TODO remove
 /* eslint-disable @typescript-eslint/explicit-function-return-type -- TODO remove it later */
+import { makeRedirectUri } from 'expo-auth-session';
 import * as Google from 'expo-auth-session/providers/google';
+import Constants from 'expo-constants';
 import {
   GoogleAuthProvider,
   OAuthCredential,
   signInWithCredential,
 } from 'firebase/auth';
 import { useEffect } from 'react';
+import { Platform } from 'react-native';
 
 import { Config, SignInWithGoogle } from '../types';
 
-// TODO think about simple signInWithProvider hook that takes provider as function or something, calls it and just uses uid returned from it
-// TODO does not work on android, redirect uri
 export const useGoogleAuth = (config: Config): SignInWithGoogle => {
   const { firebaseAuth, googleAuth } = config;
 
-  // TODO After redirect on android it's automatically redirected by the schema to the app, deal with it
   const [_request, response, promptAsync] = Google.useIdTokenAuthRequest({
     androidClientId: googleAuth.androidClientId,
     iosClientId: googleAuth.iosClientId,
     webClientId: googleAuth.webClientId,
+    // * We need to create redirect URI for android, otherwise it redirects to `scheme://oauthredirect`
+    // * https://github.com/expo/expo/issues/22662#issuecomment-1704703426
+    redirectUri:
+      Platform.OS === 'android'
+        ? makeRedirectUri({
+            scheme: Constants.expoConfig?.android?.package,
+            path: '/login',
+          })
+        : undefined,
   });
 
   // * Expo auth session is not well documented
