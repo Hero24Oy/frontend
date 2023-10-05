@@ -1,2 +1,2 @@
 export * from './useAuthentication';
-export * from './useLogout';
+export * from './useSession';

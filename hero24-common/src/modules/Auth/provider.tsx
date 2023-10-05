@@ -1,43 +1,95 @@
-import { Auth } from 'firebase/auth';
-import { FC, PropsWithChildren, useEffect } from 'react';
+import {
+  createContext,
+  FC,
+  PropsWithChildren,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 
-import { useGetUser } from '../User';
+import { useDeletePushToken, useGetUser, User } from '../User';
 
-type AuthProviderProps = {
-  firebaseAuth: Auth;
+import { AuthContextProps, AuthProviderProps } from './types';
+
+const initialState: AuthContextProps = {
+  accessToken: null,
+  isLoading: true,
+  logout: () => Promise.resolve(),
+  firebaseAuth: null,
+  user: null,
 };
 
+export const AuthContext = createContext<AuthContextProps>(initialState);
+
 // * Apollo provider should be higher
-// TODO add auth provider to common providers combiner when firebase is migrated to common
 export const AuthProvider: FC<PropsWithChildren<AuthProviderProps>> = (
   props,
 ) => {
   const { children, firebaseAuth } = props;
-
-  // TODO replace with lazy query
+  const [accessToken, setAccessToken] = useState<string | null>(null);
+  const [user, setUser] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const { getUser } = useGetUser({ skip: true });
+  const deletePushToken = useDeletePushToken(user?.id ?? '');
 
-  const fetchUser = async (): Promise<void> => {
-    if (!firebaseAuth.currentUser) {
-      return;
-    }
+  const logout = useCallback(async () => {
+    await deletePushToken('all'); // TODO Add expo push token here
+    await firebaseAuth.signOut();
 
-    console.debug('sending request');
+    // * Reset store
+    setAccessToken(null);
+    setUser(null);
 
-    const userData = await getUser.refetch({
-      id: firebaseAuth.currentUser.uid,
-    });
+    // * Clear store only after all actions, because some of them rely on cached data
+    await getUser.client.clearStore();
+  }, [deletePushToken, firebaseAuth, getUser.client]);
 
-    console.debug('userData', userData);
-  };
+  const contextValue = useMemo(
+    () =>
+      ({
+        firebaseAuth,
+        isLoading,
+        accessToken,
+        user,
+        logout,
+      }) satisfies AuthContextProps,
+    [accessToken, firebaseAuth, isLoading, logout, user],
+  );
 
   useEffect(() => {
+    // * onAuthStateChanged is triggered on app start and on every login/logout
     firebaseAuth.onAuthStateChanged((newState) => {
-      console.debug('newState', newState);
-      fetchUser().catch((error) => console.error(error));
+      if (!newState) {
+        setUser(null);
+        setAccessToken(null);
+        setIsLoading(false);
+
+        return;
+      }
+
+      getUser
+        .refetch({
+          id: newState.uid,
+        })
+        .then((response) => {
+          const newUser = response.data.response;
+
+          setUser(newUser);
+
+          return newState.getIdToken(); // * Get jwt token for auth
+        })
+        .then((jwtToken) => {
+          setAccessToken(jwtToken);
+          setIsLoading(false);
+        })
+        .catch((error) => console.error(error));
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- De need this to run only once, when app starts
   }, []);
 
   // * Listen to auth state changes
-  return children;
+  return (
+    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
+  );
 };

@@ -1,36 +1,42 @@
 import { useCallback } from 'react';
 
-import { useEditUser, useGetUser, User } from '../../graphql';
+import { useEditUser, useGetUser } from '../../graphql';
 
-type DeletePushToken = (tokenToDelete: string) => Promise<User | undefined>;
+export type DeletePushToken = (tokenToDelete: string) => Promise<void>;
 
-export const useDeletePushToken = (): DeletePushToken => {
-  const { getUser } = useGetUser();
+export const useDeletePushToken = (userId: string): DeletePushToken => {
+  // TODO implement lazy user query
+  const { getUser } = useGetUser({
+    skip: true,
+  });
   const { editUser } = useEditUser();
 
   const deleteToken: DeletePushToken = useCallback(
     async (tokenToDelete) => {
-      const existingTokens = getUser.data.data.pushToken;
+      const user = await getUser.refetch({
+        id: userId,
+      });
+
+      const { data } = user.data.response;
+      const { pushToken: existingTokens } = data;
 
       if (!existingTokens?.includes(tokenToDelete)) {
-        return undefined;
+        return;
       }
-
-      const userId = getUser.data.id;
 
       // TODO move logic to server
       const updatedTokens = existingTokens.filter(
         (token) => token !== tokenToDelete,
       );
 
-      return editUser.request({
+      await editUser.request({
         userId,
         data: {
           pushToken: updatedTokens,
         },
       });
     },
-    [editUser, getUser.data],
+    [editUser, getUser, userId],
   );
 
   return deleteToken;
