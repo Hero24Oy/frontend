@@ -42,10 +42,6 @@ const commonConfig: Partial<ExpoConfig> = {
   experiments: {
     tsconfigPaths: true,
   },
-  notification: {
-    color: '#ea4435',
-    icon: './assets/images/logo-icon-notification.png',
-  },
   scheme: `fb${process.env.FACEBOOK_APP_ID}`, // * fb* is Facebook App ID, used for redirecting on android
   plugins: ['expo-router'],
 };
