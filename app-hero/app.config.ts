@@ -71,10 +71,10 @@ const stagingConfig = {
     },
   },
   android: {
-    package: 'com.hero24.app',
+    package: 'com.hero24.hero',
   },
   ios: {
-    bundleIdentifier: 'com.hero24.app',
+    bundleIdentifier: 'com.hero24.hero',
   },
   experiments: {
     typedRoutes: true,
