@@ -4,12 +4,9 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type -- TODO remove later */
 // import { authConfig } from 'config';
 // import { AuthSessionResult, ResponseType } from 'expo-auth-session';
-// import * as Facebook from 'expo-auth-session/providers/facebook';
+import * as Facebook from 'expo-auth-session/providers/facebook';
 // import { useEffect } from 'react';
 
-// import { useDispatch } from 'react-redux';
-// import { signInWithProvider } from '../../../actions';
-// import { AppAuthProvider } from '../../../constants';
 // import { SignInReturn } from './types';
 
 /*
@@ -26,11 +23,9 @@
 
 // TODO
 export const useFacebookAuth = () => {
-  // const dispatch = useDispatch();
-
   // const [_request, response, promptAsync] = Facebook.useAuthRequest({
   //   responseType: ResponseType.Token,
-  //   // clientId: authConfig.facebookAppId,
+  //   clientId: authConfig.facebookAppId,
   // });
 
   // * Expo auth session is not well documented

@@ -1,15 +1,19 @@
 import { makeRedirectUri } from 'expo-auth-session';
 import * as Google from 'expo-auth-session/providers/google';
 import Constants from 'expo-constants';
-import {
-  GoogleAuthProvider,
-  OAuthCredential,
-  signInWithCredential,
-} from 'firebase/auth';
+import { GoogleAuthProvider, OAuthCredential } from 'firebase/auth';
 import { useCallback, useEffect } from 'react';
 import { Platform } from 'react-native';
 
-import { Config, SignInWithGoogle } from '../types';
+import { OnAuthSucceed } from './types';
+
+type GoogleAuthConfig = {
+  androidClientId: string;
+  iosClientId: string;
+  webClientId: string;
+} & OnAuthSucceed;
+
+type UseGoogleAuth = (config: GoogleAuthConfig) => () => Promise<void>;
 
 // * We need to create redirect URI for android, otherwise it redirects to `scheme://oauthredirect`
 // * https://github.com/expo/expo/issues/22662#issuecomment-1704703426
@@ -21,14 +25,15 @@ const REDIRECT_URI =
       })
     : undefined;
 
-export const useGoogleAuth = (config: Config): SignInWithGoogle => {
-  const { firebaseAuth, googleAuth } = config;
+export const useGoogleAuth: UseGoogleAuth = (config) => {
+  const { onAuthSucceed, ...googleAuthConfig } = config;
+  const { webClientId, iosClientId, androidClientId } = googleAuthConfig;
 
   const [_request, response, promptAsync] = Google.useIdTokenAuthRequest({
-    androidClientId: googleAuth.androidClientId,
-    iosClientId: googleAuth.iosClientId,
-    webClientId: googleAuth.webClientId,
     redirectUri: REDIRECT_URI,
+    androidClientId,
+    iosClientId,
+    webClientId,
   });
 
   const handlerPrompt = useCallback(async () => {
@@ -52,10 +57,8 @@ export const useGoogleAuth = (config: Config): SignInWithGoogle => {
       response.params.id_token,
     );
 
-    signInWithCredential(firebaseAuth, credentials).catch((err) =>
-      console.error('err', err),
-    );
-  }, [firebaseAuth, response]);
+    onAuthSucceed(credentials).catch((error) => console.error(error));
+  }, [onAuthSucceed, response]);
 
   return handlerPrompt;
 };

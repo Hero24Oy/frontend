@@ -5,22 +5,28 @@ import { SafeAreaView, TextInput, View } from 'react-native';
 
 import { authConfig } from '$/configs';
 import { auth } from '$/core';
-import { useAuthentication, useSession } from '$common';
+import {
+  useAuthentication,
+  useEmailSignIn,
+  useEmailSignUp,
+  useGoogleAuth,
+  useSession,
+} from '$common';
 
 const Home: FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { user } = useSession();
 
-  const {
-    providers: { signInWithEmail, signUpWithEmail, signInWithGoogle },
-  } = useAuthentication({
-    firebaseAuth: auth,
-    googleAuth: {
-      androidClientId: authConfig.androidClientId,
-      iosClientId: authConfig.iosClientId,
-      webClientId: authConfig.webClientId,
-    },
+  const { signInWithCredentials } = useAuthentication(auth);
+  const signInWithEmail = useEmailSignIn(auth);
+  const signUpWithEmail = useEmailSignUp(auth);
+
+  const signInWithGoogle = useGoogleAuth({
+    onAuthSucceed: signInWithCredentials,
+    androidClientId: authConfig.androidClientId,
+    iosClientId: authConfig.iosClientId,
+    webClientId: authConfig.webClientId,
   });
 
   const registerHandler = (): void => {
