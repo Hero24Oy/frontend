@@ -9,6 +9,7 @@ import {
   useAuthentication,
   useEmailSignIn,
   useEmailSignUp,
+  useFacebookAuth,
   useGoogleAuth,
   useSession,
 } from '$common';
@@ -27,6 +28,11 @@ const Home: FC = () => {
     androidClientId: authConfig.androidClientId,
     iosClientId: authConfig.iosClientId,
     webClientId: authConfig.webClientId,
+  });
+
+  const signInWithFacebook = useFacebookAuth({
+    onAuthSucceed: signInWithCredentials,
+    facebookAppId: authConfig.facebookAppId,
   });
 
   const registerHandler = (): void => {
@@ -59,6 +65,13 @@ const Home: FC = () => {
           }}
         >
           <ButtonText>Sign in google</ButtonText>
+        </Button>
+        <Button
+          onPress={(): void => {
+            signInWithFacebook().catch((err) => console.error(err));
+          }}
+        >
+          <ButtonText>Sign in facebook</ButtonText>
         </Button>
         <View>
           <TextInput

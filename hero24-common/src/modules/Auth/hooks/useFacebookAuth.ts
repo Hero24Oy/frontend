@@ -1,16 +1,12 @@
-/* eslint-disable eslint-comments/disable-enable-pair -- TODO remove later */
-/* eslint-disable eslint-comments/require-description  -- TODO remove later */
-/* eslint-disable no-empty-function -- TODO remove later */
-/* eslint-disable @typescript-eslint/explicit-function-return-type -- TODO remove later */
-// import { authConfig } from 'config';
-// import { AuthSessionResult, ResponseType } from 'expo-auth-session';
+import { ResponseType } from 'expo-auth-session';
 import * as Facebook from 'expo-auth-session/providers/facebook';
-// import { useEffect } from 'react';
+import { FacebookAuthProvider, OAuthCredential } from 'firebase/auth';
+import { useCallback, useEffect } from 'react';
 
-// import { SignInReturn } from './types';
+import { OnAuthSucceed } from './types';
 
 /*
- * Facebook auth won't work in dev mode
+ * Facebook auth won't work in dev mode, unless dev app is created
  * Because localhost redirects are not allowed
  * Link for auth redirect in facebook app is created next way
  * https://com.hero24.app/ - scheme of app
@@ -21,30 +17,45 @@ import * as Facebook from 'expo-auth-session/providers/facebook';
  * https://youtu.be/Ea7--DkHFPo?si=2mSE6UwF9stSVzR3&t=897
  * */
 
+type FacebookAuthConfig = {
+  facebookAppId: string;
+} & OnAuthSucceed;
+
+type UseeFacebookAuth = (config: FacebookAuthConfig) => () => Promise<void>;
+
 // TODO
-export const useFacebookAuth = () => {
-  // const [_request, response, promptAsync] = Facebook.useAuthRequest({
-  //   responseType: ResponseType.Token,
-  //   clientId: authConfig.facebookAppId,
-  // });
+export const useFacebookAuth: UseeFacebookAuth = (config) => {
+  const { onAuthSucceed, ...facebookAuthConfig } = config;
+
+  const [_request, response, promptAsync] = Facebook.useAuthRequest({
+    responseType: ResponseType.Token,
+    clientId: facebookAuthConfig.facebookAppId,
+    // TODO do we need facebook app name?
+  });
+
+  const handleSignIn = useCallback(async () => {
+    await promptAsync();
+  }, [promptAsync]);
 
   // * Expo auth session is not well documented
   // * Github issues about id_token being undefined
   // * https://github.com/expo/expo/issues/12808#issuecomment-1002245022
   // * that's why we are using response from Facebook.useAuthRequest instead of response from promptAsync
-  // useEffect(() => {
-  //   // if (!response) {
-  //   //   return;
-  //   // }
-  //   // dispatch(
-  //   //   signInWithProvider({
-  //   //     provider: AppAuthProvider.FACEBOOK,
-  //   //     options: response,
-  //   //   }),
-  //   // );
-  // }, [response]);
+  useEffect(() => {
+    if (!response) {
+      return;
+    }
 
-  return {
-    signIn: () => {},
-  };
+    if (response?.type !== 'success') {
+      return;
+    }
+
+    const credentials: OAuthCredential = FacebookAuthProvider.credential(
+      response.params.id_token,
+    );
+
+    onAuthSucceed(credentials).catch((error) => console.error(error));
+  }, [onAuthSucceed, response]);
+
+  return handleSignIn;
 };

@@ -36,7 +36,7 @@ export const useGoogleAuth: UseGoogleAuth = (config) => {
     webClientId,
   });
 
-  const handlerPrompt = useCallback(async () => {
+  const handleSignIn = useCallback(async () => {
     await promptAsync();
   }, [promptAsync]);
 
@@ -60,5 +60,5 @@ export const useGoogleAuth: UseGoogleAuth = (config) => {
     onAuthSucceed(credentials).catch((error) => console.error(error));
   }, [onAuthSucceed, response]);
 
-  return handlerPrompt;
+  return handleSignIn;
 };
