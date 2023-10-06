@@ -1,36 +1,22 @@
 import { Slot, SplashScreen } from 'expo-router';
-import { FC, useCallback, useEffect, useState } from 'react';
-import { View } from 'react-native';
+import { FC } from 'react';
 
+import { useHideSplashScreen, useInitializeApp } from '$common';
 import { MasterProvider } from '$ui-library';
 
 SplashScreen.preventAutoHideAsync();
 
 const Layout: FC = () => {
-  const [isAppReady, setIsAppReady] = useState(false);
+  const { isAppInitialized } = useInitializeApp();
 
-  const initializeApp = async (): Promise<void> => {
-    // do some fetch here on app init
-    setIsAppReady(true);
-  };
+  useHideSplashScreen(isAppInitialized);
 
-  useEffect(() => {
-    void initializeApp();
-  }, []);
-
-  const onLayoutRootView = useCallback((): void => {
-    if (isAppReady) {
-      void SplashScreen.hideAsync();
-    }
-  }, [isAppReady]);
-
-  if (!isAppReady) {
+  if (!isAppInitialized) {
     return null;
   }
 
   return (
     <MasterProvider>
-      <View onLayout={onLayoutRootView} />
       <Slot />
     </MasterProvider>
   );

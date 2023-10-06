@@ -22,7 +22,7 @@
     "pretty": "prettier --write . --log-level warn",
     "lint": "eslint . --fix --rule \"react-hooks/exhaustive-deps: off\"",
     "watch": "npm-watch",
-    "copy:ui-library": "mkdir -p ./src/@hero24/ui-library && rm -r ./src/@hero24/ui-library/src && cp -R ../hero24-ui-library/src ./src/@hero24/ui-library/src",
+    "copy:ui-library": "mkdir -p ./src/@hero24/ui-library && rm -r -f ./src/@hero24/ui-library/src && cp -R ../hero24-ui-library/src ./src/@hero24/ui-library/src",
     "update:local-submodules": "npm run copy:ui-library",
     "update:app-hero": "cd ../app-hero && npm run copy:common && npm run copy:ts-config",
     "update:app-customer": "cd ../app-customer && npm run copy:common && npm run copy:ts-config",
@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^7.3.6",
+    "@types/react": "^18.2.25",
     "@typescript-eslint/eslint-plugin": "^6.6.0",
     "@typescript-eslint/parser": "^6.6.0",
     "eslint": "^8.48.0",
@@ -50,5 +51,10 @@
     "prettier": "^3.0.3",
     "semver": "^7.5.4",
     "typescript": "^5.1.3"
+  },
+  "dependencies": {
+    "expo-router": "^2.0.8",
+    "react": "^18.2.0",
+    "react-native": "^0.72.5"
   }
 }

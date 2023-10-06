@@ -10,10 +10,8 @@ export const SafeAreaView: React.FC<SafeAreaViewProps> = (props) => {
   return (
     <SafeAreaViewNative style={styles.view}>
       <KeyboardAwareScrollView
-        style={{ flexGrow: 1 }}
-        contentContainerStyle={{
-          flexGrow: 1,
-        }}
+        style={styles.keyboardAware}
+        contentContainerStyle={styles.keyboardAwareContainer}
       >
         {children}
       </KeyboardAwareScrollView>
@@ -24,5 +22,11 @@ export const SafeAreaView: React.FC<SafeAreaViewProps> = (props) => {
 const styles = StyleSheet.create({
   view: {
     flex: 1,
+  },
+  keyboardAware: {
+    flexGrow: 1,
+  },
+  keyboardAwareContainer: {
+    flexGrow: 1,
   },
 });

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { AuthScreen } from '$/modules/Auth';
+import { AuthScreen } from '$common';
 
 const Auth: FC = () => {
   return <AuthScreen />;
