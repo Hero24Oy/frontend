@@ -32,11 +32,11 @@ SplashScreen.preventAutoHideAsync();
 
 const MainProvider: FC = () => {
   return (
-    <SafeAreaView>
-      <MasterProvider>
+    <MasterProvider>
+      <SafeAreaView>
         <PostProvider />
-      </MasterProvider>
-    </SafeAreaView>
+      </SafeAreaView>
+    </MasterProvider>
   );
 };
 
