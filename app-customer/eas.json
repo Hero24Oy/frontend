@@ -1,0 +1,55 @@
+{
+  "cli": {
+    "version": ">= 3.13.3"
+  },
+  "build": {
+    "development": {
+      "channel": "development",
+      "distribution": "store",
+      "android": {
+        "buildType": "app-bundle",
+        "node": "18.18.0"
+      },
+      "ios": {
+        "node": "18.18.0"
+      },
+      "cache": {
+        "key": "0.0.1"
+      }
+    },
+    "production": {
+      "channel": "production",
+      "distribution": "store",
+      "android": {
+        "buildType": "app-bundle",
+        "node": "18.18.0"
+      },
+      "ios": {
+        "node": "18.18.0"
+      },
+      "cache": {
+        "key": "0.0.1"
+      }
+    }
+  },
+  "submit": {
+    "development": {
+      "android": {
+        "serviceAccountKeyPath": "./google-play-services.json"
+      },
+      "ios": {
+        "appleId": "admin@hero24.com",
+        "ascAppId": "6468482894"
+      }
+    },
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./google-play-services.json"
+      },
+      "ios": {
+        "appleId": "admin@hero24.com",
+        "ascAppId": "6468482894"
+      }
+    }
+  }
+}
