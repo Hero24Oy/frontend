@@ -8,9 +8,13 @@ type SignInWithEmail = (data: EmailPasswordData) => Promise<void>;
 export const useEmailSignIn = (auth: Auth): SignInWithEmail => {
   const signInHandler = useCallback(
     async (data: EmailPasswordData) => {
-      const { email, password } = data;
+      try {
+        const { email, password } = data;
 
-      await signInWithEmailAndPassword(auth, email, password);
+        await signInWithEmailAndPassword(auth, email, password);
+      } catch (error) {
+        console.error(error);
+      }
     },
     [auth],
   );

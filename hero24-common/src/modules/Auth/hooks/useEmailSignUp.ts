@@ -10,9 +10,13 @@ type UseEmailSignUp = (
 export const useEmailSignUp: UseEmailSignUp = (auth) => {
   const signUpHandler = useCallback(
     async (data: EmailPasswordData) => {
-      const { email, password } = data;
+      try {
+        const { email, password } = data;
 
-      await createUserWithEmailAndPassword(auth, email, password);
+        await createUserWithEmailAndPassword(auth, email, password);
+      } catch (error) {
+        console.error(error);
+      }
     },
     [auth],
   );

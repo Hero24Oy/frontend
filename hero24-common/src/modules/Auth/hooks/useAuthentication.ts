@@ -14,7 +14,17 @@ type UseAuthentication = (firebaseAuth: Auth) => {
  */
 export const useAuthentication: UseAuthentication = (firebaseAuth) => {
   const signInWithCredentials: SignInWithCredentials = useCallback(
-    async (credentials) => signInWithCredential(firebaseAuth, credentials),
+    async (credentials) => {
+      try {
+        const response = await signInWithCredential(firebaseAuth, credentials);
+
+        return response;
+      } catch (error) {
+        console.error(error);
+
+        return undefined;
+      }
+    },
     [firebaseAuth],
   );
 

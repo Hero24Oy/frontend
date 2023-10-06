@@ -37,7 +37,11 @@ export const useGoogleAuth: UseGoogleAuth = (config) => {
   });
 
   const handleSignIn = useCallback(async () => {
-    await promptAsync();
+    try {
+      await promptAsync();
+    } catch (error) {
+      console.error(error);
+    }
   }, [promptAsync]);
 
   // * Expo auth session is not well documented
