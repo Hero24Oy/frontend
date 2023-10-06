@@ -3,7 +3,11 @@
     "baseUrl": "./src",
     "paths": {
       "$common/modules": ["modules/index"],
-      "$common/types": ["types/index"]
+      "$common/types": ["types/index"],
+      /*
+        TODO: Delete next aliases after create npm package
+      */
+      "$ui-library": ["@hero24/ui-library/src/index"]
     }
   },
   "extends": "./tsconfig-common.json",

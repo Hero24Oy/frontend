@@ -19,8 +19,8 @@
     "reinstall:dependencies": "rm -rf node_modules && npm i",
     "reinstall:dependencies:full": "npm cache clean --force && npm run reinstall:dependencies",
     "check:requirements": "ts-node ../hero24-common-library/scripts/check-node-version.ts",
-    "copy:common": "mkdir -p ./src/@hero24/common-library && cp -R ../hero24-common-library/src ./src/@hero24/common-library/src",
-    "copy:ui-library": "mkdir -p ./src/@hero24/ui-library && cp -R ../hero24-ui-library/src ./src/@hero24/ui-library/src",
+    "copy:common": "mkdir -p ./src/@hero24/common-library && rm -r ./src/@hero24/common-library/src && cp -R ../hero24-common-library/src ./src/@hero24/common-library/src",
+    "copy:ui-library": "mkdir -p ./src/@hero24/ui-library && rm -r ./src/@hero24/ui-library/src && cp -R ../hero24-ui-library/src ./src/@hero24/ui-library/src",
     "update:local-submodules": "npm run copy:common && npm run copy:ui-library",
     "postinstall": "npm run check:requirements && npm run update:local-submodules",
     "prestart": "npm run check:requirements && npm run update:local-submodules"

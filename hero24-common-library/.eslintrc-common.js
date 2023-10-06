@@ -99,7 +99,7 @@ const importSortOrderRule = {
     {
       groups: [
         ['^(@?\\w|\\w)'], // libs
-        ['^$\\.*'], // ts-aliases
+        [String(/^$.*/)], // ts-aliases
         ['^\\.\\./'], // parent folder imports
         ['^\\./'], // relative folder imports
       ],

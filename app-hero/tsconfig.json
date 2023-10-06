@@ -6,12 +6,11 @@
       "$core": ["core/index"],
       "$configs": ["configs/index"],
       "$modules": ["modules/index"],
-      "$/*": ["*"],
       /*
         TODO: Delete next aliases after create npm package
       */
-      "$ui-library": ["@hero24/ui-library/index"],
-      "$common": ["@hero24/common-library/index"],
+      "$ui-library": ["@hero24/ui-library/src/index"],
+      "$common": ["@hero24/common-library/src/index"],
       /*
         Common-submodule aliases
       */
@@ -20,7 +19,11 @@
       /*
         Ui-library-submodule aliases
       */
-      "$ui-library/providers": ["@hero24/ui-library/src/providers"]
+      "$ui-library/providers": ["@hero24/ui-library/src/providers"],
+      /*
+        The root alias must be after all then to work correctly
+      */
+      "$/*": ["*"]
     }
   },
   "extends": "../hero24-common-library/tsconfig-common.json",

@@ -23,9 +23,10 @@
     "lint": "eslint . --fix --rule \"react-hooks/exhaustive-deps: off\"",
     "postinstall": "npm run update-local-dependencies",
     "watch": "npm-watch",
+    "update:common": "cd ../hero24-common-library && npm run copy:ui-library",
     "update:app-hero": "cd ../app-hero && npm run copy:ui-library",
     "update:app-customer": "cd ../app-customer && npm run copy:ui-library",
-    "update:dependents": "echo 'Start update ui-library' && npm run update:app-hero && npm run update:app-customer"
+    "update:dependents": "echo 'Start update ui-library' && npm run update:app-hero && npm run update:app-customer && npm run update:common"
   },
   "dependencies": {
     "@gluestack-style/react": "^0.2.46",
