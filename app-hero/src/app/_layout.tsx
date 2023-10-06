@@ -5,6 +5,7 @@ import { FC, useEffect } from 'react';
 import { combineProviders } from 'react-combine-providers';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import 'expo-dev-client';
 import { apolloClient, auth } from '$/core';
 import { AuthProvider, useSession } from '$common';
 import { attachUiProviders } from '$ui-library';
