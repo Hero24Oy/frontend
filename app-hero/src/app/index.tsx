@@ -10,7 +10,7 @@ const Home: FC = () => {
       </Button>
 
       <Button>
-        <Link href="/logged">My profile</Link>
+        <Link href="/profile">My profile</Link>
       </Button>
     </View>
   );

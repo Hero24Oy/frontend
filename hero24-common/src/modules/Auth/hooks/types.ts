@@ -7,7 +7,7 @@ export type EmailPasswordData = {
 
 export type SignInWithCredentials = (
   credentials: OAuthCredential,
-) => Promise<UserCredential>;
+) => Promise<UserCredential | undefined>;
 
 export type OnAuthSucceed = {
   onAuthSucceed: SignInWithCredentials;

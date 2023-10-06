@@ -34,13 +34,13 @@ const MainProvider: FC = () => {
   return (
     <MasterProvider>
       <SafeAreaView>
-        <PostProvider />
+        <PostProviderApp />
       </SafeAreaView>
     </MasterProvider>
   );
 };
 
-const PostProvider: FC = () => {
+const PostProviderApp: FC = () => {
   const { isLoading } = useSession();
 
   useEffect(() => {
