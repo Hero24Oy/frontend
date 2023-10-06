@@ -1,7 +1,6 @@
-import { Button, ButtonText } from '@gluestack-ui/themed';
+import { Button, ButtonText, Text, View } from '@gluestack-ui/themed';
 import { Redirect } from 'expo-router';
 import React, { FC } from 'react';
-import { SafeAreaView, Text, View } from 'react-native';
 
 import { useSession } from '$common';
 
@@ -13,18 +12,17 @@ const Home: FC = () => {
   }
 
   return (
-    <SafeAreaView>
-      <View>
-        <Text style={{ fontSize: 50 }}>Hello, {user.data.email}</Text>
-        <Button
-          onPress={(): void => {
-            logout().catch((error) => console.error(error));
-          }}
-        >
-          <ButtonText>Logout</ButtonText>
-        </Button>
-      </View>
-    </SafeAreaView>
+    <View>
+      <Text color="black">Hello</Text>
+      <Text>{user.data.email}</Text>
+      <Button
+        onPress={(): void => {
+          logout().catch((error) => console.error(error));
+        }}
+      >
+        <ButtonText>Logout</ButtonText>
+      </Button>
+    </View>
   );
 };
 

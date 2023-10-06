@@ -1,11 +1,10 @@
-import { Button } from '@gluestack-ui/themed';
+import { Button, View } from '@gluestack-ui/themed';
 import { Link } from 'expo-router';
 import React, { FC } from 'react';
-import { SafeAreaView } from 'react-native';
 
 const Home: FC = () => {
   return (
-    <SafeAreaView>
+    <View>
       <Button>
         <Link href="/login">Login</Link>
       </Button>
@@ -13,7 +12,7 @@ const Home: FC = () => {
       <Button>
         <Link href="/logged">My profile</Link>
       </Button>
-    </SafeAreaView>
+    </View>
   );
 };
 
