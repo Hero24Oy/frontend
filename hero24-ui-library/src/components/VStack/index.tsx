@@ -11,7 +11,6 @@ export interface VStackProps extends PropsWithChildren {
 
 // eslint-disable-next-line @typescript-eslint/naming-convention -- TODO add regex to naming convention array
 export const VStack: React.FC<VStackProps> = (props) => {
-  // TODO implement function that omit from style object only accepted fields
   const { children, style } = props;
 
   return <VStackOrigin style={[styles.stack, style]}>{children}</VStackOrigin>;

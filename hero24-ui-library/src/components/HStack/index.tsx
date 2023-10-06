@@ -11,7 +11,6 @@ export interface HStackProps extends PropsWithChildren {
 
 // eslint-disable-next-line @typescript-eslint/naming-convention -- TODO add regex to naming convention array
 export const HStack: React.FC<HStackProps> = (props) => {
-  // TODO implement function that omit from style object only accepted fields
   const { children, style } = props;
 
   return (
