@@ -15,9 +15,7 @@ export const NONCE_END = 10;
 
 export const AppleProvider = new OAuthProvider('apple.com');
 
-type AppleAuthConfig = {
-  facebookAppId: string;
-} & OnAuthSucceed;
+type AppleAuthConfig = OnAuthSucceed;
 
 type UseAppleAuth = (config: AppleAuthConfig) => () => Promise<void>;
 

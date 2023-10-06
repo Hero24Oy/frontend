@@ -1,22 +1,17 @@
-import { Button, ButtonText } from '@gluestack-ui/themed';
+import { Button } from '@gluestack-ui/themed';
 import { Link } from 'expo-router';
 import React, { FC } from 'react';
-import { SafeAreaView, Text } from 'react-native';
+import { SafeAreaView } from 'react-native';
 
 const Home: FC = () => {
   return (
     <SafeAreaView>
-      <Text>Hello, world</Text>
+      <Button>
+        <Link href="/login">Login</Link>
+      </Button>
 
       <Button>
-        <ButtonText>
-          <Link href="/login">Login</Link>
-        </ButtonText>
-      </Button>
-      <Button>
-        <ButtonText>
-          <Link href="/logged">My profile</Link>
-        </ButtonText>
+        <Link href="/logged">My profile</Link>
       </Button>
     </SafeAreaView>
   );

@@ -43,7 +43,7 @@ const commonConfig: Partial<ExpoConfig> = {
     tsconfigPaths: true,
   },
   scheme: `fb${process.env.FACEBOOK_APP_ID}`, // * fb* is Facebook App ID, used for redirecting on android
-  plugins: ['expo-router'],
+  plugins: ['expo-router', 'expo-apple-authentication'],
 };
 
 // Change/add necessary fields for production

@@ -15,7 +15,7 @@ const Home: FC = () => {
   return (
     <SafeAreaView>
       <View>
-        <Text style={{ fontSize: 50 }}>Hello, {user?.data?.email}</Text>
+        <Text style={{ fontSize: 50 }}>Hello, {user.data.email}</Text>
         <Button
           onPress={(): void => {
             logout().catch((error) => console.error(error));
