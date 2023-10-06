@@ -15,8 +15,7 @@ import { OnAuthSucceed } from './types';
  *
  * Tutorial how to make it work
  * https://youtu.be/Ea7--DkHFPo?si=2mSE6UwF9stSVzR3&t=897
- * */
-
+ */
 type FacebookAuthConfig = {
   facebookAppId: string;
 } & OnAuthSucceed;
@@ -51,7 +50,7 @@ export const useFacebookAuth: UseeFacebookAuth = (config) => {
     }
 
     const credentials: OAuthCredential = FacebookAuthProvider.credential(
-      response.params.id_token,
+      response.params.access_token,
     );
 
     onAuthSucceed(credentials).catch((error) => console.error(error));

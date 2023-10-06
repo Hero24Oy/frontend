@@ -2,7 +2,7 @@ import { Button, ButtonText } from '@gluestack-ui/themed';
 import * as AppleAuthentication from 'expo-apple-authentication';
 import { Redirect } from 'expo-router';
 import React, { FC, useState } from 'react';
-import { SafeAreaView, TextInput, View } from 'react-native';
+import { Platform, SafeAreaView, TextInput, View } from 'react-native';
 
 import { authConfig } from '$/configs';
 import { auth } from '$/core';
@@ -69,15 +69,21 @@ const Home: FC = () => {
         >
           <ButtonText>Sign in google</ButtonText>
         </Button>
-        <AppleAuthentication.AppleAuthenticationButton
-          buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
-          buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
-          cornerRadius={5}
-          style={{ height: 50 }}
-          onPress={(): void => {
-            signInWithApple().catch((err) => console.error(err));
-          }}
-        />
+        {Platform.OS === 'ios' && (
+          <AppleAuthentication.AppleAuthenticationButton
+            buttonType={
+              AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN
+            }
+            buttonStyle={
+              AppleAuthentication.AppleAuthenticationButtonStyle.BLACK
+            }
+            cornerRadius={5}
+            style={{ height: 50 }}
+            onPress={(): void => {
+              signInWithApple().catch((err) => console.error(err));
+            }}
+          />
+        )}
         <Button
           onPress={(): void => {
             signInWithFacebook().catch((err) => console.error(err));
