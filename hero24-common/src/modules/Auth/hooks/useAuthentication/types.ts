@@ -1,4 +1,5 @@
-import { AuthSessionResult, GoogleAuthRequestConfig } from 'expo-auth-session';
+import { GoogleAuthRequestConfig } from 'expo-auth-session';
+// TODO see doc
 import { Auth } from 'firebase/auth';
 
 export type EmailPasswordData = {
@@ -10,7 +11,6 @@ export type AuthResult = {
   id: string;
 };
 
-// TODO separate types
 export type Config = {
   firebaseAuth: Auth;
   googleAuth: Partial<GoogleAuthRequestConfig>;
@@ -23,6 +23,6 @@ export type SignInWithProvider =
 
 export type SignInWithEmail = (data: EmailPasswordData) => Promise<void>;
 
-export type SignUpWithEmail = (data: EmailPasswordData) => Promise<AuthResult>;
+export type SignUpWithEmail = (data: EmailPasswordData) => Promise<void>;
 
-export type SignInWithGoogle = () => Promise<AuthSessionResult>; // TODO better types
+export type SignInWithGoogle = () => Promise<void>;

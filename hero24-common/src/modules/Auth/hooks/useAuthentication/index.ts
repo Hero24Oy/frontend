@@ -1,12 +1,12 @@
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type, eslint-comments/disable-enable-pair, eslint-comments/no-duplicate-disable -- TODO remove it later
-/* eslint-disable @typescript-eslint/explicit-function-return-type  -- TODO remove it later */
 import { useEmailSignIn, useEmailSignUp, useGoogleAuth } from './providers';
 import { Config, SignInWithProvider } from './types';
 
 /**
  *
- * @description useAuthentication hook should only return user uid, by which we can get user data from server
+ * @description useAuthentication hook should only return authenticate user via firebase
+ * The rest logic is handler by listening to authStatusChanged in auth provider
  */
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type, eslint-comments/disable-enable-pair, eslint-comments/no-duplicate-disable -- // * Couldn't find a way to provide nice return type
 export const useAuthentication = (config: Config) => {
   const { firebaseAuth } = config;
 

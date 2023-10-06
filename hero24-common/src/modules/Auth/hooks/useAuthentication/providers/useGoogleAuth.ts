@@ -1,5 +1,3 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair -- TODO remove
-/* eslint-disable @typescript-eslint/explicit-function-return-type -- TODO remove it later */
 import { makeRedirectUri } from 'expo-auth-session';
 import * as Google from 'expo-auth-session/providers/google';
 import Constants from 'expo-constants';
@@ -8,10 +6,20 @@ import {
   OAuthCredential,
   signInWithCredential,
 } from 'firebase/auth';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { Platform } from 'react-native';
 
 import { Config, SignInWithGoogle } from '../types';
+
+// * We need to create redirect URI for android, otherwise it redirects to `scheme://oauthredirect`
+// * https://github.com/expo/expo/issues/22662#issuecomment-1704703426
+const REDIRECT_URI =
+  Platform.OS === 'android'
+    ? makeRedirectUri({
+        scheme: Constants.expoConfig?.android?.package,
+        path: '/login',
+      })
+    : undefined;
 
 export const useGoogleAuth = (config: Config): SignInWithGoogle => {
   const { firebaseAuth, googleAuth } = config;
@@ -20,22 +28,17 @@ export const useGoogleAuth = (config: Config): SignInWithGoogle => {
     androidClientId: googleAuth.androidClientId,
     iosClientId: googleAuth.iosClientId,
     webClientId: googleAuth.webClientId,
-    // * We need to create redirect URI for android, otherwise it redirects to `scheme://oauthredirect`
-    // * https://github.com/expo/expo/issues/22662#issuecomment-1704703426
-    redirectUri:
-      Platform.OS === 'android'
-        ? makeRedirectUri({
-            scheme: Constants.expoConfig?.android?.package,
-            path: '/login',
-          })
-        : undefined,
+    redirectUri: REDIRECT_URI,
   });
+
+  const handlerPrompt = useCallback(async () => {
+    await promptAsync();
+  }, [promptAsync]);
 
   // * Expo auth session is not well documented
   // * Github issues about id_token being undefined
   // * https://github.com/expo/expo/issues/12808#issuecomment-1002245022
   // * that's why we are using response from Google.useIdTokenAuthRequest instead of response from promptAsync
-
   useEffect(() => {
     if (!response) {
       return;
@@ -54,5 +57,5 @@ export const useGoogleAuth = (config: Config): SignInWithGoogle => {
     );
   }, [firebaseAuth, response]);
 
-  return () => promptAsync();
+  return handlerPrompt;
 };

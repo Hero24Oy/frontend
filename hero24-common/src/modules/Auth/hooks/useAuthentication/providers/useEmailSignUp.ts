@@ -8,18 +8,7 @@ export const useEmailSignUp = (auth: Auth): SignUpWithEmail => {
     async (data: EmailPasswordData) => {
       const { email, password } = data;
 
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password,
-      );
-
-      const { user } = userCredential;
-      const { uid } = user;
-
-      return {
-        id: uid,
-      };
+      await createUserWithEmailAndPassword(auth, email, password);
     },
     [auth],
   );
