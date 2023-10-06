@@ -22,7 +22,7 @@
     "copy:common": "mkdir -p ./src/@hero24/common-library && rm -r -f ./src/@hero24/common-library/src && cp -R ../hero24-common-library/src ./src/@hero24/common-library/src",
     "copy:ts-config": "mkdir -p ./src/@hero24 && cp -R ../hero24-common-library/tsconfig-common.json ./src/@hero24/tsconfig-common.json",
     "copy:ui-library": "mkdir -p ./src/@hero24/ui-library && rm -r -f ./src/@hero24/ui-library/src && cp -R ../hero24-ui-library/src ./src/@hero24/ui-library/src",
-    "update:local-submodules": "npm run copy:common && npm run copy:ui-library && copy:ts-config",
+    "update:local-submodules": "npm run copy:common && npm run copy:ui-library && npm run copy:ts-config",
     "dev:prepare": "if [ \"$NODE_ENV\" = \"development\" ]; then npm run check:requirements && npm run update:local-submodules; fi",
     "postinstall": "npm run dev:prepare",
     "prestart": "npm run dev:prepare"

@@ -21,7 +21,6 @@
   "scripts": {
     "pretty": "prettier --write . --log-level warn",
     "lint": "eslint . --fix --rule \"react-hooks/exhaustive-deps: off\"",
-    "postinstall": "npm run update-local-dependencies",
     "watch": "npm-watch",
     "update:common": "cd ../hero24-common-library && npm run copy:ui-library",
     "update:app-hero": "cd ../app-hero && npm run copy:ui-library",
