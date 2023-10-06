@@ -65,12 +65,3 @@ web-build/
 
 expo-env.d.ts
 # @end expo-cli
-
-
-# Credentials
-.env
-google-play-services.json
-google-services-prod.json
-google-services.json
-GoogleService-Info-prod.plist
-GoogleService-Info.plist
