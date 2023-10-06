@@ -26,7 +26,7 @@
       "$/*": ["*"]
     }
   },
-  "extends": "../hero24-common-library/tsconfig-common.json",
+  "extends": "./src/@hero24/tsconfig-common.json",
   "exclude": ["node_modules", "dist", "@hero24"],
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
 }

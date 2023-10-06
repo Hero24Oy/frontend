@@ -24,8 +24,8 @@
     "watch": "npm-watch",
     "copy:ui-library": "mkdir -p ./src/@hero24/ui-library && rm -r ./src/@hero24/ui-library/src && cp -R ../hero24-ui-library/src ./src/@hero24/ui-library/src",
     "update:local-submodules": "npm run copy:ui-library",
-    "update:app-hero": "cd ../app-hero && npm run copy:common",
-    "update:app-customer": "cd ../app-customer && npm run copy:common",
+    "update:app-hero": "cd ../app-hero && npm run copy:common && npm run copy:ts-config",
+    "update:app-customer": "cd ../app-customer && npm run copy:common && npm run copy:ts-config",
     "update:dependents": "echo 'Start update hero24-common' && npm run update:app-hero && npm run update:app-customer"
   },
   "devDependencies": {
