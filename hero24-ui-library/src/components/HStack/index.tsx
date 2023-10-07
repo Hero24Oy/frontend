@@ -1,23 +1,18 @@
 import { HStack as HStackOrigin } from '@gluestack-ui/themed';
-import React, { PropsWithChildren } from 'react';
+import { FC, ReactNode } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { StackPropsStyle } from '../../types/StackPropsStyle';
+import { PropsWithChildren, StackPropsStyle } from '../../types';
 
-// eslint-disable-next-line @typescript-eslint/naming-convention -- TODO add regex to naming convention array
-export interface HStackProps extends PropsWithChildren {
+// eslint-disable-next-line @typescript-eslint/naming-convention -- TODO implement correct namingConventionRule
+interface HStackProps extends PropsWithChildren<ReactNode> {
   style: StackPropsStyle;
 }
 
-// eslint-disable-next-line @typescript-eslint/naming-convention -- TODO add regex to naming convention array
-export const HStack: React.FC<HStackProps> = (props) => {
+export const HStack: FC<HStackProps> = (props) => {
   const { children, style } = props;
 
-  return (
-    <HStackOrigin style={{ ...styles.stack, ...style }}>
-      {children}
-    </HStackOrigin>
-  );
+  return <HStackOrigin style={[styles.stack, style]}>{children}</HStackOrigin>;
 };
 
 const styles = StyleSheet.create({

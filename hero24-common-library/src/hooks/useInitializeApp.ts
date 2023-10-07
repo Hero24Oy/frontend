@@ -11,7 +11,7 @@ export const useInitializeApp = (): UseInitializeAppReturnType => {
     return { isAppInitialized };
   }
 
-  // modeling fetching some stuff
+  // Fake fetch implementation. Remove after real fetch implementation
   const delayTime = 2000;
 
   const pseudoAsyncFunction = (delay: number): Promise<void> => {
@@ -25,7 +25,7 @@ export const useInitializeApp = (): UseInitializeAppReturnType => {
   pseudoAsyncFunction(delayTime)
     .then(() => setIsAppInitialized(true))
     .catch(() => null);
-  // modeling fetching some stuff
+  // Fake fetch implementation. Remove after real fetch implementation
 
   return { isAppInitialized };
 };

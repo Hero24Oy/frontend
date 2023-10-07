@@ -27,17 +27,11 @@
     "update:app-customer": "cd ../app-customer && npm run copy:ui-library",
     "update:dependents": "echo 'Start update ui-library' && npm run update:app-hero && npm run update:app-customer && npm run update:common"
   },
-  "dependencies": {
-    "@gluestack-style/react": "^0.2.46",
-    "@gluestack-ui/themed": "^0.1.16",
-    "@react-navigation/native": "^6.0.2",
-    "react": "18.2.0",
-    "react-combine-providers": "^0.9.6",
-    "react-dom": "18.2.0",
-    "react-native": "^0.72.5"
-  },
   "devDependencies": {
     "@cspell/eslint-plugin": "^7.3.6",
+    "@gluestack-style/react": "^1.0.1",
+    "@gluestack-ui/themed": "^1.0.1",
+    "@react-navigation/native": "^6.1.8",
     "@types/fs-extra": "^11.0.2",
     "@typescript-eslint/eslint-plugin": "^6.6.0",
     "@typescript-eslint/parser": "^6.6.0",
@@ -57,6 +51,10 @@
     "expo": "^49.0.11",
     "npm-watch": "^0.11.0",
     "prettier": "^3.0.3",
+    "react": "^18.2.0",
+    "react-combine-providers": "^0.9.6",
+    "react-dom": "^18.2.0",
+    "react-native": "^0.72.5",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "semver": "^7.5.4",
     "ts-node": "^10.9.1",

@@ -2,25 +2,23 @@ import {
   Input as InputOrigin,
   InputField as InputFieldOrigin,
 } from '@gluestack-ui/themed';
-import React from 'react';
-import { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native';
+import { FC } from 'react';
+import { OnChange, OnChangeText } from 'types';
 
-import { InputType } from '../../types/InputType';
+import { InputType } from '../../constants';
 
-export interface InputProps {
+interface InputProps {
   disabled?: boolean;
-  onChange?:
-    | ((e: NativeSyntheticEvent<TextInputChangeEventData>) => void)
-    | undefined;
-  onChangeText?: ((text: string) => void) | undefined;
+  onChange?: OnChange;
+  onChangeText?: OnChangeText;
   placeholder?: string;
   type?: InputType;
 }
 
-export const Input: React.FC<InputProps> = (props) => {
+export const Input: FC<InputProps> = (props) => {
   const {
     placeholder,
-    type = 'text',
+    type = InputType.TEXT,
     disabled = false,
     onChange,
     onChangeText,

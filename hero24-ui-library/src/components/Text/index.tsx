@@ -1,11 +1,11 @@
 import { Text as TextOrigin } from '@gluestack-ui/themed';
-import React from 'react';
+import { FC } from 'react';
 
-export interface TextProps {
-  children: string;
-}
+import { PropsWithChildren } from '../../types';
 
-export const Text: React.FC<TextProps> = (props) => {
+interface TextProps extends PropsWithChildren<string> {}
+
+export const Text: FC<TextProps> = (props) => {
   const { children } = props;
 
   return <TextOrigin>{children}</TextOrigin>;

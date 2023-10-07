@@ -1,8 +1,7 @@
 import { Slot, SplashScreen } from 'expo-router';
 import { FC } from 'react';
 
-import { useHideSplashScreen } from '$/@hero24/common-library/src/hooks/useHideSplashScreen';
-import { useInitializeApp } from '$/@hero24/common-library/src/hooks/useInitializeApp';
+import { useHideSplashScreen, useInitializeApp } from '$common';
 import { MasterProvider } from '$ui-library';
 
 SplashScreen.preventAutoHideAsync();
@@ -12,15 +11,11 @@ const Layout: FC = () => {
 
   useHideSplashScreen(isAppInitialized);
 
-  if (!isAppInitialized) {
-    return null;
-  }
-
-  return (
+  return isAppInitialized ? (
     <MasterProvider>
       <Slot />
     </MasterProvider>
-  );
+  ) : null;
 };
 
 export default Layout;

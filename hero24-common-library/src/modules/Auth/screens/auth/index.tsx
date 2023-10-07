@@ -11,6 +11,7 @@ export const AuthScreen: FC = () => {
       <VStack style={styles.container}>
         <EmailPasswordForm />
         <HStack style={styles.orBox}>
+          {/* TODO replace "Or" with i18n call */}
           <Text>Or</Text>
         </HStack>
         <SignWithButtons />

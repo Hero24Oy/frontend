@@ -1,7 +1,10 @@
 import { SplashScreen } from 'expo-router';
+import { useEffect } from 'react';
 
 export const useHideSplashScreen = (isAppInitialized: boolean): void => {
-  if (isAppInitialized) {
-    SplashScreen.hideAsync();
-  }
+  useEffect(() => {
+    if (isAppInitialized) {
+      SplashScreen.hideAsync();
+    }
+  }, [isAppInitialized]);
 };

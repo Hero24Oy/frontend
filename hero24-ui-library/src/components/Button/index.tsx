@@ -2,15 +2,18 @@ import {
   Button as ButtonOrigin,
   ButtonText as ButtonTextOrigin,
 } from '@gluestack-ui/themed';
-import React from 'react';
+import { FC } from 'react';
 
-export interface ButtonProps {
-  children: string;
+import { PropsWithChildren } from '../../types';
+
+type OnPress = () => void;
+
+interface ButtonProps extends PropsWithChildren<string> {
   disabled?: boolean;
-  onPress?: () => void;
+  onPress?: OnPress;
 }
 
-export const Button: React.FC<ButtonProps> = (props) => {
+export const Button: FC<ButtonProps> = (props) => {
   const { children, disabled = false, onPress } = props;
 
   return (
