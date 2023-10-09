@@ -3,18 +3,12 @@ import { Redirect } from 'expo-router';
 import React, { FC, useCallback } from 'react';
 
 import { apolloClient, auth } from '$/core';
-import { useGetUser, useLogout } from '$common';
+import { useCachedUser } from '$/modules';
+import { useLogout } from '$common';
 
 const Home: FC = () => {
+  const { user } = useCachedUser();
   const handleLogout = useLogout();
-
-  const {
-    getUser: { data: user },
-  } = useGetUser({
-    variables: {
-      id: auth.currentUser!.uid,
-    },
-  });
 
   const logoutHandler = useCallback(
     () =>
