@@ -33,22 +33,22 @@ const Home: FC = () => {
   const [password, setPassword] = useState('');
 
   const { signInWithCredentials } = useAuthentication(auth);
-  const signInWithEmail = useEmailSignIn(auth);
-  const signUpWithEmail = useEmailSignUp(auth);
+  const { signInWithEmail } = useEmailSignIn(auth);
+  const { signUpWithEmail } = useEmailSignUp(auth);
 
-  const signInWithGoogle = useGoogleAuth({
+  const { signInWithGoogle } = useGoogleAuth({
     onAuthSucceed: signInWithCredentials,
     androidClientId: authConfig.androidClientId,
     iosClientId: authConfig.iosClientId,
     webClientId: authConfig.webClientId,
   });
 
-  const signInWithFacebook = useFacebookAuth({
+  const { signInWithFacebook } = useFacebookAuth({
     onAuthSucceed: signInWithCredentials,
     facebookAppId: authConfig.facebookAppId,
   });
 
-  const signInWithApple = useAppleAuth({
+  const { signInWithApple } = useAppleAuth({
     onAuthSucceed: signInWithCredentials,
   });
 

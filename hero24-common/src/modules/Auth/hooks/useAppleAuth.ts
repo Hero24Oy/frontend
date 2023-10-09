@@ -17,12 +17,14 @@ export const AppleProvider = new OAuthProvider('apple.com');
 
 type AppleAuthConfig = OnAuthSucceed;
 
-type UseAppleAuth = (config: AppleAuthConfig) => () => Promise<void>;
+type UseAppleAuth = (config: AppleAuthConfig) => {
+  signInWithApple: () => Promise<void>;
+};
 
 export const useAppleAuth: UseAppleAuth = (config) => {
   const { onAuthSucceed } = config;
 
-  const handleSignIn = useCallback(async () => {
+  const signInWithApple = useCallback(async () => {
     try {
       const csrfRandom: number = Math.random();
       const nonceRandom: number = Math.random();
@@ -62,5 +64,5 @@ export const useAppleAuth: UseAppleAuth = (config) => {
     }
   }, [onAuthSucceed]);
 
-  return handleSignIn;
+  return { signInWithApple };
 };

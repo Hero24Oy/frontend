@@ -13,7 +13,9 @@ type GoogleAuthConfig = {
   webClientId: string;
 } & OnAuthSucceed;
 
-type UseGoogleAuth = (config: GoogleAuthConfig) => () => Promise<void>;
+type UseGoogleAuth = (config: GoogleAuthConfig) => {
+  signInWithGoogle: () => Promise<void>;
+};
 
 // * We need to create redirect URI for android, otherwise it redirects to `scheme://oauthredirect`
 // * https://github.com/expo/expo/issues/22662#issuecomment-1704703426
@@ -36,7 +38,7 @@ export const useGoogleAuth: UseGoogleAuth = (config) => {
     webClientId,
   });
 
-  const handleSignIn = useCallback(async () => {
+  const signInWithGoogle = useCallback(async () => {
     try {
       await promptAsync();
     } catch (error) {
@@ -64,5 +66,5 @@ export const useGoogleAuth: UseGoogleAuth = (config) => {
     onAuthSucceed(credentials).catch((error) => console.error(error));
   }, [onAuthSucceed, response]);
 
-  return handleSignIn;
+  return { signInWithGoogle };
 };
