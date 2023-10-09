@@ -1,18 +1,18 @@
 import { Button, ButtonText, Text, View } from '@gluestack-ui/themed';
 import React, { FC, useCallback } from 'react';
 
-import { apolloClient, auth } from '$/core';
+import { auth } from '$/core';
 import { useCachedGraphQlUser } from '$/modules';
 import { useLogout } from '$common';
 
 const Home: FC = () => {
   const handleLogout = useLogout();
+
   const { user } = useCachedGraphQlUser();
 
   const logoutHandler = useCallback(
     () =>
       handleLogout({
-        apolloClient,
         firebaseAuth: auth,
       }),
     [handleLogout],
