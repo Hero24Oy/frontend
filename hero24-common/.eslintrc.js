@@ -126,7 +126,6 @@ const reactRules = {
   'react/jsx-uses-react': 'off',
   'react/display-name': 'off',
   'react/prop-types': 'off',
-  'react-hooks/exhaustive-deps': 'warn',
   'react/style-prop-object': 'off', // we allow to use string as prop
   'react/require-default-props': 'off',
   'react/jsx-props-no-spreading': 'warn',
