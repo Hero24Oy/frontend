@@ -1,1 +1,1 @@
-export * from './useCachedUser';
+export * from './useCachedGraphQlUser';

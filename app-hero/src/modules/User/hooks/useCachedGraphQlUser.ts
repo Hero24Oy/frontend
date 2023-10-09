@@ -1,15 +1,17 @@
-import { auth } from '$/core';
+import { useFirebaseUser } from '$/core';
 import { useGetUser, User } from '$common';
 
-type UseCachedUser = () => {
+type UseCachedGraphQlUser = () => {
   user: User;
 };
 
 // * We should use it only when authenticated
-export const useCachedUser: UseCachedUser = () => {
+export const useCachedGraphQlUser: UseCachedGraphQlUser = () => {
+  const { user } = useFirebaseUser();
+
   const { getUser } = useGetUser({
     variables: {
-      id: auth.currentUser?.uid ?? '',
+      id: user?.uid ?? '',
     },
   });
 

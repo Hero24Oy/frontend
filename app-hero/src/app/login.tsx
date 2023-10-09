@@ -12,7 +12,7 @@ import { Platform, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { authConfig } from '$/configs';
-import { auth } from '$/core';
+import { auth, useFirebaseUser } from '$/core';
 import {
   useAppleAuth,
   useAuthentication,
@@ -29,8 +29,9 @@ const styles = StyleSheet.create({
 });
 
 const Home: FC = () => {
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { user } = useFirebaseUser();
+  const [email, setEmail] = useState('');
 
   const { signInWithCredentials } = useAuthentication(auth);
   const { signInWithEmail } = useEmailSignIn(auth);
@@ -66,7 +67,7 @@ const Home: FC = () => {
     }).catch((err) => console.error(err));
   };
 
-  if (auth.currentUser) {
+  if (user) {
     return <Redirect href="/profile" />;
   }
 

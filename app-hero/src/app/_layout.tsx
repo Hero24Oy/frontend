@@ -1,12 +1,11 @@
 import { ApolloProvider } from '@apollo/client';
 import { Slot, SplashScreen } from 'expo-router';
 import * as WebBrowser from 'expo-web-browser';
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect } from 'react';
 import { combineProviders } from 'react-combine-providers';
 
 import 'expo-dev-client';
-import { apolloClient, auth } from '$/core';
-import { useGetUser } from '$common';
+import { apolloClient, useInitializeApp } from '$/core';
 import { attachUiProviders } from '$ui-library';
 
 WebBrowser.maybeCompleteAuthSession();
@@ -33,27 +32,7 @@ const MainProvider: FC = () => {
 };
 
 const PostProviderApp: FC = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  const { getUser } = useGetUser({ skip: true });
-
-  useEffect(() => {
-    auth.onAuthStateChanged((newState) => {
-      const callback = async (): Promise<void> => {
-        if (!newState) {
-          return;
-        }
-
-        // TODO use lazy query when it's available
-        await getUser.refetch({ id: newState.uid });
-      };
-
-      setIsLoading(true);
-      callback()
-        .then(() => setIsLoading(false))
-        .catch((error) => console.error(error));
-    });
-  }, []);
+  const { isLoading } = useInitializeApp();
 
   useEffect(() => {
     if (isLoading) {

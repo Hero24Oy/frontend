@@ -3,19 +3,21 @@ import { Link } from 'expo-router';
 import React, { FC } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { auth } from '$/core';
+import { useFirebaseUser } from '$/core';
 
 const Home: FC = () => {
+  const { user } = useFirebaseUser();
+
   return (
     <SafeAreaView>
       <View>
-        {!auth.currentUser && (
+        {!user && (
           <Button>
             <Link href="/login">Login</Link>
           </Button>
         )}
 
-        {auth.currentUser && (
+        {user && (
           <Button>
             <Link href="/profile">My profile</Link>
           </Button>

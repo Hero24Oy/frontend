@@ -36,7 +36,10 @@ const commonConfig: Partial<ExpoConfig> = {
   },
   extra: {
     eas: {
-      projectId: '658691dd-bdf5-4d4e-82bb-353e8f808b10',
+      projectId: 'd1e90bd7-0018-4cc5-baca-5d55a16d069b',
+    },
+    router: {
+      origin: false,
     },
   },
   experiments: {
@@ -49,14 +52,9 @@ const commonConfig: Partial<ExpoConfig> = {
 // Change/add necessary fields for production
 const productionConfig = {
   name: 'Hero24',
-  slug: 'hero24',
+  slug: 'app-hero',
   currentFullName: '@hero24/hero24',
   originalFullName: '@hero24/hero24',
-  extra: {
-    eas: {
-      projectId: 'd1e90bd7-0018-4cc5-baca-5d55a16d069b',
-    },
-  },
 } satisfies Partial<ExpoConfig>;
 
 // Change/add necessary fields for staging
@@ -65,11 +63,6 @@ const stagingConfig = {
   slug: 'app-hero',
   currentFullName: '@hero24/hero24-hero',
   originalFullName: '@hero24/hero24-hero',
-  extra: {
-    eas: {
-      projectId: 'd1e90bd7-0018-4cc5-baca-5d55a16d069b',
-    },
-  },
   android: {
     package: 'com.hero24.hero',
   },
