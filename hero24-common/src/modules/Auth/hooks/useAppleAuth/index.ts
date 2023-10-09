@@ -1,19 +1,11 @@
 import * as AppleAuthentication from 'expo-apple-authentication';
 import * as Crypto from 'expo-crypto';
-import { OAuthCredential, OAuthProvider } from 'firebase/auth';
+import { OAuthCredential } from 'firebase/auth';
 import { useCallback } from 'react';
 
-import { WithCallback } from './types';
+import { WithCallback } from '../types';
 
-export const RADIX = 36;
-
-export const START = 2;
-
-export const CSRF_END = 15;
-
-export const NONCE_END = 10;
-
-export const AppleProvider = new OAuthProvider('apple.com');
+import { AppleProvider, CSRF_END, NONCE_END, RADIX, START } from './constants';
 
 type AppleAuthConfig = WithCallback;
 
