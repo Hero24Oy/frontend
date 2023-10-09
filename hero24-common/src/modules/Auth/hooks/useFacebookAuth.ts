@@ -22,14 +22,12 @@ type FacebookAuthConfig = {
 
 type UseeFacebookAuth = (config: FacebookAuthConfig) => () => Promise<void>;
 
-// TODO
 export const useFacebookAuth: UseeFacebookAuth = (config) => {
   const { onAuthSucceed, ...facebookAuthConfig } = config;
 
   const [_request, response, promptAsync] = Facebook.useAuthRequest({
     responseType: ResponseType.Token,
     clientId: facebookAuthConfig.facebookAppId,
-    // TODO do we need facebook app name?
   });
 
   const handleSignIn = useCallback(async () => {

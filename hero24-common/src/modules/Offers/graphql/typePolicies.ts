@@ -16,7 +16,6 @@ export const offersTypePolicies: TypePolicies = {
         read: (
           _cachedKey,
           options: FieldFunctionOptions<
-            // TODO we need type here
             Partial<GraphQlInput<{ offerId: string }>>
           >,
         ) => {

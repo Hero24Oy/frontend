@@ -8,5 +8,5 @@ import { firebaseConfig } from '$/configs';
 export const app = initializeApp(firebaseConfig);
 
 export const auth = initializeAuth(app, {
-  persistence: getReactNativePersistence(AsyncStorage), // TODO does not work with web if enabled
+  persistence: getReactNativePersistence(AsyncStorage),
 });

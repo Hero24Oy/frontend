@@ -15,12 +15,13 @@ export const getExpoPushTokenAsync: () => Promise<string | null> = async () => {
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-comparison -- We know to check if permission is granted
   if (status !== 'granted') {
-    // TODO magic string should be replaced with enum, but it produces ts errors
     // Android remote notification permissions are granted during the app
     // install, so this will only ask on iOS
     const { status: newStatus } = await Notifications.requestPermissionsAsync();
 
     // Stop here if the user did not grant permissions
+    // * Note, we don't use custom enum here, as it produces ts errors
+    // * This comparison appears to be unintentional because the types 'PermissionStatus' and 'Status' have no overlap.
     // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-comparison -- We know to check if permission is granted
     if (newStatus !== 'granted') {
       return null;
