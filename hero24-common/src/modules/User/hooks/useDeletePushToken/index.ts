@@ -2,16 +2,20 @@ import { useCallback } from 'react';
 
 import { useEditUser, useGetUser } from '../../graphql';
 
-export type DeletePushToken = (tokenToDelete: string) => Promise<void>;
+export type DeletePushToken = (
+  userId: string,
+  tokenToDelete: string,
+) => Promise<void>;
 
-export const useDeletePushToken = (userId: string): DeletePushToken => {
+export const useDeletePushToken = (): DeletePushToken => {
+  // TODO implement lazy user query
   const { getUser } = useGetUser({
     skip: true,
   });
   const { editUser } = useEditUser();
 
   const deleteToken: DeletePushToken = useCallback(
-    async (tokenToDelete) => {
+    async (userId, tokenToDelete) => {
       const user = await getUser.refetch({
         id: userId,
       });
@@ -35,7 +39,7 @@ export const useDeletePushToken = (userId: string): DeletePushToken => {
         },
       });
     },
-    [editUser, getUser, userId],
+    [editUser, getUser],
   );
 
   return deleteToken;

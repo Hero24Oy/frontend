@@ -1,13 +1,13 @@
 import { ApolloProvider } from '@apollo/client';
 import { Slot, SplashScreen } from 'expo-router';
 import * as WebBrowser from 'expo-web-browser';
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { combineProviders } from 'react-combine-providers';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import 'expo-dev-client';
 import { apolloClient, auth } from '$/core';
-import { AuthProvider, useSession } from '$common';
+import { useGetUser } from '$common';
 import { attachUiProviders } from '$ui-library';
 
 WebBrowser.maybeCompleteAuthSession();
@@ -19,11 +19,6 @@ attachUiProviders(manager);
 manager.push(ApolloProvider, {
   children: null,
   client: apolloClient,
-});
-
-manager.push(AuthProvider, {
-  children: null,
-  firebaseAuth: auth,
 });
 
 export const MasterProvider = manager.master();
@@ -41,7 +36,27 @@ const MainProvider: FC = () => {
 };
 
 const PostProviderApp: FC = () => {
-  const { isLoading } = useSession();
+  const [isLoading, setIsLoading] = useState(true);
+
+  const { getUser } = useGetUser({ skip: true });
+
+  useEffect(() => {
+    auth.onAuthStateChanged((newState) => {
+      const callback = async (): Promise<void> => {
+        if (!newState) {
+          return;
+        }
+
+        // TODO use lazy query when it's available
+        await getUser.refetch({ id: newState.uid });
+      };
+
+      setIsLoading(true);
+      callback()
+        .then(() => setIsLoading(false))
+        .catch((error) => console.error(error));
+    });
+  }, []);
 
   useEffect(() => {
     if (isLoading) {

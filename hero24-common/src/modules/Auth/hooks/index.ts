@@ -4,5 +4,5 @@ export * from './useEmailSignIn';
 export * from './useEmailSignUp';
 export * from './useFacebookAuth';
 export * from './useGoogleAuth';
-export * from './useSession';
+export * from './useLogout';
 export * from './types';
