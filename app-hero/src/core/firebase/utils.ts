@@ -1,4 +1,4 @@
-import { auth } from './app';
+import { auth } from './auth';
 
 export const getAuthToken = async (): Promise<string | undefined> => {
   const token = await auth.currentUser?.getIdToken();

@@ -1,7 +1,7 @@
 import { InMemoryCacheConfig } from '@apollo/client';
 
 export type LinksOptions = {
-  getAuthToken: () => Promise<string | null | undefined> | string | undefined;
+  getAuthToken: () => Promise<string | undefined>;
   serverUrl: string;
 };
 

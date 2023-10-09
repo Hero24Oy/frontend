@@ -1,17 +1,10 @@
-import { Button, View } from '@gluestack-ui/themed';
-import { Link } from 'expo-router';
+import { Text, View } from '@gluestack-ui/themed';
 import React, { FC } from 'react';
 
 const Home: FC = () => {
   return (
     <View>
-      <Button>
-        <Link href="/login">Login</Link>
-      </Button>
-
-      <Button>
-        <Link href="/profile">My profile</Link>
-      </Button>
+      <Text>Hello, world</Text>
     </View>
   );
 };

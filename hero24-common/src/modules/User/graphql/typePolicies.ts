@@ -9,7 +9,7 @@ export const userTypePolicies: TypePolicies = {
         keyArgs: false,
         read: (
           _cachedKey,
-          options: FieldFunctionOptions<Partial<{ id: string }>>, // TODO deal with cycle imports
+          options: FieldFunctionOptions<Partial<{ id: string }>>,
         ) => {
           const { args, toReference } = options;
 

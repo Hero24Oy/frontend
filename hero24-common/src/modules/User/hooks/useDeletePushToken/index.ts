@@ -5,7 +5,6 @@ import { useEditUser, useGetUser } from '../../graphql';
 export type DeletePushToken = (tokenToDelete: string) => Promise<void>;
 
 export const useDeletePushToken = (userId: string): DeletePushToken => {
-  // TODO implement lazy user query
   const { getUser } = useGetUser({
     skip: true,
   });
