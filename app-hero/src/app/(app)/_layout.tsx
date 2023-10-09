@@ -9,7 +9,7 @@ const AppLayout: FC = () => {
   if (!auth.currentUser) {
     // On web, static rendering will stop here as the user is not authenticated
     // in the headless Node process that the pages are rendered in.
-    return <Redirect href="/sign-in" />;
+    return <Redirect href="/login" />;
   }
 
   // This layout can be deferred because it's not the root layout.

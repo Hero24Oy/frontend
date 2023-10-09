@@ -9,6 +9,7 @@ import * as AppleAuthentication from 'expo-apple-authentication';
 import { Redirect } from 'expo-router';
 import React, { FC, useState } from 'react';
 import { Platform, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { authConfig } from '$/configs';
 import { auth } from '$/core';
@@ -70,55 +71,61 @@ const Home: FC = () => {
   }
 
   return (
-    <View>
-      <Button
-        onPress={(): void => {
-          signInWithGoogle().catch((err) => console.error(err));
-        }}
-      >
-        <ButtonText>Sign in google</ButtonText>
-      </Button>
-      {Platform.OS === 'ios' && (
-        <AppleAuthentication.AppleAuthenticationButton
-          buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
-          buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
-          cornerRadius={5}
-          style={styles.appleButton}
-          onPress={(): void => {
-            signInWithApple().catch((err) => console.error(err));
-          }}
-        />
-      )}
-      <Button
-        onPress={(): void => {
-          signInWithFacebook().catch((err) => console.error(err));
-        }}
-      >
-        <ButtonText>Sign in facebook</ButtonText>
-      </Button>
+    <SafeAreaView>
       <View>
-        <Input>
-          <InputField
-            value={email}
-            onChangeText={(text): void => setEmail(text)}
-            placeholder="email"
-          />
-        </Input>
-        <Input>
-          <InputField
-            value={password}
-            onChangeText={(text): void => setPassword(text)}
-            placeholder="password"
-          />
-        </Input>
-        <Button onPress={registerHandler}>
-          <ButtonText>Register</ButtonText>
+        <Button
+          onPress={(): void => {
+            signInWithGoogle().catch((err) => console.error(err));
+          }}
+        >
+          <ButtonText>Sign in google</ButtonText>
         </Button>
-        <Button onPress={authHandler}>
-          <ButtonText>Login</ButtonText>
+        {Platform.OS === 'ios' && (
+          <AppleAuthentication.AppleAuthenticationButton
+            buttonType={
+              AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN
+            }
+            buttonStyle={
+              AppleAuthentication.AppleAuthenticationButtonStyle.BLACK
+            }
+            cornerRadius={5}
+            style={styles.appleButton}
+            onPress={(): void => {
+              signInWithApple().catch((err) => console.error(err));
+            }}
+          />
+        )}
+        <Button
+          onPress={(): void => {
+            signInWithFacebook().catch((err) => console.error(err));
+          }}
+        >
+          <ButtonText>Sign in facebook</ButtonText>
         </Button>
+        <View>
+          <Input>
+            <InputField
+              value={email}
+              onChangeText={(text): void => setEmail(text)}
+              placeholder="email"
+            />
+          </Input>
+          <Input>
+            <InputField
+              value={password}
+              onChangeText={(text): void => setPassword(text)}
+              placeholder="password"
+            />
+          </Input>
+          <Button onPress={registerHandler}>
+            <ButtonText>Register</ButtonText>
+          </Button>
+          <Button onPress={authHandler}>
+            <ButtonText>Login</ButtonText>
+          </Button>
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

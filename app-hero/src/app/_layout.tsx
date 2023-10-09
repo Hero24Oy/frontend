@@ -3,7 +3,6 @@ import { Slot, SplashScreen } from 'expo-router';
 import * as WebBrowser from 'expo-web-browser';
 import { FC, useEffect, useState } from 'react';
 import { combineProviders } from 'react-combine-providers';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 import 'expo-dev-client';
 import { apolloClient, auth } from '$/core';
@@ -28,9 +27,7 @@ SplashScreen.preventAutoHideAsync();
 const MainProvider: FC = () => {
   return (
     <MasterProvider>
-      <SafeAreaView>
-        <PostProviderApp />
-      </SafeAreaView>
+      <PostProviderApp />
     </MasterProvider>
   );
 };
