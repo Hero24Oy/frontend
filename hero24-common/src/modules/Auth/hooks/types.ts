@@ -9,6 +9,7 @@ export type SignInWithCredentials = (
   credentials: OAuthCredential,
 ) => Promise<UserCredential | undefined>;
 
-export type OnAuthSucceed = {
+export type WithCallback = {
   onAuthSucceed: SignInWithCredentials;
+  onAuthFailed?: (error: Error) => void;
 };

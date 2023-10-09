@@ -3,7 +3,7 @@ import * as Crypto from 'expo-crypto';
 import { OAuthCredential, OAuthProvider } from 'firebase/auth';
 import { useCallback } from 'react';
 
-import { OnAuthSucceed } from './types';
+import { WithCallback } from './types';
 
 export const RADIX = 36;
 
@@ -15,7 +15,7 @@ export const NONCE_END = 10;
 
 export const AppleProvider = new OAuthProvider('apple.com');
 
-type AppleAuthConfig = OnAuthSucceed;
+type AppleAuthConfig = WithCallback;
 
 type UseAppleAuth = (config: AppleAuthConfig) => {
   signInWithApple: () => Promise<void>;

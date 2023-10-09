@@ -1,12 +1,11 @@
 import { ConfigContext, ExpoConfig } from 'expo/config';
-import merge from 'lodash/merge';
+import { merge } from 'lodash';
 
-if (!process.env.FACEBOOK_APP_ID) {
-  throw new Error('FACEBOOK_APP_ID is not defined');
-}
-
-// Change/add necessary fields for both the production and staging
-const commonConfig: Partial<ExpoConfig> = {
+const customConfig = {
+  name: 'Hero24',
+  slug: 'app-hero',
+  currentFullName: '@hero24/hero24-hero',
+  originalFullName: '@hero24/hero24-hero',
   description: 'Hero24 Marketplace',
   owner: 'hero24',
   privacy: 'unlisted',
@@ -23,8 +22,10 @@ const commonConfig: Partial<ExpoConfig> = {
   ios: {
     supportsTablet: true,
     usesAppleSignIn: true,
+    bundleIdentifier: 'com.hero24.hero',
   },
   android: {
+    package: 'com.hero24.hero',
     adaptiveIcon: {
       foregroundImage: './assets/images/adaptive-icon.png',
       backgroundColor: '#ffffff',
@@ -43,45 +44,13 @@ const commonConfig: Partial<ExpoConfig> = {
     },
   },
   experiments: {
+    typedRoutes: true,
     tsconfigPaths: true,
   },
   scheme: `fb${process.env.FACEBOOK_APP_ID}`, // * fb* is Facebook App ID, used for redirecting on android
   plugins: ['expo-router', 'expo-apple-authentication'],
-};
-
-// Change/add necessary fields for production
-const productionConfig = {
-  name: 'Hero24',
-  slug: 'app-hero',
-  currentFullName: '@hero24/hero24',
-  originalFullName: '@hero24/hero24',
 } satisfies Partial<ExpoConfig>;
 
-// Change/add necessary fields for staging
-const stagingConfig = {
-  name: 'Hero24 Hero (Development)',
-  slug: 'app-hero',
-  currentFullName: '@hero24/hero24-hero',
-  originalFullName: '@hero24/hero24-hero',
-  android: {
-    package: 'com.hero24.hero',
-  },
-  ios: {
-    bundleIdentifier: 'com.hero24.hero',
-  },
-  experiments: {
-    typedRoutes: true,
-  },
-} satisfies Partial<ExpoConfig>;
-
-// Common config will be extended with staging/production config
-// Important: _.merge will replace arrays https://lodash.com/docs/4.17.15#merge
 export default ({ config }: ConfigContext): ExpoConfig => {
-  const targetConfig =
-    process.env.NODE_ENV === 'production' ? productionConfig : stagingConfig;
-
-  return {
-    ...config,
-    ...merge(commonConfig, targetConfig),
-  };
+  return merge(config, customConfig);
 };

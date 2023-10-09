@@ -5,13 +5,13 @@ import { GoogleAuthProvider, OAuthCredential } from 'firebase/auth';
 import { useCallback, useEffect } from 'react';
 import { Platform } from 'react-native';
 
-import { OnAuthSucceed } from './types';
+import { WithCallback } from './types';
 
 type GoogleAuthConfig = {
   androidClientId: string;
   iosClientId: string;
   webClientId: string;
-} & OnAuthSucceed;
+} & WithCallback;
 
 type UseGoogleAuth = (config: GoogleAuthConfig) => {
   signInWithGoogle: () => Promise<void>;
@@ -51,10 +51,6 @@ export const useGoogleAuth: UseGoogleAuth = (config) => {
   // * https://github.com/expo/expo/issues/12808#issuecomment-1002245022
   // * that's why we are using response from Google.useIdTokenAuthRequest instead of response from promptAsync
   useEffect(() => {
-    if (!response) {
-      return;
-    }
-
     if (response?.type !== 'success') {
       return;
     }

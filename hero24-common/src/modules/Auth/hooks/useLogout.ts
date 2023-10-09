@@ -13,8 +13,8 @@ export const useLogout: UseLogout = () => {
   const handleLogout = useCallback(async (props: LogoutProps) => {
     const { apolloClient, firebaseAuth } = props;
 
-    await Promise.all([firebaseAuth.signOut(), apolloClient.clearStore()]);
     // await deletePushToken(firebaseAuth.currentUser?.uid, 'all'); // TODO Add expo push token here
+    await Promise.all([firebaseAuth.signOut(), apolloClient.clearStore()]);
   }, []);
 
   return handleLogout;

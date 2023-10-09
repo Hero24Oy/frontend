@@ -3,11 +3,11 @@ import * as Facebook from 'expo-auth-session/providers/facebook';
 import { FacebookAuthProvider, OAuthCredential } from 'firebase/auth';
 import { useCallback, useEffect } from 'react';
 
-import { OnAuthSucceed } from './types';
+import { WithCallback } from './types';
 
 type FacebookAuthConfig = {
   facebookAppId: string;
-} & OnAuthSucceed;
+} & WithCallback;
 
 type UseFacebookAuth = (config: FacebookAuthConfig) => {
   signInWithFacebook: () => Promise<void>;
