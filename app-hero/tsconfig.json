@@ -16,6 +16,8 @@
       */
       "$common/modules": ["@hero24/common-library/src/modules/index"],
       "$common/types": ["@hero24/common-library/src/types/index"],
+      "$common/core": ["@hero24/common-library/src/core/index"],
+      "$common/hooks": ["@hero24/common-library/src/hooks/index"],
       /*
         Ui-library-submodule aliases
       */

@@ -1,11 +1,11 @@
 import { UiLibraryProvider } from '$ui-library';
 import { Slot, SplashScreen } from 'expo-router';
-import { useInitializeApp } from '../hooks';
+import { useInitializeApp } from '$common/hooks';
 import { FC } from 'react';
 
 SplashScreen.preventAutoHideAsync();
 
-export const MainLayout: FC = () => {
+export const AppLayout: FC = () => {
   const { isAppInitialized } = useInitializeApp();
 
   return isAppInitialized ? (

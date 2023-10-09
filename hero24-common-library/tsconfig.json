@@ -4,6 +4,8 @@
     "paths": {
       "$common/modules": ["modules/index"],
       "$common/types": ["types/index"],
+      "$common/core": ["core/index"],
+      "$common/hooks": ["hooks/index"],
       /*
         TODO: Delete next aliases after create npm package
       */

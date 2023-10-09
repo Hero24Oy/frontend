@@ -1,15 +1,14 @@
 import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { ContinueWithButtons, SignInWithEmailForm } from '../../components';
-
 import { HStack, SafeAreaView, Text, VStack } from '$ui-library';
+import { ContinueWithButtons, EmailSignInForm } from './components';
 
 export const AuthScreen: FC = () => {
   return (
     <SafeAreaView>
       <VStack style={styles.container}>
-        <SignInWithEmailForm />
+        <EmailSignInForm />
         <HStack style={styles.orBox}>
           {/* TODO replace "Or" with i18n call */}
           <Text>Or</Text>

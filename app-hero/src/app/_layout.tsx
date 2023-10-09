@@ -1,12 +1,9 @@
-import { SplashScreen } from 'expo-router';
 import { FC } from 'react';
 
-import { MainLayout } from '$common';
-
-SplashScreen.preventAutoHideAsync();
+import { AppLayout } from '$common';
 
 const Layout: FC = () => {
-  return <MainLayout />;
+  return <AppLayout />;
 };
 
 export default Layout;

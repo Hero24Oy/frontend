@@ -1,2 +1,2 @@
-export * from './SignInWithEmailForm';
+export * from './EmailSignInForm';
 export * from './ContinueWithButtons';
