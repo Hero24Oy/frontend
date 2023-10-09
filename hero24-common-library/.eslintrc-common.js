@@ -91,7 +91,6 @@ const spellCheckerRule = {
     'error',
     {
       checkComments: true,
-      skipWords: ['Gluestack'],
     },
   ],
 };

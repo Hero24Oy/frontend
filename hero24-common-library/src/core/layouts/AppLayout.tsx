@@ -1,7 +1,8 @@
-import { UiLibraryProvider } from '$ui-library';
 import { Slot, SplashScreen } from 'expo-router';
-import { useInitializeApp } from '$common/hooks';
 import { FC } from 'react';
+
+import { useInitializeApp } from '$common/hooks';
+import { UiLibraryProvider } from '$ui-library';
 
 SplashScreen.preventAutoHideAsync();
 

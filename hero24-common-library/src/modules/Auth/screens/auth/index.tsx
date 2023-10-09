@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { HStack, SafeAreaView, Text, VStack } from '$ui-library';
 import { ContinueWithButtons, EmailSignInForm } from './components';
+
+import { HStack, SafeAreaView, Text, VStack } from '$ui-library';
 
 export const AuthScreen: FC = () => {
   return (
