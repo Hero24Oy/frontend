@@ -1,1 +1,1 @@
-export * from './MasterProvider';
+export * from './UiLibraryProvider';

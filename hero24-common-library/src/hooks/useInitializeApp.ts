@@ -1,19 +1,35 @@
-import { useState } from 'react';
+import { SplashScreen } from 'expo-router';
+import { useEffect, useState } from 'react';
 
 interface UseInitializeAppReturnType {
   isAppInitialized: boolean;
 }
 
+const DELAY_TIME = 2000;
+
 export const useInitializeApp = (): UseInitializeAppReturnType => {
   const [isAppInitialized, setIsAppInitialized] = useState<boolean>(false);
 
-  if (isAppInitialized) {
-    return { isAppInitialized };
-  }
+  const initAppSuccessful = (): void => {
+    SplashScreen.hideAsync();
+    setIsAppInitialized(true);
+  };
+
+  useEffect(() => {
+    const fetchInitData = async (): Promise<void> => {
+      try {
+        await pseudoAsyncFunction(DELAY_TIME);
+        initAppSuccessful();
+      } catch (e) {
+        console.error(e);
+        // TODO add some actions if init data isn't fetched successful
+      }
+    };
+
+    void fetchInitData();
+  }, [isAppInitialized]);
 
   // Fake fetch implementation. Remove after real fetch implementation
-  const delayTime = 2000;
-
   const pseudoAsyncFunction = (delay: number): Promise<void> => {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -21,10 +37,6 @@ export const useInitializeApp = (): UseInitializeAppReturnType => {
       }, delay);
     });
   };
-
-  pseudoAsyncFunction(delayTime)
-    .then(() => setIsAppInitialized(true))
-    .catch(() => null);
   // Fake fetch implementation. Remove after real fetch implementation
 
   return { isAppInitialized };

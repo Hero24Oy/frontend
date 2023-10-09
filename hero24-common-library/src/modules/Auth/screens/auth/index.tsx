@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { EmailPasswordForm, SignWithButtons } from '../../components';
+import { ContinueWithButtons, SignInWithEmailForm } from '../../components';
 
 import { HStack, SafeAreaView, Text, VStack } from '$ui-library';
 
@@ -9,12 +9,12 @@ export const AuthScreen: FC = () => {
   return (
     <SafeAreaView>
       <VStack style={styles.container}>
-        <EmailPasswordForm />
+        <SignInWithEmailForm />
         <HStack style={styles.orBox}>
           {/* TODO replace "Or" with i18n call */}
           <Text>Or</Text>
         </HStack>
-        <SignWithButtons />
+        <ContinueWithButtons />
       </VStack>
     </SafeAreaView>
   );

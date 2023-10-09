@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import { Button, VStack } from '$ui-library';
 
-export const SignWithButtons: FC = () => {
+export const ContinueWithButtons: FC = () => {
   return (
     <VStack style={styles.container}>
       {/* TODO replace button labels with i18n call */}

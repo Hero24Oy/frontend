@@ -1,2 +1,2 @@
-export * from './EmailPasswordForm';
-export * from './SignWithButtons';
+export * from './SignInWithEmailForm';
+export * from './ContinueWithButtons';

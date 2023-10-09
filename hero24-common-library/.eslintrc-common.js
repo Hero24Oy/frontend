@@ -9,7 +9,8 @@ const EXCLUDE_NAMES_NAMING_CONVENTION = [
   'generalPauseDurationMS',
   'downloadURL',
   'databaseURL',
-  '[A-Z]{2}'
+  'HStack',
+  'VStack',
 ];
 const excludeNamesNamingConventionRegex =
   EXCLUDE_NAMES_NAMING_CONVENTION.join('|');
@@ -90,6 +91,7 @@ const spellCheckerRule = {
     'error',
     {
       checkComments: true,
+      skipWords: ['Gluestack'],
     },
   ],
 };
@@ -290,7 +292,7 @@ const namingConventionRule = {
       format: ['StrictPascalCase'],
       filter: {
         match: false,
-        regex: `\b${DB_REGEXP}`,
+        regex: `(\b${DB_REGEXP})|${underscoreAndExcludeNamingConventionRegex}`,
       },
     },
   ],

@@ -1,7 +1,4 @@
-import { ViewStyle } from 'react-native';
-
-export type StackPropsStyle = Pick<
-  ViewStyle,
+export type LayoutStyles =
   | 'justifyContent'
   | 'alignItems'
   | 'margin'
@@ -12,5 +9,4 @@ export type StackPropsStyle = Pick<
   | 'marginHorizontal'
   | 'marginVertical'
   | 'flex'
-  | 'gap'
->;
+  | 'gap';
