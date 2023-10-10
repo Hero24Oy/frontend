@@ -1,25 +1,29 @@
-import { FC } from 'react';
-import { StyleSheet } from 'react-native';
-import { useForm } from 'react-hook-form';
-import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { FC } from 'react';
+import { useForm } from 'react-hook-form';
+import { StyleSheet } from 'react-native';
+import * as yup from 'yup';
+
+import {
+  emailValidationShape,
+  passwordValidationShape,
+} from '../../../../../../core';
 
 import { Button, Input, VStack } from '$ui-library';
-import { emailValidationShape, passwordValidationShape } from '../../../../../../core';
 
 interface FormData {
   email: string;
   password: string;
 }
 
-const FormValidation = yup.object().shape({
+const formValidation = yup.object().shape({
   email: emailValidationShape,
   password: passwordValidationShape,
 });
 
 export const EmailSignInForm: FC = () => {
   const { control, handleSubmit } = useForm<FormData>({
-    resolver: yupResolver(FormValidation),
+    resolver: yupResolver(formValidation),
     defaultValues: {
       email: '',
       password: '',
@@ -27,7 +31,9 @@ export const EmailSignInForm: FC = () => {
     mode: 'onChange',
   });
 
-  const onSubmit = (data: FormData) => {};
+  const onSubmitHandler = (_data: FormData): void => { //TODO rename _data to data after using it inside handler
+    return
+  };
 
   return (
     <VStack style={styles.container}>
@@ -39,7 +45,7 @@ export const EmailSignInForm: FC = () => {
         control={control}
         name="password"
       />
-      <Button onPress={handleSubmit(onSubmit)}>Continue</Button>
+      <Button onPress={handleSubmit(onSubmitHandler)}>Continue</Button>
     </VStack>
   );
 };
