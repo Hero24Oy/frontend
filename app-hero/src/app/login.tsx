@@ -11,7 +11,6 @@ import React, { FC, useState } from 'react';
 import { Platform, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { authConfig } from '$/configs';
 import {
   useAppleAuth,
   useAuthentication,
@@ -21,6 +20,7 @@ import {
   useFirebaseUser,
   useGoogleAuth,
 } from '$common';
+import { authConfig } from '$configs';
 
 const styles = StyleSheet.create({
   appleButton: {

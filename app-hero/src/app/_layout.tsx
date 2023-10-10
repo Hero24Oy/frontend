@@ -5,8 +5,8 @@ import { FC, useEffect } from 'react';
 import { combineProviders } from 'react-combine-providers';
 
 import 'expo-dev-client';
-import { apolloClient, auth, useInitializeApp } from '$/core';
 import { initializeFirebaseAuth } from '$common';
+import { apolloClient, auth, useInitializeApp } from '$core';
 import { attachUiProviders } from '$ui-library';
 
 WebBrowser.maybeCompleteAuthSession();
