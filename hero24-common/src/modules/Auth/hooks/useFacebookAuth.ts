@@ -40,10 +40,6 @@ export const useFacebookAuth: UseFacebookAuth = (config) => {
   // * https://github.com/expo/expo/issues/12808#issuecomment-1002245022
   // * that's why we are using response from Facebook.useAuthRequest instead of response from promptAsync
   useEffect(() => {
-    if (!response) {
-      return;
-    }
-
     if (response?.type !== 'success') {
       return;
     }

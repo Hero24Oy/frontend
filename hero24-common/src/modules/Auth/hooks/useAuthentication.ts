@@ -19,15 +19,7 @@ export const useAuthentication: UseAuthentication = () => {
 
   const signInWithCredentials: SignInWithCredentials = useCallback(
     async (credentials) => {
-      try {
-        const response = await signInWithCredential(firebaseAuth, credentials);
-
-        return response;
-      } catch (error) {
-        console.error(error);
-
-        return undefined;
-      }
+      return signInWithCredential(firebaseAuth, credentials);
     },
     [firebaseAuth],
   );

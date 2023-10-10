@@ -42,7 +42,8 @@ export const useAppleAuth: UseAppleAuth = (config) => {
       const { identityToken } = appleCredential;
 
       if (!identityToken) {
-        throw new Error("IdentityToken wasn't provided");
+        console.error("IdentityToken wasn't provided");
+        return;
       }
 
       const credentials: OAuthCredential = AppleProvider.credential({
