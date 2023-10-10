@@ -5,7 +5,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { Button, Input, VStack } from '$ui-library';
-import { emailValidationShape, passwordValidationShape } from '$common/core';
+import { emailValidationShape, passwordValidationShape } from '../../../../../../core';
 
 interface FormData {
   email: string;
