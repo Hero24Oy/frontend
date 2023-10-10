@@ -4,6 +4,7 @@ import {
   Text,
   VStack,
 } from '@gluestack-ui/themed';
+import { ReactElement } from 'react';
 import { Control, FieldValues, Path, useController } from 'react-hook-form';
 
 export enum InputType {
@@ -19,7 +20,7 @@ interface InputProps<T extends FieldValues> {
   type?: `${InputType}`;
 }
 
-export const Input = <T extends FieldValues>(props: InputProps<T>) => {
+export const Input = <T extends FieldValues>(props: InputProps<T>): ReactElement => {
   const {
     control,
     name,

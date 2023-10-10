@@ -13,10 +13,9 @@ export const useInitializeApp = (): UseInitializeAppReturnType => {
     setIsAppInitialized(true);
   };
 
-  //@ts-ignore @typescript-eslint/require-await
-  const fetchInitData = async (): Promise<void> => {
+  const fetchInitData = (): void => {
     try {
-      // TODO add async requests here, that required for app initialize
+      // TODO add any requests here, that required for app initialize
       initAppSuccessful();
     } catch (e) {
       console.error(e);

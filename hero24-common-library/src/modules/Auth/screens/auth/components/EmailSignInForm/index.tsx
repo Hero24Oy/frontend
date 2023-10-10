@@ -31,8 +31,12 @@ export const EmailSignInForm: FC = () => {
     mode: 'onChange',
   });
 
-  const onSubmitHandler = (_data: FormData): void => { //TODO rename _data to data after using it inside handler
-    return
+  const onSubmitHandler = (_data: FormData): void => {
+    return undefined;
+  };
+
+  const onSubmit = (): void => {
+    void handleSubmit(onSubmitHandler)();
   };
 
   return (
@@ -45,7 +49,7 @@ export const EmailSignInForm: FC = () => {
         control={control}
         name="password"
       />
-      <Button onPress={handleSubmit(onSubmitHandler)}>Continue</Button>
+      <Button onPress={onSubmit}>Continue</Button>
     </VStack>
   );
 };
