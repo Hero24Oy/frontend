@@ -3,7 +3,7 @@ import React, { FC, useCallback } from 'react';
 
 import { useCachedGraphQlUser, useLogout } from '$common';
 
-const Home: FC = () => {
+const Profile: FC = () => {
   const handleLogout = useLogout();
 
   const { user } = useCachedGraphQlUser();
@@ -25,4 +25,4 @@ const Home: FC = () => {
   );
 };
 
-export default Home;
+export default Profile;

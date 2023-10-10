@@ -1,5 +1,4 @@
 import { ConfigContext, ExpoConfig } from 'expo/config';
-import { merge } from 'lodash';
 
 const customConfig = {
   name: 'Hero24',
@@ -52,5 +51,8 @@ const customConfig = {
 } satisfies Partial<ExpoConfig>;
 
 export default ({ config }: ConfigContext): ExpoConfig => {
-  return merge(config, customConfig);
+  return {
+    ...config,
+    ...customConfig,
+  };
 };

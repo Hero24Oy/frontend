@@ -21,15 +21,15 @@ manager.push(ApolloProvider, {
   client: apolloClient,
 });
 
-export const MasterProvider = manager.master();
+export const PreProviderApp = manager.master();
 
 SplashScreen.preventAutoHideAsync();
 
 const MainProvider: FC = () => {
   return (
-    <MasterProvider>
+    <PreProviderApp>
       <PostProviderApp />
-    </MasterProvider>
+    </PreProviderApp>
   );
 };
 
