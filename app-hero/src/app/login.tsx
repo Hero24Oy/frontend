@@ -12,13 +12,13 @@ import { Platform, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { authConfig } from '$/configs';
-import { auth, useFirebaseUser } from '$/core';
 import {
   useAppleAuth,
   useAuthentication,
   useEmailSignIn,
   useEmailSignUp,
   useFacebookAuth,
+  useFirebaseUser,
   useGoogleAuth,
 } from '$common';
 
@@ -33,9 +33,9 @@ const Home: FC = () => {
   const { user } = useFirebaseUser();
   const [email, setEmail] = useState('');
 
-  const { signInWithCredentials } = useAuthentication(auth);
-  const { signInWithEmail } = useEmailSignIn(auth);
-  const { signUpWithEmail } = useEmailSignUp(auth);
+  const { signInWithCredentials } = useAuthentication();
+  const { signInWithEmail } = useEmailSignIn();
+  const { signUpWithEmail } = useEmailSignUp();
 
   const { signInWithGoogle } = useGoogleAuth({
     onAuthSucceed: signInWithCredentials,

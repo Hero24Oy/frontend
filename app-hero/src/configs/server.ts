@@ -1,5 +1,5 @@
-import { envVariables } from './env';
+// import { envVariables } from './env';
 
 export const serverConfig = {
-  apiUrl: envVariables.API_URL,
+  apiUrl: 'http://localhost:8080/graphql',
 };

@@ -1,25 +1,26 @@
-import { Auth, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useCallback } from 'react';
+
+import { useFirebaseAuth } from '../../../core/providers';
 
 import { EmailPasswordData } from './types';
 
-type UseEmailSignIn = (firebaseAuth: Auth) => {
+type UseEmailSignIn = () => {
   signInWithEmail: (data: EmailPasswordData) => Promise<void>;
 };
 
-export const useEmailSignIn: UseEmailSignIn = (auth) => {
-  const signInWithEmail = useCallback(
-    async (data: EmailPasswordData) => {
-      try {
-        const { email, password } = data;
+export const useEmailSignIn: UseEmailSignIn = () => {
+  const firebaseAuth = useFirebaseAuth();
 
-        await signInWithEmailAndPassword(auth, email, password);
-      } catch (error) {
-        console.error(error);
-      }
-    },
-    [auth],
-  );
+  const signInWithEmail = useCallback(async (data: EmailPasswordData) => {
+    try {
+      const { email, password } = data;
+
+      await signInWithEmailAndPassword(firebaseAuth, email, password);
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
 
   return { signInWithEmail };
 };

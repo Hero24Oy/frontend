@@ -1,5 +1,5 @@
-import { useFirebaseUser } from '$/core';
-import { useGetUser, User } from '$common';
+import { useFirebaseUser } from '../../Auth';
+import { useGetUser, User } from '../graphql';
 
 type UseCachedGraphQlUser = () => {
   user: User;

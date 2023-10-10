@@ -1,19 +1,15 @@
 import { useApolloClient } from '@apollo/client';
-import { Auth } from 'firebase/auth';
 import { useCallback } from 'react';
 
-type LogoutProps = {
-  firebaseAuth: Auth;
-};
+import { useFirebaseAuth } from '../../../core/providers';
 
-type UseLogout = () => (props: LogoutProps) => Promise<void>;
+type UseLogout = () => () => Promise<void>;
 
 export const useLogout: UseLogout = () => {
+  const firebaseAuth = useFirebaseAuth();
   const apolloClient = useApolloClient();
 
-  const handleLogout = useCallback(async (props: LogoutProps) => {
-    const { firebaseAuth } = props; // TODO ? Could we create FirebaseAuthProvider and create hook useFirebaseAuth to detach logic even more?
-
+  const handleLogout = useCallback(async () => {
     // await deletePushToken(firebaseAuth.currentUser?.uid, 'all'); // TODO Add expo push token here
     await Promise.all([firebaseAuth.signOut(), apolloClient.clearStore()]);
   }, []);

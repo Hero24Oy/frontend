@@ -5,7 +5,8 @@ import { FC, useEffect } from 'react';
 import { combineProviders } from 'react-combine-providers';
 
 import 'expo-dev-client';
-import { apolloClient, useInitializeApp } from '$/core';
+import { apolloClient, auth, useInitializeApp } from '$/core';
+import { initializeFirebaseAuth } from '$common';
 import { attachUiProviders } from '$ui-library';
 
 WebBrowser.maybeCompleteAuthSession();
@@ -13,6 +14,7 @@ WebBrowser.maybeCompleteAuthSession();
 const manager = combineProviders();
 
 attachUiProviders(manager);
+initializeFirebaseAuth(auth);
 
 manager.push(ApolloProvider, {
   children: null,

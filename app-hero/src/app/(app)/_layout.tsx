@@ -1,13 +1,10 @@
 import { Redirect, Stack } from 'expo-router';
 import { FC } from 'react';
 
-import { useFirebaseUser } from '$/core';
+import { useFirebaseUser } from '$common';
 
 const AppLayout: FC = () => {
   const { user } = useFirebaseUser();
-  // const { firebaseAuth } = useFirebaseAuth();
-
-  // console.log('firebaseAuth', firebaseAuth);
 
   // Only require authentication within the (app) group's layout as users
   // need to be able to access the (auth) group and sign in again.

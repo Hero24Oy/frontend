@@ -27,6 +27,7 @@ const REDIRECT_URI =
       })
     : undefined;
 
+// TODO handle on auth fail
 export const useGoogleAuth: UseGoogleAuth = (config) => {
   const { onAuthSucceed, ...googleAuthConfig } = config;
   const { webClientId, iosClientId, androidClientId } = googleAuthConfig;

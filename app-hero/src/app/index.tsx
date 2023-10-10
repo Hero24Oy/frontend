@@ -3,7 +3,7 @@ import { Link } from 'expo-router';
 import React, { FC } from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { useFirebaseUser } from '$/core';
+import { useFirebaseUser } from '$common';
 
 const Home: FC = () => {
   const { user } = useFirebaseUser();
