@@ -2,9 +2,9 @@ import { FC, PropsWithChildren } from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaView as RnSafeAreaView } from 'react-native-safe-area-context';
 
-interface SafeAreaViewProps extends PropsWithChildren {}
+interface Props extends PropsWithChildren {}
 
-export const SafeAreaView: FC<SafeAreaViewProps> = (props) => {
+export const SafeAreaView: FC<Props> = (props) => {
   const { children } = props;
 
   return <RnSafeAreaView style={styles.view}>{children}</RnSafeAreaView>;

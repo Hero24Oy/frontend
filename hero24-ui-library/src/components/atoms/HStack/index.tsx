@@ -4,11 +4,11 @@ import { StyleSheet, ViewStyle } from 'react-native';
 
 import { LayoutStyles } from '../../../types';
 
-interface HStackProps extends PropsWithChildren {
+interface Props extends PropsWithChildren {
   style: Pick<ViewStyle, LayoutStyles>;
 }
 
-export const HStack: FC<HStackProps> = (props) => {
+export const HStack: FC<Props> = (props) => {
   const { children, style } = props;
 
   return (

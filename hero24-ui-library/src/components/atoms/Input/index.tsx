@@ -12,7 +12,7 @@ export enum InputType {
   PASSWORD = 'password',
 }
 
-interface InputProps<T extends FieldValues> {
+interface Props<T extends FieldValues> {
   control: Control<T>;
   name: Path<T>;
   disabled?: boolean;
@@ -20,7 +20,9 @@ interface InputProps<T extends FieldValues> {
   type?: `${InputType}`;
 }
 
-export const Input = <T extends FieldValues>(props: InputProps<T>): ReactElement => {
+export const Input = <T extends FieldValues>(
+  props: Props<T>,
+): ReactElement => {
   const {
     control,
     name,

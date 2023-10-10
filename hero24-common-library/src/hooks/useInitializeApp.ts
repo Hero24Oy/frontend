@@ -1,4 +1,3 @@
-import { SplashScreen } from 'expo-router';
 import { useEffect, useState } from 'react';
 
 interface UseInitializeAppReturnType {
@@ -9,7 +8,6 @@ export const useInitializeApp = (): UseInitializeAppReturnType => {
   const [isAppInitialized, setIsAppInitialized] = useState<boolean>(false);
 
   const initAppSuccessful = (): void => {
-    SplashScreen.hideAsync();
     setIsAppInitialized(true);
   };
 

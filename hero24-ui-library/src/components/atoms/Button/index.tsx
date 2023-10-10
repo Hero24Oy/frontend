@@ -4,13 +4,13 @@ import {
 } from '@gluestack-ui/themed';
 import { ComponentProps, FC, PropsWithChildren } from 'react';
 
-interface ButtonProps extends PropsWithChildren {
+interface Props extends PropsWithChildren {
   children: string;
   disabled?: boolean;
   onPress?: ComponentProps<typeof GluestackButton>['onPress'];
 }
 
-export const Button: FC<ButtonProps> = (props) => {
+export const Button: FC<Props> = (props) => {
   const { children, disabled = false, onPress } = props;
 
   return (
