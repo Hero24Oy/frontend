@@ -14,7 +14,7 @@ type UseFacebookAuth = (config: FacebookAuthConfig) => {
 };
 
 export const useFacebookAuth: UseFacebookAuth = (config) => {
-  const { onAuthSucceed, ...facebookAuthConfig } = config;
+  const { onAuthSucceed, onAuthFailed, ...facebookAuthConfig } = config;
 
   const [_request, response, promptAsync] = Facebook.useAuthRequest({
     responseType: ResponseType.Token,
@@ -26,6 +26,12 @@ export const useFacebookAuth: UseFacebookAuth = (config) => {
       await promptAsync();
     } catch (error) {
       console.error(error);
+
+      if (error instanceof Error) {
+        onAuthFailed?.(error);
+      } else {
+        onAuthFailed?.(new Error('Unknown error'));
+      }
     }
   }, [promptAsync]);
 

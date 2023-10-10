@@ -27,9 +27,8 @@ const REDIRECT_URI =
       })
     : undefined;
 
-// TODO handle on auth fail
 export const useGoogleAuth: UseGoogleAuth = (config) => {
-  const { onAuthSucceed, ...googleAuthConfig } = config;
+  const { onAuthSucceed, onAuthFailed, ...googleAuthConfig } = config;
   const { webClientId, iosClientId, androidClientId } = googleAuthConfig;
 
   const [_request, response, promptAsync] = Google.useIdTokenAuthRequest({
@@ -44,6 +43,12 @@ export const useGoogleAuth: UseGoogleAuth = (config) => {
       await promptAsync();
     } catch (error) {
       console.error(error);
+
+      if (error instanceof Error) {
+        onAuthFailed?.(error);
+      } else {
+        onAuthFailed?.(new Error('Unknown error'));
+      }
     }
   }, [promptAsync]);
 

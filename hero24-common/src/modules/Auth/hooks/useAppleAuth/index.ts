@@ -14,7 +14,7 @@ type UseAppleAuth = (config: AppleAuthConfig) => {
 };
 
 export const useAppleAuth: UseAppleAuth = (config) => {
-  const { onAuthSucceed } = config;
+  const { onAuthSucceed, onAuthFailed } = config;
 
   const signInWithApple = useCallback(async () => {
     try {
@@ -53,6 +53,12 @@ export const useAppleAuth: UseAppleAuth = (config) => {
       await onAuthSucceed(credentials);
     } catch (error) {
       console.error(error);
+
+      if (error instanceof Error) {
+        onAuthFailed?.(error);
+      } else {
+        onAuthFailed?.(new Error('Unknown error'));
+      }
     }
   }, [onAuthSucceed]);
 
