@@ -1,8 +1,8 @@
 import { Redirect } from 'expo-router';
 import { FC } from 'react';
 
-const App: FC = () => {
+const Main: FC = () => {
   return <Redirect href="/auth/" />;
 };
 
-export default App;
+export default Main;

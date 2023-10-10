@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import { AppLayout } from '$common';
+import { MainLayout } from '$common';
 
 const Layout: FC = () => {
-  return <AppLayout />;
+  return <MainLayout />;
 };
 
 export default Layout;

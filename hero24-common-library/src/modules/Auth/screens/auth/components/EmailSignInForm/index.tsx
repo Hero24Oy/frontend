@@ -21,12 +21,10 @@ export const EmailSignInForm: FC = () => {
     mode: 'onChange',
   });
 
-  const onSubmitHandler = (_data: FormData): void => {
-    return undefined;
-  };
-
   const onSubmit = (): void => {
-    void handleSubmit(onSubmitHandler)();
+    void handleSubmit((_data: FormData): void => {
+      return undefined;
+    })();
   };
 
   return (

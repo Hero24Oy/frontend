@@ -1,17 +1,15 @@
 import { Slot, SplashScreen } from 'expo-router';
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 
-import { useInitializeApp } from '$common/hooks';
+import { useHideSplashScreen, useInitializeApp } from '$common/hooks';
 import { UiLibraryProvider } from '$ui-library';
 
 SplashScreen.preventAutoHideAsync();
 
-export const AppLayout: FC = () => {
+export const MainLayout: FC = () => {
   const { isAppInitialized } = useInitializeApp();
 
-  useEffect(() => {
-    SplashScreen.hideAsync();
-  }, [isAppInitialized]);
+  useHideSplashScreen(isAppInitialized);
 
   if (!isAppInitialized) {
     return null;

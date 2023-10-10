@@ -4,7 +4,7 @@ import {
   Text,
   VStack,
 } from '@gluestack-ui/themed';
-import { ReactElement, useMemo } from 'react';
+import { ReactElement } from 'react';
 import { Control, FieldValues, Path, useController } from 'react-hook-form';
 
 import { InputType } from './constants';
@@ -12,7 +12,7 @@ import { InputType } from './constants';
 interface Props<Type extends FieldValues> {
   control: Control<Type>;
   name: Path<Type>;
-  disabled?: boolean;
+  isDisabled?: boolean;
   placeholder?: string;
   type?: `${InputType}`;
 }
@@ -23,7 +23,7 @@ export const Input = <Type extends FieldValues>(
   const {
     control,
     name,
-    disabled = false,
+    isDisabled = false,
     placeholder,
     type = InputType.TEXT,
   } = props;
@@ -31,16 +31,11 @@ export const Input = <Type extends FieldValues>(
   const {
     field,
     formState: { errors },
-  } = useController({ name, control, rules: { required: true } });
-
-  const errorMessage = useMemo(
-    (): string => errors[name]?.message?.toString() || '',
-    [errors, name],
-  );
+  } = useController({ name, control });
 
   return (
     <VStack>
-      <GluestackInput isDisabled={disabled}>
+      <GluestackInput isDisabled={isDisabled}>
         <GluestackInputField
           placeholder={placeholder}
           type={type}
@@ -49,7 +44,7 @@ export const Input = <Type extends FieldValues>(
           ref={field.ref}
         />
       </GluestackInput>
-      <Text>{errorMessage}</Text>
+      <Text>{errors[name]?.message?.toString() || ''}</Text>
     </VStack>
   );
 };

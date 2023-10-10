@@ -3,15 +3,11 @@
 
 // TODO implement resolver that will pick accepted fields from style object in component
 
-export type LayoutStyles =
-  | 'justifyContent'
-  | 'alignItems'
+export type CommonStyles =
   | 'margin'
   | 'marginTop'
   | 'marginRight'
   | 'marginBottom'
   | 'marginLeft'
   | 'marginHorizontal'
-  | 'marginVertical'
-  | 'flex'
-  | 'gap';
+  | 'marginVertical';

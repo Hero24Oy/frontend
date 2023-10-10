@@ -7,9 +7,9 @@ export const ContinueWithButtons: FC = () => {
   return (
     <VStack style={styles.container}>
       {/* TODO replace buttons labels with i18n call */}
-      <Button disabled>Continue with Google</Button>
-      <Button disabled>Continue with Facebook</Button>
-      <Button disabled>Continue with Apple</Button>
+      <Button isDisabled>Continue with Google</Button>
+      <Button isDisabled>Continue with Facebook</Button>
+      <Button isDisabled>Continue with Apple</Button>
     </VStack>
   );
 };
