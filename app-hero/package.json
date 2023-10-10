@@ -61,6 +61,7 @@
     "firebase": "^9.23.0",
     "graphql-ws": "^5.14.0",
     "hero24-types": "^0.2.2",
+    "i18next": "^23.5.1",
     "lodash": "^4.17.21",
     "react": "18.2.0",
     "react-combine-providers": "^0.9.6",
