@@ -32,7 +32,7 @@ export const EmailSignInForm: FC = () => {
   });
 
   const onSubmitHandler = (_data: FormData): void => {
-    return undefined
+    return undefined;
   };
 
   const onSubmit = (): void => {

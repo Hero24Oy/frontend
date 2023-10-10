@@ -20,9 +20,7 @@ interface Props<T extends FieldValues> {
   type?: `${InputType}`;
 }
 
-export const Input = <T extends FieldValues>(
-  props: Props<T>,
-): ReactElement => {
+export const Input = <T extends FieldValues>(props: Props<T>): ReactElement => {
   const {
     control,
     name,
