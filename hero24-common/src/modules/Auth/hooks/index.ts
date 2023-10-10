@@ -7,3 +7,4 @@ export * from './useGoogleAuth';
 export * from './useLogout';
 export * from './types';
 export * from './useFirebaseUser';
+export * from './useWatchAuthChanged';

@@ -1,7 +1,7 @@
 import { getAuthToken } from '../firebase';
 
-import { serverConfig } from '$/configs';
 import { createApolloClient } from '$common';
+import { serverConfig } from '$configs';
 
 export const apolloClient = createApolloClient({
   getAuthToken,

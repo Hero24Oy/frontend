@@ -34,17 +34,17 @@ const MainProvider: FC = () => {
 };
 
 const PostProviderApp: FC = () => {
-  const { isLoading } = useInitializeApp();
+  const { isAppInitialized } = useInitializeApp();
 
   useEffect(() => {
-    if (isLoading) {
+    if (!isAppInitialized) {
       return;
     }
 
     SplashScreen.hideAsync();
-  }, [isLoading]);
+  }, [isAppInitialized]);
 
-  if (isLoading) {
+  if (!isAppInitialized) {
     return null;
   }
 
