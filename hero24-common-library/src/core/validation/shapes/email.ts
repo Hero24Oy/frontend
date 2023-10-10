@@ -4,7 +4,3 @@ export const emailValidationShape: yup.ISchema<string> = yup
   .string()
   .required('Required field')
   .email('This field must be valid email');
-
-export const passwordValidationShape: yup.ISchema<string> = yup
-  .string()
-  .required('Required field');

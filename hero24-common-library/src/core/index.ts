@@ -1,2 +1,2 @@
 export * from './layouts';
-export * from './yupValidation';
+export * from './validation';

@@ -2,13 +2,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
-import * as yup from 'yup';
 
-import {
-  emailValidationShape,
-  passwordValidationShape,
-} from '../../../../../../core';
-
+import { emailSignInFormValidationSchema } from '$common/core';
 import { Button, Input, VStack } from '$ui-library';
 
 interface FormData {
@@ -16,14 +11,9 @@ interface FormData {
   password: string;
 }
 
-const formValidation = yup.object().shape({
-  email: emailValidationShape,
-  password: passwordValidationShape,
-});
-
 export const EmailSignInForm: FC = () => {
   const { control, handleSubmit } = useForm<FormData>({
-    resolver: yupResolver(formValidation),
+    resolver: yupResolver(emailSignInFormValidationSchema),
     defaultValues: {
       email: '',
       password: '',

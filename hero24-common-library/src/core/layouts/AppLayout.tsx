@@ -13,9 +13,13 @@ export const AppLayout: FC = () => {
     SplashScreen.hideAsync();
   }, [isAppInitialized]);
 
-  return isAppInitialized ? (
+  if (!isAppInitialized) {
+    return null;
+  }
+
+  return (
     <UiLibraryProvider>
       <Slot />
     </UiLibraryProvider>
-  ) : null;
+  );
 };
