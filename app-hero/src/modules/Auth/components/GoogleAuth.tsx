@@ -1,5 +1,5 @@
 import { Button, ButtonText } from '@gluestack-ui/themed';
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 
 import { useAuthentication, useGoogleAuth } from '$common';
 import { authConfig } from '$configs';
@@ -14,12 +14,16 @@ export const GoogleAuth: FC = () => {
     webClientId: authConfig.webClientId,
   });
 
+  const signInHandler = useCallback(async (): Promise<void> => {
+    try {
+      await signInWithGoogle();
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
+
   return (
-    <Button
-      onPress={(): void => {
-        signInWithGoogle().catch((err) => console.error(err));
-      }}
-    >
+    <Button onPress={signInHandler}>
       <ButtonText>Sign in google</ButtonText>
     </Button>
   );

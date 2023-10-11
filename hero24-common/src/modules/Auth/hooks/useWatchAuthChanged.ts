@@ -3,11 +3,11 @@ import { useEffect } from 'react';
 
 import { useFirebaseAuth } from '../../../core';
 
-type UseWatchAuthChangesArguments = {
+type UseWatchAuthChangesParams = {
   callback: (newState: User | null) => void;
 };
 
-type UseWatchAuthChanges = (params: UseWatchAuthChangesArguments) => void;
+type UseWatchAuthChanges = (params: UseWatchAuthChangesParams) => void;
 
 export const useWatchAuthChanges: UseWatchAuthChanges = (params) => {
   const auth = useFirebaseAuth();

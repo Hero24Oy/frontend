@@ -1,6 +1,6 @@
-import { View } from '@gluestack-ui/themed';
 import { Redirect } from 'expo-router';
 import React, { FC } from 'react';
+import { Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { useFirebaseUser } from '$common';
@@ -15,12 +15,10 @@ const SignIn: FC = () => {
 
   return (
     <SafeAreaView>
-      <View>
-        <AppleAuth />
-        <GoogleAuth />
-        <FacebookAuth />
-        <EmailAuth />
-      </View>
+      {Platform.OS !== 'ios' && <AppleAuth />}
+      <GoogleAuth />
+      <FacebookAuth />
+      <EmailAuth />
     </SafeAreaView>
   );
 };

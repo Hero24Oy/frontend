@@ -16,18 +16,26 @@ export const EmailAuth: FC = () => {
   const { signInWithEmail } = useEmailSignIn();
   const { signUpWithEmail } = useEmailSignUp();
 
-  const signUpHandler = (): void => {
-    signUpWithEmail({
-      email,
-      password,
-    }).catch((err) => console.error(err));
+  const signUpHandler = async (): Promise<void> => {
+    try {
+      await signUpWithEmail({
+        email,
+        password,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const authHandler = (): void => {
-    signInWithEmail({
-      email,
-      password,
-    }).catch((err) => console.error(err));
+  const authHandler = async (): Promise<void> => {
+    try {
+      await signInWithEmail({
+        email,
+        password,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const handleEmailChange = (newEmail: string): void => setEmail(newEmail);

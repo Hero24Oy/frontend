@@ -12,15 +12,16 @@ type UseEmailSignIn = () => {
 export const useEmailSignIn: UseEmailSignIn = () => {
   const firebaseAuth = useFirebaseAuth();
 
-  const signInWithEmail = useCallback(async (params: EmailPasswordParams) => {
-    try {
-      const { email, password } = params;
+  const signInWithEmail: ReturnType<UseEmailSignIn>['signInWithEmail'] =
+    useCallback(async (params) => {
+      try {
+        const { email, password } = params;
 
-      await signInWithEmailAndPassword(firebaseAuth, email, password);
-    } catch (error) {
-      console.error(error);
-    }
-  }, []);
+        await signInWithEmailAndPassword(firebaseAuth, email, password);
+      } catch (error) {
+        console.error(error);
+      }
+    }, []);
 
   return { signInWithEmail };
 };

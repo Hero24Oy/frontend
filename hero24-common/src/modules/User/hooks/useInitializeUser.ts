@@ -15,7 +15,6 @@ export const useInitializeUser: UseInitializeUser = () => {
   const { createUser } = useCreateUser();
 
   useWatchAuthChanges({
-    // eslint-disable-next-line @typescript-eslint/no-misused-promises -- We can pass async here
     callback: async (firebaseUser) => {
       try {
         setIsUserLoading(true);

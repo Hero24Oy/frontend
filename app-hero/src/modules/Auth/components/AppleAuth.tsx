@@ -1,14 +1,8 @@
 import * as AppleAuthentication from 'expo-apple-authentication';
 import React, { FC } from 'react';
-import { Platform, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import { useAppleAuth, useAuthentication } from '$common';
-
-const styles = StyleSheet.create({
-  appleButton: {
-    height: 50,
-  },
-});
 
 export const AppleAuth: FC = () => {
   const { signInWithCredentials } = useAuthentication();
@@ -16,10 +10,6 @@ export const AppleAuth: FC = () => {
   const { signInWithApple } = useAppleAuth({
     onAuthSucceed: signInWithCredentials,
   });
-
-  if (Platform.OS !== 'ios') {
-    return null;
-  }
 
   return (
     <AppleAuthentication.AppleAuthenticationButton
@@ -33,3 +23,9 @@ export const AppleAuth: FC = () => {
     />
   );
 };
+
+const styles = StyleSheet.create({
+  appleButton: {
+    height: 50,
+  },
+});

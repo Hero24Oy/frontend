@@ -68,6 +68,12 @@ const tsRules = {
   '@typescript-eslint/explicit-function-return-type': 'error',
   '@typescript-eslint/no-floating-promises': 'error',
   '@typescript-eslint/unbound-method': 'off',
+  '@typescript-eslint/no-misused-promises': [
+    'error',
+    {
+      checksVoidReturn: false,
+    },
+  ],
   '@typescript-eslint/no-use-before-define': [
     'error',
     {
