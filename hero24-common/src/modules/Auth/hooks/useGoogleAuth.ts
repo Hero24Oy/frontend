@@ -23,7 +23,7 @@ const REDIRECT_URI =
   Platform.OS === 'android'
     ? makeRedirectUri({
         scheme: Constants.expoConfig?.android?.package,
-        path: '/login',
+        path: '/sign-in',
       })
     : undefined;
 

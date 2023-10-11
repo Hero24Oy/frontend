@@ -13,7 +13,7 @@ const Home: FC = () => {
       <View>
         {!user && (
           <Button>
-            <Link href="/login">Login</Link>
+            <Link href="/sign-in">Sign in</Link>
           </Button>
         )}
 

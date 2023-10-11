@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFirebaseUser } from '$common';
 import { AppleAuth, EmailAuth, FacebookAuth, GoogleAuth } from '$modules';
 
-const Login: FC = () => {
+const SignIn: FC = () => {
   const { user } = useFirebaseUser();
 
   if (user) {
@@ -25,4 +25,4 @@ const Login: FC = () => {
   );
 };
 
-export default Login;
+export default SignIn;

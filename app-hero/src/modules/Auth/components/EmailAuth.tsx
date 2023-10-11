@@ -16,7 +16,7 @@ export const EmailAuth: FC = () => {
   const { signInWithEmail } = useEmailSignIn();
   const { signUpWithEmail } = useEmailSignUp();
 
-  const registerHandler = (): void => {
+  const signUpHandler = (): void => {
     signUpWithEmail({
       email,
       password,
@@ -51,11 +51,11 @@ export const EmailAuth: FC = () => {
           placeholder="password"
         />
       </Input>
-      <Button onPress={registerHandler}>
-        <ButtonText>Register</ButtonText>
+      <Button onPress={signUpHandler}>
+        <ButtonText>Sign up</ButtonText>
       </Button>
       <Button onPress={authHandler}>
-        <ButtonText>Login</ButtonText>
+        <ButtonText>Sign in</ButtonText>
       </Button>
     </View>
   );
