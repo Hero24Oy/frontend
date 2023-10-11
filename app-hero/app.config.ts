@@ -44,7 +44,7 @@ const customConfig = {
     typedRoutes: true,
     tsconfigPaths: true,
   },
-  scheme: `fb${process.env.FACEBOOK_APP_ID}`, // * fb* is Facebook App ID, used for redirecting on android
+  scheme: 'com.hero24.hero',
   plugins: ['expo-router', 'expo-apple-authentication'],
 } satisfies Partial<ExpoConfig>;
 
