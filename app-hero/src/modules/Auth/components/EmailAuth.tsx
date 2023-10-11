@@ -30,19 +30,24 @@ export const EmailAuth: FC = () => {
     }).catch((err) => console.error(err));
   };
 
+  const handleEmailChange = (newEmail: string): void => setEmail(newEmail);
+
+  const handlePasswordChange = (newPassword: string): void =>
+    setPassword(newPassword);
+
   return (
     <View>
       <Input>
         <InputField
           value={email}
-          onChangeText={(text): void => setEmail(text)}
+          onChangeText={handlePasswordChange}
           placeholder="email"
         />
       </Input>
       <Input>
         <InputField
           value={password}
-          onChangeText={(text): void => setPassword(text)}
+          onChangeText={handleEmailChange}
           placeholder="password"
         />
       </Input>

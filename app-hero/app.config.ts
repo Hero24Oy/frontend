@@ -3,8 +3,6 @@ import { ConfigContext, ExpoConfig } from 'expo/config';
 const customConfig = {
   name: 'Hero24',
   slug: 'app-hero',
-  currentFullName: '@hero24/hero24-hero',
-  originalFullName: '@hero24/hero24-hero',
   description: 'Hero24 Marketplace',
   owner: 'hero24',
   privacy: 'unlisted',

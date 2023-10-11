@@ -5,24 +5,27 @@ import { useWatchAuthChanges } from '../../Auth/hooks';
 import { useCreateUser, useGetUser, UserDataInput } from '../graphql';
 
 type UseInitializeUser = () => {
-  isUserLoaded: boolean;
+  isUserLoading: boolean;
 };
 
 export const useInitializeUser: UseInitializeUser = () => {
-  const [isUserLoaded, setIsUserLoaded] = useState(false);
+  const [isUserLoading, setIsUserLoading] = useState(true);
 
   const { getUser } = useGetUser({ skip: true });
   const { createUser } = useCreateUser();
 
   useWatchAuthChanges({
-    callback: (firebaseUser) => {
-      const callback = async (): Promise<void> => {
-        setIsUserLoaded(false);
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises -- We can pass async here
+    callback: async (firebaseUser) => {
+      setIsUserLoading(true);
 
-        if (!firebaseUser) {
-          return;
-        }
+      if (!firebaseUser) {
+        setIsUserLoading(false);
 
+        return;
+      }
+
+      try {
         // TODO use lazy query when it's available
         const response = await getUser.refetch({ id: firebaseUser.uid });
         const user = response.data.response;
@@ -46,13 +49,13 @@ export const useInitializeUser: UseInitializeUser = () => {
           userId: firebaseUser.uid,
           data: initialUserData,
         });
-      };
-
-      callback()
-        .then(() => setIsUserLoaded(true))
-        .catch((error) => console.error(error));
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsUserLoading(false);
+      }
     },
   });
 
-  return { isUserLoaded };
+  return { isUserLoading };
 };

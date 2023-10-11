@@ -1,6 +1,6 @@
 import { OAuthCredential, UserCredential } from 'firebase/auth';
 
-export type EmailPasswordData = {
+export type EmailPasswordParams = {
   email: string;
   password: string;
 };

@@ -1,26 +1,25 @@
 import { Auth } from 'firebase/auth';
-import { create, StoreApi, UseBoundStore } from 'zustand';
+import { create } from 'zustand';
 
-type FirebaseAuth = {
-  firebaseAuth: Auth;
+type FirebaseAuthState = {
+  firebaseAuth: Auth | null;
+  setFirebaseAuth: (firebaseAuth: Auth) => void;
 };
 
-type UseStore = UseBoundStore<StoreApi<FirebaseAuth>>;
+const useFirebaseAuthStore = create<FirebaseAuthState>((set) => ({
+  firebaseAuth: null,
+  setFirebaseAuth: (firebaseAuth: Auth): void => set({ firebaseAuth }),
+}));
 
-let useStore: UseStore | null = null;
-
-export const initializeFirebaseAuth = (auth: Auth): void => {
-  useStore = create(() => ({
-    firebaseAuth: auth,
-  }));
-};
+export const initializeFirebaseAuth = (auth: Auth): void =>
+  useFirebaseAuthStore.getState().setFirebaseAuth(auth);
 
 export const useFirebaseAuth = (): Auth => {
-  if (!useStore) {
+  const { firebaseAuth } = useFirebaseAuthStore();
+
+  if (!firebaseAuth) {
     throw new Error('Firebase Auth is not initialized');
   }
-
-  const { firebaseAuth } = useStore();
 
   return firebaseAuth;
 };

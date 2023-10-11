@@ -5,9 +5,12 @@ type UseInitializeApp = () => {
 };
 
 export const useInitializeApp: UseInitializeApp = () => {
-  const { isUserLoaded } = useInitializeUser();
+  const { isUserLoading } = useInitializeUser();
 
-  const isAppInitialized = [isUserLoaded].every((isItemLoaded) => isItemLoaded);
+  // * Check that every initializer finished loading
+  const isAppInitialized = [isUserLoading].every(
+    (isItemLoaded) => !isItemLoaded,
+  );
 
   return { isAppInitialized };
 };
