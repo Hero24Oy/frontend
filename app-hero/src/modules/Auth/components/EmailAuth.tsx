@@ -27,7 +27,7 @@ export const EmailAuth: FC = () => {
     }
   };
 
-  const authHandler = async (): Promise<void> => {
+  const signInHandler = async (): Promise<void> => {
     try {
       await signInWithEmail({
         email,
@@ -38,9 +38,9 @@ export const EmailAuth: FC = () => {
     }
   };
 
-  const handleEmailChange = (newEmail: string): void => setEmail(newEmail);
+  const emailChangeHandler = (newEmail: string): void => setEmail(newEmail);
 
-  const handlePasswordChange = (newPassword: string): void =>
+  const passwordChangeHandler = (newPassword: string): void =>
     setPassword(newPassword);
 
   return (
@@ -48,21 +48,21 @@ export const EmailAuth: FC = () => {
       <Input>
         <InputField
           value={email}
-          onChangeText={handlePasswordChange}
+          onChangeText={emailChangeHandler}
           placeholder="email"
         />
       </Input>
       <Input>
         <InputField
           value={password}
-          onChangeText={handleEmailChange}
+          onChangeText={passwordChangeHandler}
           placeholder="password"
         />
       </Input>
       <Button onPress={signUpHandler}>
         <ButtonText>Sign up</ButtonText>
       </Button>
-      <Button onPress={authHandler}>
+      <Button onPress={signInHandler}>
         <ButtonText>Sign in</ButtonText>
       </Button>
     </View>

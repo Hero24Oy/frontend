@@ -12,12 +12,16 @@ export const FacebookAuth: FC = () => {
     facebookAppId: authConfig.facebookAppId,
   });
 
+  const signInHandler = async (): Promise<void> => {
+    try {
+      await signInWithFacebook();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <Button
-      onPress={(): void => {
-        signInWithFacebook().catch((err) => console.error(err));
-      }}
-    >
+    <Button onPress={signInHandler}>
       <ButtonText>Sign in facebook</ButtonText>
     </Button>
   );

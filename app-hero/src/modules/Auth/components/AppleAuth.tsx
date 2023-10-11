@@ -11,15 +11,21 @@ export const AppleAuth: FC = () => {
     onAuthSucceed: signInWithCredentials,
   });
 
+  const signInHandler = async (): Promise<void> => {
+    try {
+      await signInWithApple();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <AppleAuthentication.AppleAuthenticationButton
       buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
       buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.BLACK}
       cornerRadius={5}
       style={styles.appleButton}
-      onPress={(): void => {
-        signInWithApple().catch((err) => console.error(err));
-      }}
+      onPress={signInHandler}
     />
   );
 };

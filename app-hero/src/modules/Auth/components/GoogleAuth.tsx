@@ -20,7 +20,7 @@ export const GoogleAuth: FC = () => {
     } catch (error) {
       console.error(error);
     }
-  }, []);
+  }, [signInWithGoogle]);
 
   return (
     <Button onPress={signInHandler}>
