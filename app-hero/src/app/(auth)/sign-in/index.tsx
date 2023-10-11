@@ -7,7 +7,7 @@ import { AppleAuth, EmailAuth, FacebookAuth, GoogleAuth } from '$modules';
 const SignIn: FC = () => {
   return (
     <SafeAreaView>
-      {Platform.OS !== 'ios' && <AppleAuth />}
+      {Platform.OS === 'ios' && <AppleAuth />}
       <GoogleAuth />
       <FacebookAuth />
       <EmailAuth />
