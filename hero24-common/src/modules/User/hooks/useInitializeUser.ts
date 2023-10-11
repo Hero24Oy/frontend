@@ -17,15 +17,13 @@ export const useInitializeUser: UseInitializeUser = () => {
   useWatchAuthChanges({
     // eslint-disable-next-line @typescript-eslint/no-misused-promises -- We can pass async here
     callback: async (firebaseUser) => {
-      setIsUserLoading(true);
-
-      if (!firebaseUser) {
-        setIsUserLoading(false);
-
-        return;
-      }
-
       try {
+        setIsUserLoading(true);
+
+        if (!firebaseUser) {
+          return;
+        }
+
         // TODO use lazy query when it's available
         const response = await getUser.refetch({ id: firebaseUser.uid });
         const user = response.data.response;
