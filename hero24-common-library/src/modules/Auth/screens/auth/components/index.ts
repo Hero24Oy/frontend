@@ -1,2 +1,2 @@
 export * from './EmailSignInForm';
-export * from './ContinueWithButtons';
+export * from './SignInProvidersButtons';

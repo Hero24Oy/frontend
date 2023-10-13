@@ -1,11 +1,11 @@
 import { VStack as GluestackVStack } from '@gluestack-ui/themed';
 import { FC, PropsWithChildren } from 'react';
-import { StyleSheet, ViewStyle } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import { LayoutStyles } from '../../../types';
 
 interface Props extends PropsWithChildren {
-  style: Pick<ViewStyle, LayoutStyles>;
+  style: LayoutStyles;
 }
 
 export const VStack: FC<Props> = (props) => {

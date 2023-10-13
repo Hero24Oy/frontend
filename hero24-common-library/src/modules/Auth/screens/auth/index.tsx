@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { ContinueWithButtons, EmailSignInForm } from './components';
+import { EmailSignInForm, SignInProvidersButtons } from './components';
 
 import { HStack, SafeAreaView, Text, VStack } from '$ui-library';
 
@@ -14,7 +14,7 @@ export const AuthScreen: FC = () => {
           {/* TODO replace "Or" with i18n call */}
           <Text>Or</Text>
         </HStack>
-        <ContinueWithButtons />
+        <SignInProvidersButtons />
       </VStack>
     </SafeAreaView>
   );

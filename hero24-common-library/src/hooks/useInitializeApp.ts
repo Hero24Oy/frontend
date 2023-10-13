@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 interface UseInitializeAppReturnType {
   isAppInitialized: boolean;
@@ -7,7 +7,7 @@ interface UseInitializeAppReturnType {
 export const useInitializeApp = (): UseInitializeAppReturnType => {
   const [isAppInitialized, setIsAppInitialized] = useState<boolean>(false);
 
-  const fetchInitData = (): void => {
+  const fetchInitData = useCallback((): void => {
     try {
       // TODO add any requests here, that required for app initialize
       setIsAppInitialized(true);
@@ -15,11 +15,13 @@ export const useInitializeApp = (): UseInitializeAppReturnType => {
       console.error(e);
       // TODO add some actions if init data isn't fetched successful
     }
-  };
+  }, []);
 
   useEffect(() => {
-    void fetchInitData();
-  }, [isAppInitialized]);
+    if (!isAppInitialized) {
+      void fetchInitData();
+    }
+  }, [fetchInitData, isAppInitialized]);
 
   return { isAppInitialized };
 };

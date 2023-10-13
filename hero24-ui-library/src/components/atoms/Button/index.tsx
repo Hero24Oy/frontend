@@ -3,14 +3,13 @@ import {
   ButtonText as GluestackTextOrigin,
 } from '@gluestack-ui/themed';
 import { ComponentProps, FC, PropsWithChildren } from 'react';
-import { ViewStyle } from 'react-native';
 import { CommonStyles } from 'types';
 
 interface Props extends PropsWithChildren {
   children: string;
   isDisabled?: boolean;
   onPress?: ComponentProps<typeof GluestackButton>['onPress'];
-  style?: Pick<ViewStyle, CommonStyles>;
+  style?: CommonStyles;
 }
 
 export const Button: FC<Props> = (props) => {

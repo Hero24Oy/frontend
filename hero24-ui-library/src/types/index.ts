@@ -1,2 +1,1 @@
-export * from './LayoutStyles';
-export * from './CommonStyles';
+export * from './Styles';

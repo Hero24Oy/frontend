@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 
 export const useHideSplashScreen = (isAppInitialized: boolean): void => {
   useEffect(() => {
-    SplashScreen.hideAsync();
+    if (isAppInitialized) {
+      SplashScreen.hideAsync();
+    }
   }, [isAppInitialized]);
 };
