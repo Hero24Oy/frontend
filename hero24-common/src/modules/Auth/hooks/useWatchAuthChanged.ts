@@ -14,6 +14,8 @@ export const useWatchAuthChanges: UseWatchAuthChanges = (params) => {
   const { callback } = params;
 
   useEffect(() => {
-    auth.onAuthStateChanged(callback);
-  }, [callback]);
+    const unsubscribe = auth.onAuthStateChanged(callback);
+
+    return () => unsubscribe();
+  }, [callback, auth]);
 };
