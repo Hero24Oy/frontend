@@ -1,5 +1,5 @@
 import * as yup from 'yup';
 
-export const passwordValidationShape: yup.ISchema<string> = yup
+export const passwordSignInValidationSchema: yup.ISchema<string> = yup
   .string()
   .required('Required field');
