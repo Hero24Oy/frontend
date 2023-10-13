@@ -15,5 +15,5 @@ export const useWatchAuthChanges: UseWatchAuthChanges = (params) => {
 
   useEffect(() => {
     auth.onAuthStateChanged(callback);
-  }, []);
+  }, [callback]);
 };
