@@ -9,7 +9,7 @@ import merge from 'lodash/merge';
 import { useCallback } from 'react';
 
 import { DEFAULT_RESPONSE_NAME } from '../../constants';
-import { GraphQlInput, GraphQlResponse } from '../../types';
+import { GraphQlResponse } from '../../types';
 import { getGraphqlRequestKey } from '../../utils';
 
 import { PrefixedQueryResult, StrictPrefixedQueryResult } from './types';
@@ -22,39 +22,35 @@ export const useCustomQuery = <
   Strict extends boolean = false,
 >(
   prefix: Prefix,
-  document:
-    | DocumentNode
-    | TypedDocumentNode<GraphQlResponse<Data>, GraphQlInput<Variables>>,
-  options?: QueryHookOptions<GraphQlResponse<Data>, GraphQlInput<Variables>>,
+  document: DocumentNode | TypedDocumentNode<GraphQlResponse<Data>, Variables>,
+  options?: QueryHookOptions<GraphQlResponse<Data>, Variables>,
 ): Strict extends true
   ? StrictPrefixedQueryResult<Prefix, Data, Variables>
   : PrefixedQueryResult<Prefix, Data, Variables> => {
   const { data, ...restQueryResult } = useQuery<
     GraphQlResponse<Data>,
-    GraphQlInput<Variables>
+    Variables
   >(document, options);
 
   const { fetchMore } = restQueryResult;
   const customFetchMore = useCallback(
     async (fetchMoreVariables: Variables): Promise<Data | undefined> => {
-      const input = merge(
-        options?.variables?.input,
+      const variables = merge(
+        options?.variables,
         fetchMoreVariables,
       ) satisfies Record<string, string>;
 
       try {
         const result = await fetchMore({
-          variables: {
-            input,
-          },
+          variables,
         });
 
-        return result.data[DEFAULT_RESPONSE_NAME];
+        return result?.data[DEFAULT_RESPONSE_NAME];
       } catch (error) {
         return undefined;
       }
     },
-    [fetchMore, options?.variables?.input],
+    [fetchMore, options?.variables],
   );
 
   const queryResult = {

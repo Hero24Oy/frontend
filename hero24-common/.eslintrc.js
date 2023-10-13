@@ -1,6 +1,7 @@
 const DB_REGEXP = '*.DB';
 const EXCLUDE_NAMES_NAMING_CONVENTION = [
   'graphQLErrors',
+  'AuthContext',
   'photoURL',
   'companyVAT',
   'serviceProviderVAT',
@@ -67,6 +68,12 @@ const tsRules = {
   '@typescript-eslint/explicit-function-return-type': 'error',
   '@typescript-eslint/no-floating-promises': 'error',
   '@typescript-eslint/unbound-method': 'off',
+  '@typescript-eslint/no-misused-promises': [
+    'error',
+    {
+      checksVoidReturn: false,
+    },
+  ],
   '@typescript-eslint/no-use-before-define': [
     'error',
     {
@@ -125,10 +132,10 @@ const reactRules = {
   'react/jsx-uses-react': 'off',
   'react/display-name': 'off',
   'react/prop-types': 'off',
-  'react-hooks/exhaustive-deps': 'warn',
   'react/style-prop-object': 'off', // we allow to use string as prop
   'react/require-default-props': 'off',
   'react/jsx-props-no-spreading': 'warn',
+  'react-hooks/exhaustive-deps': 'off',
   'react/function-component-definition': [
     'error',
     {

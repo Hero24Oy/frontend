@@ -1,16 +1,16 @@
 import { gql } from '@apollo/client';
 
-import { capitalize, DEFAULT_RESPONSE_NAME } from '$common';
+import { capitalize, DEFAULT_RESPONSE_NAME, GraphQlInput } from '$common';
 
 export const PREFIX = 'extendOfferDuration';
 
 export type Response = boolean;
 
-export type Variables = {
+export type Variables = GraphQlInput<{
   offerId: string;
   reasonToExtend: string;
   timeToExtend: number;
-};
+}>;
 
 export const MUTATION = gql`
   mutation ${capitalize(PREFIX)}($input: OfferExtendInput!) {

@@ -1,11 +1,27 @@
+import { Button, View } from '@gluestack-ui/themed';
+import { Link } from 'expo-router';
 import React, { FC } from 'react';
-import { SafeAreaView, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { useFirebaseUser } from '$common';
 
 const Home: FC = () => {
+  const { user } = useFirebaseUser();
+
   return (
     <SafeAreaView>
       <View>
-        <Text>Hello, world</Text>
+        {!user && (
+          <Button>
+            <Link href="/sign-in">Sign in</Link>
+          </Button>
+        )}
+
+        {user && (
+          <Button>
+            <Link href="/profile">My profile</Link>
+          </Button>
+        )}
       </View>
     </SafeAreaView>
   );

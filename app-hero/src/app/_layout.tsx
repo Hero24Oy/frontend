@@ -1,30 +1,54 @@
 import { ApolloProvider } from '@apollo/client';
-import { Slot } from 'expo-router';
-import { FC } from 'react';
+import { Slot, SplashScreen } from 'expo-router';
+import * as WebBrowser from 'expo-web-browser';
+import { FC, useEffect } from 'react';
 import { combineProviders } from 'react-combine-providers';
 
-import { apolloClient } from '$/core';
+import 'expo-dev-client';
+import { initializeFirebaseAuth } from '$common';
+import { apolloClient, auth, useInitializeApp } from '$core';
 import { attachUiProviders } from '$ui-library';
+
+WebBrowser.maybeCompleteAuthSession();
 
 const manager = combineProviders();
 
 attachUiProviders(manager);
+initializeFirebaseAuth(auth);
 
 manager.push(ApolloProvider, {
   children: null,
   client: apolloClient,
 });
 
-export const MasterProvider = manager.master();
+export const PreProviderApp = manager.master();
 
-// TODO fix splash screen
-// SplashScreen.preventAutoHideAsync();
-const Layout: FC = () => {
+SplashScreen.preventAutoHideAsync();
+
+const MainProvider: FC = () => {
   return (
-    <MasterProvider>
-      <Slot />
-    </MasterProvider>
+    <PreProviderApp>
+      <PostProviderApp />
+    </PreProviderApp>
   );
 };
 
-export default Layout;
+const PostProviderApp: FC = () => {
+  const { isAppInitialized } = useInitializeApp();
+
+  useEffect(() => {
+    if (!isAppInitialized) {
+      return;
+    }
+
+    SplashScreen.hideAsync();
+  }, [isAppInitialized]);
+
+  if (!isAppInitialized) {
+    return null;
+  }
+
+  return <Slot />;
+};
+
+export default MainProvider;

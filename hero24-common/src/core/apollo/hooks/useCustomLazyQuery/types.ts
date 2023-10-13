@@ -4,14 +4,14 @@ import {
   OperationVariables,
 } from '@apollo/client';
 
-import { GraphQlInput, GraphQlResponse } from '../../types';
+import { GraphQlResponse } from '../../types';
 import { GetGraphqlRequestKeyReturnType } from '../../utils';
 
 export type CustomLazyQueryResult<
   Data,
   Variables extends OperationVariables,
 > = Omit<
-  LazyQueryResult<GraphQlResponse<Data>, GraphQlInput<Variables>>,
+  LazyQueryResult<GraphQlResponse<Data>, Variables>,
   'data' | 'fetchMore'
 > & {
   fetchMore: (options: Variables) => Promise<Data | undefined>;
@@ -33,8 +33,5 @@ export type UseLazyQueryWrapper<
   Data,
   Variables extends OperationVariables,
 > = (
-  options?: LazyQueryHookOptions<
-    GraphQlResponse<Data>,
-    GraphQlInput<Variables>
-  >,
+  options?: LazyQueryHookOptions<GraphQlResponse<Data>, Variables>,
 ) => PrefixedLazyQueryResult<Prefix, Data, Variables>;

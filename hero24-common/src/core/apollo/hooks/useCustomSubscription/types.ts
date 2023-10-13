@@ -4,15 +4,12 @@ import {
   SubscriptionResult,
 } from '@apollo/client';
 
-import { GraphQlInput, GraphQlResponse } from '../../types';
+import { GraphQlResponse } from '../../types';
 
 export type CustomSubscriptionResult<
   Data,
   Variables extends OperationVariables,
-> = Omit<
-  SubscriptionResult<GraphQlResponse<Data>, GraphQlInput<Variables>>,
-  'data'
-> & {
+> = Omit<SubscriptionResult<GraphQlResponse<Data>, Variables>, 'data'> & {
   data?: Data;
 };
 
@@ -27,8 +24,5 @@ export type UseSubscriptionWrapper<
   Data,
   Variables extends OperationVariables,
 > = (
-  options?: SubscriptionHookOptions<
-    GraphQlResponse<Data>,
-    GraphQlInput<Variables>
-  >,
+  options?: SubscriptionHookOptions<GraphQlResponse<Data>, Variables>,
 ) => PrefixedSubscriptionResult<Prefix, Data, Variables>;
