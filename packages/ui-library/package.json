@@ -8,27 +8,9 @@
     "node": "^18.18",
     "npm": "^9.8"
   },
-  "watch": {
-    "update-dependency-on-this": {
-      "patterns": [
-        "."
-      ],
-      "ignore": "node_modules",
-      "extensions": "js,ts,tsx,json",
-      "runOnChangeOnly": false,
-      "clearBuffer": true
-    }
-  },
   "scripts": {
     "pretty": "prettier --write . --log-level warn",
-    "lint": "eslint . --fix --rule \"react-hooks/exhaustive-deps: off\"",
-    "copy-common": "ts-node --skipProject scripts/copy-common.ts",
-    "update-local-dependencies": "npm run copy-common",
-    "postinstall": "npm run update-local-dependencies",
-    "watch": "npm-watch",
-    "update-app-hero-dependencies": "cd ../app-hero && npm run copy-ui-library",
-    "update-app-customer-dependencies": "cd ../app-customer && npm run copy-ui-library",
-    "update-dependency-on-this": "echo 'Start update' && npm run update-app-hero-dependencies && npm run update-app-customer-dependencies"
+    "lint": "eslint . --fix --rule \"react-hooks/exhaustive-deps: off\""
   },
   "dependencies": {
     "@gluestack-style/react": "^0.2.46",

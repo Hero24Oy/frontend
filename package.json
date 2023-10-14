@@ -9,12 +9,7 @@
     "npm": "^9.8"
   },
   "scripts": {
-    "prepare": "husky install",
-    "install-common": "cd hero24-common && npm ci",
-    "install-ui-library": "cd ui-library && npm ci",
-    "install-app-hero": "cd app-hero && npm ci",
-    "install-app-customer": "cd app-customer && npm ci",
-    "install-all": "npm ci && npm run install-common && npm run install-ui-library && npm run install-app-hero && npm run install-app-customer"
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

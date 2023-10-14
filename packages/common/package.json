@@ -8,25 +8,9 @@
     "node": "^18.18",
     "npm": "^9.8"
   },
-  "watch": {
-    "update-dependency-on-this": {
-      "patterns": [
-        "."
-      ],
-      "ignore": "node_modules",
-      "extensions": "js,ts,tsx,json",
-      "runOnChangeOnly": false,
-      "clearBuffer": true
-    }
-  },
   "scripts": {
     "pretty": "prettier --write . --log-level warn",
-    "lint": "eslint . --fix --rule \"react-hooks/exhaustive-deps: off\"",
-    "watch": "npm-watch",
-    "update-app-hero-dependencies": "cd ../app-hero && npm run copy-common",
-    "update-app-customer-dependencies": "cd ../app-customer && npm run copy-common",
-    "update-ui-lib-dependencies": "cd ../ui-library && npm run copy-common",
-    "update-dependency-on-this": "echo 'Start update' && npm run update-app-hero-dependencies && npm run update-app-customer-dependencies && npm run update-ui-lib-dependencies"
+    "lint": "eslint . --fix --rule \"react-hooks/exhaustive-deps: off\""
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^7.3.6",
