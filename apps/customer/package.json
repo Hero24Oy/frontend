@@ -28,6 +28,8 @@
     "reinstall:dependencies:full": "npm cache clean --force && npm run reinstall:dependencies"
   },
   "dependencies": {
+    "@hero24/common": "*",
+    "@hero24/ui-library": "*",
     "@apollo/client": "^3.8.3",
     "@expo/vector-icons": "^13.0.0",
     "@gluestack-style/react": "^0.2.46",

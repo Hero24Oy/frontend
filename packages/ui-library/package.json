@@ -4,15 +4,21 @@
   "version": "1.0.0",
   "repository": "https://github.com/Helpdor/frontend/ui-library",
   "license": "private",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "engines": {
     "node": "^18.18",
     "npm": "^9.8"
   },
   "scripts": {
+    "dev": "npm run build -- --watch",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
     "pretty": "prettier --write . --log-level warn",
     "lint": "eslint . --fix --rule \"react-hooks/exhaustive-deps: off\""
   },
   "dependencies": {
+    "@hero24/common": "*",
     "@gluestack-style/react": "^0.2.46",
     "@gluestack-ui/themed": "^0.1.16",
     "@react-navigation/native": "^6.0.2",
@@ -44,6 +50,7 @@
     "prettier": "^3.0.3",
     "semver": "^7.5.4",
     "ts-node": "^10.9.1",
+    "tsup": "^7.2.0",
     "typescript": "^5.1.3"
   }
 }
