@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "app-hero",
+  "name": "@hero24/common",
   "version": "1.0.0",
   "repository": "https://github.com/Helpdor/frontend/hero24-common",
   "license": "private",
