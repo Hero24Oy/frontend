@@ -1,4 +1,4 @@
-import { useInitializeUser } from '$common';
+import { useInitializeUser } from '@hero24/common';
 
 type UseInitializeApp = () => {
   isAppInitialized: boolean;

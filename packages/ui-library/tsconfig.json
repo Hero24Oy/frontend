@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./src"
   },
-  "extends": "hero24-common/common-tsconfig.json",
+  "extends": "@hero24/common/common-tsconfig.json",
   "exclude": ["node_modules", "dist"],
   "include": ["**/*.ts", "**/*.tsx"]
 }

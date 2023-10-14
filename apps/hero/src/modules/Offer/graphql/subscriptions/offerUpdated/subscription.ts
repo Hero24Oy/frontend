@@ -8,7 +8,7 @@ import {
   GraphQlInput,
   Offer,
   OfferUserRole,
-} from '$common';
+} from '@hero24/common';
 
 export const PREFIX = 'subscribeToOffers';
 

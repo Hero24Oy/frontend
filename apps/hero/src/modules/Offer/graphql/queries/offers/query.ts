@@ -9,7 +9,7 @@ import {
   DEFAULT_RESPONSE_NAME,
   GraphQlPagination,
   Offer,
-} from '$common';
+} from '@hero24/common';
 
 export const OFFERS_TYPE_NAME = 'OfferListDto';
 

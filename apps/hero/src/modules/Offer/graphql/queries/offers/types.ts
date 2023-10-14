@@ -4,7 +4,7 @@ import {
   OfferOrderColumn,
   OfferStatus,
   OfferUserRole,
-} from '$common';
+} from '@hero24/common';
 
 export type OfferFilter = {
   chatIds?: string[];

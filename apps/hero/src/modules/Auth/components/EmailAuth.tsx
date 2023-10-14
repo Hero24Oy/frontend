@@ -7,7 +7,7 @@ import {
 } from '@gluestack-ui/themed';
 import React, { FC, useState } from 'react';
 
-import { useEmailSignIn, useEmailSignUp } from '$common';
+import { useEmailSignIn, useEmailSignUp } from '@hero24/common';
 
 export const EmailAuth: FC = () => {
   const [email, setEmail] = useState('');

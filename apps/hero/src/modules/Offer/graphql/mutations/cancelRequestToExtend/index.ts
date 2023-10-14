@@ -1,6 +1,6 @@
 import { MUTATION, PREFIX, Response, Variables } from './mutation';
 
-import { useCustomMutation, UseMutationWrapper } from '$common';
+import { useCustomMutation, UseMutationWrapper } from '@hero24/common';
 
 export type UseCancelRequestToExtend = UseMutationWrapper<
   typeof PREFIX,

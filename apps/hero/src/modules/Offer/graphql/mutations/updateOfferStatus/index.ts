@@ -1,6 +1,6 @@
 import { MUTATION, PREFIX, Variables } from './mutation';
 
-import { useCustomMutation, UseMutationWrapper } from '$common';
+import { useCustomMutation, UseMutationWrapper } from '@hero24/common';
 
 export type UseUpdateOfferStatus = UseMutationWrapper<
   typeof PREFIX,

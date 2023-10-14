@@ -5,7 +5,7 @@ import {
   DEFAULT_RESPONSE_NAME,
   GraphQlInput,
   OfferStatus,
-} from '$common';
+} from '@hero24/common';
 
 export const PREFIX = 'updateOfferStatus';
 

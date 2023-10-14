@@ -1,8 +1,5 @@
-import {
-  DEFAULT_INPUT_NAME,
-  DEFAULT_RESPONSE_NAME,
-  SortOrder,
-} from '../constants';
+import { SortOrder } from '../../graphql/constants';
+import { DEFAULT_INPUT_NAME, DEFAULT_RESPONSE_NAME } from '../constants';
 
 export type GraphQlResponse<Data> = Record<typeof DEFAULT_RESPONSE_NAME, Data>;
 
