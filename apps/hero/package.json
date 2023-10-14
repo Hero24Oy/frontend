@@ -8,7 +8,7 @@
     "node": "^18.18",
     "npm": "^9.8"
   },
-  "main": "expo-router/entry",
+  "main": "index.ts",
   "scripts": {
     "build:eas:android:development": "eas build --profile development --platform android --clear-cache",
     "build:eas:android:production": "eas build --profile production --platform android --clear-cache",
@@ -18,6 +18,7 @@
     "update:eas:ios:prproductionod": "eas update --branch production --platform ios --clear-cache",
     "submit:eas:android": "eas submit --platform android",
     "submit:eas:ios": "eas submit --platform ios",
+    "dev": "expo start",
     "start": "expo start --go",
     "start:android": "npx expo run:android",
     "start:ios": "npx expo run:ios",

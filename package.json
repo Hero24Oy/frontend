@@ -9,7 +9,11 @@
     "npm": "^9.8"
   },
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "build": "turbo build",
+    "dev:seller": "turbo dev --filter=\"{./apps/hero}...\"",
+    "dev:buyer": "turbo dev --filter=\"{./apps/customer}...\"",
+    "lint": "turbo lint"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
