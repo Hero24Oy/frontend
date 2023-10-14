@@ -1,0 +1,17 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "pipeline": {
+      "lint": {
+        "outputs": []
+      },
+      "build": {
+        "dependsOn": ["^build"],
+        "outputs": ["build/**", "node_modules/.cache/metro/**"]
+      },
+      "dev": {
+        "cache": false,
+        "persistent": true
+      }
+    }
+  }
+  
