@@ -1,9 +1,8 @@
 import { gql } from '@apollo/client';
+import { DEFAULT_RESPONSE_NAME, GraphQlInput, Offer } from '@hero24/common';
 import { capitalize } from 'lodash';
 
 import { OFFER_FRAGMENT } from '../../fragments';
-
-import { DEFAULT_RESPONSE_NAME, GraphQlInput, Offer } from '@hero24/common';
 
 export const PREFIX = 'offer';
 

@@ -1,7 +1,6 @@
+import { useFirebaseUser } from '@hero24/common';
 import { Redirect, Stack } from 'expo-router';
 import { FC } from 'react';
-
-import { useFirebaseUser } from '@hero24/common';
 
 const AppLayout: FC = () => {
   const { user } = useFirebaseUser();

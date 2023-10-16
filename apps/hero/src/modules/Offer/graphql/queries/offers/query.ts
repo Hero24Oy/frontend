@@ -1,15 +1,14 @@
 import { gql } from '@apollo/client';
-
-import { OFFER_FRAGMENT } from '../../fragments';
-
-import { OffersInput } from './types';
-
 import {
   capitalize,
   DEFAULT_RESPONSE_NAME,
   GraphQlPagination,
   Offer,
 } from '@hero24/common';
+
+import { OFFER_FRAGMENT } from '../../fragments';
+
+import { OffersInput } from './types';
 
 export const OFFERS_TYPE_NAME = 'OfferListDto';
 

@@ -1,6 +1,6 @@
-import { MUTATION, PREFIX, Response, Variables } from './mutation';
-
 import { useCustomMutation, UseMutationWrapper } from '@hero24/common';
+
+import { MUTATION, PREFIX, Response, Variables } from './mutation';
 
 export type UseStartJob = UseMutationWrapper<
   typeof PREFIX,

@@ -1,13 +1,13 @@
 import { ApolloProvider } from '@apollo/client';
+import { initializeFirebaseAuth } from '@hero24/common';
+import { attachUiProviders } from '@hero24/ui-library';
 import { Slot, SplashScreen } from 'expo-router';
 import * as WebBrowser from 'expo-web-browser';
 import { FC, useEffect } from 'react';
 import { combineProviders } from 'react-combine-providers';
 
 import 'expo-dev-client';
-import { initializeFirebaseAuth } from '@hero24/common';
 import { apolloClient, auth, useInitializeApp } from '$core';
-import { attachUiProviders } from '@hero24/ui-library';
 
 WebBrowser.maybeCompleteAuthSession();
 
