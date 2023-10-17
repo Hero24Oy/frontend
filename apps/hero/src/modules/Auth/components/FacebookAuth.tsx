@@ -1,6 +1,7 @@
 import { Button, ButtonText } from '@gluestack-ui/themed';
-import { useAuthentication, useFacebookAuth } from '@hero24/common';
 import React, { FC } from 'react';
+
+import { useAuthentication, useFacebookAuth } from '@hero24/common';
 
 import { authConfig } from '$configs';
 
