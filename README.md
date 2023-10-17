@@ -2,15 +2,30 @@
 
 ## How to start developing
 
-1. `npm run install-all`
-2. Reopen VScode or use `cmd+shift+p` -> `Reload window`
+**_All scripts should be run from the root directory_**
 
-## Start app-hero
+### 1. Install dependencies
 
-- `cd app-hero`
-- `npm start`
+```
+npm install
+```
 
-## Start app-customer
+### 2. Watch packages
 
-- `cd app-customer`
-- `npm start`
+```
+npm run dev
+```
+
+### 3. Watch app
+
+_Hero (seller) app_
+
+```
+npm run dev:hero
+```
+
+_Customer (buyer) app_
+
+```
+npm run dev:customer
+```
