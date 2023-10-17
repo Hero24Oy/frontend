@@ -1,12 +1,5 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-cd app-customer
-npm run lint
-cd ../app-hero
-npm run lint
-cd ../hero24-common-library
-npm run lint
-cd ../hero24-ui-library
 npm run lint
 echo Pre-push hook ran successfully

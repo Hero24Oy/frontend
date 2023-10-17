@@ -2,17 +2,23 @@
 
 ## How to start developing
 
+<<<<<<< HEAD
 1. `npm run install-all`
    2.1. `npm run watch:all`
    2.2. Or reopen VScode(`cmd+shift+p` -> `Reload window`) to start [tasks](#vscode)
+=======
+**_All scripts should be run from the root directory_**
+>>>>>>> dd897dfae3db09621ec12ba55d89752fb8829cc8
 
-## Start app-hero
+### 1. Install dependencies
 
-- `cd app-hero`
-- `npm start`
+```
+npm install
+```
 
-## Start app-customer
+### 2. Watch packages
 
+<<<<<<< HEAD
 - `cd app-customer`
 - `npm start`
 
@@ -66,3 +72,22 @@ After this you also create aliases in `app-hero` and `app-customer` configs:
 ### Important notes
 
 - In `app-hero` and `app-customer`, the folder with copied submodules is hidden. To display it you need to go to `.vscode/setting.json`and change the value for`**/@hero24` to false
+=======
+```
+npm run dev
+```
+
+### 3. Watch app
+
+_Hero (seller) app_
+
+```
+npm run dev:hero
+```
+
+_Customer (buyer) app_
+
+```
+npm run dev:customer
+```
+>>>>>>> dd897dfae3db09621ec12ba55d89752fb8829cc8
