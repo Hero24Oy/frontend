@@ -5,10 +5,8 @@ import { ViewStyle } from 'react-native';
 
 // TODO implement resolver that will pick accepted fields from style object in component
 
-export type LayoutStyles = Pick<
+export type CommonStyles = Pick<
   ViewStyle,
-  | 'justifyContent'
-  | 'alignItems'
   | 'margin'
   | 'marginTop'
   | 'marginRight'
@@ -16,17 +14,7 @@ export type LayoutStyles = Pick<
   | 'marginLeft'
   | 'marginHorizontal'
   | 'marginVertical'
-  | 'flex'
-  | 'gap'
 >;
 
-export type CommonStyles = Pick<
-  LayoutStyles,
-  | 'margin'
-  | 'marginTop'
-  | 'marginRight'
-  | 'marginBottom'
-  | 'marginLeft'
-  | 'marginHorizontal'
-  | 'marginVertical'
->;
+export type LayoutStyles = CommonStyles &
+  Pick<ViewStyle, 'justifyContent' | 'alignItems' | 'flex' | 'gap'>;
