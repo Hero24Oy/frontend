@@ -30,7 +30,7 @@
         <category android:name="android.intent.category.DEFAULT"/>
         <category android:name="android.intent.category.BROWSABLE"/>
         <data android:scheme="fb4861887910527155"/>
-        <data android:scheme="com.hero24.app"/>
+        <data android:scheme="com.hero24.customer"/>
         <data android:scheme="exp+hero24-default"/>
       </intent-filter>
     </activity>

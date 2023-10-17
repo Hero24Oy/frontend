@@ -44,7 +44,7 @@ const customConfig = {
     typedRoutes: true,
     tsconfigPaths: true,
   },
-  scheme: 'com.hero24.hero',
+  scheme: 'hero24-hero',
   plugins: ['expo-router', 'expo-apple-authentication'],
 } satisfies Partial<ExpoConfig>;
 
