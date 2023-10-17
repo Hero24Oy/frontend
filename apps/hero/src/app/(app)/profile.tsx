@@ -1,7 +1,7 @@
 import { Button, ButtonText, Text, View } from '@gluestack-ui/themed';
 import React, { FC, useCallback } from 'react';
 
-import { useCachedGraphQlUser, useLogout } from '$common';
+import { useCachedGraphQlUser, useLogout } from '@hero24/common';
 
 const Profile: FC = () => {
   const handleLogout = useLogout();

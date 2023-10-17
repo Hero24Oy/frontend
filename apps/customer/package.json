@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "app-hero",
+  "name": "customer-app",
   "version": "1.0.0",
   "repository": "https://github.com/Helpdor/frontend/app-hero",
   "license": "private",
@@ -8,7 +8,7 @@
     "node": "^18.18",
     "npm": "^9.8"
   },
-  "main": "expo-router/entry",
+  "main": "index.ts",
   "scripts": {
     "build:eas:android:development": "eas build --profile development --platform android --clear-cache",
     "build:eas:android:production": "eas build --profile production --platform android --clear-cache",
@@ -18,22 +18,15 @@
     "update:eas:ios:production": "eas update --branch production --platform ios --clear-cache",
     "submit:eas:android": "eas submit --platform android",
     "submit:eas:ios": "eas submit --platform ios",
-    "start": "expo start --go",
-    "start:android": "npm run start -- --android",
-    "start:ios": "npm run start -- --ios",
-    "start:web": "npm run start -- --web",
+    "watch": "npx expo start --go -c",
     "pretty": "prettier --write . --log-level warn",
     "lint": "eslint . --fix --rule \"react-hooks/exhaustive-deps: off\"",
     "reinstall:dependencies": "rm -rf node_modules && npm i",
-    "reinstall:dependencies:full": "npm cache clean --force && npm run reinstall:dependencies",
-    "check:requirements": "ts-node ../hero24-common/scripts/check-node-version.ts",
-    "copy-common": "ts-node --skipProject scripts/copy-common.ts",
-    "copy-ui-library": "ts-node --skipProject scripts/copy-ui-library.ts",
-    "update-local-dependencies": "npm run copy-common && npm run copy-ui-library",
-    "postinstall": "npm run check:requirements && npm run update-local-dependencies",
-    "prestart": "npm run check:requirements && npm run update-local-dependencies"
+    "reinstall:dependencies:full": "npm cache clean --force && npm run reinstall:dependencies"
   },
   "dependencies": {
+    "@hero24/common": "*",
+    "@hero24/ui-library": "*",
     "@apollo/client": "^3.8.3",
     "@expo/vector-icons": "^13.0.0",
     "@gluestack-style/react": "^0.2.46",

@@ -1,6 +1,6 @@
-import { Data, PREFIX, QUERY, Variables } from './query';
+import { useCustomQuery, UseQueryWrapper } from '@hero24/common';
 
-import { useCustomQuery, UseQueryWrapper } from '$common';
+import { Data, PREFIX, QUERY, Variables } from './query';
 
 type UseGetOffers = UseQueryWrapper<typeof PREFIX, Data, Variables>;
 

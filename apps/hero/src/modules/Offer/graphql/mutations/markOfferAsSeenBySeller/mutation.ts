@@ -1,6 +1,10 @@
 import { gql } from '@apollo/client';
 
-import { capitalize, DEFAULT_RESPONSE_NAME, GraphQlInput } from '$common';
+import {
+  capitalize,
+  DEFAULT_RESPONSE_NAME,
+  GraphQlInput,
+} from '@hero24/common';
 
 export const PREFIX = 'markOfferAsSeenBySeller';
 

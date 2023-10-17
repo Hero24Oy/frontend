@@ -4,10 +4,11 @@ import * as WebBrowser from 'expo-web-browser';
 import { FC, useEffect } from 'react';
 import { combineProviders } from 'react-combine-providers';
 
+import { initializeFirebaseAuth } from '@hero24/common';
+import { attachUiProviders } from '@hero24/ui-library';
+
 import 'expo-dev-client';
-import { initializeFirebaseAuth } from '$common';
 import { apolloClient, auth, useInitializeApp } from '$core';
-import { attachUiProviders } from '$ui-library';
 
 WebBrowser.maybeCompleteAuthSession();
 

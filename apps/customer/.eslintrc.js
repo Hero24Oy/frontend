@@ -1,4 +1,4 @@
-const commonEslint = require('hero24-common/.eslintrc');
+const commonEslint = require('@hero24/common/.eslintrc');
 
 module.exports = {
   ...commonEslint,

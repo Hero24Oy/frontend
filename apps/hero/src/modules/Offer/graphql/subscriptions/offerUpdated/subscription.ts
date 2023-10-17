@@ -1,14 +1,14 @@
 import { gql } from '@apollo/client';
 
-import { OFFER_FRAGMENT } from '../../fragments';
-
 import {
   capitalize,
   DEFAULT_RESPONSE_NAME,
   GraphQlInput,
   Offer,
   OfferUserRole,
-} from '$common';
+} from '@hero24/common';
+
+import { OFFER_FRAGMENT } from '../../fragments';
 
 export const PREFIX = 'subscribeToOffers';
 

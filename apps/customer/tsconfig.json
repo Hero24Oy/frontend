@@ -7,11 +7,9 @@
       "$core": ["core/index"],
       "$configs": ["configs/index"],
       "$modules": ["modules/index"],
-      "$ui-library": ["../node_modules/ui-library/index"], // delete alias after create npm package
-      "$common": ["../node_modules/hero24-common/index"] // delete alias after create npm package
     }
   },
-  "extends": "hero24-common/common-tsconfig.json",
+  "extends": "@hero24/common/common-tsconfig.json",
   "exclude": ["node_modules", "dist"],
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
 }

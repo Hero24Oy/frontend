@@ -1,6 +1,7 @@
+import { createApolloClient } from '@hero24/common';
+
 import { getAuthToken } from '../firebase';
 
-import { createApolloClient } from '$common';
 import { serverConfig } from '$configs';
 
 export const apolloClient = createApolloClient({

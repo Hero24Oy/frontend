@@ -10,11 +10,11 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "install-common": "cd hero24-common && npm ci",
-    "install-ui-library": "cd ui-library && npm ci",
-    "install-app-hero": "cd app-hero && npm ci",
-    "install-app-customer": "cd app-customer && npm ci",
-    "install-all": "npm ci && npm run install-common && npm run install-ui-library && npm run install-app-hero && npm run install-app-customer"
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "dev:hero": "cd apps/hero && npm run watch",
+    "dev:customer": "cd apps/customer && npm run watch",
+    "lint": "turbo lint"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -24,6 +24,11 @@
   "devDependencies": {
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "prettier": "^3.0.3"
-  }
+    "prettier": "^3.0.3",
+    "turborepo": "^0.0.1"
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
 }
