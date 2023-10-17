@@ -1,6 +1,6 @@
-import { Data, PREFIX, QUERY, Variables } from '../../queries/offer/query';
-
 import { useCustomLazyQuery, UseLazyQueryWrapper } from '@hero24/common';
+
+import { Data, PREFIX, QUERY, Variables } from '../../queries/offer/query';
 
 type UseLazyGetOffer = UseLazyQueryWrapper<typeof PREFIX, Data, Variables>;
 

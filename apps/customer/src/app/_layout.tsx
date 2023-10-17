@@ -1,14 +1,14 @@
 import { Slot, SplashScreen } from 'expo-router';
 import { FC } from 'react';
-
-import { attachUiProviders } from '@hero24/ui-library';
 import { combineProviders } from 'react-combine-providers';
 
-const manager = combineProviders()
+import { attachUiProviders } from '@hero24/ui-library';
 
-attachUiProviders(manager)
+const manager = combineProviders();
 
-const MasterProvider = manager.master()
+attachUiProviders(manager);
+
+const MasterProvider = manager.master();
 
 SplashScreen.preventAutoHideAsync();
 
