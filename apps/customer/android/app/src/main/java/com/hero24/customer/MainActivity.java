@@ -1,4 +1,4 @@
-package com.hero24.app;
+package com.hero24.customer;
 
 import android.os.Build;
 import android.os.Bundle;

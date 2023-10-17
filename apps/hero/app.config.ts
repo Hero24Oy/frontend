@@ -1,6 +1,7 @@
 import { ConfigContext, ExpoConfig } from 'expo/config';
 
-const customConfig = {
+export default ({ config }: ConfigContext): ExpoConfig => ({
+  ...config,
   name: 'Hero24',
   slug: 'app-hero',
   description: 'Hero24 Marketplace',
@@ -44,13 +45,6 @@ const customConfig = {
     typedRoutes: true,
     tsconfigPaths: true,
   },
-  scheme: 'com.hero24.hero',
+  scheme: 'hero24-hero',
   plugins: ['expo-router', 'expo-apple-authentication'],
-} satisfies Partial<ExpoConfig>;
-
-export default ({ config }: ConfigContext): ExpoConfig => {
-  return {
-    ...config,
-    ...customConfig,
-  };
-};
+});
