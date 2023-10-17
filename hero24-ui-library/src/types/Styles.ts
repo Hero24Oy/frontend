@@ -21,7 +21,7 @@ export type LayoutStyles = Pick<
 >;
 
 export type CommonStyles = Pick<
-  ViewStyle,
+  LayoutStyles,
   | 'margin'
   | 'marginTop'
   | 'marginRight'
