@@ -4,8 +4,8 @@ import {
   capitalize,
   DEFAULT_RESPONSE_NAME,
   GraphQlPagination,
-} from '$common/core';
-import { User, USER_FRAGMENT } from '$common/modules';
+} from '../../../../../core';
+import { User, USER_FRAGMENT } from '../../fragments';
 
 export const PREFIX = 'users';
 

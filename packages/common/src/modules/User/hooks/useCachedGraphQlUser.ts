@@ -1,6 +1,5 @@
+import { useFirebaseUser } from '../../Auth';
 import { useGetUser, User } from '../graphql';
-
-import { useFirebaseUser } from '$common/modules';
 
 type UseCachedGraphQlUser = () => {
   user: User;

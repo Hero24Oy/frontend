@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@hero24/ui",
+  "name": "@hero24/ui-library",
   "version": "1.0.0",
   "repository": "https://github.com/Helpdor/frontend/ui-library",
   "license": "private",
@@ -19,7 +19,7 @@
     "postinstall": "npm run build"
   },
   "dependencies": {
-    "@hero24/configs": "*",
+    "@hero24/common": "*",
     "@gluestack-style/react": "^0.2.46",
     "@gluestack-ui/themed": "^0.1.16",
     "@react-navigation/native": "^6.0.2",

@@ -1,6 +1,9 @@
-import { PREFIX, Response, SUBSCRIPTION, Variables } from './subscription';
+import {
+  useCustomSubscription,
+  UseSubscriptionWrapper,
+} from '../../../../../core';
 
-import { useCustomSubscription, UseSubscriptionWrapper } from '$common/core';
+import { PREFIX, Response, SUBSCRIPTION, Variables } from './subscription';
 
 // TODO this should be done when User module is migrated and subscription to userUpdate is available
 export type UseSubscribeToUser = UseSubscriptionWrapper<

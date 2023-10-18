@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import { useEditUser, useGetUser, User } from '$common/modules';
+import { useEditUser, useGetUser, User } from '../../graphql';
 
 type AddPushToken = (tokenToAdd: string) => Promise<User | undefined>;
 

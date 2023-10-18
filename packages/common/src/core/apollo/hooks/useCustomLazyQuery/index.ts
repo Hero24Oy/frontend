@@ -8,13 +8,11 @@ import {
 import merge from 'lodash/merge';
 import { useCallback } from 'react';
 
-import { CustomLazyQueryResult, PrefixedLazyQueryResult } from './types';
+import { DEFAULT_RESPONSE_NAME } from '../../constants';
+import { GraphQlResponse } from '../../types';
+import { getGraphqlRequestKey } from '../../utils';
 
-import {
-  DEFAULT_RESPONSE_NAME,
-  getGraphqlRequestKey,
-  GraphQlResponse,
-} from '$common/core';
+import { CustomLazyQueryResult, PrefixedLazyQueryResult } from './types';
 
 export * from './types';
 

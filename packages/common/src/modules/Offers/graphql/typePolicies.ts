@@ -4,9 +4,9 @@ import {
   TypePolicies,
 } from '@apollo/client';
 
-import { OFFER_TYPE_NAME } from './constants';
+import { GraphQlInput, GraphQlPagination } from '../../../core/apollo/types';
 
-import { GraphQlInput, GraphQlPagination } from '$common/core';
+import { OFFER_TYPE_NAME } from './constants';
 
 export const offersTypePolicies: TypePolicies = {
   Query: {

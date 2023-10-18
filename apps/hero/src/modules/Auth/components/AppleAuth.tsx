@@ -1,7 +1,8 @@
-import { useAppleAuth, useAuthentication } from '@hero24/common';
 import * as AppleAuthentication from 'expo-apple-authentication';
 import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
+
+import { useAppleAuth, useAuthentication } from '@hero24/common';
 
 export const AppleAuth: FC = () => {
   const { signInWithCredentials } = useAuthentication();

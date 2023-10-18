@@ -81,9 +81,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace 'com.hero24.customer'
+    namespace 'com.hero24.app'
     defaultConfig {
-        applicationId 'com.hero24.customer'
+        applicationId 'com.hero24.app'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

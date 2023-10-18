@@ -1,4 +1,4 @@
-import { Maybe } from '$common/core';
+import { Maybe } from '../../../../core/types';
 
 export type WorkTime = {
   startTime: Date;

@@ -4,7 +4,7 @@ import {
   SubscriptionResult,
 } from '@apollo/client';
 
-import { GraphQlResponse } from '$common/core';
+import { GraphQlResponse } from '../../types';
 
 export type CustomSubscriptionResult<
   Data,

@@ -1,9 +1,9 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useCallback } from 'react';
 
-import { EmailPasswordParams } from './types';
+import { useFirebaseAuth } from '../../../core/providers';
 
-import { useFirebaseAuth } from '$common/core';
+import { EmailPasswordParams } from './types';
 
 type SignUpWithEmail = (params: EmailPasswordParams) => Promise<void>;
 

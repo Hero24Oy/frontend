@@ -1,6 +1,6 @@
 import { InMemoryCacheConfig } from '@apollo/client';
 
-import { Maybe } from '$common/core';
+import { Maybe } from '../../types';
 
 export type LinksOptions = {
   getAuthToken: () => Promise<Maybe<string>>;

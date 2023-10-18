@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import { useEditUser, useGetUser, User } from '$common/modules';
+import { useEditUser, useGetUser, User } from '../../graphql';
 
 type UpdatePresence = (isOnline: boolean) => Promise<User | undefined>;
 

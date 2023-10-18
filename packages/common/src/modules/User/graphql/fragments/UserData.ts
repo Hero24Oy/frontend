@@ -1,13 +1,13 @@
 import { gql } from '@apollo/client';
 import { SupportedLanguages } from 'hero24-types';
 
+import { Maybe } from '../../../../core';
+
 import {
   USER_DATA_ACTIVE_ROUTE_FRAGMENT,
   UserDataActiveRoute,
 } from './UserDataActiveRoute';
 import { USER_DATA_ADDRESS_FRAGMENT, UserDataAddress } from './UserDataAddress';
-
-import { Maybe } from '$common/core';
 
 export type UserData = {
   createdAt: number;

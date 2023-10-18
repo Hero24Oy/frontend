@@ -382,8 +382,6 @@ module.exports = {
     'metro.config.js',
     'rn-cli.config.js',
     '@hero24',
-    'dist',
-    'node_modules',
   ],
   rules: {
     ...initialRules,

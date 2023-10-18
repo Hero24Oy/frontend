@@ -1,6 +1,6 @@
-import { Data, PREFIX, QUERY, Variables } from './query';
+import { useCustomQuery, UseQueryWrapper } from '../../../../../core';
 
-import { useCustomQuery, UseQueryWrapper } from '$common/core';
+import { Data, PREFIX, QUERY, Variables } from './query';
 
 export type UseGetPhone = UseQueryWrapper<typeof PREFIX, Data, Variables>;
 

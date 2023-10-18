@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { Maybe } from '$common/core';
+import { Maybe } from '../../../../core';
 
 export type UserDataActiveRoute = {
   chatId?: Maybe<string>;

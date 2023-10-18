@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import { useEditUser, useGetUser } from '$common/modules';
+import { useEditUser, useGetUser } from '../../graphql';
 
 export type DeletePushToken = (
   userId: string,

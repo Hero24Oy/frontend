@@ -7,9 +7,10 @@ import {
 } from '@apollo/client';
 import { useCallback } from 'react';
 
-import { CustomMutationResult, PrefixedMutationResult } from './types';
+import { DEFAULT_RESPONSE_NAME } from '../../constants';
+import { GraphQlResponse } from '../../types';
 
-import { DEFAULT_RESPONSE_NAME, GraphQlResponse } from '$common/core';
+import { CustomMutationResult, PrefixedMutationResult } from './types';
 
 export * from './types';
 

@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 import { Address as AddressDB } from 'hero24-types';
 
-import { ADDRESS_FRAGMENT } from '$common/core';
+import { ADDRESS_FRAGMENT } from '../../../../core';
 
 export type UserDataAddress = {
   address: AddressDB;

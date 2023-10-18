@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
-    "rootDir": ".",
     "baseUrl": "./src",
     "paths": {
       "$common/modules": ["modules/index"],
-      "$common/types": ["types/index"],
-      "$common/core": ["core/index"]
+      "$common/types": ["types/index"]
     }
   },
-  "extends": "@hero24/configs/tsconfig.json",
-  "include": ["src"]
+  "extends": "./common-tsconfig.json",
+  "exclude": ["node_modules", "dist"],
+  "include": ["**/*.ts", "**/*.tsx"]
 }

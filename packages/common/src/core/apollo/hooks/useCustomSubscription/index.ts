@@ -6,9 +6,10 @@ import {
   useSubscription,
 } from '@apollo/client';
 
-import { CustomSubscriptionResult, PrefixedSubscriptionResult } from './types';
+import { DEFAULT_RESPONSE_NAME } from '../../constants';
+import { GraphQlResponse } from '../../types';
 
-import { DEFAULT_RESPONSE_NAME, GraphQlResponse } from '$common/core';
+import { CustomSubscriptionResult, PrefixedSubscriptionResult } from './types';
 
 export * from './types';
 

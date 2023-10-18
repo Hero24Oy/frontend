@@ -1,10 +1,11 @@
 import { ApolloProvider } from '@apollo/client';
-import { initializeFirebaseAuth } from '@hero24/common';
-import { attachUiProviders } from '@hero24/ui';
 import { Slot, SplashScreen } from 'expo-router';
 import * as WebBrowser from 'expo-web-browser';
 import { FC, useEffect } from 'react';
 import { combineProviders } from 'react-combine-providers';
+
+import { initializeFirebaseAuth } from '@hero24/common';
+import { attachUiProviders } from '@hero24/ui-library';
 
 import 'expo-dev-client';
 import { apolloClient, auth, useInitializeApp } from '$core';
