@@ -2,7 +2,7 @@
   "private": true,
   "name": "customer-app",
   "version": "1.0.0",
-  "repository": "https://github.com/Helpdor/frontend/app-hero",
+  "repository": "https://github.com/Helpdor/frontend/apps/customer",
   "license": "private",
   "engines": {
     "node": "^18.18",
