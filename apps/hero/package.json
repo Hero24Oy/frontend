@@ -2,7 +2,7 @@
   "private": true,
   "name": "hero-app",
   "version": "1.0.0",
-  "repository": "https://github.com/Helpdor/frontend/app-hero",
+  "repository": "https://github.com/Helpdor/frontend/apps/hero",
   "license": "private",
   "engines": {
     "node": "^18.18",
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@hero24/common": "*",
-    "@hero24/ui-library": "*",
+    "@hero24/ui": "*",
     "@apollo/client": "^3.8.3",
     "@expo/vector-icons": "^13.0.0",
     "@gluestack-style/react": "^0.2.46",

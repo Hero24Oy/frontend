@@ -1,6 +1,6 @@
-import { useCustomQuery, UseQueryWrapper } from '../../../../../core';
-
 import { Data, PREFIX, QUERY, Variables } from './query';
+
+import { useCustomQuery, UseQueryWrapper } from '$common/core';
 
 export type UseGetUsers = UseQueryWrapper<typeof PREFIX, Data, Variables>;
 

@@ -1,9 +1,9 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useCallback } from 'react';
 
-import { useFirebaseAuth } from '../../../core/providers';
-
 import { EmailPasswordParams } from './types';
+
+import { useFirebaseAuth } from '$common/core';
 
 type SignInWithEmail = (params: EmailPasswordParams) => Promise<void>;
 
