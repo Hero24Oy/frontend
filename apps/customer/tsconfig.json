@@ -8,7 +8,8 @@
       "$modules": ["modules/index"],
       "$common/modules": ["@hero24/common/src/modules/index"],
       "$common/types": ["@hero24/common/src/types/index"],
-      "$ui-library/providers": ["@hero24/ui/src/providers"],
+      "$common/core": ["@hero24/common/src/core/index"],
+      "$ui/providers": ["@hero24/ui/src/providers"],
       "$/*": ["*"]
     }
   },
