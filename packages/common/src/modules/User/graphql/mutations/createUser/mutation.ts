@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
-import { capitalize, DEFAULT_RESPONSE_NAME } from '../../../../../core';
-import { User, USER_FRAGMENT, UserData } from '../../fragments';
+import { capitalize, DEFAULT_RESPONSE_NAME } from '$common/core';
+import { User, USER_FRAGMENT, UserData } from '$common/modules';
 
 export const PREFIX = 'createUser';
 

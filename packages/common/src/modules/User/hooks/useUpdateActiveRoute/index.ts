@@ -5,7 +5,7 @@ import {
   useGetUser,
   User,
   UserDataActiveRoute,
-} from '../../graphql';
+} from '$common/modules';
 
 type UpdateActiveRoute = (
   activeRoute?: UserDataActiveRoute,

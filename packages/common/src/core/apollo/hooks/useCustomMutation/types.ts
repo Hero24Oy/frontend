@@ -4,7 +4,7 @@ import {
   OperationVariables,
 } from '@apollo/client';
 
-import { GraphQlResponse } from '../../types';
+import { GraphQlResponse } from '$common/core';
 
 export type CustomMutationResult<
   Data,

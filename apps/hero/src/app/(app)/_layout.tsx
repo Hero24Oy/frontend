@@ -1,7 +1,6 @@
+import { useFirebaseUser } from '@hero24/common';
 import { Redirect, Stack } from 'expo-router';
 import { FC } from 'react';
-
-import { useFirebaseUser } from '@hero24/common';
 
 const AppLayout: FC = () => {
   const { user } = useFirebaseUser();
@@ -13,7 +12,6 @@ const AppLayout: FC = () => {
     // in the headless Node process that the pages are rendered in.
     return <Redirect href="/sign-in" />;
   }
-
   // This layout can be deferred because it's not the root layout.
   return <Stack />;
 };

@@ -8,6 +8,7 @@ export * from './constants';
 export * from './hooks';
 export * from './types';
 export * from './link';
+export * from './utils';
 
 export const createApolloClient = (
   options: CreateApolloClientOptions,

@@ -20,13 +20,16 @@
     "submit:eas:ios": "eas submit --platform ios",
     "watch": "npx expo start --go -c",
     "pretty": "prettier --write . --log-level warn",
-    "lint": "eslint . --fix",
+    "lint": "eslint . --fix --debug",
     "reinstall:dependencies": "rm -rf node_modules && npm i",
-    "reinstall:dependencies:full": "npm cache clean --force && npm run reinstall:dependencies"
+    "reinstall:dependencies:full": "npm cache clean --force && npm run reinstall:dependencies",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "dependencies": {
     "@hero24/common": "*",
-    "@hero24/ui-library": "*",
+    "@hero24/ui": "*",
+    "@hero24/configs": "*",
     "@apollo/client": "^3.8.3",
     "@expo/vector-icons": "^13.0.0",
     "@gluestack-style/react": "^0.2.46",

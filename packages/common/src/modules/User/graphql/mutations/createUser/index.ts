@@ -1,6 +1,6 @@
-import { useCustomMutation, UseMutationWrapper } from '../../../../../core';
-
 import { Data, MUTATION, PREFIX, Variables } from './mutation';
+
+import { useCustomMutation, UseMutationWrapper } from '$common/core';
 
 export type { UserDataInput } from './mutation';
 

@@ -1,4 +1,4 @@
-import { attachUiProviders } from '@hero24/ui-library';
+import { attachUiProviders } from '@hero24/ui';
 import { Slot, SplashScreen } from 'expo-router';
 import { FC } from 'react';
 import { combineProviders } from 'react-combine-providers';

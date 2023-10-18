@@ -1,7 +1,6 @@
 declare module '@env' {
   // Api
   export const API_URL: string;
-  export const LEGACY_API_URL: string;
 
   // Client Ids
   export const EXPO_CLIENT_ID: string;
