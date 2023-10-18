@@ -1,10 +1,3 @@
-/**
- * @type {import('prettier').Config}
- */
-module.exports = {
-  tabWidth: 2,
-  useTabs: false,
-  singleQuote: true,
-  endOfLine: 'lf',
-  trailingComma: 'all',
-};
+const commonPrettier = require('@hero24/configs/.prettierrc');
+
+module.exports = commonPrettier;

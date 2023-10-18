@@ -2,29 +2,43 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "$app": ["app/*"],
-      "$core": ["core/index"],
-      "$configs": ["configs/index"],
-      "$modules": ["modules/index"],
-      /*
-        TODO: Delete next aliases after create npm package
-      */
-      /*
-        Common-submodule aliases
-      */
-      "$common/modules": ["@hero24/common-library/src/modules/index"],
-      "$common/types": ["@hero24/common-library/src/types/index"],
-      /*
-        Ui-library-submodule aliases
-      */
-      "$ui-library/providers": ["@hero24/ui-library/src/providers"],
-      /*
-        The root alias must be after all then to work correctly
-      */
-      "$/*": ["*"]
+      "$app": [
+        "app/*"
+      ],
+      "$core": [
+        "core/index"
+      ],
+      "$configs": [
+        "configs/index"
+      ],
+      "$modules": [
+        "modules/index"
+      ],
+      "$common/modules": [
+        "@hero24/common-library/src/modules/index"
+      ],
+      "$common/types": [
+        "@hero24/common-library/src/types/index"
+      ],
+      "$ui-library/providers": [
+        "@hero24/ui-library/src/providers"
+      ],
+      "$/*": [
+        "*"
+      ]
     }
   },
-  "extends": "@hero24/common/common-tsconfig.json",
-  "exclude": ["node_modules", "dist"],
-  "include": ["src", ".expo/types/**/*.ts", "*env.d.ts", "index.ts"]
+  "extends": "@hero24/configs/tsconfig.json",
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.json",
+    "**/*.d.ts",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ]
 }
