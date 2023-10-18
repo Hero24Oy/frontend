@@ -27,12 +27,5 @@
   },
   "extends": "@hero24/configs/tsconfig.json",
   "exclude": ["node_modules", "dist"],
-  "include": [
-    "src",
-    ".expo/types/**/*.ts",
-    "*env.d.ts",
-    "index.ts",
-    "app.config.ts",
-    "expo-env.d.ts"
-  ]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.json", "**/*.d.ts"]
 }
