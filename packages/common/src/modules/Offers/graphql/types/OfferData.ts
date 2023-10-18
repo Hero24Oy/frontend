@@ -1,8 +1,8 @@
-import { Maybe } from '../../../../core/types';
-
 import { OfferInitialData } from './OfferInitialData';
 import { Purchase } from './Purchase';
 import { WorkTime } from './WorkTime';
+
+import { Maybe } from '$common/core';
 
 export type OfferData = {
   initial: OfferInitialData;

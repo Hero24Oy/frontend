@@ -1,9 +1,9 @@
 import { OFFER_STATUS } from 'hero24-types';
 
-import { Maybe } from '../../../../core/types';
-
 import { OfferData } from './OfferData';
 import { OfferEarnings } from './OfferEarnings';
+
+import { Maybe } from '$common/core';
 
 export type Offer = {
   chatId: string;
