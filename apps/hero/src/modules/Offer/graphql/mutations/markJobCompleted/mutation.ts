@@ -1,11 +1,10 @@
 import { gql } from '@apollo/client';
-import { WorkTime } from 'hero24-types';
-
 import {
   capitalize,
   DEFAULT_RESPONSE_NAME,
   GraphQlInput,
 } from '@hero24/common';
+import { WorkTime } from 'hero24-types';
 
 export const PREFIX = 'markJobCompleted';
 
