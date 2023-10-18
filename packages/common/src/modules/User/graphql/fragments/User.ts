@@ -1,9 +1,9 @@
 import { gql } from '@apollo/client';
 
-import { Maybe } from '../../../../core';
-
 import { USER_DATA_FRAGMENT, UserData } from './UserData';
 import { USER_OFFER_FRAGMENT, UserOffer } from './UserOffer';
+
+import { Maybe } from '$common/core';
 
 export type User = {
   data: UserData;

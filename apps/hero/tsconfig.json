@@ -2,18 +2,46 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "$app": ["app/*"],
-      "$core": ["core/index"],
-      "$configs": ["configs/index"],
-      "$modules": ["modules/index"],
-      "$common/modules": ["@hero24/common/src/modules/index"],
-      "$common/types": ["@hero24/common/src/types/index"],
-      "$common/core": ["@hero24/common/src/core/index"],
-      "$ui/providers": ["@hero24/ui/src/providers"],
-      "$/*": ["*"]
+      "$app": [
+        "app/*"
+      ],
+      "$core": [
+        "core/index"
+      ],
+      "$configs": [
+        "configs/index"
+      ],
+      "$modules": [
+        "modules/index"
+      ],
+      "$common/modules": [
+        "@hero24/common/src/modules/index"
+      ],
+      "$common/types": [
+        "@hero24/common/src/types/index"
+      ],
+      "$common/core": [
+        "@hero24/common/src/core/index"
+      ],
+      "$ui/providers": [
+        "@hero24/ui/src/providers"
+      ],
+      "$/*": [
+        "*"
+      ]
     }
   },
   "extends": "@hero24/configs/tsconfig.json",
-  "exclude": ["node_modules", "dist"],
-  "include": ["**/*.ts", "**/*.tsx", "**/*.json", "**/*.d.ts"]
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.json",
+    "**/*.d.ts",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
+  ]
 }

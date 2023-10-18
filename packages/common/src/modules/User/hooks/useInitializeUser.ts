@@ -1,9 +1,10 @@
 import { User } from 'firebase/auth';
 import { useCallback, useState } from 'react';
 
-import { getCurrentLanguage } from '../../../core';
-import { useWatchAuthChanges } from '../../Auth/hooks';
 import { useCreateUser, useGetUser, UserDataInput } from '../graphql';
+
+import { getCurrentLanguage } from '$common/core';
+import { useWatchAuthChanges } from '$common/modules';
 
 type UseInitializeUser = () => {
   isUserLoading: boolean;
