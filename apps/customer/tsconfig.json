@@ -6,9 +6,9 @@
       "$core": ["core/index"],
       "$configs": ["configs/index"],
       "$modules": ["modules/index"],
-      "$common/modules": ["@hero24/common-library/src/modules/index"],
-      "$common/types": ["@hero24/common-library/src/types/index"],
-      "$ui-library/providers": ["@hero24/ui-library/src/providers"],
+      "$common/modules": ["@hero24/common/src/modules/index"],
+      "$common/types": ["@hero24/common/src/types/index"],
+      "$ui-library/providers": ["@hero24/ui/src/providers"],
       "$/*": ["*"]
     }
   },
