@@ -14,7 +14,7 @@ Set up `.env` file following `.env.example` file.
 ## Running App locally
 
 - Install dependencies `npm ci`
-- Run `npm run start` to start app.
+- Run `npm run watcg` to start app.
   **NOTE** You can also run mobile version using Expo GO, but auth won't work due to security reasons.
 
 ## Additional

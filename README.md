@@ -2,14 +2,6 @@
 
 ## How to start developing
 
-<<<<<<< HEAD
-1. `npm run install-all`
-   2.1. `npm run watch:all`
-   2.2. Or reopen VScode(`cmd+shift+p` -> `Reload window`) to start [tasks](#vscode)
-=======
-**_All scripts should be run from the root directory_**
->>>>>>> dd897dfae3db09621ec12ba55d89752fb8829cc8
-
 ### 1. Install dependencies
 
 ```
@@ -18,38 +10,23 @@ npm install
 
 ### 2. Watch packages
 
-<<<<<<< HEAD
-- `cd app-customer`
-- `npm start`
+```
+npm run dev
+```
 
-## How work with this repo
+### 3. Watch app
 
-### Install order
+_Hero (seller) app_
 
-This repository has very strong dependencies between configs, so if you decide to install dependencies manually rather than using `npm run install:all`, you need to do it in this order:
+```
+npm run dev:hero
+```
 
-1. Install root dependencies
-2. Install hero24-common dependencies
-3. Install ui-library dependencies
-4. Install others
+_Customer (buyer) app_
 
-### Development process
-
-#### VScode
-
-After installing all the dependencies using `npm run install:all`, VScode watcher hooks will be automatically enabled when you open the folder. They monitor changes in the `hero24-common` and `ui-library` folders and automatically copy them to the node modules of other repositories.
-
-#### Other IDE
-
-After any change in `hero24-common` and `ui-library` , in order for them to appear in other repositories in them, you need to manually call the command `npm run watch:all` in root repo.
-
-### How to install lib
-
-If you need to install a library in `hero24-common` or `ui-library`, then in them you install them as dev-dependencies, and then in `app-hero` and `app-customer` as dependencies.
-
-### How pre-push works
-
-When you execute a push command, it can take quite a long period of time due to the fact that the script goes through each folder and causes linting there.
+```
+npm run dev:customer
+```
 
 ### Path aliases in hero24-common and ui-library
 
@@ -68,26 +45,3 @@ After this you also create aliases in `app-hero` and `app-customer` configs:
 ```
 "$ui-library/providers": ["@hero24/ui-library/src/providers"],
 ```
-
-### Important notes
-
-- In `app-hero` and `app-customer`, the folder with copied submodules is hidden. To display it you need to go to `.vscode/setting.json`and change the value for`**/@hero24` to false
-=======
-```
-npm run dev
-```
-
-### 3. Watch app
-
-_Hero (seller) app_
-
-```
-npm run dev:hero
-```
-
-_Customer (buyer) app_
-
-```
-npm run dev:customer
-```
->>>>>>> dd897dfae3db09621ec12ba55d89752fb8829cc8
