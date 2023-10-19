@@ -19,11 +19,11 @@
     "postinstall": "npm run build"
   },
   "dependencies": {
-    "@hero24/configs": "*",
     "@gluestack-style/react": "^0.2.46",
     "@gluestack-ui/themed": "^0.1.16",
+    "@hero24/configs": "*",
     "@react-navigation/native": "^6.0.2",
-    "react": "18.2.0",
+    "react": "^18.2.0",
     "react-combine-providers": "^0.9.6",
     "react-dom": "18.2.0"
   },

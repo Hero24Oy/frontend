@@ -1,10 +1,4 @@
-import {
-  Button,
-  ButtonText,
-  Input,
-  InputField,
-  View,
-} from '@gluestack-ui/themed';
+import { Button, ButtonText, Input, InputField, View } from '@hero24/ui';
 import React, { FC, useState } from 'react';
 
 import { useEmailSignIn, useEmailSignUp } from '@hero24/common';

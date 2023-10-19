@@ -1,14 +1,35 @@
-import { VStack as VStackOrigin } from '@gluestack-ui/themed';
-import React from 'react';
+import { VStack as GluestackVStack } from '@gluestack-ui/themed';
+import { FC, PropsWithChildren } from 'react';
+// import { StyleSheet } from 'react-native';
 
-// eslint-disable-next-line @typescript-eslint/naming-convention -- TODO add regex to naming convention array
-export interface VStackProps
-  extends React.ComponentProps<typeof VStackOrigin> {}
+// import { LayoutStyles } from '../../../types';
 
-// eslint-disable-next-line @typescript-eslint/naming-convention -- TODO add regex to naming convention array
-export const VStack: React.FC<VStackProps> = (props) => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- TODO remove this after add typing for children props in VStackProps
-  const { children, ...rest } = props;
+interface Props extends PropsWithChildren {
+  // style: LayoutStyles;
+}
 
-  return <VStackOrigin {...rest}>{children}</VStackOrigin>;
+export const VStack: FC<Props> = (props) => {
+  const {
+    children,
+    // style
+  } = props;
+
+  return (
+    <GluestackVStack
+      style={
+        [
+          // styles.stack,
+          // style,
+        ]
+      }
+    >
+      {children}
+    </GluestackVStack>
+  );
 };
+
+// const styles = StyleSheet.create({
+//   stack: {
+//     paddingHorizontal: 8,
+//   },
+// });

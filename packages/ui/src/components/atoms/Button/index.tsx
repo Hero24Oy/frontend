@@ -1,12 +1,32 @@
-import { Button as ButtonOrigin } from '@gluestack-ui/themed';
-import React from 'react';
+import {
+  Button as GluestackButton,
+  ButtonText as GluestackTextOrigin,
+} from '@gluestack-ui/themed';
+import { ComponentProps, FC, PropsWithChildren } from 'react';
+// import { CommonStyles } from 'types';
 
-export interface ButtonProps
-  extends React.ComponentProps<typeof ButtonOrigin> {}
+interface Props extends PropsWithChildren {
+  children: string;
+  isDisabled?: boolean;
+  onPress?: ComponentProps<typeof GluestackButton>['onPress'];
+  // style?: CommonStyles;
+}
 
-export const Button: React.FC<ButtonProps> = (props) => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- remove this after add typing for children props in ButtonTextProps
-  const { children, ...rest } = props;
+export const Button: FC<Props> = (props) => {
+  const {
+    children,
+    isDisabled = false,
+    onPress,
+    // style
+  } = props;
 
-  return <ButtonOrigin {...rest}>{children}</ButtonOrigin>;
+  return (
+    <GluestackButton
+      isDisabled={isDisabled}
+      onPress={onPress}
+      //  style={style}
+    >
+      <GluestackTextOrigin>{children}</GluestackTextOrigin>
+    </GluestackButton>
+  );
 };

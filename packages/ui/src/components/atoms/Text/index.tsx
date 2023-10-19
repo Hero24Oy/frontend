@@ -1,11 +1,12 @@
-import { Text as TextOrigin } from '@gluestack-ui/themed';
-import React from 'react';
+import { Text as GluestackText } from '@gluestack-ui/themed';
+import { FC } from 'react';
 
-export interface TextProps extends React.ComponentProps<typeof TextOrigin> {}
+interface Props {
+  children: string;
+}
 
-export const Text: React.FC<TextProps> = (props) => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- TODO remove this after add typing for children props in HStackProps
-  const { children, ...rest } = props;
+export const Text: FC<Props> = (props) => {
+  const { children } = props;
 
-  return <TextOrigin {...rest}>{children}</TextOrigin>;
+  return <GluestackText>{children}</GluestackText>;
 };
