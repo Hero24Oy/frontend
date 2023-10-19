@@ -15,8 +15,7 @@
     "dev": "npm run build -- --watch",
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "pretty": "prettier --write . --log-level warn",
-    "lint": "eslint . --fix",
-    "postinstall": "npm run build"
+    "lint": "eslint . --fix"
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^7.3.6",

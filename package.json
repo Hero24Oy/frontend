@@ -11,7 +11,7 @@
   "scripts": {
     "prepare": "husky install",
     "build": "turbo build",
-    "dev": "turbo dev",
+    "dev": "cd packages/ui && npm run build && cd ../../ && turbo dev",
     "dev:hero": "cd apps/hero && npm run watch",
     "dev:customer": "cd apps/customer && npm run watch",
     "lint": "turbo lint"
