@@ -1,6 +1,6 @@
 import { HStack as GluestackHStack } from '@gluestack-ui/themed';
-import { FC, PropsWithChildren } from 'react';
-// import { StyleSheet } from 'react-native';
+import React, { FC, PropsWithChildren } from 'react';
+import { StyleSheet } from 'react-native';
 
 import { LayoutStyles } from '../../../types';
 
@@ -12,14 +12,12 @@ export const HStack: FC<Props> = (props) => {
   const { children, style } = props;
 
   return (
-    <GluestackHStack style={[
-      // styles.stack,
-       style]}>{children}</GluestackHStack>
+    <GluestackHStack style={[styles.stack, style]}>{children}</GluestackHStack>
   );
 };
 
-// const styles = StyleSheet.create({
-//   stack: {
-//     paddingHorizontal: 8,
-//   },
-// });
+const styles = StyleSheet.create({
+  stack: {
+    paddingHorizontal: 8,
+  },
+});

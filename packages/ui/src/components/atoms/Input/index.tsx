@@ -4,7 +4,7 @@ import {
   Text,
   VStack,
 } from '@gluestack-ui/themed';
-import { ReactElement } from 'react';
+import React, { ReactElement } from 'react';
 import { Control, FieldValues, Path, useController } from 'react-hook-form';
 
 import { InputType } from './constants';

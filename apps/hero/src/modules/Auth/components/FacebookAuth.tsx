@@ -1,9 +1,10 @@
-import { Button, ButtonText } from '@gluestack-ui/themed';
 import React, { FC } from 'react';
 
 import { useAuthentication, useFacebookAuth } from '@hero24/common';
 
 import { authConfig } from '$configs';
+
+import { ButtonText, Button } from '@hero24/ui';
 
 export const FacebookAuth: FC = () => {
   const { signInWithCredentials } = useAuthentication();
