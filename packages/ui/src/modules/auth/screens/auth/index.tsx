@@ -1,3 +1,6 @@
+import React, { FC } from 'react';
+
+// import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   Button,
   ButtonText,
@@ -6,15 +9,10 @@ import {
   InputField,
   Text,
   VStack,
-} from 'components';
-import React, { FC } from 'react';
-
-// import { SafeAreaView } from 'react-native-safe-area-context';
-// import { styles } from './styles';
+} from '../../../../components';
 
 export const AuthScreen: FC = () => {
   return (
-    // <SafeAreaView style={styles.wrapper}>
     <VStack space="md">
       <Input isDisabled={false} isInvalid={false} isReadOnly={false}>
         <InputField placeholder="Email" />
@@ -38,6 +36,5 @@ export const AuthScreen: FC = () => {
         <ButtonText size="md">Continue with Apple</ButtonText>
       </Button>
     </VStack>
-    // </SafeAreaView>
   );
 };
