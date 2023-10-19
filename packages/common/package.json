@@ -15,7 +15,7 @@
     "dev": "npm run build -- --watch",
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "pretty": "prettier --write . --log-level warn",
-    "lint": "eslint . --fix --rule \"react-hooks/exhaustive-deps: off\"",
+    "lint": "eslint . --fix",
     "postinstall": "npm run build"
   },
   "devDependencies": {
