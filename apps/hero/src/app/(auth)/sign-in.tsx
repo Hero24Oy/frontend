@@ -1,4 +1,4 @@
-import { AuthScreen } from '$/modules/Auth/screens';
+import { AuthScreen } from '@hero24/common';
 import React, { FC } from 'react';
 
 const Auth: FC = () => {
