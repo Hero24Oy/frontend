@@ -132,7 +132,7 @@ const reactRules = {
   'react-hooks/exhaustive-deps': 'off',
   'react/style-prop-object': 'off', // we allow to use string as prop
   'react/require-default-props': 'off',
-  'react/jsx-props-no-spreading': 'warn',
+  'react/jsx-props-no-spreading': 'off',
   'react/function-component-definition': [
     'error',
     {
