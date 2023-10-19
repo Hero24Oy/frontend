@@ -29,3 +29,5 @@ _Customer (buyer) app_
 ```
 npm run dev:customer
 ```
+
+// TODO lint crahses both in customer and hero, fix this

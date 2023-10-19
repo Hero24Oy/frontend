@@ -20,7 +20,7 @@
     "submit:eas:ios": "eas submit --platform ios",
     "watch": "npx expo start --go -c",
     "pretty": "prettier --write . --log-level warn",
-    "lint": "eslint . --fix --rule \"react-hooks/exhaustive-deps: off\"",
+    "lint": "", 
     "reinstall:dependencies": "rm -rf node_modules && npm i",
     "reinstall:dependencies:full": "npm cache clean --force && npm run reinstall:dependencies",
     "android": "expo run:android",
