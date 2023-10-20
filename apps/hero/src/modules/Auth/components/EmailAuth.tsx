@@ -1,4 +1,4 @@
-import { Button, ButtonText, Input, InputField, View } from '@hero24/ui';
+import { Button, Input, InputField, View } from '@hero24/ui';
 import React, { FC, useState } from 'react';
 
 import { useEmailSignIn, useEmailSignUp } from '@hero24/common';
@@ -53,11 +53,11 @@ export const EmailAuth: FC = () => {
           placeholder="password"
         />
       </Input>
-      <Button onPress={signUpHandler}>
-        <ButtonText>Sign up</ButtonText>
+      <Button variant="solid" size="medium" onPress={signUpHandler}>
+        Sign up
       </Button>
-      <Button onPress={signInHandler}>
-        <ButtonText>Sign in</ButtonText>
+      <Button variant="solid" size="medium" onPress={signInHandler}>
+        Sign in
       </Button>
     </View>
   );

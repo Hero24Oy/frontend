@@ -4,7 +4,7 @@ import { useAuthentication, useFacebookAuth } from '@hero24/common';
 
 import { authConfig } from '$configs';
 
-import { ButtonText, Button } from '@hero24/ui';
+import { Button } from '@hero24/ui';
 
 export const FacebookAuth: FC = () => {
   const { signInWithCredentials } = useAuthentication();
@@ -23,8 +23,8 @@ export const FacebookAuth: FC = () => {
   };
 
   return (
-    <Button onPress={signInHandler}>
-      <ButtonText>Sign in facebook</ButtonText>
+    <Button variant="solid" size="medium" onPress={signInHandler}>
+      Sign in facebook
     </Button>
   );
 };

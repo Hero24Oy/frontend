@@ -11,13 +11,13 @@ const Home: FC = () => {
     <SafeAreaView>
       <View>
         {!user && (
-          <Button>
+          <Button variant="solid" size="medium">
             <Link href="/sign-in">Sign in</Link>
           </Button>
         )}
 
         {user && (
-          <Button>
+          <Button variant="solid" size="medium">
             <Link href="/profile">My profile</Link>
           </Button>
         )}

@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import { useAuthentication, useGoogleAuth } from '@hero24/common';
 
 import { authConfig } from '$configs';
-import { Button, ButtonText } from '@hero24/ui';
+import { Button } from '@hero24/ui';
 
 export const GoogleAuth: FC = () => {
   const { signInWithCredentials } = useAuthentication();
@@ -25,8 +25,8 @@ export const GoogleAuth: FC = () => {
   };
 
   return (
-    <Button onPress={signInHandler}>
-      <ButtonText>Sign in google</ButtonText>
+    <Button variant="solid" size="medium" onPress={signInHandler}>
+      Sign in google
     </Button>
   );
 };

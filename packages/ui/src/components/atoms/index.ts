@@ -1,5 +1,4 @@
 export * from './Button';
-export * from './ButtonText';
 export * from './HStack';
 export * from './Input';
 export * from './InputField';

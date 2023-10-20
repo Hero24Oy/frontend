@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { Button, Input, VStack } from '@hero24/ui';
 import { emailSignInFormValidationSchema } from '$/core/validation'; // TODO move here
 import { StyleSheet } from 'react-native';
+import { Plus } from 'lucide-react-native';
 
 interface FormData {
   email: string;
@@ -37,7 +38,7 @@ export const EmailSignInForm: FC = () => {
         control={control}
         name="password"
       />
-      <Button onPress={onSubmit}>Continue</Button>
+      <Button variant="solid" size="medium" onPress={onSubmit}>Continue</Button>
     </VStack>
   );
 };
