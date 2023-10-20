@@ -2,9 +2,9 @@
 
 ## How to start developing
 
-**_All scripts should be run from the root directory_**
-
 ### 1. Install dependencies
+
+_Run it in the root:_
 
 ```
 npm install
@@ -12,20 +12,20 @@ npm install
 
 ### 2. Watch packages
 
+_We should start watching packages during development, so run it in the root:_
+
 ```
 npm run dev
 ```
 
 ### 3. Watch app
 
-_Hero (seller) app_
+_Use the following scripts from the apps/\*\*/ directories_
 
-```
-npm run dev:hero
-```
+```bash
+npm run ios
 
-_Customer (buyer) app_
+# or
 
-```
-npm run dev:customer
+npm run android
 ```
