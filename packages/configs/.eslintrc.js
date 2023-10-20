@@ -1,4 +1,8 @@
-const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = ['heroBIOText', 'Gluestack', 'HStack','VStack'];
+const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = [
+  'heroBIOText',
+  '.*HStack.*',
+  '.*VStack.*',
+];
 const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*VAT.*',
   '.*URL.*',
