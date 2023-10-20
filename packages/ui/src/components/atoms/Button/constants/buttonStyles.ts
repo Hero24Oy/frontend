@@ -1,6 +1,7 @@
-import { Colors, Selectors } from "configs";
-import { ButtonVariants } from "../enums";
-import { ButtonStylesConfig } from "../types";
+import { Colors, Selectors } from 'configs';
+
+import { ButtonVariants } from '../enums';
+import { ButtonStylesConfig } from '../types';
 
 export const buttonStylesConfig: Record<ButtonVariants, ButtonStylesConfig> = {
   [ButtonVariants.SOLID]: {

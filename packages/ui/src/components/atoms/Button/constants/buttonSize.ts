@@ -1,5 +1,6 @@
-import { IconSize } from "icons";
-import { ButtonSize } from "../enums";
+import { IconSize } from 'configs';
+
+import { ButtonSize } from '../enums';
 
 export const buttonSizeConfig = {
   [ButtonSize.LARGE]: {

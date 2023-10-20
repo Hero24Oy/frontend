@@ -1,5 +1,5 @@
-import { SxProps } from "@gluestack-style/react/lib/typescript/types";
-import { StyleProp, ViewStyle } from "react-native";
+import { SxProps } from '@gluestack-style/react/lib/typescript/types';
+import { StyleProp, ViewStyle } from 'react-native';
 
 export type ButtonStylesConfig = {
   backgroundColor: string;

@@ -1,1 +1,1 @@
-export * from "./getDirectionValues";
+export * from './getDirectionValues';

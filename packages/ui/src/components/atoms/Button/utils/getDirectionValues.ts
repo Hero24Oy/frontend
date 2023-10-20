@@ -1,9 +1,9 @@
-import { Direction } from "../types";
+import { Direction } from '../types';
 
 type ReturnType = {
-  upper: boolean | null;
-  right: boolean | null;
   left: boolean | null;
+  right: boolean | null;
+  upper: boolean | null;
 } | null;
 
 export const getDirectionValues = (direction?: Direction): ReturnType => {
@@ -16,4 +16,4 @@ export const getDirectionValues = (direction?: Direction): ReturnType => {
     right: direction === 'right' ? true : null,
     left: direction === 'left' ? true : null,
   };
-}
+};

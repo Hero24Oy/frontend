@@ -1,4 +1,4 @@
-import { ButtonSize, ButtonVariants } from "../enums";
+import { ButtonSize, ButtonVariants } from '../enums';
 
 export type SolidButtonStyles = {
   size: `${ButtonSize}`;
@@ -19,4 +19,3 @@ export type ButtonStyles =
   | SolidButtonStyles
   | OutlineButtonStyles
   | LinkButtonStyles;
-  

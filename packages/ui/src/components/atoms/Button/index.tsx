@@ -9,11 +9,11 @@ import { CommonStyles } from 'types';
 
 import { buttonSizeConfig, buttonStylesConfig } from './constants';
 import { ButtonSize } from './enums';
-import { getDirectionValues } from './utils';
 import { ButtonStyles, Icon } from './types';
+import { getDirectionValues } from './utils';
 
 type Props = {
-  children: ReactNode;
+  children: string;
   icon?: Icon;
   isDisabled?: boolean;
   onPress?: ComponentProps<typeof GluestackButton>['onPress'];
@@ -46,12 +46,16 @@ export const Button: FC<Props> = (props) => {
         styles.common,
         styles[size],
         direction?.upper && styles.upper,
-        style
+        style,
       ]}
       {...rest}
     >
       {isLeftOrUpperDirection && (
-        <GluestackButtonIcon height={iconSize} color={iconColor} as={icon?.src} />
+        <GluestackButtonIcon
+          height={iconSize}
+          color={iconColor}
+          as={icon?.src}
+        />
       )}
 
       <GluestackTextOrigin
@@ -63,7 +67,11 @@ export const Button: FC<Props> = (props) => {
       </GluestackTextOrigin>
 
       {direction?.right && (
-        <GluestackButtonIcon height={iconSize} color={iconColor} as={icon?.src} />
+        <GluestackButtonIcon
+          height={iconSize}
+          color={iconColor}
+          as={icon?.src}
+        />
       )}
     </GluestackButton>
   );
