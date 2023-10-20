@@ -16,7 +16,7 @@ export const Toast: React.FC<ToastProps> = (props) => {
 
   return (
     <ToastOrigin {...rest}>
-      <VStack space="xs">
+      <VStack>
         {title && <ToastTitle>{title}</ToastTitle>}
         {description && <ToastDescription>{description}</ToastDescription>}
       </VStack>

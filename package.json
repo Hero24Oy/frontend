@@ -11,12 +11,11 @@
   "scripts": {
     "prepare": "husky install",
     "build": "turbo build",
-    "build:ui": "cd packages/ui && npm run build && cd ../../ ",
     "dev": "turbo dev",
     "dev:hero": "cd apps/hero && npm run watch",
     "dev:customer": "cd apps/customer && npm run watch",
     "lint": "turbo lint",
-    "postinstall": "npm run build:ui && npm run build"
+    "postinstall": "npm run build"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
@@ -32,9 +31,5 @@
   "workspaces": [
     "packages/*",
     "apps/*"
-  ],
-  "dependencies": {
-    "@hookform/resolvers": "^3.3.2",
-    "react-hook-form": "^7.47.0"
-  }
+  ]
 }

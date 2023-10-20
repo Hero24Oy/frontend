@@ -19,6 +19,7 @@ const Profile: FC = () => {
           logoutHandler().catch((error) => console.error(error));
         }}
       >
+        Logout
       </Button>
     </View>
   );

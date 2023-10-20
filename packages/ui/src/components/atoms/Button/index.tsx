@@ -2,13 +2,13 @@ import {
   Button as GluestackButton,
   ButtonText as GluestackTextOrigin,
 } from '@gluestack-ui/themed';
-import React, { ComponentProps, FC, PropsWithChildren, ReactNode } from 'react';
+import React, { FC, PropsWithChildren, ReactNode } from 'react';
 import { CommonStyles } from 'types';
 
 interface Props extends PropsWithChildren {
   children: ReactNode;
   isDisabled?: boolean;
-  onPress?: ComponentProps<typeof GluestackButton>['onPress'];
+  onPress?: () => void;
   style?: CommonStyles;
 }
 

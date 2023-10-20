@@ -1,7 +1,5 @@
 const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = [
   'heroBIOText',
-  '.*HStack.*',
-  '.*VStack.*',
 ];
 const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*VAT.*',
@@ -9,6 +7,8 @@ const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*DB.*',
   '.*MS.*',
   '.*graphQL.*',
+  '.*HStack.*',
+  '.*VStack.*',
 ];
 
 const excludeNamesNamingConventionWordsRegex =
