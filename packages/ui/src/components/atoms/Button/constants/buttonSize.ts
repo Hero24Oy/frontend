@@ -2,7 +2,7 @@ import { IconSize } from 'configs';
 
 import { ButtonSize } from '../enums';
 
-export const buttonSizeConfig = {
+export const buttonSize = {
   [ButtonSize.LARGE]: {
     fontSize: 14,
     iconSize: IconSize.MEDIUM,

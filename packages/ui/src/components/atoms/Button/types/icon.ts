@@ -1,8 +1,12 @@
 import { FC } from 'react';
 
-export type Direction = 'left' | 'right' | 'upper';
+export enum Direction {
+  LEFT = 'left',
+  RIGHT = 'right',
+  TOP = 'top',
+}
 
 export type Icon = {
-  direction: Direction;
+  direction: `${Direction}`;
   src: FC;
 };

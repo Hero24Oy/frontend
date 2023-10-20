@@ -3,19 +3,20 @@ import {
   ButtonIcon as GluestackButtonIcon,
   ButtonText as GluestackTextOrigin,
 } from '@gluestack-ui/themed';
-import { FC } from 'react';
+import { Loader } from 'lucide-react-native';
+import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
 import { CommonStyles } from 'types';
 
-import { buttonSizeConfig, buttonStylesConfig } from './constants';
+import { buttonSize, buttonStyles } from './constants';
 import { ButtonSize } from './enums';
-import { ButtonStyles, Icon } from './types';
-import { getDirectionValues } from './utils';
+import { ButtonStyles, Direction, Icon } from './types';
 
 type Props = {
   children: string;
   icon?: Icon;
   isDisabled?: boolean;
+  isLoading?: boolean;
   onPress?: () => void;
   style?: CommonStyles;
 } & ButtonStyles;
@@ -26,35 +27,28 @@ export const Button: FC<Props> = (props) => {
     size,
     variant,
     isDisabled = false,
+    isLoading = false,
     onPress,
     icon,
     style,
   } = props;
 
-  const direction = getDirectionValues(icon?.direction);
-  const { textColor, iconColor, ...rest } = buttonStylesConfig[variant];
-  const { fontSize, iconSize } = buttonSizeConfig[size];
-
-  const isLeftOrUpperDirection = direction?.left || direction?.upper;
+  const { textColor, iconColor, ...rest } = buttonStyles[variant];
+  const { fontSize, iconSize } = buttonSize[size];
+  const iconStyles = icon?.direction && styles[icon.direction];
 
   return (
     <GluestackButton
-      isDisabled={isDisabled}
+      isDisabled={isDisabled || isLoading}
       onPress={onPress}
-      variant={variant}
-      style={[
-        styles.common,
-        styles[size],
-        direction?.upper && styles.upper,
-        style,
-      ]}
+      style={[styles.common, styles[size], iconStyles, style]}
       {...rest}
     >
-      {isLeftOrUpperDirection && (
+      {icon && (
         <GluestackButtonIcon
           height={iconSize}
           color={iconColor}
-          as={icon?.src}
+          as={isLoading ? Loader : icon?.src}
         />
       )}
 
@@ -65,14 +59,6 @@ export const Button: FC<Props> = (props) => {
       >
         {children}
       </GluestackTextOrigin>
-
-      {direction?.right && (
-        <GluestackButtonIcon
-          height={iconSize}
-          color={iconColor}
-          as={icon?.src}
-        />
-      )}
     </GluestackButton>
   );
 };
@@ -100,9 +86,16 @@ const styles = StyleSheet.create({
   },
   text: {
     textDecorationLine: 'none',
+    lineHeight: 21,
   },
-  upper: {
+  [Direction.TOP]: {
     flexDirection: 'column',
     gap: 8,
+  },
+  [Direction.LEFT]: {
+    flexDirection: 'row',
+  },
+  [Direction.RIGHT]: {
+    flexDirection: 'row-reverse',
   },
 });

@@ -5,7 +5,6 @@ export type ButtonStylesConfig = {
   backgroundColor: string;
   borderColor: string;
   iconColor: string;
-  lineHeight: number;
   sx: Partial<SxProps<StyleProp<ViewStyle>>>;
   textColor: string;
 };

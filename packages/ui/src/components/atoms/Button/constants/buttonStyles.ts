@@ -1,14 +1,14 @@
-import { Colors, Selectors } from 'configs';
+import { Colors } from 'configs';
+import { Selectors } from 'types';
 
 import { ButtonVariants } from '../enums';
 import { ButtonStylesConfig } from '../types';
 
-export const buttonStylesConfig: Record<ButtonVariants, ButtonStylesConfig> = {
+export const buttonStyles: Record<ButtonVariants, ButtonStylesConfig> = {
   [ButtonVariants.SOLID]: {
     textColor: Colors.WHITE,
     backgroundColor: Colors.DARK,
     borderColor: Colors.TRANSPARENT,
-    lineHeight: 21,
     iconColor: Colors.WHITE,
     sx: {
       [Selectors.DISABLED]: {
@@ -29,7 +29,6 @@ export const buttonStylesConfig: Record<ButtonVariants, ButtonStylesConfig> = {
     textColor: Colors.DARK,
     backgroundColor: Colors.TRANSPARENT,
     borderColor: Colors.GRAY_LIGHT_INPUT,
-    lineHeight: 21,
     iconColor: Colors.DARK,
     sx: {
       [Selectors.DISABLED]: {
@@ -77,7 +76,6 @@ export const buttonStylesConfig: Record<ButtonVariants, ButtonStylesConfig> = {
     textColor: Colors.DARK,
     backgroundColor: Colors.TRANSPARENT,
     borderColor: 'none',
-    lineHeight: 21,
     iconColor: Colors.DARK,
     sx: {
       [Selectors.DISABLED]: {
