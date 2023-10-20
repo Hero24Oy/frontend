@@ -9,4 +9,5 @@ export enum Direction {
 export type Icon = {
   direction: `${Direction}`;
   src: FC;
+  size?: number;
 };

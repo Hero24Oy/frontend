@@ -35,7 +35,9 @@ export const Button: FC<Props> = (props) => {
 
   const { textColor, iconColor, ...rest } = buttonStyles[variant];
   const { fontSize, iconSize } = buttonSize[size];
+
   const iconStyles = icon?.direction && styles[icon.direction];
+  const iconSizes = icon?.size ?? iconSize;
 
   return (
     <GluestackButton
@@ -46,7 +48,8 @@ export const Button: FC<Props> = (props) => {
     >
       {icon && (
         <GluestackButtonIcon
-          height={iconSize}
+          width={iconSizes}
+          height={iconSizes}
           color={iconColor}
           as={isLoading ? Loader : icon?.src}
         />
