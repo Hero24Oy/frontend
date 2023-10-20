@@ -6,7 +6,7 @@
 
 _Run it in the root:_
 
-```
+```bash
 npm install
 ```
 
@@ -14,7 +14,7 @@ npm install
 
 _We should start watching packages during development, so run it in the root:_
 
-```
+```bash
 npm run dev
 ```
 
