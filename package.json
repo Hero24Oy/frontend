@@ -11,10 +11,12 @@
   "scripts": {
     "prepare": "husky install",
     "build": "turbo build",
-    "dev": "cd packages/ui && npm run build && cd ../../ && turbo dev",
+    "build:ui": "cd packages/ui && npm run build && cd ../../ ",
+    "dev": "turbo dev",
     "dev:hero": "cd apps/hero && npm run watch",
     "dev:customer": "cd apps/customer && npm run watch",
-    "lint": "turbo lint"
+    "lint": "turbo lint",
+    "postinstall": "npm run build:ui && npm run build"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
