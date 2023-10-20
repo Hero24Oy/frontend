@@ -3,7 +3,7 @@ import {
   ButtonIcon as GluestackButtonIcon,
   ButtonText as GluestackTextOrigin,
 } from '@gluestack-ui/themed';
-import React, { ComponentProps, FC, ReactNode } from 'react';
+import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 import { CommonStyles } from 'types';
 

@@ -11,15 +11,19 @@ const Home: FC = () => {
     <SafeAreaView>
       <View>
         {!user && (
-          <Button variant="solid" size="medium">
-            <Link href="/sign-in">Sign in</Link>
-          </Button>
+          <Link href="/sign-in">
+            <Button variant="solid" size="medium">
+              Sign in
+            </Button>
+          </Link>
         )}
 
         {user && (
-          <Button variant="solid" size="medium">
-            <Link href="/profile">My profile</Link>
-          </Button>
+          <Link href="/profile">
+            <Button variant="solid" size="medium">
+              My profile
+            </Button>
+          </Link>
         )}
       </View>
     </SafeAreaView>
