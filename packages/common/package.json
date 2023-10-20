@@ -15,8 +15,7 @@
     "dev": "npm run build -- --watch",
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "pretty": "prettier --write . --log-level warn",
-    "lint": "eslint . --fix",
-    "postinstall": "npm run build"
+    "lint": "eslint . --fix"
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^7.3.6",
@@ -46,6 +45,8 @@
   },
   "dependencies": {
     "@apollo/client": "^3.8.3",
+    "@gluestack-style/react": "^1.0.8",
+    "@gluestack-ui/themed": "^1.0.8",
     "@hero24/configs": "*",
     "@hero24/ui": "*",
     "@hookform/resolvers": "^3.3.2",
@@ -65,6 +66,7 @@
     "react": "^18.2.0",
     "react-hook-form": "^7.47.0",
     "react-native": "^0.72.5",
+    "react-native-svg": "^13.4.0",
     "yup": "^1.3.1",
     "zustand": "^4.4.3"
   }

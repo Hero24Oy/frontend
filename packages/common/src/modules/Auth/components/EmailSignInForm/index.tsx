@@ -1,11 +1,10 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { FC } from 'react';
+import { emailSignInFormValidationSchema } from 'core/validation';
+import React, { FC } from 'react';
 import { useForm } from 'react-hook-form';
+import { StyleSheet } from 'react-native';
 
 import { Button, Input, VStack } from '@hero24/ui';
-import { emailSignInFormValidationSchema } from '$/core/validation'; // TODO move here
-import { StyleSheet } from 'react-native';
-import { Plus } from 'lucide-react-native';
 
 interface FormData {
   email: string;
@@ -38,7 +37,7 @@ export const EmailSignInForm: FC = () => {
         control={control}
         name="password"
       />
-      <Button variant="solid" size="medium" onPress={onSubmit}>Continue</Button>
+      <Button onPress={onSubmit}>Continue</Button>
     </VStack>
   );
 };

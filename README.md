@@ -12,11 +12,15 @@ npm install
 
 ### 2. Watch packages
 
+This command watches changes in packages and automatically updates them in the apps.
+
 ```
 npm run dev
 ```
 
 ### 3. Watch app
+
+
 
 _Hero (seller) app_
 
@@ -29,5 +33,3 @@ _Customer (buyer) app_
 ```
 npm run dev:customer
 ```
-
-// TODO lint crahses both in customer and hero, fix this

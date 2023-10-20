@@ -16,7 +16,7 @@ type Props = {
   children: string;
   icon?: Icon;
   isDisabled?: boolean;
-  onPress?: ComponentProps<typeof GluestackButton>['onPress'];
+  onPress?: () => void;
   style?: CommonStyles;
 } & ButtonStyles;
 

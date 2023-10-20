@@ -8,7 +8,7 @@
     "jsx": "react-native",
     "lib": ["dom", "es2019"],
     "allowJs": false,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "module": "esnext",

@@ -1,6 +1,6 @@
-import { FC } from 'react';
-
+import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
+
 import { Button, VStack } from '@hero24/ui';
 
 export const SignInProvidersButtons: FC = () => {

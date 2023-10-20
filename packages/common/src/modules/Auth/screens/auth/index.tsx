@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
+import { StyleSheet } from 'react-native';
 
 import { HStack, SafeAreaView, Text, VStack } from '@hero24/ui';
 
 import { EmailSignInForm, SignInProvidersButtons } from '../../components';
-import { StyleSheet } from 'react-native';
 
 export const AuthScreen: FC = () => {
   return (
