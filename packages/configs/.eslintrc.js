@@ -343,6 +343,12 @@ const override = {
       'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     },
   },
+  noMagicNumbersExceptions: {
+    files: ['src/configs/*.ts'],
+    rules: {
+      'no-magic-numbers': 'off',
+    },
+  },
 };
 
 /**
