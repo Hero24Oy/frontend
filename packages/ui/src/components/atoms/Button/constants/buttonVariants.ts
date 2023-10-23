@@ -2,15 +2,20 @@ import { Colors } from 'configs';
 import { Selectors } from 'types';
 
 import { ButtonVariants } from '../enums';
-import { ButtonStylesConfig } from '../types';
+import { ButtonVariantsConfig } from '../types';
 
-export const buttonStyles: Record<ButtonVariants, ButtonStylesConfig> = {
+export const buttonVariants: Record<ButtonVariants, ButtonVariantsConfig> = {
   [ButtonVariants.SOLID]: {
-    textColor: Colors.WHITE,
     backgroundColor: Colors.DARK,
     borderColor: Colors.TRANSPARENT,
-    iconColor: Colors.WHITE,
+    spinnerColor: Colors.WHITE,
     sx: {
+      _text: {
+        color: Colors.WHITE,
+      },
+      _icon: {
+        color: Colors.WHITE,
+      },
       [Selectors.DISABLED]: {
         backgroundColor: Colors.GRAY_LIGHT_INPUT,
       },
@@ -26,11 +31,16 @@ export const buttonStyles: Record<ButtonVariants, ButtonStylesConfig> = {
     },
   },
   [ButtonVariants.OUTLINE]: {
-    textColor: Colors.DARK,
     backgroundColor: Colors.TRANSPARENT,
     borderColor: Colors.GRAY_LIGHT_INPUT,
-    iconColor: Colors.DARK,
+    spinnerColor: Colors.GRAY_LIGHT_INPUT,
     sx: {
+      _text: {
+        color: Colors.DARK,
+      },
+      _icon: {
+        color: Colors.DARK,
+      },
       [Selectors.DISABLED]: {
         borderColor: Colors.GRAY_LIGHT_INPUT,
         backgroundColor: Colors.GRAY_LIGHT_DISABLE,
@@ -73,11 +83,16 @@ export const buttonStyles: Record<ButtonVariants, ButtonStylesConfig> = {
     },
   },
   [ButtonVariants.LINK]: {
-    textColor: Colors.DARK,
     backgroundColor: Colors.TRANSPARENT,
-    borderColor: 'none',
-    iconColor: Colors.DARK,
+    borderColor: Colors.TRANSPARENT,
+    spinnerColor: Colors.GRAY_PLACEHOLDER,
     sx: {
+      _text: {
+        color: Colors.DARK,
+      },
+      _icon: {
+        color: Colors.DARK,
+      },
       [Selectors.DISABLED]: {
         _text: {
           color: Colors.GRAY_PLACEHOLDER,

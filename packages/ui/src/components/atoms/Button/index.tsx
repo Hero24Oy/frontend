@@ -1,15 +1,16 @@
 import {
   Button as GluestackButton,
   ButtonIcon as GluestackButtonIcon,
+  ButtonSpinner as GluestackButtonSpinner,
   ButtonText as GluestackTextOrigin,
 } from '@gluestack-ui/themed';
-import { Loader } from 'lucide-react-native';
+import { LineHeight } from 'configs';
 import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
 import { CommonStyles } from 'types';
 
-import { buttonSize, buttonStyles } from './constants';
-import { ButtonSize } from './enums';
+import { buttonSizes, buttonVariants } from './constants';
+import { ButtonSizes } from './enums';
 import { ButtonStyles, Direction, Icon } from './types';
 
 type Props = {
@@ -33,33 +34,35 @@ export const Button: FC<Props> = (props) => {
     style,
   } = props;
 
-  const { textColor, iconColor, ...rest } = buttonStyles[variant];
-  const { fontSize, iconSize } = buttonSize[size];
+  const { spinnerColor, ...buttonStyle } = buttonVariants[variant];
+  const { fontSize, iconSize } = buttonSizes[size];
 
   const iconStyles = icon?.direction && styles[icon.direction];
   const iconSizes = icon?.size ?? iconSize;
+
+  const isIconShown = !isLoading && icon;
+  const isSpinnerShown = isLoading && icon;
 
   return (
     <GluestackButton
       isDisabled={isDisabled || isLoading}
       onPress={onPress}
       style={[styles.common, styles[size], iconStyles, style]}
-      {...rest}
+      {...buttonStyle}
     >
-      {icon && (
+      {isIconShown && (
         <GluestackButtonIcon
           width={iconSizes}
           height={iconSizes}
-          color={iconColor}
-          as={isLoading ? Loader : icon?.src}
+          as={icon?.src}
         />
       )}
 
-      <GluestackTextOrigin
-        fontSize={fontSize}
-        color={textColor}
-        style={styles.text}
-      >
+      {isSpinnerShown && (
+        <GluestackButtonSpinner color={spinnerColor} size={iconSizes} />
+      )}
+
+      <GluestackTextOrigin fontSize={fontSize} style={styles.text}>
         {children}
       </GluestackTextOrigin>
     </GluestackButton>
@@ -76,20 +79,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     borderRadius: 8,
     height: 'auto',
+    borderWidth: 1,
   },
-  [ButtonSize.LARGE]: {
+  [ButtonSizes.LARGE]: {
     width: '100%',
     paddingVertical: 11,
   },
-  [ButtonSize.MEDIUM]: {
+  [ButtonSizes.MEDIUM]: {
     paddingVertical: 10,
   },
-  [ButtonSize.SMALL]: {
+  [ButtonSizes.SMALL]: {
     paddingVertical: 8,
   },
   text: {
     textDecorationLine: 'none',
-    lineHeight: 21,
+    fontWeight: '500',
+    lineHeight: LineHeight.DEFAULT,
   },
   [Direction.TOP]: {
     flexDirection: 'column',

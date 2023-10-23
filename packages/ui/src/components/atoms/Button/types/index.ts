@@ -1,3 +1,3 @@
 export * from './buttonStyles';
-export * from './buttonStylesConfig';
+export * from './buttonVariantsConfig';
 export * from './icon';

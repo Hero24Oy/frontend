@@ -12,7 +12,7 @@ const Home: FC = () => {
       <View>
         {!user && (
           <Link href="/sign-in">
-            <Button variant="solid" size="medium">
+            <Button variant="solid" size="md">
               Sign in
             </Button>
           </Link>
@@ -20,7 +20,7 @@ const Home: FC = () => {
 
         {user && (
           <Link href="/profile">
-            <Button variant="solid" size="medium">
+            <Button variant="solid" size="md">
               My profile
             </Button>
           </Link>
