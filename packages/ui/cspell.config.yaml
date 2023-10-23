@@ -1,2 +1,6 @@
 words:
+  # gluestack
   - 'gluestack'
+
+  # react-native
+  - 'pressable'

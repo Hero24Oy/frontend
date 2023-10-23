@@ -5,9 +5,8 @@ import {
   ButtonText as GluestackTextOrigin,
 } from '@gluestack-ui/themed';
 import { LineHeight } from 'configs';
-import React, { FC } from 'react';
-import { StyleSheet } from 'react-native';
-import { CommonStyles } from 'types';
+import React, { ForwardedRef, forwardRef } from 'react';
+import { PressableProps, StyleProp, StyleSheet, ViewStyle } from 'react-native';
 
 import { buttonSizes, buttonVariants } from './constants';
 import { ButtonSizes } from './enums';
@@ -19,10 +18,13 @@ type Props = {
   isDisabled?: boolean;
   isLoading?: boolean;
   onPress?: () => void;
-  style?: CommonStyles;
+  style?: StyleProp<ViewStyle>;
 } & ButtonStyles;
 
-export const Button: FC<Props> = (props) => {
+const ButtonInner = (
+  props: Props,
+  ref: ForwardedRef<PressableProps>,
+): JSX.Element => {
   const {
     children,
     size,
@@ -45,6 +47,7 @@ export const Button: FC<Props> = (props) => {
 
   return (
     <GluestackButton
+      ref={ref}
       isDisabled={isDisabled || isLoading}
       onPress={onPress}
       style={[styles.common, styles[size], iconStyles, style]}
@@ -68,6 +71,8 @@ export const Button: FC<Props> = (props) => {
     </GluestackButton>
   );
 };
+
+export const Button = forwardRef(ButtonInner);
 
 const styles = StyleSheet.create({
   common: {

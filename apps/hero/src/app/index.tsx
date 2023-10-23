@@ -11,7 +11,7 @@ const Home: FC = () => {
     <SafeAreaView>
       <View>
         {!user && (
-          <Link href="/sign-in">
+          <Link href="/sign-in" asChild>
             <Button variant="solid" size="md">
               Sign in
             </Button>
@@ -19,7 +19,7 @@ const Home: FC = () => {
         )}
 
         {user && (
-          <Link href="/profile">
+          <Link href="/profile" asChild>
             <Button variant="solid" size="md">
               My profile
             </Button>
