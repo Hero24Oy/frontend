@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { BaseIcon } from 'icons/Base/types';
 
 export enum Direction {
   LEFT = 'left',
@@ -8,6 +8,6 @@ export enum Direction {
 
 export type Icon = {
   direction: `${Direction}`;
-  src: FC;
+  src: BaseIcon;
   size?: number;
 };
