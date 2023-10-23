@@ -1,36 +1,15 @@
-// import { PhoneInput } from '@hero24/ui-library/src/components/atoms/PhoneInput';
-import { yupResolver } from '@hookform/resolvers/yup';
 import React, { FC } from 'react';
-import { useForm } from 'react-hook-form';
 import { CountryCode } from 'react-native-country-picker-modal';
 
 import { Button, PhoneInput } from '@hero24/ui';
 
-import { phoneSignInFormValidationSchema } from '$common/core';
+import { usePhoneSignInForm } from './hooks/usePhoneSignInForm';
 
-const preferredCountryCodes: CountryCode[] = ['FI', 'DO'];
+const preferredCountryCodes: CountryCode[] = ['FI'];
 const INITIAL_COUNTRY_CODE: CountryCode = 'FI';
 
-interface FormData {
-  phone: string;
-  callingCode?: string;
-}
-
 export const PhoneSignInForm: FC = () => {
-  const { control, handleSubmit, setValue } = useForm<FormData>({
-    resolver: yupResolver(phoneSignInFormValidationSchema),
-    defaultValues: {
-      phone: '',
-      callingCode: '',
-    },
-    mode: 'onSubmit',
-  });
-
-  const onSubmit = (): void => {
-    void handleSubmit((_data: FormData): void => {
-      return undefined;
-    })();
-  };
+  const { control, setValue, onSubmit } = usePhoneSignInForm();
 
   return (
     <>
