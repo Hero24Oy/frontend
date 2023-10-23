@@ -1,3 +1,2 @@
-export * from './providers';
-export * from './atoms';
-export * from './molecules';
+export * from './components';
+export * from './utils';

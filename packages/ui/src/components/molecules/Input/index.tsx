@@ -3,7 +3,7 @@ import {
   InputField as GluestackInputField,
   InputSlot,
 } from '@gluestack-ui/themed';
-import { Text, VStack } from 'atoms';
+import { Text, VStack } from 'components/atoms';
 import React, { ReactElement, Ref } from 'react';
 import { Control, FieldValues, Path, useController } from 'react-hook-form';
 import { KeyboardType, TextInputProps } from 'react-native';
