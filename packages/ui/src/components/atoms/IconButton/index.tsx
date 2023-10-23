@@ -35,10 +35,10 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
     padding: 10,
     borderRadius: 10,
+    backgroundColor: Colors.GRAY_LIGHT_BACKGROUND,
   },
   common: {
     color: Colors.BLACK,
-    backgroundColor: Colors.GRAY_LIGHT_BACKGROUND,
   },
   [IconButtonSize.LARGE]: {
     width: IconSize.LARGE,
