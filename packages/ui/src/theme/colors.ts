@@ -1,6 +1,7 @@
 export const colors = {
   white: '#FFFFFF',
   dark: '#1D1D20',
+  grayLightBackground: '#F3F3F5',
   grayLightInput: '#D0D2D8',
   grayLightDisable: '#F7F7F7',
   grayPlaceholder: '#9E9DA5',
@@ -9,4 +10,5 @@ export const colors = {
   alertBlue: '#5991FF',
   red: '#EA4436',
   transparent: 'transparent',
+  black: '#000000',
 };
