@@ -4,7 +4,7 @@ import {
   InputSlot,
 } from '@gluestack-ui/themed';
 import { Text, VStack } from 'components/atoms';
-import React, { ReactElement, Ref } from 'react';
+import React, { ReactElement, Ref, useMemo } from 'react';
 import { Control, FieldValues, Path, useController } from 'react-hook-form';
 import { KeyboardType, TextInputProps } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
@@ -78,6 +78,10 @@ export const Input = <Type extends FieldValues>(
     keyboardType,
   };
 
+  const errorText = useMemo(() => {
+    return errors[name]?.message?.toString() || '';
+  }, [errors]);
+
   return (
     <VStack>
       <GluestackInput isDisabled={isDisabled}>
@@ -100,7 +104,7 @@ export const Input = <Type extends FieldValues>(
         )}
         {rightSlot ? <InputSlot>{rightSlot}</InputSlot> : null}
       </GluestackInput>
-      <Text>{errors[name]?.message?.toString() || ''}</Text>
+      <Text>{errorText}</Text>
     </VStack>
   );
 };

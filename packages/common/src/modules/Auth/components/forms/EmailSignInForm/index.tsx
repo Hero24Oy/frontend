@@ -1,37 +1,11 @@
-import { yupResolver } from '@hookform/resolvers/yup';
-import { emailSignInFormValidationSchema } from 'core/validation';
-import { useEmailSignIn } from 'modules/Auth/hooks';
 import React, { FC } from 'react';
-import { useForm } from 'react-hook-form';
 
 import { Button, Input } from '@hero24/ui';
 
-interface FormData {
-  email: string;
-  password: string;
-}
+import { useEmailSignInForm } from './hooks/useEmailSignInForm';
 
 export const EmailSignInForm: FC = () => {
-  const { control, handleSubmit } = useForm<FormData>({
-    resolver: yupResolver(emailSignInFormValidationSchema),
-    defaultValues: {
-      email: '',
-      password: '',
-    },
-    mode: 'onSubmit',
-  });
-
-  const { signInWithEmail } = useEmailSignIn();
-
-  const signIn = async (data: FormData): Promise<void> => {
-    try {
-      await signInWithEmail(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const signInHandler = handleSubmit(signIn);
+  const { control, signInHandler } = useEmailSignInForm();
 
   return (
     <>
@@ -48,7 +22,7 @@ export const EmailSignInForm: FC = () => {
         control={control}
         name="password"
       />
-      <Button onPress={signInHandler}>Sign in with Email</Button>
+      <Button onPress={signInHandler}>Sign in</Button>
     </>
   );
 };

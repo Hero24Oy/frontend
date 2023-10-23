@@ -2,9 +2,7 @@ import React, { FC, PropsWithChildren } from 'react';
 import { StyleSheet } from 'react-native';
 import { KeyboardAwareScrollView as RnKeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-interface Props extends PropsWithChildren {}
-
-export const KeyboardAwareScrollView: FC<Props> = (props) => {
+export const KeyboardAwareScrollView: FC<PropsWithChildren> = (props) => {
   const { children } = props;
 
   return (
