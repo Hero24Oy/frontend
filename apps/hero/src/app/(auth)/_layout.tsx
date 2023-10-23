@@ -1,9 +1,9 @@
 import { Redirect, Stack } from 'expo-router';
-import { FC } from 'react';
+import React, { FC } from 'react';
 
 import { useFirebaseUser } from '@hero24/common';
 
-const AppLayout: FC = () => {
+const AuthLayout: FC = () => {
   const { user } = useFirebaseUser();
 
   // Only require authentication within the (app) group's layout as users
@@ -15,7 +15,7 @@ const AppLayout: FC = () => {
   }
 
   // This layout can be deferred because it's not the root layout.
-  return <Stack />;
+  return <Stack screenOptions={{ headerShown: false }} />;
 };
 
-export default AppLayout;
+export default AuthLayout;

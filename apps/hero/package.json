@@ -27,12 +27,12 @@
     "ios": "expo run:ios"
   },
   "dependencies": {
-    "@hero24/common": "*",
-    "@hero24/ui": "*",
     "@apollo/client": "^3.8.3",
     "@expo/vector-icons": "^13.0.0",
     "@gluestack-style/react": "^0.2.46",
     "@gluestack-ui/themed": "^0.1.16",
+    "@hero24/common": "*",
+    "@hero24/ui": "*",
     "@react-native-async-storage/async-storage": "^1.18.2",
     "@react-navigation/native": "^6.0.2",
     "expo": "~49.0.11",
