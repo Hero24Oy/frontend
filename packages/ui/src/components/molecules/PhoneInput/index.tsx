@@ -39,7 +39,7 @@ interface Props<Type extends FieldValues>
  * @param {Props<Type>['name']} props.callingCodeName
  * Name of useForm field that will store country calling code value
  * @param {Props<Type>['initialCountryCode']} props.initialCountryCode
- * Country code that will be used for country selector
+ * Country code that will be used for country selector on component first render
  * @returns {ReactElement}
  */
 

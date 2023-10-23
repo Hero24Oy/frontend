@@ -7,5 +7,3 @@ type GetCallingCodeTrigger = (
 export const getCallingCodeTrigger: GetCallingCodeTrigger =
   (selectedCode) => (props) =>
     Trigger({ triggerProps: { ...props }, code: selectedCode });
-
-// ({ ...triggerProps }: { [x: string]: any; }) => Element
