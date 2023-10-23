@@ -1,6 +1,7 @@
 import { IconSize } from 'configs';
 
 import { ButtonSizes } from '../enums';
+import { ButtonSizesConfig } from '../types';
 
 export const buttonSizes = {
   [ButtonSizes.LARGE]: {
@@ -15,4 +16,4 @@ export const buttonSizes = {
     fontSize: 12,
     iconSize: IconSize.EXTRA_SMALL,
   },
-};
+} satisfies Record<ButtonSizes, ButtonSizesConfig>;

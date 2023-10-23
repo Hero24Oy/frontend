@@ -4,7 +4,7 @@ import { Selectors } from 'types';
 import { ButtonVariants } from '../enums';
 import { ButtonVariantsConfig } from '../types';
 
-export const buttonVariants: Record<ButtonVariants, ButtonVariantsConfig> = {
+export const buttonVariants = {
   [ButtonVariants.SOLID]: {
     backgroundColor: Colors.DARK,
     borderColor: Colors.TRANSPARENT,
@@ -123,4 +123,4 @@ export const buttonVariants: Record<ButtonVariants, ButtonVariantsConfig> = {
       },
     },
   },
-};
+} satisfies Record<ButtonVariants, ButtonVariantsConfig>;
