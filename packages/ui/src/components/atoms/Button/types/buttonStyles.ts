@@ -1,17 +1,19 @@
-import { ButtonSizes, ButtonVariants } from '../enums';
+import { Sizes } from 'theme/enums';
+
+import { ButtonVariants } from '../enums';
 
 export type SolidButtonStyles = {
-  size: `${ButtonSizes}`;
+  size: `${Sizes}`;
   variant: `${ButtonVariants.SOLID}`;
 };
 
 export type OutlineButtonStyles = {
-  size: `${ButtonSizes}`;
+  size: `${Sizes}`;
   variant: `${ButtonVariants.OUTLINE}`;
 };
 
 export type LinkButtonStyles = {
-  size: `${ButtonSizes.MEDIUM | ButtonSizes.SMALL}`;
+  size: `${Sizes.MEDIUM | Sizes.SMALL}`;
   variant: `${ButtonVariants.LINK}`;
 };
 

@@ -1,7 +1,7 @@
-import { ButtonSizes, ButtonVariants } from 'components/atoms/Button/enums';
+import { ButtonVariants } from 'components/atoms/Button/enums';
 import { Selectors } from 'types';
 
-import { IconSize } from '../enums';
+import { IconSize, Sizes } from '../enums';
 
 export const Button = {
   theme: {
@@ -22,7 +22,7 @@ export const Button = {
     },
     variants: {
       size: {
-        [ButtonSizes.LARGE]: {
+        [Sizes.LARGE]: {
           width: '100%',
           paddingVertical: 11,
           _text: {
@@ -39,7 +39,7 @@ export const Button = {
             },
           },
         },
-        [ButtonSizes.MEDIUM]: {
+        [Sizes.MEDIUM]: {
           paddingVertical: 10,
           _text: {
             fontSize: '$small',
@@ -55,7 +55,7 @@ export const Button = {
             },
           },
         },
-        [ButtonSizes.SMALL]: {
+        [Sizes.SMALL]: {
           paddingVertical: 8,
           _text: {
             fontSize: '$extraSmall',
