@@ -1,6 +1,6 @@
 import {
   Button as GluestackButton,
-  ButtonText as GluestackTextOrigin,
+  ButtonText as GluestackButtonText,
 } from '@gluestack-ui/themed';
 import React, { FC, PropsWithChildren, ReactNode } from 'react';
 import { CommonStyles } from 'types';
@@ -17,7 +17,7 @@ export const Button: FC<Props> = (props) => {
 
   return (
     <GluestackButton isDisabled={isDisabled} onPress={onPress} style={style}>
-      <GluestackTextOrigin>{children}</GluestackTextOrigin>
+      <GluestackButtonText>{children}</GluestackButtonText>
     </GluestackButton>
   );
 };

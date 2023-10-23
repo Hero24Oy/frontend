@@ -4,6 +4,7 @@ import {
   FacebookAuth,
   GoogleAuth,
 } from 'modules/Auth/components';
+import { PhoneSignInForm } from 'modules/Auth/components/forms/PhoneSignInForm';
 import { AuthConfig } from 'modules/Auth/types';
 import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
@@ -21,6 +22,7 @@ export const AuthScreen: FC<Props> = (props) => {
     <KeyboardAwareScrollView>
       <VStack style={styles.container}>
         <EmailAuth />
+        <PhoneSignInForm />
         <FacebookAuth authConfig={authConfig} />
         <GoogleAuth authConfig={authConfig} />
         <AppleAuth />

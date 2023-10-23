@@ -1,6 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { emailSignInFormValidationSchema } from 'core/validation';
-import { useEmailSignIn, useEmailSignUp } from 'modules/Auth/hooks';
+import { useEmailSignIn } from 'modules/Auth/hooks';
 import React, { FC } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -22,15 +22,6 @@ export const EmailSignInForm: FC = () => {
   });
 
   const { signInWithEmail } = useEmailSignIn();
-  const { signUpWithEmail } = useEmailSignUp();
-
-  const signUp = async (data: FormData): Promise<void> => {
-    try {
-      await signUpWithEmail(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   const signIn = async (data: FormData): Promise<void> => {
     try {
@@ -41,7 +32,6 @@ export const EmailSignInForm: FC = () => {
   };
 
   const signInHandler = handleSubmit(signIn);
-  const signUpHandler = handleSubmit(signUp);
 
   return (
     <>
@@ -58,8 +48,7 @@ export const EmailSignInForm: FC = () => {
         control={control}
         name="password"
       />
-      <Button onPress={signInHandler}>Sign in</Button>
-      <Button onPress={signUpHandler}>Sign up</Button>
+      <Button onPress={signInHandler}>Sign in with Email</Button>
     </>
   );
 };
