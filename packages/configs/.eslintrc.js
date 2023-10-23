@@ -344,7 +344,7 @@ const override = {
     },
   },
   noMagicNumbersExceptions: {
-    files: ['src/configs/*.ts'],
+    files: ['src/configs/*.ts', 'src/theme/*.ts'],
     rules: {
       'no-magic-numbers': 'off',
     },

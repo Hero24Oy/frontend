@@ -1,15 +1,12 @@
 import {
   Button as GluestackButton,
   ButtonIcon as GluestackButtonIcon,
+  ButtonSpinner as GluestackButtonSpinner,
   ButtonText as GluestackTextOrigin,
 } from '@gluestack-ui/themed';
-import { Loader } from 'lucide-react-native';
-import React, { FC } from 'react';
-import { StyleSheet } from 'react-native';
-import { CommonStyles } from 'types';
+import React, { ForwardedRef, forwardRef } from 'react';
+import { PressableProps, StyleProp, StyleSheet, ViewStyle } from 'react-native';
 
-import { buttonSize, buttonStyles } from './constants';
-import { ButtonSize } from './enums';
 import { ButtonStyles, Direction, Icon } from './types';
 
 type Props = {
@@ -18,10 +15,13 @@ type Props = {
   isDisabled?: boolean;
   isLoading?: boolean;
   onPress?: () => void;
-  style?: CommonStyles;
+  style?: StyleProp<ViewStyle>;
 } & ButtonStyles;
 
-export const Button: FC<Props> = (props) => {
+const ButtonInner = (
+  props: Props,
+  ref: ForwardedRef<PressableProps>,
+): JSX.Element => {
   const {
     children,
     size,
@@ -33,64 +33,38 @@ export const Button: FC<Props> = (props) => {
     style,
   } = props;
 
-  const { textColor, iconColor, ...rest } = buttonStyles[variant];
-  const { fontSize, iconSize } = buttonSize[size];
-
   const iconStyles = icon?.direction && styles[icon.direction];
-  const iconSizes = icon?.size ?? iconSize;
+
+  const isIconShown = !isLoading && icon;
+  const isSpinnerShown = isLoading && icon;
 
   return (
     <GluestackButton
+      ref={ref}
       isDisabled={isDisabled || isLoading}
       onPress={onPress}
-      style={[styles.common, styles[size], iconStyles, style]}
-      {...rest}
+      variant={variant}
+      size={size}
+      style={[iconStyles, style]}
     >
-      {icon && (
+      {isIconShown && (
         <GluestackButtonIcon
-          width={iconSizes}
-          height={iconSizes}
-          color={iconColor}
-          as={isLoading ? Loader : icon?.src}
+          width={icon.size}
+          height={icon.size}
+          as={icon?.src}
         />
       )}
 
-      <GluestackTextOrigin
-        fontSize={fontSize}
-        color={textColor}
-        style={styles.text}
-      >
-        {children}
-      </GluestackTextOrigin>
+      {isSpinnerShown && <GluestackButtonSpinner />}
+
+      <GluestackTextOrigin>{children}</GluestackTextOrigin>
     </GluestackButton>
   );
 };
 
+export const Button = forwardRef(ButtonInner);
+
 const styles = StyleSheet.create({
-  common: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 6,
-    paddingHorizontal: 12,
-    borderRadius: 8,
-    height: 'auto',
-  },
-  [ButtonSize.LARGE]: {
-    width: '100%',
-    paddingVertical: 11,
-  },
-  [ButtonSize.MEDIUM]: {
-    paddingVertical: 10,
-  },
-  [ButtonSize.SMALL]: {
-    paddingVertical: 8,
-  },
-  text: {
-    textDecorationLine: 'none',
-    lineHeight: 21,
-  },
   [Direction.TOP]: {
     flexDirection: 'column',
     gap: 8,

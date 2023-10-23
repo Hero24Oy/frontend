@@ -3,4 +3,5 @@ export enum Selectors {
   HOVER = ':hover',
   ACTIVE = ':active',
   FOCUS_VISIBLE = ':focusVisible',
+  CHECKED = ':checked',
 }
