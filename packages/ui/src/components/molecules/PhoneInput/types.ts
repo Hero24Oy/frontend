@@ -8,11 +8,13 @@ type InputPropsOmit =
   | 'rightSlot'
   | 'mask'
   | 'type'
-  | 'keyboardType';
+  | 'keyboardType'
+  | 'name';
 
 export interface PhoneInputProps<Type extends FieldValues>
   extends Omit<InputProps<Type>, InputPropsOmit> {
-  callingCodeName: Path<Type>;
+  codeFieldName: Path<Type>;
   initialCountryCode: CountryCode;
+  phoneFieldName: Path<Type>;
   preferredCountryCodes?: CountryCode[];
 }

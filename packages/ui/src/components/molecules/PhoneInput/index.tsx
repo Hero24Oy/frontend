@@ -6,19 +6,17 @@ import { Input } from '../Input';
 import { SelectCountry } from './components/SelectCountry';
 import { PhoneInputProps } from './types';
 
-export const DEFAULT_PHONE_MASK = '999 999 9999';
+const DEFAULT_PHONE_MASK = '999 999 9999';
 
 /**
  * Description
- * @param {Props<Type>['control']} props.control
+ * @param {PhoneInputProps<Type>['control']} props.control
  * control from useForm hook
- * @param {Props<Type>['setValue']} props.setValue
- * setValue function from useForm hook
- * @param {Props<Type>['name']} props.name
- * Name of useForm field that will store phone number value
- * @param {Props<Type>['name']} props.callingCodeName
- * Name of useForm field that will store country calling code value
- * @param {Props<Type>['initialCountryCode']} props.initialCountryCode
+ * @param {PhoneInputProps<Type>['name']} props.phoneFieldName
+ * Name of useForm field for phone number value
+ * @param {PhoneInputProps<Type>['name']} props.codeFieldName
+ * Name of useForm field for country calling code value
+ * @param {PhoneInputProps<Type>['initialCountryCode']} props.initialCountryCode
  * Country code that will be used for country selector on component first render
  * @returns {ReactElement}
  */
@@ -26,12 +24,12 @@ export const DEFAULT_PHONE_MASK = '999 999 9999';
 export const PhoneInput = <Type extends FieldValues>(
   props: PhoneInputProps<Type>,
 ): ReactElement => {
-  const { control, name, placeholder, isDisabled } = props;
+  const { control, phoneFieldName, placeholder, isDisabled } = props;
 
   return (
     <Input
       control={control}
-      name={name}
+      name={phoneFieldName}
       placeholder={placeholder}
       isDisabled={isDisabled}
       mask={DEFAULT_PHONE_MASK}

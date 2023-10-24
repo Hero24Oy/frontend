@@ -2,27 +2,26 @@ import { useCallback, useEffect, useState } from 'react';
 import { FieldValues, useController } from 'react-hook-form';
 import { Country } from 'react-native-country-picker-modal';
 
-import { getInitialCountry } from '../../helpers/getInitialCountry';
 import { PhoneInputProps } from '../../types';
-import { codeWithPrefix } from '../helpers/codeWithPrefix';
+import { codeWithPrefix, getInitialCountry } from '../helpers';
 
 interface ReturnType {
-  callingCodeValue: string;
-  onCallingCodeChange: (code: string) => void;
+  onCodeSelect: (code: string) => void;
   onCountrySelect: (country: Country) => void;
+  selectedCode: string;
   selectedCountry?: Country | null;
 }
 
 export const useSelectCountry = <Type extends FieldValues>(
   props: PhoneInputProps<Type>,
 ): ReturnType => {
-  const { control, callingCodeName, initialCountryCode } = props;
+  const { control, codeFieldName, initialCountryCode } = props;
 
   const [selectedCountry, setSelectedCountry] = useState<Country | null>();
 
   const {
     field: { value, onChange },
-  } = useController({ name: callingCodeName, control });
+  } = useController({ name: codeFieldName, control });
 
   const initCountry = useCallback(async (): Promise<void> => {
     const initialCountry = await getInitialCountry(initialCountryCode);
@@ -42,14 +41,14 @@ export const useSelectCountry = <Type extends FieldValues>(
     void initCountry();
   }, [initCountry, initialCountryCode]);
 
-  const onCallingCodeChange = (callingCode: string): void => {
+  const onCodeSelect = (callingCode: string): void => {
     onChange(codeWithPrefix(callingCode));
   };
 
   return {
     onCountrySelect,
     selectedCountry,
-    onCallingCodeChange,
-    callingCodeValue: value,
+    onCodeSelect,
+    selectedCode: value,
   };
 };

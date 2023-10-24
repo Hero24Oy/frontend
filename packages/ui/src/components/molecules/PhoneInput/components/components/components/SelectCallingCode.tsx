@@ -5,11 +5,11 @@ import { MenuItem } from 'components/molecules/Menu/types';
 import React, { useMemo } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { codeWithPrefix } from '../../helpers/codeWithPrefix';
+import { codeWithPrefix } from '../../helpers';
 import { CallingCodeProps } from '../types';
 
 export const SelectCallingCode = (props: CallingCodeProps): JSX.Element => {
-  const { value, onCodeChange, country } = props;
+  const { value, onSelect, country } = props;
 
   const menuItems = useMemo((): MenuItem[] => {
     if (country && country?.callingCode?.length > 1) {
@@ -24,7 +24,7 @@ export const SelectCallingCode = (props: CallingCodeProps): JSX.Element => {
   }, [country]);
 
   return (
-    <Menu items={menuItems} onSelect={onCodeChange}>
+    <Menu items={menuItems} onSelect={onSelect}>
       <View style={styles.wrapper}>
         <Text>{value}</Text>
         <Icon as={ChevronDownIcon} />

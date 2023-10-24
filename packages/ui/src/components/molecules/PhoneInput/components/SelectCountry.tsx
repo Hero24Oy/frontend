@@ -14,12 +14,8 @@ export const SelectCountry = <Type extends FieldValues>(
 ): ReactElement => {
   const { preferredCountryCodes } = props;
 
-  const {
-    onCountrySelect,
-    selectedCountry,
-    onCallingCodeChange,
-    callingCodeValue,
-  } = useSelectCountry(props);
+  const { onCountrySelect, selectedCountry, onCodeSelect, selectedCode } =
+    useSelectCountry(props);
 
   return (
     <HStack style={styles.stack}>
@@ -31,8 +27,8 @@ export const SelectCountry = <Type extends FieldValues>(
       />
       <CallingCode
         country={selectedCountry}
-        onCodeChange={onCallingCodeChange}
-        value={callingCodeValue}
+        onSelect={onCodeSelect}
+        value={selectedCode}
       />
     </HStack>
   );

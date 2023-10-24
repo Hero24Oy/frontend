@@ -5,7 +5,7 @@ import { SelectCallingCode } from './components/SelectCallingCode';
 import { CallingCodeProps } from './types';
 
 export const CallingCode: FC<CallingCodeProps> = (props) => {
-  const { country, onCodeChange, value } = props;
+  const { country, value } = props;
 
   if (!country) {
     return null;
@@ -15,11 +15,5 @@ export const CallingCode: FC<CallingCodeProps> = (props) => {
     return <Text>{value}</Text>;
   }
 
-  return (
-    <SelectCallingCode
-      country={country}
-      onCodeChange={onCodeChange}
-      value={value}
-    />
-  );
+  return <SelectCallingCode {...props} />;
 };
