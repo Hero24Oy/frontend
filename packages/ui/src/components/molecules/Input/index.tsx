@@ -1,12 +1,13 @@
 import {
   Input as GluestackInput,
   InputSlot,
-  Text,
   VStack,
 } from '@gluestack-ui/themed';
 import React, { ReactElement, useMemo } from 'react';
 import { Control, FieldValues, Path, useController } from 'react-hook-form';
 import { KeyboardType } from 'react-native';
+
+import { Text } from '../../atoms';
 
 import { InputField } from './components/InputField';
 import { InputType } from './constants';

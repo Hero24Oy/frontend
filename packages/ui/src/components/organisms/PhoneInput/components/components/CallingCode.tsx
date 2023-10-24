@@ -1,4 +1,4 @@
-import { Text } from 'components';
+import { Text } from 'components/atoms';
 import React, { FC } from 'react';
 
 import { SelectCallingCode } from './components/SelectCallingCode';

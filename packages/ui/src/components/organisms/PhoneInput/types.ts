@@ -1,18 +1,11 @@
+import { InputProps } from 'components/molecules';
 import { FieldValues, Path } from 'react-hook-form';
 import { CountryCode } from 'react-native-country-picker-modal';
 
-import { InputProps } from '../Input';
-
-type InputPropsOmit =
-  | 'leftSlot'
-  | 'rightSlot'
-  | 'mask'
-  | 'type'
-  | 'keyboardType'
-  | 'name';
+type InputPropsPick = 'control' | 'placeholder' | 'isDisabled';
 
 export interface PhoneInputProps<Type extends FieldValues>
-  extends Omit<InputProps<Type>, InputPropsOmit> {
+  extends Pick<InputProps<Type>, InputPropsPick> {
   codeFieldName: Path<Type>;
   initialCountryCode: CountryCode;
   phoneFieldName: Path<Type>;
