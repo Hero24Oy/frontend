@@ -1,8 +1,16 @@
 import { ActionsheetIcon as GluestackActionsheetIcon } from '@gluestack-ui/themed';
-import React, { FC, PropsWithChildren } from 'react';
+import React, { FC, PropsWithChildren, ReactNode } from 'react';
 
-export const ActionsheetIcon: FC<PropsWithChildren> = (props) => {
-  const { children } = props;
+type GluestackActionsheetIconProps =
+  (typeof GluestackActionsheetIcon)['defaultProps'];
 
-  return <GluestackActionsheetIcon>{children}</GluestackActionsheetIcon>;
+type ActionsheetIconProps = PropsWithChildren<GluestackActionsheetIconProps>;
+
+export const ActionsheetIcon: FC<ActionsheetIconProps> = (props) => {
+  const { children } = props as { children: ReactNode }; // * Eslint argues about children type any
+  const rest = props;
+
+  return (
+    <GluestackActionsheetIcon {...rest}>{children}</GluestackActionsheetIcon>
+  );
 };

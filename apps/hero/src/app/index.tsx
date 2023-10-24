@@ -5,7 +5,7 @@ import { useFirebaseUser } from '@hero24/common';
 import {
   Actionsheet,
   ActionsheetItem,
-  ActionsheetText,
+  ActionsheetItemText,
   Button,
   SafeAreaView,
   View,
@@ -18,7 +18,7 @@ const Home: FC = () => {
     <SafeAreaView>
       <Actionsheet isOpen showDragIndicator>
         <ActionsheetItem>
-          <ActionsheetText>Hello</ActionsheetText>
+          <ActionsheetItemText>Hello</ActionsheetItemText>
         </ActionsheetItem>
       </Actionsheet>
       <View>

@@ -5,29 +5,26 @@
 // *  at module.js:337:15
 
 import {
+  AccessibleActionsheet,
   Actionsheet as GluestackActionsheet,
   ActionsheetBackdrop,
   ActionsheetContent,
 } from '@gluestack-ui/themed';
-import type { AccessibleActionsheet } from '@gluestack-ui/themed/build/components/Actionsheet';
 import React, { FC, PropsWithChildren, ReactNode } from 'react';
 
 import { ActionsheetDragIndicator } from './ActionsheetDragIndicator';
 
-export * from './ActionsheetItem';
+type GluestackActionsheetProps = (typeof AccessibleActionsheet)['defaultProps'];
+// * We can override types from .d.ts in this
 
-export * from './ActionsheetText';
-
-export * from './ActionsheetIcon';
-
-interface ActionsheetProps
-  extends PropsWithChildren<(typeof AccessibleActionsheet)['defaultProps']> {
-  children: ReactNode;
+type ActionsheetProps = PropsWithChildren<{
   showDragIndicator?: boolean;
-}
+}> &
+  GluestackActionsheetProps;
 
 export const Actionsheet: FC<ActionsheetProps> = (props) => {
-  const { children, showDragIndicator, ...rest } = props;
+  const { children } = props as { children: ReactNode }; // * Eslint argues about children type any
+  const { showDragIndicator, ...rest } = props;
 
   return (
     <GluestackActionsheet {...rest}>
