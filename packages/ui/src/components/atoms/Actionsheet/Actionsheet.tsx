@@ -15,7 +15,6 @@ import React, { FC, PropsWithChildren, ReactNode } from 'react';
 import { ActionsheetDragIndicator } from './ActionsheetDragIndicator';
 
 type GluestackActionsheetProps = (typeof AccessibleActionsheet)['defaultProps'];
-// * We can override types from .d.ts in this
 
 type ActionsheetProps = PropsWithChildren<{
   showDragIndicator?: boolean;
