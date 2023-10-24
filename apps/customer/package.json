@@ -31,6 +31,7 @@
     "@expo/vector-icons": "^13.0.0",
     "@gluestack-style/react": "^1.0.8",
     "@gluestack-ui/themed": "^1.0.8",
+    "@gluestack-ui/config": "1.0.1",
     "@hero24/common": "*",
     "@hero24/ui": "*",
     "@react-navigation/native": "^6.0.2",
