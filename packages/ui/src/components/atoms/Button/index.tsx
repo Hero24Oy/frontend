@@ -4,19 +4,20 @@ import {
   ButtonSpinner as GluestackButtonSpinner,
   ButtonText as GluestackTextOrigin,
 } from '@gluestack-ui/themed';
-import React, { ForwardedRef, forwardRef } from 'react';
+import React, { ComponentProps, FC, ForwardedRef, forwardRef } from 'react';
 import { PressableProps, StyleProp, StyleSheet, ViewStyle } from 'react-native';
 
-import { ButtonStyles, Direction, Icon } from './types';
+import { ButtonSizes, ButtonVariants, Direction } from './types';
 
-type Props = {
+interface Props extends ComponentProps<typeof GluestackButton> {
   children: string;
-  icon?: Icon;
-  isDisabled?: boolean;
+  icon?: FC;
+  iconDirection?: `${Direction}`;
   isLoading?: boolean;
-  onPress?: () => void;
+  size?: `${ButtonSizes}`;
   style?: StyleProp<ViewStyle>;
-} & ButtonStyles;
+  variant?: `${ButtonVariants}`;
+}
 
 const ButtonInner = (
   props: Props,
@@ -24,19 +25,19 @@ const ButtonInner = (
 ): JSX.Element => {
   const {
     children,
-    size,
-    variant,
+    size = ButtonSizes.MEDIUM,
+    variant = ButtonVariants.SOLID,
     isDisabled = false,
     isLoading = false,
     onPress,
     icon,
+    iconDirection,
     style,
   } = props;
 
-  const iconStyles = icon?.direction && styles[icon.direction];
+  const iconStyles = iconDirection && styles[iconDirection];
 
   const isIconShown = !isLoading && icon;
-  const isSpinnerShown = isLoading && icon;
 
   return (
     <GluestackButton
@@ -47,22 +48,16 @@ const ButtonInner = (
       size={size}
       style={[iconStyles, style]}
     >
-      {isIconShown && (
-        <GluestackButtonIcon
-          width={icon.size}
-          height={icon.size}
-          as={icon?.src}
-        />
-      )}
+      {isIconShown && <GluestackButtonIcon as={icon} />}
 
-      {isSpinnerShown && <GluestackButtonSpinner />}
+      {isLoading && <GluestackButtonSpinner />}
 
       <GluestackTextOrigin>{children}</GluestackTextOrigin>
     </GluestackButton>
   );
 };
 
-export const Button = forwardRef(ButtonInner);
+export const Button = forwardRef<PressableProps, Props>(ButtonInner);
 
 const styles = StyleSheet.create({
   [Direction.TOP]: {

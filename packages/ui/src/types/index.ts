@@ -1,2 +1,2 @@
-export * from './Styles';
-export * from './Selectors';
+export * from './styles';
+export * from './extendProps';

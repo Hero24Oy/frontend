@@ -332,7 +332,7 @@ const override = {
     },
   },
   namingConventionExceptions: {
-    files: ['src/configs/*.ts', 'scripts/*.ts'],
+    files: ['src/configs/*.ts', 'scripts/*.ts', 'src/theme/**/*.ts'],
     rules: {
       '@typescript-eslint/naming-convention': 'off',
     },
@@ -344,9 +344,15 @@ const override = {
     },
   },
   noMagicNumbersExceptions: {
-    files: ['src/configs/*.ts', 'src/theme/*.ts'],
+    files: ['src/configs/*.ts', 'src/theme/**/*.ts'],
     rules: {
       'no-magic-numbers': 'off',
+    },
+  },
+  quoteProps: {
+    files: ['src/theme/**/*.ts'],
+    rules: {
+      'quote-props': 'off',
     },
   },
 };

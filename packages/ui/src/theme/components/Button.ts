@@ -1,7 +1,7 @@
-import { ButtonVariants } from 'components/atoms/Button/enums';
-import { Selectors } from 'types';
+import { ButtonSizes, ButtonVariants } from 'components/atoms/Button/types';
 
-import { IconSize, Sizes } from '../enums';
+import { IconSize } from '../constants';
+import { ComponentTheme } from '../types';
 
 export const Button = {
   theme: {
@@ -17,12 +17,11 @@ export const Button = {
     _text: {
       textDecorationLine: 'none',
       fontWeight: '$medium',
-      fontFamily: '$main',
       lineHeight: '$default',
     },
     variants: {
       size: {
-        [Sizes.LARGE]: {
+        [ButtonSizes.LARGE]: {
           width: '100%',
           paddingVertical: 11,
           _text: {
@@ -39,7 +38,7 @@ export const Button = {
             },
           },
         },
-        [Sizes.MEDIUM]: {
+        [ButtonSizes.MEDIUM]: {
           paddingVertical: 10,
           _text: {
             fontSize: '$small',
@@ -55,7 +54,7 @@ export const Button = {
             },
           },
         },
-        [Sizes.SMALL]: {
+        [ButtonSizes.SMALL]: {
           paddingVertical: 8,
           _text: {
             fontSize: '$extraSmall',
@@ -74,83 +73,83 @@ export const Button = {
       },
       variant: {
         [ButtonVariants.SOLID]: {
-          backgroundColor: '$dark',
+          backgroundColor: '$dark_0',
           borderColor: '$transparent',
           _text: {
-            color: '$white',
+            color: '$white_0',
           },
           _icon: {
-            color: '$white',
+            color: '$white_0',
           },
           _spinner: {
             props: {
-              color: '$white',
+              color: '$white_0',
             },
           },
-          [Selectors.DISABLED]: {
-            backgroundColor: '$grayLightInput',
+          ':disabled': {
+            backgroundColor: '$gray_1',
           },
-          [Selectors.HOVER]: {
-            backgroundColor: '$red',
+          ':hover': {
+            backgroundColor: '$red_0',
           },
-          [Selectors.ACTIVE]: {
-            backgroundColor: '$grayDark',
+          ':active': {
+            backgroundColor: '$gray_4',
           },
-          [Selectors.FOCUS_VISIBLE]: {
-            borderColor: '$alertBlue',
+          ':focusVisible': {
+            borderColor: '$blue_0',
           },
         },
         [ButtonVariants.OUTLINE]: {
           backgroundColor: '$transparent',
-          borderColor: '$grayLightInput',
+          borderColor: '$gray_1',
           _text: {
-            color: '$dark',
+            color: '$dark_0',
           },
           _icon: {
-            color: '$dark',
+            color: '$dark_0',
           },
           _spinner: {
             props: {
-              color: '$grayLightInput',
+              color: '$gray_1',
             },
           },
-          [Selectors.DISABLED]: {
-            borderColor: '$grayLightInput',
-            backgroundColor: '$grayLightDisable',
+          ':disabled': {
+            borderColor: '$gray_1',
+            backgroundColor: '$gray_2',
             _text: {
-              color: '$grayLightInput',
+              color: '$gray_1',
             },
             _icon: {
-              color: '$grayLightInput',
+              color: '$gray_1',
             },
           },
-          [Selectors.HOVER]: {
+          ':hover': {
             borderColor: 'none',
-            backgroundColor: '$dark',
+            backgroundColor: '$dark_0',
             _text: {
-              color: '$white',
+              color: '$white_0',
             },
             _icon: {
-              color: '$white',
+              color: '$white_0',
             },
           },
-          [Selectors.ACTIVE]: {
-            borderColor: '$grayDark',
+          ':active': {
+            borderColor: '$gray_4',
             backgroundColor: '$transparent',
             _text: {
-              color: '$grayDark',
+              color: '$gray_4',
             },
             _icon: {
-              color: '$grayDark',
+              color: '$gray_4',
             },
           },
-          [Selectors.FOCUS_VISIBLE]: {
-            borderColor: '$alertBlue',
+          ':focusVisible': {
+            borderColor: '$blue_0',
             _text: {
-              color: '$dark',
+              color: '$dark_0',
             },
             _icon: {
-              color: '$dark',
+              color: '$dark_0',
             },
           },
         },
@@ -158,47 +157,47 @@ export const Button = {
           backgroundColor: '$transparent',
           borderColor: '$transparent',
           _text: {
-            color: '$dark',
+            color: '$dark_0',
           },
           _icon: {
-            color: '$dark',
+            color: '$dark_0',
           },
           _spinner: {
             props: {
-              color: '$grayPlaceholder',
+              color: '$gray_3',
             },
           },
-          [Selectors.DISABLED]: {
+          ':disabled': {
             _text: {
-              color: '$grayPlaceholder',
+              color: '$gray_3',
             },
             _icon: {
-              color: '$grayPlaceholder',
+              color: '$gray_3',
             },
           },
-          [Selectors.HOVER]: {
+          ':hover': {
             _text: {
-              color: '$red',
+              color: '$red_0',
             },
             _icon: {
-              color: '$red',
+              color: '$red_0',
             },
           },
-          [Selectors.ACTIVE]: {
-            borderColor: '$grayDark',
+          ':active': {
+            borderColor: '$gray_4',
             _text: {
-              color: '$grayDark',
+              color: '$gray_4',
             },
             _icon: {
-              color: '$grayDark',
+              color: '$gray_4',
             },
           },
-          [Selectors.FOCUS_VISIBLE]: {
-            borderColor: '$alertBlue',
+          ':focusVisible': {
+            borderColor: '$blue_0',
           },
         },
       },
     },
   },
   componentConfig: { descendantStyle: ['_text', '_icon', '_spinner'] },
-};
+} satisfies ComponentTheme;

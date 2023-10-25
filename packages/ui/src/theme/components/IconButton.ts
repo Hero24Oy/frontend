@@ -5,9 +5,9 @@ export const IconButton = {
     alignSelf: 'flex-start',
     padding: 10,
     borderRadius: 10,
-    backgroundColor: '$grayLightBackground',
+    backgroundColor: '$gray_5',
     _icon: {
-      color: '$black',
+      color: '$black_0',
     },
     variants: {
       size: {
