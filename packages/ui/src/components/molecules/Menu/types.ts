@@ -8,8 +8,8 @@ export type Placement = ComponentProps<typeof Menu>['placement'];
 
 export type SelectionChange = (keys: Selection) => void;
 
-export interface MenuItem {
+export type MenuItem = {
   key: string;
   label: string;
   value: string;
-}
+};

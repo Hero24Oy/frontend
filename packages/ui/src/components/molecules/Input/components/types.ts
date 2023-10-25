@@ -7,6 +7,6 @@ export interface InputFieldProps {
   keyboardType: KeyboardType;
   secureTextEntry: boolean;
   placeholder?: string;
-  ref?: Ref<TextInputProps> | undefined;
+  ref?: Ref<TextInputProps>;
   type?: `${InputType}`;
 }

@@ -1,24 +1,12 @@
-import { Input } from 'components/molecules';
 import React, { ReactElement } from 'react';
 import { FieldValues } from 'react-hook-form';
 
 import { SelectCountry } from './components/SelectCountry';
 import { PhoneInputProps } from './types';
 
-const DEFAULT_PHONE_MASK = '999 999 9999';
+import { Input } from '$molecules';
 
-/**
- * Description
- * @param {PhoneInputProps<Type>['control']} props.control
- * control from useForm hook
- * @param {PhoneInputProps<Type>['phoneFieldName']} props.phoneFieldName
- * Name of useForm field for phone number value
- * @param {PhoneInputProps<Type>['codeFieldName']} props.codeFieldName
- * Name of useForm field for country calling code value
- * @param {PhoneInputProps<Type>['initialCountryCode']} props.initialCountryCode
- * Country code that will be used for country selector on component first render
- * @returns {ReactElement}
- */
+const DEFAULT_PHONE_MASK = '999 999 9999';
 
 export const PhoneInput = <Type extends FieldValues>(
   props: PhoneInputProps<Type>,

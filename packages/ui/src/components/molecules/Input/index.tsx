@@ -7,12 +7,12 @@ import React, { ReactElement, useMemo } from 'react';
 import { Control, FieldValues, Path, useController } from 'react-hook-form';
 import { KeyboardType } from 'react-native';
 
-import { Text } from '../../atoms';
-
 import { InputField } from './components/InputField';
 import { InputType } from './constants';
 
-export interface InputProps<Type extends FieldValues> {
+import { Text } from '$atoms';
+
+export type InputProps<Type extends FieldValues> = {
   control: Control<Type>;
   name: Path<Type>;
   isDisabled?: boolean;
@@ -22,21 +22,7 @@ export interface InputProps<Type extends FieldValues> {
   placeholder?: string;
   rightSlot?: JSX.Element;
   type?: `${InputType}`;
-}
-
-/**
- * Description
- * @param {InputProps<Type>['control']} props.control
- * control from useForm hook
- * @param {InputProps<Type>['name']} props.name
- * Name of useForm field associated with current input
- * @param {InputProps<Type>['leftSlot']} props.leftSlot
- * @param {InputProps<Type>['rightSlot']} props.rightSlot
- * leftSlot / rightSlot - you can pass any components for render inside Input at the left / right side
- * @example
- * <Input ...other_props leftSlot={{<Button>Press!</Button>}} />
- * @returns {ReactElement}
- */
+};
 
 export const Input = <Type extends FieldValues>(
   props: InputProps<Type>,

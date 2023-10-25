@@ -2,7 +2,9 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "$ui/providers": ["providers"]
+      "$ui/providers": ["providers"],
+      "$atoms": ["components/atoms/index"],
+      "$molecules": ["components/molecules/index"]
     }
   },
   "extends": "@hero24/configs/tsconfig.json",

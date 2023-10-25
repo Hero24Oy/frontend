@@ -1,4 +1,3 @@
-import { HStack } from 'components/atoms';
 import React, { ReactElement } from 'react';
 import { FieldValues } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
@@ -8,6 +7,8 @@ import { PhoneInputProps } from '../types';
 
 import { CallingCode } from './components/CallingCode';
 import { useSelectCountry } from './hooks/useSelectCountry';
+
+import { HStack } from '$atoms';
 
 export const SelectCountry = <Type extends FieldValues>(
   props: PhoneInputProps<Type>,

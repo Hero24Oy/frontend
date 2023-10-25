@@ -1,12 +1,12 @@
 import { ChevronDownIcon, Icon } from '@gluestack-ui/themed';
-import { Text, View } from 'components/atoms';
-import { Menu } from 'components/molecules/Menu';
-import { MenuItem } from 'components/molecules/Menu/types';
 import React, { useMemo } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { codeWithPrefix } from '../../helpers';
 import { CallingCodeProps } from '../types';
+
+import { Text, View } from '$atoms';
+import { Menu, MenuItem } from '$molecules';
 
 export const SelectCallingCode = (props: CallingCodeProps): JSX.Element => {
   const { value, onSelect, country } = props;
