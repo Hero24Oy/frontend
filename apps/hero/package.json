@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "hero-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": "https://github.com/Helpdor/frontend/apps/hero",
   "license": "private",
   "engines": {
@@ -15,7 +15,7 @@
     "build:eas:ios:development": "eas build --profile development --platform ios --clear-cache",
     "build:eas:ios:production": "eas build --profile production --platform ios --clear-cache",
     "update:eas:android:production": "eas update --branch production --platform android --clear-cache",
-    "update:eas:ios:prproductionod": "eas update --branch production --platform ios --clear-cache",
+    "update:eas:ios:production": "eas update --branch production --platform ios --clear-cache",
     "submit:eas:android": "eas submit --platform android",
     "submit:eas:ios": "eas submit --platform ios",
     "watch": "npx expo start --go -c",
