@@ -44,7 +44,7 @@ export const InputField = <Type extends FieldValues>(
     return (
       <TextInputMask
         customTextInput={GluestackInputField}
-        customTextInputProps={{ ...inputProps }}
+        customTextInputProps={inputProps}
         type="custom"
         options={{ mask }}
         onChangeText={onChange}
