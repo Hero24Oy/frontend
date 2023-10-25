@@ -1,15 +1,15 @@
 import { SxProps } from '@gluestack-style/react/lib/typescript/types';
 import { StyleProp, ViewStyle } from 'react-native';
 
-type SxValues = Partial<SxProps<StyleProp<ViewStyle>>>;
+export type SxValues = Partial<SxProps<StyleProp<ViewStyle>>>;
 
-type Variants = Record<string, SxValues>;
+export type Variants = Record<string, SxValues>;
 
-type Theme = {
+export type Theme = {
   variants?: Record<string, Variants>;
 } & SxValues;
 
-type ComponentConfig = {
+export type ComponentConfig = {
   descendantStyle: string[];
 };
 
