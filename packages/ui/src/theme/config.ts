@@ -1,5 +1,5 @@
-import { createConfig } from '@gluestack-style/react';
 import { config as defaultConfig } from '@gluestack-ui/config';
+import { createConfig } from '@gluestack-ui/themed';
 
 import * as components from './components';
 import {
@@ -36,6 +36,7 @@ export const uiLibraryConfig = createConfig({
     },
   },
   components: {
+    ...defaultConfig.components,
     ...components,
   },
 });
