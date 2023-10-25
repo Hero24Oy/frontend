@@ -10,8 +10,6 @@ import {
   lineHeights,
 } from './constants';
 
-const { Input } = defaultConfig.components;
-
 export const uiLibraryConfig = createConfig({
   ...defaultConfig,
   tokens: {
@@ -38,7 +36,6 @@ export const uiLibraryConfig = createConfig({
     },
   },
   components: {
-    Input,
     ...components,
   },
 });
