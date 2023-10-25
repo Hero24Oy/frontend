@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@gluestack-style/react": "^1.0.8",
+    "@gluestack-ui/button": "^0.1.33",
     "@gluestack-ui/config": "^1.0.3",
     "@gluestack-ui/themed": "^1.0.8",
     "@hero24/configs": "*",
