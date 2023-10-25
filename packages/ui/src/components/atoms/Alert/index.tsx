@@ -1,24 +1,39 @@
 import {
   Alert as GluestackAlert,
   AlertIcon,
-  AlertText,
+  HStack,
+  Text,
+  VStack,
 } from '@gluestack-ui/themed';
 import React, { FC, ReactNode } from 'react';
 
 type AlertProps = {
-  text: string;
+  header: string;
   action?: 'error' | 'warning' | 'success' | 'info' | 'muted';
   icon?: ReactNode;
+  text?: string;
   variant?: 'solid' | 'outline' | 'accent';
 };
 
 export const Alert: FC<AlertProps> = (props) => {
-  const { text, icon, ...restProps } = props;
+  const { header, text, icon, ...restProps } = props;
 
   return (
     <GluestackAlert {...restProps}>
-      <AlertIcon marginRight={5}>{icon}</AlertIcon>
-      <AlertText>{text}</AlertText>
+      <VStack>
+        <HStack alignItems="center">
+          <AlertIcon marginRight={5}>{icon}</AlertIcon>
+          <Text fontWeight="$bold">{header}</Text>
+        </HStack>
+        {text && (
+          <HStack>
+            <AlertIcon opacity={0} marginRight={5}>
+              {icon}
+            </AlertIcon>
+            <Text>{text}</Text>
+          </HStack>
+        )}
+      </VStack>
     </GluestackAlert>
   );
 };
