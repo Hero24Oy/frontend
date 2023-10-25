@@ -1,3 +1,9 @@
+export enum Direction {
+  LEFT = 'left',
+  RIGHT = 'right',
+  TOP = 'top',
+}
+
 export enum ButtonSizes {
   SMALL = 'sm',
   MEDIUM = 'md',

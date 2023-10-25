@@ -4,19 +4,21 @@ import {
   ButtonSpinner as GluestackButtonSpinner,
   ButtonText as GluestackTextOrigin,
 } from '@gluestack-ui/themed';
-import React, { ForwardedRef, forwardRef } from 'react';
+import React, { ComponentProps, FC, ForwardedRef, forwardRef } from 'react';
 import { PressableProps, StyleProp, StyleSheet, ViewStyle } from 'react-native';
 
-import { ButtonStyles, Direction, Icon } from './types';
+import { Direction } from './types';
 
-type Props = {
+interface Props extends ComponentProps<typeof GluestackButton> {
   children: string;
-  icon?: Icon;
+  icon?: FC;
+  iconDirection?: `${Direction}`;
+  iconSize?: number;
   isDisabled?: boolean;
   isLoading?: boolean;
   onPress?: () => void;
   style?: StyleProp<ViewStyle>;
-} & ButtonStyles;
+}
 
 const ButtonInner = (
   props: Props,
@@ -30,13 +32,14 @@ const ButtonInner = (
     isLoading = false,
     onPress,
     icon,
+    iconDirection,
+    iconSize,
     style,
   } = props;
 
-  const iconStyles = icon?.direction && styles[icon.direction];
+  const iconStyles = iconDirection && styles[iconDirection];
 
   const isIconShown = !isLoading && icon;
-  const isSpinnerShown = isLoading && icon;
 
   return (
     <GluestackButton
@@ -48,21 +51,17 @@ const ButtonInner = (
       style={[iconStyles, style]}
     >
       {isIconShown && (
-        <GluestackButtonIcon
-          width={icon.size}
-          height={icon.size}
-          as={icon?.src}
-        />
+        <GluestackButtonIcon width={iconSize} height={iconSize} as={icon} />
       )}
 
-      {isSpinnerShown && <GluestackButtonSpinner />}
+      {isLoading && <GluestackButtonSpinner />}
 
       <GluestackTextOrigin>{children}</GluestackTextOrigin>
     </GluestackButton>
   );
 };
 
-export const Button = forwardRef(ButtonInner);
+export const Button = forwardRef<PressableProps, Props>(ButtonInner);
 
 const styles = StyleSheet.create({
   [Direction.TOP]: {
