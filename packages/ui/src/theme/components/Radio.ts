@@ -1,5 +1,3 @@
-import { Selectors } from 'types';
-
 export const Radio = {
   theme: {
     borderColor: '$grayLightInput',
@@ -16,7 +14,7 @@ export const Radio = {
       paddingVertical: 8,
       lineHeight: '$default',
     },
-    [Selectors.CHECKED]: {
+    ':checked': {
       backgroundColor: '$red_0',
       borderColor: '$transparent',
       _text: {

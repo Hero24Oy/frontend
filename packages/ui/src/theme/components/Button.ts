@@ -1,5 +1,4 @@
-import { ButtonSizes, ButtonVariants } from 'components/atoms/Button/enums';
-import { Selectors } from 'types';
+import { ButtonSizes, ButtonVariants } from 'components/atoms/Button/types';
 
 import { IconSize } from '../constants';
 
@@ -87,16 +86,16 @@ export const Button = {
               color: '$white_0',
             },
           },
-          [Selectors.DISABLED]: {
+          ':disabled': {
             backgroundColor: '$gray_1',
           },
-          [Selectors.HOVER]: {
+          ':hover': {
             backgroundColor: '$red_0',
           },
-          [Selectors.ACTIVE]: {
+          ':active': {
             backgroundColor: '$gray_4',
           },
-          [Selectors.FOCUS_VISIBLE]: {
+          ':focusVisible': {
             borderColor: '$blue_0',
           },
         },
@@ -114,7 +113,7 @@ export const Button = {
               color: '$gray_1',
             },
           },
-          [Selectors.DISABLED]: {
+          ':disabled': {
             borderColor: '$gray_1',
             backgroundColor: '$gray_2',
             _text: {
@@ -124,7 +123,7 @@ export const Button = {
               color: '$gray_1',
             },
           },
-          [Selectors.HOVER]: {
+          ':hover': {
             borderColor: 'none',
             backgroundColor: '$dark_0',
             _text: {
@@ -134,7 +133,7 @@ export const Button = {
               color: '$white_0',
             },
           },
-          [Selectors.ACTIVE]: {
+          ':active': {
             borderColor: '$gray_4',
             backgroundColor: '$transparent',
             _text: {
@@ -144,7 +143,7 @@ export const Button = {
               color: '$gray_4',
             },
           },
-          [Selectors.FOCUS_VISIBLE]: {
+          ':focusVisible': {
             borderColor: '$blue_0',
             _text: {
               color: '$dark_0',
@@ -168,7 +167,7 @@ export const Button = {
               color: '$gray_3',
             },
           },
-          [Selectors.DISABLED]: {
+          ':disabled': {
             _text: {
               color: '$gray_3',
             },
@@ -176,7 +175,7 @@ export const Button = {
               color: '$gray_3',
             },
           },
-          [Selectors.HOVER]: {
+          ':hover': {
             _text: {
               color: '$red_0',
             },
@@ -184,7 +183,7 @@ export const Button = {
               color: '$red_0',
             },
           },
-          [Selectors.ACTIVE]: {
+          ':active': {
             borderColor: '$gray_4',
             _text: {
               color: '$gray_4',
@@ -193,7 +192,7 @@ export const Button = {
               color: '$gray_4',
             },
           },
-          [Selectors.FOCUS_VISIBLE]: {
+          ':focusVisible': {
             borderColor: '$blue_0',
           },
         },
