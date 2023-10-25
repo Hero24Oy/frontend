@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useState } from 'react';
+import { RefObject, useCallback, useEffect, useState } from 'react';
 import { FieldValues, useController } from 'react-hook-form';
 import {
   GestureResponderEvent,
@@ -41,9 +41,12 @@ export const useConfirmCodeInput = <Type extends FieldValues>(
     field: { value, onChange },
   } = useController({ name, control });
 
-  const onChangeText = (newValue: string): void => {
-    setCode(newValue);
-  };
+  const onChangeText = useCallback(
+    (newValue: string): void => {
+      setCode(newValue);
+    },
+    [setCode],
+  );
 
   useEffect(() => {
     if (code.length === cellCount) {
