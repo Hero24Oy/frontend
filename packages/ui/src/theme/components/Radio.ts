@@ -8,7 +8,7 @@ export const Radio = {
     gap: 4,
     _text: {
       textAlign: 'center',
-      color: '$dark',
+      color: '$dark_0',
       fontFamily: '$main',
       fontSize: '$small',
       fontWeight: '$normal',
@@ -17,10 +17,10 @@ export const Radio = {
       lineHeight: '$default',
     },
     [Selectors.CHECKED]: {
-      backgroundColor: '$red',
+      backgroundColor: '$red_0',
       borderColor: '$transparent',
       _text: {
-        color: '$white',
+        color: '$white_0',
       },
     },
   },

@@ -1,7 +1,7 @@
 import { ButtonSizes, ButtonVariants } from 'components/atoms/Button/enums';
 import { Selectors } from 'types';
 
-import { IconSize } from '../enums';
+import { IconSize } from '../constants';
 
 export const Button = {
   theme: {
@@ -74,83 +74,83 @@ export const Button = {
       },
       variant: {
         [ButtonVariants.SOLID]: {
-          backgroundColor: '$dark',
+          backgroundColor: '$dark_0',
           borderColor: '$transparent',
           _text: {
-            color: '$white',
+            color: '$white_0',
           },
           _icon: {
-            color: '$white',
+            color: '$white_0',
           },
           _spinner: {
             props: {
-              color: '$white',
+              color: '$white_0',
             },
           },
           [Selectors.DISABLED]: {
-            backgroundColor: '$grayLightInput',
+            backgroundColor: '$gray_1',
           },
           [Selectors.HOVER]: {
-            backgroundColor: '$red',
+            backgroundColor: '$red_0',
           },
           [Selectors.ACTIVE]: {
-            backgroundColor: '$grayDark',
+            backgroundColor: '$gray_4',
           },
           [Selectors.FOCUS_VISIBLE]: {
-            borderColor: '$alertBlue',
+            borderColor: '$blue_0',
           },
         },
         [ButtonVariants.OUTLINE]: {
           backgroundColor: '$transparent',
-          borderColor: '$grayLightInput',
+          borderColor: '$gray_1',
           _text: {
-            color: '$dark',
+            color: '$dark_0',
           },
           _icon: {
-            color: '$dark',
+            color: '$dark_0',
           },
           _spinner: {
             props: {
-              color: '$grayLightInput',
+              color: '$gray_1',
             },
           },
           [Selectors.DISABLED]: {
-            borderColor: '$grayLightInput',
-            backgroundColor: '$grayLightDisable',
+            borderColor: '$gray_1',
+            backgroundColor: '$gray_2',
             _text: {
-              color: '$grayLightInput',
+              color: '$gray_1',
             },
             _icon: {
-              color: '$grayLightInput',
+              color: '$gray_1',
             },
           },
           [Selectors.HOVER]: {
             borderColor: 'none',
-            backgroundColor: '$dark',
+            backgroundColor: '$dark_0',
             _text: {
-              color: '$white',
+              color: '$white_0',
             },
             _icon: {
-              color: '$white',
+              color: '$white_0',
             },
           },
           [Selectors.ACTIVE]: {
-            borderColor: '$grayDark',
+            borderColor: '$gray_4',
             backgroundColor: '$transparent',
             _text: {
-              color: '$grayDark',
+              color: '$gray_4',
             },
             _icon: {
-              color: '$grayDark',
+              color: '$gray_4',
             },
           },
           [Selectors.FOCUS_VISIBLE]: {
-            borderColor: '$alertBlue',
+            borderColor: '$blue_0',
             _text: {
-              color: '$dark',
+              color: '$dark_0',
             },
             _icon: {
-              color: '$dark',
+              color: '$dark_0',
             },
           },
         },
@@ -158,43 +158,43 @@ export const Button = {
           backgroundColor: '$transparent',
           borderColor: '$transparent',
           _text: {
-            color: '$dark',
+            color: '$dark_0',
           },
           _icon: {
-            color: '$dark',
+            color: '$dark_0',
           },
           _spinner: {
             props: {
-              color: '$grayPlaceholder',
+              color: '$gray_3',
             },
           },
           [Selectors.DISABLED]: {
             _text: {
-              color: '$grayPlaceholder',
+              color: '$gray_3',
             },
             _icon: {
-              color: '$grayPlaceholder',
+              color: '$gray_3',
             },
           },
           [Selectors.HOVER]: {
             _text: {
-              color: '$red',
+              color: '$red_0',
             },
             _icon: {
-              color: '$red',
+              color: '$red_0',
             },
           },
           [Selectors.ACTIVE]: {
-            borderColor: '$grayDark',
+            borderColor: '$gray_4',
             _text: {
-              color: '$grayDark',
+              color: '$gray_4',
             },
             _icon: {
-              color: '$grayDark',
+              color: '$gray_4',
             },
           },
           [Selectors.FOCUS_VISIBLE]: {
-            borderColor: '$alertBlue',
+            borderColor: '$blue_0',
           },
         },
       },
