@@ -14,7 +14,6 @@ export const Radio = {
           _text: {
             textAlign: 'center',
             color: '$dark_0',
-            fontFamily: '$main',
             fontSize: '$small',
             fontWeight: '$normal',
             paddingHorizontal: 12,

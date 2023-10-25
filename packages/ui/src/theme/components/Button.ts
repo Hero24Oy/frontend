@@ -17,7 +17,6 @@ export const Button = {
     _text: {
       textDecorationLine: 'none',
       fontWeight: '$medium',
-      fontFamily: '$main',
       lineHeight: '$default',
     },
     variants: {
