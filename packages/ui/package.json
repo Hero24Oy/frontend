@@ -18,7 +18,6 @@
     "lint": "eslint . --fix"
   },
   "dependencies": {
-    "@callstack/react-theme-provider": "^3.0.9",
     "@gluestack-style/react": "^1.0.8",
     "@gluestack-ui/themed": "^1.0.8",
     "@hero24/configs": "*",
