@@ -7,17 +7,16 @@ import {
 import React, { ComponentProps, FC, ForwardedRef, forwardRef } from 'react';
 import { PressableProps, StyleProp, StyleSheet, ViewStyle } from 'react-native';
 
-import { Direction } from './types';
+import { ButtonSizes, ButtonVariants, Direction } from './types';
 
 interface Props extends ComponentProps<typeof GluestackButton> {
   children: string;
   icon?: FC;
   iconDirection?: `${Direction}`;
-  iconSize?: number;
-  isDisabled?: boolean;
   isLoading?: boolean;
-  onPress?: () => void;
+  size?: `${ButtonSizes}`;
   style?: StyleProp<ViewStyle>;
+  variant?: `${ButtonVariants}`;
 }
 
 const ButtonInner = (
@@ -26,14 +25,13 @@ const ButtonInner = (
 ): JSX.Element => {
   const {
     children,
-    size,
-    variant,
+    size = ButtonSizes.MEDIUM,
+    variant = ButtonVariants.SOLID,
     isDisabled = false,
     isLoading = false,
     onPress,
     icon,
     iconDirection,
-    iconSize,
     style,
   } = props;
 
@@ -50,9 +48,7 @@ const ButtonInner = (
       size={size}
       style={[iconStyles, style]}
     >
-      {isIconShown && (
-        <GluestackButtonIcon width={iconSize} height={iconSize} as={icon} />
-      )}
+      {isIconShown && <GluestackButtonIcon as={icon} />}
 
       {isLoading && <GluestackButtonSpinner />}
 
