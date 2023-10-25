@@ -4,7 +4,6 @@ import React, { ComponentProps, FC, ReactNode } from 'react';
 interface Props extends ComponentProps<typeof GluestackRadioGroup> {
   children: ReactNode | ReactNode[];
   onChange: (value: string) => void;
-  value: string;
 }
 
 export const RadioGroup: FC<Props> = (props) => {
