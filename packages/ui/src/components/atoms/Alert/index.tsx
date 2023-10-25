@@ -13,10 +13,10 @@ type AlertProps = {
 };
 
 export const Alert: FC<AlertProps> = (props) => {
-  const { text, icon, ...rest } = props;
+  const { text, icon, ...restProps } = props;
 
   return (
-    <GluestackAlert {...rest}>
+    <GluestackAlert {...restProps}>
       <AlertIcon marginRight={5}>{icon}</AlertIcon>
       <AlertText>{text}</AlertText>
     </GluestackAlert>
