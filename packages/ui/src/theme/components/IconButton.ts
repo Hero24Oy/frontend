@@ -1,4 +1,6 @@
-import { IconSize, Sizes } from '../enums';
+import { IconSizes } from 'components/atoms/IconButton';
+
+import { IconSize } from '../constants';
 
 export const IconButton = {
   theme: {
@@ -11,19 +13,19 @@ export const IconButton = {
     },
     variants: {
       size: {
-        [Sizes.LARGE]: {
+        [IconSizes.LARGE]: {
           _icon: {
             width: IconSize.LARGE,
             height: IconSize.LARGE,
           },
         },
-        [Sizes.MEDIUM]: {
+        [IconSizes.MEDIUM]: {
           _icon: {
             width: IconSize.MEDIUM,
             height: IconSize.MEDIUM,
           },
         },
-        [Sizes.SMALL]: {
+        [IconSizes.SMALL]: {
           _icon: {
             width: IconSize.SMALL,
             height: IconSize.SMALL,

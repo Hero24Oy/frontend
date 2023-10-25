@@ -1,18 +1,18 @@
 import { Button as GluestackButton } from '@gluestack-ui/themed';
 import { BaseIcon } from 'icons/Base/types';
 import React, { ComponentProps, FC } from 'react';
-import { Sizes } from 'theme/enums';
 
 import { InnerIconButton, InnerIconButtonText } from './components';
+import { IconSizes } from './types';
 
 interface Props extends ComponentProps<typeof GluestackButton> {
   icon: BaseIcon;
   onPress?: () => void;
-  size?: `${Sizes}`;
+  size?: `${IconSizes}`;
 }
 
 export const IconButton: FC<Props> = (props) => {
-  const { icon, size = 'md', style, onPress } = props;
+  const { icon, size = IconSizes.MEDIUM, style, onPress } = props;
 
   return (
     <InnerIconButton size={size} onPress={onPress} style={style}>
@@ -20,3 +20,5 @@ export const IconButton: FC<Props> = (props) => {
     </InnerIconButton>
   );
 };
+
+export * from './types';
