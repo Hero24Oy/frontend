@@ -1,9 +1,9 @@
+import { IconSizes } from 'components';
 import { FC } from 'react';
-import { Sizes } from 'theme/enums';
 
 export interface Props {
   color?: string;
-  size?: Sizes | number;
+  size?: IconSizes | number;
 }
 
 export type BaseIcon = FC<Props>;
