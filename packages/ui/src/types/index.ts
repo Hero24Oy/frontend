@@ -1,2 +1,2 @@
-export * from './Styles';
+export * from './styles';
 export * from './extendProps';
