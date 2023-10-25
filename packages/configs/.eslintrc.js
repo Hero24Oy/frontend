@@ -1,6 +1,4 @@
-const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = [
-  'heroBIOText',
-];
+const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = ['heroBIOText'];
 const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*VAT.*',
   '.*URL.*',
@@ -68,7 +66,10 @@ const tsRules = {
     { argsIgnorePattern: '^_', destructuredArrayIgnorePattern: '^_' },
   ], // Ignore variables with "_" prefix
   '@typescript-eslint/no-unused-expressions': ['error'],
-  '@typescript-eslint/explicit-function-return-type': 'error',
+  '@typescript-eslint/explicit-function-return-type': [
+    'error',
+    { allowExpressions: true },
+  ],
   '@typescript-eslint/no-floating-promises': 'error',
   '@typescript-eslint/unbound-method': 'off',
   '@typescript-eslint/no-use-before-define': [
@@ -87,6 +88,7 @@ const tsRules = {
   '@typescript-eslint/no-unsafe-call': 'error',
   '@typescript-eslint/no-redundant-type-constituents': 'error',
   '@typescript-eslint/no-unsafe-return': 'error',
+  '@typescript-eslint/no-namespace': 'off',
   '@typescript-eslint/no-misused-promises': [
     'error',
     {
