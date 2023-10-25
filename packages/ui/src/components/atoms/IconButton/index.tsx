@@ -3,10 +3,7 @@ import { BaseIcon } from 'icons/Base/types';
 import React, { ComponentProps, FC } from 'react';
 import { Sizes } from 'theme/enums';
 
-import {
-  InnerIconButton,
-  InnerIconButtonText,
-} from './components/InnerIconButton';
+import { InnerIconButton, InnerIconButtonText } from './components';
 
 interface Props extends ComponentProps<typeof GluestackButton> {
   icon: BaseIcon;
