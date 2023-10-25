@@ -8,13 +8,11 @@ import {
   Actionsheet as GluestackActionsheet,
   ActionsheetBackdrop,
   ActionsheetContent,
-  ActionsheetIcon,
-  ActionsheetItem,
-  ActionsheetItemText,
 } from '@gluestack-ui/themed';
 import React, { FC, useMemo } from 'react';
 
 import { ActionsheetDragIndicator } from './ActionsheetDragIndicator';
+import { ActionsheetItems } from './ActionsheetItems';
 import { Item } from './types';
 
 type ActionsheetProps = {
@@ -26,26 +24,19 @@ type ActionsheetProps = {
 };
 
 export const Actionsheet: FC<ActionsheetProps> = (props) => {
-  const { showDragIndicator, items, isOpen = false, ...rest } = props;
+  const { showDragIndicator, items, isOpen = false, ...restProps } = props;
 
-  const itemsToRender = useMemo(
-    () =>
-      items.map(({ icon, text, ...restProps }, key) => (
-        // eslint-disable-next-line react/no-array-index-key -- We just want to render the list
-        <ActionsheetItem {...restProps} key={key}>
-          {icon && <ActionsheetIcon>{icon}</ActionsheetIcon>}
-          <ActionsheetItemText>{text}</ActionsheetItemText>
-        </ActionsheetItem>
-      )),
+  const actionsheetItems = useMemo(
+    () => <ActionsheetItems items={items} />,
     [items],
   );
 
   return (
-    <GluestackActionsheet isOpen={isOpen} {...rest}>
+    <GluestackActionsheet isOpen={isOpen} {...restProps}>
       <ActionsheetBackdrop />
       <ActionsheetContent>
         {showDragIndicator && <ActionsheetDragIndicator />}
-        {itemsToRender}
+        {actionsheetItems}
       </ActionsheetContent>
     </GluestackActionsheet>
   );

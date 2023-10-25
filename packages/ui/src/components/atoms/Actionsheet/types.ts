@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
+import { Pressable } from 'types';
 
 export type Item = {
-  onPress: () => void;
   text: string;
   icon?: ReactNode;
-};
+} & Pressable;
