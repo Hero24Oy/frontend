@@ -4,10 +4,8 @@ import {
 } from '@gluestack-ui/themed';
 import React, { FC } from 'react';
 
-export const ActionsheetDragIndicator: FC = () => {
-  return (
-    <ActionsheetDragIndicatorWrapper>
-      <GluestackActionsheetDragIndicatorWrapper />
-    </ActionsheetDragIndicatorWrapper>
-  );
-};
+export const ActionsheetDragIndicator: FC = () => (
+  <ActionsheetDragIndicatorWrapper>
+    <GluestackActionsheetDragIndicatorWrapper />
+  </ActionsheetDragIndicatorWrapper>
+);
