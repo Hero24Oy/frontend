@@ -9,3 +9,4 @@ export * from './VStack';
 export * from './View';
 export * from './Actionsheet';
 export * from './Alert';
+export * from './Checkbox';
