@@ -17,13 +17,13 @@ type CellProps = {
   onPressOut: (event: GestureResponderEvent) => void;
 };
 
-interface ReturnType {
+type ReturnType = {
   cellProps: CellProps;
   getCellOnLayoutHandler: (index: number) => (event: LayoutChangeEvent) => void;
   onChangeText: (newValue: string) => void;
   ref: RefObject<TextInput>;
   value: string;
-}
+};
 
 export const useConfirmCodeInput = <Type extends FieldValues>(
   props: ConfirmCodeInputProps<Type>,
