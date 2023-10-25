@@ -5,32 +5,47 @@
 // *  at module.js:337:15
 
 import {
-  AccessibleActionsheet,
   Actionsheet as GluestackActionsheet,
   ActionsheetBackdrop,
   ActionsheetContent,
+  ActionsheetIcon,
+  ActionsheetItem,
+  ActionsheetItemText,
 } from '@gluestack-ui/themed';
-import React, { FC, PropsWithChildren, ReactNode } from 'react';
+import React, { FC, useMemo } from 'react';
 
 import { ActionsheetDragIndicator } from './ActionsheetDragIndicator';
+import { Item } from './types';
 
-type GluestackActionsheetProps = (typeof AccessibleActionsheet)['defaultProps'];
-
-type ActionsheetProps = PropsWithChildren<{
+type ActionsheetProps = {
+  isOpen: boolean;
+  items: Item[];
+  onClose?: () => void;
   showDragIndicator?: boolean;
-}> &
-  GluestackActionsheetProps;
+  zIndex?: number;
+};
 
 export const Actionsheet: FC<ActionsheetProps> = (props) => {
-  const { children } = props as { children: ReactNode }; // * Eslint argues about children type any
-  const { showDragIndicator, ...rest } = props;
+  const { showDragIndicator, items, isOpen = false, ...rest } = props;
+
+  const itemsToRender = useMemo(
+    () =>
+      items.map(({ icon, text, ...restProps }, key) => (
+        // eslint-disable-next-line react/no-array-index-key -- We just want to render the list
+        <ActionsheetItem {...restProps} key={key}>
+          {icon && <ActionsheetIcon>{icon}</ActionsheetIcon>}
+          <ActionsheetItemText>{text}</ActionsheetItemText>
+        </ActionsheetItem>
+      )),
+    [items],
+  );
 
   return (
-    <GluestackActionsheet {...rest}>
+    <GluestackActionsheet isOpen={isOpen} {...rest}>
       <ActionsheetBackdrop />
-      <ActionsheetContent zIndex={999}>
+      <ActionsheetContent>
         {showDragIndicator && <ActionsheetDragIndicator />}
-        {children}
+        {itemsToRender}
       </ActionsheetContent>
     </GluestackActionsheet>
   );
