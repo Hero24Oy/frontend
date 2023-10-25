@@ -1,3 +1,5 @@
+import { ComponentTheme } from '../types';
+
 export const Radio = {
   theme: {
     borderColor: '$grayLightInput',
@@ -23,4 +25,4 @@ export const Radio = {
     },
   },
   componentConfig: { descendantStyle: ['_text'] },
-};
+} satisfies ComponentTheme;

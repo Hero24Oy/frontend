@@ -1,6 +1,7 @@
 import { ButtonSizes, ButtonVariants } from 'components/atoms/Button/types';
 
 import { IconSize } from '../constants';
+import { ComponentTheme } from '../types';
 
 export const Button = {
   theme: {
@@ -200,4 +201,4 @@ export const Button = {
     },
   },
   componentConfig: { descendantStyle: ['_text', '_icon', '_spinner'] },
-};
+} satisfies ComponentTheme;
