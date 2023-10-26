@@ -7,15 +7,14 @@ import { IconSizes } from './types';
 
 type Props = {
   icon: BaseIcon;
-  onPress?: () => void;
   size?: `${IconSizes}`;
 } & ComponentProps<typeof GluestackButton>;
 
 export const IconButton: FC<Props> = (props) => {
-  const { icon, size = IconSizes.MEDIUM, style, onPress } = props;
+  const { icon, size = IconSizes.MEDIUM, style, onPress, ...restProps } = props;
 
   return (
-    <InnerIconButton size={size} onPress={onPress} style={style}>
+    <InnerIconButton size={size} onPress={onPress} style={style} {...restProps}>
       <InnerIconButtonIcon as={icon} />
     </InnerIconButton>
   );

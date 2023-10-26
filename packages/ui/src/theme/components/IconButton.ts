@@ -15,20 +15,23 @@ export const IconButton = {
       size: {
         [IconSizes.LARGE]: {
           _icon: {
-            width: IconSize.LARGE,
-            height: IconSize.LARGE,
+            props: {
+              size: IconSize.LARGE,
+            },
           },
         },
         [IconSizes.MEDIUM]: {
           _icon: {
-            width: IconSize.MEDIUM,
-            height: IconSize.MEDIUM,
+            props: {
+              size: IconSize.MEDIUM,
+            },
           },
         },
         [IconSizes.SMALL]: {
           _icon: {
-            width: IconSize.SMALL,
-            height: IconSize.SMALL,
+            props: {
+              size: IconSize.SMALL,
+            },
           },
         },
       },
