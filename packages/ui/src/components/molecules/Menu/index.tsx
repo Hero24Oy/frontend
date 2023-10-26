@@ -6,18 +6,18 @@ import {
 import React, { FC, PropsWithChildren, useCallback, useMemo } from 'react';
 import { Pressable, StyleSheet } from 'react-native';
 
-import { MenuItem, Placement, SelectionChange } from './types';
+import { MenuItem, Placement, SelectionChange, Trigger } from './types';
 
-type Props = PropsWithChildren & {
+type Props = {
   items: MenuItem[];
   onSelect: (key: string) => void;
   placement?: Placement;
 };
 
-export const Menu: FC<Props> = (props) => {
+export const Menu: FC<PropsWithChildren<Props>> = (props) => {
   const { items, onSelect, placement, children } = props;
 
-  const onSelectionChange: SelectionChange = useCallback(
+  const onSelectionChange = useCallback<SelectionChange>(
     (keys) => {
       if (keys) {
         onSelect(Array.from(keys).at(0) as string);
@@ -26,9 +26,9 @@ export const Menu: FC<Props> = (props) => {
     [onSelect],
   );
 
-  const TriggerComponent = useCallback(
-    (triggerProps: Record<string, unknown>) => (
-      <Pressable style={styles.wrapper} {...triggerProps}>
+  const TriggerComponent = useCallback<Trigger>(
+    (triggerProps) => (
+      <Pressable style={styles.triggerWrapper} {...triggerProps}>
         {children}
       </Pressable>
     ),
@@ -58,5 +58,7 @@ export const Menu: FC<Props> = (props) => {
 };
 
 const styles = StyleSheet.create({
-  wrapper: { pointerEvents: 'box-only' },
+  triggerWrapper: { pointerEvents: 'box-only' },
 });
+
+export type { MenuItem };

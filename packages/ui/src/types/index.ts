@@ -1,2 +1,2 @@
-export * from './Styles';
-export * from './Generics';
+export * from './style';
+export * from './utility';

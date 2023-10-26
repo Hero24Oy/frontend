@@ -3,14 +3,14 @@ import {
   InputSlot,
   VStack,
 } from '@gluestack-ui/themed';
-import React, { ReactElement, useMemo } from 'react';
+import React, { ReactElement } from 'react';
 import { Control, FieldValues, Path, useController } from 'react-hook-form';
 import { KeyboardType } from 'react-native';
 
+import { Text } from '$atoms';
+
 import { InputField } from './components/InputField';
 import { InputType } from './constants';
-
-import { Text } from '$atoms';
 
 export type InputProps<Type extends FieldValues> = {
   control: Control<Type>;
@@ -30,13 +30,13 @@ export const Input = <Type extends FieldValues>(
   const {
     control,
     name,
-    isDisabled = false,
     placeholder,
-    type = InputType.TEXT,
     mask,
-    keyboardType = 'default',
     leftSlot,
     rightSlot,
+    type = InputType.TEXT,
+    isDisabled = false,
+    keyboardType = 'default',
   } = props;
 
   const {
@@ -44,9 +44,7 @@ export const Input = <Type extends FieldValues>(
     formState: { errors },
   } = useController({ name, control });
 
-  const errorText = useMemo(() => {
-    return errors[name]?.message?.toString() || '';
-  }, [errors]);
+  const errorText = errors[name]?.message?.toString() || '';
 
   return (
     <VStack>

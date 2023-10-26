@@ -1,8 +1,8 @@
 import { Menu } from '@gluestack-ui/themed';
 import { Selection } from '@react-types/shared';
-import { ComponentProps, FC } from 'react';
+import { ComponentProps } from 'react';
 
-export type TriggerType = FC;
+export type Trigger = ComponentProps<typeof Menu>['trigger'];
 
 export type Placement = ComponentProps<typeof Menu>['placement'];
 

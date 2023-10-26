@@ -1,2 +1,2 @@
-export * from './codeWithPrefix';
+export * from './addCodePrefix';
 export * from './getInitialCountry';

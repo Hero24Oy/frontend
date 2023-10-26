@@ -1,25 +1,34 @@
-import React, { ReactElement } from 'react';
-import { FieldValues } from 'react-hook-form';
+import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
-import CountryPicker, { CountryCode } from 'react-native-country-picker-modal';
-
-import { PhoneInputProps } from '../types';
-
-import { CallingCode } from './components/CallingCode';
-import { useSelectCountry } from './hooks/useSelectCountry';
+import CountryPicker, {
+  Country,
+  CountryCode,
+} from 'react-native-country-picker-modal';
+import { Maybe } from 'types';
 
 import { HStack } from '$atoms';
 
-export const SelectCountry = <Type extends FieldValues>(
-  props: PhoneInputProps<Type>,
-): ReactElement => {
-  const { preferredCountryCodes } = props;
+import { CallingCode } from './components';
 
-  const { onCountrySelect, selectedCountry, onCodeSelect, selectedCode } =
-    useSelectCountry(props);
+export type SelectCountryProps = {
+  onCodeSelect: (code: string) => void;
+  onCountrySelect: (country: Country) => void;
+  selectedCode: string;
+  preferredCountryCodes?: CountryCode[];
+  selectedCountry?: Maybe<Country>;
+};
+
+export const SelectCountry: FC<SelectCountryProps> = (props) => {
+  const {
+    preferredCountryCodes,
+    onCodeSelect,
+    onCountrySelect,
+    selectedCode,
+    selectedCountry,
+  } = props;
 
   return (
-    <HStack style={styles.stack}>
+    <HStack style={styles.pickerWrapper}>
       <CountryPicker
         countryCode={selectedCountry?.cca2 as CountryCode}
         preferredCountries={preferredCountryCodes}
@@ -36,7 +45,7 @@ export const SelectCountry = <Type extends FieldValues>(
 };
 
 const styles = StyleSheet.create({
-  stack: {
+  pickerWrapper: {
     alignItems: 'center',
   },
 });

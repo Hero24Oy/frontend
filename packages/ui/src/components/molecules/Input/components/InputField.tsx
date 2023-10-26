@@ -4,9 +4,9 @@ import { ControllerRenderProps, FieldValues, Path } from 'react-hook-form';
 import { KeyboardType } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
 
-import { InputType } from '../constants';
-
 import { InputFieldProps } from './types';
+
+import { InputType } from '../constants';
 
 export interface Props<Type extends FieldValues> {
   field: ControllerRenderProps<Type, Path<Type>>;
@@ -21,10 +21,10 @@ export const InputField = <Type extends FieldValues>(
 ): ReactElement => {
   const {
     placeholder,
-    type = InputType.TEXT,
-    keyboardType = 'default',
     mask,
     field,
+    type = InputType.TEXT,
+    keyboardType = 'default',
   } = props;
 
   const { onChange, value, ref } = field;
@@ -43,9 +43,9 @@ export const InputField = <Type extends FieldValues>(
   if (isMasked) {
     return (
       <TextInputMask
+        type="custom"
         customTextInput={GluestackInputField}
         customTextInputProps={inputProps}
-        type="custom"
         options={{ mask }}
         onChangeText={onChange}
         value={value}
@@ -55,9 +55,9 @@ export const InputField = <Type extends FieldValues>(
 
   return (
     <GluestackInputField
-      {...inputProps}
       value={value}
       onChangeText={onChange}
+      {...inputProps}
     />
   );
 };
