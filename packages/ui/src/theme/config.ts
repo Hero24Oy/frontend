@@ -8,22 +8,10 @@ export const uiLibraryConfig = createConfig({
   ...defaultConfig,
   tokens: {
     ...defaultConfig.tokens,
-    lineHeights: {
-      ...defaultConfig.tokens.lineHeights,
-      ...LineHeight,
-    },
-    fontWeights: {
-      ...defaultConfig.tokens.fontWeights,
-      ...FontWeight,
-    },
-    fontSizes: {
-      ...defaultConfig.tokens.fontSizes,
-      ...FontSize,
-    },
-    colors: {
-      ...defaultConfig.tokens.colors,
-      ...Color,
-    },
+    lineHeights: LineHeight,
+    fontWeights: FontWeight,
+    fontSizes: FontSize,
+    colors: Color,
     fonts: Font,
   },
   components: {
