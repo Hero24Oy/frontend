@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { Pressable } from 'types';
+import { PressableProps } from 'react-native';
 
 export type Item = {
   text: string;
   Icon?: FC;
-} & Pressable;
+} & Pick<PressableProps, 'onPress'>;

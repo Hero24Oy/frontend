@@ -1,5 +1,9 @@
-import { ActionsheetItem, ActionsheetItemText } from '@gluestack-ui/themed';
-import React, { FC, useMemo } from 'react';
+import {
+  ActionsheetItem,
+  ActionsheetItemText,
+  AlertIcon,
+} from '@gluestack-ui/themed';
+import React, { FC, memo } from 'react';
 
 import { Item } from './types';
 
@@ -7,19 +11,13 @@ export type ActionsheetItemsProps = {
   items: Item[];
 };
 
-export const ActionsheetItems: FC<ActionsheetItemsProps> = (props) => {
+export const ActionsheetItems: FC<ActionsheetItemsProps> = memo((props) => {
   const { items } = props;
 
-  const actionsheetItems = useMemo(
-    () =>
-      items.map(({ Icon, text, ...restProps }, key) => (
-        <ActionsheetItem key={key} {...restProps}>
-          {Icon && <Icon />}
-          <ActionsheetItemText>{text}</ActionsheetItemText>
-        </ActionsheetItem>
-      )),
-    [items],
-  );
-
-  return actionsheetItems;
-};
+  return items.map(({ Icon, text, ...restProps }, key) => (
+    <ActionsheetItem key={key} {...restProps}>
+      <AlertIcon as={Icon} />
+      <ActionsheetItemText>{text}</ActionsheetItemText>
+    </ActionsheetItem>
+  ));
+});

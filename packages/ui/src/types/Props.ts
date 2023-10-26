@@ -1,9 +1,5 @@
 import { ViewStyle } from 'react-native';
 
-export type Pressable = {
-  onPress?: () => void;
-};
-
 export type WithCallback = {
   onClose?: () => void;
   onOpen?: () => void;
