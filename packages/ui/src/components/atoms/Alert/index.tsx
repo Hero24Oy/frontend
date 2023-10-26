@@ -9,7 +9,7 @@ import { StyleSheet } from 'react-native';
 
 import { View } from '../View';
 
-import { AlertAction, AlertVariant } from './constants';
+import { AlertAction } from './constants';
 
 export * from './constants';
 
@@ -18,7 +18,6 @@ export type AlertProps = {
   action?: `${AlertAction}`;
   Icon?: FC;
   text?: string;
-  variant?: `${AlertVariant}`;
 };
 
 export const Alert: FC<AlertProps> = (props) => {
@@ -29,7 +28,7 @@ export const Alert: FC<AlertProps> = (props) => {
       <VStack>
         <HStack alignItems="center">
           {Icon && (
-            <View style={styles.icon}>
+            <View>
               <Icon />
             </View>
           )}
@@ -38,7 +37,7 @@ export const Alert: FC<AlertProps> = (props) => {
         {text && (
           <HStack>
             {Icon && (
-              <View style={[styles.icon, styles.invisible]}>
+              <View style={styles.invisible}>
                 <Icon />
               </View>
             )}
@@ -51,9 +50,6 @@ export const Alert: FC<AlertProps> = (props) => {
 };
 
 const styles = StyleSheet.create({
-  icon: {
-    marginRight: 5,
-  },
   invisible: {
     opacity: 0,
   },
