@@ -1,12 +1,12 @@
-export const fontWeights = {
-  hairline: '100',
-  thin: '200',
-  light: '300',
-  normal: '400',
-  medium: '500',
-  semibold: '600',
-  bold: '700',
-  extrabold: '800',
-  black: '900',
-  extraBlack: '950',
+export const FontWeight = {
+  HAIRLINE: '100',
+  THIN: '200',
+  LIGHT: '300',
+  NORMAL: '400',
+  MEDIUM: '500',
+  SEMI_BOLD: '600',
+  BOLD: '700',
+  EXTRA_BOLD: '800',
+  BLACK: '900',
+  EXTRA_BLACK: '950',
 };
