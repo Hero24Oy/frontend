@@ -8,8 +8,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "engines": {
-    "node": "^18.18",
-    "npm": "^9.8"
+    "node": "^18.18"
   },
   "scripts": {
     "dev": "npm run build -- --watch",
