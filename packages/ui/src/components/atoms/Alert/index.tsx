@@ -1,12 +1,13 @@
 import {
   Alert as GluestackAlert,
-  AlertIcon,
   HStack,
   Text,
   VStack,
 } from '@gluestack-ui/themed';
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
+
+import { View } from '../View';
 
 import { AlertAction, AlertVariant } from './constants';
 
@@ -15,26 +16,32 @@ export * from './constants';
 export type AlertProps = {
   title: string;
   action?: `${AlertAction}`;
-  icon?: ReactNode;
+  Icon?: FC;
   text?: string;
   variant?: `${AlertVariant}`;
 };
 
 export const Alert: FC<AlertProps> = (props) => {
-  const { title, text, icon, ...restProps } = props;
+  const { title, text, Icon, ...restProps } = props;
 
   return (
     <GluestackAlert {...restProps}>
       <VStack>
         <HStack alignItems="center">
-          <AlertIcon style={styles.icon}>{icon}</AlertIcon>
+          {Icon && (
+            <View style={styles.icon}>
+              <Icon />
+            </View>
+          )}
           <Text style={styles.title}>{title}</Text>
         </HStack>
         {text && (
           <HStack>
-            <AlertIcon style={[styles.icon, styles.invisible]}>
-              {icon}
-            </AlertIcon>
+            {Icon && (
+              <View style={[styles.icon, styles.invisible]}>
+                <Icon />
+              </View>
+            )}
             <Text>{text}</Text>
           </HStack>
         )}
