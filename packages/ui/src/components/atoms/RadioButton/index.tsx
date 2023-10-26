@@ -1,7 +1,7 @@
 import { Radio, RadioLabel as GluestackRadioLabel } from '@gluestack-ui/themed';
 import React, { FC } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
-import { ExtendProps } from 'types/extendProps';
+import { extendComponent } from 'utils';
 
 import { RadioVariant } from '../RadioGroup';
 
@@ -13,7 +13,7 @@ type Props = {
   style?: StyleProp<ViewStyle>;
 };
 
-const GluestackRadio = Radio as ExtendProps<typeof Radio, Variants>;
+const GluestackRadio = extendComponent<typeof Radio, Variants>(Radio);
 
 export const RadioButton: FC<Props> = (props) => {
   const { value, children, style } = props;
