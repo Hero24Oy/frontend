@@ -1,13 +1,13 @@
 import {
   Alert as GluestackAlert,
+  AlertIcon,
+  AlertText,
   HStack,
   Text,
   VStack,
 } from '@gluestack-ui/themed';
 import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
-
-import { View } from '../View';
 
 import { AlertAction } from './constants';
 
@@ -27,29 +27,20 @@ export const Alert: FC<AlertProps> = (props) => {
     <GluestackAlert {...restProps}>
       <VStack>
         <HStack alignItems="center">
-          {Icon && (
-            <View>
-              <Icon />
-            </View>
-          )}
-          <Text style={styles.title}>{title}</Text>
+          <AlertIcon style={styles.icon} as={Icon} />
+          <AlertText style={styles.title}>{title}</AlertText>
         </HStack>
-        {text && (
-          <HStack>
-            {Icon && (
-              <View style={styles.invisible}>
-                <Icon />
-              </View>
-            )}
-            <Text>{text}</Text>
-          </HStack>
-        )}
+        <HStack>
+          <AlertIcon style={styles.icon} opacity={0} as={Icon} />
+          <Text>{text}</Text>
+        </HStack>
       </VStack>
     </GluestackAlert>
   );
 };
 
 const styles = StyleSheet.create({
+  icon: { marginRight: 5 },
   invisible: {
     opacity: 0,
   },
