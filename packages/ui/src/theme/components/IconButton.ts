@@ -1,4 +1,5 @@
 import { IconSizes } from 'components/atoms/IconButton';
+import { DescendantStyle } from 'theme/types';
 
 import { Color, IconSize } from '../constants';
 
@@ -37,5 +38,5 @@ export const IconButton = {
       },
     },
   },
-  componentConfig: { descendantStyle: ['_icon'] },
+  componentConfig: { descendantStyle: [DescendantStyle.ICON] },
 };
