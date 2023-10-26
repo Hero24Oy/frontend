@@ -1,4 +1,5 @@
-import { ComponentProps, FC, PropsWithChildren } from 'react';
+import React, { ComponentProps, FC, PropsWithChildren } from 'react';
+import { StyleSheet } from 'react-native';
 
 import { Box } from '$atoms';
 
@@ -24,8 +25,15 @@ export const Card: FC<Props> = (props) => {
       sx={sx}
       backgroundColor={backgroundColor}
       overflow="hidden"
+      style={styles.card}
     >
       {children}
     </Box>
   );
 };
+
+const styles = StyleSheet.create({
+  card: {
+    padding: 16,
+  },
+});
