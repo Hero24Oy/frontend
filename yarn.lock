@@ -379,7 +379,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.13.16, @babel/parser@npm:^7.14.0, @babel/parser@npm:^7.20.0, @babel/parser@npm:^7.22.15, @babel/parser@npm:^7.23.0":
+"@babel/parser@npm:^7.13.16, @babel/parser@npm:^7.20.0, @babel/parser@npm:^7.22.15, @babel/parser@npm:^7.23.0":
   version: 7.23.0
   resolution: "@babel/parser@npm:7.23.0"
   bin:
@@ -10212,13 +10212,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flow-parser@npm:^0.121.0":
-  version: 0.121.0
-  resolution: "flow-parser@npm:0.121.0"
-  checksum: 831cf56b2ed987677fd056fd5a035aee88c9c474c507e14e8ffd85374da7b42236a7280a801fc893779331be638c2c4f8af3fb654a298f8ed16c209926450576
-  languageName: node
-  linkType: hard
-
 "fontfaceobserver@npm:^2.1.0":
   version: 2.3.0
   resolution: "fontfaceobserver@npm:2.3.0"
@@ -10828,7 +10821,6 @@ __metadata:
     react-combine-providers: "npm:^0.9.6"
     react-dom: "npm:18.2.0"
     react-native: "npm:0.72.5"
-    react-native-codegen: "npm:^0.70.7"
     react-native-dotenv: "npm:^3.4.9"
     react-native-gesture-handler: "npm:~2.12.0"
     react-native-safe-area-context: "npm:4.6.3"
@@ -14494,18 +14486,6 @@ __metadata:
   version: 18.2.0
   resolution: "react-is@npm:18.2.0"
   checksum: 6eb5e4b28028c23e2bfcf73371e72cd4162e4ac7ab445ddae2afe24e347a37d6dc22fae6e1748632cd43c6d4f9b8f86dcf26bf9275e1874f436d129952528ae0
-  languageName: node
-  linkType: hard
-
-"react-native-codegen@npm:^0.70.7":
-  version: 0.70.7
-  resolution: "react-native-codegen@npm:0.70.7"
-  dependencies:
-    "@babel/parser": "npm:^7.14.0"
-    flow-parser: "npm:^0.121.0"
-    jscodeshift: "npm:^0.14.0"
-    nullthrows: "npm:^1.1.1"
-  checksum: d1f2d190f501c583e2da91ca3bd3cb79f2c20fe7a6e4fa066b040f2493f366b525ab848f5f70a27623336e10bb23281fec1982eb6f2da9bba77005733ad25978
   languageName: node
   linkType: hard
 
