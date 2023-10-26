@@ -36,7 +36,6 @@ export const uiLibraryConfig = createConfig({
     },
   },
   components: {
-    ...defaultConfig.components,
     ...components,
   },
 });
