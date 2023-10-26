@@ -7,6 +7,7 @@
   "engines": {
     "node": "^18.18"
   },
+  "packageManager": "yarn@4.0.0",
   "main": "index.ts",
   "scripts": {
     "build:eas:android:development": "eas build --profile development --platform android --clear-cache",
@@ -21,7 +22,7 @@
     "pretty": "prettier --write . --log-level warn",
     "lint": "eslint . --fix",
     "reinstall:dependencies": "rm -rf node_modules && npm i",
-    "reinstall:dependencies:full": "npm cache clean --force && npm run reinstall:dependencies",
+    "reinstall:dependencies:full": "npm cache clean --force && yarn reinstall:dependencies",
     "android": "expo run:android",
     "ios": "expo run:ios"
   },
