@@ -27,11 +27,11 @@ export const Alert: FC<AlertProps> = (props) => {
     <GluestackAlert {...restProps}>
       <VStack>
         <HStack alignItems="center">
-          <AlertIcon style={styles.icon} as={Icon} />
+          <AlertIcon as={Icon} />
           <AlertText style={styles.title}>{title}</AlertText>
         </HStack>
         <HStack>
-          <AlertIcon style={styles.icon} opacity={0} as={Icon} />
+          <AlertIcon opacity={0} as={Icon} />
           <Text>{text}</Text>
         </HStack>
       </VStack>
@@ -40,7 +40,6 @@ export const Alert: FC<AlertProps> = (props) => {
 };
 
 const styles = StyleSheet.create({
-  icon: { marginRight: 5 },
   invisible: {
     opacity: 0,
   },
