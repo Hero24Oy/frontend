@@ -4,20 +4,20 @@ import {
   ButtonSpinner as GluestackButtonSpinner,
   ButtonText as GluestackTextOrigin,
 } from '@gluestack-ui/themed';
-import React, { ComponentProps, FC, ForwardedRef, forwardRef } from 'react';
+import React, { FC, ForwardedRef, forwardRef } from 'react';
 import { PressableProps, StyleProp, StyleSheet, ViewStyle } from 'react-native';
 
-import { ButtonSizes, ButtonVariants, Direction } from './types';
+import { ButtonSize, ButtonVariant, Direction, GluestackProps } from './types';
 
-interface Props extends ComponentProps<typeof GluestackButton> {
+type Props = {
   children: string;
   icon?: FC;
   iconDirection?: `${Direction}`;
   isLoading?: boolean;
-  size?: `${ButtonSizes}`;
+  size?: `${ButtonSize}`;
   style?: StyleProp<ViewStyle>;
-  variant?: `${ButtonVariants}`;
-}
+  variant?: `${ButtonVariant}`;
+} & GluestackProps;
 
 const ButtonInner = (
   props: Props,
@@ -25,8 +25,8 @@ const ButtonInner = (
 ): JSX.Element => {
   const {
     children,
-    size = ButtonSizes.MEDIUM,
-    variant = ButtonVariants.SOLID,
+    size = ButtonSize.MEDIUM,
+    variant = ButtonVariant.SOLID,
     isDisabled = false,
     isLoading = false,
     onPress,
@@ -73,3 +73,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row-reverse',
   },
 });
+
+export * from './types';

@@ -1,5 +1,5 @@
-import { RadioVariants } from '../RadioGroup/types';
+import { RadioVariant } from '../RadioGroup';
 
 export type Variants = {
-  variant: RadioVariants.BUTTON;
+  variant: RadioVariant.BUTTON;
 };
