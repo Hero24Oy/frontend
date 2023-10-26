@@ -1,1 +1,1 @@
-export * from './extendComponent';
+export * from './extendProps';
