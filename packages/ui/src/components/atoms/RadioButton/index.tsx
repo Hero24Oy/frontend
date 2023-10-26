@@ -1,26 +1,37 @@
-import { Radio, RadioLabel as GluestackRadioLabel } from '@gluestack-ui/themed';
+import {
+  Radio as GluestackRadio,
+  RadioLabel as GluestackRadioLabel,
+} from '@gluestack-ui/themed';
 import React, { FC } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
-import { ExtendProps } from 'types/extendProps';
+import { extendProps } from 'utils';
 
-import { RadioVariants } from '../RadioGroup/types';
+import { RadioVariant } from '../RadioGroup';
 
-import { Variants } from './types';
+import { ExtendProps } from './types';
 
-interface Props {
+type Props = {
   children: string;
   value: string;
   style?: StyleProp<ViewStyle>;
-}
+};
 
-const GluestackRadio = Radio as ExtendProps<typeof Radio, Variants>;
+const ExtendGluestackRadio = extendProps<typeof GluestackRadio, ExtendProps>(
+  GluestackRadio,
+);
 
 export const RadioButton: FC<Props> = (props) => {
   const { value, children, style } = props;
 
   return (
-    <GluestackRadio variant={RadioVariants.BUTTON} value={value} style={style}>
+    <ExtendGluestackRadio
+      variant={RadioVariant.BUTTON}
+      value={value}
+      style={style}
+    >
       <GluestackRadioLabel>{children}</GluestackRadioLabel>
-    </GluestackRadio>
+    </ExtendGluestackRadio>
   );
 };
+
+export * from './types';

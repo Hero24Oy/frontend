@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
 
-import { Button, Input, VStack } from '@hero24/ui';
+import { Button, IconButton, Input, Plus, VStack } from '@hero24/ui';
 
 interface FormData {
   email: string;
@@ -40,6 +40,8 @@ export const EmailSignInForm: FC = () => {
       <Button variant="solid" size="md" onPress={onSubmit}>
         Continue
       </Button>
+
+      <IconButton icon={Plus} size="lg" />
     </VStack>
   );
 };

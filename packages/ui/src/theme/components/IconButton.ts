@@ -1,15 +1,15 @@
 import { IconSizes } from 'components/atoms/IconButton';
 
-import { IconSize } from '../constants';
+import { Color, IconSize } from '../constants';
 
 export const IconButton = {
   theme: {
     alignSelf: 'flex-start',
     padding: 10,
     borderRadius: 10,
-    backgroundColor: '$gray_5',
+    backgroundColor: Color.GRAY_06,
     _icon: {
-      color: '$black_0',
+      color: Color.BLACK_01,
     },
     variants: {
       size: {

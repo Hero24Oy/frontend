@@ -1,8 +1,8 @@
-export const fontSizes = {
-  extraSmall: 12,
-  small: 14,
-  medium: 16,
-  large: 18,
-  extraLarge: 20,
-  doubleExtraLarge: 24,
-};
+export enum FontSize {
+  EXTRA_SMALL = 12,
+  SMALL = 14,
+  MEDIUM = 16,
+  LARGE = 18,
+  EXTRA_LARGE = 20,
+  DOUBLE_EXTRA_LARGE = 24,
+}

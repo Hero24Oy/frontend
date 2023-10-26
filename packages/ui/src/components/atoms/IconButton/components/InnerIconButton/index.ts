@@ -16,4 +16,4 @@ export const InnerIconButton = createButton({
   Spinner: ButtonSpinner,
 });
 
-export const InnerIconButtonText = InnerIconButton.Text;
+export const InnerIconButtonIcon = InnerIconButton.Icon;

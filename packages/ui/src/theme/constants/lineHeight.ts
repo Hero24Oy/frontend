@@ -1,3 +1,3 @@
-export const lineHeights = {
-  default: 21,
+export const LineHeight = {
+  DEFAULT: 21,
 };
