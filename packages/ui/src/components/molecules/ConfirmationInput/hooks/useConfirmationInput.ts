@@ -1,33 +1,29 @@
 import { RefObject, useCallback, useEffect, useState } from 'react';
 import { FieldValues, useController } from 'react-hook-form';
-import {
-  GestureResponderEvent,
-  Keyboard,
-  LayoutChangeEvent,
-  TextInput,
-} from 'react-native';
+import { Keyboard, TextInput } from 'react-native';
 import {
   useBlurOnFulfill,
   useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
 
-import { ConfirmCodeInputProps } from '../types';
+import {
+  CellProps,
+  ConfirmCodeInputProps,
+  GetCellOnLayoutHandler,
+  OnChangeText,
+} from '../types';
 
-type CellProps = {
-  onPressOut: (event: GestureResponderEvent) => void;
-};
-
-type ReturnType = {
+export type UseConfirmationInputResult = {
   cellProps: CellProps;
-  getCellOnLayoutHandler: (index: number) => (event: LayoutChangeEvent) => void;
-  onChangeText: (newValue: string) => void;
+  getCellOnLayoutHandler: GetCellOnLayoutHandler;
+  onChangeText: OnChangeText;
   ref: RefObject<TextInput>;
   value: string;
 };
 
-export const useConfirmCodeInput = <Type extends FieldValues>(
+export const useConfirmationInput = <Type extends FieldValues>(
   props: ConfirmCodeInputProps<Type>,
-): ReturnType => {
+): UseConfirmationInputResult => {
   const { cellCount, name, control } = props;
   const [code, setCode] = useState('');
   const ref = useBlurOnFulfill({ value: code, cellCount });
@@ -41,20 +37,20 @@ export const useConfirmCodeInput = <Type extends FieldValues>(
     field: { value, onChange },
   } = useController({ name, control });
 
-  const onChangeText = useCallback(
-    (newValue: string): void => {
-      setCode(newValue);
-    },
+  const onChangeText = useCallback<OnChangeText>(
+    (newValue) => setCode(newValue),
     [setCode],
   );
+
+  useEffect(() => {
+    onChange(code);
+  }, [code, onChange]);
 
   useEffect(() => {
     if (code.length === cellCount) {
       Keyboard.dismiss();
     }
+  }, [cellCount, code]);
 
-    onChange(code);
-  }, [cellCount, code, onChange, value]);
-
-  return { cellProps, onChangeText, ref, getCellOnLayoutHandler, value: code };
+  return { cellProps, onChangeText, ref, getCellOnLayoutHandler, value };
 };

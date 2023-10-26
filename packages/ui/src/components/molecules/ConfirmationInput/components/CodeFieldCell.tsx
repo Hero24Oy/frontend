@@ -1,12 +1,12 @@
 import { Text } from '@gluestack-ui/themed';
 import React, { FC, useMemo } from 'react';
-import { LayoutChangeEvent } from 'react-native';
 import { Cursor } from 'react-native-confirmation-code-field';
 
-import { styles } from './styles';
+import { styles } from '../styles';
+import { GetCellOnLayoutHandler } from '../types';
 
 type Props = {
-  getCellOnLayoutHandler: (index: number) => (event: LayoutChangeEvent) => void;
+  getCellOnLayoutHandler: GetCellOnLayoutHandler;
   index: number;
   isFocused: boolean;
   symbol: string;
