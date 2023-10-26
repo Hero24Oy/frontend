@@ -6,6 +6,6 @@ export enum RadioVariant {
   DEFAULT = 'default',
 }
 
-type GluestackRadio = ComponentProps<typeof RadioGroup>;
+type GluestackRadioGroup = ComponentProps<typeof RadioGroup>;
 
-export type GluestackProps = Omit<GluestackRadio, 'children'>;
+export type GluestackRadioGroupProps = Omit<GluestackRadioGroup, 'children'>;

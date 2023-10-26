@@ -21,4 +21,4 @@ export enum ButtonVariant {
 
 type ButtonProps = ComponentProps<typeof Button>;
 
-export type GluestackProps = Omit<ButtonProps, 'children'>;
+export type GluestackButtonProps = Omit<ButtonProps, 'children'>;

@@ -1,11 +1,11 @@
 import { RadioGroup as GluestackRadioGroup } from '@gluestack-ui/themed';
 import React, { FC, ReactNode } from 'react';
 
-import { GluestackProps } from './types';
+import { GluestackRadioGroupProps } from './types';
 
 type Props = {
   children: ReactNode | ReactNode[];
-} & GluestackProps;
+} & GluestackRadioGroupProps;
 
 export const RadioGroup: FC<Props> = (props) => {
   const { children, onChange, value, ...rest } = props;

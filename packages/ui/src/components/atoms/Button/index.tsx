@@ -7,7 +7,12 @@ import {
 import React, { FC, ForwardedRef, forwardRef } from 'react';
 import { PressableProps, StyleProp, StyleSheet, ViewStyle } from 'react-native';
 
-import { ButtonSize, ButtonVariant, Direction, GluestackProps } from './types';
+import {
+  ButtonSize,
+  ButtonVariant,
+  Direction,
+  GluestackButtonProps,
+} from './types';
 
 type Props = {
   children: string;
@@ -17,7 +22,7 @@ type Props = {
   size?: `${ButtonSize}`;
   style?: StyleProp<ViewStyle>;
   variant?: `${ButtonVariant}`;
-} & GluestackProps;
+} & GluestackButtonProps;
 
 const ButtonInner = (
   props: Props,
