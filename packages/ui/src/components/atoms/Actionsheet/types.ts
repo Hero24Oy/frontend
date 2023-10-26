@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import { FC } from 'react';
 import { Pressable } from 'types';
 
 export type Item = {
   text: string;
-  icon?: ReactNode;
+  Icon?: FC;
 } & Pressable;
