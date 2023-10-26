@@ -10,7 +10,7 @@ import {
   ActionsheetContent,
 } from '@gluestack-ui/themed';
 import React, { FC } from 'react';
-import { CommonStyles, WithCallback } from 'types';
+import { CommonStyles } from 'types';
 
 import { ActionsheetDragIndicator } from './ActionsheetDragIndicator';
 import { ActionsheetItems } from './ActionsheetItems';
@@ -19,15 +19,16 @@ import { Item } from './types';
 type ActionsheetProps = {
   isOpen: boolean;
   items: Item[];
+  onClose?: () => void;
+  onPress?: () => void;
   showDragIndicator?: boolean;
-} & WithCallback &
-  CommonStyles;
+} & CommonStyles;
 
 export const Actionsheet: FC<ActionsheetProps> = (props) => {
-  const { showDragIndicator, items, isOpen = false, ...restProps } = props;
+  const { showDragIndicator, items, ...restProps } = props;
 
   return (
-    <GluestackActionsheet isOpen={isOpen} {...restProps}>
+    <GluestackActionsheet {...restProps}>
       <ActionsheetBackdrop />
       <ActionsheetContent>
         {showDragIndicator && <ActionsheetDragIndicator />}
