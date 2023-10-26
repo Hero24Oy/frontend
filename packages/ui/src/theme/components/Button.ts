@@ -7,7 +7,7 @@ import {
   IconSize,
   LineHeight,
 } from '../constants';
-import { ComponentTheme } from '../types';
+import { ComponentTheme, DescendantStyle } from '../types';
 
 export const Button = {
   theme: {
@@ -205,5 +205,11 @@ export const Button = {
       },
     },
   },
-  componentConfig: { descendantStyle: ['_text', '_icon', '_spinner'] },
+  componentConfig: {
+    descendantStyle: [
+      DescendantStyle.TEXT,
+      DescendantStyle.ICON,
+      DescendantStyle.SPINNER,
+    ],
+  },
 } satisfies ComponentTheme;

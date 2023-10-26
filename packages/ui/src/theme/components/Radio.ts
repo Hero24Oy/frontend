@@ -1,7 +1,7 @@
 import { RadioVariant } from 'components/atoms/RadioGroup';
 
 import { Color, FontSize, FontWeight, LineHeight } from '../constants';
-import { ComponentTheme } from '../types';
+import { ComponentTheme, DescendantStyle } from '../types';
 
 export const Radio = {
   theme: {
@@ -32,5 +32,5 @@ export const Radio = {
       },
     },
   },
-  componentConfig: { descendantStyle: ['_text'] },
+  componentConfig: { descendantStyle: [DescendantStyle.TEXT] },
 } satisfies ComponentTheme;
