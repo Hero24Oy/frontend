@@ -6,28 +6,33 @@ import {
   VStack,
 } from '@gluestack-ui/themed';
 import React, { FC, ReactNode } from 'react';
+import { StyleSheet } from 'react-native';
 
-type AlertProps = {
-  header: string;
-  action?: 'error' | 'warning' | 'success' | 'info' | 'muted';
+import { AlertAction, AlertVariant } from './constants';
+
+export * from './constants';
+
+export type AlertProps = {
+  title: string;
+  action?: `${AlertAction}`;
   icon?: ReactNode;
   text?: string;
-  variant?: 'solid' | 'outline' | 'accent';
+  variant?: `${AlertVariant}`;
 };
 
 export const Alert: FC<AlertProps> = (props) => {
-  const { header, text, icon, ...restProps } = props;
+  const { title, text, icon, ...restProps } = props;
 
   return (
     <GluestackAlert {...restProps}>
       <VStack>
         <HStack alignItems="center">
-          <AlertIcon marginRight={5}>{icon}</AlertIcon>
-          <Text fontWeight="$bold">{header}</Text>
+          <AlertIcon style={styles.icon}>{icon}</AlertIcon>
+          <Text style={styles.title}>{title}</Text>
         </HStack>
         {text && (
           <HStack>
-            <AlertIcon opacity={0} marginRight={5}>
+            <AlertIcon style={[styles.icon, styles.invisible]}>
               {icon}
             </AlertIcon>
             <Text>{text}</Text>
@@ -37,3 +42,15 @@ export const Alert: FC<AlertProps> = (props) => {
     </GluestackAlert>
   );
 };
+
+const styles = StyleSheet.create({
+  icon: {
+    marginRight: 5,
+  },
+  invisible: {
+    opacity: 0,
+  },
+  title: {
+    fontWeight: 'bold',
+  },
+});
