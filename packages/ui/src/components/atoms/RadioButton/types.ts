@@ -1,5 +1,5 @@
 import { RadioVariant } from '../RadioGroup';
 
-export type Variants = {
+export type ExtendProps = {
   variant: RadioVariant.BUTTON;
 };

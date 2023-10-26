@@ -5,7 +5,7 @@ import { extendComponent } from 'utils';
 
 import { RadioVariant } from '../RadioGroup';
 
-import { Variants } from './types';
+import { ExtendProps } from './types';
 
 type Props = {
   children: string;
@@ -13,7 +13,7 @@ type Props = {
   style?: StyleProp<ViewStyle>;
 };
 
-const GluestackRadio = extendComponent<typeof Radio, Variants>(Radio);
+const GluestackRadio = extendComponent<typeof Radio, ExtendProps>(Radio);
 
 export const RadioButton: FC<Props> = (props) => {
   const { value, children, style } = props;
