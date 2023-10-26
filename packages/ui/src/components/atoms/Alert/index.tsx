@@ -23,6 +23,7 @@ export type AlertProps = {
 export const Alert: FC<AlertProps> = (props) => {
   const { title, text, Icon, ...restProps } = props;
 
+  // * Icon with opacity 0 is used to align text
   return (
     <GluestackAlert {...restProps}>
       <VStack>
