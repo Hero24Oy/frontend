@@ -5,32 +5,34 @@
 // *  at module.js:337:15
 
 import {
-  AccessibleActionsheet,
   Actionsheet as GluestackActionsheet,
   ActionsheetBackdrop,
   ActionsheetContent,
 } from '@gluestack-ui/themed';
-import React, { FC, PropsWithChildren, ReactNode } from 'react';
+import React, { FC } from 'react';
+import { CommonStyles } from 'types';
 
 import { ActionsheetDragIndicator } from './ActionsheetDragIndicator';
+import { ActionsheetItems } from './ActionsheetItems';
+import { Item } from './types';
 
-type GluestackActionsheetProps = (typeof AccessibleActionsheet)['defaultProps'];
-
-type ActionsheetProps = PropsWithChildren<{
+type ActionsheetProps = {
+  isOpen: boolean;
+  items: Item[];
+  onClose?: () => void;
+  onPress?: () => void;
   showDragIndicator?: boolean;
-}> &
-  GluestackActionsheetProps;
+} & CommonStyles;
 
 export const Actionsheet: FC<ActionsheetProps> = (props) => {
-  const { children } = props as { children: ReactNode }; // * Eslint argues about children type any
-  const { showDragIndicator, ...rest } = props;
+  const { showDragIndicator, items, ...restProps } = props;
 
   return (
-    <GluestackActionsheet {...rest}>
+    <GluestackActionsheet {...restProps}>
       <ActionsheetBackdrop />
-      <ActionsheetContent zIndex={999}>
+      <ActionsheetContent>
         {showDragIndicator && <ActionsheetDragIndicator />}
-        {children}
+        <ActionsheetItems items={items} />
       </ActionsheetContent>
     </GluestackActionsheet>
   );

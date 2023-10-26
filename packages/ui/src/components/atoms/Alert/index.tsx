@@ -2,23 +2,49 @@ import {
   Alert as GluestackAlert,
   AlertIcon,
   AlertText,
+  HStack,
+  Text,
+  VStack,
 } from '@gluestack-ui/themed';
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
+import { StyleSheet } from 'react-native';
 
-type AlertProps = {
-  text: string;
-  action?: 'error' | 'warning' | 'success' | 'info' | 'muted';
-  icon?: ReactNode;
-  variant?: 'solid' | 'outline' | 'accent';
+import { AlertAction } from './constants';
+
+export * from './constants';
+
+export type AlertProps = {
+  title: string;
+  action?: `${AlertAction}`;
+  Icon?: FC;
+  text?: string;
 };
 
 export const Alert: FC<AlertProps> = (props) => {
-  const { text, icon, ...restProps } = props;
+  const { title, text, Icon, ...restProps } = props;
 
+  // * Icon with opacity 0 is used to align text
   return (
     <GluestackAlert {...restProps}>
-      <AlertIcon marginRight={5}>{icon}</AlertIcon>
-      <AlertText>{text}</AlertText>
+      <VStack>
+        <HStack alignItems="center">
+          <AlertIcon as={Icon} />
+          <AlertText style={styles.title}>{title}</AlertText>
+        </HStack>
+        <HStack>
+          <AlertIcon opacity={0} as={Icon} />
+          <Text>{text}</Text>
+        </HStack>
+      </VStack>
     </GluestackAlert>
   );
 };
+
+const styles = StyleSheet.create({
+  invisible: {
+    opacity: 0,
+  },
+  title: {
+    fontWeight: 'bold',
+  },
+});

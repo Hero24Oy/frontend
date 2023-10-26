@@ -4,7 +4,6 @@ import { ViewStyle } from 'react-native';
 // it doesn't work when we pass object created with StyleSheet into style prop
 
 // TODO implement resolver that will pick accepted fields from style object in component
-
 export type CommonStyles = Pick<
   ViewStyle,
   | 'margin'
@@ -14,6 +13,7 @@ export type CommonStyles = Pick<
   | 'marginLeft'
   | 'marginHorizontal'
   | 'marginVertical'
+  | 'zIndex'
 >;
 
 export type LayoutStyles = CommonStyles &
