@@ -79,8 +79,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export * from './types';
-
-import { Heading } from '@gluestack-ui/themed';
-
-export const F: FC = () => <Heading size="2xl" />;
+export * from "./types";
