@@ -15,6 +15,8 @@ const Profile: FC = () => {
       <Text>Hello</Text>
       <Text>{user.data.email}</Text>
       <Button
+        variant="solid"
+        size="md"
         onPress={(): void => {
           logoutHandler().catch((error) => console.error(error));
         }}
