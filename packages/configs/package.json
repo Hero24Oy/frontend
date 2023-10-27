@@ -5,8 +5,7 @@
   "repository": "https://github.com/Helpdor/frontend/packages/configs",
   "license": "private",
   "engines": {
-    "node": "^18.18",
-    "npm": "^9.8"
+    "node": "^18.18"
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^7.3.6",

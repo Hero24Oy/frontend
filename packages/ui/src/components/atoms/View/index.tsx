@@ -1,3 +1,12 @@
 import { View as GluestackView } from '@gluestack-ui/themed';
+import { FC, PropsWithChildren } from 'react';
 
-export const View = GluestackView;
+import { LayoutStyles } from '$types';
+
+type Props = PropsWithChildren<{
+  style: LayoutStyles;
+}>;
+
+export const View: FC<Props> = ({ children, style }) => (
+  <GluestackView style={style}>{children}</GluestackView>
+);
