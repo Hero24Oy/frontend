@@ -1,12 +1,6 @@
 words:
-  # gluestack
+  - actionsheet
   - gluestack
-
-  # react-native
   - pressable
-
-  # Font names
   - Onest
-
-  # lucide
   - lucide

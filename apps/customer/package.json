@@ -5,8 +5,7 @@
   "repository": "https://github.com/Helpdor/frontend/apps/customer",
   "license": "private",
   "engines": {
-    "node": "^18.18",
-    "npm": "^9.8"
+    "node": "^18.18"
   },
   "main": "index.ts",
   "scripts": {
@@ -22,7 +21,7 @@
     "pretty": "prettier --write . --log-level warn",
     "lint": "eslint . --fix",
     "reinstall:dependencies": "rm -rf node_modules && npm i",
-    "reinstall:dependencies:full": "npm cache clean --force && npm run reinstall:dependencies",
+    "reinstall:dependencies:full": "npm cache clean --force && yarn reinstall:dependencies",
     "android": "expo run:android",
     "ios": "expo run:ios"
   },
@@ -30,6 +29,7 @@
     "@apollo/client": "3.8.3",
     "@expo/vector-icons": "^13.0.0",
     "@gluestack-style/react": "^1.0.8",
+    "@gluestack-ui/config": "1.0.1",
     "@gluestack-ui/themed": "^1.0.8",
     "@hero24/common": "*",
     "@hero24/ui": "*",

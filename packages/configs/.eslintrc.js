@@ -1,7 +1,4 @@
-const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = [
-  'heroBIOText',
-  'Icon',
-];
+const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = ['heroBIOText', 'Icon'];
 const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*VAT.*',
   '.*URL.*',
@@ -134,6 +131,7 @@ const reactRules = {
   'react/jsx-uses-react': 'off',
   'react/display-name': 'off',
   'react/prop-types': 'off',
+  'react/no-array-index-key': 'off',
   'react-hooks/exhaustive-deps': 'off',
   'react/style-prop-object': 'off', // we allow to use string as prop
   'react/require-default-props': 'off',
@@ -313,6 +311,10 @@ const namingConventionRule = {
         regex: finalExcludeRegex,
       },
     },
+    {
+      selector: 'import',
+      format: ['camelCase', 'PascalCase'],
+    },
   ],
 };
 
@@ -400,6 +402,8 @@ module.exports = {
     'metro.config.js',
     'rn-cli.config.js',
     '@hero24',
+    'android',
+    'ios',
   ],
   rules: {
     ...initialRules,

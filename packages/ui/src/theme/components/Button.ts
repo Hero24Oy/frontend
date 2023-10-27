@@ -1,7 +1,13 @@
-import { ButtonVariant } from 'components/atoms/Button';
+import {
+  Color,
+  FontSize,
+  FontWeight,
+  IconSize,
+  LineHeight,
+} from '../constants';
+import { ComponentTheme, DescendantStyleName, Size } from '../types';
 
-import { IconSize } from '../constants';
-import { ComponentTheme, DescendantStyle, Size } from '../types';
+import { ButtonVariant } from '$components/atoms/Button';
 
 export const Button = {
   theme: {
@@ -16,8 +22,8 @@ export const Button = {
     borderWidth: 1,
     _text: {
       textDecorationLine: 'none',
-      fontWeight: '$medium',
-      lineHeight: '$default',
+      fontWeight: FontWeight.MEDIUM,
+      lineHeight: LineHeight.DEFAULT,
     },
     variants: {
       size: {
@@ -25,7 +31,7 @@ export const Button = {
           width: '100%',
           paddingVertical: 11,
           _text: {
-            fontSize: '$small',
+            fontSize: FontSize.SMALL,
           },
           _icon: {
             width: IconSize.SMALL,
@@ -41,7 +47,7 @@ export const Button = {
         [Size.MEDIUM]: {
           paddingVertical: 10,
           _text: {
-            fontSize: '$small',
+            fontSize: FontSize.SMALL,
           },
           _icon: {
             width: IconSize.SMALL,
@@ -57,7 +63,7 @@ export const Button = {
         [Size.SMALL]: {
           paddingVertical: 8,
           _text: {
-            fontSize: '$extraSmall',
+            fontSize: FontSize.EXTRA_SMALL,
           },
           _icon: {
             width: IconSize.EXTRA_SMALL,
@@ -73,127 +79,127 @@ export const Button = {
       },
       variant: {
         [ButtonVariant.SOLID]: {
-          backgroundColor: '$dark_01',
-          borderColor: '$transparent',
+          backgroundColor: Color.DARK_01,
+          borderColor: Color.TRANSPARENT,
           _text: {
-            color: '$white_01',
+            color: Color.WHITE_01,
           },
           _icon: {
-            color: '$white_01',
+            color: Color.WHITE_01,
           },
           _spinner: {
             props: {
-              color: '$white_01',
+              color: Color.WHITE_01,
             },
           },
           ':disabled': {
-            backgroundColor: '$gray_02',
+            backgroundColor: Color.GRAY_02,
           },
           ':hover': {
-            backgroundColor: '$red_01',
+            backgroundColor: Color.RED_01,
           },
           ':active': {
-            backgroundColor: '$gray_05',
+            backgroundColor: Color.GRAY_05,
           },
           ':focusVisible': {
-            borderColor: '$blue_01',
+            borderColor: Color.BLUE_01,
           },
         },
         [ButtonVariant.OUTLINE]: {
-          backgroundColor: '$transparent',
-          borderColor: '$gray_02',
+          backgroundColor: Color.TRANSPARENT,
+          borderColor: Color.GRAY_02,
           _text: {
-            color: '$dark_01',
+            color: Color.DARK_01,
           },
           _icon: {
-            color: '$dark_01',
+            color: Color.DARK_01,
           },
           _spinner: {
             props: {
-              color: '$gray_02',
+              color: Color.GRAY_02,
             },
           },
           ':disabled': {
-            borderColor: '$gray_02',
-            backgroundColor: '$gray_03',
+            borderColor: Color.GRAY_02,
+            backgroundColor: Color.GRAY_03,
             _text: {
-              color: '$gray_02',
+              color: Color.GRAY_02,
             },
             _icon: {
-              color: '$gray_02',
+              color: Color.GRAY_02,
             },
           },
           ':hover': {
             borderColor: 'none',
-            backgroundColor: '$dark_01',
+            backgroundColor: Color.DARK_01,
             _text: {
-              color: '$white_01',
+              color: Color.WHITE_01,
             },
             _icon: {
-              color: '$white_01',
+              color: Color.WHITE_01,
             },
           },
           ':active': {
-            borderColor: '$gray_05',
-            backgroundColor: '$transparent',
+            borderColor: Color.GRAY_05,
+            backgroundColor: Color.TRANSPARENT,
             _text: {
-              color: '$gray_05',
+              color: Color.GRAY_05,
             },
             _icon: {
-              color: '$gray_05',
+              color: Color.GRAY_05,
             },
           },
           ':focusVisible': {
-            borderColor: '$blue_01',
+            borderColor: Color.BLUE_01,
             _text: {
-              color: '$dark_01',
+              color: Color.DARK_01,
             },
             _icon: {
-              color: '$dark_01',
+              color: Color.DARK_01,
             },
           },
         },
         [ButtonVariant.LINK]: {
-          backgroundColor: '$transparent',
-          borderColor: '$transparent',
+          backgroundColor: Color.TRANSPARENT,
+          borderColor: Color.TRANSPARENT,
           _text: {
-            color: '$dark_01',
+            color: Color.DARK_01,
           },
           _icon: {
-            color: '$dark_01',
+            color: Color.DARK_01,
           },
           _spinner: {
             props: {
-              color: '$gray_04',
+              color: Color.GRAY_04,
             },
           },
           ':disabled': {
             _text: {
-              color: '$gray_04',
+              color: Color.GRAY_04,
             },
             _icon: {
-              color: '$gray_04',
+              color: Color.GRAY_04,
             },
           },
           ':hover': {
             _text: {
-              color: '$red_01',
+              color: Color.RED_01,
             },
             _icon: {
-              color: '$red_01',
+              color: Color.RED_01,
             },
           },
           ':active': {
-            borderColor: '$gray_05',
+            borderColor: Color.GRAY_05,
             _text: {
-              color: '$gray_05',
+              color: Color.GRAY_05,
             },
             _icon: {
-              color: '$gray_05',
+              color: Color.GRAY_05,
             },
           },
           ':focusVisible': {
-            borderColor: '$blue_01',
+            borderColor: Color.BLUE_01,
           },
         },
       },
@@ -201,9 +207,9 @@ export const Button = {
   },
   componentConfig: {
     descendantStyle: [
-      DescendantStyle.TEXT,
-      DescendantStyle.ICON,
-      DescendantStyle.SPINNER,
+      DescendantStyleName.TEXT,
+      DescendantStyleName.ICON,
+      DescendantStyleName.SPINNER,
     ],
   },
 } satisfies ComponentTheme;
