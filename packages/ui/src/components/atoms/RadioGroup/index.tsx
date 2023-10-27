@@ -1,5 +1,5 @@
 import { RadioGroup as GluestackRadioGroup } from '@gluestack-ui/themed';
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 
 import { GluestackRadioGroupProps } from './types';
 

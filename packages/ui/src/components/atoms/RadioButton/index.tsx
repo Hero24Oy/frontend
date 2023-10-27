@@ -2,7 +2,7 @@ import {
   Radio as GluestackRadio,
   RadioLabel as GluestackRadioLabel,
 } from '@gluestack-ui/themed';
-import React, { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
 import { RadioVariant } from '../RadioGroup';
 
