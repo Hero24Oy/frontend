@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
 
-import { Button, Input, VStack } from '@hero24/ui';
+import { Button, IconButton, Input, PlusIcon, VStack } from '@hero24/ui';
 
 interface FormData {
   email: string;
