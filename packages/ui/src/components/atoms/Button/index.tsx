@@ -6,10 +6,11 @@ import {
 } from '@gluestack-ui/themed';
 import React, { FC, ForwardedRef, forwardRef } from 'react';
 import { PressableProps, StyleSheet } from 'react-native';
-import { Size } from 'theme/types';
-import { CommonStyles } from 'types';
 
 import { ButtonVariant, Direction, GluestackButtonProps } from './types';
+
+import { Size } from '$theme/types';
+import { CommonStyles } from '$types';
 
 type Props = {
   children: string;

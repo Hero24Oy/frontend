@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { Size } from 'theme/types';
+
+import { Size } from '$theme/types';
 
 type Props = {
   color?: string;

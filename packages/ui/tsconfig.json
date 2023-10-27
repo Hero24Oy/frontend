@@ -9,7 +9,8 @@
       "$theme": ["theme"],
       "$theme/*": ["theme/*"],
       "$types": ["types"],
-      "$hooks": ["hooks"]
+      "$hooks": ["hooks"],
+      "$icons/*": ["icons/*"]
     }
   },
   "extends": "@hero24/configs/tsconfig.json",

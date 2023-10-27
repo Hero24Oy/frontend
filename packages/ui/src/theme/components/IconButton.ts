@@ -1,5 +1,6 @@
 import { IconSize } from '../constants';
-import { ComponentTheme, DescendantStyle, Size } from '../types';
+
+import { ComponentTheme, DescendantStyleName, Size } from '$theme/types';
 
 export const IconButton = {
   theme: {
@@ -36,5 +37,5 @@ export const IconButton = {
       },
     },
   },
-  componentConfig: { descendantStyle: [DescendantStyle.ICON] },
+  componentConfig: { descendantStyle: [DescendantStyleName.ICON] },
 } satisfies ComponentTheme;
