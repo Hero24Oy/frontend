@@ -7,7 +7,7 @@
 _Run it in the root:_
 
 ```bash
-npm install
+yarn
 ```
 
 ### 2. Watch packages
@@ -17,7 +17,7 @@ This command watches changes in packages and automatically updates them in the a
 _We should start watching packages during development, so run it in the root:_
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 ### 3. Environments:
@@ -36,11 +36,11 @@ Ensure that the .env and google-play-services.json files are placed in their app
 _Use the following scripts from the apps/\*\*/ directories_
 
 ```bash
-npm run ios
+yarn ios
 
 # or
 
-npm run android
+yarn android
 ```
 
 ## Project structure:

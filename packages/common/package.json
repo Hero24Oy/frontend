@@ -8,20 +8,19 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "engines": {
-    "node": "^18.18",
-    "npm": "^9.8"
+    "node": "^18.18"
   },
   "scripts": {
-    "dev": "npm run build -- --watch",
+    "dev": "yarn build --watch",
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "pretty": "prettier --write . --log-level warn",
     "lint": "eslint . --fix"
   },
   "devDependencies": {
-    "@gluestack-style/react": "^1.0.8",
-    "@gluestack-ui/themed": "^1.0.8",
-    "@gluestack-ui/config": "1.0.1",
     "@cspell/eslint-plugin": "^7.3.6",
+    "@gluestack-style/react": "^1.0.8",
+    "@gluestack-ui/config": "1.0.1",
+    "@gluestack-ui/themed": "^1.0.8",
     "@types/lodash": "^4.14.199",
     "@types/react": "^18.2.23",
     "@typescript-eslint/eslint-plugin": "^6.6.0",

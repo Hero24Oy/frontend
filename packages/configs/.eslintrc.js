@@ -313,6 +313,10 @@ const namingConventionRule = {
         regex: finalExcludeRegex,
       },
     },
+    {
+      selector: 'import',
+      format: ['camelCase', 'PascalCase'],
+    },
   ],
 };
 
@@ -388,6 +392,8 @@ module.exports = {
     'metro.config.js',
     'rn-cli.config.js',
     '@hero24',
+    'android',
+    'ios',
   ],
   rules: {
     ...initialRules,

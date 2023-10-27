@@ -19,7 +19,8 @@
     "noImplicitReturns": false,
     "strict": true,
     "noImplicitAny": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "forceConsistentCasingInFileNames": false
   },
   "extends": "expo/tsconfig.base",
   "exclude": ["node_modules", "dist"],
