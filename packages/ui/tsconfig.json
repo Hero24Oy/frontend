@@ -6,10 +6,14 @@
       "$components": ["components"],
       "$components/*": ["components/*"],
       "$atoms": ["atoms"],
+      "$atoms/*": ["atoms/*"],
       "$theme": ["theme"],
       "$theme/*": ["theme/*"],
       "$types": ["types"],
+      "$types/*": ["types/*"],
       "$hooks": ["hooks"],
+      "$hooks/*": ["hooks/*"],
+      "$icons": ["icons"],
       "$icons/*": ["icons/*"]
     }
   },
