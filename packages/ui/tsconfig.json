@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "$ui/providers": ["providers"],
+      "$providers": ["providers"],
       "$components": ["components"],
       "$components/*": ["components/*"],
       "$atoms": ["atoms"],
