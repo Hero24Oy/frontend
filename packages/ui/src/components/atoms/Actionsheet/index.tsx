@@ -11,23 +11,15 @@ import {
 } from '@gluestack-ui/themed';
 import React, { FC } from 'react';
 
-import { ActionsheetDragIndicator } from './ActionsheetDragIndicator';
-import { ActionsheetItems } from './ActionsheetItems';
+import { ActionsheetDragIndicator, ActionsheetItems } from './components';
 import { GluestackActionsheetProps, Item } from './types';
 
-import { CommonStyles } from '$types';
-
-type PickedProps = CommonStyles &
-  Pick<GluestackActionsheetProps, 'isOpen' | 'onOpen' | 'onClose'>;
-
-type CustomProps = {
+type Props = {
   items: Item[];
   showDragIndicator?: boolean;
-};
+} & GluestackActionsheetProps;
 
-export type ActionsheetProps = CustomProps & PickedProps;
-
-export const Actionsheet: FC<ActionsheetProps> = (props) => {
+export const Actionsheet: FC<Props> = (props) => {
   const { showDragIndicator, items, ...restProps } = props;
 
   return (
@@ -40,3 +32,5 @@ export const Actionsheet: FC<ActionsheetProps> = (props) => {
     </GluestackActionsheet>
   );
 };
+
+export * from './types';

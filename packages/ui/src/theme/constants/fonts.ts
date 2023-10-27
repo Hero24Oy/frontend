@@ -1,3 +1,3 @@
-export enum Fonts {
+export enum Font {
   MAIN = 'Onest',
 }
