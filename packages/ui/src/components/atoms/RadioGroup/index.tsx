@@ -8,13 +8,9 @@ type Props = {
 } & GluestackRadioGroupProps;
 
 export const RadioGroup: FC<Props> = (props) => {
-  const { children, onChange, value, ...rest } = props;
+  const { children, ...restProps } = props;
 
-  return (
-    <GluestackRadioGroup value={value} onChange={onChange} {...rest}>
-      {children}
-    </GluestackRadioGroup>
-  );
+  return <GluestackRadioGroup {...restProps}>{children}</GluestackRadioGroup>;
 };
 
 export * from './types';

@@ -1,3 +1,3 @@
-export enum Font {
-  MAIN = 'Onest',
-}
+export const fonts = {
+  main: 'Onest',
+} as const;
