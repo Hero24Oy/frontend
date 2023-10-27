@@ -1,9 +1,5 @@
 words:
-  # gluestack
-  - 'gluestack'
-
-  # react-native
-  - 'pressable'
-
-  # Font names
+  - actionsheet
+  - gluestack
+  - pressable
   - Onest

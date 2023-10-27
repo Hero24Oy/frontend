@@ -24,6 +24,7 @@
     "@react-navigation/native": "^6.0.2",
     "expo": "^49.0.11",
     "lucide-react-native": "^0.288.0",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-combine-providers": "^0.9.6",
     "react-dom": "18.2.0",
