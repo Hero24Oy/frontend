@@ -1,39 +1,27 @@
+import { styled } from '@gluestack-style/react';
 import React, { ComponentProps, FC, PropsWithChildren } from 'react';
-import { StyleSheet } from 'react-native';
 
 import { Box } from '$atoms';
+import { CommonStyles } from '$types';
 
 type BoxProps = ComponentProps<typeof Box>;
 
-type Props = PropsWithChildren<{
-  backgroundColor?: BoxProps['backgroundColor'];
-  borderColor?: BoxProps['borderColor'];
-  borderRadius?: BoxProps['borderRadius'];
-  maxWidth?: BoxProps['maxWidth'];
-  sx?: BoxProps['sx'];
-}>;
+type PropsForPick =
+  | 'backgroundColor'
+  | 'borderColor'
+  | 'borderRadius'
+  | 'maxWidth';
+
+type Props = PropsWithChildren<
+  Pick<BoxProps, PropsForPick> & {
+    style: CommonStyles;
+  }
+>;
+
+export const GluestackCard = styled(Box, {}, { componentName: 'Card' });
 
 export const Card: FC<Props> = (props) => {
-  const { borderRadius, borderColor, maxWidth, sx, backgroundColor, children } =
-    props;
+  const { children, ...rest } = props;
 
-  return (
-    <Box
-      borderRadius={borderRadius}
-      borderColor={borderColor}
-      maxWidth={maxWidth}
-      sx={sx}
-      backgroundColor={backgroundColor}
-      overflow="hidden"
-      style={styles.card}
-    >
-      {children}
-    </Box>
-  );
+  return <GluestackCard {...rest}>{children}</GluestackCard>;
 };
-
-const styles = StyleSheet.create({
-  card: {
-    padding: 16,
-  },
-});

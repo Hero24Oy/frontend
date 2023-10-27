@@ -3,6 +3,7 @@
     "baseUrl": "./src",
     "paths": {
       "$providers": ["providers"],
+      "$types": ["types"],
       "$atoms": ["components/atoms/index"],
       "$molecules": ["components/molecules/index"]
     }
