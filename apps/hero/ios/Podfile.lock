@@ -20,7 +20,7 @@ PODS:
     - ExpoModulesCore
   - EXNotifications (0.20.1):
     - ExpoModulesCore
-  - Expo (49.0.13):
+  - Expo (49.0.16):
     - ExpoModulesCore
   - expo-dev-client (2.4.11):
     - EXManifests
@@ -79,11 +79,11 @@ PODS:
     - React-Core
   - ExpoAppleAuthentication (6.1.2):
     - ExpoModulesCore
-  - ExpoCrypto (12.6.0):
+  - ExpoCrypto (12.4.1):
     - ExpoModulesCore
   - ExpoDevice (5.4.0):
     - ExpoModulesCore
-  - ExpoHead (0.0.15):
+  - ExpoHead (0.0.16):
     - ExpoModulesCore
   - ExpoImagePicker (14.5.0):
     - ExpoModulesCore
@@ -106,7 +106,7 @@ PODS:
     - RCT-Folly (= 2021.07.22.00)
     - React-Core
   - EXStructuredHeaders (3.3.0)
-  - EXUpdates (0.18.15):
+  - EXUpdates (0.18.17):
     - ASN1Decoder (~> 1.8)
     - EASClient
     - EXManifests
@@ -548,13 +548,15 @@ PODS:
     - React-jsi (= 0.72.5)
     - React-logger (= 0.72.5)
     - React-perflogger (= 0.72.5)
-  - RNCAsyncStorage (1.19.3):
+  - RNCAsyncStorage (1.18.2):
     - React-Core
   - RNGestureHandler (2.12.1):
     - React-Core
   - RNScreens (3.22.1):
     - React-Core
     - React-RCTImage
+  - RNSVG (13.14.0):
+    - React-Core
   - SocketRocket (0.6.1)
   - Yoga (1.14.0)
 
@@ -631,6 +633,7 @@ DEPENDENCIES:
   - "RNCAsyncStorage (from `../../../node_modules/@react-native-async-storage/async-storage`)"
   - RNGestureHandler (from `../../../node_modules/react-native-gesture-handler`)
   - RNScreens (from `../../../node_modules/react-native-screens`)
+  - RNSVG (from `../../../node_modules/react-native-svg`)
   - Yoga (from `../../../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -783,6 +786,8 @@ EXTERNAL SOURCES:
     :path: "../../../node_modules/react-native-gesture-handler"
   RNScreens:
     :path: "../../../node_modules/react-native-screens"
+  RNSVG:
+    :path: "../../../node_modules/react-native-svg"
   Yoga:
     :path: "../../../node_modules/react-native/ReactCommon/yoga"
 
@@ -799,15 +804,15 @@ SPEC CHECKSUMS:
   EXJSONUtils: 6802be4282d42b97c51682468ddc1026a06f8276
   EXManifests: cf66451b11b2c2f6464917528d792759f7fd6ce0
   EXNotifications: 09394cbd7165f9a4a00a53328aa09bf874bae717
-  Expo: e7d2116b947e2e6fdeb09ee4f2754f819426d1b6
+  Expo: fcfd60c1ed6806dee5103b210335ae0c72f675ed
   expo-dev-client: a97a68508a6104ad99f4b2613fd808cda7a4186c
   expo-dev-launcher: 7336e6dc8ed51b87225f8a96d787add81a99748c
   expo-dev-menu: 9542570483a647626570cb4333c80add4cea1254
   expo-dev-menu-interface: bda969497e73dadc2663c479e0fa726ca79a306e
   ExpoAppleAuthentication: 8c95178a99e7fdb8aea1e3f6385843708471c3df
-  ExpoCrypto: 42485127a5968dda6f67ac5f2b42d3c0af31d7db
+  ExpoCrypto: a382ab9a2fa91f0b511ce1fe4d6baecee40a1615
   ExpoDevice: 1c1b0c9cad96c292c1de73948649cfd654b2b3c0
-  ExpoHead: 249669d2a6c1d55846bb15d7f22d0d294aaf060f
+  ExpoHead: 1de3e6e6e5d63560875c7f4f128c58053be5d960
   ExpoImagePicker: 9e5c745cb3e56ee00e1cfe5d6af59caab66ecf1a
   ExpoKeepAwake: be4cbd52d9b177cde0fd66daa1913afa3161fc1d
   ExpoLinearGradient: 5966dd5d49872cc9c104fedc8bbc298b6049b2e8
@@ -816,7 +821,7 @@ SPEC CHECKSUMS:
   ExpoWebBrowser: 2c788f9c07718a780fe6d8bf2f6195c47609faaa
   EXSplashScreen: c0e7f2d4a640f3b875808ed0b88575538daf6d82
   EXStructuredHeaders: 324cc3130571d2696357fafd8be7fd9a0b5fdf6e
-  EXUpdates: a5b52aadbbd603e1841ada29f9d534ef14cb9a86
+  EXUpdates: 8f03b362414e8f9f0998f8a6d6c9fc00f2a9d2f2
   EXUpdatesInterface: 82ed48d417cdcd376c12ca1c2ce390d35500bed6
   FBLazyVector: 71803c074f6325f10b5ec891c443b6bbabef0ca7
   FBReactNativeSpec: 118e3d6e8f0a196f9716304bfa1a5c39ea2ad7a4
@@ -858,9 +863,10 @@ SPEC CHECKSUMS:
   React-runtimescheduler: cc32add98c45c5df18436a6a52a7e1f6edec102c
   React-utils: 7a9918a1ffdd39aba67835d42386f592ea3f8e76
   ReactCommon: 91ece8350ebb3dd2be9cef662abd78b6948233c0
-  RNCAsyncStorage: c913ede1fa163a71cea118ed4670bbaaa4b511bb
+  RNCAsyncStorage: ddc4ee162bfd41b0d2c68bf2d95acd81dd7f1f93
   RNGestureHandler: c0d04458598fcb26052494ae23dda8f8f5162b13
   RNScreens: 50ffe2fa2342eabb2d0afbe19f7c1af286bc7fb3
+  RNSVG: d00c8f91c3cbf6d476451313a18f04d220d4f396
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   Yoga: 86fed2e4d425ee4c6eab3813ba1791101ee153c6
 
