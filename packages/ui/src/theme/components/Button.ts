@@ -1,7 +1,7 @@
-import { ButtonSize, ButtonVariant } from 'components/atoms/Button';
+import { ButtonVariant } from 'components/atoms/Button';
 
 import { IconSize } from '../constants';
-import { ComponentTheme, DescendantStyle } from '../types';
+import { ComponentTheme, DescendantStyle, Size } from '../types';
 
 export const Button = {
   theme: {
@@ -21,7 +21,7 @@ export const Button = {
     },
     variants: {
       size: {
-        [ButtonSize.LARGE]: {
+        [Size.LARGE]: {
           width: '100%',
           paddingVertical: 11,
           _text: {
@@ -38,7 +38,7 @@ export const Button = {
             },
           },
         },
-        [ButtonSize.MEDIUM]: {
+        [Size.MEDIUM]: {
           paddingVertical: 10,
           _text: {
             fontSize: '$small',
@@ -54,7 +54,7 @@ export const Button = {
             },
           },
         },
-        [ButtonSize.SMALL]: {
+        [Size.SMALL]: {
           paddingVertical: 8,
           _text: {
             fontSize: '$extraSmall',

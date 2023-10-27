@@ -23,3 +23,9 @@ export enum DescendantStyle {
   ICON = '_icon',
   SPINNER = '_spinner',
 }
+
+export enum Size {
+  SMALL = 'sm',
+  MEDIUM = 'md',
+  LARGE = 'lg',
+}

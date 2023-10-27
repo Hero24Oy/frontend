@@ -1,7 +1,5 @@
-import { IconSizes } from 'components/atoms/IconButton';
-
 import { IconSize } from '../constants';
-import { ComponentTheme, DescendantStyle } from '../types';
+import { ComponentTheme, DescendantStyle, Size } from '../types';
 
 export const IconButton = {
   theme: {
@@ -14,21 +12,21 @@ export const IconButton = {
     },
     variants: {
       size: {
-        [IconSizes.LARGE]: {
+        [Size.LARGE]: {
           _icon: {
             props: {
               size: IconSize.LARGE,
             },
           },
         },
-        [IconSizes.MEDIUM]: {
+        [Size.MEDIUM]: {
           _icon: {
             props: {
               size: IconSize.MEDIUM,
             },
           },
         },
-        [IconSizes.SMALL]: {
+        [Size.SMALL]: {
           _icon: {
             props: {
               size: IconSize.SMALL,

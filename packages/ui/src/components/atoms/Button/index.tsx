@@ -6,20 +6,16 @@ import {
 } from '@gluestack-ui/themed';
 import React, { FC, ForwardedRef, forwardRef } from 'react';
 import { PressableProps, StyleProp, StyleSheet, ViewStyle } from 'react-native';
+import { Size } from 'theme/types';
 
-import {
-  ButtonSize,
-  ButtonVariant,
-  Direction,
-  GluestackButtonProps,
-} from './types';
+import { ButtonVariant, Direction, GluestackButtonProps } from './types';
 
 type Props = {
   children: string;
   icon?: FC;
   iconDirection?: `${Direction}`;
   isLoading?: boolean;
-  size?: `${ButtonSize}`;
+  size?: `${Size}`;
   style?: StyleProp<ViewStyle>;
   variant?: `${ButtonVariant}`;
 } & GluestackButtonProps;
@@ -30,7 +26,7 @@ const ButtonInner = (
 ): JSX.Element => {
   const {
     children,
-    size = ButtonSize.MEDIUM,
+    size = Size.MEDIUM,
     variant = ButtonVariant.SOLID,
     isDisabled = false,
     isLoading = false,
