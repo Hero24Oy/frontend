@@ -9,5 +9,7 @@ export type Item = {
   Icon?: FC;
 } & Pick<PressableProps, 'onPress'>;
 
+type ActionSheetProps = Parameters<typeof Actionsheet>[0];
+
 export type GluestackActionsheetProps = CommonStyles &
-  Pick<Parameters<typeof Actionsheet>[0], 'isOpen' | 'onOpen' | 'onClose'>;
+  Pick<ActionSheetProps, 'isOpen' | 'onOpen' | 'onClose'>;
