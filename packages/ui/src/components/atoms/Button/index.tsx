@@ -2,7 +2,7 @@ import {
   Button as GluestackButton,
   ButtonText as GluestackTextOrigin,
 } from '@gluestack-ui/themed';
-import React, { FC, PropsWithChildren, ReactNode } from 'react';
+import { FC, PropsWithChildren, ReactNode } from 'react';
 import { CommonStyles } from 'types';
 
 interface Props extends PropsWithChildren {

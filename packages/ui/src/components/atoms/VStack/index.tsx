@@ -1,5 +1,5 @@
 import { VStack as GluestackVStack } from '@gluestack-ui/themed';
-import React, { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { StyleSheet } from 'react-native';
 import { LayoutStyles } from 'types';
 

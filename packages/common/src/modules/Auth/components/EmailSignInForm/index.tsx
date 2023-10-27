@@ -1,6 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { emailSignInFormValidationSchema } from 'core/validation';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
 

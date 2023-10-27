@@ -6,7 +6,7 @@ import {
   Text,
   VStack,
 } from '@gluestack-ui/themed';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { AlertAction } from './constants';

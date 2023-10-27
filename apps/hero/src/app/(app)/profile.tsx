@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import { FC, useCallback } from 'react';
 
 import { useCachedGraphQlUser, useLogout } from '@hero24/common';
 import { Button, Text, View } from '@hero24/ui';

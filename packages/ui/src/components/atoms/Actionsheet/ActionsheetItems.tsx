@@ -3,7 +3,7 @@ import {
   ActionsheetItemText,
   AlertIcon,
 } from '@gluestack-ui/themed';
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 
 import { Item } from './types';
 
