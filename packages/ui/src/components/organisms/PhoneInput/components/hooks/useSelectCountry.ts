@@ -1,33 +1,35 @@
 import { useCallback, useEffect, useState } from 'react';
 import { FieldValues, useController } from 'react-hook-form';
 import { Country } from 'react-native-country-picker-modal';
-import { Maybe } from 'types';
 
 import { PhoneInputProps } from '../../types';
-import { codeWithPrefix, getInitialCountry } from '../helpers';
+import { addCodePrefix, getInitialCountry } from '../helpers';
+import { SelectCountryProps } from '../SelectCountry';
 
 interface ReturnType {
-  onCodeSelect: (code: string) => void;
-  onCountrySelect: (country: Country) => void;
-  selectedCode: string;
-  selectedCountry?: Maybe<Country>;
+  isLoading: boolean;
+  selectCountryProps: SelectCountryProps;
 }
 
 export const useSelectCountry = <Type extends FieldValues>(
   props: PhoneInputProps<Type>,
 ): ReturnType => {
-  const { control, codeFieldName, initialCountryCode } = props;
+  const { control, codeFieldName, initialCountryCode, preferredCountryCodes } =
+    props;
 
   const [selectedCountry, setSelectedCountry] = useState<Country | null>();
+  const [isLoading, setIsLoading] = useState(false);
 
   const {
     field: { value, onChange },
   } = useController({ name: codeFieldName, control });
 
   const initCountry = useCallback(async (): Promise<void> => {
+    setIsLoading(true);
     const initialCountry = await getInitialCountry(initialCountryCode);
 
     setSelectedCountry(initialCountry);
+    setIsLoading(false);
   }, [initialCountryCode]);
 
   const onCountrySelect = useCallback(
@@ -38,7 +40,7 @@ export const useSelectCountry = <Type extends FieldValues>(
   );
 
   useEffect(() => {
-    onChange(codeWithPrefix(selectedCountry?.callingCode[0]));
+    onChange(addCodePrefix(selectedCountry?.callingCode[0]));
   }, [selectedCountry]);
 
   useEffect(() => {
@@ -47,15 +49,19 @@ export const useSelectCountry = <Type extends FieldValues>(
 
   const onCodeSelect = useCallback(
     (callingCode: string): void => {
-      onChange(codeWithPrefix(callingCode));
+      onChange(addCodePrefix(callingCode));
     },
     [onChange],
   );
 
   return {
-    onCountrySelect,
-    selectedCountry,
-    onCodeSelect,
-    selectedCode: value,
+    isLoading,
+    selectCountryProps: {
+      onCountrySelect,
+      selectedCountry,
+      onCodeSelect,
+      preferredCountryCodes,
+      selectedCode: value,
+    },
   };
 };
