@@ -9,7 +9,7 @@ import {
   ActionsheetBackdrop,
   ActionsheetContent,
 } from '@gluestack-ui/themed';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import { ActionsheetDragIndicator, ActionsheetItems } from './components';
 import { GluestackActionsheetProps, Item } from './types';
