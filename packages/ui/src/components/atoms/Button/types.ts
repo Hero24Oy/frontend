@@ -21,6 +21,6 @@ export enum ButtonVariant {
 
 type ButtonProps = ComponentProps<typeof Button>;
 
-type PickedFields = 'size' | 'variant' | 'isDisabled' | 'onPress';
+type PickedFields = 'isDisabled' | 'onPress';
 
 export type GluestackButtonProps = Pick<ButtonProps, PickedFields>;
