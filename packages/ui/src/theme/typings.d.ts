@@ -1,5 +1,5 @@
 import { ButtonSize, ButtonVariant, RadioVariant } from '$components';
-import { SxValues } from '$theme/types';
+import { SxValues } from '$theme';
 
 declare module '@gluestack-ui/themed' {
   interface UIComponents {

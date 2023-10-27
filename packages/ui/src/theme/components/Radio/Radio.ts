@@ -1,6 +1,12 @@
-import { RadioVariant } from '$components/atoms/RadioGroup';
-import { Color, FontSize, FontWeight, LineHeight } from '$theme/constants';
-import { ComponentTheme, DescendantStyleName } from '$theme/types';
+import { RadioVariant } from '$components';
+import {
+  Color,
+  ComponentTheme,
+  DescendantStyleName,
+  FontSize,
+  FontWeight,
+  LineHeight,
+} from '$theme';
 
 export const Radio = {
   theme: {

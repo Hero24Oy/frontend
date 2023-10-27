@@ -1,4 +1,4 @@
-import { ComponentTheme } from '$theme/types';
+import { ComponentTheme } from '$theme';
 
 export const RadioGroup = {
   theme: {

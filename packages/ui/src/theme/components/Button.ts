@@ -7,7 +7,7 @@ import {
 } from '../constants';
 import { ComponentTheme, DescendantStyleName, Size } from '../types';
 
-import { ButtonVariant } from '$components/atoms/Button';
+import { ButtonVariant } from '$components';
 
 export const Button = {
   theme: {

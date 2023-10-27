@@ -1,5 +1,4 @@
 import { LucideIcon } from 'lucide-react-native';
-import React from 'react';
 
 import { BaseIcon } from './types';
 
@@ -8,3 +7,5 @@ export const IconFactory =
   (props) => {
     return <Icon {...props} />;
   };
+
+export * from './types';
