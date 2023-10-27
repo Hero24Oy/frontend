@@ -1,4 +1,4 @@
 import { IconFabric } from 'icons/Base';
 import { ChevronLeft } from 'lucide-react-native';
 
-export const Left = IconFabric(ChevronLeft);
+export const LeftIcon = IconFabric(ChevronLeft);
