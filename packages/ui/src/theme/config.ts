@@ -14,7 +14,5 @@ export const uiLibraryConfig = createConfig({
     colors: Color,
     fonts: Font,
   },
-  components: {
-    ...components,
-  },
+  components,
 });

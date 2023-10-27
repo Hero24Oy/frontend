@@ -19,9 +19,7 @@ type Props = {
   icon?: FC;
   iconDirection?: `${Direction}`;
   isLoading?: boolean;
-  size?: `${ButtonSize}`;
   style?: StyleProp<ViewStyle>;
-  variant?: `${ButtonVariant}`;
 } & GluestackButtonProps;
 
 const ButtonInner = (
