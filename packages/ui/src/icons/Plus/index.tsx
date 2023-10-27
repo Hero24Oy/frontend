@@ -1,4 +1,4 @@
-import { IconFabric } from 'icons/Base';
+import { IconFactory } from 'icons/Base';
 import { Plus as LucidePlus } from 'lucide-react-native';
 
-export const PlusIcon = IconFabric(LucidePlus);
+export const PlusIcon = IconFactory(LucidePlus);

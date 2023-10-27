@@ -1,4 +1,4 @@
-import { IconFabric } from 'icons/Base';
+import { IconFactory } from 'icons/Base';
 import { Trash } from 'lucide-react-native';
 
-export const DeleteIcon = IconFabric(Trash);
+export const DeleteIcon = IconFactory(Trash);
