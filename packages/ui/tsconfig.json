@@ -4,7 +4,8 @@
     "paths": {
       "$ui/providers": ["providers"],
       "$atoms": ["components/atoms/index"],
-      "$molecules": ["components/molecules/index"]
+      "$molecules": ["components/molecules/index"],
+      "$types": ["types"]
     }
   },
   "extends": "@hero24/configs/tsconfig.json",
