@@ -14,15 +14,17 @@ import { CommonStyles } from 'types';
 
 import { ActionsheetDragIndicator } from './ActionsheetDragIndicator';
 import { ActionsheetItems } from './ActionsheetItems';
-import { Item } from './types';
+import { GluestackActionsheetProps, Item } from './types';
 
-type ActionsheetProps = {
-  isOpen: boolean;
+type PickedProps = CommonStyles &
+  Pick<GluestackActionsheetProps, 'isOpen' | 'onOpen' | 'onClose'>;
+
+type CustomProps = {
   items: Item[];
-  onClose?: () => void;
-  onPress?: () => void;
   showDragIndicator?: boolean;
-} & CommonStyles;
+};
+
+export type ActionsheetProps = CustomProps & PickedProps;
 
 export const Actionsheet: FC<ActionsheetProps> = (props) => {
   const { showDragIndicator, items, ...restProps } = props;
