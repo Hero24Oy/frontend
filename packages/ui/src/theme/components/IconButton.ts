@@ -1,16 +1,16 @@
 import { IconSizes } from 'components/atoms/IconButton';
-import { DescendantStyle } from 'theme/types';
 
-import { Color, IconSize } from '../constants';
+import { IconSize } from '../constants';
+import { ComponentTheme, DescendantStyle } from '../types';
 
 export const IconButton = {
   theme: {
     alignSelf: 'flex-start',
     padding: 10,
     borderRadius: 10,
-    backgroundColor: Color.GRAY_06,
+    backgroundColor: '$gray_06',
     _icon: {
-      color: Color.BLACK_01,
+      color: '$black_01',
     },
     variants: {
       size: {
@@ -39,4 +39,4 @@ export const IconButton = {
     },
   },
   componentConfig: { descendantStyle: [DescendantStyle.ICON] },
-};
+} satisfies ComponentTheme;
