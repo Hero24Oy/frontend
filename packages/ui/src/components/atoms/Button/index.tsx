@@ -4,7 +4,7 @@ import {
   ButtonSpinner as GluestackButtonSpinner,
   ButtonText as GluestackTextOrigin,
 } from '@gluestack-ui/themed';
-import React, { FC, ForwardedRef, forwardRef } from 'react';
+import { FC, ForwardedRef, forwardRef } from 'react';
 import { PressableProps, StyleSheet } from 'react-native';
 
 import { ButtonVariant, Direction, GluestackButtonProps } from './types';
