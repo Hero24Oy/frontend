@@ -6,7 +6,7 @@ import {
   CheckIcon,
   RemoveIcon,
 } from '@gluestack-ui/themed';
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 import { Size } from 'types';
 
 export type CheckboxOption = {
@@ -37,10 +37,17 @@ export type CheckboxProps = PickedProps & CustomProps;
 export const Checkbox: FC<CheckboxProps> = (props) => {
   const { value, label, isIndeterminate, ...restProps } = props;
 
+  // * this is a stub, will be dealt with
+  // TODO fix this
+  const IconMemoized = useCallback(
+    () => (isIndeterminate ? RemoveIcon : (CheckIcon as unknown)),
+    [isIndeterminate],
+  );
+
   return (
     <GluestackCheckbox aria-label={label} value={value} {...restProps}>
       <CheckboxIndicator>
-        <CheckboxIcon as={isIndeterminate ? RemoveIcon : CheckIcon} />
+        <CheckboxIcon as={IconMemoized} />
       </CheckboxIndicator>
       <CheckboxLabel>{label}</CheckboxLabel>
     </GluestackCheckbox>

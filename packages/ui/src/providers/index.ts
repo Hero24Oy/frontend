@@ -21,7 +21,8 @@ export const uiLibraryConfig = createConfig({
     CheckboxIcon,
     CheckboxLabel,
   },
-});
+}) as unknown;
+// * Cast to unknown to overcome ts error
 
 export const attachUiProviders = (manager: CombineProviders): void => {
   manager.push(GluestackUIProvider, { config: uiLibraryConfig });
