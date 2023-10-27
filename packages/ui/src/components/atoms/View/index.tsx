@@ -1,5 +1,5 @@
 import { View as GluestackView } from '@gluestack-ui/themed';
-import { FC, PropsWithChildren } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 
 import { LayoutStyles } from '$types';
 

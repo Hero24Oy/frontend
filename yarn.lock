@@ -11008,6 +11008,7 @@ __metadata:
     react-combine-providers: "npm:^0.9.6"
     react-dom: "npm:18.2.0"
     react-native: "npm:0.72.5"
+    react-native-confirmation-code-field: "npm:^7.3.2"
     react-native-dotenv: "npm:^3.4.9"
     react-native-gesture-handler: "npm:~2.12.0"
     react-native-safe-area-context: "npm:4.6.3"
