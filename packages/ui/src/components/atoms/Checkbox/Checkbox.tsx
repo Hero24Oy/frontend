@@ -14,17 +14,25 @@ export type CheckboxOption = {
   value: string;
 };
 
-export type CheckboxProps = {
+type GluestackCheckboxProps = Parameters<typeof GluestackCheckbox>[0];
+
+type PickedProps = Pick<
+  GluestackCheckboxProps,
+  | 'value'
+  | 'defaultIsChecked'
+  | 'isChecked'
+  | 'isDisabled'
+  | 'isIndeterminate'
+  | 'isInvalid'
+  | 'isRequired'
+  | 'onChange'
+>;
+
+export type CustomProps = {
   label: string;
-  value: string;
-  defaultIsChecked?: boolean;
-  isChecked?: boolean;
-  isDisabled?: boolean;
-  isIndeterminate?: boolean;
-  isInvalid?: boolean;
-  isRequired?: boolean;
-  onChange?: (isSelected: boolean) => void;
 } & Size;
+
+export type CheckboxProps = PickedProps & CustomProps;
 
 export const Checkbox: FC<CheckboxProps> = (props) => {
   const { value, label, isIndeterminate, ...restProps } = props;
