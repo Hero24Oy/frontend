@@ -11,17 +11,19 @@
     "node": "^18.18"
   },
   "scripts": {
-    "dev": "yarn build -- --watch",
+    "dev": "yarn build --watch",
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "pretty": "prettier --write . --log-level warn",
     "lint": "eslint . --fix"
   },
   "dependencies": {
     "@gluestack-style/react": "^1.0.8",
+    "@gluestack-ui/config": "1.0.1",
     "@gluestack-ui/themed": "^1.0.8",
     "@hero24/configs": "*",
     "@react-navigation/native": "^6.0.2",
     "expo": "^49.0.11",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-combine-providers": "^0.9.6",
     "react-dom": "18.2.0",
