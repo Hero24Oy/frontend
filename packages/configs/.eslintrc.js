@@ -1,6 +1,4 @@
-const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = [
-  'heroBIOText',
-];
+const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = ['heroBIOText'];
 const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*VAT.*',
   '.*URL.*',
@@ -312,6 +310,10 @@ const namingConventionRule = {
         regex: finalExcludeRegex,
       },
     },
+    {
+      selector: 'import',
+      format: ['camelCase', 'PascalCase'],
+    },
   ],
 };
 
@@ -399,6 +401,8 @@ module.exports = {
     'metro.config.js',
     'rn-cli.config.js',
     '@hero24',
+    'android',
+    'ios',
   ],
   rules: {
     ...initialRules,
