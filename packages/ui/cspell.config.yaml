@@ -1,12 +1,12 @@
 words:
   # gluestack
-  - 'gluestack'
+  - gluestack
 
   # react-native
-  - 'pressable'
+  - pressable
 
   # Font names
   - Onest
 
   # lucide
-  - 'lucide'
+  - lucide
