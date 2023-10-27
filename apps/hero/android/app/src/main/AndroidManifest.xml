@@ -29,6 +29,7 @@
         <data android:scheme="com.hero24.hero"/>
         <data android:scheme="com.hero24.hero"/>
         <data android:scheme="exp+app-hero"/>
+        <data android:scheme="hero24-hero"/>
       </intent-filter>
     </activity>
     <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" android:exported="false"/>
