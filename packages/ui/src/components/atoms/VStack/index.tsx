@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 import { LayoutStyles } from 'types';
 
 interface Props extends PropsWithChildren {
-  style: LayoutStyles;
+  style?: LayoutStyles;
 }
 
 export const VStack: FC<Props> = (props) => {
