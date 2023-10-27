@@ -1,6 +1,5 @@
 import { RadioVariant } from 'components/atoms/RadioGroup';
 
-import { Color, FontSize, FontWeight, LineHeight } from '../constants';
 import { ComponentTheme, DescendantStyle } from '../types';
 
 export const Radio = {
@@ -8,24 +7,24 @@ export const Radio = {
     variants: {
       variant: {
         [RadioVariant.BUTTON]: {
-          borderColor: Color.GRAY_02,
+          borderColor: '$gray_02',
           borderWidth: 1,
           borderRadius: 8,
           gap: 4,
           _text: {
             textAlign: 'center',
-            color: Color.DARK_01,
-            fontSize: FontSize.SMALL,
-            fontWeight: FontWeight.NORMAL,
+            color: '$dark_01',
+            fontSize: '$small',
+            fontWeight: '$normal',
             paddingHorizontal: 12,
             paddingVertical: 8,
-            lineHeight: LineHeight.DEFAULT,
+            lineHeight: '$default',
           },
           ':checked': {
-            backgroundColor: Color.RED_01,
-            borderColor: Color.TRANSPARENT,
+            backgroundColor: '$red_01',
+            borderColor: '$transparent',
             _text: {
-              color: Color.WHITE_01,
+              color: '$white_01',
             },
           },
         },

@@ -2,17 +2,23 @@ import { config as defaultConfig } from '@gluestack-ui/config';
 import { createConfig } from '@gluestack-ui/themed';
 
 import * as components from './components';
-import { Color, Font, FontSize, FontWeight, LineHeight } from './constants';
+import {
+  colors,
+  fonts,
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from './constants';
 
 export const uiLibraryConfig = createConfig({
   ...defaultConfig,
   tokens: {
     ...defaultConfig.tokens,
-    lineHeights: LineHeight,
-    fontWeights: FontWeight,
-    fontSizes: FontSize,
-    colors: Color,
-    fonts: Font,
+    lineHeights,
+    fontWeights,
+    fontSizes,
+    colors,
+    fonts,
   },
   components,
 });

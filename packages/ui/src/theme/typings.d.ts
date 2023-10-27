@@ -1,16 +1,22 @@
 import { ButtonSize, ButtonVariant, RadioVariant } from 'components';
 
-import { Color, Font, FontSize, FontWeight, LineHeight } from './constants';
+import {
+  colors,
+  fonts,
+  fontSizes,
+  fontWeights,
+  lineHeights,
+} from './constants';
 import { SxValues } from './types';
 
 declare module '@gluestack-ui/themed' {
   interface UIConfig {
     tokens: {
-      colors: Record<Color, string>;
-      fonts: Record<Font, string>;
-      fontSizes: Record<FontSize, number>;
-      fontWeights: Record<FontWeight, string>;
-      lineHeights: Record<LineHeight, number>;
+      colors: Record<`${keyof typeof colors}`, string>;
+      fonts: Record<`${keyof typeof fonts}`, string>;
+      fontSizes: Record<`${keyof typeof fontSizes}`, number>;
+      fontWeights: Record<`${keyof typeof fontWeights}`, string>;
+      lineHeights: Record<`${keyof typeof lineHeights}`, number>;
     };
   }
   interface UIComponents {
