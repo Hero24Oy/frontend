@@ -5,8 +5,9 @@ import {
   ButtonText as GluestackTextOrigin,
 } from '@gluestack-ui/themed';
 import React, { FC, ForwardedRef, forwardRef } from 'react';
-import { PressableProps, StyleProp, StyleSheet, ViewStyle } from 'react-native';
+import { PressableProps, StyleSheet } from 'react-native';
 import { Size } from 'theme/types';
+import { CommonStyles } from 'types';
 
 import { ButtonVariant, Direction, GluestackButtonProps } from './types';
 
@@ -16,7 +17,7 @@ type Props = {
   iconDirection?: `${Direction}`;
   isLoading?: boolean;
   size?: `${Size}`;
-  style?: StyleProp<ViewStyle>;
+  style?: CommonStyles;
   variant?: `${ButtonVariant}`;
 } & GluestackButtonProps;
 
