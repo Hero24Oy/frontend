@@ -123,7 +123,7 @@ const importRules = {
   'import/prefer-default-export': 'off', // we use only named exports in the project
   'import/extensions': 'off',
   'import/no-extraneous-dependencies': ['error'],
-  ...importSortOrderRule,
+  // ...importSortOrderRule, TODO - enable after selecting the correct sorting tool
 };
 
 const reactRules = {
