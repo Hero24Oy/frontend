@@ -1,5 +1,8 @@
-import { RadioVariant } from '../RadioGroup';
+import { Radio } from '@gluestack-ui/themed';
+import { ComponentProps } from 'react';
 
-export type ExtendProps = {
-  variant: RadioVariant.BUTTON;
-};
+type RadioButtonProps = ComponentProps<typeof Radio>;
+
+type PickedFields = 'value';
+
+export type GluestackRadioButtonProps = Pick<RadioButtonProps, PickedFields>;

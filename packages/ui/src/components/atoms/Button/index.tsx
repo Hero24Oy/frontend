@@ -36,7 +36,6 @@ const ButtonInner = (
     icon,
     iconDirection,
     style,
-    ...restProps
   } = props;
 
   const iconStyles = iconDirection && styles[iconDirection];
@@ -51,7 +50,6 @@ const ButtonInner = (
       variant={variant}
       size={size}
       style={[iconStyles, style]}
-      {...restProps}
     >
       {isIconShown && <GluestackButtonIcon as={icon} />}
 

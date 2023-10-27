@@ -7,17 +7,18 @@ import { StyleProp, ViewStyle } from 'react-native';
 
 import { RadioVariant } from '../RadioGroup';
 
+import { GluestackRadioButtonProps } from './types';
+
 type Props = {
   children: string;
-  value: string;
   style?: StyleProp<ViewStyle>;
-};
+} & GluestackRadioButtonProps;
 
 export const RadioButton: FC<Props> = (props) => {
-  const { value, children, style } = props;
+  const { children, ...restProps } = props;
 
   return (
-    <GluestackRadio variant={RadioVariant.BUTTON} value={value} style={style}>
+    <GluestackRadio variant={RadioVariant.BUTTON} {...restProps}>
       <GluestackRadioLabel>{children}</GluestackRadioLabel>
     </GluestackRadio>
   );

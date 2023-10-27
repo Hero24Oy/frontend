@@ -8,4 +8,6 @@ export enum RadioVariant {
 
 type GluestackRadioGroup = ComponentProps<typeof RadioGroup>;
 
-export type GluestackRadioGroupProps = Omit<GluestackRadioGroup, 'children'>;
+type PickedFields = 'onChange' | 'value';
+
+export type GluestackRadioGroupProps = Pick<GluestackRadioGroup, PickedFields>;
