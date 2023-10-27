@@ -1,4 +1,4 @@
-import { IconSize } from '../constants';
+import { Color, IconSize } from '../constants';
 
 import { ComponentTheme, DescendantStyleName, Size } from '$theme/types';
 
@@ -7,9 +7,9 @@ export const IconButton = {
     alignSelf: 'flex-start',
     padding: 10,
     borderRadius: 10,
-    backgroundColor: '$gray_06',
+    backgroundColor: Color.GRAY_06,
     _icon: {
-      color: '$black_01',
+      color: Color.BLACK_01,
     },
     variants: {
       size: {
