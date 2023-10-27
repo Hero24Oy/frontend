@@ -1,23 +1,77 @@
 import {
   Button as GluestackButton,
+  ButtonIcon as GluestackButtonIcon,
+  ButtonSpinner as GluestackButtonSpinner,
   ButtonText as GluestackTextOrigin,
 } from '@gluestack-ui/themed';
-import { FC, PropsWithChildren, ReactNode } from 'react';
-import { CommonStyles } from 'types';
+import { FC, ForwardedRef, forwardRef } from 'react';
+import { PressableProps, StyleProp, StyleSheet, ViewStyle } from 'react-native';
 
-interface Props extends PropsWithChildren {
-  children: ReactNode;
-  isDisabled?: boolean;
-  onPress?: () => void;
-  style?: CommonStyles;
-}
+import {
+  ButtonSize,
+  ButtonVariant,
+  Direction,
+  GluestackButtonProps,
+} from './types';
 
-export const Button: FC<Props> = (props) => {
-  const { children, isDisabled = false, onPress, style } = props;
+type Props = {
+  children: string;
+  icon?: FC;
+  iconDirection?: `${Direction}`;
+  isLoading?: boolean;
+  size?: `${ButtonSize}`;
+  style?: StyleProp<ViewStyle>;
+  variant?: `${ButtonVariant}`;
+} & GluestackButtonProps;
 
-  return (
-    <GluestackButton isDisabled={isDisabled} onPress={onPress} style={style}>
-      <GluestackTextOrigin>{children}</GluestackTextOrigin>
-    </GluestackButton>
-  );
-};
+export const Button = forwardRef<PressableProps, Props>(
+  (props: Props, ref: ForwardedRef<PressableProps>): JSX.Element => {
+    const {
+      children,
+      size = ButtonSize.MEDIUM,
+      variant = ButtonVariant.SOLID,
+      isDisabled = false,
+      isLoading = false,
+      onPress,
+      icon,
+      iconDirection,
+      style,
+    } = props;
+
+    const iconStyles = iconDirection && styles[iconDirection];
+
+    const isIconShown = !isLoading && icon;
+
+    return (
+      <GluestackButton
+        ref={ref}
+        isDisabled={isDisabled || isLoading}
+        onPress={onPress}
+        variant={variant}
+        size={size}
+        style={[iconStyles, style]}
+      >
+        {isIconShown && <GluestackButtonIcon as={icon} />}
+
+        {isLoading && <GluestackButtonSpinner />}
+
+        <GluestackTextOrigin>{children}</GluestackTextOrigin>
+      </GluestackButton>
+    );
+  },
+);
+
+const styles = StyleSheet.create({
+  [Direction.TOP]: {
+    flexDirection: 'column',
+    gap: 8,
+  },
+  [Direction.LEFT]: {
+    flexDirection: 'row',
+  },
+  [Direction.RIGHT]: {
+    flexDirection: 'row-reverse',
+  },
+});
+
+export * from './types';
