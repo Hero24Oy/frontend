@@ -10,11 +10,12 @@ import {
   ActionsheetContent,
 } from '@gluestack-ui/themed';
 import React, { FC } from 'react';
-import { CommonStyles } from 'types';
 
 import { ActionsheetDragIndicator } from './ActionsheetDragIndicator';
 import { ActionsheetItems } from './ActionsheetItems';
 import { GluestackActionsheetProps, Item } from './types';
+
+import { CommonStyles } from '$types';
 
 type PickedProps = CommonStyles &
   Pick<GluestackActionsheetProps, 'isOpen' | 'onOpen' | 'onClose'>;

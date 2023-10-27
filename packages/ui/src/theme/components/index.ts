@@ -1,3 +1,3 @@
 export * from './Button';
-export * from './Radio';
+export * from './Alert';
 export * from './Radio';
