@@ -3503,6 +3503,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@gluestack-ui/config@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@gluestack-ui/config@npm:1.0.3"
+  peerDependencies:
+    "@gluestack-style/react": ">=1.0"
+    "@gluestack-ui/themed": ">=1.0"
+  checksum: df63769e40d18ed6fb0c990e65fb7e5fe9b86f7ec59bde1913ef3339d2d36df3bf5b9ea825ecc21361d25418f3a0ba771b3b4dedfe394bb152b2481947be887c
+  languageName: node
+  linkType: hard
+
 "@gluestack-ui/divider@npm:^0.1.8":
   version: 0.1.8
   resolution: "@gluestack-ui/divider@npm:0.1.8"
@@ -4139,7 +4149,7 @@ __metadata:
   dependencies:
     "@cspell/eslint-plugin": "npm:^7.3.6"
     "@gluestack-style/react": "npm:^1.0.8"
-    "@gluestack-ui/config": "npm:1.0.1"
+    "@gluestack-ui/config": "npm:^1.0.3"
     "@gluestack-ui/themed": "npm:^1.0.8"
     "@hero24/configs": "npm:*"
     "@react-navigation/native": "npm:^6.0.2"
@@ -4162,6 +4172,7 @@ __metadata:
     expo: "npm:^49.0.11"
     fs-extra: "npm:^11.1.1"
     lodash: "npm:^4.17.21"
+    lucide-react-native: "npm:^0.288.0"
     npm-watch: "npm:^0.11.0"
     prettier: "npm:^3.0.3"
     react: "npm:^18.2.0"
@@ -12563,6 +12574,18 @@ __metadata:
   version: 10.0.1
   resolution: "lru-cache@npm:10.0.1"
   checksum: 982dabfb227b9a2daf56d712ae0e72e01115a28c0a2068cd71277bca04568f3417bbf741c6c7941abc5c620fd8059e34f15607f90ebccbfa0a17533322d27a8e
+  languageName: node
+  linkType: hard
+
+"lucide-react-native@npm:^0.288.0":
+  version: 0.288.0
+  resolution: "lucide-react-native@npm:0.288.0"
+  peerDependencies:
+    prop-types: ^15.7.2
+    react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    react-native: "*"
+    react-native-svg: ^12.0.0 || ^13.0.0
+  checksum: 6910952d8eaaa96fd3bff39b48ed9d53cc8ebb07e78f44de31dc587a624601bc658d0aee335cf3bbe847e99c4734ee1a592091c38a19e9f59a1a79bdfe7e5f03
   languageName: node
   linkType: hard
 

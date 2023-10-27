@@ -24,45 +24,42 @@ type Props = {
   variant?: `${ButtonVariant}`;
 } & GluestackButtonProps;
 
-const ButtonInner = (
-  props: Props,
-  ref: ForwardedRef<PressableProps>,
-): JSX.Element => {
-  const {
-    children,
-    size = ButtonSize.MEDIUM,
-    variant = ButtonVariant.SOLID,
-    isDisabled = false,
-    isLoading = false,
-    onPress,
-    icon,
-    iconDirection,
-    style,
-  } = props;
+export const Button = forwardRef<PressableProps, Props>(
+  (props: Props, ref: ForwardedRef<PressableProps>): JSX.Element => {
+    const {
+      children,
+      size = ButtonSize.MEDIUM,
+      variant = ButtonVariant.SOLID,
+      isDisabled = false,
+      isLoading = false,
+      onPress,
+      icon,
+      iconDirection,
+      style,
+    } = props;
 
-  const iconStyles = iconDirection && styles[iconDirection];
+    const iconStyles = iconDirection && styles[iconDirection];
 
-  const isIconShown = !isLoading && icon;
+    const isIconShown = !isLoading && icon;
 
-  return (
-    <GluestackButton
-      ref={ref}
-      isDisabled={isDisabled || isLoading}
-      onPress={onPress}
-      variant={variant}
-      size={size}
-      style={[iconStyles, style]}
-    >
-      {isIconShown && <GluestackButtonIcon as={icon} />}
+    return (
+      <GluestackButton
+        ref={ref}
+        isDisabled={isDisabled || isLoading}
+        onPress={onPress}
+        variant={variant}
+        size={size}
+        style={[iconStyles, style]}
+      >
+        {isIconShown && <GluestackButtonIcon as={icon} />}
 
-      {isLoading && <GluestackButtonSpinner />}
+        {isLoading && <GluestackButtonSpinner />}
 
-      <GluestackTextOrigin>{children}</GluestackTextOrigin>
-    </GluestackButton>
-  );
-};
-
-export const Button = forwardRef<PressableProps, Props>(ButtonInner);
+        <GluestackTextOrigin>{children}</GluestackTextOrigin>
+      </GluestackButton>
+    );
+  },
+);
 
 const styles = StyleSheet.create({
   [Direction.TOP]: {

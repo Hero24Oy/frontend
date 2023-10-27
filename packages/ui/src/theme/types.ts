@@ -18,7 +18,7 @@ export type ComponentTheme = {
   componentConfig?: ComponentConfig;
 };
 
-export enum DescendantStyle {
+export enum DescendantStyleName {
   TEXT = '_text',
   ICON = '_icon',
   SPINNER = '_spinner',

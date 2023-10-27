@@ -2,15 +2,13 @@ import {
   Radio as GluestackRadio,
   RadioLabel as GluestackRadioLabel,
 } from '@gluestack-ui/themed';
-import React, { FC } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 
 import { RadioVariant } from '../RadioGroup';
 
 import { GluestackRadioButtonProps } from './types';
 
-type Props = {
-  children: string;
-} & GluestackRadioButtonProps;
+type Props = PropsWithChildren<GluestackRadioButtonProps>;
 
 export const RadioButton: FC<Props> = (props) => {
   const { children, ...restProps } = props;
