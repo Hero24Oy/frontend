@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { InnerIconButton, InnerIconButtonIcon } from './components';
 import { GluestackIconButtonProps } from './types';
 
-import { BaseIcon } from '$icons';
+import { BaseIcon } from '$icons/base';
 import { Size } from '$theme';
 
 type Props = {
