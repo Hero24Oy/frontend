@@ -1,3 +1,3 @@
-export const lineHeights = {
-  default: 21,
-} as const;
+export enum LineHeight {
+  DEFAULT = 21,
+}
