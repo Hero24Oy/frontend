@@ -1,4 +1,4 @@
-export const Image = {
+export const Card = {
   theme: {
     maxWidth: '100%',
     m: 16,
