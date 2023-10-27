@@ -11,7 +11,7 @@
     "node": "^18.18"
   },
   "scripts": {
-    "dev": "yarn build -- --watch",
+    "dev": "yarn build --watch",
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "pretty": "prettier --write . --log-level warn",
     "lint": "eslint . --fix"
