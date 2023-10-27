@@ -1,5 +1,5 @@
 import { ChevronDownIcon, Icon } from '@gluestack-ui/themed';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { Text, View } from '$atoms';

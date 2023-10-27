@@ -1,5 +1,5 @@
 import { InputField as GluestackInputField } from '@gluestack-ui/themed';
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { ControllerRenderProps, FieldValues, Path } from 'react-hook-form';
 import { KeyboardType } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';

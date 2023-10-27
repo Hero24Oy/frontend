@@ -3,7 +3,7 @@ import {
   MenuItem as GluestackMenuItem,
   MenuItemLabel as GluestackItemLabel,
 } from '@gluestack-ui/themed';
-import React, { FC, PropsWithChildren, useCallback, useMemo } from 'react';
+import { FC, PropsWithChildren, useCallback, useMemo } from 'react';
 import { Pressable, StyleSheet } from 'react-native';
 
 import { MenuItem, Placement, SelectionChange, Trigger } from './types';
