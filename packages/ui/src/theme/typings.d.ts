@@ -9,7 +9,7 @@ declare module '@gluestack-ui/themed' {
       colors: Record<Color, string>;
       fonts: Record<Font, string>;
       fontSizes: Record<FontSize, number>;
-      fontWeights: Record<FontWeight, number>;
+      fontWeights: Record<FontWeight, string>;
       lineHeights: Record<LineHeight, number>;
     };
   }
