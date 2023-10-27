@@ -9,8 +9,9 @@
   },
   "main": "index.ts",
   "scripts": {
-    "build:eas:android:development": "eas build --profile development --platform android --clear-cache",
-    "build:eas:android:production": "eas build --profile production --platform android --clear-cache",
+    "prebuild": "npx expo prebuild",
+    "build:eas:android:development": "yarn prebuild && eas build --profile development --platform android --clear-cache",
+    "build:eas:android:production": "yarn prebuild && eas build --profile production --platform android --clear-cache",
     "build:eas:ios:development": "eas build --profile development --platform ios --clear-cache",
     "build:eas:ios:production": "eas build --profile production --platform ios --clear-cache",
     "update:eas:android:production": "eas update --branch production --platform android --clear-cache",
