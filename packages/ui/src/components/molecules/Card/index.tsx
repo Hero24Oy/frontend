@@ -1,10 +1,10 @@
 import { styled } from '@gluestack-style/react';
+import { View as GluestackView } from '@gluestack-ui/themed';
 import React, { ComponentProps, FC, PropsWithChildren } from 'react';
 
-import { Box } from '$atoms';
-import { CommonStyles } from '$types';
+import { LayoutStyles } from '$types';
 
-type BoxProps = ComponentProps<typeof Box>;
+type ViewProps = ComponentProps<typeof GluestackView>;
 
 type PropsForPick =
   | 'backgroundColor'
@@ -12,16 +12,14 @@ type PropsForPick =
   | 'borderRadius'
   | 'maxWidth';
 
-type Props = PropsWithChildren<
-  Pick<BoxProps, PropsForPick> & {
-    style: CommonStyles;
-  }
->;
+type Props = PropsWithChildren<LayoutStyles & Pick<ViewProps, PropsForPick>>;
 
-export const GluestackCard = styled(Box, {}, { componentName: 'Card' });
+export const GluestackCard = styled(
+  GluestackView,
+  {},
+  { componentName: 'Card' },
+);
 
-export const Card: FC<Props> = (props) => {
-  const { children, ...rest } = props;
-
-  return <GluestackCard {...rest}>{children}</GluestackCard>;
-};
+export const Card: FC<Props> = ({ children, ...restProps }) => (
+  <GluestackCard {...restProps}>{children}</GluestackCard>
+);
