@@ -7,9 +7,8 @@ import { combineProviders } from 'react-combine-providers';
 import { initializeFirebaseAuth } from '@hero24/common';
 import { attachUiProviders } from '@hero24/ui';
 
-import { apolloClient, auth, useInitializeApp } from '$core';
-
 import 'expo-dev-client';
+import { apolloClient, auth, useInitializeApp } from '$core';
 
 WebBrowser.maybeCompleteAuthSession();
 
