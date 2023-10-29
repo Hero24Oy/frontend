@@ -18,5 +18,9 @@ export const Helper: FC<Props> = (props): JSX.Element => {
 
   const errorText = error?.message?.toString() || '';
 
-  return <Text color="GRAY_01">{errorText}</Text>;
+  return (
+    <Text color="GRAY_01" size="sm">
+      {errorText}
+    </Text>
+  );
 };
