@@ -1,13 +1,15 @@
 import { SxProps } from '@gluestack-style/react/lib/typescript/types';
-import { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 
-export type SxValues = Partial<SxProps<StyleProp<ViewStyle>>>;
+export type SxValues = SxProps<StyleProp<ViewStyle>>;
 
-export type Variants = Record<string, SxValues>;
+export type TextSxValues = SxProps<StyleProp<TextStyle>>;
+
+export type Variants = Record<string, SxValues | TextSxValues>;
 
 export type Theme = {
   variants?: Record<string, Variants>;
-} & SxValues;
+} & (SxValues | TextSxValues);
 
 export type ComponentConfig = {
   descendantStyle: string[];
@@ -22,4 +24,5 @@ export enum DescendantStyleName {
   TEXT = '_text',
   ICON = '_icon',
   SPINNER = '_spinner',
+  INPUT = '_input',
 }

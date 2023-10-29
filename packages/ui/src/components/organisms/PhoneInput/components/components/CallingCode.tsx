@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import { Text } from '$atoms';
-
 import { SelectCallingCode } from './components';
 import { CallingCodeProps } from './types';
+
+import { Text } from '$atoms';
 
 export const CallingCode: FC<CallingCodeProps> = (props) => {
   const { country, value } = props;

@@ -1,5 +1,7 @@
+import { TextSize, TextWeight } from '$atoms';
 import { ButtonSize, ButtonVariant, RadioVariant } from '$components';
-import { SxValues } from '$theme';
+import { InputSize } from '$molecules';
+import { SxValues, TextSxValues } from '$theme';
 
 declare module '@gluestack-ui/themed' {
   interface UIComponents {
@@ -11,10 +13,25 @@ declare module '@gluestack-ui/themed' {
         };
       };
     };
+    Input: {
+      theme: {
+        variants: {
+          size: Record<`${InputSize}`, SxValues>;
+        };
+      };
+    };
     Radio: {
       theme: {
         variants: {
           variant: Record<`${RadioVariant}`, SxValues>;
+        };
+      };
+    };
+    Text: {
+      theme: {
+        variants: {
+          size: Record<`${TextSize}`, TextSxValues>;
+          weight: Record<`${TextWeight}`, TextSxValues>;
         };
       };
     };

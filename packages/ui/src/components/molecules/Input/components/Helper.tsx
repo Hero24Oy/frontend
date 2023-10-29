@@ -13,10 +13,10 @@ export const Helper: FC<Props> = (props): JSX.Element => {
   const { error } = props;
 
   if (!error) {
-    return <View height={LineHeight.DEFAULT} />;
+    return <View height={LineHeight.SMALL} />;
   }
 
   const errorText = error?.message?.toString() || '';
 
-  return <Text>{errorText}</Text>;
+  return <Text color="GRAY_01">{errorText}</Text>;
 };

@@ -24,7 +24,7 @@ export const Radio = {
             fontWeight: FontWeight.NORMAL,
             paddingHorizontal: 12,
             paddingVertical: 8,
-            lineHeight: LineHeight.DEFAULT,
+            lineHeight: LineHeight.SMALL,
           },
           ':checked': {
             backgroundColor: Color.RED_01,

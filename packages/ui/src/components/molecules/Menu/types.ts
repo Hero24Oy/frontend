@@ -12,4 +12,5 @@ export type MenuItem = {
   key: string;
   label: string;
   value: string;
+  disabled?: boolean;
 };

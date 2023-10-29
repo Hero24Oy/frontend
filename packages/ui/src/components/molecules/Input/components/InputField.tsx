@@ -4,9 +4,9 @@ import { ControllerRenderProps, FieldValues, Path } from 'react-hook-form';
 import { KeyboardType } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
 
-import { InputFieldProps } from './types';
-
 import { InputType } from '../types';
+
+import { InputFieldProps } from './types';
 
 type Props<Type extends FieldValues> = {
   field: ControllerRenderProps<Type, Path<Type>>;

@@ -23,7 +23,7 @@ export const Button = {
     _text: {
       textDecorationLine: 'none',
       fontWeight: FontWeight.MEDIUM,
-      lineHeight: LineHeight.DEFAULT,
+      lineHeight: LineHeight.SMALL,
     },
     variants: {
       size: {

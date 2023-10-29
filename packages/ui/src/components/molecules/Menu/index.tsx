@@ -8,6 +8,8 @@ import { Pressable, StyleSheet } from 'react-native';
 
 import { MenuItem, Placement, SelectionChange, Trigger } from './types';
 
+import { Color } from '$theme';
+
 type Props = {
   items: MenuItem[];
   onSelect: (key: string) => void;
@@ -38,8 +40,17 @@ export const Menu: FC<PropsWithChildren<Props>> = (props) => {
   const menuItems = useMemo(
     () =>
       items.map((item) => (
-        <GluestackMenuItem key={item.key} textValue={item.value}>
-          <GluestackItemLabel>{item.label}</GluestackItemLabel>
+        <GluestackMenuItem
+          disabled={item.disabled}
+          key={item.key}
+          textValue={item.value}
+        >
+          <GluestackItemLabel
+            disabled={item.disabled}
+            style={item.disabled ? styles.disabledItem : null}
+          >
+            {item.label}
+          </GluestackItemLabel>
         </GluestackMenuItem>
       )),
     [],
@@ -58,7 +69,12 @@ export const Menu: FC<PropsWithChildren<Props>> = (props) => {
 };
 
 const styles = StyleSheet.create({
-  triggerWrapper: { pointerEvents: 'box-only' },
+  triggerWrapper: {
+    pointerEvents: 'box-only',
+  },
+  disabledItem: {
+    color: Color.GRAY_01,
+  },
 });
 
 export type { MenuItem };

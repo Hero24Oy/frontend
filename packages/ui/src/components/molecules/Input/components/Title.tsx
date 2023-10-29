@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import { Text, TextProps } from '$atoms';
-
 import { InputSize } from '../types';
+
+import { Text, TextProps } from '$atoms';
 
 const titleProps: Record<`${InputSize}`, Partial<TextProps>> = {
   [InputSize.SMALL]: {

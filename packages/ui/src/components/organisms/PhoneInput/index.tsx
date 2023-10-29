@@ -2,11 +2,11 @@ import { Spinner } from '@gluestack-ui/themed';
 import { ReactElement, useMemo } from 'react';
 import { FieldValues } from 'react-hook-form';
 
-import { Input } from '$molecules';
-
 import { SelectCountry } from './components';
 import { useSelectCountry } from './components/hooks';
 import { PhoneInputProps } from './types';
+
+import { Input } from '$molecules';
 
 const DEFAULT_PHONE_MASK = '999 999 9999';
 
