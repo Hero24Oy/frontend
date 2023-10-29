@@ -5,12 +5,12 @@ import { TextSize, TextWeight } from './types';
 
 import { Color } from '$theme';
 
-export interface TextProps {
+export type TextProps = {
   children: string;
   color?: keyof typeof Color;
   size?: `${TextSize}`;
   weight?: `${TextWeight}`;
-}
+};
 
 export const Text: FC<TextProps> = (props) => {
   const { children, size, weight, color } = props;
