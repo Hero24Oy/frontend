@@ -1,5 +1,3 @@
-import { ButtonSize, ButtonVariant } from '$atoms';
-
 import {
   Color,
   FontSize,
@@ -8,6 +6,8 @@ import {
   LineHeight,
 } from '../constants';
 import { ComponentTheme, DescendantStyleName } from '../types';
+
+import { ButtonSize, ButtonVariant } from '$atoms';
 
 export const Button = {
   theme: {

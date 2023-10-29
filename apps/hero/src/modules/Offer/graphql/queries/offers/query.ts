@@ -7,9 +7,9 @@ import {
   Offer,
 } from '@hero24/common';
 
-import { OffersInput } from './types';
-
 import { OFFER_FRAGMENT } from '../../fragments';
+
+import { OffersInput } from './types';
 
 export const OFFERS_TYPE_NAME = 'OfferListDto';
 

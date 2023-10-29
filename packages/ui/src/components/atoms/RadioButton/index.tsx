@@ -4,9 +4,9 @@ import {
 } from '@gluestack-ui/themed';
 import { FC, PropsWithChildren } from 'react';
 
-import { GluestackRadioButtonProps } from './types';
-
 import { RadioVariant } from '../RadioGroup';
+
+import { GluestackRadioButtonProps } from './types';
 
 type Props = PropsWithChildren<GluestackRadioButtonProps>;
 

@@ -4,14 +4,13 @@ import {
   ToastTitle,
   VStack,
 } from '@gluestack-ui/themed';
-import { ComponentProps, FC } from 'react';
 
-export interface ToastProps extends ComponentProps<typeof ToastOrigin> {
+export interface ToastProps extends React.ComponentProps<typeof ToastOrigin> {
   description?: string;
   title?: string;
 }
 
-export const Toast: FC<ToastProps> = (props) => {
+export const Toast: React.FC<ToastProps> = (props) => {
   const { title, description, ...rest } = props;
 
   return (
