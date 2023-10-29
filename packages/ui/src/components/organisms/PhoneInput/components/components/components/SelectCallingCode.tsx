@@ -2,7 +2,7 @@ import { ChevronDownIcon, Icon } from '@gluestack-ui/themed';
 import { useMemo } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Text, View } from '$atoms';
+import { HStack, Text } from '$atoms';
 import { Menu, MenuItem } from '$molecules';
 
 import { addCodePrefix } from '../../helpers';
@@ -16,7 +16,11 @@ export const SelectCallingCode = (props: CallingCodeProps): JSX.Element => {
       return country.callingCode.map((code) => {
         const prefixedCode = addCodePrefix(code);
 
-        return { key: code, value: prefixedCode, label: prefixedCode };
+        return {
+          key: code,
+          value: prefixedCode,
+          label: prefixedCode,
+        };
       });
     }
 
@@ -25,17 +29,21 @@ export const SelectCallingCode = (props: CallingCodeProps): JSX.Element => {
 
   return (
     <Menu items={menuItems} onSelect={onSelect}>
-      <View style={styles.wrapper}>
+      <HStack style={styles.wrapper}>
+        <Icon as={ChevronDownIcon} style={styles.icon} />
         <Text>{value}</Text>
-        <Icon as={ChevronDownIcon} />
-      </View>
+      </HStack>
     </Menu>
   );
 };
 
 const styles = StyleSheet.create({
   wrapper: {
-    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'flex-end',
+  },
+  icon: {
+    width: 15,
+    height: 15,
   },
 });

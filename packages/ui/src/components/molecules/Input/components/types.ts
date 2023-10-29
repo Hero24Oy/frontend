@@ -1,7 +1,7 @@
 import { Ref } from 'react';
 import { KeyboardType, TextInputProps } from 'react-native';
 
-import { InputType } from '../constants';
+import { InputType } from '../types';
 
 export interface InputFieldProps {
   keyboardType: KeyboardType;

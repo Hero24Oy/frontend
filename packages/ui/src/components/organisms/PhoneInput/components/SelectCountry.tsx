@@ -46,6 +46,8 @@ export const SelectCountry: FC<SelectCountryProps> = (props) => {
 
 const styles = StyleSheet.create({
   pickerWrapper: {
+    flex: 1,
     alignItems: 'center',
+    marginRight: 4,
   },
 });

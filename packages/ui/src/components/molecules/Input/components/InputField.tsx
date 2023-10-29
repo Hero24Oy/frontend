@@ -6,15 +6,15 @@ import { TextInputMask } from 'react-native-masked-text';
 
 import { InputFieldProps } from './types';
 
-import { InputType } from '../constants';
+import { InputType } from '../types';
 
-export interface Props<Type extends FieldValues> {
+type Props<Type extends FieldValues> = {
   field: ControllerRenderProps<Type, Path<Type>>;
   keyboardType?: KeyboardType;
   mask?: string;
   placeholder?: string;
   type?: `${InputType}`;
-}
+};
 
 export const InputField = <Type extends FieldValues>(
   props: Props<Type>,

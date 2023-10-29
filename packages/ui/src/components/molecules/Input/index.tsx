@@ -3,14 +3,17 @@ import {
   InputSlot,
   VStack,
 } from '@gluestack-ui/themed';
-import { ReactElement } from 'react';
+import { ReactElement, useCallback, useState } from 'react';
 import { Control, FieldValues, Path, useController } from 'react-hook-form';
-import { KeyboardType } from 'react-native';
+import { KeyboardType, StyleSheet } from 'react-native';
 
-import { Text } from '$atoms';
-
-import { InputField } from './components/InputField';
-import { InputType } from './constants';
+import {
+  Helper,
+  InputField,
+  PasswordVisibleSwitcher,
+  Title,
+} from './components';
+import { InputSize, InputType } from './types';
 
 export type InputProps<Type extends FieldValues> = {
   control: Control<Type>;
@@ -21,6 +24,8 @@ export type InputProps<Type extends FieldValues> = {
   mask?: string;
   placeholder?: string;
   rightSlot?: JSX.Element;
+  size?: `${InputSize}`;
+  title?: string;
   type?: `${InputType}`;
 };
 
@@ -34,32 +39,57 @@ export const Input = <Type extends FieldValues>(
     mask,
     leftSlot,
     rightSlot,
+    title,
+    size = InputSize.SMALL,
     type = InputType.TEXT,
     isDisabled = false,
     keyboardType = 'default',
   } = props;
 
+  const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
+
   const {
     field,
-    formState: { errors },
+    fieldState: { error },
   } = useController({ name, control });
 
-  const errorText = errors[name]?.message?.toString() || '';
+  const isPassword = type === InputType.PASSWORD;
+
+  const toggleIsPasswordVisible = useCallback((): void => {
+    setIsPasswordVisible((prev) => !prev);
+  }, [setIsPasswordVisible, type]);
 
   return (
-    <VStack>
-      <GluestackInput isDisabled={isDisabled}>
+    <VStack style={styles.mainWrapper}>
+      <Title value={title} inputSize={size} />
+      <GluestackInput
+        isDisabled={isDisabled}
+        size={size}
+        isInvalid={Boolean(error)}
+      >
         {leftSlot ? <InputSlot>{leftSlot}</InputSlot> : null}
         <InputField
           field={field}
           keyboardType={keyboardType}
           mask={mask}
           placeholder={placeholder}
-          type={type}
+          type={isPasswordVisible ? InputType.TEXT : type}
         />
         {rightSlot ? <InputSlot>{rightSlot}</InputSlot> : null}
+        {isPassword ? (
+          <PasswordVisibleSwitcher
+            isPasswordVisible={isPasswordVisible}
+            toggleIsPasswordVisible={toggleIsPasswordVisible}
+          />
+        ) : null}
       </GluestackInput>
-      <Text>{errorText}</Text>
+      <Helper error={error} />
     </VStack>
   );
 };
+
+const styles = StyleSheet.create({
+  mainWrapper: {
+    gap: 6,
+  },
+});
