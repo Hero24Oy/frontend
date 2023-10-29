@@ -110,8 +110,8 @@ const importSortOrderRule = {
         ['^(@?\\w|\\w)'], // libs
         ['^@hero24'], // our packages,
         ['^$\\.*'], // ts-aliases
-        ['^\\.\\./'], // relative folder imports
-        ['^\\./'], // parent folder imports
+        ['^\\.\\./'], // parent folder imports
+        ['^\\./'], // relative folder imports
       ],
     },
   ],
