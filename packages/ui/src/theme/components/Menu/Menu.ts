@@ -1,5 +1,5 @@
-import { Color } from '../constants';
-import { ComponentTheme } from '../types';
+import { Color } from '$theme/constants';
+import { ComponentTheme, ViewSxValues } from '$theme/types';
 
 export const Menu = {
   theme: {
@@ -14,4 +14,4 @@ export const Menu = {
     backgroundColor: Color.WHITE_01,
     gap: 8,
   },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<ViewSxValues>;

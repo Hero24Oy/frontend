@@ -8,10 +8,10 @@ import { Control, FieldValues, Path, useController } from 'react-hook-form';
 import { KeyboardType, StyleSheet } from 'react-native';
 
 import {
-  Helper,
   InputField,
+  InputHelper,
+  InputTitle,
   PasswordVisibleSwitcher,
-  Title,
 } from './components';
 import { InputSize, InputType } from './types';
 
@@ -61,7 +61,7 @@ export const Input = <Type extends FieldValues>(
 
   return (
     <VStack style={styles.mainWrapper}>
-      <Title value={title} inputSize={size} />
+      <InputTitle value={title} size={size} />
       <GluestackInput
         isDisabled={isDisabled}
         size={size}
@@ -83,7 +83,7 @@ export const Input = <Type extends FieldValues>(
           />
         ) : null}
       </GluestackInput>
-      <Helper error={error} />
+      <InputHelper error={error} />
     </VStack>
   );
 };

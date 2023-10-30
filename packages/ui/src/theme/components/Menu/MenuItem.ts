@@ -1,5 +1,9 @@
-import { Color, FontSize } from '../constants';
-import { ComponentTheme, DescendantStyleName } from '../types';
+import { Color, FontSize } from '$theme/constants';
+import {
+  ComponentTheme,
+  DescendantStyleName,
+  ViewSxValues,
+} from '$theme/types';
 
 export const MenuItem = {
   theme: {
@@ -17,4 +21,4 @@ export const MenuItem = {
   componentConfig: {
     descendantStyle: [DescendantStyleName.TEXT],
   },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<ViewSxValues>;

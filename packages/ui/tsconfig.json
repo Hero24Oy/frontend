@@ -4,12 +4,19 @@
     "paths": {
       "$providers": ["providers"],
       "$components": ["components"],
+      "$components/*": ["components/*"],
       "$theme": ["theme"],
+      "$theme/*": ["theme/*"],
       "$types": ["types"],
       "$hooks": ["hooks"],
       "$atoms": ["components/atoms"],
+      "$atoms/*": ["components/atoms/*"],
       "$molecules": ["components/molecules"],
-      "$organisms": ["components/organisms"]
+      "$molecules/*": ["components/molecules/*"],
+      "$organisms": ["components/organisms"],
+      "$organisms/*": ["components/organisms/*"],
+      "$styled": ["components/styled"],
+      "$styled/*": ["components/styled/*"]
     }
   },
   "extends": "@hero24/configs/tsconfig.json",

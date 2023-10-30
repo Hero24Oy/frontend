@@ -1,13 +1,16 @@
+import { ButtonSize, ButtonVariant } from '$atoms';
 import {
   Color,
   FontSize,
   FontWeight,
   IconSize,
   LineHeight,
-} from '../constants';
-import { ComponentTheme, DescendantStyleName } from '../types';
-
-import { ButtonSize, ButtonVariant } from '$atoms';
+} from '$theme/constants';
+import {
+  ComponentTheme,
+  DescendantStyleName,
+  ViewSxValues,
+} from '$theme/types';
 
 export const Button = {
   theme: {
@@ -212,4 +215,4 @@ export const Button = {
       DescendantStyleName.SPINNER,
     ],
   },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<ViewSxValues>;

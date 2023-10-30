@@ -1,8 +1,8 @@
-import { ComponentTheme } from '$theme';
+import { ComponentTheme, ViewSxValues } from '$theme/types';
 
 export const RadioGroup = {
   theme: {
     display: 'flex',
     gap: 6,
   },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<ViewSxValues>;

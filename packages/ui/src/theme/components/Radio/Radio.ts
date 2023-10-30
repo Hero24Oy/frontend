@@ -1,12 +1,10 @@
 import { RadioVariant } from '$atoms';
+import { Color, FontSize, FontWeight, LineHeight } from '$theme/constants';
 import {
-  Color,
   ComponentTheme,
   DescendantStyleName,
-  FontSize,
-  FontWeight,
-  LineHeight,
-} from '$theme';
+  ViewSxValues,
+} from '$theme/types';
 
 export const Radio = {
   theme: {
@@ -38,4 +36,4 @@ export const Radio = {
     },
   },
   componentConfig: { descendantStyle: [DescendantStyleName.TEXT] },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<ViewSxValues>;

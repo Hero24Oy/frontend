@@ -1,22 +1,22 @@
 import { SxProps } from '@gluestack-style/react/lib/typescript/types';
 import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 
-export type SxValues = SxProps<StyleProp<ViewStyle>>;
+export type ViewSxValues = SxProps<StyleProp<ViewStyle>>;
 
 export type TextSxValues = SxProps<StyleProp<TextStyle>>;
 
-export type Variants = Record<string, SxValues | TextSxValues>;
+export type Variants<T> = Record<string, T>;
 
-export type Theme = {
-  variants?: Record<string, Variants>;
-} & (SxValues | TextSxValues);
+export type Theme<T> = {
+  variants?: Record<string, Variants<T>>;
+} & T;
 
 export type ComponentConfig = {
   descendantStyle: string[];
 };
 
-export type ComponentTheme = {
-  theme: Theme;
+export type ComponentTheme<T> = {
+  theme: Theme<T>;
   componentConfig?: ComponentConfig;
 };
 

@@ -1,5 +1,5 @@
-import { Color, /* Font, */ FontSize } from '../constants';
-import { ComponentTheme, DescendantStyleName } from '../types';
+import { Color, Font, FontSize } from '../../constants';
+import { ComponentTheme, DescendantStyleName, ViewSxValues } from '../../types';
 
 export const Input = {
   theme: {
@@ -26,13 +26,16 @@ export const Input = {
       flex: 1,
       textAlignVertical: 'center',
       fontSize: FontSize.SMALL,
-      // fontFamily: Font.MAIN,
+      fontFamily: Font.MAIN,
       ':focus': {
+        color: Color.DARK_01,
+      },
+      _icon: {
         color: Color.DARK_01,
       },
     },
   },
   componentConfig: {
-    descendantStyle: [DescendantStyleName.INPUT],
+    descendantStyle: [DescendantStyleName.INPUT, DescendantStyleName.ICON],
   },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<ViewSxValues>;

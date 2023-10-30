@@ -3,10 +3,10 @@ import { KeyboardType, TextInputProps } from 'react-native';
 
 import { InputType } from '../types';
 
-export interface InputFieldProps {
+export type InputFieldProps = {
   keyboardType: KeyboardType;
   secureTextEntry: boolean;
   placeholder?: string;
   ref?: Ref<TextInputProps>;
   type?: `${InputType}`;
-}
+};

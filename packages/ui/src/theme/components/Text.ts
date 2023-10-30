@@ -1,11 +1,6 @@
-import { TextSize, TextWeight } from '$atoms';
-import {
-  Color,
-  ComponentTheme,
-  FontSize,
-  FontWeight,
-  LineHeight,
-} from '$theme';
+import { TextSize } from '$atoms/Text/types';
+import { Color, FontSize, FontWeight, LineHeight } from '$theme/constants';
+import { ComponentTheme, TextSxValues } from '$theme/types';
 
 export const Text = {
   theme: {
@@ -40,38 +35,6 @@ export const Text = {
           lineHeight: LineHeight.DOUBLE_EXTRA_LARGE,
         },
       },
-      weight: {
-        [TextWeight.HAIRLINE]: {
-          fontWeight: FontWeight.HAIRLINE,
-        },
-        [TextWeight.THIN]: {
-          fontWeight: FontWeight.THIN,
-        },
-        [TextWeight.LIGHT]: {
-          fontWeight: FontWeight.LIGHT,
-        },
-        [TextWeight.NORMAL]: {
-          fontWeight: FontWeight.NORMAL,
-        },
-        [TextWeight.MEDIUM]: {
-          fontWeight: FontWeight.MEDIUM,
-        },
-        [TextWeight.SEMI_BOLD]: {
-          fontWeight: FontWeight.SEMI_BOLD,
-        },
-        [TextWeight.BOLD]: {
-          fontWeight: FontWeight.BOLD,
-        },
-        [TextWeight.EXTRA_BOLD]: {
-          fontWeight: FontWeight.EXTRA_BOLD,
-        },
-        [TextWeight.BLACK]: {
-          fontWeight: FontWeight.BLACK,
-        },
-        [TextWeight.EXTRA_BLACK]: {
-          fontWeight: FontWeight.EXTRA_BLACK,
-        },
-      },
     },
   },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<TextSxValues>;
