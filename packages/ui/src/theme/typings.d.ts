@@ -1,7 +1,7 @@
 import { TextVariants } from './components/Text/constants';
 
 import { ButtonSize, ButtonVariant, RadioVariant } from '$components';
-import { InputSize } from '$molecules';
+import { InputSize } from '$molecules/Input';
 import { SxValues, TextSxValues } from '$theme';
 
 declare module '@gluestack-ui/themed' {
@@ -11,6 +11,13 @@ declare module '@gluestack-ui/themed' {
         variants: {
           size: Record<`${ButtonSize}`, SxValues>;
           variant: Record<`${ButtonVariant}`, SxValues>;
+        };
+      };
+    };
+    CodeFieldCell: {
+      theme: {
+        variants: {
+          isFocused: SxValues;
         };
       };
     };
@@ -24,7 +31,7 @@ declare module '@gluestack-ui/themed' {
     InputTitle: {
       theme: {
         variants: {
-          variant: Record<`${InputSize}`, TextSxValues>;
+          size: Record<`${InputSize}`, TextSxValues>;
         };
       };
     };

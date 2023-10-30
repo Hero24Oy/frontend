@@ -1,8 +1,7 @@
-import { Text } from '@gluestack-ui/themed';
-import React, { FC, useMemo } from 'react';
+import { FC, useMemo } from 'react';
 import { Cursor } from 'react-native-confirmation-code-field';
+import { StyledCodeFieldCell } from 'styled/ConfirmationInput/CodeFieldCell';
 
-import { styles } from '../styles';
 import { GetCellOnLayoutHandler } from '../types';
 
 type Props = {
@@ -13,20 +12,20 @@ type Props = {
 };
 
 export const CodeFieldCell: FC<Props> = (props) => {
-  const { index, symbol, isFocused, getCellOnLayoutHandler } = props;
+  const { index, symbol, getCellOnLayoutHandler, ...restProps } = props;
 
   const text = useMemo(
-    () => symbol || (isFocused ? <Cursor /> : null),
-    [symbol, isFocused],
+    () => symbol || (restProps.isFocused ? <Cursor /> : null),
+    [symbol, restProps.isFocused],
   );
 
   return (
-    <Text
+    <StyledCodeFieldCell
       key={index}
-      style={[styles.cell, isFocused && styles.focusCell]}
       onLayout={getCellOnLayoutHandler(index)}
+      {...restProps}
     >
       {text}
-    </Text>
+    </StyledCodeFieldCell>
   );
 };

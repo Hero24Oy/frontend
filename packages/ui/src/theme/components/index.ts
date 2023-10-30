@@ -6,3 +6,4 @@ export * from './VStack';
 export * from './Text';
 export * from './Menu';
 export * from './Input';
+export * from './ConfirmationInput';
