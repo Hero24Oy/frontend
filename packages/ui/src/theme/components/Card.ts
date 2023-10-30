@@ -1,15 +1,21 @@
+import { Color } from '../constants';
+
+import { ComponentTheme, DescendantStyleName } from '$theme/types';
+
 export const Card = {
   theme: {
     maxWidth: '100%',
-    m: 16,
-    p: 16,
+    margin: 16,
+    padding: 16,
+    gap: 16,
     borderRadius: 10,
     borderWidth: 1,
-    backgroundColor: '#F3F3F5', // add to colors after implement theme
+    backgroundColor: Color.GRAY_LIGHT_02,
+    borderColor: Color.TRANSPARENT,
     overflow: 'hidden',
     _text: {
-      color: '$dark_0',
+      color: 'red',
     },
   },
-  componentConfig: { descendantStyle: ['_text'] },
-};
+  componentConfig: { descendantStyle: [DescendantStyleName.TEXT] },
+} satisfies ComponentTheme;
