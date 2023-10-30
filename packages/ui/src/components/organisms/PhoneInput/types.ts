@@ -1,7 +1,7 @@
 import { FieldValues, Path } from 'react-hook-form';
 import { CountryCode } from 'react-native-country-picker-modal';
 
-import { InputProps } from '$molecules/Input';
+import { InputProps } from '$molecules/Input/types';
 
 type InputPropsFieldsForPick = 'control' | 'placeholder';
 

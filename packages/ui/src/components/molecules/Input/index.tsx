@@ -4,8 +4,8 @@ import {
   VStack,
 } from '@gluestack-ui/themed';
 import { ReactElement, useCallback, useState } from 'react';
-import { Control, FieldValues, Path, useController } from 'react-hook-form';
-import { KeyboardType, StyleSheet } from 'react-native';
+import { FieldValues, useController } from 'react-hook-form';
+import { StyleSheet } from 'react-native';
 
 import {
   InputField,
@@ -13,21 +13,7 @@ import {
   InputTitle,
   PasswordVisibleSwitcher,
 } from './components';
-import { InputSize, InputType } from './types';
-
-export type InputProps<Type extends FieldValues> = {
-  control: Control<Type>;
-  name: Path<Type>;
-  isDisabled?: boolean;
-  keyboardType?: KeyboardType;
-  leftSlot?: JSX.Element;
-  mask?: string;
-  placeholder?: string;
-  rightSlot?: JSX.Element;
-  size?: `${InputSize}`;
-  title?: string;
-  type?: `${InputType}`;
-};
+import { InputProps, InputSize, InputType } from './types';
 
 export const Input = <Type extends FieldValues>(
   props: InputProps<Type>,
