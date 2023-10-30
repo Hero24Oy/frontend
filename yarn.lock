@@ -4250,10 +4250,10 @@ __metadata:
     react-dom: "npm:18.2.0"
     react-hook-form: "npm:^7.47.0"
     react-native: "npm:^0.72.5"
+    react-native-confirmation-code-field: "npm:^7.3.2"
     react-native-country-picker-modal: "npm:^2.0.0"
     react-native-keyboard-aware-scroll-view: "npm:^0.9.5"
     react-native-masked-text: "npm:^1.13.0"
-    react-native-confirmation-code-field: "npm:^7.3.2"
     react-native-safe-area-context: "npm:4.6.3"
     react-native-svg: "npm:^13.4.0"
     react-native-web: "npm:~0.19.6"
@@ -11071,8 +11071,8 @@ __metadata:
     react-combine-providers: "npm:^0.9.6"
     react-dom: "npm:18.2.0"
     react-native: "npm:0.72.5"
-    react-native-country-picker-modal: "npm:^2.0.0"
     react-native-confirmation-code-field: "npm:^7.3.2"
+    react-native-country-picker-modal: "npm:^2.0.0"
     react-native-dotenv: "npm:^3.4.9"
     react-native-gesture-handler: "npm:~2.12.0"
     react-native-safe-area-context: "npm:4.6.3"
@@ -14809,6 +14809,21 @@ __metadata:
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 2bdb6b93fbb1820b024b496042cce405c57e2f85e777c9aabd55f9b26d145408f9f74f5934676ffdc46f3dcff656d78413a6e43968e7b3f92eea35b3052e9053
+  languageName: node
+  linkType: hard
+
+"react-native-confirmation-code-field@npm:^7.3.2":
+  version: 7.3.2
+  resolution: "react-native-confirmation-code-field@npm:7.3.2"
+  peerDependencies:
+    react: ">=16.4.0"
+    react-native: ">=0.64.0"
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-native:
+      optional: true
+  checksum: c6da7aeb7802c993960d88471a8519aa4deb2b8d3d6e61d97b223282913768d3d64d6d4369d317efbb5e9133567140f5822ad8e25de447c52ab0497ac5959f2c
   languageName: node
   linkType: hard
 
