@@ -25,7 +25,7 @@ export const Input = {
     _input: {
       flex: 1,
       textAlignVertical: 'center',
-      fontSize: FontSize.SMALL,
+      fontSize: FontSize.SM,
       fontFamily: Font.MAIN,
       ':focus': {
         color: Color.DARK_01,

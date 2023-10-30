@@ -1,4 +1,5 @@
-import { TextSize, TextWeight } from '$atoms';
+import { TextVariants } from './components/Text/constants';
+
 import { ButtonSize, ButtonVariant, RadioVariant } from '$components';
 import { InputSize } from '$molecules';
 import { SxValues, TextSxValues } from '$theme';
@@ -37,8 +38,7 @@ declare module '@gluestack-ui/themed' {
     Text: {
       theme: {
         variants: {
-          size: Record<`${TextSize}`, TextSxValues>;
-          weight: Record<`${TextWeight}`, TextSxValues>;
+          variant: Record<`${TextVariants}`, TextSxValues>;
         };
       };
     };

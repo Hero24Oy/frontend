@@ -1,9 +1,9 @@
 import { FieldValues, Path } from 'react-hook-form';
 import { CountryCode } from 'react-native-country-picker-modal';
 
-import { InputProps } from '$molecules';
+import { InputProps } from '$molecules/Input';
 
-type InputPropsFieldsForPick = 'control' | 'placeholder' | 'isDisabled';
+type InputPropsFieldsForPick = 'control' | 'placeholder';
 
 export type PhoneInputProps<Type extends FieldValues> = Pick<
   InputProps<Type>,
@@ -12,5 +12,6 @@ export type PhoneInputProps<Type extends FieldValues> = Pick<
   codeFieldName: Path<Type>;
   initialCountryCode: CountryCode;
   phoneFieldName: Path<Type>;
+  isDisabled?: boolean;
   preferredCountryCodes?: CountryCode[];
 };

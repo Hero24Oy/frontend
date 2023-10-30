@@ -1,22 +1,27 @@
-import { InputSize } from '$components/molecules/Input/types';
+import { TextVariants } from './constants';
+
 import { Color, FontSize, FontWeight, LineHeight } from '$theme/constants';
 import { ComponentTheme, TextSxValues } from '$theme/types';
 
-export const InputTitle = {
+export const Text = {
   theme: {
-    color: Color.GRAY_01,
+    color: Color.DARK_01,
     fontWeight: FontWeight.REGULAR,
     fontSize: FontSize.SM,
     lineHeight: LineHeight.SM,
     variants: {
-      size: {
-        [InputSize.SMALL]: {
+      variant: {
+        [TextVariants.REGULAR]: {
+          fontSize: FontSize.MD,
+          lineHeight: LineHeight.MD,
+        },
+        [TextVariants.SMALL]: {
           fontSize: FontSize.SM,
           lineHeight: LineHeight.SM,
         },
-        [InputSize.MEDIUM]: {
-          fontSize: FontSize.MD,
-          lineHeight: LineHeight.MD,
+        [TextVariants.DESCRIPTOR]: {
+          fontSize: FontSize.XS,
+          lineHeight: LineHeight.XS,
         },
       },
     },

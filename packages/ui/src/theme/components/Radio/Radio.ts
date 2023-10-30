@@ -18,11 +18,11 @@ export const Radio = {
           _text: {
             textAlign: 'center',
             color: Color.DARK_01,
-            fontSize: FontSize.SMALL,
-            fontWeight: FontWeight.NORMAL,
+            fontSize: FontSize.SM,
+            fontWeight: FontWeight.REGULAR,
             paddingHorizontal: 12,
             paddingVertical: 8,
-            lineHeight: LineHeight.SMALL,
+            lineHeight: LineHeight.SM,
           },
           ':checked': {
             backgroundColor: Color.RED_01,

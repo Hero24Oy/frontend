@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   icon: {
-    width: 15,
-    height: 15,
+    width: 16,
+    height: 16,
   },
 });

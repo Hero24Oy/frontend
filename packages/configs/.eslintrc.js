@@ -19,6 +19,7 @@ const underscoreAndExcludeNamingConventionWordsRegex = `^(_|${excludeNamesNaming
 const finalExcludeRegex = `${excludeNamesNamingConventionRegexpsRegex}|${underscoreAndExcludeNamingConventionWordsRegex}`;
 
 const initialRules = {
+  'eslint-comments/disable-enable-pair': 'off',
   'eslint-comments/require-description': [
     'warn',
     { ignore: ['eslint-enable'] },

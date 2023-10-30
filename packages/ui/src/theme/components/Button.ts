@@ -26,7 +26,7 @@ export const Button = {
     _text: {
       textDecorationLine: 'none',
       fontWeight: FontWeight.MEDIUM,
-      lineHeight: LineHeight.SMALL,
+      lineHeight: LineHeight.SM,
     },
     variants: {
       size: {
@@ -34,7 +34,7 @@ export const Button = {
           width: '100%',
           paddingVertical: 11,
           _text: {
-            fontSize: FontSize.SMALL,
+            fontSize: FontSize.SM,
           },
           _icon: {
             width: IconSize.SMALL,
@@ -50,7 +50,7 @@ export const Button = {
         [ButtonSize.MEDIUM]: {
           paddingVertical: 10,
           _text: {
-            fontSize: FontSize.SMALL,
+            fontSize: FontSize.SM,
           },
           _icon: {
             width: IconSize.SMALL,
@@ -66,7 +66,7 @@ export const Button = {
         [ButtonSize.SMALL]: {
           paddingVertical: 8,
           _text: {
-            fontSize: FontSize.EXTRA_SMALL,
+            fontSize: FontSize.XS,
           },
           _icon: {
             width: IconSize.EXTRA_SMALL,

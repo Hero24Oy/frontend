@@ -15,7 +15,7 @@ export const MenuItem = {
     backgroundColor: Color.GRAY_03,
     _text: {
       color: Color.DARK_01,
-      fontSize: FontSize.SMALL,
+      fontSize: FontSize.SM,
     },
   },
   componentConfig: {
