@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { InnerIconButton, InnerIconButtonIcon } from './components';
+import { StyledIconButton, StyledIconButtonIcon } from './styled';
 import { GluestackIconButtonProps } from './types';
 
 import { BaseIcon } from '$icons/base';
@@ -15,8 +15,8 @@ export const IconButton: FC<Props> = (props) => {
   const { icon, size = Size.MEDIUM, ...restProps } = props;
 
   return (
-    <InnerIconButton size={size} {...restProps}>
-      <InnerIconButtonIcon as={icon} />
-    </InnerIconButton>
+    <StyledIconButton size={size} {...restProps}>
+      <StyledIconButtonIcon as={icon} />
+    </StyledIconButton>
   );
 };

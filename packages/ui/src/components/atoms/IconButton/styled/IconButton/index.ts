@@ -8,7 +8,7 @@ import {
 
 import { Root } from './Root';
 
-export const InnerIconButton = createButton({
+export const StyledIconButton = createButton({
   Root,
   Icon: ButtonIcon,
   Text: ButtonText,
@@ -16,4 +16,4 @@ export const InnerIconButton = createButton({
   Spinner: ButtonSpinner,
 });
 
-export const InnerIconButtonIcon = InnerIconButton.Icon;
+export const StyledIconButtonIcon = StyledIconButton.Icon;
