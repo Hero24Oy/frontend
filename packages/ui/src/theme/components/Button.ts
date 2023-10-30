@@ -5,7 +5,8 @@ import {
   IconSize,
   LineHeight,
 } from '../constants';
-import { ComponentTheme, DescendantStyleName, Size } from '../types';
+import { DescendantStyleName, Size } from '../enums';
+import { ComponentTheme } from '../types';
 
 import { ButtonVariant } from '$components';
 

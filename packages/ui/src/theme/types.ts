@@ -18,15 +18,3 @@ export type ComponentTheme = {
   componentConfig?: ComponentConfig;
   props?: Record<string, unknown>;
 };
-
-export enum DescendantStyleName {
-  TEXT = '_text',
-  ICON = '_icon',
-  SPINNER = '_spinner',
-}
-
-export enum Size {
-  SMALL = 'sm',
-  MEDIUM = 'md',
-  LARGE = 'lg',
-}

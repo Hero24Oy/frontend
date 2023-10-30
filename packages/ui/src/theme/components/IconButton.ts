@@ -1,5 +1,6 @@
 import { Color, IconSize } from '../constants';
-import { ComponentTheme, DescendantStyleName, Size } from '../types';
+import { DescendantStyleName, Size } from '../enums';
+import { ComponentTheme } from '../types';
 
 export const IconButton = {
   theme: {

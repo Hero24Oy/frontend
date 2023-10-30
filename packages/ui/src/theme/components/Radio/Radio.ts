@@ -1,5 +1,6 @@
 import { Color, FontSize, FontWeight, LineHeight } from '../../constants';
-import { ComponentTheme, DescendantStyleName } from '../../types';
+import { DescendantStyleName } from '../../enums';
+import { ComponentTheme } from '../../types';
 
 import { RadioVariant } from '$components';
 
