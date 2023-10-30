@@ -9,9 +9,7 @@ export const Card = {
     padding: 16,
     gap: 16,
     borderRadius: 10,
-    borderWidth: 1,
     backgroundColor: Color.GRAY_LIGHT_02,
-    borderColor: Color.TRANSPARENT,
     overflow: 'hidden',
     _text: {
       color: Color.DARK_01,
