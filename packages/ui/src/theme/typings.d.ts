@@ -1,4 +1,5 @@
 import { ButtonSize, ButtonVariant, RadioVariant } from '$components';
+import { HeadingVariant } from '$components/atoms/Heading/enums';
 import { SxValues } from '$theme/types';
 
 declare module '@gluestack-ui/themed' {
@@ -8,6 +9,13 @@ declare module '@gluestack-ui/themed' {
         variants: {
           size: Record<`${ButtonSize}`, SxValues>;
           variant: Record<`${ButtonVariant}`, SxValues>;
+        };
+      };
+    };
+    Heading: {
+      theme: {
+        variants: {
+          variant: Record<`${HeadingVariant}`, SxValues>;
         };
       };
     };

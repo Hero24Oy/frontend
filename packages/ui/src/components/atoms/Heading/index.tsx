@@ -1,22 +1,15 @@
 import { Heading as GluestackHeadingOrigin } from '@gluestack-ui/themed';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { CommonStyles } from 'types';
 
-import { HeadingSize } from './enum';
-import { convertSizeToOrigin } from './utils';
+import { HeadingVariant } from './enums';
 
 interface Props {
   children: string;
-  size: `${HeadingSize}`;
+  variant: `${HeadingVariant}`;
   style?: CommonStyles;
 }
 
-export const Heading: FC<Props> = (props) => {
-  const { children, style, size } = props;
-
-  return (
-    <GluestackHeadingOrigin size={convertSizeToOrigin(size)} style={style}>
-      {children}
-    </GluestackHeadingOrigin>
-  );
-};
+export const Heading: FC<Props> = ({ children, ...restProps }) => (
+  <GluestackHeadingOrigin {...restProps}>{children}</GluestackHeadingOrigin>
+);
