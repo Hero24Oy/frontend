@@ -16,6 +16,7 @@ export type ComponentConfig = {
 export type ComponentTheme = {
   theme: Theme;
   componentConfig?: ComponentConfig;
+  props?: Record<string, unknown>;
 };
 
 export enum DescendantStyleName {
