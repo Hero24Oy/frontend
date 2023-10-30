@@ -1,11 +1,11 @@
 import { HStack as GluestackHStack } from '@gluestack-ui/themed';
-import React, { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { LayoutStyles } from '../../../types';
 
 interface Props extends PropsWithChildren {
-  style: LayoutStyles;
+  style?: LayoutStyles;
 }
 
 export const HStack: FC<Props> = (props) => {
