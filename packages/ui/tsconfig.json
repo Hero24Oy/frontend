@@ -2,10 +2,21 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "$ui/providers": ["providers"],
-      "$atoms": ["components/atoms/index"],
-      "$molecules": ["components/molecules/index"],
-      "$types": ["types"]
+      "$providers": ["providers"],
+      "$components": ["components"],
+      "$components/*": ["components/*"],
+      "$theme": ["theme"],
+      "$theme/*": ["theme/*"],
+      "$types": ["types"],
+      "$hooks": ["hooks"],
+      "$atoms": ["components/atoms"],
+      "$atoms/*": ["components/atoms/*"],
+      "$molecules": ["components/molecules"],
+      "$molecules/*": ["components/molecules/*"],
+      "$organisms": ["components/organisms"],
+      "$organisms/*": ["components/organisms/*"],
+      "$styled": ["components/styled"],
+      "$styled/*": ["components/styled/*"]
     }
   },
   "extends": "@hero24/configs/tsconfig.json",

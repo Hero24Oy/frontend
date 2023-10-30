@@ -1,13 +1,12 @@
 import { config } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
 
-const alertIconConfig = config.components.AlertIcon;
+import { ComponentTheme, ViewSxValues } from '$theme/types';
 
-const customStyles = {
+const AlertIconTheme = {
   theme: {
     marginRight: 5,
   },
-};
+} satisfies ComponentTheme<ViewSxValues>;
 
-// TODO this need to be included in provider
-export const AlertIcon = merge(alertIconConfig, customStyles);
+export const AlertIcon = merge(config.components.AlertIcon, AlertIconTheme);

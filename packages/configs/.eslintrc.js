@@ -19,6 +19,7 @@ const underscoreAndExcludeNamingConventionWordsRegex = `^(_|${excludeNamesNaming
 const finalExcludeRegex = `${excludeNamesNamingConventionRegexpsRegex}|${underscoreAndExcludeNamingConventionWordsRegex}`;
 
 const initialRules = {
+  'eslint-comments/disable-enable-pair': 'off',
   'eslint-comments/require-description': [
     'warn',
     { ignore: ['eslint-enable'] },
@@ -335,7 +336,7 @@ const override = {
     },
   },
   namingConventionExceptions: {
-    files: ['src/configs/*.ts', 'scripts/*.ts'],
+    files: ['src/configs/*.ts', 'scripts/*.ts', 'src/theme/**/*.ts'],
     rules: {
       '@typescript-eslint/naming-convention': 'off',
     },
@@ -344,6 +345,18 @@ const override = {
     files: ['**/scripts/*.ts'],
     rules: {
       'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    },
+  },
+  noMagicNumbersExceptions: {
+    files: ['src/configs/*.ts', 'src/theme/**/*.ts'],
+    rules: {
+      'no-magic-numbers': 'off',
+    },
+  },
+  quoteProps: {
+    files: ['src/theme/**/*.ts'],
+    rules: {
+      'quote-props': 'off',
     },
   },
 };

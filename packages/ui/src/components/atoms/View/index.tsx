@@ -4,7 +4,7 @@ import React, { FC, PropsWithChildren } from 'react';
 import { LayoutStyles } from '$types';
 
 type Props = PropsWithChildren<{
-  style: LayoutStyles;
+  style?: LayoutStyles;
 }>;
 
 export const View: FC<Props> = ({ children, style }) => (
