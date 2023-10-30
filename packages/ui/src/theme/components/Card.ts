@@ -14,7 +14,7 @@ export const Card = {
     borderColor: Color.TRANSPARENT,
     overflow: 'hidden',
     _text: {
-      color: 'red',
+      color: Color.DARK_01,
     },
   },
   componentConfig: { descendantStyle: [DescendantStyleName.TEXT] },
