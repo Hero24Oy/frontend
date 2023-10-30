@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import { StyledIconButton, StyledIconButtonIcon } from './styled';
 import { GluestackIconButtonProps } from './types';
 
 import { BaseIcon } from '$icons/base';
+import { StyledIconButton, StyledIconButtonIcon } from '$styled';
 import { Size } from '$theme';
 
 type Props = {

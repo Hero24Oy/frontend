@@ -1,8 +1,8 @@
 import { SxProps } from '@gluestack-style/react/lib/typescript/types';
 import { StyleProp, ViewStyle } from 'react-native';
 
-import { IconSizes } from '../../types';
+import { Size } from '$theme';
 
 export type Variants = {
-  size: Record<`${IconSizes}`, Partial<SxProps<StyleProp<ViewStyle>>>>;
+  size: Record<`${Size}`, Partial<SxProps<StyleProp<ViewStyle>>>>;
 };
