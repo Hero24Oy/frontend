@@ -8,6 +8,8 @@
       "$atoms": ["atoms"],
       "$theme": ["theme"],
       "$theme/*": ["theme/*"],
+      "$styled": ["styled"],
+      "$styled/*": ["styled/*"],
       "$types": ["types"],
       "$hooks": ["hooks"]
     }

@@ -1,7 +1,7 @@
-import { styled } from '@gluestack-style/react';
 import { View as GluestackView } from '@gluestack-ui/themed';
 import { ComponentProps, FC, PropsWithChildren } from 'react';
 
+import { StyledCard } from '$styled';
 import { LayoutStyles } from '$types';
 
 type ViewProps = ComponentProps<typeof GluestackView>;
@@ -14,12 +14,6 @@ type PropsForPick =
 
 type Props = PropsWithChildren<LayoutStyles & Pick<ViewProps, PropsForPick>>;
 
-export const GluestackCard = styled(
-  GluestackView,
-  {},
-  { componentName: 'Card' },
-);
-
 export const Card: FC<Props> = ({ children, ...restProps }) => (
-  <GluestackCard {...restProps}>{children}</GluestackCard>
+  <StyledCard {...restProps}>{children}</StyledCard>
 );
