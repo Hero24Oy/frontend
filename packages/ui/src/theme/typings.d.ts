@@ -17,7 +17,7 @@ declare module '@gluestack-ui/themed' {
     CodeFieldCell: {
       theme: {
         variants: {
-          isFocused: SxValues;
+          isFocused: Record<boolean, TextSxValues>;
         };
       };
     };
