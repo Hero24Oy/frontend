@@ -9,11 +9,11 @@ type Props = {
 };
 
 export const InputTitle: FC<Props> = (props) => {
-  const { size, value } = props;
+  const { value, ...restProps } = props;
 
   if (!value) {
     return null;
   }
 
-  return <StyledInputTitle size={size}>{value}</StyledInputTitle>;
+  return <StyledInputTitle {...restProps}>{value}</StyledInputTitle>;
 };
