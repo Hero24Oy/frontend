@@ -28,8 +28,9 @@ export const Radio = {
             },
           },
         },
+        [RadioVariant.DEFAULT]: {},
       },
     },
   },
   componentConfig: { descendantStyle: [DescendantStyleName.TEXT] },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<{ variant: RadioVariant }>;

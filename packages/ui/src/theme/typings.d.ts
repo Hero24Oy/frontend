@@ -1,4 +1,9 @@
-import { ButtonSize, ButtonVariant, RadioVariant } from '$components';
+import {
+  ButtonSize,
+  ButtonVariant,
+  ImageSize,
+  RadioVariant,
+} from '$components';
 import { SxValues } from '$theme/types';
 
 declare module '@gluestack-ui/themed' {
@@ -11,10 +16,17 @@ declare module '@gluestack-ui/themed' {
         };
       };
     };
+    Image: {
+      theme: {
+        variants: {
+          variant: Record<`${ImageSize}`, SxValues>;
+        };
+      };
+    };
     Radio: {
       theme: {
         variants: {
-          variant: Record<`${RadioVariant}`, SxValues>;
+          size: Record<`${RadioVariant}`, SxValues>;
         };
       };
     };

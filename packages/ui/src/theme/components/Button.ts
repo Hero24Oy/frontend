@@ -212,4 +212,4 @@ export const Button = {
       DescendantStyleName.SPINNER,
     ],
   },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<{ size: ButtonSize; variant: ButtonVariant }>;
