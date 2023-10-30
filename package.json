@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "frontend",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "repository": "https://github.com/Helpdor/frontend",
   "license": "private",
   "engines": {
