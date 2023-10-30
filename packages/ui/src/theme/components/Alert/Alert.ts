@@ -1,7 +1,7 @@
 import { config } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
 
-import { ComponentTheme } from '../../types';
+import { ComponentTheme } from '$theme/types';
 
 const AlertTheme = {
   theme: {

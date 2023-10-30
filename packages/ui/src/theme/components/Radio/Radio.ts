@@ -1,8 +1,7 @@
-import { Color, FontSize, FontWeight, LineHeight } from '../../constants';
-import { DescendantStyleName } from '../../enums';
-import { ComponentTheme } from '../../types';
-
 import { RadioVariant } from '$components';
+import { Color, FontSize, FontWeight, LineHeight } from '$theme/constants';
+import { DescendantStyleName } from '$theme/enums';
+import { ComponentTheme } from '$theme/types';
 
 export const Radio = {
   theme: {
