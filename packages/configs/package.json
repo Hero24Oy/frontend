@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@hero24/configs",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "repository": "https://github.com/Helpdor/frontend/packages/configs",
   "license": "private",
   "engines": {
