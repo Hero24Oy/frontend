@@ -1,5 +1,4 @@
 import { InputField as InputFieldOrigin } from '@gluestack-ui/themed';
-import React from 'react';
 
 export interface InputFieldProps
   extends React.ComponentProps<typeof InputFieldOrigin> {}

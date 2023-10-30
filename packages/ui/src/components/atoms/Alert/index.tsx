@@ -6,21 +6,21 @@ import {
   Text,
   VStack,
 } from '@gluestack-ui/themed';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { AlertAction } from './constants';
 
 export * from './constants';
 
-export type AlertProps = {
+type Props = {
   title: string;
   action?: `${AlertAction}`;
   Icon?: FC;
   text?: string;
 };
 
-export const Alert: FC<AlertProps> = (props) => {
+export const Alert: FC<Props> = (props) => {
   const { title, text, Icon, ...restProps } = props;
 
   // * Icon with opacity 0 is used to align text

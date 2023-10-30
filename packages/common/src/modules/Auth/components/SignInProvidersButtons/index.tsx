@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { Button, VStack } from '@hero24/ui';
@@ -7,9 +7,15 @@ export const SignInProvidersButtons: FC = () => {
   return (
     <VStack style={styles.container}>
       {/* TODO replace buttons labels with i18n call */}
-      <Button isDisabled>Continue with Google</Button>
-      <Button isDisabled>Continue with Facebook</Button>
-      <Button isDisabled>Continue with Apple</Button>
+      <Button variant="outline" size="md" isDisabled>
+        Continue with Google
+      </Button>
+      <Button variant="outline" size="md" isDisabled>
+        Continue with Facebook
+      </Button>
+      <Button variant="outline" size="md" isDisabled>
+        Continue with Apple
+      </Button>
     </VStack>
   );
 };

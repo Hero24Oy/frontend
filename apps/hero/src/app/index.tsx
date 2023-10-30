@@ -1,5 +1,5 @@
 import { Link } from 'expo-router';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 import { useFirebaseUser } from '@hero24/common';
 import { Button, SafeAreaView, View } from '@hero24/ui';
@@ -11,15 +11,19 @@ const Home: FC = () => {
     <SafeAreaView>
       <View>
         {!user && (
-          <Button>
-            <Link href="/sign-in">Sign in</Link>
-          </Button>
+          <Link href="/sign-in" asChild>
+            <Button variant="solid" size="md">
+              Sign in
+            </Button>
+          </Link>
         )}
 
         {user && (
-          <Button>
-            <Link href="/profile">My profile</Link>
-          </Button>
+          <Link href="/profile" asChild>
+            <Button variant="solid" size="md">
+              My profile
+            </Button>
+          </Link>
         )}
       </View>
     </SafeAreaView>

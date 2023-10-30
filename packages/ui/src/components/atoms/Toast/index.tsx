@@ -4,7 +4,6 @@ import {
   ToastTitle,
   VStack,
 } from '@gluestack-ui/themed';
-import React from 'react';
 
 export interface ToastProps extends React.ComponentProps<typeof ToastOrigin> {
   description?: string;

@@ -3,9 +3,13 @@
     "baseUrl": "./src",
     "paths": {
       "$providers": ["providers"],
+      "$components": ["components"],
+      "$components/*": ["components/*"],
+      "$atoms": ["atoms"],
+      "$theme": ["theme"],
+      "$theme/*": ["theme/*"],
       "$types": ["types"],
-      "$atoms": ["components/atoms/index"],
-      "$molecules": ["components/molecules/index"]
+      "$hooks": ["hooks"]
     }
   },
   "extends": "@hero24/configs/tsconfig.json",
