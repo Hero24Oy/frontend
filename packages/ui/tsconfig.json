@@ -15,8 +15,8 @@
       "$hooks/*": ["hooks/*"],
       "$icons": ["icons"],
       "$icons/*": ["icons/*"],
-      "$styled": ["styled"],
-      "$styled/*": ["styled/*"]
+      "$styled": ["components/styled"],
+      "$styled/*": ["components/styled/*"]
     }
   },
   "extends": "@hero24/configs/tsconfig.json",
