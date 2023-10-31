@@ -2,7 +2,12 @@ import { ViewStyle } from 'react-native';
 
 import { SxValues } from './types';
 
-import { ButtonSize, ButtonVariant, RadioVariant } from '$components';
+import {
+  ButtonSize,
+  ButtonVariant,
+  RadioVariant,
+  TextareaSize,
+} from '$components';
 import { HeadingVariant } from '$components/atoms/Heading/constants';
 
 declare module '@gluestack-ui/themed' {
@@ -18,7 +23,7 @@ declare module '@gluestack-ui/themed' {
     Heading: {
       theme: {
         variants: {
-          variant: Record<`${HeadingVariant}`, ViewStyle>;
+          variant: Record<`${HeadingVariant}`, SxValues<ViewStyle>>;
         };
       };
     };
@@ -26,6 +31,13 @@ declare module '@gluestack-ui/themed' {
       theme: {
         variants: {
           variant: Record<`${RadioVariant}`, SxValues<ViewStyle>>;
+        };
+      };
+    };
+    Textarea: {
+      theme: {
+        size: {
+          variant: Record<`${TextareaSize}`, SxValues<ViewStyle>>;
         };
       };
     };
