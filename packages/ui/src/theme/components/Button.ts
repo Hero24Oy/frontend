@@ -1,3 +1,5 @@
+import { ViewStyle } from 'react-native';
+
 import {
   Color,
   FontSize,
@@ -5,9 +7,10 @@ import {
   IconSize,
   LineHeight,
 } from '../constants';
-import { ComponentTheme, DescendantStyleName } from '../types';
+import { DescendantStyleName, Size } from '../enums';
+import { ComponentTheme } from '../types';
 
-import { ButtonSize, ButtonVariant } from '$components/atoms/Button';
+import { ButtonVariant } from '$components';
 
 export const Button = {
   theme: {
@@ -27,7 +30,7 @@ export const Button = {
     },
     variants: {
       size: {
-        [ButtonSize.LARGE]: {
+        [Size.LARGE]: {
           width: '100%',
           paddingVertical: 11,
           _text: {
@@ -44,7 +47,7 @@ export const Button = {
             },
           },
         },
-        [ButtonSize.MEDIUM]: {
+        [Size.MEDIUM]: {
           paddingVertical: 10,
           _text: {
             fontSize: FontSize.SMALL,
@@ -60,7 +63,7 @@ export const Button = {
             },
           },
         },
-        [ButtonSize.SMALL]: {
+        [Size.SMALL]: {
           paddingVertical: 8,
           _text: {
             fontSize: FontSize.EXTRA_SMALL,
@@ -212,4 +215,4 @@ export const Button = {
       DescendantStyleName.SPINNER,
     ],
   },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<ViewStyle>;
