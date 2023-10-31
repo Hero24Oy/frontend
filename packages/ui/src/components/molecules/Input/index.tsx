@@ -54,6 +54,7 @@ export const Input = <Type extends FieldValues>(
         isInvalid={Boolean(error)}
       >
         {leftSlot ? <InputSlot>{leftSlot}</InputSlot> : null}
+
         <InputField
           field={field}
           keyboardType={keyboardType}
@@ -61,7 +62,9 @@ export const Input = <Type extends FieldValues>(
           placeholder={placeholder}
           type={isPasswordVisible ? InputType.TEXT : type}
         />
+
         {rightSlot ? <InputSlot>{rightSlot}</InputSlot> : null}
+
         {isPassword ? (
           <PasswordVisibleSwitcher
             isPasswordVisible={isPasswordVisible}

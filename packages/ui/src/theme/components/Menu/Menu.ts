@@ -1,5 +1,7 @@
+import { ViewStyle } from 'react-native';
+
 import { Color } from '$theme/constants';
-import { ComponentTheme, ViewSxValues } from '$theme/types';
+import { ComponentTheme } from '$theme/types';
 
 export const Menu = {
   theme: {
@@ -10,8 +12,8 @@ export const Menu = {
     paddingVertical: 8,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: Color.GRAY_02,
-    backgroundColor: Color.WHITE_01,
+    borderColor: Color.GREY_02,
+    backgroundColor: Color.WHITE_00,
     gap: 8,
   },
-} satisfies ComponentTheme<ViewSxValues>;
+} satisfies ComponentTheme<ViewStyle>;

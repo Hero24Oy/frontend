@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { FieldError } from 'react-hook-form';
-import { StyledInputHelper, StyledInputHelperBlank } from 'styled';
+
+import { StyledInputHelper } from '$styled';
 
 type Props = {
   error?: FieldError;
@@ -10,7 +11,7 @@ export const InputHelper: FC<Props> = (props): JSX.Element => {
   const { error } = props;
 
   if (!error) {
-    return <StyledInputHelperBlank />;
+    return <StyledInputHelper />;
   }
 
   const errorText = error?.message?.toString() || '';

@@ -4219,6 +4219,7 @@ __metadata:
     "@gluestack-style/animation-resolver": "npm:^1.0.2"
     "@gluestack-style/legend-motion-animation-driver": "npm:^1.0.2"
     "@gluestack-style/react": "npm:^1.0.8"
+    "@gluestack-ui/button": "npm:^0.1.33"
     "@gluestack-ui/config": "npm:^1.0.3"
     "@gluestack-ui/themed": "npm:^1.0.8"
     "@hero24/configs": "npm:*"
@@ -8436,6 +8437,7 @@ __metadata:
     expo-updates: "npm:^0.18.13"
     expo-web-browser: "npm:~12.3.2"
     fs-extra: "npm:^11.1.1"
+    lucide-react-native: "npm:^0.290.0"
     prettier: "npm:^3.0.3"
     react: "npm:18.2.0"
     react-combine-providers: "npm:^0.9.6"
@@ -11065,6 +11067,7 @@ __metadata:
     hero24-types: "npm:^0.2.2"
     i18next: "npm:^23.5.1"
     lodash: "npm:^4.17.21"
+    lucide-react-native: "npm:^0.290.0"
     prettier: "npm:^3.0.3"
     react: "npm:18.2.0"
     react-combine-providers: "npm:^0.9.6"
@@ -12710,6 +12713,18 @@ __metadata:
     react-native: "*"
     react-native-svg: ^12.0.0 || ^13.0.0
   checksum: 6910952d8eaaa96fd3bff39b48ed9d53cc8ebb07e78f44de31dc587a624601bc658d0aee335cf3bbe847e99c4734ee1a592091c38a19e9f59a1a79bdfe7e5f03
+  languageName: node
+  linkType: hard
+
+"lucide-react-native@npm:^0.290.0":
+  version: 0.290.0
+  resolution: "lucide-react-native@npm:0.290.0"
+  peerDependencies:
+    prop-types: ^15.7.2
+    react: ^16.5.1 || ^17.0.0 || ^18.0.0
+    react-native: "*"
+    react-native-svg: ^12.0.0 || ^13.0.0
+  checksum: d2883c237223dfbaf94026fe8342ffa0a4c45a5af7a19afee564fbe1d4416d041597e852d2fb61494ef40fd324740dd5f2d138ebfd38d4ad03b6d7f9a2308a10
   languageName: node
   linkType: hard
 
