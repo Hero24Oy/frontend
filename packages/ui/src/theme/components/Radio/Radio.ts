@@ -1,5 +1,11 @@
-import { RadioVariant } from '$components/atoms/RadioGroup';
-import { Color, FontSize, FontWeight, LineHeight } from '$theme/constants';
+import { RadioVariant } from '$atoms';
+import {
+  Color,
+  FontSize,
+  FontWeight,
+  IconSize,
+  LineHeight,
+} from '$theme/constants';
 import { ComponentTheme, DescendantStyleName } from '$theme/types';
 
 export const Radio = {
@@ -28,8 +34,32 @@ export const Radio = {
             },
           },
         },
+        [RadioVariant.RADIO]: {
+          flexDirection: 'row',
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+          _icon: {
+            width: IconSize.EXTRA_SMALL,
+            height: IconSize.EXTRA_SMALL,
+            props: {
+              color: Color.BLUE_01,
+            },
+          },
+          _indicator: {
+            marginRight: 5,
+            width: IconSize.LARGE,
+            height: IconSize.LARGE,
+            ':checked': {
+              props: {
+                color: Color.BLUE_01,
+              },
+            },
+          },
+        },
       },
     },
   },
-  componentConfig: { descendantStyle: [DescendantStyleName.TEXT] },
+  componentConfig: {
+    descendantStyle: [DescendantStyleName.TEXT, DescendantStyleName.INDICATOR],
+  },
 } satisfies ComponentTheme;
