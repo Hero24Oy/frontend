@@ -4229,6 +4229,7 @@ __metadata:
     ts-node: "npm:^10.9.1"
     tsup: "npm:^7.2.0"
     typescript: "npm:^5.1.3"
+    utility-types: "npm:^3.10.0"
   languageName: unknown
   linkType: soft
 
@@ -17134,6 +17135,13 @@ __metadata:
     is-typed-array: "npm:^1.1.3"
     which-typed-array: "npm:^1.1.2"
   checksum: c27054de2cea2229a66c09522d0fa1415fb12d861d08523a8846bf2e4cbf0079d4c3f725f09dcb87493549bcbf05f5798dce1688b53c6c17201a45759e7253f3
+  languageName: node
+  linkType: hard
+
+"utility-types@npm:^3.10.0":
+  version: 3.10.0
+  resolution: "utility-types@npm:3.10.0"
+  checksum: 79a6f7ea0cdd4fcafcec8c6e68e1e0cfa657e414b6f1696552d89ae70a3634b12ac6c16b7a0a3bfdb0a222ebc3d9a7649f2de434a78f2d65d318b50f314a85e4
   languageName: node
   linkType: hard
 

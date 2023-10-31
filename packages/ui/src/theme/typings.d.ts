@@ -26,7 +26,7 @@ declare module '@gluestack-ui/themed' {
     Radio: {
       theme: {
         variants: {
-          size: Record<`${RadioVariant}`, SxValues>;
+          variant: Record<`${RadioVariant}`, SxValues>;
         };
       };
     };

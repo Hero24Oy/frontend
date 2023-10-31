@@ -1,5 +1,4 @@
-import { ImageSize } from 'components/atoms/Image/enums';
-
+import { ImageSize } from '$components/atoms/Image/constants';
 import { ComponentTheme } from '$theme/types';
 
 export const Image = {
