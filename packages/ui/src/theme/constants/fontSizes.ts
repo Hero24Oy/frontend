@@ -1,8 +1,9 @@
 export enum FontSize {
-  EXTRA_SMALL = 12,
-  SMALL = 14,
-  MEDIUM = 16,
-  LARGE = 18,
-  EXTRA_LARGE = 20,
-  DOUBLE_EXTRA_LARGE = 24,
+  XXXL = 28,
+  XXL = 24,
+  XL = 20,
+  LG = 17,
+  MD = 16,
+  SM = 14,
+  XS = 12,
 }
