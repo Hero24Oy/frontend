@@ -11,15 +11,15 @@ export const CodeFieldCell = {
     lineHeight: 55,
     fontSize: 14,
     borderRadius: 6,
-    color: Color.DARK_01,
+    color: Color.DARK_00,
     borderWidth: 1,
-    borderColor: Color.GRAY_02,
+    borderColor: Color.GREY_02,
     textAlign: 'center',
     textAlignVertical: 'center',
     variants: {
       isFocused: {
         true: {
-          borderColor: Color.DARK_01,
+          borderColor: Color.DARK_00,
         },
       },
     },
