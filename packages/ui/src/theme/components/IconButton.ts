@@ -9,9 +9,9 @@ export const IconButton = {
     alignSelf: 'flex-start',
     padding: 10,
     borderRadius: 10,
-    backgroundColor: Color.GRAY_06,
+    backgroundColor: Color.GREY_03,
     _icon: {
-      color: Color.BLACK_01,
+      color: Color.BLACK_00,
     },
     variants: {
       size: {

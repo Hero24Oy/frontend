@@ -11,9 +11,9 @@ export const MenuItem = {
     justifyContent: 'flex-start',
     paddingVertical: 6,
     paddingHorizontal: 24,
-    backgroundColor: Color.GRAY_03,
+    backgroundColor: Color.GREY_LIGHT_00,
     _text: {
-      color: Color.DARK_01,
+      color: Color.DARK_00,
       fontSize: FontSize.SM,
     },
   },

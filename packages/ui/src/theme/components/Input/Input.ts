@@ -15,16 +15,16 @@ export const Input = {
     paddingHorizontal: 12,
     borderRadius: 6,
     borderWidth: 1,
-    borderColor: Color.GRAY_02,
+    borderColor: Color.GREY_01,
     ':focus': {
-      borderColor: Color.DARK_01,
+      borderColor: Color.DARK_00,
     },
     ':invalid': {
       borderColor: Color.RED_01,
     },
     ':disabled': {
-      borderColor: Color.GRAY_04,
-      backgroundColor: Color.GRAY_02,
+      borderColor: Color.GREY_01,
+      backgroundColor: Color.GREY_03,
     },
     _input: {
       flex: 1,
@@ -32,10 +32,10 @@ export const Input = {
       fontSize: FontSize.SM,
       fontFamily: Font.MAIN,
       ':focus': {
-        color: Color.DARK_01,
+        color: Color.DARK_00,
       },
       _icon: {
-        color: Color.DARK_01,
+        color: Color.DARK_00,
       },
     },
   },
