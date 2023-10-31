@@ -1,5 +1,6 @@
 import { config } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
+import { ViewStyle } from 'react-native';
 
 import { IconSize } from '$theme/constants';
 import { ComponentTheme } from '$theme/types';
@@ -11,6 +12,6 @@ const AlertIconTheme = {
       size: IconSize.MEDIUM,
     },
   },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<ViewStyle>;
 
 export const AlertIcon = merge(config.components.AlertIcon, AlertIconTheme);

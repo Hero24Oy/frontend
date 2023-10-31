@@ -1,3 +1,5 @@
+import { ViewStyle } from 'react-native';
+
 import { Color, IconSize } from '../constants';
 import { DescendantStyleName, Size } from '../enums';
 import { ComponentTheme } from '../types';
@@ -38,4 +40,4 @@ export const IconButton = {
     },
   },
   componentConfig: { descendantStyle: [DescendantStyleName.ICON] },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<ViewStyle>;
