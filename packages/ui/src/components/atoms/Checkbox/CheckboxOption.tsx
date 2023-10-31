@@ -3,10 +3,9 @@ import {
   CheckboxIcon,
   CheckboxIndicator,
   CheckboxLabel,
-  CheckIcon,
-  RemoveIcon,
 } from '@gluestack-ui/themed';
-import React, { FC } from 'react';
+import { Check, Minus } from 'lucide-react-native';
+import { FC } from 'react';
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
 
 export type CheckboxOptionProps = {
@@ -29,10 +28,6 @@ export const CheckboxOption: FC<CheckboxOptionProps> = (props) => {
     ...restProps
   } = props;
 
-  // * this is a stub, will be dealt with
-  // TODO fix this
-  const IconMemoized = isIndeterminate ? RemoveIcon : (CheckIcon as unknown);
-
   return (
     <GluestackCheckbox
       style={wrapperStyle}
@@ -43,7 +38,7 @@ export const CheckboxOption: FC<CheckboxOptionProps> = (props) => {
       {...restProps}
     >
       <CheckboxIndicator>
-        <CheckboxIcon as={IconMemoized} />
+        <CheckboxIcon as={isIndeterminate ? Minus : Check} />
       </CheckboxIndicator>
       <CheckboxLabel style={[labelStyle, styles.label]}>{label}</CheckboxLabel>
     </GluestackCheckbox>
