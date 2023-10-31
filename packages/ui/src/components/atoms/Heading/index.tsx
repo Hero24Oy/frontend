@@ -1,8 +1,9 @@
 import { Heading as GluestackHeadingOrigin } from '@gluestack-ui/themed';
 import { FC } from 'react';
-import { CommonStyles } from 'types';
 
 import { HeadingVariant } from './constants';
+
+import { CommonStyles } from '$types';
 
 type Props = {
   children: string;
