@@ -26,28 +26,56 @@ const options: CheckboxOption[] = [
   },
 ];
 
+const optionsNew: CheckboxOption[] = [
+  {
+    label: 'Installation',
+    value: 'Installation',
+  },
+  {
+    label: 'Maintenance',
+    value: 'Maintenance',
+  },
+  {
+    label: 'Engineering',
+    value: 'Engineering',
+  },
+];
+
 type Fields = {
+  anotherCategories: string[];
   categories: string[];
 };
 
 const Home: FC = () => {
   const { user } = useFirebaseUser();
 
+  // TODO get rid of
   const { control } = useForm<Fields>({
     defaultValues: {
       categories: [],
+      anotherCategories: [],
     },
   });
 
   return (
     <SafeAreaView>
-      <CheckboxGroup
-        control={control}
-        name="categories"
-        size="lg"
-        options={options}
-        label="Cleaning & domestic help"
-      />
+      <View marginVertical={10} gap={20}>
+        <CheckboxGroup
+          control={control}
+          name="categories"
+          size="lg"
+          options={options}
+          label="Cleaning & domestic help"
+        />
+
+        <CheckboxGroup
+          control={control}
+          name="anotherCategories"
+          size="lg"
+          options={optionsNew}
+          label="Plumbing"
+        />
+      </View>
       <View>
         {!user && (
           <Button>

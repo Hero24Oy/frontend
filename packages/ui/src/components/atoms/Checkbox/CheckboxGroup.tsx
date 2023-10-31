@@ -4,6 +4,7 @@ import {
 } from '@gluestack-ui/themed';
 import React, { ReactElement } from 'react';
 import { FieldValues } from 'react-hook-form';
+import { StyleSheet } from 'react-native';
 
 import { CheckboxOption } from './CheckboxOption';
 import { CheckboxOptions } from './CheckboxOptions';
@@ -29,12 +30,20 @@ export const CheckboxGroup = <Type extends FieldValues>(
   });
 
   return (
-    <GluestackCheckboxGroup value={value} ref={ref} onChange={onChange}>
+    <GluestackCheckboxGroup
+      value={value}
+      ref={ref}
+      onChange={onChange}
+      {...restProps}
+    >
       <CheckboxOption
+        labelStyle={styles.mainLabel}
+        wrapperStyle={styles.mainWrapper}
         label={label}
         value={CHECKBOX_ROOT_VALUE}
         isIndeterminate={isIndeterminate}
         isChecked={isEverythingChecked}
+        {...restProps}
       />
 
       {errorMessage && <Text>{errorMessage}</Text>}
@@ -42,3 +51,13 @@ export const CheckboxGroup = <Type extends FieldValues>(
     </GluestackCheckboxGroup>
   );
 };
+
+const styles = StyleSheet.create({
+  mainLabel: {
+    fontWeight: '500',
+  },
+  mainWrapper: {
+    paddingBottom: 8,
+    paddingHorizontal: 16,
+  },
+});
