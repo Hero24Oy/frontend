@@ -12,3 +12,4 @@ export * from './Alert';
 export * from './RadioButton';
 export * from './RadioGroup';
 export * from './IconButton';
+export * from './Textarea';
