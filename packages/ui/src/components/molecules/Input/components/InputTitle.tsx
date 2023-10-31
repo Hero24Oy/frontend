@@ -1,7 +1,8 @@
 import { FC } from 'react';
-import { StyledInputTitle } from 'styled';
 
 import { InputSize } from '../types';
+
+import { StyledInputTitle } from '$styled';
 
 type Props = {
   size?: `${InputSize}`;
