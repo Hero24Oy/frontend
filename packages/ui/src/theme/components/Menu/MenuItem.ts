@@ -1,9 +1,8 @@
+import { ViewStyle } from 'react-native';
+
 import { Color, FontSize } from '$theme/constants';
-import {
-  ComponentTheme,
-  DescendantStyleName,
-  ViewSxValues,
-} from '$theme/types';
+import { DescendantStyleName } from '$theme/enums';
+import { ComponentTheme } from '$theme/types';
 
 export const MenuItem = {
   theme: {
@@ -21,4 +20,4 @@ export const MenuItem = {
   componentConfig: {
     descendantStyle: [DescendantStyleName.TEXT],
   },
-} satisfies ComponentTheme<ViewSxValues>;
+} satisfies ComponentTheme<ViewStyle>;

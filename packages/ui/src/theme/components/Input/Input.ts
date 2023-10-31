@@ -1,5 +1,9 @@
+import { ViewStyle } from 'react-native';
+
 import { Color, Font, FontSize } from '../../constants';
-import { ComponentTheme, DescendantStyleName, ViewSxValues } from '../../types';
+
+import { DescendantStyleName } from '$theme/enums';
+import { ComponentTheme } from '$theme/types';
 
 export const Input = {
   theme: {
@@ -38,4 +42,4 @@ export const Input = {
   componentConfig: {
     descendantStyle: [DescendantStyleName.INPUT, DescendantStyleName.ICON],
   },
-} satisfies ComponentTheme<ViewSxValues>;
+} satisfies ComponentTheme<ViewStyle>;

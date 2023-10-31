@@ -10,6 +10,10 @@
       "$types": ["types"],
       "$types/*": ["types/*"],
       "$hooks": ["hooks"],
+      "$hooks/*": ["hooks/*"],
+      "$icons": ["icons"],
+      "$icons/*": ["icons/*"],
+      "$hooks": ["hooks"],
       "$atoms": ["components/atoms"],
       "$atoms/*": ["components/atoms/*"],
       "$molecules": ["components/molecules"],
@@ -17,9 +21,7 @@
       "$organisms": ["components/organisms"],
       "$organisms/*": ["components/organisms/*"],
       "$styled": ["components/styled"],
-      "$styled/*": ["components/styled/*"],
-      "$icons": ["icons"],
-      "$icons/*": ["icons/*"],
+      "$styled/*": ["components/styled/*"]
     }
   },
   "extends": "@hero24/configs/tsconfig.json",

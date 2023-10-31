@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { FieldError } from 'react-hook-form';
-import { StyledInputHelper, StyledInputHelperBlank } from 'styled';
+
+import { StyledInputHelper, StyledInputHelperBlank } from '$styled';
 
 type Props = {
   error?: FieldError;
