@@ -3,8 +3,14 @@ export enum RadioVariant {
   RADIO = 'radio',
 }
 
-type GluestackRadioGroup = ComponentProps<typeof RadioGroup>;
+export type RadioOption = {
+  label: string;
+  value: string;
+};
 
-type PickedFields = 'onChange' | 'value';
+type RadioConfig = {
+  options: RadioOption[];
+  variant: RadioVariant;
+};
 
-export type GluestackRadioGroupProps = Pick<GluestackRadioGroup, PickedFields>;
+export type RadioGroupProps = RadioConfig;
