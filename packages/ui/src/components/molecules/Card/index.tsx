@@ -6,14 +6,16 @@ import { LayoutStyles } from '$types';
 
 type ViewProps = ComponentProps<typeof GluestackView>;
 
-type PropsForPick =
-  | 'backgroundColor'
-  | 'borderColor'
-  | 'borderRadius'
-  | 'maxWidth';
+type Props = PropsWithChildren<
+  LayoutStyles &
+    Pick<
+      ViewProps,
+      'backgroundColor' | 'borderColor' | 'borderRadius' | 'maxWidth'
+    >
+>;
 
-type Props = PropsWithChildren<LayoutStyles & Pick<ViewProps, PropsForPick>>;
+export const Card: FC<Props> = (props) => {
+  const { children, ...restProps } = props;
 
-export const Card: FC<Props> = ({ children, ...restProps }) => (
-  <StyledCard {...restProps}>{children}</StyledCard>
-);
+  return <StyledCard {...restProps}>{children}</StyledCard>;
+};
