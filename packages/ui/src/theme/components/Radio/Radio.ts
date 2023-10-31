@@ -1,4 +1,6 @@
-import { RadioVariant } from '$atoms';
+import { ViewStyle } from 'react-native';
+
+import { RadioVariant } from '$components';
 import {
   Color,
   FontSize,
@@ -6,31 +8,32 @@ import {
   IconSize,
   LineHeight,
 } from '$theme/constants';
-import { ComponentTheme, DescendantStyleName } from '$theme/types';
+import { DescendantStyleName } from '$theme/enums';
+import { ComponentTheme } from '$theme/types';
 
 export const Radio = {
   theme: {
     variants: {
       variant: {
         [RadioVariant.CHIP]: {
-          borderColor: Color.GRAY_02,
+          borderColor: Color.GREY_02,
           borderWidth: 1,
           borderRadius: 8,
           gap: 4,
           _text: {
             textAlign: 'center',
-            color: Color.DARK_01,
-            fontSize: FontSize.SMALL,
-            fontWeight: FontWeight.NORMAL,
+            color: Color.DARK_00,
+            fontSize: FontSize.SM,
+            fontWeight: FontWeight.REGULAR,
             paddingHorizontal: 12,
             paddingVertical: 8,
-            lineHeight: LineHeight.DEFAULT,
+            lineHeight: LineHeight.SM,
           },
           ':checked': {
             backgroundColor: Color.RED_01,
             borderColor: Color.TRANSPARENT,
             _text: {
-              color: Color.WHITE_01,
+              color: Color.WHITE_00,
             },
           },
         },
@@ -62,4 +65,4 @@ export const Radio = {
   componentConfig: {
     descendantStyle: [DescendantStyleName.TEXT, DescendantStyleName.INDICATOR],
   },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<ViewStyle>;
