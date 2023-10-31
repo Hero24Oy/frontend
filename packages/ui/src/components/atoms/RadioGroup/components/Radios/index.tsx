@@ -2,7 +2,7 @@ import { FC, memo } from 'react';
 
 import { radioComponent } from './constants';
 
-import { RadioOption, RadioVariant } from '$atoms/RadioGroup';
+import { RadioOption, RadioVariant } from '$atoms/RadioGroup/types';
 
 type Props = {
   options: RadioOption[];
