@@ -11,3 +11,4 @@ export * from './Actionsheet';
 export * from './Alert';
 export * from './RadioButton';
 export * from './RadioGroup';
+export * from './IconButton';

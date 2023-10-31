@@ -5,11 +5,18 @@
       "$providers": ["providers"],
       "$components": ["components"],
       "$components/*": ["components/*"],
-      "$atoms": ["atoms"],
+      "$atoms": ["components/atoms"],
+      "$atoms/*": ["components/atoms/*"],
       "$theme": ["theme"],
       "$theme/*": ["theme/*"],
       "$types": ["types"],
-      "$hooks": ["hooks"]
+      "$types/*": ["types/*"],
+      "$hooks": ["hooks"],
+      "$hooks/*": ["hooks/*"],
+      "$icons": ["icons"],
+      "$icons/*": ["icons/*"],
+      "$styled": ["components/styled"],
+      "$styled/*": ["components/styled/*"]
     }
   },
   "extends": "@hero24/configs/tsconfig.json",

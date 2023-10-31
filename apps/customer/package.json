@@ -47,6 +47,7 @@
     "expo-system-ui": "~2.4.0",
     "expo-updates": "^0.18.13",
     "expo-web-browser": "~12.3.2",
+    "lucide-react-native": "^0.290.0",
     "react": "18.2.0",
     "react-combine-providers": "^0.9.6",
     "react-dom": "18.2.0",
