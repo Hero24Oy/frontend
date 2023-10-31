@@ -1,24 +1,26 @@
 {
   "private": true,
   "name": "@hero24/common",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "repository": "https://github.com/Helpdor/frontend/packages/common",
   "license": "private",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./src/index.ts",
   "engines": {
-    "node": "^18.18",
-    "npm": "^9.8"
+    "node": "^18.18"
   },
   "scripts": {
-    "dev": "npm run build -- --watch",
-    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "dev": "yarn build --watch",
+    "build": "tsup src/index.ts --format cjs,esm",
     "pretty": "prettier --write . --log-level warn",
     "lint": "eslint . --fix"
   },
   "devDependencies": {
     "@cspell/eslint-plugin": "^7.3.6",
+    "@gluestack-style/react": "^1.0.8",
+    "@gluestack-ui/config": "1.0.1",
+    "@gluestack-ui/themed": "^1.0.8",
     "@types/lodash": "^4.14.199",
     "@types/react": "^18.2.23",
     "@typescript-eslint/eslint-plugin": "^6.6.0",

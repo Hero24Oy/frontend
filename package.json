@@ -1,25 +1,25 @@
 {
   "private": true,
   "name": "frontend",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "repository": "https://github.com/Helpdor/frontend",
   "license": "private",
   "engines": {
-    "node": "^18.18",
-    "npm": "^9.8"
+    "node": "^18.18"
   },
+  "packageManager": "yarn@4.0.0",
   "scripts": {
     "prepare": "husky install",
     "build": "turbo build",
     "dev": "turbo dev",
-    "dev:hero": "cd apps/hero && npm run watch",
-    "dev:customer": "cd apps/customer && npm run watch",
+    "dev:hero": "cd apps/hero && yarn watch",
+    "dev:customer": "cd apps/customer && yarn watch",
     "lint": "turbo lint",
-    "postinstall": "npm run build"
+    "postinstall": "yarn build"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "prettier"
+      "eslint --fix"
     ]
   },
   "devDependencies": {

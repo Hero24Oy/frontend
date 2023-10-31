@@ -1,19 +1,19 @@
 {
   "private": true,
   "name": "hero-app",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "repository": "https://github.com/Helpdor/frontend/apps/hero",
   "license": "private",
   "engines": {
-    "node": "^18.18",
-    "npm": "^9.8"
+    "node": "^18.18"
   },
   "main": "index.ts",
   "scripts": {
-    "build:eas:android:development": "eas build --profile development --platform android --clear-cache",
-    "build:eas:android:production": "eas build --profile production --platform android --clear-cache",
-    "build:eas:ios:development": "eas build --profile development --platform ios --clear-cache",
-    "build:eas:ios:production": "eas build --profile production --platform ios --clear-cache",
+    "prebuild": "npx expo prebuild",
+    "build:eas:android:development": "yarn prebuild && eas build --profile development --platform android --clear-cache",
+    "build:eas:android:production": "yarn prebuild && eas build --profile production --platform android --clear-cache",
+    "build:eas:ios:development": "yarn prebuild && eas build --profile development --platform ios --clear-cache",
+    "build:eas:ios:production": "yarn prebuild && eas build --profile production --platform ios --clear-cache",
     "update:eas:android:production": "eas update --branch production --platform android --clear-cache",
     "update:eas:ios:production": "eas update --branch production --platform ios --clear-cache",
     "submit:eas:android": "eas submit --platform android",
@@ -22,7 +22,7 @@
     "pretty": "prettier --write . --log-level warn",
     "lint": "eslint . --fix",
     "reinstall:dependencies": "rm -rf node_modules && npm i",
-    "reinstall:dependencies:full": "npm cache clean --force && npm run reinstall:dependencies",
+    "reinstall:dependencies:full": "npm cache clean --force && yarn reinstall:dependencies",
     "android": "expo run:android",
     "ios": "expo run:ios"
   },
@@ -30,6 +30,7 @@
     "@apollo/client": "3.8.3",
     "@expo/vector-icons": "^13.0.0",
     "@gluestack-style/react": "^1.0.8",
+    "@gluestack-ui/config": "1.0.1",
     "@gluestack-ui/themed": "^1.0.8",
     "@hero24/common": "*",
     "@hero24/ui": "*",
@@ -61,7 +62,8 @@
     "react": "18.2.0",
     "react-combine-providers": "^0.9.6",
     "react-dom": "18.2.0",
-    "react-native": "0.72.6",
+    "react-native": "0.72.5",
+    "react-native-country-picker-modal": "^2.0.0",
     "react-native-dotenv": "^3.4.9",
     "react-native-gesture-handler": "~2.12.0",
     "react-native-safe-area-context": "4.6.3",

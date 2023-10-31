@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { HStack, SafeAreaView, Text, VStack } from '@hero24/ui';

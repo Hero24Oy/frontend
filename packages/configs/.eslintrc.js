@@ -1,6 +1,4 @@
-const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = [
-  'heroBIOText',
-];
+const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = ['heroBIOText', 'Icon'];
 const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*VAT.*',
   '.*URL.*',
@@ -21,6 +19,7 @@ const underscoreAndExcludeNamingConventionWordsRegex = `^(_|${excludeNamesNaming
 const finalExcludeRegex = `${excludeNamesNamingConventionRegexpsRegex}|${underscoreAndExcludeNamingConventionWordsRegex}`;
 
 const initialRules = {
+  'eslint-comments/disable-enable-pair': 'off',
   'eslint-comments/require-description': [
     'warn',
     { ignore: ['eslint-enable'] },
@@ -133,6 +132,7 @@ const reactRules = {
   'react/jsx-uses-react': 'off',
   'react/display-name': 'off',
   'react/prop-types': 'off',
+  'react/no-array-index-key': 'off',
   'react-hooks/exhaustive-deps': 'off',
   'react/style-prop-object': 'off', // we allow to use string as prop
   'react/require-default-props': 'off',
@@ -312,6 +312,10 @@ const namingConventionRule = {
         regex: finalExcludeRegex,
       },
     },
+    {
+      selector: 'import',
+      format: ['camelCase', 'PascalCase'],
+    },
   ],
 };
 
@@ -332,7 +336,7 @@ const override = {
     },
   },
   namingConventionExceptions: {
-    files: ['src/configs/*.ts', 'scripts/*.ts'],
+    files: ['src/configs/*.ts', 'scripts/*.ts', 'src/theme/**/*.ts'],
     rules: {
       '@typescript-eslint/naming-convention': 'off',
     },
@@ -341,6 +345,18 @@ const override = {
     files: ['**/scripts/*.ts'],
     rules: {
       'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    },
+  },
+  noMagicNumbersExceptions: {
+    files: ['src/configs/*.ts', 'src/theme/**/*.ts'],
+    rules: {
+      'no-magic-numbers': 'off',
+    },
+  },
+  quoteProps: {
+    files: ['src/theme/**/*.ts'],
+    rules: {
+      'quote-props': 'off',
     },
   },
 };
@@ -387,6 +403,8 @@ module.exports = {
     'metro.config.js',
     'rn-cli.config.js',
     '@hero24',
+    'android',
+    'ios',
   ],
   rules: {
     ...initialRules,

@@ -1,12 +1,15 @@
 import { Text as GluestackText } from '@gluestack-ui/themed';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
-type Props = {
+import { TextVariants } from '$theme/components/Text/constants';
+import { Color } from '$theme/constants';
+
+export type TextProps = {
   children: string;
+  color?: `${Color}`;
+  variant?: `${TextVariants}`;
 };
 
-export const Text: FC<Props> = (props) => {
-  const { children } = props;
-
-  return <GluestackText>{children}</GluestackText>;
-};
+export const Text: FC<TextProps> = ({ children, ...restProps }) => (
+  <GluestackText {...restProps}>{children}</GluestackText>
+);
