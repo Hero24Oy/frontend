@@ -11,3 +11,4 @@ export * from './Actionsheet';
 export * from './Alert';
 export * from './Chip';
 export * from './RadioGroup';
+export * from './Radio';
