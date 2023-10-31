@@ -1,4 +1,6 @@
-import { ComponentTheme, TextSxValues } from '../../types';
+import { TextStyle } from 'react-native';
+
+import { ComponentTheme } from '../../types';
 
 import { Color } from '$theme/constants';
 
@@ -11,7 +13,7 @@ export const CodeFieldCell = {
     borderRadius: 6,
     color: Color.DARK_01,
     borderWidth: 1,
-    borderColor: '#DDDDE1',
+    borderColor: Color.GRAY_02,
     textAlign: 'center',
     textAlignVertical: 'center',
     variants: {
@@ -22,4 +24,4 @@ export const CodeFieldCell = {
       },
     },
   },
-} satisfies ComponentTheme<TextSxValues>;
+} satisfies ComponentTheme<TextStyle>;

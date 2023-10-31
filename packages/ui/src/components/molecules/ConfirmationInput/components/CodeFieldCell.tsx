@@ -1,8 +1,9 @@
 import { FC, useMemo } from 'react';
 import { Cursor } from 'react-native-confirmation-code-field';
-import { StyledCodeFieldCell } from 'styled/ConfirmationInput/CodeFieldCell';
 
 import { GetCellOnLayoutHandler } from '../types';
+
+import { StyledCodeFieldCell } from '$styled';
 
 type Props = {
   getCellOnLayoutHandler: GetCellOnLayoutHandler;
@@ -21,7 +22,6 @@ export const CodeFieldCell: FC<Props> = (props) => {
 
   return (
     <StyledCodeFieldCell
-      key={index}
       onLayout={getCellOnLayoutHandler(index)}
       {...restProps}
     >

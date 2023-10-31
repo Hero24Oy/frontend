@@ -13,7 +13,6 @@
       "$hooks/*": ["hooks/*"],
       "$icons": ["icons"],
       "$icons/*": ["icons/*"],
-      "$hooks": ["hooks"],
       "$atoms": ["components/atoms"],
       "$atoms/*": ["components/atoms/*"],
       "$molecules": ["components/molecules"],
