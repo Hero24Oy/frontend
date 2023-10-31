@@ -1,4 +1,5 @@
 import { Checkbox } from '@gluestack-ui/themed';
+import { Control, FieldValues, Path } from 'react-hook-form';
 import { Size } from 'types';
 
 export type CheckboxOption = {
@@ -13,9 +14,13 @@ export type PickedProps = Pick<
   'isDisabled' | 'isInvalid' | 'isRequired'
 >;
 
-export type CustomProps = {
+export type CustomProps<Type extends FieldValues> = {
+  control: Control<Type>;
   label: string;
+
+  name: Path<Type>;
   options: CheckboxOption[];
 } & Partial<Size>;
 
-export type CheckboxProps = PickedProps & CustomProps;
+export type CheckboxProps<Type extends FieldValues> = PickedProps &
+  CustomProps<Type>;

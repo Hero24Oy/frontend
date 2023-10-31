@@ -1,5 +1,6 @@
 import { Link } from 'expo-router';
 import React, { FC } from 'react';
+import { useForm } from 'react-hook-form';
 
 import { useFirebaseUser } from '@hero24/common';
 import {
@@ -25,12 +26,24 @@ const options: CheckboxOption[] = [
   },
 ];
 
+type Fields = {
+  categories: string[];
+};
+
 const Home: FC = () => {
   const { user } = useFirebaseUser();
+
+  const { control } = useForm<Fields>({
+    defaultValues: {
+      categories: [],
+    },
+  });
 
   return (
     <SafeAreaView>
       <CheckboxGroup
+        control={control}
+        name="categories"
         size="lg"
         options={options}
         label="Cleaning & domestic help"

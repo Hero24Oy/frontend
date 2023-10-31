@@ -6,8 +6,14 @@ import {
   CheckboxLabel,
   CheckIcon,
   RemoveIcon,
+  Text,
 } from '@gluestack-ui/themed';
-import React, { FC, useCallback, useMemo, useState } from 'react';
+import React, { ReactElement, useCallback, useMemo } from 'react';
+import {
+  FieldValues,
+  useController,
+  UseControllerReturn,
+} from 'react-hook-form';
 
 import { VStack } from '../VStack';
 
@@ -15,16 +21,23 @@ import { CheckboxProps } from './types';
 
 const ROOT_VALUE = 'rootValue';
 
-export const CheckboxGroup: FC<CheckboxProps> = (props) => {
-  const { options, label, ...restProps } = props;
+export const CheckboxGroup = <Type extends FieldValues>(
+  props: CheckboxProps<Type>,
+): ReactElement => {
+  const { options, label, control, name, ...restProps } = props;
 
-  const [selectedValues, setSelectedValues] = useState<string[]>([]);
+  const {
+    field,
+    formState: { errors },
+  } = useController({ name, control }) as unknown as UseControllerReturn<
+    Record<string, string[]>
+  >;
 
-  const isEverythingChecked = selectedValues.length === options.length;
+  const isEverythingChecked = field.value.length === options.length;
 
   // Check if every option is checked, if not - upper option is indeterminate
   const isIndeterminate =
-    selectedValues.length !== 0 && selectedValues.length !== options.length;
+    !!field.value.length && field.value.length !== options.length;
 
   // * this is a stub, will be dealt with
   // TODO fix this
@@ -33,24 +46,25 @@ export const CheckboxGroup: FC<CheckboxProps> = (props) => {
   // TODO better naming
   const handleChange = useCallback(
     (newSelectedValues: string[]): void => {
+      let valuesToUpdate: string[] = [];
+
       // If we click on main checkbox, then either check or uncheck everything
       if (newSelectedValues.includes(ROOT_VALUE)) {
-        if (!selectedValues.length) {
-          const optionsToSelect = options.map((option) => option.value);
-
-          setSelectedValues(optionsToSelect);
+        if (!field.value.length) {
+          valuesToUpdate = options.map((option) => option.value);
         } else {
-          setSelectedValues([]);
+          valuesToUpdate = [];
         }
-
-        return;
+      } else {
+        valuesToUpdate = newSelectedValues;
       }
 
-      setSelectedValues(newSelectedValues);
+      field.onChange(valuesToUpdate);
     },
-    [options, selectedValues],
+    [options, field.value],
   );
 
+  // TODO extract to a component
   const optionsToRender = useMemo(() => {
     return options.map((option) => (
       <GluestackCheckbox
@@ -69,7 +83,11 @@ export const CheckboxGroup: FC<CheckboxProps> = (props) => {
   }, [options]);
 
   return (
-    <GluestackCheckboxGroup value={selectedValues} onChange={handleChange}>
+    <GluestackCheckboxGroup
+      value={field.value}
+      ref={field.ref}
+      onChange={handleChange}
+    >
       <GluestackCheckbox
         isChecked={isEverythingChecked || isIndeterminate}
         aria-label={label}
@@ -82,6 +100,9 @@ export const CheckboxGroup: FC<CheckboxProps> = (props) => {
         <CheckboxLabel>{label}</CheckboxLabel>
       </GluestackCheckbox>
 
+      {errors[name]?.message && (
+        <Text>{errors[name]?.message?.toString()}</Text>
+      )}
       <VStack>{optionsToRender}</VStack>
     </GluestackCheckboxGroup>
   );

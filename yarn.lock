@@ -10825,6 +10825,7 @@ __metadata:
     react: "npm:18.2.0"
     react-combine-providers: "npm:^0.9.6"
     react-dom: "npm:18.2.0"
+    react-hook-form: "npm:^7.47.0"
     react-native: "npm:0.72.5"
     react-native-dotenv: "npm:^3.4.9"
     react-native-gesture-handler: "npm:~2.12.0"
