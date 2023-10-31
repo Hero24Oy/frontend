@@ -6,7 +6,7 @@ export const Radio = {
   theme: {
     variants: {
       variant: {
-        [RadioVariant.BUTTON]: {
+        [RadioVariant.CHIP]: {
           borderColor: Color.GRAY_02,
           borderWidth: 1,
           borderRadius: 8,

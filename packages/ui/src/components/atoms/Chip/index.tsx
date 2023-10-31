@@ -6,15 +6,15 @@ import { FC, PropsWithChildren } from 'react';
 
 import { RadioVariant } from '../RadioGroup';
 
-import { GluestackRadioButtonProps } from './types';
+import { GluestackChipProps } from './types';
 
-type Props = PropsWithChildren<GluestackRadioButtonProps>;
+type Props = PropsWithChildren<GluestackChipProps>;
 
-export const RadioButton: FC<Props> = (props) => {
+export const Chip: FC<Props> = (props) => {
   const { children, ...restProps } = props;
 
   return (
-    <GluestackRadio variant={RadioVariant.BUTTON} {...restProps}>
+    <GluestackRadio variant={RadioVariant.CHIP} {...restProps}>
       <GluestackRadioLabel>{children}</GluestackRadioLabel>
     </GluestackRadio>
   );
