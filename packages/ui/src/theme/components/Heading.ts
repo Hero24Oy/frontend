@@ -11,7 +11,7 @@ import {
 
 export const Heading = {
   theme: {
-    color: Color.DARK_01,
+    color: Color.DARK_00,
     fontFamily: Font.MAIN,
 
     size: {
