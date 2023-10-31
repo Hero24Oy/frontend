@@ -30,7 +30,11 @@ const Home: FC = () => {
 
   return (
     <SafeAreaView>
-      <CheckboxGroup options={options} label="Cleaning & domestic help" />
+      <CheckboxGroup
+        size="lg"
+        options={options}
+        label="Cleaning & domestic help"
+      />
       <View>
         {!user && (
           <Button>
