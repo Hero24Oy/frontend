@@ -1,6 +1,6 @@
 import { H1, H2, H3, H4, H5 } from '@expo/html-elements';
 
-import { HeadingVariant } from '$components/atoms/Heading/enums';
+import { HeadingVariant } from '$components/atoms/Heading/constants';
 import {
   Color,
   Font,

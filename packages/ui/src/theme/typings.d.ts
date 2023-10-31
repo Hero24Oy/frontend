@@ -1,5 +1,5 @@
 import { ButtonSize, ButtonVariant, RadioVariant } from '$components';
-import { HeadingVariant } from '$components/atoms/Heading/enums';
+import { HeadingVariant } from '$components/atoms/Heading/constants';
 import { SxValues } from '$theme/types';
 
 declare module '@gluestack-ui/themed' {
