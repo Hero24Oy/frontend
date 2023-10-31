@@ -1,16 +1,16 @@
-import { ButtonSize, ButtonVariant } from '$atoms';
+import { ViewStyle } from 'react-native';
+
 import {
   Color,
   FontSize,
   FontWeight,
   IconSize,
   LineHeight,
-} from '$theme/constants';
-import {
-  ComponentTheme,
-  DescendantStyleName,
-  ViewSxValues,
-} from '$theme/types';
+} from '../constants';
+import { DescendantStyleName, Size } from '../enums';
+import { ComponentTheme } from '../types';
+
+import { ButtonVariant } from '$components';
 
 export const Button = {
   theme: {
@@ -30,7 +30,7 @@ export const Button = {
     },
     variants: {
       size: {
-        [ButtonSize.LARGE]: {
+        [Size.LARGE]: {
           width: '100%',
           paddingVertical: 11,
           _text: {
@@ -47,7 +47,7 @@ export const Button = {
             },
           },
         },
-        [ButtonSize.MEDIUM]: {
+        [Size.MEDIUM]: {
           paddingVertical: 10,
           _text: {
             fontSize: FontSize.SM,
@@ -63,7 +63,7 @@ export const Button = {
             },
           },
         },
-        [ButtonSize.SMALL]: {
+        [Size.SMALL]: {
           paddingVertical: 8,
           _text: {
             fontSize: FontSize.XS,
@@ -215,4 +215,4 @@ export const Button = {
       DescendantStyleName.SPINNER,
     ],
   },
-} satisfies ComponentTheme<ViewSxValues>;
+} satisfies ComponentTheme<ViewStyle>;

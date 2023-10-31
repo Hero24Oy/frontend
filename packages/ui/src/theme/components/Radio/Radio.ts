@@ -1,10 +1,9 @@
-import { RadioVariant } from '$atoms';
+import { ViewStyle } from 'react-native';
+
+import { RadioVariant } from '$components';
 import { Color, FontSize, FontWeight, LineHeight } from '$theme/constants';
-import {
-  ComponentTheme,
-  DescendantStyleName,
-  ViewSxValues,
-} from '$theme/types';
+import { DescendantStyleName } from '$theme/enums';
+import { ComponentTheme } from '$theme/types';
 
 export const Radio = {
   theme: {
@@ -36,4 +35,4 @@ export const Radio = {
     },
   },
   componentConfig: { descendantStyle: [DescendantStyleName.TEXT] },
-} satisfies ComponentTheme<ViewSxValues>;
+} satisfies ComponentTheme<ViewStyle>;

@@ -359,6 +359,12 @@ const override = {
       'quote-props': 'off',
     },
   },
+  functionComponentDefinition: {
+    files: ['src/icons/Base/index.tsx'],
+    rules: {
+      'react/function-component-definition': 'off'
+    },
+  }
 };
 
 /**

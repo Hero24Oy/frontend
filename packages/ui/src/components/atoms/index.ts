@@ -10,3 +10,4 @@ export * from './Alert';
 export * from './RadioButton';
 export * from './RadioGroup';
 export * from './KeyboardAwareScrollView';
+export * from './IconButton';

@@ -2,9 +2,8 @@ import { ViewStyle } from 'react-native';
 
 import { ComponentTheme } from '$theme/types';
 
-export const RadioGroup = {
+export const AlertText = {
   theme: {
-    display: 'flex',
-    gap: 6,
+    flex: 0,
   },
 } satisfies ComponentTheme<ViewStyle>;

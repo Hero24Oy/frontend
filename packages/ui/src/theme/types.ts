@@ -1,28 +1,25 @@
 import { SxProps } from '@gluestack-style/react/lib/typescript/types';
-import { StyleProp, TextStyle, ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle } from 'react-native';
 
-export type ViewSxValues = SxProps<StyleProp<ViewStyle>>;
+export type SxValues<StyleType extends ViewStyle> = Partial<
+  SxProps<StyleProp<StyleType>>
+>;
 
-export type TextSxValues = SxProps<StyleProp<TextStyle>>;
+export type Variants<StyleType extends ViewStyle> = Record<
+  string,
+  SxValues<StyleType>
+>;
 
-export type Variants<T> = Record<string, T>;
-
-export type Theme<T> = {
-  variants?: Record<string, Variants<T>>;
-} & T;
+export type Theme<StyleType extends ViewStyle> = {
+  variants?: Record<string, Variants<StyleType>>;
+} & SxValues<StyleType>;
 
 export type ComponentConfig = {
   descendantStyle: string[];
 };
 
-export type ComponentTheme<T> = {
-  theme: Theme<T>;
+export type ComponentTheme<StyleType extends ViewStyle> = {
+  theme: Theme<StyleType>;
   componentConfig?: ComponentConfig;
+  props?: Record<string, unknown>;
 };
-
-export enum DescendantStyleName {
-  TEXT = '_text',
-  ICON = '_icon',
-  SPINNER = '_spinner',
-  INPUT = '_input',
-}

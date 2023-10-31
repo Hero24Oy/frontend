@@ -7,12 +7,6 @@ export enum Direction {
   TOP = 'top',
 }
 
-export enum ButtonSize {
-  SMALL = 'sm',
-  MEDIUM = 'md',
-  LARGE = 'lg',
-}
-
 export enum ButtonVariant {
   SOLID = 'solid',
   OUTLINE = 'outline',

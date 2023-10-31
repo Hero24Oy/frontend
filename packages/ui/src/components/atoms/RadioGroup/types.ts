@@ -6,8 +6,7 @@ export enum RadioVariant {
   DEFAULT = 'default',
 }
 
-type GluestackRadioGroup = ComponentProps<typeof RadioGroup>;
-
-type PickedFields = 'onChange' | 'value';
-
-export type GluestackRadioGroupProps = Pick<GluestackRadioGroup, PickedFields>;
+export type GluestackRadioGroupProps = Pick<
+  ComponentProps<typeof RadioGroup>,
+  'onChange' | 'value'
+>;
