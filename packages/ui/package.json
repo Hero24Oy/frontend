@@ -6,24 +6,27 @@
   "license": "private",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./src/index.ts",
   "engines": {
     "node": "^18.18"
   },
   "scripts": {
     "dev": "yarn build --watch",
-    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "build": "tsup src/index.ts --format cjs,esm",
     "pretty": "prettier --write . --log-level warn",
     "lint": "eslint . --fix"
   },
   "dependencies": {
+    "@expo/html-elements": "^0.5.1",
     "@gluestack-style/react": "^1.0.8",
-    "@gluestack-ui/config": "1.0.1",
+    "@gluestack-ui/button": "^0.1.33",
+    "@gluestack-ui/config": "^1.0.3",
     "@gluestack-ui/themed": "^1.0.8",
     "@hero24/configs": "*",
     "@react-navigation/native": "^6.0.2",
     "expo": "^49.0.11",
     "lodash": "^4.17.21",
+    "lucide-react-native": "^0.288.0",
     "react": "^18.2.0",
     "react-combine-providers": "^0.9.6",
     "react-dom": "18.2.0",

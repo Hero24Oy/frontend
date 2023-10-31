@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "hero-app",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "repository": "https://github.com/Helpdor/frontend/apps/hero",
   "license": "private",
   "engines": {
@@ -9,10 +9,11 @@
   },
   "main": "index.ts",
   "scripts": {
-    "build:eas:android:development": "eas build --profile development --platform android --clear-cache",
-    "build:eas:android:production": "eas build --profile production --platform android --clear-cache",
-    "build:eas:ios:development": "eas build --profile development --platform ios --clear-cache",
-    "build:eas:ios:production": "eas build --profile production --platform ios --clear-cache",
+    "prebuild": "npx expo prebuild",
+    "build:eas:android:development": "yarn prebuild && eas build --profile development --platform android --clear-cache",
+    "build:eas:android:production": "yarn prebuild && eas build --profile production --platform android --clear-cache",
+    "build:eas:ios:development": "yarn prebuild && eas build --profile development --platform ios --clear-cache",
+    "build:eas:ios:production": "yarn prebuild && eas build --profile production --platform ios --clear-cache",
     "update:eas:android:production": "eas update --branch production --platform android --clear-cache",
     "update:eas:ios:production": "eas update --branch production --platform ios --clear-cache",
     "submit:eas:android": "eas submit --platform android",
@@ -58,6 +59,7 @@
     "hero24-types": "^0.2.2",
     "i18next": "^23.5.1",
     "lodash": "^4.17.21",
+    "lucide-react-native": "^0.290.0",
     "react": "18.2.0",
     "react-combine-providers": "^0.9.6",
     "react-dom": "18.2.0",

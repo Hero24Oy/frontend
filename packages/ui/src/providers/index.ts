@@ -1,29 +1,8 @@
-import { config } from '@gluestack-ui/config';
-import { createConfig, GluestackUIProvider } from '@gluestack-ui/themed';
+import { GluestackUIProvider } from '@gluestack-ui/themed';
 import { CombineProviders } from 'react-combine-providers';
 
-import { Alert, AlertIcon } from '../theme/components/Alert';
-import {
-  Checkbox,
-  CheckboxIcon,
-  CheckboxIndicator,
-  CheckboxLabel,
-} from '../theme/components/Checkbox';
-
-export const uiLibraryConfig = createConfig({
-  ...config,
-  components: {
-    ...config.components,
-    AlertIcon,
-    Alert,
-    Checkbox,
-    CheckboxIndicator,
-    CheckboxIcon,
-    CheckboxLabel,
-  },
-}) as unknown;
-// * Cast to unknown to overcome ts error
+import { uiLibraryConfig as config } from '$theme';
 
 export const attachUiProviders = (manager: CombineProviders): void => {
-  manager.push(GluestackUIProvider, { config: uiLibraryConfig });
+  manager.push(GluestackUIProvider, { config });
 };

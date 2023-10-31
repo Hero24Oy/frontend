@@ -1,5 +1,5 @@
 import { Text as GluestackText } from '@gluestack-ui/themed';
-import React, { FC } from 'react';
+import { FC } from 'react';
 
 interface Props {
   children: string;

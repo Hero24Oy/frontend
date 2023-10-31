@@ -9,5 +9,4 @@ const customStyles = {
   },
 };
 
-// TODO this need to be included in provider
 export const Checkbox = merge(checkboxConfig, customStyles);

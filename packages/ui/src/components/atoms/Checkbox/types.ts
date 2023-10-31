@@ -1,5 +1,6 @@
 import { Control, FieldValues, Path } from 'react-hook-form';
-import { CommonStyles, Size } from 'types';
+
+import { CommonStyles, Size } from '$types';
 
 export type CheckboxOption = {
   label: string;

@@ -1,13 +1,17 @@
 import { config } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
+import { ViewStyle } from 'react-native';
 
-const alertIconConfig = config.components.AlertIcon;
+import { IconSize } from '$theme/constants';
+import { ComponentTheme } from '$theme/types';
 
-const customStyles = {
+const AlertIconTheme = {
   theme: {
     marginRight: 5,
+    props: {
+      size: IconSize.MEDIUM,
+    },
   },
-};
+} satisfies ComponentTheme<ViewStyle>;
 
-// TODO this need to be included in provider
-export const AlertIcon = merge(alertIconConfig, customStyles);
+export const AlertIcon = merge(config.components.AlertIcon, AlertIconTheme);

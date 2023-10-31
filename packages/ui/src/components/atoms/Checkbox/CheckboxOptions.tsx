@@ -1,5 +1,5 @@
 import { Divider, VStack } from '@gluestack-ui/themed';
-import React, { FC, useMemo } from 'react';
+import { FC, useMemo } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { View } from '../View';

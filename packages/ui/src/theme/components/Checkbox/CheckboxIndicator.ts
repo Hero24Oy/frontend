@@ -1,6 +1,7 @@
 import { config } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
-import { Color } from 'theme/constants/colors';
+
+import { Color } from '$theme/constants/colors';
 
 const checkboxIndicatorConfig = config.components.CheckboxIndicator;
 
@@ -9,26 +10,25 @@ const customStyles = {
     marginRight: 5,
     borderRadius: 5,
     borderWidth: 2,
-    borderColor: Color.GREY_LIGHT,
+    borderColor: Color.GREY_LIGHT_00,
     ':focus': {
-      borderColor: Color.RED_LIGHT,
-      backgroundColor: Color.RED_LIGHT,
+      borderColor: Color.RED_00,
+      backgroundColor: Color.RED_00,
     },
     ':hover': {
-      borderColor: Color.RED_LIGHT,
+      borderColor: Color.RED_00,
     },
     ':checked': {
-      borderColor: Color.RED_LIGHT,
-      backgroundColor: Color.RED_LIGHT,
+      borderColor: Color.RED_00,
+      backgroundColor: Color.RED_00,
     },
     ':active': {
       ':checked': {
-        backgroundColor: Color.RED_DARK,
-        borderColor: Color.RED_DARK,
+        backgroundColor: Color.RED_01,
+        borderColor: Color.RED_01,
       },
     },
   },
 };
 
-// TODO this need to be included in provider
 export const CheckboxIndicator = merge(checkboxIndicatorConfig, customStyles);

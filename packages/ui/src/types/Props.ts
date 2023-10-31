@@ -14,7 +14,6 @@ export type CommonStyles = Pick<
   | 'marginHorizontal'
   | 'marginVertical'
   | 'zIndex'
-  | 'flexDirection'
 >;
 
 export type Size = 'lg' | 'md' | 'sm';

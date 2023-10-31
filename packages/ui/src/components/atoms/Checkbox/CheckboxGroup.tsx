@@ -2,7 +2,7 @@ import {
   CheckboxGroup as GluestackCheckboxGroup,
   Text,
 } from '@gluestack-ui/themed';
-import React, { ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { FieldValues } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
 

@@ -7,7 +7,7 @@ const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*graphQL.*',
   '.*HStack.*',
   '.*VStack.*',
-  ':.*' //  match pseudo css classes
+  ':.*', //  match pseudo css classes
 ];
 
 const excludeNamesNamingConventionWordsRegex =
@@ -20,6 +20,7 @@ const underscoreAndExcludeNamingConventionWordsRegex = `^(_|${excludeNamesNaming
 const finalExcludeRegex = `${excludeNamesNamingConventionRegexpsRegex}|${underscoreAndExcludeNamingConventionWordsRegex}`;
 
 const initialRules = {
+  'eslint-comments/disable-enable-pair': 'off',
   'eslint-comments/require-description': [
     'warn',
     { ignore: ['eslint-enable'] },
@@ -68,7 +69,10 @@ const tsRules = {
   ], // Ignore variables with "_" prefix
   '@typescript-eslint/no-unused-expressions': ['error'],
   'quote-props': 'off',
-  '@typescript-eslint/explicit-function-return-type': 'error',
+  '@typescript-eslint/explicit-function-return-type': [
+    'error',
+    { allowExpressions: true },
+  ],
   '@typescript-eslint/no-floating-promises': 'error',
   '@typescript-eslint/unbound-method': 'off',
   '@typescript-eslint/no-use-before-define': [
@@ -337,7 +341,7 @@ const override = {
     },
   },
   namingConventionExceptions: {
-    files: ['src/configs/*.ts', 'scripts/*.ts'],
+    files: ['src/configs/*.ts', 'scripts/*.ts', 'src/theme/**/*.ts'],
     rules: {
       '@typescript-eslint/naming-convention': 'off',
     },
@@ -346,6 +350,24 @@ const override = {
     files: ['**/scripts/*.ts'],
     rules: {
       'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    },
+  },
+  noMagicNumbersExceptions: {
+    files: ['src/configs/*.ts', 'src/theme/**/*.ts'],
+    rules: {
+      'no-magic-numbers': 'off',
+    },
+  },
+  quoteProps: {
+    files: ['src/theme/**/*.ts'],
+    rules: {
+      'quote-props': 'off',
+    },
+  },
+  functionComponentDefinition: {
+    files: ['src/icons/Base/index.tsx'],
+    rules: {
+      'react/function-component-definition': 'off',
     },
   },
 };
