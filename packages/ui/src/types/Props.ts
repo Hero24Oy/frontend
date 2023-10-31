@@ -17,11 +17,7 @@ export type CommonStyles = Pick<
   | 'flexDirection'
 >;
 
-// * This is a temporary solution as the gluestack types are not showing correctly
-// TODO remove after fix
-export type Size = {
-  size: 'lg' | 'md' | 'sm';
-};
+export type Size = 'lg' | 'md' | 'sm';
 
 export type LayoutStyles = CommonStyles &
   Pick<ViewStyle, 'justifyContent' | 'alignItems' | 'flex' | 'gap'>;
