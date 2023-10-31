@@ -36,20 +36,14 @@ export const useCheckbox = <Type extends FieldValues>(
     formState: { errors },
   } = useController({ name, control });
 
-  // TODO better naming
   const onChange = useCallback(
     (newSelectedValues: string[]): void => {
-      let valuesToUpdate: string[] = [];
+      let valuesToUpdate: string[] = newSelectedValues;
 
       // If we click on main checkbox, then either check or uncheck everything
       if (newSelectedValues.includes(CHECKBOX_ROOT_VALUE)) {
-        if (!field.value.length) {
-          valuesToUpdate = options.map((option) => option.value);
-        } else {
-          valuesToUpdate = [];
-        }
-      } else {
-        valuesToUpdate = newSelectedValues;
+        valuesToUpdate =
+          field.value.length === 0 ? options.map(({ value }) => value) : [];
       }
 
       field.onChange(valuesToUpdate);
