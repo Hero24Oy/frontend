@@ -1,11 +1,13 @@
+import { TextStyle } from 'react-native';
+
 import { TextVariants } from './constants';
 
 import { Color, FontSize, FontWeight, LineHeight } from '$theme/constants';
-import { ComponentTheme, TextSxValues } from '$theme/types';
+import { ComponentTheme } from '$theme/types';
 
 export const Text = {
   theme: {
-    color: Color.DARK_01,
+    color: Color.DARK_00,
     fontWeight: FontWeight.REGULAR,
     fontSize: FontSize.SM,
     lineHeight: LineHeight.SM,
@@ -26,4 +28,4 @@ export const Text = {
       },
     },
   },
-} satisfies ComponentTheme<TextSxValues>;
+} satisfies ComponentTheme<TextStyle>;

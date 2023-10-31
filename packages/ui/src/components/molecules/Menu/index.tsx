@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     pointerEvents: 'box-only',
   },
   disabledItem: {
-    color: Color.GRAY_01,
+    color: Color.GREY_01,
   },
 });
 

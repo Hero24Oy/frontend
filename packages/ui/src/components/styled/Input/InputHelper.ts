@@ -1,11 +1,5 @@
 import { styled } from '@gluestack-style/react';
-import { Text, View } from '@gluestack-ui/themed';
-
-export const StyledInputHelperBlank = styled(
-  View,
-  {},
-  { componentName: 'InputHelper' },
-);
+import { Text } from '@gluestack-ui/themed';
 
 export const StyledInputHelper = styled(
   Text,

@@ -1,10 +1,12 @@
+import { TextStyle } from 'react-native';
+
 import { InputSize } from '$components/molecules/Input/types';
 import { Color, FontSize, FontWeight, LineHeight } from '$theme/constants';
-import { ComponentTheme, TextSxValues } from '$theme/types';
+import { ComponentTheme } from '$theme/types';
 
 export const InputTitle = {
   theme: {
-    color: Color.GRAY_01,
+    color: Color.GREY_01,
     fontWeight: FontWeight.REGULAR,
     fontSize: FontSize.SM,
     lineHeight: LineHeight.SM,
@@ -21,4 +23,4 @@ export const InputTitle = {
       },
     },
   },
-} satisfies ComponentTheme<TextSxValues>;
+} satisfies ComponentTheme<TextStyle>;
