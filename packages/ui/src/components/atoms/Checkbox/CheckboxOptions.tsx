@@ -28,7 +28,8 @@ export const CheckboxOptions: FC<CheckboxOptionsProps> = (props) => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    paddingHorizontal: 32,
-    paddingVertical: 8,
+    paddingLeft: 32,
+    paddingRight: 24,
+    paddingVertical: 16,
   },
 });

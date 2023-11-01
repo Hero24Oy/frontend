@@ -11,10 +11,11 @@ import { CheckboxOptions } from './CheckboxOptions';
 import { CheckboxGroupProps } from './types';
 import { CHECKBOX_ROOT_VALUE, useCheckbox } from './useCheckbox';
 
+// * To add label, we need explicitly set hasRootCheck to true
 export const CheckboxGroup = <Type extends FieldValues>(
   props: CheckboxGroupProps<Type>,
 ): ReactElement => {
-  const { options, label, control, name, ...restProps } = props;
+  const { options, label, control, name, hasRootCheck, ...restProps } = props;
 
   const {
     isIndeterminate,
@@ -36,17 +37,18 @@ export const CheckboxGroup = <Type extends FieldValues>(
       onChange={onChange}
       {...restProps}
     >
-      <CheckboxOption
-        labelStyle={styles.mainLabel}
-        wrapperStyle={styles.mainWrapper}
-        label={label}
-        value={CHECKBOX_ROOT_VALUE}
-        isIndeterminate={isIndeterminate}
-        isChecked={isEverythingChecked}
-        {...restProps}
-      />
-
-      <Text>{errorMessage}</Text>
+      {hasRootCheck && (
+        <CheckboxOption
+          labelStyle={styles.mainLabel}
+          wrapperStyle={styles.mainWrapper}
+          label={label}
+          value={CHECKBOX_ROOT_VALUE}
+          isIndeterminate={isIndeterminate}
+          isChecked={isEverythingChecked}
+          {...restProps}
+        />
+      )}
+      {errorMessage && <Text>{errorMessage}</Text>}
       <CheckboxOptions options={options} {...restProps} />
     </GluestackCheckboxGroup>
   );

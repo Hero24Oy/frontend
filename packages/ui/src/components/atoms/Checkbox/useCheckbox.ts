@@ -62,6 +62,6 @@ export const useCheckbox = <Type extends FieldValues>(
     ref,
     errorMessage: error?.message,
     onChange: onChangeHandler,
-    value: value as string[],
+    value,
   };
 };

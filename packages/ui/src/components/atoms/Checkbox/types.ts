@@ -1,7 +1,6 @@
 import { Control, FieldValues, Path } from 'react-hook-form';
 
 import { Size } from '$theme';
-import { CommonStyles } from '$types';
 
 export type CheckboxOption = {
   label: string;
@@ -10,12 +9,19 @@ export type CheckboxOption = {
 
 export type CheckboxOptionsProps = {
   options: CheckboxOption[];
-  size: `${Size}`;
-} & CommonStyles;
+  size?: `${Size}`;
+};
 
-export type CheckboxGroupProps<Type extends FieldValues> = {
+// we may add check that controller with such name is a array of string
+export type CheckboxGroupProps<
+  Type extends FieldValues = FieldValues,
+  FieldName = Path<Type>,
+  HasRootCheck = boolean,
+> = {
   control: Control<Type>;
-  label: string;
-  name: Path<Type>;
+  name: FieldName;
+  hasRootCheck?: HasRootCheck;
 } & CheckboxOptionsProps &
-  CommonStyles;
+  (HasRootCheck extends true
+    ? { hasRootCheck: true; label: string }
+    : { hasRootCheck?: false; label?: never });
