@@ -30,12 +30,14 @@ export const EmailSignInForm: FC = () => {
   return (
     <VStack style={styles.container}>
       {/* TODO replace button label and placeholders with i18n call */}
-      <Input placeholder="Email" control={control} name="email" />
+      <Input placeholder="Email" control={control} name="email" title="Email" />
       <Input
         placeholder="Password"
         type="password"
         control={control}
         name="password"
+        title="Password"
+        size="md"
       />
       <Button onPress={onSubmit}>Continue</Button>
     </VStack>

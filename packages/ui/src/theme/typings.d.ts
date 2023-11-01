@@ -1,4 +1,11 @@
-import { ButtonThemeVariants, RadioThemeVariants } from '$theme/components';
+import {
+  ButtonThemeVariants,
+  HeadingThemeVariants,
+  InputThemeVariants,
+  InputTitleThemeVariants,
+  RadioThemeVariants,
+  TextThemeVariants,
+} from '$theme/components';
 
 declare module '@gluestack-ui/themed' {
   interface UIComponents {
@@ -7,9 +14,29 @@ declare module '@gluestack-ui/themed' {
         variants: ButtonThemeVariants;
       };
     };
+    Heading: {
+      theme: {
+        variants: HeadingThemeVariants;
+      };
+    };
+    Input: {
+      theme: {
+        variants: InputThemeVariants;
+      };
+    };
+    InputTitle: {
+      theme: {
+        variants: InputTitleThemeVariants;
+      };
+    };
     Radio: {
       theme: {
         variants: RadioThemeVariants;
+      };
+    };
+    Text: {
+      theme: {
+        variants: TextThemeVariants;
       };
     };
   }
