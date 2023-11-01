@@ -1,13 +1,13 @@
 import { Heading as GluestackHeadingOrigin } from '@gluestack-ui/themed';
 import { FC } from 'react';
 
-import { HeadingSize } from './constants';
+import { HeadingVariant } from './constants';
 
 import { CommonStyles } from '$types';
 
 type Props = {
   children: string;
-  size: `${HeadingSize}`;
+  variant: `${HeadingVariant}`;
   style?: CommonStyles;
 };
 

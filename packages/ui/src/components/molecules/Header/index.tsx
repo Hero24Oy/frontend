@@ -30,7 +30,7 @@ export const Header: FC<Props> = (props) => {
         <HStack style={{ ...styles.left, ...styles.sides }}>
           <IconButton icon={icon} size="md" onPress={back} />
         </HStack>
-        <Heading size="md">{name}</Heading>
+        <Heading variant="H5">{name}</Heading>
         <HStack style={{ ...styles.right, ...styles.sides }}>
           {RightAccessory ? <RightAccessory /> : null}
         </HStack>
