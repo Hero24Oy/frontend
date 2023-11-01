@@ -16,12 +16,5 @@ export const CodeFieldCell = {
     borderColor: Color.GREY_02,
     textAlign: 'center',
     textAlignVertical: 'center',
-    variants: {
-      isFocused: {
-        true: {
-          borderColor: Color.DARK_00,
-        },
-      },
-    },
   },
 } satisfies ComponentTheme<TextStyle>;

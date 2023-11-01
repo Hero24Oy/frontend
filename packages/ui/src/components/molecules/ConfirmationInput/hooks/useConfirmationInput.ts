@@ -1,4 +1,4 @@
-import { RefObject, useCallback, useEffect, useState } from 'react';
+import { ComponentPropsWithRef, useEffect } from 'react';
 import { FieldValues, useController } from 'react-hook-form';
 import { Keyboard, TextInput } from 'react-native';
 import {
@@ -8,49 +8,41 @@ import {
 
 import {
   CellProps,
-  ConfirmCodeInputProps,
+  ConfirmCodeInputParams,
   GetCellOnLayoutHandler,
-  OnChangeText,
 } from '../types';
 
-export type UseConfirmationInputResult = {
+export type UseConfirmationInputResult = ComponentPropsWithRef<
+  typeof TextInput
+> & {
   cellProps: CellProps;
   getCellOnLayoutHandler: GetCellOnLayoutHandler;
-  onChangeText: OnChangeText;
-  ref: RefObject<TextInput>;
-  value: string;
 };
 
 export const useConfirmationInput = <Type extends FieldValues>(
-  props: ConfirmCodeInputProps<Type>,
+  params: ConfirmCodeInputParams<Type>,
 ): UseConfirmationInputResult => {
-  const { cellCount, name, control } = props;
-  const [code, setCode] = useState('');
-  const ref = useBlurOnFulfill({ value: code, cellCount });
-
-  const [cellProps, getCellOnLayoutHandler] = useClearByFocusCell({
-    value: code,
-    setValue: setCode,
-  });
+  const { cellCount, name, control } = params;
 
   const {
     field: { value, onChange },
   } = useController({ name, control });
 
-  const onChangeText = useCallback<OnChangeText>(
-    (newValue) => setCode(newValue),
-    [setCode],
-  );
+  const ref = useBlurOnFulfill({
+    value,
+    cellCount,
+  });
+
+  const [cellProps, getCellOnLayoutHandler] = useClearByFocusCell({
+    value,
+    setValue: onChange,
+  });
 
   useEffect(() => {
-    onChange(code);
-  }, [code, onChange]);
-
-  useEffect(() => {
-    if (code.length === cellCount) {
+    if (value.length === cellCount) {
       Keyboard.dismiss();
     }
-  }, [cellCount, code]);
+  }, [cellCount, value]);
 
-  return { cellProps, onChangeText, ref, getCellOnLayoutHandler, value };
+  return { cellProps, ref, getCellOnLayoutHandler };
 };

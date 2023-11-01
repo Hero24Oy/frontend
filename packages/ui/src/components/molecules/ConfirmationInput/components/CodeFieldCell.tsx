@@ -1,6 +1,7 @@
-import { FC, useMemo } from 'react';
+import { FC } from 'react';
 import { Cursor } from 'react-native-confirmation-code-field';
 
+import { styles } from '../styles';
 import { GetCellOnLayoutHandler } from '../types';
 
 import { StyledCodeFieldCell } from '$styled';
@@ -13,19 +14,16 @@ type Props = {
 };
 
 export const CodeFieldCell: FC<Props> = (props) => {
-  const { index, symbol, getCellOnLayoutHandler, ...restProps } = props;
+  const { index, symbol, getCellOnLayoutHandler, isFocused } = props;
 
-  const text = useMemo(
-    () => symbol || (restProps.isFocused ? <Cursor /> : null),
-    [symbol, restProps.isFocused],
-  );
+  const children = symbol || (isFocused ? <Cursor /> : null);
 
   return (
     <StyledCodeFieldCell
       onLayout={getCellOnLayoutHandler(index)}
-      {...restProps}
+      style={isFocused && styles.cellOnFocus}
     >
-      {text}
+      {children}
     </StyledCodeFieldCell>
   );
 };

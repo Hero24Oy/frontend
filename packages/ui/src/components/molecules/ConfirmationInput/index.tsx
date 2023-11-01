@@ -1,21 +1,21 @@
 import { ReactElement } from 'react';
-import { FieldValues } from 'react-hook-form';
-import { StyleSheet } from 'react-native';
+import { FieldValues, useController } from 'react-hook-form';
 import {
   CodeField,
   RenderCellOptions,
 } from 'react-native-confirmation-code-field';
 
-import { CodeFieldCell } from './components/CodeFieldCell';
-import { useConfirmationInput } from './hooks/useConfirmationInput';
-import { ConfirmCodeInputProps } from './types';
+import { CodeFieldCell } from './components';
+import { useConfirmationInput } from './hooks';
+import { styles } from './styles';
+import { ConfirmCodeInputParams } from './types';
 
 export const ConfirmationInput = <Type extends FieldValues>(
-  props: ConfirmCodeInputProps<Type>,
+  props: ConfirmCodeInputParams<Type>,
 ): ReactElement => {
-  const { cellCount } = props;
+  const { cellCount, name, control } = props;
 
-  const { cellProps, onChangeText, ref, getCellOnLayoutHandler, value } =
+  const { cellProps, ref, getCellOnLayoutHandler } =
     useConfirmationInput(props);
 
   const renderCell = (renderOptions: RenderCellOptions): JSX.Element => (
@@ -26,13 +26,17 @@ export const ConfirmationInput = <Type extends FieldValues>(
     />
   );
 
+  const {
+    field: { value, onChange },
+  } = useController({ name, control });
+
   return (
     <CodeField
       keyboardType="number-pad"
       textContentType="oneTimeCode"
       ref={ref}
       value={value}
-      onChangeText={onChangeText}
+      onChangeText={onChange}
       cellCount={cellCount}
       rootStyle={styles.root}
       renderCell={renderCell}
@@ -40,10 +44,3 @@ export const ConfirmationInput = <Type extends FieldValues>(
     />
   );
 };
-
-export const styles = StyleSheet.create({
-  root: {
-    gap: 8,
-    justifyContent: 'center',
-  },
-});

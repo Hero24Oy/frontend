@@ -4,7 +4,7 @@ import {
   useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
 
-export type ConfirmCodeInputProps<Type extends FieldValues> = {
+export type ConfirmCodeInputParams<Type extends FieldValues> = {
   cellCount: number;
   control: Control<Type>;
   name: Path<Type>;
