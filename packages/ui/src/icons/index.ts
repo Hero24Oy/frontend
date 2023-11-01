@@ -4,5 +4,5 @@ export * from './Left';
 export * from './Plus';
 export * from './Home';
 export * from './Tasks';
-export * from './Chat';
+export * from './Chats';
 export * from './Profile';
