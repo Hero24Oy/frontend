@@ -1,4 +1,4 @@
-import { TextStyle } from 'react-native';
+import { TextProps } from 'react-native';
 
 import { ComponentTheme } from '$theme/types';
 
@@ -6,4 +6,4 @@ import { ComponentTheme } from '$theme/types';
 // * You can extend it if you need to.
 export const RadioLabel = {
   theme: {},
-} satisfies ComponentTheme<TextStyle>;
+} satisfies ComponentTheme<TextProps>;

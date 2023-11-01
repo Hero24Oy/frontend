@@ -1,24 +1,15 @@
-import { ViewStyle } from 'react-native';
-
-import { SxValues } from './types';
-
-import { ButtonSize, ButtonVariant, RadioVariant } from '$components';
+import { ButtonThemeVariants, RadioThemeVariants } from '$theme/components';
 
 declare module '@gluestack-ui/themed' {
   interface UIComponents {
     Button: {
       theme: {
-        variants: {
-          size: Record<`${ButtonSize}`, SxValues<ViewStyle>>;
-          variant: Record<`${ButtonVariant}`, SxValues<ViewStyle>>;
-        };
+        variants: ButtonThemeVariants;
       };
     };
     Radio: {
       theme: {
-        variants: {
-          variant: Record<`${RadioVariant}`, SxValues<ViewStyle>>;
-        };
+        variants: RadioThemeVariants;
       };
     };
   }

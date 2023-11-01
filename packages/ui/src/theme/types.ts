@@ -1,25 +1,21 @@
-import { SxProps } from '@gluestack-style/react/lib/typescript/types';
+import { ITheme, SxProps } from '@gluestack-style/react/lib/typescript/types';
+import { FC } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
 
-export type SxValues<StyleType extends ViewStyle> = Partial<
-  SxProps<StyleProp<StyleType>>
->;
+import { AncestorStyleName, DescendantStyleName } from './enums';
 
-export type Variants<StyleType extends ViewStyle> = Record<
-  string,
-  SxValues<StyleType>
->;
+export type SxValues<StyleType = ViewStyle> = SxProps<StyleProp<StyleType>>;
 
-export type Theme<StyleType extends ViewStyle> = {
-  variants?: Record<string, Variants<StyleType>>;
-} & SxValues<StyleType>;
-
-export type ComponentConfig = {
-  descendantStyle: string[];
+type ThemeConfigs = {
+  ancestorStyle?: Array<`${AncestorStyleName}`>;
+  componentName?: string;
+  descendantStyle?: Array<`${DescendantStyleName}`>;
 };
 
-export type ComponentTheme<StyleType extends ViewStyle> = {
-  theme: Theme<StyleType>;
-  componentConfig?: ComponentConfig;
-  props?: Record<string, unknown>;
+export type ComponentTheme<
+  ComponentProps extends Parameters<FC>[0],
+  Variants extends Record<string, Record<string, SxValues>> | null = null,
+> = {
+  theme: ITheme<Variants, ComponentProps>;
+  componentConfig?: ThemeConfigs;
 };
