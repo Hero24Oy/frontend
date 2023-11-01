@@ -2,9 +2,9 @@ import { useCallback, useEffect, useState } from 'react';
 import { FieldValues, useController } from 'react-hook-form';
 import { Country } from 'react-native-country-picker-modal';
 
-import { PhoneInputProps } from '../../types';
+import { SelectCountryProps } from '../components/SelectCountry';
 import { addCodePrefix, getInitialCountry } from '../helpers';
-import { SelectCountryProps } from '../SelectCountry';
+import { PhoneInputProps } from '../types';
 
 interface ReturnType {
   isLoading: boolean;

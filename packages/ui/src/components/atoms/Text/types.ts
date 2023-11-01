@@ -8,3 +8,9 @@ export enum TextSize {
   XXL = 'xxl',
   XXXL = 'xxxl',
 }
+
+export enum TextVariant {
+  REGULAR = 'regular',
+  SMALL = 'small',
+  DESCRIPTOR = 'descriptor',
+}

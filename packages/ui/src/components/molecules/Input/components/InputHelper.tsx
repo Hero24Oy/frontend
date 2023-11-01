@@ -10,10 +10,6 @@ type Props = {
 export const InputHelper: FC<Props> = (props): JSX.Element => {
   const { error } = props;
 
-  if (!error) {
-    return <StyledInputHelper />;
-  }
-
   const errorText = error?.message?.toString() || '';
 
   return <StyledInputHelper>{errorText}</StyledInputHelper>;
