@@ -6,9 +6,6 @@ import { FC, useCallback } from 'react';
 import { BaseIcon, TabIconProps, TabIcons } from '@hero24/ui';
 
 export const BottomNavigationTabs: FC = () => {
-  // TODO get rid of titles in the top screen
-  // TODO to common
-
   const TabsContainer = useCallback((props: BottomTabBarProps) => {
     const { navigation, state, descriptors } = props;
 

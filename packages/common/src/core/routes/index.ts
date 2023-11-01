@@ -8,7 +8,6 @@ import {
   TasksIcon,
 } from '@hero24/ui';
 
-// TODO fix ts types
 export type ExpoTabProps = Pick<
   Parameters<typeof Tabs.Screen>[0],
   'name' | 'options'
