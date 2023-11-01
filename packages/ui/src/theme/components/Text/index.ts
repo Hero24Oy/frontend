@@ -1,7 +1,6 @@
 import { TextStyle } from 'react-native';
 
-import { TextVariants } from './constants';
-
+import { TextVariant } from '$components/atoms/Text/types';
 import { Color, FontSize, FontWeight, LineHeight } from '$theme/constants';
 import { ComponentTheme } from '$theme/types';
 
@@ -13,15 +12,15 @@ export const Text = {
     lineHeight: LineHeight.SM,
     variants: {
       variant: {
-        [TextVariants.REGULAR]: {
+        [TextVariant.REGULAR]: {
           fontSize: FontSize.MD,
           lineHeight: LineHeight.MD,
         },
-        [TextVariants.SMALL]: {
+        [TextVariant.SMALL]: {
           fontSize: FontSize.SM,
           lineHeight: LineHeight.SM,
         },
-        [TextVariants.DESCRIPTOR]: {
+        [TextVariant.DESCRIPTOR]: {
           fontSize: FontSize.XS,
           lineHeight: LineHeight.XS,
         },

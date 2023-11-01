@@ -1,9 +1,9 @@
 import { Spinner } from '@gluestack-ui/themed';
-import { ReactElement, useMemo } from 'react';
+import { ReactElement } from 'react';
 import { FieldValues } from 'react-hook-form';
 
 import { SelectCountry } from './components';
-import { useSelectCountry } from './components/hooks';
+import { useSelectCountry } from './hooks';
 import { PhoneInputProps } from './types';
 
 import { Input } from '$molecules';
@@ -17,14 +17,10 @@ export const PhoneInput = <Type extends FieldValues>(
 
   const { isLoading, selectCountryProps } = useSelectCountry(props);
 
-  const leftSlotContent = useMemo(
-    () =>
-      isLoading ? (
-        <Spinner size="small" />
-      ) : (
-        <SelectCountry {...selectCountryProps} />
-      ),
-    [selectCountryProps, isLoading],
+  const leftSlotContent = isLoading ? (
+    <Spinner size="small" />
+  ) : (
+    <SelectCountry {...selectCountryProps} />
   );
 
   return (

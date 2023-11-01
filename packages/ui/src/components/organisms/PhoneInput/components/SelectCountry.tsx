@@ -4,11 +4,11 @@ import CountryPicker, {
   Country,
   CountryCode,
 } from 'react-native-country-picker-modal';
-import { Maybe } from 'types';
 
 import { CallingCode } from './components';
 
 import { HStack } from '$atoms';
+import { Maybe } from '$types';
 
 export type SelectCountryProps = {
   onCodeSelect: (code: string) => void;
