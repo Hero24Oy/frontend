@@ -6,3 +6,4 @@ export * from './Home';
 export * from './Tasks';
 export * from './Chats';
 export * from './Profile';
+export * from './Base';
