@@ -1,12 +1,11 @@
 import {
   Checkbox as GluestackCheckbox,
-  CheckboxIcon,
-  CheckboxIndicator,
   CheckboxLabel,
 } from '@gluestack-ui/themed';
-import { Check, Minus } from 'lucide-react-native';
 import { FC } from 'react';
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+
+import { CheckboxIndicator } from './CheckboxIndicator';
 
 export type CheckboxOptionProps = {
   label: string;
@@ -37,9 +36,7 @@ export const CheckboxOption: FC<CheckboxOptionProps> = (props) => {
       value={value}
       {...restProps}
     >
-      <CheckboxIndicator>
-        <CheckboxIcon as={isIndeterminate ? Minus : Check} />
-      </CheckboxIndicator>
+      <CheckboxIndicator isIndeterminate={isIndeterminate} />
       <CheckboxLabel style={[labelStyle, styles.label]}>{label}</CheckboxLabel>
     </GluestackCheckbox>
   );

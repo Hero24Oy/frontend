@@ -46,7 +46,7 @@ export const CheckboxGroup = <Type extends FieldValues>(
         {...restProps}
       />
 
-      {errorMessage && <Text>{errorMessage}</Text>}
+      <Text>{errorMessage}</Text>
       <CheckboxOptions options={options} {...restProps} />
     </GluestackCheckboxGroup>
   );

@@ -10,18 +10,20 @@ import { CheckboxOptionsProps } from './types';
 export const CheckboxOptions: FC<CheckboxOptionsProps> = (props) => {
   const { options, ...restProps } = props;
 
-  const optionsToRender = useMemo(() => {
-    return options.map((optionProps, index) => (
-      <View key={optionProps.label}>
-        <CheckboxOption
-          wrapperStyle={styles.wrapper}
-          {...optionProps}
-          {...restProps}
-        />
-        {index !== options.length - 1 && <Divider />}
-      </View>
-    ));
-  }, [options]);
+  const optionsToRender = useMemo(
+    () =>
+      options.map((optionProps, index) => (
+        <View key={optionProps.label}>
+          <CheckboxOption
+            wrapperStyle={styles.wrapper}
+            {...optionProps}
+            {...restProps}
+          />
+          {index !== options.length - 1 && <Divider />}
+        </View>
+      )),
+    [options],
+  );
 
   return <VStack>{optionsToRender}</VStack>;
 };

@@ -32,39 +32,36 @@ export const useCheckbox = <Type extends FieldValues>(
   const { control, name, options } = config;
 
   const {
-    field,
-    formState: { errors },
+    field: { value, ref, onChange },
+    fieldState: { error },
   } = useController({ name, control });
 
-  const onChange = useCallback(
+  const isAnythingChecked = value.length > 0;
+  const isEverythingChecked = value.length === options.length;
+  const isIndeterminate = isAnythingChecked && !isEverythingChecked;
+
+  const onChangeHandler = useCallback(
     (newSelectedValues: string[]): void => {
       let valuesToUpdate: string[] = newSelectedValues;
 
       // If we click on main checkbox, then either check or uncheck everything
       if (newSelectedValues.includes(CHECKBOX_ROOT_VALUE)) {
-        valuesToUpdate =
-          field.value.length === 0 ? options.map(({ value }) => value) : [];
+        valuesToUpdate = isAnythingChecked
+          ? []
+          : options.map((option) => option.value);
       }
 
-      field.onChange(valuesToUpdate);
+      onChange(valuesToUpdate);
     },
-    [options, field.value],
+    [options, value],
   );
 
-  const isEverythingChecked = field.value.length === options.length;
-
-  // Check if every option is checked, if not - upper option is indeterminate
-  const isIndeterminate =
-    field.value.length > 0 &&
-    field.value.length !== options.length &&
-    !isEverythingChecked;
-
   return {
-    onChange,
-    isIndeterminate,
     isEverythingChecked,
-    errorMessage: errors[name]?.message as string,
-    value: field.value as string[],
-    ref: field.ref,
+    isIndeterminate,
+    ref,
+    errorMessage: error?.message,
+    onChange: onChangeHandler,
+    value: value as string[],
   };
 };

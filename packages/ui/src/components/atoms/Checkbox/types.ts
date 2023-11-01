@@ -1,6 +1,7 @@
 import { Control, FieldValues, Path } from 'react-hook-form';
 
-import { CommonStyles, Size } from '$types';
+import { Size } from '$theme';
+import { CommonStyles } from '$types';
 
 export type CheckboxOption = {
   label: string;
@@ -9,13 +10,12 @@ export type CheckboxOption = {
 
 export type CheckboxOptionsProps = {
   options: CheckboxOption[];
-  size: Size;
+  size: `${Size}`;
 } & CommonStyles;
 
 export type CheckboxGroupProps<Type extends FieldValues> = {
   control: Control<Type>;
   label: string;
-
   name: Path<Type>;
 } & CheckboxOptionsProps &
   CommonStyles;

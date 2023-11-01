@@ -16,7 +16,5 @@ export type CommonStyles = Pick<
   | 'zIndex'
 >;
 
-export type Size = 'lg' | 'md' | 'sm';
-
 export type LayoutStyles = CommonStyles &
   Pick<ViewStyle, 'justifyContent' | 'alignItems' | 'flex' | 'gap'>;
