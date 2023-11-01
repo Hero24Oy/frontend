@@ -4,4 +4,5 @@ export * from './Radio';
 export * from './Text';
 export * from './Menu';
 export * from './Input';
+export * from './Heading';
 export * from './IconButton';

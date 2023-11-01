@@ -3,6 +3,7 @@ import { TextStyle, ViewStyle } from 'react-native';
 import { SxValues } from './types';
 
 import { ButtonSize, ButtonVariant, RadioVariant } from '$components';
+import { HeadingVariant } from '$components/atoms/Heading/constants';
 
 declare module '@gluestack-ui/themed' {
   interface UIComponents {
@@ -14,10 +15,10 @@ declare module '@gluestack-ui/themed' {
         };
       };
     };
-    Input: {
+    Heading: {
       theme: {
         variants: {
-          size: Record<`${InputSize}`, SxValues<ViewStyle>>;
+          variant: Record<`${HeadingVariant}`, ViewStyle>;
         };
       };
     };
