@@ -1,4 +1,4 @@
-import { FC, Fragment } from 'react';
+import { FC, Fragment, useMemo } from 'react';
 
 import { useStyles } from './hooks';
 
@@ -17,14 +17,24 @@ export const Header: FC<Props> = (props) => {
 
   const styles = useStyles();
 
+  const leftAccessoryStyles = useMemo(
+    () => ({ ...styles.left, ...styles.sides }),
+    [styles],
+  );
+
+  const rightAccessoryStyles = useMemo(
+    () => ({ ...styles.right, ...styles.sides }),
+    [styles],
+  );
+
   return (
-    <View style={{ ...styles.view }}>
+    <View style={styles.view}>
       <HStack style={styles.container}>
-        <HStack style={{ ...styles.left, ...styles.sides }}>
+        <HStack style={leftAccessoryStyles}>
           <IconButton icon={icon} size="md" onPress={back} />
         </HStack>
         <Heading variant="H5">{name}</Heading>
-        <HStack style={{ ...styles.right, ...styles.sides }}>
+        <HStack style={rightAccessoryStyles}>
           <RightAccessory />
         </HStack>
       </HStack>
