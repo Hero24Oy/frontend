@@ -8,7 +8,6 @@ export type TabIconsProps = {
   tabs: TabIconProps[];
 };
 
-// TODO naming
 export const TabIcons: FC<TabIconsProps> = (props) => {
   const { tabs } = props;
 

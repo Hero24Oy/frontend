@@ -3,12 +3,13 @@ import { FC } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { BaseIcon } from '$icons';
+import { Color } from '$theme';
 
 export type TabIconProps = {
   Icon: BaseIcon;
   label: string;
+  onPress: () => void;
   isFocused?: boolean;
-  onPress?: () => void; // TODO get rid of
 };
 
 export const TabIcon: FC<TabIconProps> = (props) => {
@@ -22,7 +23,7 @@ export const TabIcon: FC<TabIconProps> = (props) => {
     ? [styles.iconWrapper, styles.backgroundFocused]
     : [styles.iconWrapper];
 
-  const iconColor = isFocused ? 'white' : 'grey';
+  const iconColor = isFocused ? Color.WHITE_00 : Color.GREY_01;
 
   return (
     <TouchableOpacity
@@ -54,9 +55,9 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 16,
   },
   backgroundFocused: {
-    backgroundColor: 'red', // TODO colors enum
+    backgroundColor: Color.RED_00,
   },
   textFocused: {
-    color: 'red',
+    color: Color.RED_00,
   },
 });
