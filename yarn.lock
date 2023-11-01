@@ -4112,6 +4112,7 @@ __metadata:
     expo-device: "npm:^5.6.0"
     expo-image-picker: "npm:^14.5.0"
     expo-notifications: "npm:^0.20.1"
+    expo-router: "npm:^2.0.0"
     firebase: "npm:^9.23.0"
     graphql-ws: "npm:^5.14.0"
     hero24-types: "npm:^0.2.2"
