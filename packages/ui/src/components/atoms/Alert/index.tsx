@@ -3,7 +3,6 @@ import {
   AlertIcon,
   AlertText,
   HStack,
-  Text,
   VStack,
 } from '@gluestack-ui/themed';
 import { FC } from 'react';
@@ -11,12 +10,14 @@ import { StyleSheet } from 'react-native';
 
 import { AlertAction } from './constants';
 
+import { BaseIcon } from '$icons/base';
+
 export * from './constants';
 
 type Props = {
   title: string;
   action?: `${AlertAction}`;
-  Icon?: FC;
+  Icon?: BaseIcon;
   text?: string;
 };
 
@@ -32,8 +33,8 @@ export const Alert: FC<Props> = (props) => {
           <AlertText style={styles.title}>{title}</AlertText>
         </HStack>
         <HStack>
-          <AlertIcon opacity={0} as={Icon} />
-          <Text>{text}</Text>
+          <AlertIcon style={styles.invisible} as={Icon} />
+          <AlertText>{text}</AlertText>
         </HStack>
       </VStack>
     </GluestackAlert>

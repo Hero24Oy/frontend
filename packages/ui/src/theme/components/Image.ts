@@ -7,32 +7,32 @@ export const Image = {
     variants: {
       size: {
         [ImageSize.XXS]: {
-          width: 6,
-          height: 6,
-        },
-        [ImageSize.XS]: {
-          width: 10,
-          height: 10,
-        },
-        [ImageSize.SM]: {
-          width: 16,
-          height: 16,
-        },
-        [ImageSize.MD]: {
-          width: 20,
-          height: 20,
-        },
-        [ImageSize.LG]: {
           width: 24,
           height: 24,
         },
-        [ImageSize.XL]: {
-          width: 32,
-          height: 32,
+        [ImageSize.XS]: {
+          width: 40,
+          height: 40,
         },
-        [ImageSize.XXL]: {
+        [ImageSize.SM]: {
           width: 64,
           height: 64,
+        },
+        [ImageSize.MD]: {
+          width: 80,
+          height: 80,
+        },
+        [ImageSize.LG]: {
+          width: 96,
+          height: 96,
+        },
+        [ImageSize.XL]: {
+          width: 128,
+          height: 128,
+        },
+        [ImageSize.XXL]: {
+          width: 256,
+          height: 256,
         },
         [ImageSize.FULL]: {
           width: '100%',

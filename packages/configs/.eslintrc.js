@@ -19,6 +19,7 @@ const underscoreAndExcludeNamingConventionWordsRegex = `^(_|${excludeNamesNaming
 const finalExcludeRegex = `${excludeNamesNamingConventionRegexpsRegex}|${underscoreAndExcludeNamingConventionWordsRegex}`;
 
 const initialRules = {
+  'eslint-comments/disable-enable-pair': 'off',
   'eslint-comments/require-description': [
     'warn',
     { ignore: ['eslint-enable'] },
@@ -66,7 +67,10 @@ const tsRules = {
     { argsIgnorePattern: '^_', destructuredArrayIgnorePattern: '^_' },
   ], // Ignore variables with "_" prefix
   '@typescript-eslint/no-unused-expressions': ['error'],
-  '@typescript-eslint/explicit-function-return-type': 'error',
+  '@typescript-eslint/explicit-function-return-type': [
+    'error',
+    { allowExpressions: true },
+  ],
   '@typescript-eslint/no-floating-promises': 'error',
   '@typescript-eslint/unbound-method': 'off',
   '@typescript-eslint/no-use-before-define': [
@@ -358,6 +362,12 @@ const override = {
       'quote-props': 'off',
     },
   },
+  functionComponentDefinition: {
+    files: ['src/icons/Base/index.tsx'],
+    rules: {
+      'react/function-component-definition': 'off'
+    },
+  }
 };
 
 /**
