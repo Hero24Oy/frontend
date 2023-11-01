@@ -1,6 +1,6 @@
 import { H1, H2, H3, H4, H5 } from '@expo/html-elements';
 
-import { HeadingVariant } from '$components/atoms/Heading/constants';
+import { HeadingSize } from '$components/atoms/Heading/constants';
 import {
   Color,
   Font,
@@ -15,31 +15,31 @@ export const Heading = {
     fontFamily: Font.MAIN,
 
     size: {
-      [HeadingVariant.H1]: {
+      [HeadingSize.H1]: {
         props: { as: H1 },
         fontWeight: FontWeight.SEMI_BOLD,
         fontSize: FontSize.XXXL,
         lineHeight: LineHeight.XXXL,
       },
-      [HeadingVariant.H2]: {
+      [HeadingSize.H2]: {
         props: { as: H2 },
         fontWeight: FontWeight.SEMI_BOLD,
         fontSize: FontSize.XXL,
         lineHeight: LineHeight.XXL,
       },
-      [HeadingVariant.H3]: {
+      [HeadingSize.H3]: {
         props: { as: H3 },
         fontWeight: FontWeight.SEMI_BOLD,
         fontSize: FontSize.XL,
         lineHeight: LineHeight.XL,
       },
-      [HeadingVariant.H4]: {
+      [HeadingSize.H4]: {
         props: { as: H4 },
         fontWeight: FontWeight.MEDIUM,
         fontSize: FontSize.LG,
         lineHeight: LineHeight.LG,
       },
-      [HeadingVariant.H5]: {
+      [HeadingSize.H5]: {
         props: { as: H5 },
         fontWeight: FontWeight.MEDIUM,
         fontSize: FontSize.MD,

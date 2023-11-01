@@ -1,4 +1,4 @@
-export enum HeadingVariant {
+export enum HeadingSize {
   H1 = '3xl',
   H2 = '2xl',
   H3 = 'xl',
