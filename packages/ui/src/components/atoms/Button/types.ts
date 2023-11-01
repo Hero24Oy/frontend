@@ -13,6 +13,21 @@ export enum ButtonVariant {
   LINK = 'link',
 }
 
+export enum ButtonSize {
+  XS = 'xs',
+  SM = 'sm',
+  MD = 'md',
+  LG = 'lg',
+  XL = 'xl',
+}
+
+export enum ButtonAction {
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
+  POSITIVE = 'positive',
+  NEGATIVE = 'negative',
+}
+
 export type GluestackButtonProps = Pick<
   ComponentProps<typeof Button>,
   'isDisabled' | 'onPress'
