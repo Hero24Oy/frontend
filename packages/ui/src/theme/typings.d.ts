@@ -1,4 +1,4 @@
-import { ViewStyle } from 'react-native';
+import { TextStyle, ViewStyle } from 'react-native';
 
 import { SxValues } from './types';
 
@@ -9,6 +9,7 @@ import {
   TextareaSize,
 } from '$components';
 import { HeadingVariant } from '$components/atoms/Heading/constants';
+import { TextVariant } from '$components/atoms/Text/types';
 
 declare module '@gluestack-ui/themed' {
   interface UIComponents {
@@ -27,10 +28,45 @@ declare module '@gluestack-ui/themed' {
         };
       };
     };
+    Input: {
+      theme: {
+        variants: {
+          size: Record<`${InputSize}`, SxValues<ViewStyle>>;
+        };
+      };
+    };
+    Input: {
+      theme: {
+        variants: {
+          size: Record<`${InputSize}`, SxValues<ViewStyle>>;
+        };
+      };
+    };
+    InputTitle: {
+      theme: {
+        variants: {
+          size: Record<`${InputSize}`, SxValues<TextStyle>>;
+        };
+      };
+    };
+    InputTitle: {
+      theme: {
+        variants: {
+          size: Record<`${InputSize}`, SxValues<TextStyle>>;
+        };
+      };
+    };
     Radio: {
       theme: {
         variants: {
           variant: Record<`${RadioVariant}`, SxValues<ViewStyle>>;
+        };
+      };
+    };
+    Text: {
+      theme: {
+        variants: {
+          variant: Record<`${TextVariant}`, SxValues<TextStyle>>;
         };
       };
     };
