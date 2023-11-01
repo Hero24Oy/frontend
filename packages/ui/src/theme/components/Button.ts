@@ -5,6 +5,7 @@ import { PressableProps, ViewStyle } from 'react-native';
 import { ButtonAction, ButtonSize, ButtonVariant } from '$components';
 import {
   Color,
+  Font,
   FontSize,
   FontWeight,
   IconSize,
@@ -23,6 +24,7 @@ const ButtonTheme = {
   theme: {
     gap: 8,
     _text: {
+      fontFamily: Font.MAIN,
       fontWeight: FontWeight.MEDIUM,
     },
     ':focusVisible': {
