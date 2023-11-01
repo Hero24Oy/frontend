@@ -4188,6 +4188,7 @@ __metadata:
     eslint-plugin-simple-import-sort: "npm:^10.0.0"
     eslint-plugin-typescript-sort-keys: "npm:^3.0.0"
     expo: "npm:^49.0.11"
+    expo-image: "npm:1.5.1"
     fs-extra: "npm:^11.1.1"
     lodash: "npm:^4.17.21"
     lucide-react-native: "npm:^0.288.0"
@@ -9746,6 +9747,15 @@ __metadata:
   peerDependencies:
     expo: "*"
   checksum: c3c2e3a15ae2ac0645cfd2ff0ed5d4702aca237541b7e2bcd42e54d081b3143e5ead14e32caba8dc295c70c7486210e71a9d28eea06ee8926685f09e8d41df49
+  languageName: node
+  linkType: hard
+
+"expo-image@npm:1.5.1":
+  version: 1.5.1
+  resolution: "expo-image@npm:1.5.1"
+  peerDependencies:
+    expo: "*"
+  checksum: e3469b99a5581146e8e698d3fe6a3fe5450a09f282edaf8147ef29308d7d8d7c2e9876f6d91d611e47913089a1f1f188b6157440c324ae450a1e598a18bf7556
   languageName: node
   linkType: hard
 
