@@ -1,211 +1,466 @@
-import { ViewStyle } from 'react-native';
+import { config } from '@gluestack-ui/config';
+import merge from 'lodash/merge';
+import { PressableProps, ViewStyle } from 'react-native';
 
+import { ButtonAction, ButtonSize, ButtonVariant } from '$components';
 import {
   Color,
   FontSize,
   FontWeight,
   IconSize,
   LineHeight,
-} from '../constants';
-import { DescendantStyleName, Size } from '../enums';
-import { ComponentTheme } from '../types';
+} from '$theme/constants';
+import { DescendantStyleName } from '$theme/enums';
+import { ComponentTheme, SxValues } from '$theme/types';
 
-import { ButtonVariant } from '$components';
+export type ButtonThemeVariants = {
+  action: Record<`${ButtonAction}`, SxValues<ViewStyle>>;
+  size: Record<`${ButtonSize}`, SxValues<ViewStyle>>;
+  variant: Record<`${ButtonVariant}`, SxValues<ViewStyle>>;
+};
 
-export const Button = {
+const ButtonTheme = {
   theme: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 6,
-    paddingHorizontal: 12,
-    borderRadius: 8,
-    height: 'auto',
-    borderWidth: 1,
+    gap: 8,
     _text: {
-      textDecorationLine: 'none',
       fontWeight: FontWeight.MEDIUM,
-      lineHeight: LineHeight.SM,
+    },
+    ':focusVisible': {
+      borderWidth: 2,
+      borderColor: Color.BLUE_00,
     },
     variants: {
+      action: {
+        [ButtonAction.PRIMARY]: {
+          _text: {
+            color: Color.DARK_00,
+            ':hover': {
+              color: Color.RED_00,
+            },
+            ':active': {
+              color: Color.DARK_GREY_00,
+            },
+          },
+          _icon: {
+            color: Color.DARK_00,
+            ':hover': {
+              color: Color.RED_00,
+            },
+            ':active': {
+              color: Color.DARK_GREY_00,
+            },
+          },
+          _spinner: {
+            props: {
+              color: Color.DARK_00,
+            },
+          },
+        },
+        [ButtonAction.SECONDARY]: {
+          _text: {
+            color: Color.DARK_00,
+            ':hover': {
+              color: Color.DARK_00,
+            },
+            ':active': {
+              color: Color.DARK_GREY_00,
+            },
+          },
+          _icon: {
+            color: Color.DARK_00,
+            ':hover': {
+              color: Color.DARK_00,
+            },
+            ':active': {
+              color: Color.DARK_GREY_00,
+            },
+          },
+          _spinner: {
+            props: {
+              color: Color.DARK_00,
+            },
+          },
+          ':focusVisible': {
+            borderWidth: 2,
+            borderColor: Color.BLUE_00,
+          },
+        },
+        [ButtonAction.POSITIVE]: {
+          _text: {
+            color: Color.GREEN_00,
+            ':hover': {
+              color: Color.GREEN_02,
+            },
+            ':active': {
+              color: Color.GREEN_01,
+            },
+          },
+          _icon: {
+            color: Color.GREEN_00,
+            ':hover': {
+              color: Color.GREEN_02,
+            },
+            ':active': {
+              color: Color.GREEN_01,
+            },
+          },
+        },
+        [ButtonAction.NEGATIVE]: {
+          _text: {
+            color: Color.RED_00,
+            ':hover': {
+              color: Color.RED_02,
+            },
+            ':active': {
+              color: Color.RED_01,
+            },
+          },
+          _icon: {
+            color: Color.RED_00,
+            ':hover': {
+              color: Color.RED_02,
+            },
+            ':active': {
+              color: Color.RED_01,
+            },
+          },
+        },
+      },
       size: {
-        [Size.LARGE]: {
-          width: '100%',
-          paddingVertical: 11,
+        [ButtonSize.XS]: {
+          borderRadius: 6,
           _text: {
-            fontSize: FontSize.SM,
+            lineHeight: LineHeight.XS,
           },
           _icon: {
-            width: IconSize.SMALL,
-            height: IconSize.SMALL,
+            props: {
+              size: IconSize.XS,
+            },
           },
           _spinner: {
             props: {
-              width: IconSize.SMALL,
-              height: IconSize.SMALL,
+              size: IconSize.XS,
             },
           },
         },
-        [Size.MEDIUM]: {
-          paddingVertical: 10,
+        [ButtonSize.SM]: {
+          borderRadius: 6,
           _text: {
-            fontSize: FontSize.SM,
+            lineHeight: LineHeight.SM,
           },
           _icon: {
-            width: IconSize.SMALL,
-            height: IconSize.SMALL,
+            props: {
+              size: IconSize.SM,
+            },
           },
           _spinner: {
             props: {
-              width: IconSize.SMALL,
-              height: IconSize.SMALL,
+              size: IconSize.SM,
             },
           },
         },
-        [Size.SMALL]: {
-          paddingVertical: 8,
+        [ButtonSize.MD]: {
+          borderRadius: 8,
           _text: {
-            fontSize: FontSize.XS,
+            fontSize: FontSize.SM,
+            lineHeight: LineHeight.SM,
           },
           _icon: {
-            width: IconSize.EXTRA_SMALL,
-            height: IconSize.EXTRA_SMALL,
+            props: {
+              size: IconSize.LG,
+            },
           },
           _spinner: {
             props: {
-              width: IconSize.EXTRA_SMALL,
-              height: IconSize.EXTRA_SMALL,
+              size: IconSize.LG,
+            },
+          },
+        },
+        [ButtonSize.LG]: {
+          borderRadius: 8,
+          _text: {
+            fontSize: FontSize.SM,
+            lineHeight: LineHeight.SM,
+          },
+          _icon: {
+            props: {
+              size: IconSize.XL,
+            },
+          },
+          _spinner: {
+            props: {
+              size: IconSize.XL,
+            },
+          },
+        },
+        [ButtonSize.XL]: {
+          borderRadius: 10,
+          _text: {
+            fontSize: FontSize.MD,
+            lineHeight: LineHeight.MD,
+          },
+          _icon: {
+            props: {
+              size: IconSize.XXL,
+            },
+          },
+          _spinner: {
+            props: {
+              size: IconSize.XXL,
             },
           },
         },
       },
       variant: {
-        [ButtonVariant.SOLID]: {
-          backgroundColor: Color.DARK_00,
-          borderColor: Color.TRANSPARENT,
-          _text: {
-            color: Color.WHITE_00,
-          },
-          _icon: {
-            color: Color.WHITE_00,
-          },
-          _spinner: {
-            props: {
-              color: Color.WHITE_00,
-            },
-          },
-          ':disabled': {
-            backgroundColor: Color.GREY_02,
+        [ButtonVariant.SOLID]: {},
+        [ButtonVariant.LINK]: {
+          ':active': {
+            backgroundColor: Color.TRANSPARENT,
           },
           ':hover': {
-            backgroundColor: Color.RED_01,
+            backgroundColor: Color.TRANSPARENT,
+          },
+        },
+        [ButtonVariant.OUTLINE]: {},
+      },
+    },
+    compoundVariants: [
+      {
+        action: ButtonAction.PRIMARY,
+        variant: ButtonVariant.SOLID,
+        value: {
+          backgroundColor: Color.DARK_00,
+          ':hover': {
+            backgroundColor: Color.RED_00,
           },
           ':active': {
             backgroundColor: Color.DARK_GREY_00,
           },
-          ':focusVisible': {
-            borderColor: Color.BLUE_01,
-          },
         },
-        [ButtonVariant.OUTLINE]: {
-          backgroundColor: Color.TRANSPARENT,
-          borderColor: Color.GREY_02,
+      },
+      {
+        action: ButtonAction.SECONDARY,
+        variant: ButtonVariant.SOLID,
+        value: {
+          backgroundColor: Color.GREY_LIGHT_02,
+          borderColor: Color.GREY_LIGHT_02,
           _text: {
             color: Color.DARK_00,
+            ':active': {
+              color: Color.DARK_GREY_00,
+            },
+            ':hover': {
+              color: Color.WHITE_00,
+            },
           },
           _icon: {
-            color: Color.DARK_00,
+            props: {
+              color: Color.DARK_00,
+            },
+            ':active': {
+              props: {
+                color: Color.DARK_GREY_00,
+              },
+            },
+            ':hover': {
+              props: {
+                color: Color.WHITE_00,
+              },
+            },
           },
           _spinner: {
             props: {
-              color: Color.GREY_02,
-            },
-          },
-          ':disabled': {
-            borderColor: Color.GREY_02,
-            backgroundColor: Color.GREY_03,
-            _text: {
-              color: Color.GREY_02,
-            },
-            _icon: {
-              color: Color.GREY_02,
+              color: Color.DARK_00,
             },
           },
           ':hover': {
-            borderColor: 'none',
             backgroundColor: Color.DARK_00,
-            _text: {
-              color: Color.WHITE_00,
-            },
-            _icon: {
-              color: Color.WHITE_00,
-            },
           },
           ':active': {
-            borderColor: Color.DARK_GREY_00,
-            backgroundColor: Color.TRANSPARENT,
-            _text: {
-              color: Color.DARK_GREY_00,
-            },
-            _icon: {
-              color: Color.DARK_GREY_00,
-            },
-          },
-          ':focusVisible': {
-            borderColor: Color.BLUE_01,
-            _text: {
-              color: Color.DARK_00,
-            },
-            _icon: {
-              color: Color.DARK_00,
-            },
-          },
-        },
-        [ButtonVariant.LINK]: {
-          backgroundColor: Color.TRANSPARENT,
-          borderColor: Color.TRANSPARENT,
-          _text: {
-            color: Color.DARK_00,
-          },
-          _icon: {
-            color: Color.DARK_00,
-          },
-          _spinner: {
-            props: {
-              color: Color.GREY_03,
-            },
-          },
-          ':disabled': {
-            _text: {
-              color: Color.GREY_03,
-            },
-            _icon: {
-              color: Color.GREY_03,
-            },
-          },
-          ':hover': {
-            _text: {
-              color: Color.RED_01,
-            },
-            _icon: {
-              color: Color.RED_01,
-            },
-          },
-          ':active': {
-            borderColor: Color.DARK_GREY_00,
-            _text: {
-              color: Color.DARK_GREY_00,
-            },
-            _icon: {
-              color: Color.DARK_GREY_00,
-            },
-          },
-          ':focusVisible': {
-            borderColor: Color.BLUE_01,
+            backgroundColor: Color.GREY_LIGHT_01,
           },
         },
       },
+      {
+        action: ButtonAction.POSITIVE,
+        variant: ButtonVariant.SOLID,
+        value: {
+          backgroundColor: Color.GREEN_00,
+          ':hover': {
+            backgroundColor: Color.GREEN_02,
+          },
+          ':active': {
+            backgroundColor: Color.GREEN_01,
+          },
+        },
+      },
+      {
+        action: ButtonAction.NEGATIVE,
+        variant: ButtonVariant.SOLID,
+        value: {
+          backgroundColor: Color.RED_00,
+          ':hover': {
+            backgroundColor: Color.RED_02,
+          },
+          ':active': {
+            backgroundColor: Color.RED_01,
+          },
+        },
+      },
+      {
+        action: ButtonAction.PRIMARY,
+        variant: ButtonVariant.OUTLINE,
+        value: {
+          borderWidth: 1,
+          borderColor: Color.DARK_00,
+          backgroundColor: Color.TRANSPARENT,
+          ':hover': {
+            borderColor: Color.RED_00,
+          },
+          ':active': {
+            borderColor: Color.DARK_GREY_00,
+          },
+        },
+      },
+      {
+        action: ButtonAction.SECONDARY,
+        variant: ButtonVariant.OUTLINE,
+        value: {
+          borderWidth: 1,
+          borderColor: Color.GREY_LIGHT_00,
+          backgroundColor: Color.TRANSPARENT,
+          _text: {
+            ':focusVisible': {
+              color: Color.DARK_GREY_00,
+            },
+          },
+          ':hover': {
+            borderColor: Color.DARK_00,
+          },
+          ':active': {
+            borderColor: Color.DARK_GREY_00,
+          },
+        },
+      },
+      {
+        action: ButtonAction.POSITIVE,
+        variant: ButtonVariant.OUTLINE,
+        value: {
+          borderWidth: 1,
+          borderColor: Color.GREEN_00,
+          backgroundColor: Color.TRANSPARENT,
+          ':hover': {
+            borderColor: Color.GREEN_02,
+          },
+          ':active': {
+            borderColor: Color.GREEN_01,
+          },
+        },
+      },
+      {
+        action: ButtonAction.NEGATIVE,
+        variant: ButtonVariant.OUTLINE,
+        value: {
+          borderWidth: 1,
+          borderColor: Color.RED_00,
+          backgroundColor: Color.TRANSPARENT,
+          ':hover': {
+            borderColor: Color.RED_02,
+          },
+          ':active': {
+            borderColor: Color.RED_01,
+          },
+        },
+      },
+      {
+        action: ButtonAction.PRIMARY,
+        variant: ButtonVariant.LINK,
+        value: {
+          backgroundColor: Color.TRANSPARENT,
+          _text: {
+            color: Color.DARK_00,
+          },
+          _icon: {
+            color: Color.DARK_00,
+          },
+          _spinner: {
+            props: {
+              color: Color.DARK_00,
+            },
+          },
+        },
+      },
+      {
+        action: ButtonAction.SECONDARY,
+        variant: ButtonVariant.LINK,
+        value: {
+          backgroundColor: Color.TRANSPARENT,
+          _text: {
+            color: Color.DARK_00,
+          },
+          _icon: {
+            color: Color.DARK_00,
+          },
+          _spinner: {
+            props: {
+              color: Color.DARK_00,
+            },
+          },
+        },
+      },
+      {
+        action: ButtonAction.POSITIVE,
+        variant: ButtonVariant.LINK,
+        value: {
+          backgroundColor: Color.TRANSPARENT,
+          _text: {
+            color: Color.GREEN_00,
+          },
+          _icon: {
+            props: {
+              color: Color.GREEN_00,
+            },
+            ':hover': {
+              props: {
+                color: Color.GREEN_02,
+              },
+            },
+            ':active': {
+              props: {
+                color: Color.GREEN_01,
+              },
+            },
+          },
+          _spinner: {
+            props: {
+              color: Color.GREEN_00,
+            },
+          },
+        },
+      },
+      {
+        action: ButtonAction.NEGATIVE,
+        variant: ButtonVariant.LINK,
+        value: {
+          backgroundColor: Color.TRANSPARENT,
+          _text: {
+            color: Color.RED_00,
+          },
+          _icon: {
+            color: Color.RED_00,
+          },
+          _spinner: {
+            props: {
+              color: Color.RED_00,
+            },
+          },
+        },
+      },
+    ],
+    defaultProps: {
+      action: ButtonAction.PRIMARY,
+      size: ButtonSize.LG,
+      variant: ButtonVariant.SOLID,
     },
   },
   componentConfig: {
@@ -215,4 +470,6 @@ export const Button = {
       DescendantStyleName.SPINNER,
     ],
   },
-} satisfies ComponentTheme<ViewStyle>;
+} satisfies ComponentTheme<PressableProps, ButtonThemeVariants>;
+
+export const Button = merge(config.components.Button, ButtonTheme);
