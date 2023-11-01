@@ -10,8 +10,7 @@ import { Control, FieldValues, Path, useController } from 'react-hook-form';
 
 import { TextareaSize } from './constants';
 
-import { CommonStyles } from '$types';
-import { JsxElement } from '$types/common';
+import { CommonStyles, JsxElement } from '$types';
 
 type PickedPropsFromTextarea = Pick<
   ComponentProps<typeof GluestackTextarea>,
