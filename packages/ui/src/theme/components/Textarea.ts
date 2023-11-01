@@ -2,8 +2,7 @@ import { ViewStyle } from 'react-native';
 
 import { ComponentTheme } from '../types';
 
-import { TextareaSize } from '$components';
-import { DescendantStyleName } from '$theme';
+import { DescendantStyleName, Size } from '$theme';
 import {
   Color,
   Font,
@@ -59,21 +58,21 @@ export const Textarea = {
     },
     variants: {
       size: {
-        [TextareaSize.SM]: {
+        [Size.SM]: {
           width: 208,
           _input: {
             fontSize: FontSize.SM,
             lineHeight: LineHeight.SM,
           },
         },
-        [TextareaSize.MD]: {
+        [Size.MD]: {
           width: 228,
           _input: {
             fontSize: FontSize.MD,
             lineHeight: LineHeight.MD,
           },
         },
-        [TextareaSize.LG]: {
+        [Size.LG]: {
           width: 263,
           _input: {
             fontSize: FontSize.LG,

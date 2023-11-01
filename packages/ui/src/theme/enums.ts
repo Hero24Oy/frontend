@@ -9,7 +9,7 @@ export enum AncestorStyleName {
 }
 
 export enum Size {
-  SMALL = 'sm',
-  MEDIUM = 'md',
-  LARGE = 'lg',
+  SM = 'sm',
+  MD = 'md',
+  LG = 'lg',
 }
