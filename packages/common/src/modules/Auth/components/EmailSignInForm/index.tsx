@@ -37,9 +37,7 @@ export const EmailSignInForm: FC = () => {
         control={control}
         name="password"
       />
-      <Button variant="solid" size="md" onPress={onSubmit}>
-        Continue
-      </Button>
+      <Button onPress={onSubmit}>Continue</Button>
     </VStack>
   );
 };
