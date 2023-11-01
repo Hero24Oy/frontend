@@ -5,4 +5,5 @@ export * from './Text';
 export * from './Menu';
 export * from './Input';
 export * from './ConfirmationInput';
+export * from './Heading';
 export * from './IconButton';

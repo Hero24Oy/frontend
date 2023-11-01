@@ -2,7 +2,7 @@ import { ChevronDownIcon, Icon } from '@gluestack-ui/themed';
 import { useMemo } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { addCodePrefix } from '../../helpers';
+import { addCodePrefix } from '../../../helpers';
 import { CallingCodeProps } from '../types';
 
 import { HStack, Text } from '$atoms';
