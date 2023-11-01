@@ -5,11 +5,11 @@ import { Color } from '$theme/constants/colors';
 
 const checkboxIconConfig = config.components.CheckboxIcon;
 
-const customStyles = {
+const customCheckboxIconConfig = {
   theme: {
     tintColor: Color.RED_00,
     color: Color.RED_00,
   },
 };
 
-export const CheckboxIcon = merge(checkboxIconConfig, customStyles);
+export const CheckboxIcon = merge(checkboxIconConfig, customCheckboxIconConfig);

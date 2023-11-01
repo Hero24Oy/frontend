@@ -5,7 +5,7 @@ import { Color } from '$theme/constants/colors';
 
 const checkboxLabelConfig = config.components.CheckboxLabel;
 
-const customStyles = {
+const customCheckboxLabelConfig = {
   theme: {
     ':checked': {
       color: Color.DARK_00,
@@ -14,4 +14,7 @@ const customStyles = {
   },
 };
 
-export const CheckboxLabel = merge(checkboxLabelConfig, customStyles);
+export const CheckboxLabel = merge(
+  checkboxLabelConfig,
+  customCheckboxLabelConfig,
+);

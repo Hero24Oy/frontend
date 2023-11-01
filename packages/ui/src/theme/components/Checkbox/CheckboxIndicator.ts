@@ -5,7 +5,7 @@ import { Color } from '$theme/constants/colors';
 
 const checkboxIndicatorConfig = config.components.CheckboxIndicator;
 
-const customStyles = {
+const customCheckboxIndicatorConfig = {
   theme: {
     marginRight: 5,
     borderRadius: 5,
@@ -31,4 +31,7 @@ const customStyles = {
   },
 };
 
-export const CheckboxIndicator = merge(checkboxIndicatorConfig, customStyles);
+export const CheckboxIndicator = merge(
+  checkboxIndicatorConfig,
+  customCheckboxIndicatorConfig,
+);

@@ -1,8 +1,6 @@
 import { Divider, VStack } from '@gluestack-ui/themed';
-import { FC, useMemo } from 'react';
+import { FC, Fragment, useMemo } from 'react';
 import { StyleSheet } from 'react-native';
-
-import { View } from '../View';
 
 import { CheckboxOption } from './CheckboxOption';
 import { CheckboxOptionsProps } from './types';
@@ -13,14 +11,14 @@ export const CheckboxOptions: FC<CheckboxOptionsProps> = (props) => {
   const optionsToRender = useMemo(
     () =>
       options.map((optionProps, index) => (
-        <View key={optionProps.label}>
+        <Fragment key={optionProps.label}>
           <CheckboxOption
             wrapperStyle={styles.wrapper}
             {...optionProps}
             {...restProps}
           />
           {index !== options.length - 1 && <Divider />}
-        </View>
+        </Fragment>
       )),
     [options],
   );
