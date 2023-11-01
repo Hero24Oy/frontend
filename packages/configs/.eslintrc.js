@@ -365,9 +365,15 @@ const override = {
   functionComponentDefinition: {
     files: ['src/icons/Base/index.tsx'],
     rules: {
-      'react/function-component-definition': 'off'
+      'react/function-component-definition': 'off',
     },
-  }
+  },
+  disableReturnType: {
+    files: ['**/*/useStyles.ts'],
+    rules: {
+      '@typescript-eslint/explicit-function-return-type': 'off',
+    },
+  },
 };
 
 /**
