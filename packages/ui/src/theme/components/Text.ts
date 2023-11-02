@@ -33,4 +33,4 @@ export const Text = {
       },
     },
   },
-} satisfies ComponentTheme<TextStyle>;
+} satisfies ComponentTheme<{ variant: TextVariant }, TextStyle>;
