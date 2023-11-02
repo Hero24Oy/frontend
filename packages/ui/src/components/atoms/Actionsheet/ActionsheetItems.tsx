@@ -5,7 +5,7 @@ import {
 } from '@gluestack-ui/themed';
 import { FC, memo } from 'react';
 
-import { Item } from '../types';
+import { Item } from './types';
 
 type Props = {
   items: Item[];
@@ -14,8 +14,8 @@ type Props = {
 export const ActionsheetItems: FC<Props> = memo((props) => {
   const { items } = props;
 
-  return items.map(({ Icon, text, ...restProps }, key) => (
-    <ActionsheetItem key={key} {...restProps}>
+  return items.map(({ Icon, text, ...restProps }) => (
+    <ActionsheetItem key={text} {...restProps}>
       <AlertIcon as={Icon} />
       <ActionsheetItemText>{text}</ActionsheetItemText>
     </ActionsheetItem>
