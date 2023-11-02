@@ -4,7 +4,7 @@ import {
   ButtonSpinner as GluestackButtonSpinner,
   ButtonText as GluestackButtonText,
 } from '@gluestack-ui/themed';
-import { FC, ForwardedRef, forwardRef } from 'react';
+import { ForwardedRef, forwardRef } from 'react';
 import { PressableProps, StyleSheet } from 'react-native';
 
 import { buttonSxValue } from './constants';
@@ -15,13 +15,14 @@ import {
   GluestackButtonProps,
 } from './types';
 
+import { BaseIcon } from '$icons/base';
 import { Size } from '$theme';
 import { CommonStyles } from '$types';
 
 type Props = {
   children: string;
   action?: `${ButtonAction}`;
-  icon?: FC;
+  icon?: BaseIcon;
   iconDirection?: `${Direction}`;
   isLoading?: boolean;
   size?: `${Size}`;
@@ -46,7 +47,7 @@ export const Button = forwardRef<PressableProps, Props>(
 
     const sx = buttonSxValue[action ?? ButtonAction.PRIMARY];
 
-    const isIconShown = (!isLoading && icon) || null;
+    const iconComponent = (!isLoading && icon) || null;
 
     return (
       <GluestackButton
@@ -57,7 +58,7 @@ export const Button = forwardRef<PressableProps, Props>(
         sx={sx}
         {...restProps}
       >
-        {isIconShown && <GluestackButtonIcon as={icon} />}
+        {iconComponent && <GluestackButtonIcon as={iconComponent} />}
 
         {isLoading ? <GluestackButtonSpinner /> : null}
 
