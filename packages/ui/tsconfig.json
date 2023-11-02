@@ -1,15 +1,26 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": "./",
     "paths": {
-      "$providers": ["providers"],
-      "$components": ["components"],
-      "$components/*": ["components/*"],
-      "$atoms": ["atoms"],
-      "$theme": ["theme"],
-      "$theme/*": ["theme/*"],
-      "$types": ["types"],
-      "$hooks": ["hooks"]
+      "$providers": ["src/providers"],
+      "$components": ["src/components"],
+      "$components/*": ["src/components/*"],
+      "$atoms": ["src/components/atoms"],
+      "$atoms/*": ["src/components/atoms/*"],
+      "$molecules": ["src/components/molecules"],
+      "$molecules/*": ["src/components/molecules/*"],
+      "$organisms": ["src/components/organisms"],
+      "$organisms/*": ["src/components/organisms/*"],
+      "$theme": ["src/theme"],
+      "$theme/*": ["src/theme/*"],
+      "$types": ["src/types"],
+      "$types/*": ["src/types/*"],
+      "$hooks": ["src/hooks"],
+      "$hooks/*": ["src/hooks/*"],
+      "$icons": ["src/icons"],
+      "$icons/*": ["src/icons/*"],
+      "$styled": ["src/components/styled"],
+      "$styled/*": ["src/components/styled/*"]
     }
   },
   "extends": "@hero24/configs/tsconfig.json",
