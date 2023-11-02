@@ -1,3 +1,5 @@
+import { config } from '@gluestack-ui/config';
+import merge from 'lodash/merge';
 import { ViewStyle } from 'react-native';
 
 import { RadioVariant } from '$components';
@@ -8,20 +10,60 @@ import {
   IconSize,
   LineHeight,
 } from '$theme/constants';
-import { DescendantStyleName } from '$theme/enums';
+import { DescendantStyleName, Size } from '$theme/enums';
 import { ComponentTheme } from '$theme/types';
 
-export const Radio = {
+const RadioTheme = {
   theme: {
+    gap: 8,
+    _text: {
+      color: Color.DARK_00,
+      fontWeight: FontWeight.REGULAR,
+    },
     variants: {
+      size: {
+        [Size.SMALL]: {
+          _text: {
+            lineHeight: LineHeight.SM,
+            fontSize: FontSize.SM,
+          },
+          _icon: {
+            props: {
+              size: IconSize.EXTRA_SMALL / 2,
+            },
+          },
+        },
+        [Size.MEDIUM]: {
+          _text: {
+            lineHeight: LineHeight.MD,
+            fontSize: FontSize.MD,
+          },
+          _icon: {
+            props: {
+              size: IconSize.MEDIUM / 2,
+            },
+          },
+        },
+        [Size.LARGE]: {
+          _text: {
+            lineHeight: LineHeight.LG,
+            fontSize: FontSize.LG,
+          },
+          _icon: {
+            props: {
+              size: IconSize.LARGE / 2,
+            },
+          },
+        },
+      },
       variant: {
         [RadioVariant.CHIP]: {
           borderColor: Color.GREY_02,
           borderWidth: 1,
           borderRadius: 8,
           gap: 4,
+          justifyContent: 'center',
           _text: {
-            textAlign: 'center',
             color: Color.DARK_00,
             fontSize: FontSize.SM,
             fontWeight: FontWeight.REGULAR,
@@ -37,32 +79,17 @@ export const Radio = {
             },
           },
         },
-        [RadioVariant.RADIO]: {
-          flexDirection: 'row',
-          justifyContent: 'flex-start',
-          alignItems: 'center',
-          _icon: {
-            width: IconSize.EXTRA_SMALL,
-            height: IconSize.EXTRA_SMALL,
-            props: {
-              color: Color.BLUE_01,
-            },
-          },
-          _indicator: {
-            marginRight: 5,
-            width: IconSize.LARGE,
-            height: IconSize.LARGE,
-            ':checked': {
-              props: {
-                color: Color.BLUE_01,
-              },
-            },
-          },
-        },
+        [RadioVariant.RADIO]: {},
       },
     },
   },
   componentConfig: {
-    descendantStyle: [DescendantStyleName.TEXT, DescendantStyleName.INDICATOR],
+    descendantStyle: [
+      DescendantStyleName.TEXT,
+      DescendantStyleName.INDICATOR,
+      DescendantStyleName.ICON,
+    ],
   },
 } satisfies ComponentTheme<ViewStyle>;
+
+export const Radio = merge(config.components.Radio, RadioTheme);
