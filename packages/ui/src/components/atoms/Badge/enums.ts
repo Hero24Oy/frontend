@@ -3,6 +3,11 @@ export enum BadgeSize {
   MD = 'md',
 }
 
+export enum BadgeIconSize {
+  XXS = 12,
+  XS = 14,
+}
+
 export enum BadgeAction {
   ERROR = 'error',
   WARNING = 'warning',

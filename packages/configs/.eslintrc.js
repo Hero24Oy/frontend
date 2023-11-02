@@ -353,7 +353,7 @@ const override = {
     },
   },
   noMagicNumbersExceptions: {
-    files: ['src/configs/*.ts', 'src/theme/**/*.ts'],
+    files: ['src/configs/*.ts', 'src/theme/**/*.ts', '**/*/enums.ts'],
     rules: {
       'no-magic-numbers': 'off',
     },
