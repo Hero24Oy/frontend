@@ -8,6 +8,7 @@ export * from './View';
 export * from './Heading';
 export * from './Actionsheet';
 export * from './Alert';
+export * from './Checkbox';
 export * from './RadioButton';
 export * from './RadioGroup';
 export * from './Image';
