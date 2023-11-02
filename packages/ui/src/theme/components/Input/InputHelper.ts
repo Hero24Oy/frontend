@@ -11,4 +11,4 @@ export const InputHelper = {
     lineHeight: LineHeight.SM,
     height: LineHeight.SM,
   },
-} satisfies ComponentTheme<TextStyle>;
+} satisfies ComponentTheme<Record<string, string>, TextStyle>;
