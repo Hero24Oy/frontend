@@ -2,21 +2,14 @@ import { Slider } from '@gluestack-ui/themed';
 import { ComponentProps } from 'react';
 import { Control, FieldValues, Path } from 'react-hook-form';
 
-type MarkItem = {
-  label: string;
-  value: unknown;
-};
-
-export type MarkItems = MarkItem[];
-
-type SliderPickedProps =
+type PickedProps =
   | 'orientation'
   | 'maxValue'
   | 'minValue'
   | 'step'
   | 'isDisabled';
 
-type CommonProps = Pick<ComponentProps<typeof Slider>, SliderPickedProps>;
+type CommonProps = Pick<ComponentProps<typeof Slider>, PickedProps>;
 
 export type MarksProp = string[];
 
@@ -37,7 +30,7 @@ export enum SliderOrientation {
   HORIZONTAL = 'horizontal',
 }
 
-export enum MarkArrangement {
+export enum SliderMarkArrangement {
   FIRST = 'first',
   INNER = 'inner',
   LAST = 'last',

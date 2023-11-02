@@ -1,20 +1,20 @@
 import { StyleSheet, ViewStyle } from 'react-native';
 
-import { MarkArrangement } from '../types';
+import { SliderMarkArrangement } from '../types';
 
 export const getMarkStyle = (
   width: number,
-): Record<`${MarkArrangement}`, ViewStyle> => {
+): Record<`${SliderMarkArrangement}`, ViewStyle> => {
   return StyleSheet.create({
-    [MarkArrangement.FIRST]: {
+    [SliderMarkArrangement.FIRST]: {
       flex: 1,
       textAlign: 'left',
     },
-    [MarkArrangement.LAST]: {
+    [SliderMarkArrangement.LAST]: {
       flex: 1,
       textAlign: 'right',
     },
-    [MarkArrangement.INNER]: {
+    [SliderMarkArrangement.INNER]: {
       width,
       textAlign: 'center',
     },

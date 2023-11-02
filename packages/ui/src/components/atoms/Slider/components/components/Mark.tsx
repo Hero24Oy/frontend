@@ -1,6 +1,7 @@
 import { Text } from '@gluestack-ui/themed';
 import { FC, useCallback, useMemo } from 'react';
 
+import { SliderMarkArrangement } from '../../types';
 import { getMarkStyle } from '../../utils';
 
 type Props = {
@@ -18,14 +19,14 @@ export const Mark: FC<Props> = (props) => {
   const getMarkStyleByArrangement = useCallback(
     (index: number) => {
       if (index === 0) {
-        return outerMarksStyles.first;
+        return outerMarksStyles[SliderMarkArrangement.FIRST];
       }
 
       if (index === maxIndex) {
-        return outerMarksStyles.last;
+        return outerMarksStyles[SliderMarkArrangement.LAST];
       }
 
-      return outerMarksStyles.inner;
+      return outerMarksStyles[SliderMarkArrangement.INNER];
     },
     [maxIndex, markWidth],
   );
