@@ -49,13 +49,6 @@ declare module '@gluestack-ui/themed' {
         };
       };
     };
-    InputTitle: {
-      theme: {
-        variants: {
-          size: Record<`${InputSize}`, SxValues<TextStyle>>;
-        };
-      };
-    };
     Radio: {
       theme: {
         variants: {
