@@ -64,7 +64,7 @@ const RadioTheme = {
           justifyContent: 'center',
           _text: {
             color: Color.DARK_00,
-            fontSize: FontSize.SM,
+            fontSize: FontSize.MD,
             fontWeight: FontWeight.REGULAR,
             paddingHorizontal: 12,
             paddingVertical: 8,
