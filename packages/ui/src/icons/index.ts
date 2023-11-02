@@ -2,3 +2,8 @@ export * from './Close';
 export * from './Delete';
 export * from './Left';
 export * from './Plus';
+export * from './Home';
+export * from './Check';
+export * from './Message';
+export * from './User';
+export * from './Base';
