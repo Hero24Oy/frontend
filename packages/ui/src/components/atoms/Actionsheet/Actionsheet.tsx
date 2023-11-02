@@ -11,7 +11,8 @@ import {
 } from '@gluestack-ui/themed';
 import { FC } from 'react';
 
-import { ActionsheetDragIndicator, ActionsheetItems } from './components';
+import { ActionsheetDragIndicator } from './ActionsheetDragIndicator';
+import { ActionsheetItems } from './ActionsheetItems';
 import { GluestackActionsheetProps, Item } from './types';
 
 type Props = {
@@ -32,5 +33,3 @@ export const Actionsheet: FC<Props> = (props) => {
     </GluestackActionsheet>
   );
 };
-
-export * from './types';

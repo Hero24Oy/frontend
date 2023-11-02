@@ -7,7 +7,7 @@ const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*graphQL.*',
   '.*HStack.*',
   '.*VStack.*',
-  ':*',
+  ':.*', //  match pseudo css classes
 ];
 
 const excludeNamesNamingConventionWordsRegex =
@@ -68,6 +68,7 @@ const tsRules = {
     { argsIgnorePattern: '^_', destructuredArrayIgnorePattern: '^_' },
   ], // Ignore variables with "_" prefix
   '@typescript-eslint/no-unused-expressions': ['error'],
+  'quote-props': 'off',
   '@typescript-eslint/explicit-function-return-type': [
     'error',
     { allowExpressions: true },
@@ -366,9 +367,9 @@ const override = {
   functionComponentDefinition: {
     files: ['src/icons/Base/index.tsx'],
     rules: {
-      'react/function-component-definition': 'off'
+      'react/function-component-definition': 'off',
     },
-  }
+  },
 };
 
 /**

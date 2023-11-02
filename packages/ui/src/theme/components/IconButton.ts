@@ -19,21 +19,21 @@ export const IconButton = {
     },
     variants: {
       size: {
-        [Size.LARGE]: {
+        [Size.LG]: {
           _icon: {
             props: {
               size: IconSize.XL,
             },
           },
         },
-        [Size.MEDIUM]: {
+        [Size.MD]: {
           _icon: {
             props: {
               size: IconSize.LG,
             },
           },
         },
-        [Size.SMALL]: {
+        [Size.SM]: {
           _icon: {
             props: {
               size: IconSize.SM,

@@ -1,12 +1,8 @@
-import { TextProps, TextStyle } from 'react-native';
+import { TextStyle } from 'react-native';
 
-import { TextVariant } from '$atoms';
+import { TextVariant } from '$components/atoms/Text/types';
 import { Color, FontSize, FontWeight, LineHeight } from '$theme/constants';
-import { ComponentTheme, SxValues } from '$theme/types';
-
-export type TextThemeVariants = {
-  variant: Record<`${TextVariant}`, SxValues<TextStyle>>;
-};
+import { ComponentTheme } from '$theme/types';
 
 export const Text = {
   theme: {
@@ -31,4 +27,4 @@ export const Text = {
       },
     },
   },
-} satisfies ComponentTheme<TextProps, TextThemeVariants>;
+} satisfies ComponentTheme<{ variant: TextVariant }, TextStyle>;
