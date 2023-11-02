@@ -368,12 +368,6 @@ const override = {
       'react/function-component-definition': 'off',
     },
   },
-  disableReturnType: {
-    files: ['**/*/useStyles.ts'],
-    rules: {
-      '@typescript-eslint/explicit-function-return-type': 'off',
-    },
-  },
 };
 
 /**
