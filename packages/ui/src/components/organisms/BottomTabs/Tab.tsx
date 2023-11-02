@@ -48,10 +48,7 @@ const styles = StyleSheet.create({
     color: 'red',
     paddingHorizontal: 20,
     paddingVertical: 4,
-    borderBottomRightRadius: 16,
-    borderTopRightRadius: 16,
-    borderBottomLeftRadius: 16,
-    borderTopLeftRadius: 16,
+    borderRadius: 16,
   },
   backgroundFocused: {
     backgroundColor: Color.RED_00,

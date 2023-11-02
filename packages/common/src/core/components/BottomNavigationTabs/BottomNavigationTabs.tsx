@@ -1,8 +1,9 @@
-import { routes } from 'core/routes';
 import { Tabs } from 'expo-router';
 import { FC } from 'react';
 
 import { TabsContainer } from './TabsContainer';
+
+import { routes } from '$common/core';
 
 export const BottomNavigationTabs: FC = () => {
   return (
