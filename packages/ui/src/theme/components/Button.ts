@@ -22,7 +22,7 @@ export type ButtonThemeVariants = {
 
 const ButtonTheme = {
   theme: {
-    gap: 8,
+    gap: 4,
     _text: {
       fontFamily: Font.MAIN,
       fontWeight: FontWeight.MEDIUM,
