@@ -1,6 +1,6 @@
 import { Text } from '@gluestack-ui/themed';
 import { FC } from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Pressable, StyleSheet, View } from 'react-native';
 
 import { BaseIcon } from '$icons';
 import { Color } from '$theme';
@@ -26,7 +26,7 @@ export const Tab: FC<TabProps> = (props) => {
   const iconColor = isFocused ? Color.WHITE_00 : Color.GREY_01;
 
   return (
-    <TouchableOpacity
+    <Pressable
       accessibilityRole="button"
       onPress={onPress}
       style={styles.centered}
@@ -35,7 +35,7 @@ export const Tab: FC<TabProps> = (props) => {
         <Icon size={20} color={iconColor} />
       </View>
       <Text style={textStyles}>{label}</Text>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 
