@@ -193,6 +193,7 @@ const paddingRules = {
 };
 
 const namingConventionRule = {
+  '@typescript-eslint/no-redeclare': 'off',
   '@typescript-eslint/naming-convention': [
     'error',
     {
@@ -365,9 +366,9 @@ const override = {
   functionComponentDefinition: {
     files: ['src/icons/Base/index.tsx'],
     rules: {
-      'react/function-component-definition': 'off'
+      'react/function-component-definition': 'off',
     },
-  }
+  },
 };
 
 /**

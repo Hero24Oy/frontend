@@ -1,5 +1,5 @@
-import { Color, IconSize } from '../constants';
-import { DescendantStyleName, Size } from '../enums';
+import { Color, IconSize, Size } from '../constants';
+import { DescendantStyleName } from '../enums';
 import { ComponentTheme } from '../types';
 
 export const IconButton = {
@@ -13,21 +13,21 @@ export const IconButton = {
     },
     variants: {
       size: {
-        [Size.LARGE]: {
+        [Size.LG]: {
           _icon: {
             props: {
               size: IconSize.LARGE,
             },
           },
         },
-        [Size.MEDIUM]: {
+        [Size.MD]: {
           _icon: {
             props: {
               size: IconSize.MEDIUM,
             },
           },
         },
-        [Size.SMALL]: {
+        [Size.SM]: {
           _icon: {
             props: {
               size: IconSize.SMALL,

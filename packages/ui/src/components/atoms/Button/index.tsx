@@ -9,7 +9,7 @@ import { PressableProps, StyleSheet } from 'react-native';
 
 import { ButtonVariant, Direction, GluestackButtonProps } from './types';
 
-import { Size } from '$theme';
+import { Size } from '$theme/constants/sizes';
 import { CommonStyles } from '$types';
 
 type Props = {
@@ -26,7 +26,7 @@ export const Button = forwardRef<PressableProps, Props>(
   (props: Props, ref: ForwardedRef<PressableProps>): JSX.Element => {
     const {
       children,
-      size = Size.MEDIUM,
+      size = Size.MD,
       variant = ButtonVariant.SOLID,
       isDisabled = false,
       isLoading = false,

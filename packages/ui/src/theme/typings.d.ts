@@ -11,7 +11,7 @@ declare module '@gluestack-ui/themed' {
     Button: {
       theme: {
         variants: {
-          size: Record<`${ButtonSize}`, SxValues<ViewStyle>>;
+          size: Record<ButtonSize, SxValues<ViewStyle>>;
           variant: Record<`${ButtonVariant}`, SxValues<ViewStyle>>;
         };
       };

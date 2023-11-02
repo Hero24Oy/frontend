@@ -4,8 +4,9 @@ import {
   FontWeight,
   IconSize,
   LineHeight,
+  Size,
 } from '../constants';
-import { DescendantStyleName, Size } from '../enums';
+import { DescendantStyleName } from '../enums';
 import { ComponentTheme } from '../types';
 
 import { ButtonVariant } from '$components';
@@ -24,11 +25,11 @@ export const Button = {
     _text: {
       textDecorationLine: 'none',
       fontWeight: FontWeight.MEDIUM,
-      lineHeight: LineHeight.SM,
+      lineHeight: LineHeight[Size.SM],
     },
     variants: {
       size: {
-        [Size.LARGE]: {
+        [Size.LG]: {
           width: '100%',
           paddingVertical: 11,
           _text: {
@@ -45,7 +46,7 @@ export const Button = {
             },
           },
         },
-        [Size.MEDIUM]: {
+        [Size.MD]: {
           paddingVertical: 10,
           _text: {
             fontSize: FontSize.SM,
@@ -61,7 +62,7 @@ export const Button = {
             },
           },
         },
-        [Size.SMALL]: {
+        [Size.SM]: {
           paddingVertical: 8,
           _text: {
             fontSize: FontSize.XS,
@@ -213,4 +214,7 @@ export const Button = {
       DescendantStyleName.SPINNER,
     ],
   },
-} satisfies ComponentTheme<{ size: Size; variant: ButtonVariant }>;
+} satisfies ComponentTheme<{
+  size: Extract<Size, 'sm' | 'md' | 'lg'>;
+  variant: ButtonVariant;
+}>;

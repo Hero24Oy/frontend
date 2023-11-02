@@ -13,7 +13,9 @@ import {
   InputTitle,
   PasswordVisibleSwitcher,
 } from './components';
-import { InputProps, InputSize, InputType } from './types';
+import { InputProps, InputType } from './types';
+
+import { Size } from '$theme';
 
 export const Input = <Type extends FieldValues>(
   props: InputProps<Type>,
@@ -26,7 +28,7 @@ export const Input = <Type extends FieldValues>(
     leftSlot,
     rightSlot,
     title,
-    size = InputSize.SMALL,
+    size = Size.SM,
     type = InputType.TEXT,
     isDisabled = false,
     keyboardType = 'default',

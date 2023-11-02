@@ -1,5 +1,11 @@
 import { RadioVariant } from '$components';
-import { Color, FontSize, FontWeight, LineHeight } from '$theme/constants';
+import {
+  Color,
+  FontSize,
+  FontWeight,
+  LineHeight,
+  Size,
+} from '$theme/constants';
 import { DescendantStyleName } from '$theme/enums';
 import { ComponentTheme } from '$theme/types';
 
@@ -19,7 +25,7 @@ export const Radio = {
             fontWeight: FontWeight.REGULAR,
             paddingHorizontal: 12,
             paddingVertical: 8,
-            lineHeight: LineHeight.SM,
+            lineHeight: LineHeight[Size.SM],
           },
           ':checked': {
             backgroundColor: Color.RED_01,
