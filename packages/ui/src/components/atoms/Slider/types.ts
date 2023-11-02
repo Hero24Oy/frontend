@@ -9,36 +9,22 @@ type MarkItem = {
 
 export type MarkItems = MarkItem[];
 
-type OrientationProp = Pick<ComponentProps<typeof Slider>, 'orientation'>;
+type SliderPickedProps =
+  | 'orientation'
+  | 'maxValue'
+  | 'minValue'
+  | 'step'
+  | 'isDisabled';
 
-export type CommonProps<Type extends FieldValues> = OrientationProp & {
+type CommonProps = Pick<ComponentProps<typeof Slider>, SliderPickedProps>;
+
+export type MarksProp = string[];
+
+export type SliderProps<Type extends FieldValues> = CommonProps & {
   control: Control<Type>;
   name: Path<Type>;
-  isDisabled?: boolean;
   size?: `${SliderSize}`;
-  withMarks?: boolean;
 };
-
-export type MarksBasedProps = {
-  marks: MarkItems;
-  maxValue?: undefined;
-  minValue?: undefined;
-  step?: undefined;
-};
-
-type SliderPickedProps = 'maxValue' | 'minValue' | 'step';
-
-export type ValuesBasedProps = Required<
-  Pick<ComponentProps<typeof Slider>, SliderPickedProps>
-> & {
-  marks?: undefined;
-};
-
-export type SliderMarksBasedProps<Type extends FieldValues> =
-  CommonProps<Type> & MarksBasedProps;
-
-export type SliderValuesBasedProps<Type extends FieldValues> =
-  CommonProps<Type> & ValuesBasedProps;
 
 export enum SliderSize {
   SM = 'sm',

@@ -4,33 +4,16 @@ import { FieldValues } from 'react-hook-form';
 import { LayoutChangeEvent } from 'react-native';
 
 import { Marks, SimpleSlider } from './components';
-import { useSliderMarks } from './hooks';
-import {
-  SliderMarksBasedProps,
-  SliderOrientation,
-  SliderSize,
-  SliderValuesBasedProps,
-} from './types';
+import { MarksProp, SliderProps } from './types';
 
-type Props<Type extends FieldValues> =
-  | SliderMarksBasedProps<Type>
-  | SliderValuesBasedProps<Type>;
+type Props<Type extends FieldValues> = SliderProps<Type> & {
+  marks?: MarksProp;
+};
 
 export const Slider = <Type extends FieldValues>(
   props: Props<Type>,
 ): JSX.Element => {
-  const {
-    control,
-    name,
-    marks,
-    minValue,
-    maxValue,
-    step,
-    orientation = SliderOrientation.HORIZONTAL,
-    isDisabled = false,
-    size = SliderSize.SM,
-    withMarks,
-  } = props;
+  const { control, name, marks, size, ...restProps } = props;
 
   const [width, setWidth] = useState(0);
 
@@ -41,21 +24,10 @@ export const Slider = <Type extends FieldValues>(
     [setWidth],
   );
 
-  const sliderMarks = useSliderMarks({ minValue, maxValue, step, marks });
-
   return (
     <VStack onLayout={onLayout}>
-      <SimpleSlider
-        isDisabled={isDisabled}
-        orientation={orientation}
-        size={size}
-        marks={sliderMarks}
-        control={control}
-        name={name}
-      />
-      {withMarks && orientation === SliderOrientation.HORIZONTAL ? (
-        <Marks marks={sliderMarks} parentWidth={width} size={size} />
-      ) : null}
+      <SimpleSlider size={size} control={control} name={name} {...restProps} />
+      {marks ? <Marks marks={marks} parentWidth={width} size={size} /> : null}
     </VStack>
   );
 };

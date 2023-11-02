@@ -5,36 +5,30 @@ import {
   SliderTrack,
   VStack,
 } from '@gluestack-ui/themed';
-import { FieldValues } from 'react-hook-form';
+import { FieldValues, useController } from 'react-hook-form';
 
-import { useSimpleSlider } from '../hooks';
-import { CommonProps, MarkItems, SliderSize } from '../types';
-
-type Props<Type extends FieldValues> = Omit<CommonProps<Type>, 'withMarks'> & {
-  marks: MarkItems;
-  isDisabled?: boolean;
-  size?: `${SliderSize}`;
-};
+import { SliderProps } from '../types';
 
 export const SimpleSlider = <Type extends FieldValues>(
-  props: Props<Type>,
+  props: SliderProps<Type>,
 ): JSX.Element => {
-  const { control, name, marks, isDisabled, ...restProps } = props;
+  const { control, name, maxValue, minValue, step, isDisabled, ...restProps } =
+    props;
 
-  const { onChange, rangeProps, value } = useSimpleSlider({
-    control,
-    marks,
-    name,
-  });
+  const {
+    field: { value, onChange },
+  } = useController({ control, name });
 
   return (
     <VStack>
       <GluestackSlider
-        isDisabled={isDisabled}
+        maxValue={maxValue}
+        minValue={minValue}
+        step={step}
         isReadOnly={isDisabled}
+        isDisabled={isDisabled}
         value={value}
         onChange={onChange}
-        {...rangeProps}
         {...restProps}
       >
         <SliderTrack {...restProps}>
