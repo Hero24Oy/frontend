@@ -1,5 +1,3 @@
-import { ViewStyle } from 'react-native';
-
 import { RadioVariant } from '$components';
 import { Color, FontSize, FontWeight, LineHeight } from '$theme/constants';
 import { DescendantStyleName } from '$theme/enums';
@@ -31,8 +29,9 @@ export const Radio = {
             },
           },
         },
+        [RadioVariant.DEFAULT]: {},
       },
     },
   },
   componentConfig: { descendantStyle: [DescendantStyleName.TEXT] },
-} satisfies ComponentTheme<ViewStyle>;
+} satisfies ComponentTheme<{ variant: RadioVariant }>;
