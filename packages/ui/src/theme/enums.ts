@@ -2,6 +2,7 @@ export enum DescendantStyleName {
   TEXT = '_text',
   ICON = '_icon',
   SPINNER = '_spinner',
+  INPUT = '_input',
 }
 
 export enum AncestorStyleName {
@@ -9,7 +10,7 @@ export enum AncestorStyleName {
 }
 
 export enum Size {
-  SMALL = 'sm',
-  MEDIUM = 'md',
-  LARGE = 'lg',
+  SM = 'sm',
+  MD = 'md',
+  LG = 'lg',
 }
