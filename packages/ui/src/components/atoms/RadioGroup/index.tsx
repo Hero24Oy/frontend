@@ -18,14 +18,7 @@ type Props<Type extends FieldValues> = {
 export const RadioGroup = <Type extends FieldValues>(
   props: Props<Type>,
 ): ReactElement => {
-  const {
-    name,
-    control,
-    size = Size.MEDIUM,
-    options,
-    style,
-    ...restProps
-  } = props;
+  const { name, control, size = Size.MD, options, style, ...restProps } = props;
 
   const {
     field: { value, onChange, ref },
