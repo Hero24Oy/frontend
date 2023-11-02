@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-redeclare */ // TODO
-
 import { $Values } from 'utility-types';
 
 export const Size = {
