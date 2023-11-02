@@ -1,6 +1,5 @@
 import { config } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
-import { ViewStyle } from 'react-native';
 
 import { RadioVariant } from '$components';
 import {
@@ -22,7 +21,7 @@ const RadioTheme = {
     },
     variants: {
       size: {
-        [Size.SMALL]: {
+        [Size.SM]: {
           _text: {
             lineHeight: LineHeight.SM,
             fontSize: FontSize.SM,
@@ -33,7 +32,7 @@ const RadioTheme = {
             },
           },
         },
-        [Size.MEDIUM]: {
+        [Size.MD]: {
           _text: {
             lineHeight: LineHeight.MD,
             fontSize: FontSize.MD,
@@ -44,7 +43,7 @@ const RadioTheme = {
             },
           },
         },
-        [Size.LARGE]: {
+        [Size.LG]: {
           _text: {
             lineHeight: LineHeight.LG,
             fontSize: FontSize.LG,
@@ -90,6 +89,6 @@ const RadioTheme = {
       DescendantStyleName.ICON,
     ],
   },
-} satisfies ComponentTheme<ViewStyle>;
+} satisfies ComponentTheme<{ size: Size; variant: RadioVariant }>;
 
 export const Radio = merge(config.components.Radio, RadioTheme);
