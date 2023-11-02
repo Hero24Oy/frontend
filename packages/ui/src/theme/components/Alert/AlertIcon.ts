@@ -9,7 +9,7 @@ const AlertIconTheme = {
   theme: {
     marginRight: 5,
     props: {
-      size: IconSize.LG,
+      size: IconSize.MD,
     },
   },
 } satisfies ComponentTheme<ViewProps>;

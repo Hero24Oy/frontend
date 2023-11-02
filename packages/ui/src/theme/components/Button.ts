@@ -136,12 +136,12 @@ const ButtonTheme = {
           },
           _icon: {
             props: {
-              size: IconSize.XS,
+              size: IconSize.SM,
             },
           },
           _spinner: {
             props: {
-              size: IconSize.XS,
+              size: IconSize.SM,
             },
           },
         },
@@ -169,12 +169,12 @@ const ButtonTheme = {
           },
           _icon: {
             props: {
-              size: IconSize.LG,
+              size: IconSize.MD,
             },
           },
           _spinner: {
             props: {
-              size: IconSize.LG,
+              size: IconSize.MD,
             },
           },
         },
@@ -186,12 +186,12 @@ const ButtonTheme = {
           },
           _icon: {
             props: {
-              size: IconSize.XL,
+              size: IconSize.LG,
             },
           },
           _spinner: {
             props: {
-              size: IconSize.XL,
+              size: IconSize.LG,
             },
           },
         },
@@ -203,12 +203,12 @@ const ButtonTheme = {
           },
           _icon: {
             props: {
-              size: IconSize.XXL,
+              size: IconSize.LG,
             },
           },
           _spinner: {
             props: {
-              size: IconSize.XXL,
+              size: IconSize.LG,
             },
           },
         },

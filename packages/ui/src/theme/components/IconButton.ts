@@ -22,14 +22,14 @@ export const IconButton = {
         [Size.LG]: {
           _icon: {
             props: {
-              size: IconSize.XL,
+              size: IconSize.LG,
             },
           },
         },
         [Size.MD]: {
           _icon: {
             props: {
-              size: IconSize.LG,
+              size: IconSize.MD,
             },
           },
         },
