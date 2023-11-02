@@ -1,17 +1,13 @@
-import { Image as GluestackImage } from '@gluestack-ui/themed';
-import { FC } from 'react';
-import { ImageSourcePropType } from 'react-native';
+import { ComponentProps, FC } from 'react';
 
-import { ImageSize } from './constants';
-
+import { StyledImage } from '$components/styled';
 import { CommonStyles } from '$types';
 
+type PickedProps = Pick<ComponentProps<typeof StyledImage>, 'size'>;
+
 type Props = {
-  source: ImageSourcePropType;
-  size?: `${ImageSize}`;
+  source: string;
   styles?: CommonStyles;
-};
+} & PickedProps;
 
-export const Image: FC<Props> = (props) => <GluestackImage {...props} />;
-
-export * from './constants';
+export const Image: FC<Props> = (props) => <StyledImage {...props} />;

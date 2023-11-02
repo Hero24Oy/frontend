@@ -12,7 +12,7 @@ type Props = {
 } & GluestackIconButtonProps;
 
 export const IconButton: FC<Props> = (props) => {
-  const { icon, size = Size.MEDIUM, ...restProps } = props;
+  const { icon, size = Size.MD, ...restProps } = props;
 
   return (
     <StyledIconButton size={size} {...restProps}>

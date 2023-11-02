@@ -1,4 +1,4 @@
-import { ImageSize } from '$components/atoms/Image/constants';
+import { ImageSize } from '$components/styled/Image/constants';
 import { ComponentTheme } from '$theme/types';
 
 export const Image = {

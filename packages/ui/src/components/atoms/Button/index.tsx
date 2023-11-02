@@ -26,7 +26,7 @@ export const Button = forwardRef<PressableProps, Props>(
   (props: Props, ref: ForwardedRef<PressableProps>): JSX.Element => {
     const {
       children,
-      size = Size.MEDIUM,
+      size = Size.MD,
       variant = ButtonVariant.SOLID,
       isDisabled = false,
       isLoading = false,

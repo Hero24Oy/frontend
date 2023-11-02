@@ -28,7 +28,7 @@ export const Button = {
     },
     variants: {
       size: {
-        [Size.LARGE]: {
+        [Size.LG]: {
           width: '100%',
           paddingVertical: 11,
           _text: {
@@ -45,7 +45,7 @@ export const Button = {
             },
           },
         },
-        [Size.MEDIUM]: {
+        [Size.MD]: {
           paddingVertical: 10,
           _text: {
             fontSize: FontSize.SM,
@@ -61,7 +61,7 @@ export const Button = {
             },
           },
         },
-        [Size.SMALL]: {
+        [Size.SM]: {
           paddingVertical: 8,
           _text: {
             fontSize: FontSize.XS,
