@@ -1,15 +1,15 @@
-import { SolidBadge } from './solid';
+import { BaseBadge } from './base';
 
-import { BadgeAction, BadgeSize } from '$components';
+import { BadgeAction } from '$components';
 import { Color, ComponentTheme, DescendantStyleName } from '$theme';
 
 export const OutlinedBadge = {
-  ...SolidBadge,
+  ...BaseBadge,
   theme: {
-    ...SolidBadge.theme,
+    ...BaseBadge.theme,
     borderWidth: 1,
     variants: {
-      ...SolidBadge.theme.variants,
+      ...BaseBadge.theme.variants,
       action: {
         [BadgeAction.ERROR]: {
           backgroundColor: Color.RED_04,
@@ -63,8 +63,11 @@ export const OutlinedBadge = {
         },
       },
     },
+    defaultProps: {
+      ...BaseBadge.theme.defaultProps,
+      action: BadgeAction.INFO,
+    },
   },
 } satisfies ComponentTheme<{
   action: BadgeAction;
-  size: BadgeSize;
 }>;

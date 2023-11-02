@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren, useMemo } from 'react';
 
 import { BadgeContent } from './components';
 import { BadgeAction, BadgeSize, BadgeVariant, IconPosition } from './enums';
@@ -17,24 +17,19 @@ type Props = PropsWithChildren<{
 export const Badge: FC<Props> = (props) => {
   const { icon, iconPosition, children, variant, ...restProps } = props;
 
-  if (variant === BadgeVariant.SOLID) {
+  const content = useMemo(() => {
     return (
-      <StyledSolidBadge {...restProps}>
-        <BadgeContent icon={icon} iconPosition={iconPosition}>
-          {children}
-        </BadgeContent>
-      </StyledSolidBadge>
-    );
-  }
-
-  return (
-    <StyledOutlinedBadge {...restProps}>
-      {' '}
       <BadgeContent icon={icon} iconPosition={iconPosition}>
         {children}
       </BadgeContent>
-    </StyledOutlinedBadge>
-  );
+    );
+  }, [icon, iconPosition, children]);
+
+  if (variant === BadgeVariant.SOLID) {
+    return <StyledSolidBadge {...restProps}>{content}</StyledSolidBadge>;
+  }
+
+  return <StyledOutlinedBadge {...restProps}>{content}</StyledOutlinedBadge>;
 };
 
 export * from './enums';
