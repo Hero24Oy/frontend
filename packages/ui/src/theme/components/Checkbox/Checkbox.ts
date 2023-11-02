@@ -1,12 +1,13 @@
 import { config } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
+import { ViewProps } from 'react-native';
 
-const checkboxConfig = config.components.Checkbox;
+import { ComponentTheme } from '$theme/types';
 
-const customCheckboxConfig = {
+const CheckboxTheme = {
   theme: {
     borderRadius: 20,
   },
-};
+} satisfies ComponentTheme<ViewProps>;
 
-export const Checkbox = merge(checkboxConfig, customCheckboxConfig);
+export const Checkbox = merge(config.components.Checkbox, CheckboxTheme);

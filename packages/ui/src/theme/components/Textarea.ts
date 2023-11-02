@@ -1,6 +1,6 @@
-import { ViewStyle } from 'react-native';
+import { ViewProps, ViewStyle } from 'react-native';
 
-import { ComponentTheme } from '../types';
+import { ComponentTheme, SxValues } from '../types';
 
 import { DescendantStyleName, Size } from '$theme';
 import {
@@ -10,6 +10,10 @@ import {
   FontWeight,
   LineHeight,
 } from '$theme/constants';
+
+export type TextareaThemeVariants = {
+  size: Record<`${Size}`, SxValues<ViewStyle>>;
+};
 
 export const Textarea = {
   theme: {
@@ -84,4 +88,4 @@ export const Textarea = {
   },
 
   componentConfig: { descendantStyle: [DescendantStyleName.TEXT] },
-} satisfies ComponentTheme<ViewStyle>;
+} satisfies ComponentTheme<ViewProps, TextareaThemeVariants>;

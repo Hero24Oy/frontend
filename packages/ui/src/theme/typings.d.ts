@@ -1,14 +1,10 @@
-import { ViewStyle } from 'react-native';
-
-import { SxValues } from './types';
-
-import { TextareaSize } from '$components';
 import {
   ButtonThemeVariants,
   HeadingThemeVariants,
   InputThemeVariants,
   InputTitleThemeVariants,
   RadioThemeVariants,
+  TextareaThemeVariants,
   TextThemeVariants,
 } from '$theme/components';
 
@@ -46,9 +42,7 @@ declare module '@gluestack-ui/themed' {
     };
     Textarea: {
       theme: {
-        size: {
-          variant: Record<`${TextareaSize}`, SxValues<ViewStyle>>;
-        };
+        variants: TextareaThemeVariants;
       };
     };
   }
