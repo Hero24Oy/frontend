@@ -14,7 +14,7 @@
     "dev": "yarn build --watch",
     "build": "tsup src/index.ts --format cjs,esm",
     "pretty": "prettier --write . --log-level warn",
-    "lint": "eslint . --fix"
+    "lint": "tsc --noEmit && eslint . --fix"
   },
   "dependencies": {
     "@callstack/react-theme-provider": "^3.0.9",
