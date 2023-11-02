@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
-import { SafeAreaView, View } from '@hero24/ui';
+import { SafeAreaView, Text } from '@hero24/ui';
 
 const Home: FC = () => {
   return (
     <SafeAreaView>
-      <View>Hello, world</View>
+      <Text>Hello, world</Text>
     </SafeAreaView>
   );
 };
