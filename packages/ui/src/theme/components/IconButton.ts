@@ -13,21 +13,21 @@ export const IconButton = {
     },
     variants: {
       size: {
-        [Size.LARGE]: {
+        [Size.LG]: {
           _icon: {
             props: {
               size: IconSize.LARGE,
             },
           },
         },
-        [Size.MEDIUM]: {
+        [Size.MD]: {
           _icon: {
             props: {
               size: IconSize.MEDIUM,
             },
           },
         },
-        [Size.SMALL]: {
+        [Size.SM]: {
           _icon: {
             props: {
               size: IconSize.SMALL,

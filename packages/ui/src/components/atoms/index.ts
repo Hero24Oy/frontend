@@ -13,3 +13,4 @@ export * from './RadioGroup';
 export * from './Image';
 export * from './KeyboardAwareScrollView';
 export * from './IconButton';
+export * from './Textarea';

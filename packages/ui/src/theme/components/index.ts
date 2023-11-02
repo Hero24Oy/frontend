@@ -7,3 +7,5 @@ export * from './Menu';
 export * from './Input';
 export * from './Heading';
 export * from './IconButton';
+export * from './Textarea';
+export * from './TextareaInput';
