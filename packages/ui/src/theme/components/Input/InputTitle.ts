@@ -23,4 +23,4 @@ export const InputTitle = {
       },
     },
   },
-} satisfies ComponentTheme<TextStyle>;
+} satisfies ComponentTheme<Record<string, string>, TextStyle>;

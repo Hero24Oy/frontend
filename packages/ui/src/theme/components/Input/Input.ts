@@ -1,5 +1,3 @@
-import { ViewStyle } from 'react-native';
-
 import { Color, Font, FontSize } from '../../constants';
 
 import { DescendantStyleName } from '$theme/enums';
@@ -42,4 +40,4 @@ export const Input = {
   componentConfig: {
     descendantStyle: [DescendantStyleName.INPUT, DescendantStyleName.ICON],
   },
-} satisfies ComponentTheme<ViewStyle>;
+} satisfies ComponentTheme;
