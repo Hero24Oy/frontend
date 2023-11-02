@@ -9,7 +9,7 @@ import { PressableProps, StyleSheet } from 'react-native';
 
 import { ButtonVariant, Direction, GluestackButtonProps } from './types';
 
-import { Size } from '$theme/constants/sizes';
+import { Size } from '$theme';
 import { CommonStyles } from '$types';
 
 type Props = {
@@ -17,7 +17,7 @@ type Props = {
   icon?: FC;
   iconDirection?: `${Direction}`;
   isLoading?: boolean;
-  size?: `${Size}`;
+  size?: Extract<Size, 'sm' | 'md' | 'lg'>;
   style?: CommonStyles;
   variant?: `${ButtonVariant}`;
 } & GluestackButtonProps;

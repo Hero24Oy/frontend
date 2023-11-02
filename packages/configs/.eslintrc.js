@@ -195,7 +195,6 @@ const paddingRules = {
 };
 
 const namingConventionRule = {
-  '@typescript-eslint/no-redeclare': 'off',
   '@typescript-eslint/naming-convention': [
     'error',
     {
@@ -345,6 +344,7 @@ const override = {
     files: ['src/configs/*.ts', 'scripts/*.ts', 'src/theme/**/*.ts'],
     rules: {
       '@typescript-eslint/naming-convention': 'off',
+      '@typescript-eslint/no-redeclare': 'off',
     },
   },
   scripts: {

@@ -25,7 +25,7 @@ export const Button = {
     _text: {
       textDecorationLine: 'none',
       fontWeight: FontWeight.MEDIUM,
-      lineHeight: LineHeight[Size.SM],
+      lineHeight: LineHeight.SM,
     },
     variants: {
       size: {

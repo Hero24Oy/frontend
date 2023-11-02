@@ -1,5 +1,3 @@
-import { ViewStyle } from 'react-native';
-
 import { ComponentTheme } from '../types';
 
 import { DescendantStyleName, Size } from '$theme';
@@ -29,7 +27,7 @@ export const Textarea = {
       color: Color.GREY_02,
       fontFamily: Font.MAIN,
       fontSize: FontSize.SM,
-      lineHeight: LineHeight[Size.SM],
+      lineHeight: LineHeight.SM,
       fontWeight: FontWeight.REGULAR,
     },
     ':focus': {
@@ -62,21 +60,21 @@ export const Textarea = {
           width: 208,
           _input: {
             fontSize: FontSize.SM,
-            lineHeight: LineHeight[Size.SM],
+            lineHeight: LineHeight.SM,
           },
         },
         [Size.MD]: {
           width: 228,
           _input: {
             fontSize: FontSize.MD,
-            lineHeight: LineHeight[Size.MD],
+            lineHeight: LineHeight.MD,
           },
         },
         [Size.LG]: {
           width: 263,
           _input: {
             fontSize: FontSize.LG,
-            lineHeight: LineHeight[Size.LG],
+            lineHeight: LineHeight.LG,
           },
         },
       },
@@ -84,4 +82,4 @@ export const Textarea = {
   },
 
   componentConfig: { descendantStyle: [DescendantStyleName.TEXT] },
-} satisfies ComponentTheme<ViewStyle>;
+} satisfies ComponentTheme;

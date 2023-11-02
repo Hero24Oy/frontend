@@ -7,7 +7,7 @@ export const Image = {
     maxWidth: '100%',
     variants: {
       size: {
-        [Size.XXS]: {
+        [Size['2XS']]: {
           width: 24,
           height: 24,
         },
@@ -31,7 +31,7 @@ export const Image = {
           width: 128,
           height: 128,
         },
-        [Size.XXL]: {
+        [Size['2XL']]: {
           width: 256,
           height: 256,
         },

@@ -1,6 +1,6 @@
 export enum FontSize {
-  XXXL = 28,
-  XXL = 24,
+  '3XL' = 28,
+  '2XL' = 24,
   XL = 20,
   LG = 17,
   MD = 16,

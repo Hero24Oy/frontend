@@ -14,16 +14,16 @@ export const InputTitle = {
     color: Color.GREY_01,
     fontWeight: FontWeight.REGULAR,
     fontSize: FontSize.SM,
-    lineHeight: LineHeight[Size.SM],
+    lineHeight: LineHeight.SM,
     variants: {
       size: {
         [Size.SM]: {
           fontSize: FontSize.SM,
-          lineHeight: LineHeight[Size.SM],
+          lineHeight: LineHeight.SM,
         },
         [Size.MD]: {
           fontSize: FontSize.MD,
-          lineHeight: LineHeight[Size.MD],
+          lineHeight: LineHeight.MD,
         },
       },
     },
