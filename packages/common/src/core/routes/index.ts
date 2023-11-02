@@ -1,12 +1,6 @@
 import { Tabs } from 'expo-router';
 
-import {
-  BaseIcon,
-  ChatsIcon,
-  HomeIcon,
-  ProfileIcon,
-  TasksIcon,
-} from '@hero24/ui';
+import { ChatsIcon, HomeIcon, ProfileIcon, TasksIcon } from '@hero24/ui';
 
 export type ExpoTabProps = Pick<
   Parameters<typeof Tabs.Screen>[0],
@@ -18,28 +12,28 @@ export const routes: ExpoTabProps[] = [
     name: 'home',
     options: {
       tabBarLabel: 'Home',
-      tabBarIcon: HomeIcon as BaseIcon,
+      tabBarIcon: HomeIcon,
     },
   },
   {
     name: 'tasks',
     options: {
       tabBarLabel: 'Tasks',
-      tabBarIcon: TasksIcon as BaseIcon,
+      tabBarIcon: TasksIcon,
     },
   },
   {
     name: 'chats',
     options: {
       tabBarLabel: 'Chats',
-      tabBarIcon: ChatsIcon as BaseIcon,
+      tabBarIcon: ChatsIcon,
     },
   },
   {
     name: 'profile',
     options: {
       tabBarLabel: 'Profile',
-      tabBarIcon: ProfileIcon as BaseIcon,
+      tabBarIcon: ProfileIcon,
     },
   },
 ];

@@ -9,12 +9,6 @@ const Home: FC = () => {
 
   return (
     <SafeAreaView>
-      <Link href="/home" asChild>
-        <Button variant="solid" size="md">
-          Home
-        </Button>
-      </Link>
-
       <View>
         {!user && (
           <Link href="/sign-in" asChild>

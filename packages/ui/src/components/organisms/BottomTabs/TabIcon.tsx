@@ -41,7 +41,6 @@ export const TabIcon: FC<TabIconProps> = (props) => {
 
 const styles = StyleSheet.create({
   tabText: { fontSize: 14 },
-
   centered: { alignItems: 'center' },
   iconWrapper: {
     alignItems: 'center',
