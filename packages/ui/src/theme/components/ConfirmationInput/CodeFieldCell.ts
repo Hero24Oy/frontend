@@ -17,4 +17,4 @@ export const CodeFieldCell = {
     textAlign: 'center',
     textAlignVertical: 'center',
   },
-} satisfies ComponentTheme<TextStyle>;
+} satisfies ComponentTheme<Record<string, string>, TextStyle>;

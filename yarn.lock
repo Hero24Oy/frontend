@@ -4112,6 +4112,7 @@ __metadata:
     "@hero24/ui": "npm:*"
     "@hookform/resolvers": "npm:^3.3.2"
     "@react-native-async-storage/async-storage": "npm:^1.19.3"
+    "@react-navigation/bottom-tabs": "npm:^6.5.11"
     "@types/lodash": "npm:^4.14.199"
     "@types/react": "npm:^18.2.23"
     "@typescript-eslint/eslint-plugin": "npm:^6.6.0"
@@ -4137,6 +4138,7 @@ __metadata:
     expo-device: "npm:^5.6.0"
     expo-image-picker: "npm:^14.5.0"
     expo-notifications: "npm:^0.20.1"
+    expo-router: "npm:^2.0.0"
     firebase: "npm:^9.23.0"
     graphql-ws: "npm:^5.14.0"
     hero24-types: "npm:^0.2.2"
@@ -5394,7 +5396,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/bottom-tabs@npm:~6.5.7":
+"@react-navigation/bottom-tabs@npm:^6.5.11, @react-navigation/bottom-tabs@npm:~6.5.7":
   version: 6.5.11
   resolution: "@react-navigation/bottom-tabs@npm:6.5.11"
   dependencies:
@@ -8361,6 +8363,7 @@ __metadata:
     "@gluestack-ui/themed": "npm:^1.0.8"
     "@hero24/common": "npm:*"
     "@hero24/ui": "npm:*"
+    "@react-navigation/bottom-tabs": "npm:^6.5.11"
     "@react-navigation/native": "npm:^6.0.2"
     "@types/fs-extra": "npm:^11.0.2"
     "@types/i18n-js": "npm:^3.8.5"
@@ -8403,6 +8406,7 @@ __metadata:
     react-native: "npm:0.72.5"
     react-native-dotenv: "npm:^3.4.9"
     react-native-gesture-handler: "npm:~2.12.0"
+    react-native-keyboard-aware-scroll-view: "npm:^0.9.5"
     react-native-safe-area-context: "npm:4.6.3"
     react-native-screens: "npm:~3.22.0"
     react-native-svg: "npm:^13.4.0"
@@ -10959,6 +10963,7 @@ __metadata:
     "@hero24/common": "npm:*"
     "@hero24/ui": "npm:*"
     "@react-native-async-storage/async-storage": "npm:1.18.2"
+    "@react-navigation/bottom-tabs": "npm:^6.5.11"
     "@react-navigation/native": "npm:^6.0.2"
     "@types/fs-extra": "npm:^11.0.2"
     "@types/i18n-js": "npm:^3.8.5"
@@ -11009,6 +11014,7 @@ __metadata:
     react: "npm:18.2.0"
     react-combine-providers: "npm:^0.9.6"
     react-dom: "npm:18.2.0"
+    react-hook-form: "npm:^7.47.0"
     react-native: "npm:0.72.5"
     react-native-confirmation-code-field: "npm:^7.3.2"
     react-native-country-picker-modal: "npm:^2.0.0"
