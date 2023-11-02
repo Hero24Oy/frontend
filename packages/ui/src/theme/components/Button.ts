@@ -1,5 +1,3 @@
-import { ViewStyle } from 'react-native';
-
 import {
   Color,
   FontSize,
@@ -215,4 +213,4 @@ export const Button = {
       DescendantStyleName.SPINNER,
     ],
   },
-} satisfies ComponentTheme<ViewStyle>;
+} satisfies ComponentTheme<{ size: Size; variant: ButtonVariant }>;
