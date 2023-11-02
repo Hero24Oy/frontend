@@ -6,4 +6,4 @@ import { ComponentTheme } from '$theme/types';
 // * You can extend it if you need to.
 export const RadioLabel = {
   theme: {},
-} satisfies ComponentTheme<TextStyle>;
+} satisfies ComponentTheme<Record<string, string>, TextStyle>;
