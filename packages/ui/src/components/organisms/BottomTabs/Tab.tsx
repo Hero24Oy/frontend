@@ -1,6 +1,6 @@
 import { Text } from '@gluestack-ui/themed';
 import { FC } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, PressableProps, StyleSheet, View } from 'react-native';
 
 import { BaseIcon } from '$icons';
 import { Color } from '$theme';
@@ -8,9 +8,8 @@ import { Color } from '$theme';
 export type TabProps = {
   Icon: BaseIcon;
   label: string;
-  onPress: () => void;
   isFocused?: boolean;
-};
+} & Pick<PressableProps, 'onPress'>;
 
 export const Tab: FC<TabProps> = (props) => {
   const { isFocused, Icon, label, onPress } = props;
