@@ -1,11 +1,11 @@
 import { MarkItems, MarksBasedProps, ValuesBasedProps } from '../types';
 import { getMarksFromRange } from '../utils/getMarksFromRange';
 
-type Props = Partial<Pick<MarksBasedProps, 'marks'>> &
+type Params = Partial<Pick<MarksBasedProps, 'marks'>> &
   Partial<Omit<ValuesBasedProps, 'marks'>>;
 
-export const useSliderMarks = (props: Props): MarkItems => {
-  const { maxValue, minValue, step, marks } = props;
+export const useSliderMarks = (params: Params): MarkItems => {
+  const { maxValue, minValue, step, marks } = params;
 
   if (marks) {
     return marks;

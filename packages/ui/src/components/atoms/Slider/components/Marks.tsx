@@ -1,56 +1,41 @@
-import { HStack, Text } from '@gluestack-ui/themed';
-import React, { FC, useCallback, useMemo } from 'react';
-import { ViewStyle } from 'react-native';
+import { FC, useMemo } from 'react';
 
-import { getOuterMarksStyles, styles } from '../styles';
-import { MarkItems } from '../types';
+import { MarkItems, SliderSize } from '../types';
 
-const PADDING_COUNT = 2;
+import { Mark } from './components';
+
+import { StyledSliderMarksContainer } from '$styled';
+
+export const MarksContainer = StyledSliderMarksContainer;
 
 type Props = {
   marks: MarkItems;
   parentWidth: number;
+  size?: `${SliderSize}`;
 };
 
 export const Marks: FC<Props> = (props: Props) => {
-  const { marks, parentWidth } = props;
+  const { marks, parentWidth, ...restProps } = props;
 
-  const outerMarksPadding = useMemo(
-    () => parentWidth / marks.length / PADDING_COUNT,
-    [parentWidth, marks],
-  );
-
-  const outerMarksStyles = useMemo(
-    () => getOuterMarksStyles(outerMarksPadding),
-    [outerMarksPadding, getOuterMarksStyles],
-  );
-
-  const getMarkContainerStyle = useCallback(
-    (index: number): ViewStyle[] => {
-      const markStyles: ViewStyle[] = [styles.mark];
-
-      if (index === 0) {
-        markStyles.push(outerMarksStyles.leftMark);
-      }
-
-      if (index === marks.length - 1) {
-        markStyles.push(outerMarksStyles.rightMark);
-      }
-
-      return markStyles;
-    },
-    [styles, marks.length, outerMarksStyles],
+  const markWidth = useMemo(
+    () => parentWidth / (marks.length - 1),
+    [parentWidth, marks.length],
   );
 
   return (
-    <HStack style={styles.marksContainer}>
+    <MarksContainer {...restProps}>
       {marks.map((mark, index) => {
         return (
-          <HStack key={mark.label} style={getMarkContainerStyle(index)}>
-            <Text>{mark.label}</Text>
-          </HStack>
+          <Mark
+            key={mark.label}
+            currentIndex={index}
+            totalCount={marks.length - 1}
+            markWidth={markWidth}
+          >
+            {mark.label}
+          </Mark>
         );
       })}
-    </HStack>
+    </MarksContainer>
   );
 };

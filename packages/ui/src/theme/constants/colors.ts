@@ -15,7 +15,7 @@ export enum Color {
   RED_02 = '#C05648',
   RED_03 = '#F0978D',
   RED_04 = '#FCEDEA',
-  GREEN_00 = '#51As76E',
+  GREEN_00 = '#51A76E',
   GREEN_01 = '#4A9A65',
   GREEN_02 = '#59B578',
   GREEN_03 = '#E9F8E8',

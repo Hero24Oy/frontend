@@ -1,13 +1,16 @@
 import { VStack } from '@gluestack-ui/themed';
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { FieldValues } from 'react-hook-form';
 import { LayoutChangeEvent } from 'react-native';
 
-import { Marks } from './components/Marks';
-import { SliderBase } from './components/SliderBase';
-import { useSliderMarks } from './hooks/useSliderMarks';
-import { styles } from './styles';
-import { SliderMarksBasedProps, SliderValuesBasedProps } from './types';
+import { Marks, SimpleSlider } from './components';
+import { useSliderMarks } from './hooks';
+import {
+  SliderMarksBasedProps,
+  SliderOrientation,
+  SliderSize,
+  SliderValuesBasedProps,
+} from './types';
 
 type Props<Type extends FieldValues> =
   | SliderMarksBasedProps<Type>
@@ -23,7 +26,10 @@ export const Slider = <Type extends FieldValues>(
     minValue,
     maxValue,
     step,
-    withMarks = false,
+    orientation = SliderOrientation.HORIZONTAL,
+    isDisabled = false,
+    size = SliderSize.SM,
+    withMarks,
   } = props;
 
   const [width, setWidth] = useState(0);
@@ -38,9 +44,18 @@ export const Slider = <Type extends FieldValues>(
   const sliderMarks = useSliderMarks({ minValue, maxValue, step, marks });
 
   return (
-    <VStack style={styles.mainContainer} onLayout={onLayout}>
-      <SliderBase marks={sliderMarks} control={control} name={name} />
-      {withMarks ? <Marks marks={sliderMarks} parentWidth={width} /> : null}
+    <VStack onLayout={onLayout}>
+      <SimpleSlider
+        isDisabled={isDisabled}
+        orientation={orientation}
+        size={size}
+        marks={sliderMarks}
+        control={control}
+        name={name}
+      />
+      {withMarks && orientation === SliderOrientation.HORIZONTAL ? (
+        <Marks marks={sliderMarks} parentWidth={width} size={size} />
+      ) : null}
     </VStack>
   );
 };

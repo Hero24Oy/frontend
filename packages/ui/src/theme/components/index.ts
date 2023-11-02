@@ -7,3 +7,4 @@ export * from './Menu';
 export * from './Input';
 export * from './Heading';
 export * from './IconButton';
+export * from './Slider';
