@@ -6,23 +6,29 @@ import { Header } from '$components';
 import { LeftIcon } from '$icons';
 
 interface Props {
-  name?: string;
+  title?: string;
 }
 
 export const Stack: FC<Props> = (props) => {
-  const { name } = props;
+  const { title } = props;
 
   const header = useCallback(
     (headerProps: NativeStackHeaderProps) => {
       const { navigation } = headerProps;
 
-      if (!name) {
+      if (!title) {
         return null;
       }
 
-      return <Header back={navigation.goBack} name={name} icon={LeftIcon} />;
+      return (
+        <Header
+          goBack={navigation.goBack}
+          title={title}
+          goBackIcon={LeftIcon}
+        />
+      );
     },
-    [name],
+    [title],
   );
 
   return (
