@@ -66,5 +66,3 @@ export const Textarea = <Type extends FieldValues>(
     </GluestackFormControl>
   );
 };
-
-export * from './constants';

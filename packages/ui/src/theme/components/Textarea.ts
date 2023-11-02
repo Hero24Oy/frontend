@@ -84,4 +84,4 @@ export const Textarea = {
   },
 
   componentConfig: { descendantStyle: [DescendantStyleName.TEXT] },
-} satisfies ComponentTheme<ViewStyle>;
+} satisfies ComponentTheme<{ size: Size }, ViewStyle>;
