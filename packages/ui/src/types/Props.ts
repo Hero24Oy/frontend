@@ -17,4 +17,7 @@ export type CommonStyles = Pick<
 >;
 
 export type LayoutStyles = CommonStyles &
-  Pick<ViewStyle, 'justifyContent' | 'alignItems' | 'flex' | 'gap'>;
+  Pick<
+    ViewStyle,
+    'justifyContent' | 'alignItems' | 'flex' | 'gap' | 'flexDirection'
+  >;

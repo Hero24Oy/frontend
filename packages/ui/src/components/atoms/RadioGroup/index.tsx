@@ -3,7 +3,7 @@ import { ReactElement, useEffect } from 'react';
 import { Control, FieldValues, Path, useController } from 'react-hook-form';
 
 import { Radios } from './components';
-import { RadioDirection, RadioGroupProps } from './types';
+import { RadioGroupProps } from './types';
 
 import { Size } from '$theme';
 import { LayoutStyles } from '$types';
@@ -11,7 +11,6 @@ import { LayoutStyles } from '$types';
 type Props<Type extends FieldValues> = {
   control: Control<Type>;
   name: Path<Type>;
-  itemDirection?: `${RadioDirection}`;
   size?: `${Size}`;
   style?: LayoutStyles;
 } & RadioGroupProps;
@@ -23,7 +22,6 @@ export const RadioGroup = <Type extends FieldValues>(
     name,
     control,
     size = Size.MEDIUM,
-    itemDirection = RadioDirection.VERTICAL,
     options,
     style,
     ...restProps
@@ -39,7 +37,6 @@ export const RadioGroup = <Type extends FieldValues>(
 
   return (
     <GluestackRadioGroup
-      itemDirection={itemDirection}
       value={value}
       onChange={onChange}
       ref={ref}

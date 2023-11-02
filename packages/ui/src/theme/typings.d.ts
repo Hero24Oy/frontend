@@ -3,12 +3,7 @@ import { ViewStyle } from 'react-native';
 import { Size } from './enums';
 import { SxValues } from './types';
 
-import {
-  ButtonSize,
-  ButtonVariant,
-  RadioDirection,
-  RadioVariant,
-} from '$components';
+import { ButtonSize, ButtonVariant, RadioVariant } from '$components';
 
 declare module '@gluestack-ui/themed' {
   interface UIComponents {
@@ -25,13 +20,6 @@ declare module '@gluestack-ui/themed' {
         variants: {
           size: Record<`${Size}`, SxValues<ViewStyle>>;
           variant: Record<`${RadioVariant}`, SxValues<ViewStyle>>;
-        };
-      };
-    };
-    RadioGroup: {
-      theme: {
-        variants: {
-          itemDirection: Record<`${RadioDirection}`, SxValues<ViewStyle>>;
         };
       };
     };

@@ -3,11 +3,6 @@ export enum RadioVariant {
   RADIO = 'radio',
 }
 
-export enum RadioDirection {
-  HORIZONTAL = 'horizontal',
-  VERTICAL = 'vertical',
-}
-
 export type RadioOption = {
   label: string;
   value: string;
