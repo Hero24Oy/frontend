@@ -24,6 +24,7 @@ export const Slider = {
       orientation: {
         [SliderOrientation.VERTICAL]: {
           height: '100%',
+          width: 24,
           alignItems: 'center',
         },
         [SliderOrientation.HORIZONTAL]: {
