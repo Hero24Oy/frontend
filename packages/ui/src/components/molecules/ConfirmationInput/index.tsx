@@ -1,5 +1,6 @@
 import { ReactElement } from 'react';
 import { FieldValues, useController } from 'react-hook-form';
+import { StyleSheet } from 'react-native';
 import {
   CodeField,
   RenderCellOptions,
@@ -7,7 +8,6 @@ import {
 
 import { CodeFieldCell } from './components';
 import { useConfirmationInput } from './hooks';
-import { styles } from './styles';
 import { ConfirmCodeInputParams } from './types';
 
 export const ConfirmationInput = <Type extends FieldValues>(
@@ -44,3 +44,10 @@ export const ConfirmationInput = <Type extends FieldValues>(
     />
   );
 };
+
+const styles = StyleSheet.create({
+  root: {
+    gap: 8,
+    justifyContent: 'center',
+  },
+});

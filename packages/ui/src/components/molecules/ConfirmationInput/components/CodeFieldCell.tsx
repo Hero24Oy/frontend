@@ -1,10 +1,11 @@
 import { FC } from 'react';
+import { StyleSheet } from 'react-native';
 import { Cursor } from 'react-native-confirmation-code-field';
 
-import { styles } from '../styles';
 import { GetCellOnLayoutHandler } from '../types';
 
 import { StyledCodeFieldCell } from '$styled';
+import { Color } from '$theme';
 
 type Props = {
   getCellOnLayoutHandler: GetCellOnLayoutHandler;
@@ -27,3 +28,9 @@ export const CodeFieldCell: FC<Props> = (props) => {
     </StyledCodeFieldCell>
   );
 };
+
+export const styles = StyleSheet.create({
+  cellOnFocus: {
+    borderColor: Color.BLACK_00,
+  },
+});
