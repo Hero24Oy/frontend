@@ -3,14 +3,20 @@ export enum RadioVariant {
   RADIO = 'radio',
 }
 
+export enum RadioDirection {
+  HORIZONTAL = 'horizontal',
+  VERTICAL = 'vertical',
+}
+
 export type RadioOption = {
   label: string;
   value: string;
+  isChecked?: boolean;
+  isDisabled?: boolean;
 };
 
-type RadioConfig = {
+export type RadioGroupProps = {
   options: RadioOption[];
-  variant: RadioVariant;
+  variant: `${RadioVariant}`;
+  isGloballyDisabled?: boolean;
 };
-
-export type RadioGroupProps = RadioConfig;

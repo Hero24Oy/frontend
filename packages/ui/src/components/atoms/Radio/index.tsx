@@ -12,7 +12,9 @@ import { RadioVariant } from '../RadioGroup';
 
 import { GluestackRadioProps } from './types';
 
-type Props = PropsWithChildren<GluestackRadioProps>;
+import { Size } from '$theme';
+
+type Props = { size: `${Size}` } & PropsWithChildren<GluestackRadioProps>;
 
 export const Radio: FC<Props> = (props) => {
   const { children, style, ...restProps } = props;

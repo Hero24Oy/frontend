@@ -4,11 +4,12 @@ import {
 } from '@gluestack-ui/themed';
 import { FC, PropsWithChildren } from 'react';
 
-import { RadioVariant } from '../RadioGroup';
-
 import { GluestackChipProps } from './types';
 
-type Props = PropsWithChildren<GluestackChipProps>;
+import { RadioVariant } from '$atoms/RadioGroup/types';
+import { Size } from '$theme';
+
+type Props = { size: `${Size}` } & PropsWithChildren<GluestackChipProps>;
 
 export const Chip: FC<Props> = (props) => {
   const { children, ...restProps } = props;
