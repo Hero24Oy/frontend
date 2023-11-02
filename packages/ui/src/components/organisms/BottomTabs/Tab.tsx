@@ -5,14 +5,14 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { BaseIcon } from '$icons';
 import { Color } from '$theme';
 
-export type TabIconProps = {
+export type TabProps = {
   Icon: BaseIcon;
   label: string;
   onPress: () => void;
   isFocused?: boolean;
 };
 
-export const TabIcon: FC<TabIconProps> = (props) => {
+export const Tab: FC<TabProps> = (props) => {
   const { isFocused, Icon, label, onPress } = props;
 
   const textStyles = isFocused

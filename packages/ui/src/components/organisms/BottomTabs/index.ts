@@ -1,2 +1,2 @@
-export * from './TabIcon';
-export * from './TabIcons';
+export * from './Tab';
+export * from './Tabs';

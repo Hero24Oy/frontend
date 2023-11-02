@@ -1,14 +1,12 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 
-import { TabIconProps } from '@hero24/ui';
+import { TabProps } from '@hero24/ui';
 
 // expo router based logic to prepare config
-export const prepareRouteConfig = (
-  props: BottomTabBarProps,
-): TabIconProps[] => {
+export const prepareRouteConfig = (props: BottomTabBarProps): TabProps[] => {
   const { state, descriptors, navigation } = props;
 
-  const routeConfig: TabIconProps[] = state.routes.map((route, index) => {
+  const routeConfig: TabProps[] = state.routes.map((route, index) => {
     const { options } = descriptors[route.key];
     const isFocused = state.index === index;
 
@@ -31,7 +29,7 @@ export const prepareRouteConfig = (
       onPress,
       Icon,
       label: options.tabBarLabel as string,
-    } satisfies TabIconProps;
+    } satisfies TabProps;
   });
 
   return routeConfig;
