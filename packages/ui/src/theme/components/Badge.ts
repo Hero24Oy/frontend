@@ -44,7 +44,13 @@ export const SolidBadge = {
           backgroundColor: Color.BLUE_00,
         },
         [BadgeAction.MUTED]: {
-          backgroundColor: Color.DARK_GREY_00,
+          [DescendantStyleName.TEXT]: {
+            color: Color.DARK_00,
+          },
+          [DescendantStyleName.ICON]: {
+            color: Color.DARK_00,
+          },
+          backgroundColor: Color.GREY_LIGHT_02,
         },
       },
 
@@ -140,10 +146,10 @@ export const OutlinedBadge = {
           backgroundColor: Color.GREY_LIGHT_02,
           borderColor: Color.GREY_01,
           [DescendantStyleName.TEXT]: {
-            color: Color.DARK_GREY_00,
+            color: Color.DARK_00,
           },
           [DescendantStyleName.ICON]: {
-            color: Color.DARK_GREY_00,
+            color: Color.DARK_00,
           },
         },
       },
