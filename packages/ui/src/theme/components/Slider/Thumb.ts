@@ -1,7 +1,7 @@
 import { config } from '@gluestack-ui/config';
 import { merge } from 'lodash';
 
-import { SliderOrientation, SliderSize } from '$components/atoms/Slider/types';
+import { SliderOrientation, SliderSize } from '$atoms/Slider/types';
 import { Color } from '$theme/constants';
 import { ComponentTheme } from '$theme/types';
 

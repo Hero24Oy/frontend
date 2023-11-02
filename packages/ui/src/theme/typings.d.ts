@@ -3,14 +3,17 @@ import { TextStyle, ViewStyle } from 'react-native';
 import { SxValues } from './types';
 
 import {
+  HeadingVariant,
+  SliderOrientation,
+  SliderSize,
+  TextVariant,
+} from '$atoms';
+import {
   ButtonSize,
   ButtonVariant,
   RadioVariant,
   TextareaSize,
 } from '$components';
-import { HeadingVariant } from '$components/atoms/Heading/constants';
-import { SliderOrientation, SliderSize } from '$components/atoms/Slider/types';
-import { TextVariant } from '$components/atoms/Text/types';
 
 declare module '@gluestack-ui/themed' {
   interface UIComponents {
