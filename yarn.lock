@@ -4149,6 +4149,7 @@ __metadata:
     "@gluestack-ui/config": "npm:1.0.1"
     "@gluestack-ui/themed": "npm:1.0.8"
     "@hero24/configs": "npm:*"
+    "@react-navigation/native-stack": "npm:^6.9.16"
     "@types/fs-extra": "npm:^11.0.2"
     "@types/node": "npm:^20.8.10"
     "@typescript-eslint/eslint-plugin": "npm:^6.6.0"
@@ -4166,6 +4167,7 @@ __metadata:
     eslint-plugin-react-native: "npm:^4.0.0"
     eslint-plugin-simple-import-sort: "npm:^10.0.0"
     eslint-plugin-typescript-sort-keys: "npm:^3.0.0"
+    expo-router: "npm:^2.0.10"
     fs-extra: "npm:^11.1.1"
     lodash: "npm:^4.17.21"
     npm-watch: "npm:^0.11.0"
@@ -5368,7 +5370,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/native-stack@npm:~6.9.12":
+"@react-navigation/native-stack@npm:^6.9.16, @react-navigation/native-stack@npm:~6.9.12":
   version: 6.9.16
   resolution: "@react-navigation/native-stack@npm:6.9.16"
   dependencies:
@@ -9876,7 +9878,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-router@npm:2.0.10":
+"expo-router@npm:2.0.10, expo-router@npm:^2.0.10":
   version: 2.0.10
   resolution: "expo-router@npm:2.0.10"
   dependencies:

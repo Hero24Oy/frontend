@@ -1,7 +1,7 @@
 export enum HeadingVariant {
-  H1 = '3xl',
-  H2 = '2xl',
-  H3 = 'xl',
-  H4 = 'lg',
-  H5 = 'md',
+  H1 = 'H1',
+  H2 = 'H2',
+  H3 = 'H3',
+  H4 = 'H4',
+  H5 = 'H5',
 }
