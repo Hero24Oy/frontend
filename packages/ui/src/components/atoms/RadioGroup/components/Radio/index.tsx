@@ -2,12 +2,11 @@ import { FC, memo } from 'react';
 
 import { radioVariantMapper } from './constants';
 
-import { RadioOption, RadioVariant } from '$atoms/RadioGroup/types';
-import { Size } from '$theme';
+import { RadioOption, RadioSize, RadioVariant } from '$atoms/RadioGroup/types';
 
 type Props = {
   options: RadioOption[];
-  size: `${Size}`;
+  size: RadioSize;
   variant: `${RadioVariant}`;
   isGloballyDisabled?: boolean;
 };

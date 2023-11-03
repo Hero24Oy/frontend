@@ -3,7 +3,7 @@ import { ReactElement, useEffect } from 'react';
 import { Control, FieldValues, Path, useController } from 'react-hook-form';
 
 import { Radio } from './components';
-import { RadioGroupProps } from './types';
+import { RadioGroupProps, RadioSize } from './types';
 
 import { Size } from '$theme';
 import { LayoutStyles } from '$types';
@@ -11,7 +11,7 @@ import { LayoutStyles } from '$types';
 type Props<Type extends FieldValues> = {
   control: Control<Type>;
   name: Path<Type>;
-  size?: `${Size}`;
+  size?: RadioSize;
   style?: LayoutStyles;
 } & RadioGroupProps;
 

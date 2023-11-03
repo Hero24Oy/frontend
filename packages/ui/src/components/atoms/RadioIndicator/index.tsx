@@ -7,14 +7,12 @@ import {
 } from '@gluestack-ui/themed';
 import { FC, PropsWithChildren } from 'react';
 
-import { RadioVariant } from '../RadioGroup';
+import { RadioSize, RadioVariant } from '../RadioGroup';
 
 import { GluestackRadioIndicatorProps } from './types';
 
-import { Size } from '$theme';
-
 type Props = {
-  size: `${Size}`;
+  size: RadioSize;
 } & PropsWithChildren<GluestackRadioIndicatorProps>;
 
 export const RadioIndicator: FC<Props> = (props) => {

@@ -1,15 +1,16 @@
 import { config as defaultConfig } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
 
-import { RadioVariant } from '$components';
+import { RadioSize, RadioVariant } from '$components';
 import {
   Color,
   FontSize,
   FontWeight,
   IconSize,
   LineHeight,
+  Size,
 } from '$theme/constants';
-import { DescendantStyleName, Size } from '$theme/enums';
+import { DescendantStyleName } from '$theme/enums';
 import { ComponentTheme } from '$theme/types';
 
 const customRadioConfig = {
@@ -28,7 +29,7 @@ const customRadioConfig = {
           },
           [DescendantStyleName.ICON]: {
             props: {
-              size: IconSize.EXTRA_SMALL / 2,
+              size: IconSize.XS / 2,
             },
           },
         },
@@ -39,7 +40,7 @@ const customRadioConfig = {
           },
           [DescendantStyleName.ICON]: {
             props: {
-              size: IconSize.MEDIUM / 2,
+              size: IconSize.MD / 2,
             },
           },
         },
@@ -50,7 +51,7 @@ const customRadioConfig = {
           },
           [DescendantStyleName.ICON]: {
             props: {
-              size: IconSize.LARGE / 2,
+              size: IconSize.LG / 2,
             },
           },
         },
@@ -85,6 +86,6 @@ const customRadioConfig = {
   componentConfig: {
     descendantStyle: [DescendantStyleName.TEXT, DescendantStyleName.ICON],
   },
-} satisfies ComponentTheme<{ size: Size; variant: RadioVariant }>;
+} satisfies ComponentTheme<{ size: RadioSize; variant: RadioVariant }>;
 
 export const Radio = merge(defaultConfig.components.Radio, customRadioConfig);
