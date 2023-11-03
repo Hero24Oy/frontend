@@ -34,7 +34,7 @@ export const Header: FC<Props> = (props) => {
   );
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type -- StyleSheet don't have correct return type
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type -- StyleSheet doesn't have a correct return type
 export const useStyles = () => {
   const insets = useSafeAreaInsets();
 
