@@ -1,5 +1,6 @@
-import { TextStyle } from 'react-native';
+import { TextProps, TextStyle } from 'react-native';
 
+import { InputSize } from '$components';
 import {
   Color,
   FontSize,
@@ -7,7 +8,11 @@ import {
   LineHeight,
   Size,
 } from '$theme/constants';
-import { ComponentTheme } from '$theme/types';
+import { ComponentTheme, SxValues } from '$theme/types';
+
+export type InputTitleThemeVariants = {
+  size: Record<InputSize, SxValues<TextStyle>>;
+};
 
 export const InputTitle = {
   theme: {
@@ -28,4 +33,4 @@ export const InputTitle = {
       },
     },
   },
-} satisfies ComponentTheme<Record<string, string>, TextStyle>;
+} satisfies ComponentTheme<TextProps, InputTitleThemeVariants>;

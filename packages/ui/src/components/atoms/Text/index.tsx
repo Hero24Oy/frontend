@@ -14,3 +14,5 @@ export type TextProps = {
 export const Text: FC<TextProps> = ({ children, ...restProps }) => (
   <GluestackText {...restProps}>{children}</GluestackText>
 );
+
+export * from './types';

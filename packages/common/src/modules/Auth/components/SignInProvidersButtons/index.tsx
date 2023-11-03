@@ -13,7 +13,7 @@ export const SignInProvidersButtons: FC = () => {
       <Button variant="outline" size="md" isDisabled>
         Continue with Facebook
       </Button>
-      <Button variant="outline" size="md" isDisabled>
+      <Button variant="outline" isDisabled>
         Continue with Apple
       </Button>
     </VStack>

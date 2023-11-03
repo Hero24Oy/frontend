@@ -1,5 +1,6 @@
 import { config as defaultConfig } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
+import { ViewProps, ViewStyle } from 'react-native';
 
 import { RadioSize, RadioVariant } from '$components';
 import {
@@ -11,7 +12,12 @@ import {
   Size,
 } from '$theme/constants';
 import { DescendantStyleName } from '$theme/enums';
-import { ComponentTheme } from '$theme/types';
+import { ComponentTheme, SxValues } from '$theme/types';
+
+export type RadioThemeVariants = {
+  size: Record<RadioSize, SxValues<ViewStyle>>;
+  variant: Record<`${RadioVariant}`, SxValues<ViewStyle>>;
+};
 
 const customRadioConfig = {
   theme: {
@@ -29,7 +35,7 @@ const customRadioConfig = {
           },
           [DescendantStyleName.ICON]: {
             props: {
-              size: IconSize.XS / 2,
+              size: IconSize.SM / 2,
             },
           },
         },
@@ -86,6 +92,6 @@ const customRadioConfig = {
   componentConfig: {
     descendantStyle: [DescendantStyleName.TEXT, DescendantStyleName.ICON],
   },
-} satisfies ComponentTheme<{ size: RadioSize; variant: RadioVariant }>;
+} satisfies ComponentTheme<ViewProps, RadioThemeVariants>;
 
 export const Radio = merge(defaultConfig.components.Radio, customRadioConfig);

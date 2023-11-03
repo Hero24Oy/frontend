@@ -1,6 +1,12 @@
+import { ImageProps, ImageStyle } from 'react-native';
+
 import { ImageSizeValues } from '$components/styled/Image/constants';
 import { Size } from '$theme/constants';
-import { ComponentTheme } from '$theme/types';
+import { ComponentTheme, SxValues } from '$theme/types';
+
+export type ImageThemeVariants = {
+  size: Record<ImageSizeValues, SxValues<ImageStyle>>;
+};
 
 export const Image = {
   theme: {
@@ -45,4 +51,4 @@ export const Image = {
       size: Size.FULL,
     },
   },
-} satisfies ComponentTheme<{ size: ImageSizeValues }>;
+} satisfies ComponentTheme<ImageProps, ImageThemeVariants>;

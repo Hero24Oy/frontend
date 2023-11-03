@@ -1,210 +1,469 @@
+import { config } from '@gluestack-ui/config';
+import merge from 'lodash/merge';
+import { PressableProps, ViewStyle } from 'react-native';
+
+import { ButtonAction, ButtonSize, ButtonVariant } from '$components';
 import {
   Color,
+  Font,
   FontSize,
   FontWeight,
   IconSize,
   LineHeight,
   Size,
-} from '../constants';
-import { DescendantStyleName } from '../enums';
-import { ComponentTheme } from '../types';
+} from '$theme/constants';
+import { DescendantStyleName } from '$theme/enums';
+import { ComponentTheme, SxValues } from '$theme/types';
 
-import { ButtonSize, ButtonVariant } from '$components';
+export type ButtonThemeVariants = {
+  action: Record<`${ButtonAction}`, SxValues<ViewStyle>>;
+  size: Record<ButtonSize, SxValues<ViewStyle>>;
+  variant: Record<`${ButtonVariant}`, SxValues<ViewStyle>>;
+};
 
-export const Button = {
+const ButtonTheme = {
   theme: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 6,
-    paddingHorizontal: 12,
-    borderRadius: 8,
-    height: 'auto',
-    borderWidth: 1,
+    gap: 4,
     [DescendantStyleName.TEXT]: {
-      textDecorationLine: 'none',
+      fontFamily: Font.MAIN,
       fontWeight: FontWeight.MEDIUM,
-      lineHeight: LineHeight.SM,
+    },
+    ':focusVisible': {
+      borderWidth: 2,
+      borderColor: Color.BLUE_00,
     },
     variants: {
-      size: {
-        [Size.LG]: {
-          width: '100%',
-          paddingVertical: 11,
+      action: {
+        [ButtonAction.PRIMARY]: {
           [DescendantStyleName.TEXT]: {
-            fontSize: FontSize.SM,
+            color: Color.DARK_00,
+            ':hover': {
+              color: Color.RED_00,
+            },
+            ':active': {
+              color: Color.DARK_GREY_00,
+            },
           },
           [DescendantStyleName.ICON]: {
-            width: IconSize.SM,
-            height: IconSize.SM,
+            color: Color.DARK_00,
+            ':hover': {
+              color: Color.RED_00,
+            },
+            ':active': {
+              color: Color.DARK_GREY_00,
+            },
           },
           [DescendantStyleName.SPINNER]: {
             props: {
-              width: IconSize.SM,
-              height: IconSize.SM,
+              color: Color.DARK_00,
             },
           },
         },
-        [Size.MD]: {
-          paddingVertical: 10,
+        [ButtonAction.SECONDARY]: {
           [DescendantStyleName.TEXT]: {
-            fontSize: FontSize.SM,
+            color: Color.DARK_00,
+            ':hover': {
+              color: Color.DARK_00,
+            },
+            ':active': {
+              color: Color.DARK_GREY_00,
+            },
           },
           [DescendantStyleName.ICON]: {
-            width: IconSize.SM,
-            height: IconSize.SM,
+            color: Color.DARK_00,
+            ':hover': {
+              color: Color.DARK_00,
+            },
+            ':active': {
+              color: Color.DARK_GREY_00,
+            },
           },
           [DescendantStyleName.SPINNER]: {
             props: {
-              width: IconSize.SM,
-              height: IconSize.SM,
+              color: Color.DARK_00,
+            },
+          },
+          ':focusVisible': {
+            borderWidth: 2,
+            borderColor: Color.BLUE_00,
+          },
+        },
+        [ButtonAction.POSITIVE]: {
+          [DescendantStyleName.TEXT]: {
+            color: Color.GREEN_00,
+            ':hover': {
+              color: Color.GREEN_02,
+            },
+            ':active': {
+              color: Color.GREEN_01,
+            },
+          },
+          [DescendantStyleName.ICON]: {
+            color: Color.GREEN_00,
+            ':hover': {
+              color: Color.GREEN_02,
+            },
+            ':active': {
+              color: Color.GREEN_01,
+            },
+          },
+        },
+        [ButtonAction.NEGATIVE]: {
+          [DescendantStyleName.TEXT]: {
+            color: Color.RED_00,
+            ':hover': {
+              color: Color.RED_02,
+            },
+            ':active': {
+              color: Color.RED_01,
+            },
+          },
+          [DescendantStyleName.ICON]: {
+            color: Color.RED_00,
+            ':hover': {
+              color: Color.RED_02,
+            },
+            ':active': {
+              color: Color.RED_01,
+            },
+          },
+        },
+      },
+      size: {
+        [Size.XS]: {
+          borderRadius: 6,
+          [DescendantStyleName.TEXT]: {
+            lineHeight: LineHeight.XS,
+          },
+          [DescendantStyleName.ICON]: {
+            props: {
+              size: IconSize.SM,
+            },
+          },
+          [DescendantStyleName.SPINNER]: {
+            props: {
+              size: IconSize.SM,
             },
           },
         },
         [Size.SM]: {
-          paddingVertical: 8,
+          borderRadius: 6,
           [DescendantStyleName.TEXT]: {
-            fontSize: FontSize.XS,
+            lineHeight: LineHeight.SM,
           },
           [DescendantStyleName.ICON]: {
-            width: IconSize.XS,
-            height: IconSize.XS,
+            props: {
+              size: IconSize.SM,
+            },
           },
           [DescendantStyleName.SPINNER]: {
             props: {
-              width: IconSize.XS,
-              height: IconSize.XS,
+              size: IconSize.SM,
+            },
+          },
+        },
+        [Size.MD]: {
+          borderRadius: 8,
+          [DescendantStyleName.TEXT]: {
+            fontSize: FontSize.SM,
+            lineHeight: LineHeight.SM,
+          },
+          [DescendantStyleName.ICON]: {
+            props: {
+              size: IconSize.MD,
+            },
+          },
+          [DescendantStyleName.SPINNER]: {
+            props: {
+              size: IconSize.MD,
+            },
+          },
+        },
+        [Size.LG]: {
+          borderRadius: 8,
+          [DescendantStyleName.TEXT]: {
+            fontSize: FontSize.SM,
+            lineHeight: LineHeight.SM,
+          },
+          [DescendantStyleName.ICON]: {
+            props: {
+              size: IconSize.LG,
+            },
+          },
+          [DescendantStyleName.SPINNER]: {
+            props: {
+              size: IconSize.LG,
+            },
+          },
+        },
+        [Size.XL]: {
+          borderRadius: 10,
+          [DescendantStyleName.TEXT]: {
+            fontSize: FontSize.MD,
+            lineHeight: LineHeight.MD,
+          },
+          [DescendantStyleName.ICON]: {
+            props: {
+              size: IconSize.LG,
+            },
+          },
+          [DescendantStyleName.SPINNER]: {
+            props: {
+              size: IconSize.LG,
             },
           },
         },
       },
       variant: {
-        [ButtonVariant.SOLID]: {
-          backgroundColor: Color.DARK_00,
-          borderColor: Color.TRANSPARENT,
-          [DescendantStyleName.TEXT]: {
-            color: Color.WHITE_00,
-          },
-          [DescendantStyleName.ICON]: {
-            color: Color.WHITE_00,
-          },
-          [DescendantStyleName.SPINNER]: {
-            props: {
-              color: Color.WHITE_00,
-            },
-          },
-          ':disabled': {
-            backgroundColor: Color.GREY_02,
+        [ButtonVariant.SOLID]: {},
+        [ButtonVariant.LINK]: {
+          ':active': {
+            backgroundColor: Color.TRANSPARENT,
           },
           ':hover': {
-            backgroundColor: Color.RED_01,
+            backgroundColor: Color.TRANSPARENT,
+          },
+        },
+        [ButtonVariant.OUTLINE]: {},
+      },
+    },
+    compoundVariants: [
+      {
+        action: ButtonAction.PRIMARY,
+        variant: ButtonVariant.SOLID,
+        value: {
+          backgroundColor: Color.DARK_00,
+          ':hover': {
+            backgroundColor: Color.RED_00,
           },
           ':active': {
             backgroundColor: Color.DARK_GREY_00,
           },
-          ':focusVisible': {
-            borderColor: Color.BLUE_01,
-          },
         },
-        [ButtonVariant.OUTLINE]: {
-          backgroundColor: Color.TRANSPARENT,
-          borderColor: Color.GREY_02,
+      },
+      {
+        action: ButtonAction.SECONDARY,
+        variant: ButtonVariant.SOLID,
+        value: {
+          backgroundColor: Color.GREY_LIGHT_02,
+          borderColor: Color.GREY_LIGHT_02,
           [DescendantStyleName.TEXT]: {
             color: Color.DARK_00,
+            ':active': {
+              color: Color.DARK_GREY_00,
+            },
+            ':hover': {
+              color: Color.WHITE_00,
+            },
           },
           [DescendantStyleName.ICON]: {
-            color: Color.DARK_00,
+            props: {
+              color: Color.DARK_00,
+            },
+            ':active': {
+              props: {
+                color: Color.DARK_GREY_00,
+              },
+            },
+            ':hover': {
+              props: {
+                color: Color.WHITE_00,
+              },
+            },
           },
           [DescendantStyleName.SPINNER]: {
             props: {
-              color: Color.GREY_02,
-            },
-          },
-          ':disabled': {
-            borderColor: Color.GREY_02,
-            backgroundColor: Color.GREY_03,
-            [DescendantStyleName.TEXT]: {
-              color: Color.GREY_02,
-            },
-            [DescendantStyleName.ICON]: {
-              color: Color.GREY_02,
+              color: Color.DARK_00,
             },
           },
           ':hover': {
-            borderColor: 'none',
             backgroundColor: Color.DARK_00,
-            [DescendantStyleName.TEXT]: {
-              color: Color.WHITE_00,
-            },
-            [DescendantStyleName.ICON]: {
-              color: Color.WHITE_00,
-            },
           },
           ':active': {
-            borderColor: Color.DARK_GREY_00,
-            backgroundColor: Color.TRANSPARENT,
-            [DescendantStyleName.TEXT]: {
-              color: Color.DARK_GREY_00,
-            },
-            [DescendantStyleName.ICON]: {
-              color: Color.DARK_GREY_00,
-            },
-          },
-          ':focusVisible': {
-            borderColor: Color.BLUE_01,
-            [DescendantStyleName.TEXT]: {
-              color: Color.DARK_00,
-            },
-            [DescendantStyleName.ICON]: {
-              color: Color.DARK_00,
-            },
-          },
-        },
-        [ButtonVariant.LINK]: {
-          backgroundColor: Color.TRANSPARENT,
-          borderColor: Color.TRANSPARENT,
-          [DescendantStyleName.TEXT]: {
-            color: Color.DARK_00,
-          },
-          [DescendantStyleName.ICON]: {
-            color: Color.DARK_00,
-          },
-          [DescendantStyleName.SPINNER]: {
-            props: {
-              color: Color.GREY_03,
-            },
-          },
-          ':disabled': {
-            [DescendantStyleName.TEXT]: {
-              color: Color.GREY_03,
-            },
-            [DescendantStyleName.ICON]: {
-              color: Color.GREY_03,
-            },
-          },
-          ':hover': {
-            [DescendantStyleName.TEXT]: {
-              color: Color.RED_01,
-            },
-            [DescendantStyleName.ICON]: {
-              color: Color.RED_01,
-            },
-          },
-          ':active': {
-            borderColor: Color.DARK_GREY_00,
-            [DescendantStyleName.TEXT]: {
-              color: Color.DARK_GREY_00,
-            },
-            [DescendantStyleName.ICON]: {
-              color: Color.DARK_GREY_00,
-            },
-          },
-          ':focusVisible': {
-            borderColor: Color.BLUE_01,
+            backgroundColor: Color.GREY_LIGHT_01,
           },
         },
       },
+      {
+        action: ButtonAction.POSITIVE,
+        variant: ButtonVariant.SOLID,
+        value: {
+          backgroundColor: Color.GREEN_00,
+          ':hover': {
+            backgroundColor: Color.GREEN_02,
+          },
+          ':active': {
+            backgroundColor: Color.GREEN_01,
+          },
+        },
+      },
+      {
+        action: ButtonAction.NEGATIVE,
+        variant: ButtonVariant.SOLID,
+        value: {
+          backgroundColor: Color.RED_00,
+          ':hover': {
+            backgroundColor: Color.RED_02,
+          },
+          ':active': {
+            backgroundColor: Color.RED_01,
+          },
+        },
+      },
+      {
+        action: ButtonAction.PRIMARY,
+        variant: ButtonVariant.OUTLINE,
+        value: {
+          borderWidth: 1,
+          borderColor: Color.DARK_00,
+          backgroundColor: Color.TRANSPARENT,
+          ':hover': {
+            borderColor: Color.RED_00,
+          },
+          ':active': {
+            borderColor: Color.DARK_GREY_00,
+          },
+        },
+      },
+      {
+        action: ButtonAction.SECONDARY,
+        variant: ButtonVariant.OUTLINE,
+        value: {
+          borderWidth: 1,
+          borderColor: Color.GREY_LIGHT_00,
+          backgroundColor: Color.TRANSPARENT,
+          [DescendantStyleName.TEXT]: {
+            ':focusVisible': {
+              color: Color.DARK_GREY_00,
+            },
+          },
+          ':hover': {
+            borderColor: Color.DARK_00,
+          },
+          ':active': {
+            borderColor: Color.DARK_GREY_00,
+          },
+        },
+      },
+      {
+        action: ButtonAction.POSITIVE,
+        variant: ButtonVariant.OUTLINE,
+        value: {
+          borderWidth: 1,
+          borderColor: Color.GREEN_00,
+          backgroundColor: Color.TRANSPARENT,
+          ':hover': {
+            borderColor: Color.GREEN_02,
+          },
+          ':active': {
+            borderColor: Color.GREEN_01,
+          },
+        },
+      },
+      {
+        action: ButtonAction.NEGATIVE,
+        variant: ButtonVariant.OUTLINE,
+        value: {
+          borderWidth: 1,
+          borderColor: Color.RED_00,
+          backgroundColor: Color.TRANSPARENT,
+          ':hover': {
+            borderColor: Color.RED_02,
+          },
+          ':active': {
+            borderColor: Color.RED_01,
+          },
+        },
+      },
+      {
+        action: ButtonAction.PRIMARY,
+        variant: ButtonVariant.LINK,
+        value: {
+          backgroundColor: Color.TRANSPARENT,
+          [DescendantStyleName.TEXT]: {
+            color: Color.DARK_00,
+          },
+          [DescendantStyleName.ICON]: {
+            color: Color.DARK_00,
+          },
+          [DescendantStyleName.SPINNER]: {
+            props: {
+              color: Color.DARK_00,
+            },
+          },
+        },
+      },
+      {
+        action: ButtonAction.SECONDARY,
+        variant: ButtonVariant.LINK,
+        value: {
+          backgroundColor: Color.TRANSPARENT,
+          [DescendantStyleName.TEXT]: {
+            color: Color.DARK_00,
+          },
+          [DescendantStyleName.ICON]: {
+            color: Color.DARK_00,
+          },
+          [DescendantStyleName.SPINNER]: {
+            props: {
+              color: Color.DARK_00,
+            },
+          },
+        },
+      },
+      {
+        action: ButtonAction.POSITIVE,
+        variant: ButtonVariant.LINK,
+        value: {
+          backgroundColor: Color.TRANSPARENT,
+          [DescendantStyleName.TEXT]: {
+            color: Color.GREEN_00,
+          },
+          [DescendantStyleName.ICON]: {
+            props: {
+              color: Color.GREEN_00,
+            },
+            ':hover': {
+              props: {
+                color: Color.GREEN_02,
+              },
+            },
+            ':active': {
+              props: {
+                color: Color.GREEN_01,
+              },
+            },
+          },
+          [DescendantStyleName.SPINNER]: {
+            props: {
+              color: Color.GREEN_00,
+            },
+          },
+        },
+      },
+      {
+        action: ButtonAction.NEGATIVE,
+        variant: ButtonVariant.LINK,
+        value: {
+          backgroundColor: Color.TRANSPARENT,
+          [DescendantStyleName.TEXT]: {
+            color: Color.RED_00,
+          },
+          [DescendantStyleName.ICON]: {
+            color: Color.RED_00,
+          },
+          [DescendantStyleName.SPINNER]: {
+            props: {
+              color: Color.RED_00,
+            },
+          },
+        },
+      },
+    ],
+    defaultProps: {
+      action: ButtonAction.PRIMARY,
+      size: Size.LG,
+      variant: ButtonVariant.SOLID,
     },
   },
   componentConfig: {
@@ -214,7 +473,6 @@ export const Button = {
       DescendantStyleName.SPINNER,
     ],
   },
-} satisfies ComponentTheme<{
-  size: ButtonSize;
-  variant: ButtonVariant;
-}>;
+} satisfies ComponentTheme<PressableProps, ButtonThemeVariants>;
+
+export const Button = merge(config.components.Button, ButtonTheme);

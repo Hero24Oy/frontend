@@ -1,3 +1,5 @@
+import { ViewProps } from 'react-native';
+
 import { Color } from '$theme/constants';
 import { ComponentTheme } from '$theme/types';
 
@@ -14,4 +16,4 @@ export const Menu = {
     backgroundColor: Color.WHITE_00,
     gap: 8,
   },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<ViewProps>;
