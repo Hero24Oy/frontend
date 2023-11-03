@@ -54,13 +54,6 @@ declare module '@gluestack-ui/themed' {
         };
       };
     };
-    MarksContainer: {
-      theme: {
-        variant: {
-          size: Record<`${SliderSize}`, SxValues<ViewStyle>>;
-        };
-      };
-    };
     Radio: {
       theme: {
         variants: {
@@ -79,7 +72,6 @@ declare module '@gluestack-ui/themed' {
     SliderThumb: {
       theme: {
         variant: {
-          orientation: Record<`${SliderOrientation}`, SxValues<ViewStyle>>;
           size: Record<`${SliderSize}`, SxValues<ViewStyle>>;
         };
       };

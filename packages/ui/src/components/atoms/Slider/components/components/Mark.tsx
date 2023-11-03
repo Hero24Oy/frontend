@@ -1,8 +1,9 @@
 import { Text } from '@gluestack-ui/themed';
-import { FC, useCallback, useMemo } from 'react';
+import { FC, useCallback } from 'react';
 
 import { SliderMarkArrangement } from '../../types';
-import { getMarkStyle } from '../../utils';
+
+import { useMarkStyles } from './hooks';
 
 type Props = {
   children: string;
@@ -14,7 +15,7 @@ type Props = {
 export const Mark: FC<Props> = (props) => {
   const { children, currentIndex, markWidth, maxIndex } = props;
 
-  const outerMarksStyles = useMemo(() => getMarkStyle(markWidth), [markWidth]);
+  const outerMarksStyles = useMarkStyles(markWidth);
 
   const getMarkStyleByArrangement = useCallback(
     (index: number) => {

@@ -1,5 +1,6 @@
 import { SliderOrientation, SliderSize } from '$atoms/Slider/types';
 import { Color } from '$theme/constants';
+import { Size } from '$theme/enums';
 import { ComponentTheme } from '$theme/types';
 
 export const SliderTrack = {
@@ -7,17 +8,17 @@ export const SliderTrack = {
     backgroundColor: Color.GREY_LIGHT_01,
     variants: {
       size: {
-        [SliderSize.SM]: {
+        [Size.SM]: {
           height: 4,
           width: 4,
           borderRadius: 2,
         },
-        [SliderSize.MD]: {
+        [Size.MD]: {
           height: 5,
           width: 5,
           borderRadius: 2.5,
         },
-        [SliderSize.LG]: {
+        [Size.LG]: {
           height: 6,
           width: 6,
           borderRadius: 3,
@@ -34,7 +35,7 @@ export const SliderTrack = {
       },
     },
     defaultProps: {
-      size: SliderSize.SM,
+      size: Size.SM,
       orientation: SliderOrientation.HORIZONTAL,
     },
   },

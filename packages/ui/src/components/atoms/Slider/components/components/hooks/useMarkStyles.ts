@@ -1,11 +1,11 @@
 import { StyleSheet, ViewStyle } from 'react-native';
 
-import { SliderMarkArrangement } from '../types';
+import { SliderMarkArrangement } from '../../../types';
 
-export const getMarkStyle = (
+export const useMarkStyles = (
   width: number,
-): Record<`${SliderMarkArrangement}`, ViewStyle> => {
-  return StyleSheet.create({
+): Record<`${SliderMarkArrangement}`, ViewStyle> =>
+  StyleSheet.create({
     [SliderMarkArrangement.FIRST]: {
       flex: 1,
       textAlign: 'left',
@@ -19,4 +19,3 @@ export const getMarkStyle = (
       textAlign: 'center',
     },
   });
-};

@@ -1,14 +1,13 @@
-import { config } from '@gluestack-ui/config';
-import { merge } from 'lodash';
-
-import { SliderOrientation, SliderSize } from '$atoms/Slider/types';
+import { SliderSize } from '$atoms/Slider/types';
 import { Color } from '$theme/constants';
+import { Size } from '$theme/enums';
 import { ComponentTheme } from '$theme/types';
 
-const SliderThumbTheme = {
+export const SliderThumb = {
   theme: {
     borderRadius: 12,
     shadowColor: Color.DARK_00,
+    position: 'absolute',
     shadowOpacity: 0.3,
     shadowRadius: 4,
     shadowOffset: { width: 2, height: -2 },
@@ -23,40 +22,22 @@ const SliderThumbTheme = {
     },
     variants: {
       size: {
-        [SliderSize.SM]: {
+        [Size.SM]: {
           height: 16,
           width: 16,
-          bottom: -6,
         },
-        [SliderSize.MD]: {
+        [Size.MD]: {
           height: 20,
           width: 20,
-          bottom: -7.5,
         },
-        [SliderSize.LG]: {
+        [Size.LG]: {
           height: 24,
           width: 24,
-          bottom: -9,
         },
-      },
-      orientation: {
-        [SliderOrientation.VERTICAL]: {
-          position: 'absolute',
-        },
-        [SliderOrientation.HORIZONTAL]: {},
       },
     },
     defaultProps: {
-      size: SliderSize.SM,
-      orientation: SliderOrientation.HORIZONTAL,
+      size: Size.SM,
     },
   },
-} satisfies ComponentTheme<{
-  orientation: SliderOrientation;
-  size: SliderSize;
-}>;
-
-export const SliderThumb = merge(
-  config.components.SliderThumb,
-  SliderThumbTheme,
-);
+} satisfies ComponentTheme<{ size: SliderSize }>;

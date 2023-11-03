@@ -1,40 +1,34 @@
 import { SliderOrientation, SliderSize } from '$atoms/Slider/types';
-import { Color } from '$theme/constants';
+import { Size } from '$theme/enums';
 import { ComponentTheme } from '$theme/types';
 
 export const Slider = {
   theme: {
-    width: 4,
-    borderRadius: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
     variants: {
       size: {
-        [SliderSize.SM]: {
-          height: 4,
-          borderRadius: 2,
+        [Size.SM]: {
+          height: 16,
         },
-        [SliderSize.MD]: {
-          height: 5,
-          borderRadius: 2.5,
+        [Size.MD]: {
+          height: 20,
         },
-        [SliderSize.LG]: {
-          height: 6,
-          borderRadius: 3,
+        [Size.LG]: {
+          height: 24,
         },
       },
       orientation: {
         [SliderOrientation.VERTICAL]: {
           height: '100%',
-          width: 24,
-          alignItems: 'center',
         },
         [SliderOrientation.HORIZONTAL]: {
-          backgroundColor: Color.GREY_LIGHT_01,
           width: '100%',
         },
       },
     },
     defaultProps: {
-      size: SliderSize.SM,
+      size: Size.SM,
       orientation: SliderOrientation.HORIZONTAL,
     },
   },
