@@ -31,16 +31,12 @@ Ensure that the .env and google-play-services.json files are placed in their app
 - apps/customer
 - apps/hero
 
-### 4. Watch app
+### 4. Start app
 
 _Use the following scripts from the apps/\*\*/ directories_
 
 ```bash
-yarn ios
-
-# or
-
-yarn android
+yarn dev
 ```
 
 ## Project structure:
