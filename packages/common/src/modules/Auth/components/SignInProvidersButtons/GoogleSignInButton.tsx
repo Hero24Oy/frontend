@@ -1,6 +1,10 @@
 import { FC } from 'react';
 
-import { Button } from '@hero24/ui';
+import {
+  // AppleIcon,
+  Button,
+  View,
+} from '@hero24/ui';
 
 import { useAuthentication, useGoogleAuth } from '../../hooks';
 
@@ -21,8 +25,13 @@ export const GoogleSignInButton: FC = () => {
 
   // TODO use i18next
   return (
-    <Button variant="outline" size="md" onPress={signInWithGoogle}>
-      Continue with Google
-    </Button>
+    <View>
+      <Button variant="outline" size="md" onPress={signInWithGoogle}>
+        Continue with Google
+      </Button>
+      {/* <AppleIcon /> */}
+    </View>
   );
 };
+
+// TODO apple icon fix svg

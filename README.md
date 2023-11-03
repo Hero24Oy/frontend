@@ -36,7 +36,7 @@ Ensure that the .env and google-play-services.json files are placed in their app
 _Use the following scripts from the apps/\*\*/ directories_
 
 ```bash
-yarn dev
+yarn start:dev
 ```
 
 ## Project structure:
