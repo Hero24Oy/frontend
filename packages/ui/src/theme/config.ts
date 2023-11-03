@@ -8,4 +8,4 @@ export const uiLibraryConfig = {
     ...defaultConfig.components,
     ...components,
   },
-};
+} as unknown; // TODO: remove id after @gluestack-ui fixed types
