@@ -1,4 +1,4 @@
-import { ImageSizValues } from '$components/styled/Image/constants';
+import { ImageSizeValues } from '$components/styled/Image/constants';
 import { Size } from '$theme/constants';
 import { ComponentTheme } from '$theme/types';
 
@@ -45,4 +45,4 @@ export const Image = {
       size: Size.FULL,
     },
   },
-} satisfies ComponentTheme<{ size: ImageSizValues }>;
+} satisfies ComponentTheme<{ size: ImageSizeValues }>;
