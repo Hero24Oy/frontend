@@ -4,7 +4,7 @@ import { Size } from '$theme';
 
 type Props = {
   color?: string;
-  size?: Size | number;
+  size?: Extract<Size, 'sm' | 'lg' | 'md'> | number;
 };
 
 export type BaseIcon = FC<Props>;

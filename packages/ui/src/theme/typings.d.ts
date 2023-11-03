@@ -1,73 +1,48 @@
-import { TextStyle, ViewStyle } from 'react-native';
-
-import { SxValues } from './types';
-
 import {
-  ButtonSize,
-  ButtonVariant,
-  RadioVariant,
-  TextareaSize,
-} from '$components';
-import { HeadingVariant } from '$components/atoms/Heading/constants';
-import { TextVariant } from '$components/atoms/Text/types';
+  ButtonThemeVariants,
+  HeadingThemeVariants,
+  InputThemeVariants,
+  InputTitleThemeVariants,
+  RadioThemeVariants,
+  TextareaThemeVariants,
+  TextThemeVariants,
+} from '$theme/components';
 
 declare module '@gluestack-ui/themed' {
   interface UIComponents {
     Button: {
       theme: {
-        variants: {
-          size: Record<`${ButtonSize}`, SxValues<ViewStyle>>;
-          variant: Record<`${ButtonVariant}`, SxValues<ViewStyle>>;
-        };
+        variants: ButtonThemeVariants;
       };
     };
     Heading: {
       theme: {
-        variants: {
-          variant: Record<`${HeadingVariant}`, SxValues<ViewStyle>>;
-        };
+        variants: HeadingThemeVariants;
       };
     };
     Input: {
       theme: {
-        variants: {
-          size: Record<`${InputSize}`, SxValues<ViewStyle>>;
-        };
-      };
-    };
-    Input: {
-      theme: {
-        variants: {
-          size: Record<`${InputSize}`, SxValues<ViewStyle>>;
-        };
+        variants: InputThemeVariants;
       };
     };
     InputTitle: {
       theme: {
-        variants: {
-          size: Record<`${InputSize}`, SxValues<TextStyle>>;
-        };
+        variants: InputTitleThemeVariants;
       };
     };
     Radio: {
       theme: {
-        variants: {
-          variant: Record<`${RadioVariant}`, SxValues<ViewStyle>>;
-        };
+        variants: RadioThemeVariants;
       };
     };
     Text: {
       theme: {
-        variants: {
-          variant: Record<`${TextVariant}`, SxValues<TextStyle>>;
-        };
+        variants: TextThemeVariants;
       };
     };
     Textarea: {
       theme: {
-        size: {
-          variant: Record<`${TextareaSize}`, SxValues<ViewStyle>>;
-        };
+        variants: TextareaThemeVariants;
       };
     };
   }

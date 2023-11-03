@@ -1,7 +1,14 @@
+import { ViewProps, ViewStyle } from 'react-native';
+
 import { Color, Font, FontSize } from '../../constants';
 
+import { InputSize } from '$molecules';
 import { DescendantStyleName } from '$theme/enums';
-import { ComponentTheme } from '$theme/types';
+import { ComponentTheme, SxValues } from '$theme/types';
+
+export type InputThemeVariants = {
+  size: Record<InputSize, SxValues<ViewStyle>>;
+};
 
 export const Input = {
   theme: {
@@ -24,7 +31,7 @@ export const Input = {
       borderColor: Color.GREY_01,
       backgroundColor: Color.GREY_03,
     },
-    _input: {
+    [DescendantStyleName.INPUT]: {
       flex: 1,
       textAlignVertical: 'center',
       fontSize: FontSize.SM,
@@ -32,7 +39,7 @@ export const Input = {
       ':focus': {
         color: Color.DARK_00,
       },
-      _icon: {
+      [DescendantStyleName.ICON]: {
         color: Color.DARK_00,
       },
     },
@@ -40,4 +47,4 @@ export const Input = {
   componentConfig: {
     descendantStyle: [DescendantStyleName.INPUT, DescendantStyleName.ICON],
   },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<ViewProps>;

@@ -1,8 +1,18 @@
-import { TextStyle } from 'react-native';
+import { TextProps, TextStyle } from 'react-native';
 
-import { InputSize } from '$components/molecules/Input/types';
-import { Color, FontSize, FontWeight, LineHeight } from '$theme/constants';
-import { ComponentTheme } from '$theme/types';
+import { InputSize } from '$components';
+import {
+  Color,
+  FontSize,
+  FontWeight,
+  LineHeight,
+  Size,
+} from '$theme/constants';
+import { ComponentTheme, SxValues } from '$theme/types';
+
+export type InputTitleThemeVariants = {
+  size: Record<InputSize, SxValues<TextStyle>>;
+};
 
 export const InputTitle = {
   theme: {
@@ -12,15 +22,15 @@ export const InputTitle = {
     lineHeight: LineHeight.SM,
     variants: {
       size: {
-        [InputSize.SMALL]: {
+        [Size.SM]: {
           fontSize: FontSize.SM,
           lineHeight: LineHeight.SM,
         },
-        [InputSize.MEDIUM]: {
+        [Size.MD]: {
           fontSize: FontSize.MD,
           lineHeight: LineHeight.MD,
         },
       },
     },
   },
-} satisfies ComponentTheme<Record<string, string>, TextStyle>;
+} satisfies ComponentTheme<TextProps, InputTitleThemeVariants>;
