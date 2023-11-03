@@ -27,6 +27,8 @@
     "@gluestack-ui/config": "1.0.1",
     "@gluestack-ui/themed": "1.0.8",
     "@hero24/configs": "*",
+    "@react-navigation/native-stack": "^6.9.16",
+    "expo-router": "^2.0.10",
     "lodash": "^4.17.21",
     "utility-types": "^3.10.0"
   },
