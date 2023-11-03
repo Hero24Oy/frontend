@@ -7,7 +7,7 @@ import { DescendantStyleName } from '$theme/enums';
 import { ComponentTheme, SxValues } from '$theme/types';
 
 export type InputThemeVariants = {
-  size: Record<`${InputSize}`, SxValues<ViewStyle>>;
+  size: Record<InputSize, SxValues<ViewStyle>>;
 };
 
 export const Input = {
