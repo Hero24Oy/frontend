@@ -1,6 +1,6 @@
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 
-import { TabProps } from '@hero24/ui';
+import { BaseIcon, TabProps } from '@hero24/ui';
 
 // expo router based logic to prepare config
 export const prepareRouteConfig = (props: BottomTabBarProps): TabProps[] => {
@@ -10,7 +10,7 @@ export const prepareRouteConfig = (props: BottomTabBarProps): TabProps[] => {
     const { options } = descriptors[route.key];
     const isFocused = state.index === index;
 
-    const Icon = options.tabBarIcon;
+    const Icon = options.tabBarIcon as BaseIcon;
 
     const onPress = (): void => {
       const event = navigation.emit({
