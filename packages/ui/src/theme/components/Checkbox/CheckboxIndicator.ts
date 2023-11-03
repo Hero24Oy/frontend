@@ -3,9 +3,7 @@ import merge from 'lodash/merge';
 
 import { Color } from '$theme/constants/colors';
 
-const checkboxIndicatorConfig = config.components.CheckboxIndicator;
-
-const customCheckboxIndicatorConfig = {
+const checkboxIndicatorTheme = {
   theme: {
     marginRight: 5,
     borderRadius: 5,
@@ -32,6 +30,6 @@ const customCheckboxIndicatorConfig = {
 };
 
 export const CheckboxIndicator = merge(
-  checkboxIndicatorConfig,
-  customCheckboxIndicatorConfig,
+  config.components.CheckboxIndicator,
+  checkboxIndicatorTheme,
 );

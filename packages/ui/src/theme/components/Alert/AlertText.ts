@@ -1,6 +1,6 @@
 import { ComponentTheme } from '$theme/types';
 
-export const AlertText = {
+export const alertText = {
   theme: {
     flex: 0,
   },

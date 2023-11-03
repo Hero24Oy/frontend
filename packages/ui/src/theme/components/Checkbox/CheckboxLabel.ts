@@ -3,9 +3,7 @@ import merge from 'lodash/merge';
 
 import { Color } from '$theme/constants/colors';
 
-const checkboxLabelConfig = config.components.CheckboxLabel;
-
-const customCheckboxLabelConfig = {
+const checkboxLabelTheme = {
   theme: {
     ':checked': {
       color: Color.DARK_00,
@@ -15,6 +13,6 @@ const customCheckboxLabelConfig = {
 };
 
 export const CheckboxLabel = merge(
-  checkboxLabelConfig,
-  customCheckboxLabelConfig,
+  config.components.CheckboxLabel,
+  checkboxLabelTheme,
 );

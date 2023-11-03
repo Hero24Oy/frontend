@@ -3,13 +3,14 @@ import merge from 'lodash/merge';
 
 import { Color } from '$theme/constants/colors';
 
-const checkboxIconConfig = config.components.CheckboxIcon;
-
-const customCheckboxIconConfig = {
+const checkboxIconTheme = {
   theme: {
     tintColor: Color.RED_00,
     color: Color.RED_00,
   },
 };
 
-export const CheckboxIcon = merge(checkboxIconConfig, customCheckboxIconConfig);
+export const CheckboxIcon = merge(
+  config.components.CheckboxIcon,
+  checkboxIconTheme,
+);

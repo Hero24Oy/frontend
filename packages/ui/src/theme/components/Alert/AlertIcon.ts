@@ -4,7 +4,7 @@ import merge from 'lodash/merge';
 import { IconSize } from '$theme/constants';
 import { ComponentTheme } from '$theme/types';
 
-const AlertIconTheme = {
+const alertIconTheme = {
   theme: {
     marginRight: 5,
     props: {
@@ -13,4 +13,4 @@ const AlertIconTheme = {
   },
 } satisfies ComponentTheme;
 
-export const AlertIcon = merge(config.components.AlertIcon, AlertIconTheme);
+export const AlertIcon = merge(config.components.AlertIcon, alertIconTheme);

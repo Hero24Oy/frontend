@@ -4,7 +4,7 @@ import merge from 'lodash/merge';
 import { Color } from '$theme/constants';
 import { ComponentTheme } from '$theme/types';
 
-export const RadioIndicatorTheme = {
+export const radioIndicatorTheme = {
   theme: {
     ':checked': {
       borderColor: Color.RED_00,
@@ -26,5 +26,5 @@ export const RadioIndicatorTheme = {
 
 export const RadioIndicator = merge(
   config.components.RadioIndicator,
-  RadioIndicatorTheme,
+  radioIndicatorTheme,
 );

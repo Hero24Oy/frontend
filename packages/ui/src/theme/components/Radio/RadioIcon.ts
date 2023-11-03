@@ -4,7 +4,7 @@ import merge from 'lodash/merge';
 import { Color } from '$theme/constants';
 import { ComponentTheme } from '$theme/types';
 
-const RadioIconTheme = {
+const radioIconTheme = {
   theme: {
     ':checked': {
       props: {
@@ -29,4 +29,4 @@ const RadioIconTheme = {
   },
 } satisfies ComponentTheme;
 
-export const RadioIcon = merge(config.components.RadioIcon, RadioIconTheme);
+export const RadioIcon = merge(config.components.RadioIcon, radioIconTheme);
