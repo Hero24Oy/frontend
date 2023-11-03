@@ -1,12 +1,21 @@
-import { RadioGroup } from '@gluestack-ui/themed';
-import { ComponentProps } from 'react';
+import { Size } from '$theme';
 
 export enum RadioVariant {
-  BUTTON = 'button',
-  DEFAULT = 'default',
+  CHIP = 'chip',
+  RADIO_INDICATOR = 'radio_indicator',
 }
 
-export type GluestackRadioGroupProps = Pick<
-  ComponentProps<typeof RadioGroup>,
-  'onChange' | 'value'
->;
+export type RadioSize = Extract<Size, 'sm' | 'md' | 'lg'>;
+
+export type RadioOption = {
+  label: string;
+  value: string;
+  isChecked?: boolean;
+  isDisabled?: boolean;
+};
+
+export type RadioGroupProps = {
+  options: RadioOption[];
+  variant: `${RadioVariant}`;
+  isGloballyDisabled?: boolean;
+};

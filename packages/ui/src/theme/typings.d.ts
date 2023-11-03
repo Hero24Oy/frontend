@@ -1,5 +1,6 @@
 import { TextStyle, ViewStyle } from 'react-native';
 
+import { Size } from './enums';
 import { SxValues } from './types';
 
 import {
@@ -52,6 +53,7 @@ declare module '@gluestack-ui/themed' {
     Radio: {
       theme: {
         variants: {
+          size: Record<`${Size}`, SxValues<ViewStyle>>;
           variant: Record<`${RadioVariant}`, SxValues<ViewStyle>>;
         };
       };

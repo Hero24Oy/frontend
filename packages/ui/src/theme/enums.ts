@@ -3,6 +3,7 @@ export enum DescendantStyleName {
   ICON = '_icon',
   SPINNER = '_spinner',
   INPUT = '_input',
+  INDICATOR = '_indicator',
 }
 
 export enum AncestorStyleName {
