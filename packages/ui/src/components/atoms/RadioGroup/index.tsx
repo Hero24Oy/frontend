@@ -2,7 +2,7 @@ import { RadioGroup as GluestackRadioGroup } from '@gluestack-ui/themed';
 import { ReactElement, useEffect } from 'react';
 import { Control, FieldValues, Path, useController } from 'react-hook-form';
 
-import { Radios } from './components';
+import { Radio } from './components';
 import { RadioGroupProps } from './types';
 
 import { Size } from '$theme';
@@ -30,7 +30,7 @@ export const RadioGroup = <Type extends FieldValues>(
 
   return (
     <GluestackRadioGroup value={value} onChange={onChange} style={style}>
-      <Radios size={size} options={options} {...restProps} />
+      <Radio size={size} options={options} {...restProps} />
     </GluestackRadioGroup>
   );
 };

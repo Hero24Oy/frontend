@@ -15,4 +15,4 @@ export * from './Image';
 export * from './KeyboardAwareScrollView';
 export * from './IconButton';
 export * from './Textarea';
-export * from './Radio';
+export * from './RadioIndicator';

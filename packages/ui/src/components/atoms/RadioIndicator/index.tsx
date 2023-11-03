@@ -2,27 +2,29 @@ import {
   CircleIcon,
   Radio as GluestackRadio,
   RadioIcon,
-  RadioIndicator,
+  RadioIndicator as GluestackRadioIndicator,
   RadioLabel,
 } from '@gluestack-ui/themed';
 import { FC, PropsWithChildren } from 'react';
 
 import { RadioVariant } from '../RadioGroup';
 
-import { GluestackRadioProps } from './types';
+import { GluestackRadioIndicatorProps } from './types';
 
 import { Size } from '$theme';
 
-type Props = { size: `${Size}` } & PropsWithChildren<GluestackRadioProps>;
+type Props = {
+  size: `${Size}`;
+} & PropsWithChildren<GluestackRadioIndicatorProps>;
 
-export const Radio: FC<Props> = (props) => {
+export const RadioIndicator: FC<Props> = (props) => {
   const { children, ...restProps } = props;
 
   return (
     <GluestackRadio variant={RadioVariant.RADIO} {...restProps}>
-      <RadioIndicator>
+      <GluestackRadioIndicator>
         <RadioIcon as={CircleIcon} />
-      </RadioIndicator>
+      </GluestackRadioIndicator>
 
       <RadioLabel>{children}</RadioLabel>
     </GluestackRadio>

@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 
-import { radioComponent } from './constants';
+import { radioVariantMapper } from './constants';
 
 import { RadioOption, RadioVariant } from '$atoms/RadioGroup/types';
 import { Size } from '$theme';
@@ -12,10 +12,10 @@ type Props = {
   isGloballyDisabled?: boolean;
 };
 
-export const Radios: FC<Props> = memo((props) => {
+export const Radio: FC<Props> = memo((props) => {
   const { options, variant, size, isGloballyDisabled } = props;
 
-  const Component = radioComponent[variant];
+  const Component = radioVariantMapper[variant];
 
   return (
     Component &&
