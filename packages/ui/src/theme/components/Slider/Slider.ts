@@ -1,5 +1,5 @@
 import { SliderOrientation, SliderSize } from '$atoms/Slider/types';
-import { Size } from '$theme/enums';
+import { Size } from '$theme/constants';
 import { ComponentTheme } from '$theme/types';
 
 export const Slider = {

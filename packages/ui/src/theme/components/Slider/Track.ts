@@ -1,6 +1,5 @@
 import { SliderOrientation, SliderSize } from '$atoms/Slider/types';
-import { Color } from '$theme/constants';
-import { Size } from '$theme/enums';
+import { Color, Size } from '$theme/constants';
 import { ComponentTheme } from '$theme/types';
 
 export const SliderTrack = {
