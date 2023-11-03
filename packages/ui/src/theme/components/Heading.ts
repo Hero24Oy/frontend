@@ -1,4 +1,5 @@
 import { H1, H2, H3, H4, H5 } from '@expo/html-elements';
+import { ViewStyle } from 'react-native';
 
 import { HeadingVariant } from '$components/atoms/Heading/constants';
 import {
@@ -8,6 +9,11 @@ import {
   FontWeight,
   LineHeight,
 } from '$theme/constants';
+import { SxValues } from '$theme/types';
+
+export type HeadingThemeVariants = {
+  variant: Record<`${HeadingVariant}`, SxValues<ViewStyle>>;
+};
 
 export const Heading = {
   theme: {

@@ -1,5 +1,6 @@
 import { config as defaultConfig } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
+import { ViewProps } from 'react-native';
 
 import { Color } from '$theme/constants';
 import { ComponentTheme } from '$theme/types';
@@ -27,7 +28,7 @@ const customRadioIconConfig = {
       },
     },
   },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<ViewProps>;
 
 export const RadioIcon = merge(
   defaultConfig.components.RadioIcon,

@@ -12,17 +12,13 @@ const Home: FC = () => {
       <View>
         {!user && (
           <Link href="/sign-in" asChild>
-            <Button variant="solid" size="md">
-              Sign in
-            </Button>
+            <Button>Sign in</Button>
           </Link>
         )}
 
         {user && (
           <Link href="/profile" asChild>
-            <Button variant="solid" size="md">
-              My profile
-            </Button>
+            <Button>My profile</Button>
           </Link>
         )}
       </View>

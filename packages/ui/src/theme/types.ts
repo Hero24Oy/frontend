@@ -1,37 +1,21 @@
-import { SxProps } from '@gluestack-style/react/lib/typescript/types';
+import { ITheme, SxProps } from '@gluestack-style/react/lib/typescript/types';
+import { FC } from 'react';
 import { StyleProp, ViewStyle } from 'react-native';
-import { $Keys } from 'utility-types';
 
-type VariantsRecord = Record<string, string>;
+import { AncestorStyleName, DescendantStyleName } from '$theme/enums';
 
-export type SxValues<StyleType extends ViewStyle> = Partial<
-  SxProps<StyleProp<StyleType>>
->;
+export type SxValues<StyleType = ViewStyle> = SxProps<StyleProp<StyleType>>;
 
-type VariantsStyles<
-  Variants extends VariantsRecord,
-  StyleType extends ViewStyle,
-> = {
-  [Key in $Keys<Variants>]: Record<Variants[Key], SxValues<StyleType>>;
-};
-
-export type Theme<
-  Variants extends VariantsRecord,
-  StyleType extends ViewStyle,
-> = {
-  defaultProps?: Variants;
-  variants?: VariantsStyles<Variants, StyleType>;
-} & SxValues<StyleType>;
-
-export type ComponentConfig = {
-  descendantStyle: string[];
+type ThemeConfigs = {
+  ancestorStyle?: Array<`${AncestorStyleName}`>;
+  componentName?: string;
+  descendantStyle?: Array<`${DescendantStyleName}`>;
 };
 
 export type ComponentTheme<
-  Variants extends VariantsRecord = VariantsRecord,
-  StyleType extends ViewStyle = ViewStyle,
+  ComponentProps extends Parameters<FC>[0],
+  Variants extends Record<string, Record<string, SxValues>> | null = null,
 > = {
-  theme: Theme<Variants, StyleType>;
-  componentConfig?: ComponentConfig;
-  props?: Record<string, unknown>;
+  theme: ITheme<Variants, ComponentProps>;
+  componentConfig?: ThemeConfigs;
 };

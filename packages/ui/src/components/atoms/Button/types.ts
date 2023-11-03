@@ -3,7 +3,7 @@ import { ComponentProps } from 'react';
 
 import { Size } from '$theme';
 
-export type ButtonSize = Extract<Size, 'sm' | 'md' | 'lg'>;
+export type ButtonSize = Extract<Size, 'xs' | 'sm' | 'md' | 'lg' | 'xl'>;
 
 export enum Direction {
   LEFT = 'left',
@@ -15,6 +15,13 @@ export enum ButtonVariant {
   SOLID = 'solid',
   OUTLINE = 'outline',
   LINK = 'link',
+}
+
+export enum ButtonAction {
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
+  POSITIVE = 'positive',
+  NEGATIVE = 'negative',
 }
 
 export type GluestackButtonProps = Pick<

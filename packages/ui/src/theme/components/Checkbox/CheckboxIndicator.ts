@@ -1,7 +1,9 @@
 import { config as defaultConfig } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
+import { ViewProps } from 'react-native';
 
-import { Color } from '$theme/constants/colors';
+import { Color } from '$theme/constants';
+import { ComponentTheme } from '$theme/types';
 
 const customCheckboxIndicatorConfig = {
   theme: {
@@ -27,7 +29,7 @@ const customCheckboxIndicatorConfig = {
       },
     },
   },
-};
+} satisfies ComponentTheme<ViewProps>;
 
 export const CheckboxIndicator = merge(
   defaultConfig.components.CheckboxIndicator,

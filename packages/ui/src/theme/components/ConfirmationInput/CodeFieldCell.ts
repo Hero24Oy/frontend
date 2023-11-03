@@ -1,4 +1,4 @@
-import { TextStyle } from 'react-native';
+import { TextProps } from 'react-native';
 
 import { ComponentTheme } from '../../types';
 
@@ -17,4 +17,4 @@ export const CodeFieldCell = {
     textAlign: 'center',
     textAlignVertical: 'center',
   },
-} satisfies ComponentTheme<Record<string, string>, TextStyle>;
+} satisfies ComponentTheme<TextProps>;
