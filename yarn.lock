@@ -4121,6 +4121,7 @@ __metadata:
     react-dom: 18.2.0
     react-hook-form: 7.47.0
     react-native: 0.72.6
+    react-native-confirmation-code-field: 7.3.2
     react-native-country-picker-modal: 2.0.0
     react-native-keyboard-aware-scroll-view: 0.9.5
     react-native-masked-text: 1.13.0
@@ -4214,6 +4215,7 @@ __metadata:
     react-dom: 18.2.0
     react-hook-form: 7.47.0
     react-native: 0.72.6
+    react-native-confirmation-code-field: 7.3.2
     react-native-country-picker-modal: 2.0.0
     react-native-keyboard-aware-scroll-view: 0.9.5
     react-native-masked-text: 1.13.0
@@ -8420,6 +8422,7 @@ __metadata:
     react-dom: "npm:18.2.0"
     react-hook-form: "npm:^7.47.0"
     react-native: "npm:0.72.6"
+    react-native-confirmation-code-field: "npm:7.3.2"
     react-native-country-picker-modal: "npm:2.0.0"
     react-native-dotenv: "npm:^3.4.9"
     react-native-gesture-handler: "npm:~2.12.0"
@@ -11026,7 +11029,8 @@ __metadata:
     react-dom: "npm:18.2.0"
     react-hook-form: "npm:^7.47.0"
     react-native: "npm:0.72.6"
-    react-native-country-picker-modal: "npm:2.0.0"
+    react-native-confirmation-code-field: "npm:7.3.2"
+    react-native-country-picker-modal: "npm:^2.0.0"
     react-native-dotenv: "npm:^3.4.9"
     react-native-gesture-handler: "npm:~2.12.0"
     react-native-keyboard-aware-scroll-view: "npm:^0.9.5"
@@ -14768,7 +14772,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-country-picker-modal@npm:2.0.0":
+"react-native-confirmation-code-field@npm:7.3.2":
+  version: 7.3.2
+  resolution: "react-native-confirmation-code-field@npm:7.3.2"
+  peerDependencies:
+    react: ">=16.4.0"
+    react-native: ">=0.64.0"
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-native:
+      optional: true
+  checksum: c6da7aeb7802c993960d88471a8519aa4deb2b8d3d6e61d97b223282913768d3d64d6d4369d317efbb5e9133567140f5822ad8e25de447c52ab0497ac5959f2c
+  languageName: node
+  linkType: hard
+
+"react-native-country-picker-modal@npm:2.0.0, react-native-country-picker-modal@npm:^2.0.0":
   version: 2.0.0
   resolution: "react-native-country-picker-modal@npm:2.0.0"
   dependencies:
