@@ -1,4 +1,4 @@
-import { ImageSize } from '$components/styled/Image/constants';
+import { ImageSizValues } from '$components/styled/Image/constants';
 import { Size } from '$theme/constants';
 import { ComponentTheme } from '$theme/types';
 
@@ -7,7 +7,7 @@ export const Image = {
     maxWidth: '100%',
     variants: {
       size: {
-        [Size['2XS']]: {
+        [Size.XXS]: {
           width: 24,
           height: 24,
         },
@@ -31,7 +31,7 @@ export const Image = {
           width: 128,
           height: 128,
         },
-        [Size['2XL']]: {
+        [Size.XXL]: {
           width: 256,
           height: 256,
         },
@@ -45,4 +45,4 @@ export const Image = {
       size: Size.FULL,
     },
   },
-} satisfies ComponentTheme<{ size: ImageSize }>;
+} satisfies ComponentTheme<{ size: ImageSizValues }>;

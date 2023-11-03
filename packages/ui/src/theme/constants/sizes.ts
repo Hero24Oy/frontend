@@ -1,14 +1,14 @@
 import { $Keys, $Values } from 'utility-types';
 
 export const Size = {
-  '3XL': '3xl',
-  '2XL': '2xl',
+  XXXL: '3xl',
+  XXL: '2xl',
   XL: 'xl',
   LG: 'lg',
   MD: 'md',
   SM: 'sm',
   XS: 'xs',
-  '2XS': '2xs',
+  XXS: '2xs',
   FULL: 'full',
 } as const;
 

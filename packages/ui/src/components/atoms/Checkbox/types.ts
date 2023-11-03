@@ -9,7 +9,7 @@ export type CheckboxOption = {
 
 export type CheckboxOptionsProps = {
   options: CheckboxOption[];
-  size?: `${Size}`;
+  size?: Size;
 };
 
 // we may add check that controller with such name is a array of string

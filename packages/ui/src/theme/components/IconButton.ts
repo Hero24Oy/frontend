@@ -16,21 +16,21 @@ export const IconButton = {
         [Size.LG]: {
           _icon: {
             props: {
-              size: IconSize.LARGE,
+              size: IconSize.LG,
             },
           },
         },
         [Size.MD]: {
           _icon: {
             props: {
-              size: IconSize.MEDIUM,
+              size: IconSize.MD,
             },
           },
         },
         [Size.SM]: {
           _icon: {
             props: {
-              size: IconSize.SMALL,
+              size: IconSize.SM,
             },
           },
         },

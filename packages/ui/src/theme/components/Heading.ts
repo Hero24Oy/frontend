@@ -18,14 +18,14 @@ export const Heading = {
       [HeadingVariant.H1]: {
         props: { as: H1 },
         fontWeight: FontWeight.SEMI_BOLD,
-        fontSize: FontSize['3XL'],
-        lineHeight: LineHeight['3XL'],
+        fontSize: FontSize.XXXL,
+        lineHeight: LineHeight.XXXL,
       },
       [HeadingVariant.H2]: {
         props: { as: H2 },
         fontWeight: FontWeight.SEMI_BOLD,
-        fontSize: FontSize['2XL'],
-        lineHeight: LineHeight['2XL'],
+        fontSize: FontSize.XXL,
+        lineHeight: LineHeight.XXL,
       },
       [HeadingVariant.H3]: {
         props: { as: H3 },

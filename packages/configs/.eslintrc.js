@@ -341,7 +341,12 @@ const override = {
     },
   },
   namingConventionExceptions: {
-    files: ['src/configs/*.ts', 'scripts/*.ts', 'src/theme/**/*.ts'],
+    files: [
+      'src/configs/*.ts',
+      'scripts/*.ts',
+      'src/theme/**/*.ts',
+      'src/components/styled/**/*.ts',
+    ],
     rules: {
       '@typescript-eslint/naming-convention': 'off',
       '@typescript-eslint/no-redeclare': 'off',

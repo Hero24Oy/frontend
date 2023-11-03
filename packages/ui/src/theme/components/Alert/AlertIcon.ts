@@ -8,7 +8,7 @@ const AlertIconTheme = {
   theme: {
     marginRight: 5,
     props: {
-      size: IconSize.MEDIUM,
+      size: IconSize.MD,
     },
   },
 } satisfies ComponentTheme;
