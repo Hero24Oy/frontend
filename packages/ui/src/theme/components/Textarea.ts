@@ -1,5 +1,3 @@
-import { ViewStyle } from 'react-native';
-
 import { ComponentTheme } from '../types';
 
 import { DescendantStyleName, Size } from '$theme';
@@ -84,4 +82,4 @@ export const Textarea = {
   },
 
   componentConfig: { descendantStyle: [DescendantStyleName.TEXT] },
-} satisfies ComponentTheme<{ size: Size }, ViewStyle>;
+} satisfies ComponentTheme<{ size: Size }>;
