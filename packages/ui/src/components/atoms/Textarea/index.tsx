@@ -8,7 +8,7 @@ import {
 import { ComponentProps, PropsWithChildren } from 'react';
 import { Control, FieldValues, Path, useController } from 'react-hook-form';
 
-import { SizeKeys } from '$theme';
+import { Size } from '$theme';
 import { CommonStyles, JsxElement } from '$types';
 
 type PickedPropsFromTextarea = Pick<
@@ -21,11 +21,13 @@ type PickedPropsFromTextareaInput = Pick<
   'placeholder'
 >;
 
+export type TextAreaSize = Extract<Size, 'sm' | 'md' | 'lg'>;
+
 type Props<Type extends FieldValues> = PropsWithChildren<
   {
     control: Control<Type>;
     name: Path<Type>;
-    size?: Extract<SizeKeys, 'sm' | 'md' | 'lg'>;
+    size?: TextAreaSize;
     style?: CommonStyles;
   } & PickedPropsFromTextarea &
     PickedPropsFromTextareaInput

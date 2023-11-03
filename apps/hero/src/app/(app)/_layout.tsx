@@ -1,7 +1,7 @@
-import { Redirect, Stack } from 'expo-router';
+import { Redirect } from 'expo-router';
 import { FC } from 'react';
 
-import { useFirebaseUser } from '@hero24/common';
+import { BottomNavigationTabs, useFirebaseUser } from '@hero24/common';
 
 const AppLayout: FC = () => {
   const { user } = useFirebaseUser();
@@ -15,7 +15,8 @@ const AppLayout: FC = () => {
   }
 
   // This layout can be deferred because it's not the root layout.
-  return <Stack />;
+
+  return <BottomNavigationTabs />;
 };
 
 export default AppLayout;
