@@ -6,7 +6,6 @@ import {
   RadioLabel,
 } from '@gluestack-ui/themed';
 import { FC, PropsWithChildren } from 'react';
-import { StyleSheet } from 'react-native';
 
 import { RadioVariant } from '../RadioGroup';
 
@@ -17,14 +16,10 @@ import { Size } from '$theme';
 type Props = { size: `${Size}` } & PropsWithChildren<GluestackRadioProps>;
 
 export const Radio: FC<Props> = (props) => {
-  const { children, style, ...restProps } = props;
+  const { children, ...restProps } = props;
 
   return (
-    <GluestackRadio
-      variant={RadioVariant.RADIO}
-      style={[styles.radio, style]}
-      {...restProps}
-    >
+    <GluestackRadio variant={RadioVariant.RADIO} {...restProps}>
       <RadioIndicator>
         <RadioIcon as={CircleIcon} />
       </RadioIndicator>
@@ -33,9 +28,3 @@ export const Radio: FC<Props> = (props) => {
     </GluestackRadio>
   );
 };
-
-const styles = StyleSheet.create({
-  radio: {
-    flexDirection: 'row',
-  },
-});

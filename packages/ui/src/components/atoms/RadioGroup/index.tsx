@@ -21,7 +21,7 @@ export const RadioGroup = <Type extends FieldValues>(
   const { name, control, size = Size.MD, options, style, ...restProps } = props;
 
   const {
-    field: { value, onChange, ref },
+    field: { value, onChange },
   } = useController({ name, control });
 
   useEffect(() => {
@@ -29,12 +29,7 @@ export const RadioGroup = <Type extends FieldValues>(
   }, []);
 
   return (
-    <GluestackRadioGroup
-      value={value}
-      onChange={onChange}
-      ref={ref}
-      style={style}
-    >
+    <GluestackRadioGroup value={value} onChange={onChange} style={style}>
       <Radios size={size} options={options} {...restProps} />
     </GluestackRadioGroup>
   );
