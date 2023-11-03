@@ -7,7 +7,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   description: 'Hero24 Marketplace',
   owner: 'hero24',
   privacy: 'unlisted',
-  version: '1.0.3',
+  version: '1.0.12',
   orientation: 'portrait',
   icon: './assets/images/icon.png',
   userInterfaceStyle: 'automatic',
@@ -21,10 +21,11 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     supportsTablet: true,
     usesAppleSignIn: true,
     bundleIdentifier: 'com.hero24.hero',
-    buildNumber: '1.0.3',
+    buildNumber: '1.0.12',
   },
   android: {
     package: 'com.hero24.hero',
+    versionCode: 2,
     adaptiveIcon: {
       foregroundImage: './assets/images/adaptive-icon.png',
       backgroundColor: '#ffffff',

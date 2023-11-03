@@ -1,7 +1,7 @@
 import { ApolloLink, split } from '@apollo/client';
 import { getMainDefinition } from '@apollo/client/utilities';
+import { Kind, OperationTypeNode } from 'graphql';
 
-import { OPERATION_DEFINITION, SUBSCRIPTION } from '../constants';
 import { LinksOptions } from '../types';
 
 import { createAuthLink } from './auth';
@@ -28,8 +28,8 @@ export const createLink = (options: LinksOptions): ApolloLink => {
       const definition = getMainDefinition(query);
 
       return (
-        definition.kind === OPERATION_DEFINITION &&
-        definition.operation === SUBSCRIPTION
+        definition.kind === Kind.OPERATION_DEFINITION &&
+        definition.operation === OperationTypeNode.SUBSCRIPTION
       );
     },
     extendedWsLink,
