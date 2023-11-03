@@ -16,7 +16,7 @@
     "dev:customer": "cd apps/customer && yarn watch",
     "lint": "turbo lint",
     "postinstall": "yarn build",
-    "reinstall-deps": "rm -rf ./**/node_modules && yarn"
+    "reinstall:deps": "rm -rf ./**/node_modules && yarn"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
