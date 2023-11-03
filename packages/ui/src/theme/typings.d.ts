@@ -1,103 +1,72 @@
-import { TextStyle, ViewStyle } from 'react-native';
-
-import { Size } from './enums';
-import { SxValues } from './types';
-
 import {
-  HeadingVariant,
-  SliderOrientation,
-  SliderSize,
-  TextVariant,
-} from '$atoms';
-import {
-  ButtonSize,
-  ButtonVariant,
-  RadioVariant,
-  TextareaSize,
-} from '$components';
+  ButtonThemeVariants,
+  HeadingThemeVariants,
+  InputThemeVariants,
+  InputTitleThemeVariants,
+  RadioThemeVariants,
+  SliderFilledTrackThemeVariants,
+  SliderThemeVariants,
+  SliderThumbThemeVariants,
+  SliderTrackThemeVariants,
+  TextareaThemeVariants,
+  TextThemeVariants,
+} from '$theme/components';
 
 declare module '@gluestack-ui/themed' {
   interface UIComponents {
     Button: {
       theme: {
-        variants: {
-          size: Record<ButtonSize, SxValues<ViewStyle>>;
-          variant: Record<`${ButtonVariant}`, SxValues<ViewStyle>>;
-        };
+        variants: ButtonThemeVariants;
       };
     };
     FilledTrack: {
       theme: {
-        variant: {
-          orientation: Record<`${SliderOrientation}`, SxValues<ViewStyle>>;
-          size: Record<`${SliderSize}`, SxValues<ViewStyle>>;
-        };
+        variant: SliderFilledTrackThemeVariants;
       };
     };
     Heading: {
       theme: {
-        variants: {
-          variant: Record<`${HeadingVariant}`, SxValues<ViewStyle>>;
-        };
+        variants: HeadingThemeVariants;
       };
     };
     Input: {
       theme: {
-        variants: {
-          size: Record<`${InputSize}`, SxValues<ViewStyle>>;
-        };
+        variants: InputThemeVariants;
       };
     };
     InputTitle: {
       theme: {
-        variants: {
-          size: Record<`${InputSize}`, SxValues<TextStyle>>;
-        };
+        variants: InputTitleThemeVariants;
       };
     };
     Radio: {
       theme: {
-        variants: {
-          size: Record<`${Size}`, SxValues<ViewStyle>>;
-          variant: Record<`${RadioVariant}`, SxValues<ViewStyle>>;
-        };
+        variants: RadioThemeVariants;
       };
     };
     Slider: {
       theme: {
-        variant: {
-          orientation: Record<`${SliderOrientation}`, SxValues<ViewStyle>>;
-          size: Record<`${SliderSize}`, SxValues<ViewStyle>>;
-        };
+        variant: SliderThemeVariants;
       };
     };
     SliderThumb: {
       theme: {
-        variant: {
-          size: Record<`${SliderSize}`, SxValues<ViewStyle>>;
-        };
+        variant: SliderThumbThemeVariants;
       };
     };
     SliderTrack: {
       theme: {
-        variant: {
-          orientation: Record<`${SliderOrientation}`, SxValues<ViewStyle>>;
-          size: Record<`${SliderSize}`, SxValues<ViewStyle>>;
-        };
+        variant: SliderTrackThemeVariants;
       };
     };
     Text: {
       theme: {
-        variants: {
-          variant: Record<`${TextVariant}`, SxValues<TextStyle>>;
-        };
+        variants: TextThemeVariants;
       };
     };
     Textarea: {
       theme: {
-        size: {
-          variant: Record<`${TextareaSize}`, SxValues<ViewStyle>>;
-        };
+        variants: TextareaThemeVariants;
       };
     };
   }

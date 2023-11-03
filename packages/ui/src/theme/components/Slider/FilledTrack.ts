@@ -1,6 +1,13 @@
+import { ViewProps, ViewStyle } from 'react-native';
+
 import { SliderOrientation, SliderSize } from '$atoms/Slider/types';
 import { Color, Size } from '$theme/constants';
-import { ComponentTheme } from '$theme/types';
+import { ComponentTheme, SxValues } from '$theme/types';
+
+export type SliderFilledTrackThemeVariants = {
+  orientation: Record<SliderOrientation, SxValues<ViewStyle>>;
+  size: Record<SliderSize, SxValues<ViewStyle>>;
+};
 
 export const SliderFilledTrack = {
   theme: {
@@ -40,7 +47,4 @@ export const SliderFilledTrack = {
       orientation: SliderOrientation.HORIZONTAL,
     },
   },
-} satisfies ComponentTheme<{
-  orientation: SliderOrientation;
-  size: SliderSize;
-}>;
+} satisfies ComponentTheme<ViewProps, SliderFilledTrackThemeVariants>;

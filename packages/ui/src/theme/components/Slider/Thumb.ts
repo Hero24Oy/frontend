@@ -1,6 +1,12 @@
+import { ViewProps, ViewStyle } from 'react-native';
+
 import { SliderSize } from '$atoms/Slider/types';
 import { Color, Size } from '$theme/constants';
-import { ComponentTheme } from '$theme/types';
+import { ComponentTheme, SxValues } from '$theme/types';
+
+export type SliderThumbThemeVariants = {
+  size: Record<SliderSize, SxValues<ViewStyle>>;
+};
 
 export const SliderThumb = {
   theme: {
@@ -39,4 +45,4 @@ export const SliderThumb = {
       size: Size.SM,
     },
   },
-} satisfies ComponentTheme<{ size: SliderSize }>;
+} satisfies ComponentTheme<ViewProps, SliderThumbThemeVariants>;

@@ -1,6 +1,13 @@
+import { ViewProps, ViewStyle } from 'react-native';
+
 import { SliderOrientation, SliderSize } from '$atoms/Slider/types';
 import { Size } from '$theme/constants';
-import { ComponentTheme } from '$theme/types';
+import { ComponentTheme, SxValues } from '$theme/types';
+
+export type SliderThemeVariants = {
+  orientation: Record<SliderOrientation, SxValues<ViewStyle>>;
+  size: Record<SliderSize, SxValues<ViewStyle>>;
+};
 
 export const Slider = {
   theme: {
@@ -32,7 +39,4 @@ export const Slider = {
       orientation: SliderOrientation.HORIZONTAL,
     },
   },
-} satisfies ComponentTheme<{
-  orientation: SliderOrientation;
-  size: SliderSize;
-}>;
+} satisfies ComponentTheme<ViewProps, SliderThemeVariants>;

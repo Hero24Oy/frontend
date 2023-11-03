@@ -1,3 +1,5 @@
+import { ViewProps } from 'react-native';
+
 import { ComponentTheme } from '$theme/types';
 
 export const RadioGroup = {
@@ -5,4 +7,4 @@ export const RadioGroup = {
     display: 'flex',
     gap: 6,
   },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<ViewProps>;

@@ -1,6 +1,14 @@
+import { PressableProps, ViewStyle } from 'react-native';
+
 import { Color, IconSize, Size } from '../constants';
 import { DescendantStyleName } from '../enums';
-import { ComponentTheme } from '../types';
+import { ComponentTheme, SxValues } from '../types';
+
+import { IconButtonSize } from '$atoms';
+
+export type IconButtonThemeVariants = {
+  size: Record<IconButtonSize, SxValues<ViewStyle>>;
+};
 
 export const IconButton = {
   theme: {
@@ -38,4 +46,4 @@ export const IconButton = {
     },
   },
   componentConfig: { descendantStyle: [DescendantStyleName.ICON] },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<PressableProps, IconButtonThemeVariants>;
