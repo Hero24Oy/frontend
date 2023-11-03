@@ -4,11 +4,12 @@ import {
   FontWeight,
   IconSize,
   LineHeight,
+  Size,
 } from '../constants';
-import { DescendantStyleName, Size } from '../enums';
+import { DescendantStyleName } from '../enums';
 import { ComponentTheme } from '../types';
 
-import { ButtonVariant } from '$components';
+import { ButtonSize, ButtonVariant } from '$components';
 
 export const Button = {
   theme: {
@@ -35,13 +36,13 @@ export const Button = {
             fontSize: FontSize.SM,
           },
           [DescendantStyleName.ICON]: {
-            width: IconSize.SMALL,
-            height: IconSize.SMALL,
+            width: IconSize.SM,
+            height: IconSize.SM,
           },
           [DescendantStyleName.SPINNER]: {
             props: {
-              width: IconSize.SMALL,
-              height: IconSize.SMALL,
+              width: IconSize.SM,
+              height: IconSize.SM,
             },
           },
         },
@@ -51,13 +52,13 @@ export const Button = {
             fontSize: FontSize.SM,
           },
           [DescendantStyleName.ICON]: {
-            width: IconSize.SMALL,
-            height: IconSize.SMALL,
+            width: IconSize.SM,
+            height: IconSize.SM,
           },
           [DescendantStyleName.SPINNER]: {
             props: {
-              width: IconSize.SMALL,
-              height: IconSize.SMALL,
+              width: IconSize.SM,
+              height: IconSize.SM,
             },
           },
         },
@@ -67,13 +68,13 @@ export const Button = {
             fontSize: FontSize.XS,
           },
           [DescendantStyleName.ICON]: {
-            width: IconSize.EXTRA_SMALL,
-            height: IconSize.EXTRA_SMALL,
+            width: IconSize.XS,
+            height: IconSize.XS,
           },
           [DescendantStyleName.SPINNER]: {
             props: {
-              width: IconSize.EXTRA_SMALL,
-              height: IconSize.EXTRA_SMALL,
+              width: IconSize.XS,
+              height: IconSize.XS,
             },
           },
         },
@@ -213,4 +214,7 @@ export const Button = {
       DescendantStyleName.SPINNER,
     ],
   },
-} satisfies ComponentTheme<{ size: Size; variant: ButtonVariant }>;
+} satisfies ComponentTheme<{
+  size: ButtonSize;
+  variant: ButtonVariant;
+}>;

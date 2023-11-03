@@ -1,7 +1,12 @@
 import { TextStyle } from 'react-native';
 
-import { InputSize } from '$components/molecules/Input/types';
-import { Color, FontSize, FontWeight, LineHeight } from '$theme/constants';
+import {
+  Color,
+  FontSize,
+  FontWeight,
+  LineHeight,
+  Size,
+} from '$theme/constants';
 import { ComponentTheme } from '$theme/types';
 
 export const InputTitle = {
@@ -12,11 +17,11 @@ export const InputTitle = {
     lineHeight: LineHeight.SM,
     variants: {
       size: {
-        [InputSize.SMALL]: {
+        [Size.SM]: {
           fontSize: FontSize.SM,
           lineHeight: LineHeight.SM,
         },
-        [InputSize.MEDIUM]: {
+        [Size.MD]: {
           fontSize: FontSize.MD,
           lineHeight: LineHeight.MD,
         },

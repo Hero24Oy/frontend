@@ -1,10 +1,9 @@
 import { Control, FieldValues, Path } from 'react-hook-form';
 import { KeyboardType } from 'react-native';
 
-export enum InputSize {
-  SMALL = 'sm',
-  MEDIUM = 'md',
-}
+import { Size } from '$theme';
+
+export type InputSize = Extract<Size, 'sm' | 'md'>;
 
 export enum InputType {
   TEXT = 'text',
@@ -20,7 +19,7 @@ export type InputProps<Type extends FieldValues> = {
   mask?: string;
   placeholder?: string;
   rightSlot?: JSX.Element;
-  size?: `${InputSize}`;
+  size?: InputSize;
   title?: string;
   type?: `${InputType}`;
 };

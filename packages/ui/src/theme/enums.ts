@@ -9,9 +9,3 @@ export enum DescendantStyleName {
 export enum AncestorStyleName {
   BUTTON = '_button',
 }
-
-export enum Size {
-  SM = 'sm',
-  MD = 'md',
-  LG = 'lg',
-}
