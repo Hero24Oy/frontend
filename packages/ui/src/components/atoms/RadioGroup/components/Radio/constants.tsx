@@ -4,5 +4,5 @@ import { RadioIndicator } from '$components/atoms/RadioIndicator';
 
 export const radioVariantMapper = {
   [RadioVariant.CHIP]: Chip,
-  [RadioVariant.RADIO]: RadioIndicator,
+  [RadioVariant.RADIO_INDICATOR]: RadioIndicator,
 };

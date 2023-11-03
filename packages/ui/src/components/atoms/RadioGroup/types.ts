@@ -1,6 +1,6 @@
 export enum RadioVariant {
   CHIP = 'chip',
-  RADIO = 'radio',
+  RADIO_INDICATOR = 'radio_indicator',
 }
 
 export type RadioOption = {

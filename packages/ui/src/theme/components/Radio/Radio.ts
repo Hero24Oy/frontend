@@ -12,7 +12,7 @@ import {
 import { DescendantStyleName, Size } from '$theme/enums';
 import { ComponentTheme } from '$theme/types';
 
-const RadioTheme = {
+const radioTheme = {
   theme: {
     gap: 8,
     [DescendantStyleName.TEXT]: {
@@ -78,7 +78,7 @@ const RadioTheme = {
             },
           },
         },
-        [RadioVariant.RADIO]: {},
+        [RadioVariant.RADIO_INDICATOR]: {},
       },
     },
   },
@@ -87,4 +87,4 @@ const RadioTheme = {
   },
 } satisfies ComponentTheme<{ size: Size; variant: RadioVariant }>;
 
-export const Radio = merge(config.components.Radio, RadioTheme);
+export const Radio = merge(config.components.Radio, radioTheme);

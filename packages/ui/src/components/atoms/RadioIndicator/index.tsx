@@ -21,7 +21,7 @@ export const RadioIndicator: FC<Props> = (props) => {
   const { children, ...restProps } = props;
 
   return (
-    <GluestackRadio variant={RadioVariant.RADIO} {...restProps}>
+    <GluestackRadio variant={RadioVariant.RADIO_INDICATOR} {...restProps}>
       <GluestackRadioIndicator>
         <RadioIcon as={CircleIcon} />
       </GluestackRadioIndicator>
