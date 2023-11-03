@@ -6,10 +6,9 @@ import { FC, PropsWithChildren } from 'react';
 
 import { GluestackChipProps } from './types';
 
-import { RadioVariant } from '$atoms/RadioGroup/types';
-import { Size } from '$theme';
+import { RadioSize, RadioVariant } from '$atoms/RadioGroup/types';
 
-type Props = { size: `${Size}` } & PropsWithChildren<GluestackChipProps>;
+type Props = { size: RadioSize } & PropsWithChildren<GluestackChipProps>;
 
 export const Chip: FC<Props> = (props) => {
   const { children, ...restProps } = props;

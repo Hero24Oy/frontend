@@ -8,7 +8,7 @@ import {
   LineHeight,
   Size,
 } from '$theme/constants';
-import { ComponentTheme } from '$theme/types';
+import { ComponentTheme, SxValues } from '$theme/types';
 
 export type InputTitleThemeVariants = {
   size: Record<InputSize, SxValues<TextStyle>>;
