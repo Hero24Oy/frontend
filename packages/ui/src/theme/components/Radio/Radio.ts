@@ -15,40 +15,40 @@ import { ComponentTheme } from '$theme/types';
 const RadioTheme = {
   theme: {
     gap: 8,
-    _text: {
+    [DescendantStyleName.TEXT]: {
       color: Color.DARK_00,
       fontWeight: FontWeight.REGULAR,
     },
     variants: {
       size: {
         [Size.SM]: {
-          _text: {
+          [DescendantStyleName.TEXT]: {
             lineHeight: LineHeight.SM,
             fontSize: FontSize.SM,
           },
-          _icon: {
+          [DescendantStyleName.ICON]: {
             props: {
               size: IconSize.EXTRA_SMALL / 2,
             },
           },
         },
         [Size.MD]: {
-          _text: {
+          [DescendantStyleName.TEXT]: {
             lineHeight: LineHeight.MD,
             fontSize: FontSize.MD,
           },
-          _icon: {
+          [DescendantStyleName.ICON]: {
             props: {
               size: IconSize.MEDIUM / 2,
             },
           },
         },
         [Size.LG]: {
-          _text: {
+          [DescendantStyleName.TEXT]: {
             lineHeight: LineHeight.LG,
             fontSize: FontSize.LG,
           },
-          _icon: {
+          [DescendantStyleName.ICON]: {
             props: {
               size: IconSize.LARGE / 2,
             },
@@ -62,7 +62,7 @@ const RadioTheme = {
           borderRadius: 8,
           gap: 4,
           justifyContent: 'center',
-          _text: {
+          [DescendantStyleName.TEXT]: {
             color: Color.DARK_00,
             fontSize: FontSize.MD,
             fontWeight: FontWeight.REGULAR,
@@ -73,7 +73,7 @@ const RadioTheme = {
           ':checked': {
             backgroundColor: Color.RED_01,
             borderColor: Color.TRANSPARENT,
-            _text: {
+            [DescendantStyleName.TEXT]: {
               color: Color.WHITE_00,
             },
           },
@@ -83,11 +83,7 @@ const RadioTheme = {
     },
   },
   componentConfig: {
-    descendantStyle: [
-      DescendantStyleName.TEXT,
-      DescendantStyleName.INDICATOR,
-      DescendantStyleName.ICON,
-    ],
+    descendantStyle: [DescendantStyleName.TEXT, DescendantStyleName.ICON],
   },
 } satisfies ComponentTheme<{ size: Size; variant: RadioVariant }>;
 
