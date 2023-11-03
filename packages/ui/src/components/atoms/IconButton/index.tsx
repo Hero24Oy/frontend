@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { GluestackIconButtonProps } from './types';
+import { GluestackIconButtonProps, IconSize } from './types';
 
 import { BaseIcon } from '$icons/base';
 import { StyledIconButton, StyledIconButtonIcon } from '$styled';
@@ -8,7 +8,7 @@ import { Size } from '$theme';
 
 type Props = {
   icon: BaseIcon;
-  size?: `${Size}`;
+  size?: IconSize;
 } & GluestackIconButtonProps;
 
 export const IconButton: FC<Props> = (props) => {

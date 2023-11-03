@@ -1,5 +1,5 @@
-import { Color, IconSize } from '../constants';
-import { DescendantStyleName, Size } from '../enums';
+import { Color, IconSize, Size } from '../constants';
+import { DescendantStyleName } from '../enums';
 import { ComponentTheme } from '../types';
 
 export const IconButton = {
@@ -8,29 +8,29 @@ export const IconButton = {
     padding: 10,
     borderRadius: 10,
     backgroundColor: Color.GREY_03,
-    _icon: {
+    [DescendantStyleName.ICON]: {
       color: Color.BLACK_00,
     },
     variants: {
       size: {
         [Size.LG]: {
-          _icon: {
+          [DescendantStyleName.ICON]: {
             props: {
-              size: IconSize.LARGE,
+              size: IconSize.LG,
             },
           },
         },
         [Size.MD]: {
-          _icon: {
+          [DescendantStyleName.ICON]: {
             props: {
-              size: IconSize.MEDIUM,
+              size: IconSize.MD,
             },
           },
         },
         [Size.SM]: {
-          _icon: {
+          [DescendantStyleName.ICON]: {
             props: {
-              size: IconSize.SMALL,
+              size: IconSize.SM,
             },
           },
         },

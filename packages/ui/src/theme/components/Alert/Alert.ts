@@ -1,12 +1,12 @@
-import { config } from '@gluestack-ui/config';
+import { config as defaultConfig } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
 
 import { ComponentTheme } from '$theme/types';
 
-const AlertTheme = {
+const customAlertConfig = {
   theme: {
     borderRadius: 20,
   },
 } satisfies ComponentTheme;
 
-export const Alert = merge(config.components.Alert, AlertTheme);
+export const Alert = merge(defaultConfig.components.Alert, customAlertConfig);

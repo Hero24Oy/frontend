@@ -10,7 +10,7 @@ export const MenuItem = {
     paddingVertical: 6,
     paddingHorizontal: 24,
     backgroundColor: Color.GREY_LIGHT_00,
-    _text: {
+    [DescendantStyleName.TEXT]: {
       color: Color.DARK_00,
       fontSize: FontSize.SM,
     },

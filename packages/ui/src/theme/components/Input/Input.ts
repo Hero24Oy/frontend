@@ -24,7 +24,7 @@ export const Input = {
       borderColor: Color.GREY_01,
       backgroundColor: Color.GREY_03,
     },
-    _input: {
+    [DescendantStyleName.INPUT]: {
       flex: 1,
       textAlignVertical: 'center',
       fontSize: FontSize.SM,
@@ -32,7 +32,7 @@ export const Input = {
       ':focus': {
         color: Color.DARK_00,
       },
-      _icon: {
+      [DescendantStyleName.ICON]: {
         color: Color.DARK_00,
       },
     },

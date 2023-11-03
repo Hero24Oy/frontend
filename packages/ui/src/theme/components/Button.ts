@@ -4,11 +4,12 @@ import {
   FontWeight,
   IconSize,
   LineHeight,
+  Size,
 } from '../constants';
-import { DescendantStyleName, Size } from '../enums';
+import { DescendantStyleName } from '../enums';
 import { ComponentTheme } from '../types';
 
-import { ButtonVariant } from '$components';
+import { ButtonSize, ButtonVariant } from '$components';
 
 export const Button = {
   theme: {
@@ -21,7 +22,7 @@ export const Button = {
     borderRadius: 8,
     height: 'auto',
     borderWidth: 1,
-    _text: {
+    [DescendantStyleName.TEXT]: {
       textDecorationLine: 'none',
       fontWeight: FontWeight.MEDIUM,
       lineHeight: LineHeight.SM,
@@ -31,49 +32,49 @@ export const Button = {
         [Size.LG]: {
           width: '100%',
           paddingVertical: 11,
-          _text: {
+          [DescendantStyleName.TEXT]: {
             fontSize: FontSize.SM,
           },
-          _icon: {
-            width: IconSize.SMALL,
-            height: IconSize.SMALL,
+          [DescendantStyleName.ICON]: {
+            width: IconSize.SM,
+            height: IconSize.SM,
           },
-          _spinner: {
+          [DescendantStyleName.SPINNER]: {
             props: {
-              width: IconSize.SMALL,
-              height: IconSize.SMALL,
+              width: IconSize.SM,
+              height: IconSize.SM,
             },
           },
         },
         [Size.MD]: {
           paddingVertical: 10,
-          _text: {
+          [DescendantStyleName.TEXT]: {
             fontSize: FontSize.SM,
           },
-          _icon: {
-            width: IconSize.SMALL,
-            height: IconSize.SMALL,
+          [DescendantStyleName.ICON]: {
+            width: IconSize.SM,
+            height: IconSize.SM,
           },
-          _spinner: {
+          [DescendantStyleName.SPINNER]: {
             props: {
-              width: IconSize.SMALL,
-              height: IconSize.SMALL,
+              width: IconSize.SM,
+              height: IconSize.SM,
             },
           },
         },
         [Size.SM]: {
           paddingVertical: 8,
-          _text: {
+          [DescendantStyleName.TEXT]: {
             fontSize: FontSize.XS,
           },
-          _icon: {
-            width: IconSize.EXTRA_SMALL,
-            height: IconSize.EXTRA_SMALL,
+          [DescendantStyleName.ICON]: {
+            width: IconSize.XS,
+            height: IconSize.XS,
           },
-          _spinner: {
+          [DescendantStyleName.SPINNER]: {
             props: {
-              width: IconSize.EXTRA_SMALL,
-              height: IconSize.EXTRA_SMALL,
+              width: IconSize.XS,
+              height: IconSize.XS,
             },
           },
         },
@@ -82,13 +83,13 @@ export const Button = {
         [ButtonVariant.SOLID]: {
           backgroundColor: Color.DARK_00,
           borderColor: Color.TRANSPARENT,
-          _text: {
+          [DescendantStyleName.TEXT]: {
             color: Color.WHITE_00,
           },
-          _icon: {
+          [DescendantStyleName.ICON]: {
             color: Color.WHITE_00,
           },
-          _spinner: {
+          [DescendantStyleName.SPINNER]: {
             props: {
               color: Color.WHITE_00,
             },
@@ -109,13 +110,13 @@ export const Button = {
         [ButtonVariant.OUTLINE]: {
           backgroundColor: Color.TRANSPARENT,
           borderColor: Color.GREY_02,
-          _text: {
+          [DescendantStyleName.TEXT]: {
             color: Color.DARK_00,
           },
-          _icon: {
+          [DescendantStyleName.ICON]: {
             color: Color.DARK_00,
           },
-          _spinner: {
+          [DescendantStyleName.SPINNER]: {
             props: {
               color: Color.GREY_02,
             },
@@ -123,39 +124,39 @@ export const Button = {
           ':disabled': {
             borderColor: Color.GREY_02,
             backgroundColor: Color.GREY_03,
-            _text: {
+            [DescendantStyleName.TEXT]: {
               color: Color.GREY_02,
             },
-            _icon: {
+            [DescendantStyleName.ICON]: {
               color: Color.GREY_02,
             },
           },
           ':hover': {
             borderColor: 'none',
             backgroundColor: Color.DARK_00,
-            _text: {
+            [DescendantStyleName.TEXT]: {
               color: Color.WHITE_00,
             },
-            _icon: {
+            [DescendantStyleName.ICON]: {
               color: Color.WHITE_00,
             },
           },
           ':active': {
             borderColor: Color.DARK_GREY_00,
             backgroundColor: Color.TRANSPARENT,
-            _text: {
+            [DescendantStyleName.TEXT]: {
               color: Color.DARK_GREY_00,
             },
-            _icon: {
+            [DescendantStyleName.ICON]: {
               color: Color.DARK_GREY_00,
             },
           },
           ':focusVisible': {
             borderColor: Color.BLUE_01,
-            _text: {
+            [DescendantStyleName.TEXT]: {
               color: Color.DARK_00,
             },
-            _icon: {
+            [DescendantStyleName.ICON]: {
               color: Color.DARK_00,
             },
           },
@@ -163,39 +164,39 @@ export const Button = {
         [ButtonVariant.LINK]: {
           backgroundColor: Color.TRANSPARENT,
           borderColor: Color.TRANSPARENT,
-          _text: {
+          [DescendantStyleName.TEXT]: {
             color: Color.DARK_00,
           },
-          _icon: {
+          [DescendantStyleName.ICON]: {
             color: Color.DARK_00,
           },
-          _spinner: {
+          [DescendantStyleName.SPINNER]: {
             props: {
               color: Color.GREY_03,
             },
           },
           ':disabled': {
-            _text: {
+            [DescendantStyleName.TEXT]: {
               color: Color.GREY_03,
             },
-            _icon: {
+            [DescendantStyleName.ICON]: {
               color: Color.GREY_03,
             },
           },
           ':hover': {
-            _text: {
+            [DescendantStyleName.TEXT]: {
               color: Color.RED_01,
             },
-            _icon: {
+            [DescendantStyleName.ICON]: {
               color: Color.RED_01,
             },
           },
           ':active': {
             borderColor: Color.DARK_GREY_00,
-            _text: {
+            [DescendantStyleName.TEXT]: {
               color: Color.DARK_GREY_00,
             },
-            _icon: {
+            [DescendantStyleName.ICON]: {
               color: Color.DARK_GREY_00,
             },
           },
@@ -213,4 +214,7 @@ export const Button = {
       DescendantStyleName.SPINNER,
     ],
   },
-} satisfies ComponentTheme<{ size: Size; variant: ButtonVariant }>;
+} satisfies ComponentTheme<{
+  size: ButtonSize;
+  variant: ButtonVariant;
+}>;

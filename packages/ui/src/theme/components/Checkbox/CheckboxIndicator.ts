@@ -1,9 +1,7 @@
-import { config } from '@gluestack-ui/config';
+import { config as defaultConfig } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
 
 import { Color } from '$theme/constants/colors';
-
-const checkboxIndicatorConfig = config.components.CheckboxIndicator;
 
 const customCheckboxIndicatorConfig = {
   theme: {
@@ -32,6 +30,6 @@ const customCheckboxIndicatorConfig = {
 };
 
 export const CheckboxIndicator = merge(
-  checkboxIndicatorConfig,
+  defaultConfig.components.CheckboxIndicator,
   customCheckboxIndicatorConfig,
 );

@@ -1,7 +1,5 @@
-import { config } from '@gluestack-ui/config';
+import { config as defaultConfig } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
-
-const checkboxConfig = config.components.Checkbox;
 
 const customCheckboxConfig = {
   theme: {
@@ -9,4 +7,7 @@ const customCheckboxConfig = {
   },
 };
 
-export const Checkbox = merge(checkboxConfig, customCheckboxConfig);
+export const Checkbox = merge(
+  defaultConfig.components.Checkbox,
+  customCheckboxConfig,
+);
