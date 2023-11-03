@@ -6,7 +6,7 @@ import { StyleProp, ViewStyle } from 'react-native';
 import { ImageSize } from './constants';
 
 type Variants = {
-  size: Record<`${ImageSize}`, Partial<SxProps<StyleProp<ViewStyle>>>>;
+  size: Record<ImageSize, Partial<SxProps<StyleProp<ViewStyle>>>>;
 };
 
 export const StyledImage = styled<ImageProps, Variants, string>(

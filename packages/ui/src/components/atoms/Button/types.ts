@@ -1,6 +1,10 @@
 import { Button } from '@gluestack-ui/themed';
 import { ComponentProps } from 'react';
 
+import { Size } from '$theme';
+
+export type ButtonSize = Extract<Size, 'xs' | 'sm' | 'md' | 'lg' | 'xl'>;
+
 export enum Direction {
   LEFT = 'left',
   RIGHT = 'right',
@@ -11,14 +15,6 @@ export enum ButtonVariant {
   SOLID = 'solid',
   OUTLINE = 'outline',
   LINK = 'link',
-}
-
-export enum ButtonSize {
-  XS = 'xs',
-  SM = 'sm',
-  MD = 'md',
-  LG = 'lg',
-  XL = 'xl',
 }
 
 export enum ButtonAction {

@@ -4,5 +4,5 @@ import { StyleProp, ViewStyle } from 'react-native';
 import { Size } from '$theme';
 
 export type Variants = {
-  size: Record<`${Size}`, Partial<SxProps<StyleProp<ViewStyle>>>>;
+  size: Record<Size, Partial<SxProps<StyleProp<ViewStyle>>>>;
 };

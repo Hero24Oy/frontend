@@ -1,11 +1,11 @@
-import { config } from '@gluestack-ui/config';
+import { config as defaultConfig } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
 import { ViewProps } from 'react-native';
 
 import { IconSize } from '$theme/constants';
 import { ComponentTheme } from '$theme/types';
 
-const AlertIconTheme = {
+const customAlertIconConfig = {
   theme: {
     marginRight: 5,
     props: {
@@ -14,4 +14,7 @@ const AlertIconTheme = {
   },
 } satisfies ComponentTheme<ViewProps>;
 
-export const AlertIcon = merge(config.components.AlertIcon, AlertIconTheme);
+export const AlertIcon = merge(
+  defaultConfig.components.AlertIcon,
+  customAlertIconConfig,
+);

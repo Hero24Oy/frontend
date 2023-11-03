@@ -14,7 +14,7 @@ export const Card = {
     borderRadius: 10,
     backgroundColor: Color.GREY_LIGHT_02,
     overflow: 'hidden',
-    _text: {
+    [DescendantStyleName.TEXT]: {
       color: Color.DARK_00,
     },
   },

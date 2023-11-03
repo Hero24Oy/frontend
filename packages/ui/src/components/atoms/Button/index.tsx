@@ -10,13 +10,13 @@ import { PressableProps, StyleSheet } from 'react-native';
 import { buttonSxValue } from './constants';
 import {
   ButtonAction,
+  ButtonSize,
   ButtonVariant,
   Direction,
   GluestackButtonProps,
 } from './types';
 
 import { BaseIcon } from '$icons/base';
-import { Size } from '$theme';
 import { CommonStyles } from '$types';
 
 type Props = {
@@ -25,7 +25,7 @@ type Props = {
   icon?: BaseIcon;
   iconDirection?: `${Direction}`;
   isLoading?: boolean;
-  size?: `${Size}`;
+  size?: ButtonSize;
   style?: CommonStyles;
   variant?: `${ButtonVariant}`;
 } & GluestackButtonProps;
