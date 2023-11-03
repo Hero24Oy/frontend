@@ -1,4 +1,4 @@
-import { config } from '@gluestack-ui/config';
+import { config as defaultConfig } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
 
 import { RadioVariant } from '$components';
@@ -12,7 +12,7 @@ import {
 import { DescendantStyleName, Size } from '$theme/enums';
 import { ComponentTheme } from '$theme/types';
 
-const radioTheme = {
+const customRadioConfig = {
   theme: {
     gap: 8,
     [DescendantStyleName.TEXT]: {
@@ -87,4 +87,4 @@ const radioTheme = {
   },
 } satisfies ComponentTheme<{ size: Size; variant: RadioVariant }>;
 
-export const Radio = merge(config.components.Radio, radioTheme);
+export const Radio = merge(defaultConfig.components.Radio, customRadioConfig);

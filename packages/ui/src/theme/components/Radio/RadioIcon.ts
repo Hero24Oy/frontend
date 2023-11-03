@@ -1,10 +1,10 @@
-import { config } from '@gluestack-ui/config';
+import { config as defaultConfig } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
 
 import { Color } from '$theme/constants';
 import { ComponentTheme } from '$theme/types';
 
-const radioIconTheme = {
+const customRadioIconConfig = {
   theme: {
     ':checked': {
       props: {
@@ -29,4 +29,7 @@ const radioIconTheme = {
   },
 } satisfies ComponentTheme;
 
-export const RadioIcon = merge(config.components.RadioIcon, radioIconTheme);
+export const RadioIcon = merge(
+  defaultConfig.components.RadioIcon,
+  customRadioIconConfig,
+);

@@ -1,10 +1,10 @@
-import { config } from '@gluestack-ui/config';
+import { config as defaultConfig } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
 
 import { IconSize } from '$theme/constants';
 import { ComponentTheme } from '$theme/types';
 
-const alertIconTheme = {
+const customAlertIconConfig = {
   theme: {
     marginRight: 5,
     props: {
@@ -13,4 +13,7 @@ const alertIconTheme = {
   },
 } satisfies ComponentTheme;
 
-export const AlertIcon = merge(config.components.AlertIcon, alertIconTheme);
+export const AlertIcon = merge(
+  defaultConfig.components.AlertIcon,
+  customAlertIconConfig,
+);

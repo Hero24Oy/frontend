@@ -1,10 +1,10 @@
-import { config } from '@gluestack-ui/config';
+import { config as defaultConfig } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
 
 import { Color } from '$theme/constants';
 import { ComponentTheme } from '$theme/types';
 
-export const radioIndicatorTheme = {
+export const customRadioIndicatorConfig = {
   theme: {
     ':checked': {
       borderColor: Color.RED_00,
@@ -25,6 +25,6 @@ export const radioIndicatorTheme = {
 } satisfies ComponentTheme;
 
 export const RadioIndicator = merge(
-  config.components.RadioIndicator,
-  radioIndicatorTheme,
+  defaultConfig.components.RadioIndicator,
+  customRadioIndicatorConfig,
 );

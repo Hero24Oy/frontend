@@ -1,10 +1,13 @@
-import { config } from '@gluestack-ui/config';
+import { config as defaultConfig } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
 
-const checkboxTheme = {
+const customCheckboxConfig = {
   theme: {
     borderRadius: 20,
   },
 };
 
-export const Checkbox = merge(config.components.Checkbox, checkboxTheme);
+export const Checkbox = merge(
+  defaultConfig.components.Checkbox,
+  customCheckboxConfig,
+);

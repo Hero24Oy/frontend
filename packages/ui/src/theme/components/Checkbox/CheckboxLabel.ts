@@ -1,9 +1,9 @@
-import { config } from '@gluestack-ui/config';
+import { config as defaultConfig } from '@gluestack-ui/config';
 import merge from 'lodash/merge';
 
 import { Color } from '$theme/constants/colors';
 
-const checkboxLabelTheme = {
+const customCheckboxLabelConfig = {
   theme: {
     ':checked': {
       color: Color.DARK_00,
@@ -13,6 +13,6 @@ const checkboxLabelTheme = {
 };
 
 export const CheckboxLabel = merge(
-  config.components.CheckboxLabel,
-  checkboxLabelTheme,
+  defaultConfig.components.CheckboxLabel,
+  customCheckboxLabelConfig,
 );
