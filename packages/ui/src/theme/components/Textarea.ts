@@ -1,5 +1,6 @@
 import { ComponentTheme } from '../types';
 
+import { TextAreaSize } from '$components';
 import { DescendantStyleName, Size } from '$theme';
 import {
   Color,
@@ -82,4 +83,4 @@ export const Textarea = {
   },
 
   componentConfig: { descendantStyle: [DescendantStyleName.TEXT] },
-} satisfies ComponentTheme<{ size: Size }>;
+} satisfies ComponentTheme<{ size: TextAreaSize }>;
