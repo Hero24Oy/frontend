@@ -1,33 +1,43 @@
+import { PhoneSignInForm, PhoneSignInFormProps } from 'modules/Auth/forms';
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { HStack, SafeAreaView, Text, VStack } from '@hero24/ui';
+import { Button, SafeAreaKeyboardAwareView, VStack } from '@hero24/ui';
 
-import { EmailSignInForm, SignInProvidersButtons } from '../../components';
+import { Footer, Header, Or, SignInProvidersButtons } from '../../components';
 
-export const AuthScreen: FC = () => {
+type Props = PhoneSignInFormProps & {
+  signInWithEmailHandler: () => void;
+};
+
+export const AuthScreen: FC<Props> = (props) => {
+  const { signInWithPhoneHandler, signInWithEmailHandler } = props;
+
   return (
-    <SafeAreaView>
-      <VStack style={styles.container}>
-        <EmailSignInForm />
-        <HStack style={styles.orBox}>
-          {/* TODO replace "Or" with i18n call */}
-          <Text>Or</Text>
-        </HStack>
+    <SafeAreaKeyboardAwareView>
+      <VStack style={styles.wrapper}>
+        <Header />
+        <PhoneSignInForm signInWithPhoneHandler={signInWithPhoneHandler} />
+        <Or />
         <SignInProvidersButtons />
+        <Or />
+        {/* TODO replace with i18n call */}
+        <Button
+          variant="outline"
+          action="secondary"
+          onPress={signInWithEmailHandler}
+        >
+          Login with email
+        </Button>
       </VStack>
-    </SafeAreaView>
+      <Footer />
+    </SafeAreaKeyboardAwareView>
   );
 };
 
-export const styles = StyleSheet.create({
-  container: {
+const styles = StyleSheet.create({
+  wrapper: {
     flex: 1,
-    justifyContent: 'center',
-    gap: 16,
-  },
-  orBox: {
-    paddingVertical: 32,
     justifyContent: 'center',
   },
 });

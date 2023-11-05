@@ -13,7 +13,7 @@ const DEFAULT_PHONE_MASK = '999 999 9999';
 export const PhoneInput = <Type extends FieldValues>(
   props: PhoneInputProps<Type>,
 ): ReactElement => {
-  const { control, phoneFieldName, placeholder, isDisabled } = props;
+  const { isDisabled, phoneFieldName, ...restProps } = props;
 
   const { isLoading, selectCountryProps } = useSelectCountry(props);
 
@@ -26,12 +26,12 @@ export const PhoneInput = <Type extends FieldValues>(
   return (
     <Input
       keyboardType="phone-pad"
-      control={control}
-      name={phoneFieldName}
-      placeholder={placeholder}
       isDisabled={isDisabled || isLoading}
       mask={DEFAULT_PHONE_MASK}
+      name={phoneFieldName}
       leftSlot={leftSlotContent}
+      isHelperDisabled
+      {...restProps}
     />
   );
 };

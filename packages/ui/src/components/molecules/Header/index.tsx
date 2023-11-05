@@ -9,9 +9,9 @@ import { JsxElement } from '$types';
 
 interface Props {
   goBackIcon: BaseIcon;
-  title: string;
   goBack?: () => void;
   rightComponent?: JsxElement;
+  title?: string;
 }
 
 export const Header: FC<Props> = (props) => {
@@ -25,7 +25,7 @@ export const Header: FC<Props> = (props) => {
         <HStack style={{ ...styles.left, ...styles.sides }}>
           <IconButton icon={goBackIcon} size="md" onPress={goBack} />
         </HStack>
-        <Heading variant="H5">{title}</Heading>
+        {title ? <Heading variant="H5">{title}</Heading> : null}
         <HStack style={{ ...styles.right, ...styles.sides }}>
           {rightComponent}
         </HStack>

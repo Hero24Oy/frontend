@@ -1,4 +1,4 @@
-import { Link } from 'expo-router';
+import { Link, Redirect } from 'expo-router';
 import { FC } from 'react';
 
 import { useFirebaseUser } from '@hero24/common';
@@ -10,11 +10,7 @@ const Home: FC = () => {
   return (
     <SafeAreaView>
       <View>
-        {!user && (
-          <Link href="/sign-in" asChild>
-            <Button>Sign in</Button>
-          </Link>
-        )}
+        {!user && <Redirect href="/sign-in" />}
 
         {user && (
           <Link href="/profile" asChild>

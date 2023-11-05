@@ -1,4 +1,5 @@
 words:
-  - 'netvisor'
-  - 'iban'
-  - 'oauthredirect'
+  - iban
+  - libphonenumber
+  - netvisor
+  - oauthredirect

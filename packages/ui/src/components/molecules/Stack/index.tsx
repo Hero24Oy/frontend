@@ -16,10 +16,6 @@ export const Stack: FC<Props> = (props) => {
     (headerProps: NativeStackHeaderProps) => {
       const { navigation } = headerProps;
 
-      if (!title) {
-        return null;
-      }
-
       return (
         <Header
           goBack={navigation.goBack}

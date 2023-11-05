@@ -4077,8 +4077,10 @@ __metadata:
     "@react-native-async-storage/async-storage": 1.18.2
     "@react-navigation/bottom-tabs": 6.5.11
     "@react-navigation/native": 6.1.9
+    "@react-navigation/native-stack": "*"
     expo: 49.0.15
     expo-apple-authentication: 6.1.2
+    expo-asset: 8.10.1
     expo-auth-session: 5.0.2
     expo-constants: 14.4.2
     expo-crypto: 12.4.1
@@ -4090,6 +4092,7 @@ __metadata:
     firebase: 9.23.0
     graphql: 16.8.1
     graphql-ws: 5.14.0
+    libphonenumber-js: 1.10.49
     lucide-react-native: 0.288.0
     react: 18.2.0
     react-combine-providers: 0.9.6
@@ -4149,7 +4152,6 @@ __metadata:
     "@gluestack-ui/config": "npm:1.0.1"
     "@gluestack-ui/themed": "npm:1.0.8"
     "@hero24/configs": "npm:*"
-    "@react-navigation/native-stack": "npm:^6.9.16"
     "@types/fs-extra": "npm:^11.0.2"
     "@types/node": "npm:^20.8.10"
     "@typescript-eslint/eslint-plugin": "npm:^6.6.0"
@@ -4167,7 +4169,6 @@ __metadata:
     eslint-plugin-react-native: "npm:^4.0.0"
     eslint-plugin-simple-import-sort: "npm:^10.0.0"
     eslint-plugin-typescript-sort-keys: "npm:^3.0.0"
-    expo-router: "npm:^2.0.10"
     fs-extra: "npm:^11.1.1"
     lodash: "npm:^4.17.21"
     npm-watch: "npm:^0.11.0"
@@ -4179,8 +4180,10 @@ __metadata:
     utility-types: "npm:^3.10.0"
   peerDependencies:
     "@legendapp/motion": 2.2.1
+    "@react-navigation/native-stack": 6.9.17
     expo: 49.0.15
     expo-image: 1.3.4
+    expo-router: 2.0.10
     lucide-react-native: 0.288.0
     react: 18.2.0
     react-combine-providers: 0.9.6
@@ -5370,7 +5373,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/native-stack@npm:^6.9.16, @react-navigation/native-stack@npm:~6.9.12":
+"@react-navigation/native-stack@npm:6.9.17, @react-navigation/native-stack@npm:^6.9.17":
+  version: 6.9.17
+  resolution: "@react-navigation/native-stack@npm:6.9.17"
+  dependencies:
+    "@react-navigation/elements": "npm:^1.3.21"
+    warn-once: "npm:^0.1.0"
+  peerDependencies:
+    "@react-navigation/native": ^6.0.0
+    react: "*"
+    react-native: "*"
+    react-native-safe-area-context: ">= 3.0.0"
+    react-native-screens: ">= 3.0.0"
+  checksum: a788e854464e176e824252da7ff55c5ccbee95b3f261e9da67d45e08e341ab48f7b9f1f3effb607f78f4b9c3f742df01ef46fbddfb06619ca3bc9edf51cfffd0
+  languageName: node
+  linkType: hard
+
+"@react-navigation/native-stack@npm:~6.9.12":
   version: 6.9.16
   resolution: "@react-navigation/native-stack@npm:6.9.16"
   dependencies:
@@ -8340,6 +8359,7 @@ __metadata:
     "@react-native-async-storage/async-storage": "npm:1.18.2"
     "@react-navigation/bottom-tabs": "npm:6.5.11"
     "@react-navigation/native": "npm:6.1.9"
+    "@react-navigation/native-stack": "npm:^6.9.17"
     "@types/fs-extra": "npm:^11.0.2"
     "@types/i18n-js": "npm:^3.8.5"
     "@types/lodash": "npm:^4.14.195"
@@ -8364,6 +8384,7 @@ __metadata:
     expo: "npm:49.0.15"
     expo-apple-authentication: "npm:6.1.2"
     expo-application: "npm:~5.3.0"
+    expo-asset: "npm:8.10.1"
     expo-auth-session: "npm:~5.0.2"
     expo-constants: "npm:~14.4.2"
     expo-crypto: "npm:12.4.1"
@@ -8374,7 +8395,7 @@ __metadata:
     expo-image-picker: "npm:14.3.2"
     expo-linking: "npm:~5.0.2"
     expo-notifications: "npm:~0.20.1"
-    expo-router: "npm:2.0.10"
+    expo-router: "npm:^2.0.10"
     expo-splash-screen: "npm:~0.20.5"
     expo-status-bar: "npm:~1.6.0"
     expo-system-ui: "npm:~2.4.0"
@@ -8386,6 +8407,7 @@ __metadata:
     graphql-ws: "npm:5.14.0"
     hero24-types: "npm:^0.2.2"
     i18next: "npm:^23.5.1"
+    libphonenumber-js: "npm:1.10.49"
     lodash: "npm:^4.17.21"
     lucide-react-native: "npm:0.288.0"
     prettier: "npm:^3.0.3"
@@ -9603,7 +9625,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-asset@npm:~8.10.1":
+"expo-asset@npm:8.10.1, expo-asset@npm:~8.10.1":
   version: 8.10.1
   resolution: "expo-asset@npm:8.10.1"
   dependencies:
@@ -10947,6 +10969,7 @@ __metadata:
     "@react-native-async-storage/async-storage": "npm:1.18.2"
     "@react-navigation/bottom-tabs": "npm:6.5.11"
     "@react-navigation/native": "npm:6.1.9"
+    "@react-navigation/native-stack": "npm:6.9.17"
     "@types/fs-extra": "npm:^11.0.2"
     "@types/i18n-js": "npm:^3.8.5"
     "@types/lodash": "npm:^4.14.195"
@@ -10971,6 +10994,7 @@ __metadata:
     expo: "npm:49.0.15"
     expo-apple-authentication: "npm:6.1.2"
     expo-application: "npm:~5.3.0"
+    expo-asset: "npm:8.10.1"
     expo-auth-session: "npm:~5.0.2"
     expo-constants: "npm:~14.4.2"
     expo-crypto: "npm:12.4.1"
@@ -10993,6 +11017,7 @@ __metadata:
     graphql-ws: "npm:5.14.0"
     hero24-types: "npm:^0.2.2"
     i18next: "npm:^23.5.1"
+    libphonenumber-js: "npm:1.10.49"
     lodash: "npm:^4.17.21"
     lucide-react-native: "npm:0.288.0"
     prettier: "npm:^3.0.3"
@@ -12294,6 +12319,13 @@ __metadata:
     prelude-ls: "npm:^1.2.1"
     type-check: "npm:~0.4.0"
   checksum: effb03cad7c89dfa5bd4f6989364bfc79994c2042ec5966cb9b95990e2edee5cd8969ddf42616a0373ac49fac1403437deaf6e9050fbbaa3546093a59b9ac94e
+  languageName: node
+  linkType: hard
+
+"libphonenumber-js@npm:1.10.49":
+  version: 1.10.49
+  resolution: "libphonenumber-js@npm:1.10.49"
+  checksum: 0d9d854f326a77cc75dc027161477771bca4d99d9bf59ed241ec099cbf71982b2db3c6f9dffe22550510678dc9f1b097a868ee57a757ae5113449374f37df115
   languageName: node
   linkType: hard
 
