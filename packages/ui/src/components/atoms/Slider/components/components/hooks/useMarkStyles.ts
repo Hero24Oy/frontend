@@ -1,6 +1,6 @@
 import { StyleSheet, ViewStyle } from 'react-native';
 
-import { SliderMarkArrangement } from '../../../types';
+import { SliderMarkArrangement } from '$components/atoms/Slider/types';
 
 export const useMarkStyles = (
   width: number,
