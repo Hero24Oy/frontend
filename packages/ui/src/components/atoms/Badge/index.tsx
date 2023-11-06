@@ -1,21 +1,27 @@
 import { FC, PropsWithChildren, useMemo } from 'react';
 
 import { BadgeContent } from './components';
-import { BadgeAction, BadgeSize, BadgeVariant, IconPosition } from './enums';
+import { BadgeAction, BadgeSize, BadgeVariant, IconPosition } from './types';
 
 import { StyledOutlinedBadge, StyledSolidBadge } from '$components/styled';
 import { BaseIcon } from '$icons/base';
 
 type Props = PropsWithChildren<{
   icon: BaseIcon;
-  iconPosition: `${IconPosition}`;
   variant: `${BadgeVariant}`;
   action?: `${BadgeAction}`;
+  iconPosition?: `${IconPosition}`;
   size?: `${BadgeSize}`;
 }>;
 
 export const Badge: FC<Props> = (props) => {
-  const { icon, iconPosition, children, variant, ...restProps } = props;
+  const {
+    icon,
+    iconPosition = IconPosition.RIGHT,
+    children,
+    variant,
+    ...restProps
+  } = props;
 
   const content = useMemo(() => {
     return (
@@ -32,4 +38,4 @@ export const Badge: FC<Props> = (props) => {
   return <StyledOutlinedBadge {...restProps}>{content}</StyledOutlinedBadge>;
 };
 
-export * from './enums';
+export * from './types';

@@ -1,3 +1,5 @@
+import { ViewProps, ViewStyle } from 'react-native';
+
 import { BadgeIconSize, BadgeSize } from '$components';
 import {
   ComponentTheme,
@@ -5,7 +7,13 @@ import {
   FontSize,
   FontWeight,
   LineHeight,
+  Size,
+  SxValues,
 } from '$theme';
+
+export type BaseBadgeVariants = {
+  size: Record<BadgeSize, SxValues<ViewStyle>>;
+};
 
 export const BaseBadge = {
   theme: {
@@ -19,7 +27,7 @@ export const BaseBadge = {
     gap: 4,
     variants: {
       size: {
-        [BadgeSize.SM]: {
+        [Size.SM]: {
           [DescendantStyleName.ICON]: {
             props: {
               size: BadgeIconSize.XXS,
@@ -31,7 +39,7 @@ export const BaseBadge = {
             fontWeight: FontWeight.REGULAR,
           },
         },
-        [BadgeSize.MD]: {
+        [Size.MD]: {
           [DescendantStyleName.ICON]: {
             props: {
               size: BadgeIconSize.XS,
@@ -46,12 +54,10 @@ export const BaseBadge = {
       },
     },
     defaultProps: {
-      size: BadgeSize.MD,
+      size: Size.MD,
     },
   },
   componentConfig: {
     descendantStyle: [DescendantStyleName.ICON, DescendantStyleName.TEXT],
   },
-} satisfies ComponentTheme<{
-  size: BadgeSize;
-}>;
+} satisfies ComponentTheme<ViewProps, BaseBadgeVariants>;

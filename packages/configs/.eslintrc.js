@@ -1,4 +1,6 @@
-const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = ['heroBIOText', 'Icon'];
+const SIZES = ['XXL', 'XL', 'LG', 'MD', 'SM', 'XS', 'XXS'];
+
+const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = ['heroBIOText', 'Icon', ...SIZES];
 const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*VAT.*',
   '.*URL.*',

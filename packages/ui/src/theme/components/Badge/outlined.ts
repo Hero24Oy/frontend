@@ -1,7 +1,13 @@
+import { ViewProps, ViewStyle } from 'react-native';
+
 import { BaseBadge } from './base';
 
 import { BadgeAction } from '$components';
-import { Color, ComponentTheme, DescendantStyleName } from '$theme';
+import { Color, ComponentTheme, DescendantStyleName, SxValues } from '$theme';
+
+export type OutlinedBadgeVariants = {
+  action: Record<BadgeAction, SxValues<ViewStyle>>;
+};
 
 export const OutlinedBadge = {
   ...BaseBadge,
@@ -68,6 +74,4 @@ export const OutlinedBadge = {
       action: BadgeAction.INFO,
     },
   },
-} satisfies ComponentTheme<{
-  action: BadgeAction;
-}>;
+} satisfies ComponentTheme<ViewProps, OutlinedBadgeVariants>;

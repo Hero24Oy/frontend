@@ -4,7 +4,7 @@ import {
 } from '@gluestack-ui/themed';
 import { FC, PropsWithChildren } from 'react';
 
-import { IconPosition } from '../enums';
+import { IconPosition } from '../types';
 
 import { BaseIcon } from '$icons/base';
 

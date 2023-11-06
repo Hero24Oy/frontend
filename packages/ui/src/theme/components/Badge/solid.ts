@@ -1,7 +1,13 @@
+import { ViewProps, ViewStyle } from 'react-native';
+
 import { BaseBadge } from './base';
 
 import { BadgeAction } from '$components';
-import { Color, ComponentTheme, DescendantStyleName } from '$theme';
+import { Color, ComponentTheme, DescendantStyleName, SxValues } from '$theme';
+
+export type SolidBadgeVariants = {
+  action: Record<BadgeAction, SxValues<ViewStyle>>;
+};
 
 export const SolidBadge = {
   ...BaseBadge,
@@ -47,6 +53,4 @@ export const SolidBadge = {
   componentConfig: {
     descendantStyle: [DescendantStyleName.ICON, DescendantStyleName.TEXT],
   },
-} satisfies ComponentTheme<{
-  action: BadgeAction;
-}>;
+} satisfies ComponentTheme<ViewProps, SolidBadgeVariants>;
