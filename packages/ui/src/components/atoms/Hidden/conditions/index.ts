@@ -1,15 +1,15 @@
 import { HiddenProps } from '../types';
 
-import { isProperPlatform } from './isProperPlatform';
+import { hasProperPlatform } from './hasProperPlatform';
 
 type IsConditionsSatisfiedArgs = Omit<HiddenProps, 'children'>;
 
-export const isConditionsSatisfied = (
+export const areConditionsSatisfied = (
   args: IsConditionsSatisfiedArgs,
 ): boolean => {
   const { platforms } = args;
 
-  const conditions = [isProperPlatform(platforms)] satisfies boolean[];
+  const conditions = [hasProperPlatform(platforms)] satisfies boolean[];
 
   return conditions.every((condition) => condition);
 };

@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
-import { isConditionsSatisfied } from './conditions';
+import { areConditionsSatisfied } from './conditions';
 import { HiddenProps } from './types';
 
 export const Hidden: FC<HiddenProps> = (props) => {
   const { children, ...restProps } = props;
 
-  if (!isConditionsSatisfied(restProps)) {
+  if (!areConditionsSatisfied(restProps)) {
     return null;
   }
 
