@@ -15,6 +15,7 @@ export const AppleSignInButton: FC = () => {
     <Button
       variant="outline"
       action="secondary"
+      size="lg"
       onPress={signInWithApple}
       icon={AppleIcon}
     >
