@@ -2,6 +2,7 @@ import Svg, { Path } from 'react-native-svg';
 
 import { BaseIcon } from '$icons/base';
 
+// TODO implement via createIcon() if SVG components will be used more often.
 export const AppleIcon: BaseIcon = (props) => {
   const { size, ...restProps } = props;
 
