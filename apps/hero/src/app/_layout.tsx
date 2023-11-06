@@ -4,11 +4,11 @@ import * as WebBrowser from 'expo-web-browser';
 import { FC, useEffect } from 'react';
 import { combineProviders } from 'react-combine-providers';
 
-import { initializeEnvConfig, initializeFirebaseAuth } from '@hero24/common';
+import { initializeAuthConfig, initializeFirebaseAuth } from '@hero24/common';
 import { attachUiProviders } from '@hero24/ui';
 
 import 'expo-dev-client';
-import { envVariables } from '$configs';
+import { authConfig } from '$configs';
 import { apolloClient, auth, useInitializeApp } from '$core';
 
 WebBrowser.maybeCompleteAuthSession();
@@ -17,7 +17,7 @@ const manager = combineProviders();
 
 attachUiProviders(manager);
 initializeFirebaseAuth(auth);
-initializeEnvConfig(envVariables);
+initializeAuthConfig(authConfig);
 
 manager.push(ApolloProvider, {
   children: null,

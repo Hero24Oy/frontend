@@ -1,21 +1,21 @@
 import { create } from 'zustand';
 
-import { EnvConfig, EnvConfigState } from './types';
+import { AuthConfig, EnvConfigState } from './types';
 
-const useEnvConfigStore = create<EnvConfigState>((set) => ({
-  envConfig: null,
-  setEnvConfig: (envConfig: EnvConfig): void => set({ envConfig }),
+const useAuthConfigStore = create<EnvConfigState>((set) => ({
+  authConfig: null,
+  setAuthConfig: (authConfig: AuthConfig): void => set({ authConfig }),
 }));
 
-export const initializeEnvConfig = (config: EnvConfig): void =>
-  useEnvConfigStore.getState().setEnvConfig(config);
+export const initializeAuthConfig = (config: AuthConfig): void =>
+  useAuthConfigStore.getState().setAuthConfig(config);
 
-export const useEnvConfig = (): EnvConfig => {
-  const { envConfig } = useEnvConfigStore();
+export const useAuthConfig = (): AuthConfig => {
+  const { authConfig } = useAuthConfigStore();
 
-  if (!envConfig) {
-    throw new Error('Env config is not initialized');
+  if (!authConfig) {
+    throw new Error('Auth config is not initialized');
   }
 
-  return envConfig;
+  return authConfig;
 };

@@ -4,17 +4,17 @@ import { Button, GoogleIcon } from '@hero24/ui';
 
 import { useAuthentication, useGoogleAuth } from '../../hooks';
 
-import { useEnvConfig } from '$common/core';
+import { useAuthConfig } from '$common/core';
 
 export const GoogleSignInButton: FC = () => {
   const { signInWithCredentials } = useAuthentication();
 
-  const { ANDROID_CLIENT_ID, IOS_CLIENT_ID, WEB_CLIENT_ID } = useEnvConfig();
+  const { androidClientId, iosClientId, webClientId } = useAuthConfig();
 
   const { signInWithGoogle } = useGoogleAuth({
-    webClientId: WEB_CLIENT_ID,
-    iosClientId: IOS_CLIENT_ID,
-    androidClientId: ANDROID_CLIENT_ID,
+    webClientId,
+    iosClientId,
+    androidClientId,
     onAuthSucceed: signInWithCredentials,
   });
 

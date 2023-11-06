@@ -7,5 +7,4 @@ export * from './Check';
 export * from './Message';
 export * from './User';
 export * from './Base';
-export * from './Apple';
 export * from './Google';
