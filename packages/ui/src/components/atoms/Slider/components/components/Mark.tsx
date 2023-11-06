@@ -1,9 +1,8 @@
 import { Text } from '@gluestack-ui/themed';
-import { FC, useCallback } from 'react';
+import { FC } from 'react';
+import { StyleSheet, ViewStyle } from 'react-native';
 
 import { SliderMarkArrangement } from '../../types';
-
-import { useMarkStyles } from './hooks';
 
 type Props = {
   children: string;
@@ -15,24 +14,38 @@ type Props = {
 export const Mark: FC<Props> = (props) => {
   const { children, currentIndex, markWidth, maxIndex } = props;
 
-  const outerMarksStyles = useMarkStyles(markWidth);
+  const styles = useStyles(markWidth, currentIndex, maxIndex);
 
-  const getMarkStyleByArrangement = useCallback(
-    (index: number) => {
-      if (index === 0) {
-        return outerMarksStyles[SliderMarkArrangement.FIRST];
-      }
+  return <Text style={styles}>{children}</Text>;
+};
 
-      if (index === maxIndex) {
-        return outerMarksStyles[SliderMarkArrangement.LAST];
-      }
-
-      return outerMarksStyles[SliderMarkArrangement.INNER];
+export const useStyles = (
+  width: number,
+  markIndex: number,
+  maxIndex: number,
+): ViewStyle => {
+  const styles = StyleSheet.create({
+    [SliderMarkArrangement.FIRST]: {
+      flex: 1,
+      textAlign: 'left',
     },
-    [maxIndex, markWidth],
-  );
+    [SliderMarkArrangement.LAST]: {
+      flex: 1,
+      textAlign: 'right',
+    },
+    [SliderMarkArrangement.INNER]: {
+      width,
+      textAlign: 'center',
+    },
+  });
 
-  return (
-    <Text style={getMarkStyleByArrangement(currentIndex)}>{children}</Text>
-  );
+  if (markIndex === 0) {
+    return styles[SliderMarkArrangement.FIRST];
+  }
+
+  if (markIndex === maxIndex) {
+    return styles[SliderMarkArrangement.LAST];
+  }
+
+  return styles[SliderMarkArrangement.INNER];
 };

@@ -1,5 +1,5 @@
 import { VStack } from '@gluestack-ui/themed';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { FieldValues } from 'react-hook-form';
 import { LayoutChangeEvent } from 'react-native';
 
@@ -21,12 +21,9 @@ export const Slider = <Type extends FieldValues>(
 
   const [width, setWidth] = useState(0);
 
-  const onLayout = useCallback(
-    (event: LayoutChangeEvent): void => {
-      setWidth(event.nativeEvent.layout.width);
-    },
-    [setWidth],
-  );
+  const onLayout = (event: LayoutChangeEvent): void => {
+    setWidth(event.nativeEvent.layout.width);
+  };
 
   return (
     <VStack onLayout={onLayout}>
