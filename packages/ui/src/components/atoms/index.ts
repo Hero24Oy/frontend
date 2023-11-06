@@ -17,3 +17,4 @@ export * from './Textarea';
 export * from './RadioIndicator';
 export * from './Pressable';
 export * from './KeyboardAwareScrollView';
+export * from './Hidden';
