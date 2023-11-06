@@ -1,7 +1,7 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useCallback } from 'react';
 
-import { useFirebaseAuth } from '../providers';
+import { useFirebaseAuth } from '../context';
 
 import { EmailPasswordParams } from './types';
 
