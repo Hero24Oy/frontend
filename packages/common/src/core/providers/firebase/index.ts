@@ -1,10 +1,7 @@
 import { Auth } from 'firebase/auth';
 import { create } from 'zustand';
 
-type FirebaseAuthState = {
-  firebaseAuth: Auth | null;
-  setFirebaseAuth: (firebaseAuth: Auth) => void;
-};
+import { FirebaseAuthState } from './types';
 
 const useFirebaseAuthStore = create<FirebaseAuthState>((set) => ({
   firebaseAuth: null,
