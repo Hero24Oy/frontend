@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 import { useFirebaseUser } from '@hero24/common';
 
-const Home: FC = () => {
+const Index: FC = () => {
   const { user } = useFirebaseUser();
 
   if (!user) {
@@ -13,4 +13,4 @@ const Home: FC = () => {
   return <Redirect href="/home" />;
 };
 
-export default Home;
+export default Index;
