@@ -3,8 +3,6 @@ export * from './Alert';
 export * from './Radio';
 export * from './Image';
 export * from './Heading';
-export * from './BadgeIcon';
-export * from './BadgeText';
 export * from './Badge';
 export * from './Text';
 export * from './Menu';

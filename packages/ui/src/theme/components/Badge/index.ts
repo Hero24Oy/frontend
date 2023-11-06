@@ -8,3 +8,5 @@ export const Badge = {
 
 export * from './OutlinedBadge';
 export * from './SolidBadge';
+export * from './BadgeText';
+export * from './BadgeIcon';
