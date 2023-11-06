@@ -1,3 +1,4 @@
+import { merge } from 'lodash';
 import { ViewProps, ViewStyle } from 'react-native';
 
 import { BaseBadge } from './base';
@@ -9,13 +10,10 @@ export type OutlinedBadgeVariants = {
   action: Record<BadgeAction, SxValues<ViewStyle>>;
 };
 
-export const OutlinedBadge = {
-  ...BaseBadge,
+const OutlinedBadgeOverride = {
   theme: {
-    ...BaseBadge.theme,
     borderWidth: 1,
     variants: {
-      ...BaseBadge.theme.variants,
       action: {
         [BadgeAction.ERROR]: {
           backgroundColor: Color.RED_04,
@@ -70,8 +68,9 @@ export const OutlinedBadge = {
       },
     },
     defaultProps: {
-      ...BaseBadge.theme.defaultProps,
       action: BadgeAction.INFO,
     },
   },
 } satisfies ComponentTheme<ViewProps, OutlinedBadgeVariants>;
+
+export const OutlinedBadge = merge(BaseBadge, OutlinedBadgeOverride);

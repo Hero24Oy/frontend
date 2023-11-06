@@ -1,3 +1,4 @@
+import { merge } from 'lodash';
 import { ViewProps, ViewStyle } from 'react-native';
 
 import { BaseBadge } from './base';
@@ -9,7 +10,7 @@ export type SolidBadgeVariants = {
   action: Record<BadgeAction, SxValues<ViewStyle>>;
 };
 
-export const SolidBadge = {
+export const SolidBadgeOverride = {
   ...BaseBadge,
   theme: {
     ...BaseBadge.theme,
@@ -54,3 +55,5 @@ export const SolidBadge = {
     descendantStyle: [DescendantStyleName.ICON, DescendantStyleName.TEXT],
   },
 } satisfies ComponentTheme<ViewProps, SolidBadgeVariants>;
+
+export const SolidBadge = merge(BaseBadge, SolidBadgeOverride);

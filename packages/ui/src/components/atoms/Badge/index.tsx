@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren, useMemo } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
 import { BadgeContent } from './components';
 import { BadgeAction, BadgeSize, BadgeVariant, IconPosition } from './types';
@@ -23,13 +23,11 @@ export const Badge: FC<Props> = (props) => {
     ...restProps
   } = props;
 
-  const content = useMemo(() => {
-    return (
-      <BadgeContent icon={icon} iconPosition={iconPosition}>
-        {children}
-      </BadgeContent>
-    );
-  }, [icon, iconPosition, children]);
+  const content = (
+    <BadgeContent icon={icon} iconPosition={iconPosition}>
+      {children}
+    </BadgeContent>
+  );
 
   if (variant === BadgeVariant.SOLID) {
     return <StyledSolidBadge {...restProps}>{content}</StyledSolidBadge>;
