@@ -1,6 +1,6 @@
 import { Platform } from 'react-native';
 
-import { HiddenProps } from '../types';
+import { HiddenProps } from '$atoms';
 
 type Platforms = HiddenProps['platforms'];
 
