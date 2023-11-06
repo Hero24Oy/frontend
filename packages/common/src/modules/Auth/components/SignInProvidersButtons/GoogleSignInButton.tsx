@@ -1,10 +1,7 @@
 import { FC } from 'react';
+import { StyleSheet } from 'react-native';
 
-import {
-  // AppleIcon,
-  Button,
-  View,
-} from '@hero24/ui';
+import { Button } from '@hero24/ui';
 
 import { useAuthentication, useGoogleAuth } from '../../hooks';
 
@@ -15,7 +12,6 @@ export const GoogleSignInButton: FC = () => {
 
   const { ANDROID_CLIENT_ID, IOS_CLIENT_ID, WEB_CLIENT_ID } = useEnvConfig();
 
-  // TODO testing credentials, remove before PR
   const { signInWithGoogle } = useGoogleAuth({
     webClientId: WEB_CLIENT_ID,
     iosClientId: IOS_CLIENT_ID,
@@ -25,13 +21,20 @@ export const GoogleSignInButton: FC = () => {
 
   // TODO use i18next
   return (
-    <View>
-      <Button variant="outline" size="md" onPress={signInWithGoogle}>
-        Continue with Google
-      </Button>
-      {/* <AppleIcon /> */}
-    </View>
+    <Button
+      style={styles.button}
+      variant="outline"
+      size="md"
+      onPress={signInWithGoogle}
+    >
+      Continue with Google
+    </Button>
   );
 };
 
+const styles = StyleSheet.create({
+  button: {
+    height: 44,
+  },
+});
 // TODO apple icon fix svg

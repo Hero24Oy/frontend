@@ -9,6 +9,8 @@ export type CommonStyles = Pick<
   | 'marginLeft'
   | 'marginHorizontal'
   | 'marginVertical'
+  | 'height'
+  | 'width'
 >;
 
 export type LayoutStyles = CommonStyles &
