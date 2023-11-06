@@ -1,7 +1,8 @@
-import { ViewStyle } from 'react-native';
+import { ViewProps, ViewStyle } from 'react-native';
 
-import { ComponentTheme } from '../types';
+import { ComponentTheme, SxValues } from '../types';
 
+import { TextAreaSize } from '$components';
 import { DescendantStyleName, Size } from '$theme';
 import {
   Color,
@@ -10,6 +11,10 @@ import {
   FontWeight,
   LineHeight,
 } from '$theme/constants';
+
+export type TextareaThemeVariants = {
+  size: Record<TextAreaSize, SxValues<ViewStyle>>;
+};
 
 export const Textarea = {
   theme: {
@@ -24,7 +29,7 @@ export const Textarea = {
     borderWidth: 1,
     borderRadius: 6,
     gap: 33,
-    _text: {
+    [DescendantStyleName.TEXT]: {
       textAlign: 'left',
       color: Color.GREY_02,
       fontFamily: Font.MAIN,
@@ -34,25 +39,25 @@ export const Textarea = {
     },
     ':focus': {
       borderColor: Color.DARK_00,
-      _text: {
+      [DescendantStyleName.TEXT]: {
         color: Color.DARK_00,
       },
     },
     ':hover': {
-      _text: {
+      [DescendantStyleName.TEXT]: {
         color: Color.DARK_00,
       },
     },
     ':disabled': {
       backgroundColor: Color.GREY_LIGHT_03,
       borderColor: Color.GREY_LIGHT_01,
-      _text: {
+      [DescendantStyleName.TEXT]: {
         color: Color.GREY_01,
       },
     },
     ':invalid': {
       borderColor: Color.RED_00,
-      _text: {
+      [DescendantStyleName.TEXT]: {
         color: Color.DARK_00,
       },
     },
@@ -60,21 +65,21 @@ export const Textarea = {
       size: {
         [Size.SM]: {
           width: 208,
-          _input: {
+          [DescendantStyleName.INPUT]: {
             fontSize: FontSize.SM,
             lineHeight: LineHeight.SM,
           },
         },
         [Size.MD]: {
           width: 228,
-          _input: {
+          [DescendantStyleName.INPUT]: {
             fontSize: FontSize.MD,
             lineHeight: LineHeight.MD,
           },
         },
         [Size.LG]: {
           width: 263,
-          _input: {
+          [DescendantStyleName.INPUT]: {
             fontSize: FontSize.LG,
             lineHeight: LineHeight.LG,
           },
@@ -83,5 +88,7 @@ export const Textarea = {
     },
   },
 
-  componentConfig: { descendantStyle: [DescendantStyleName.TEXT] },
-} satisfies ComponentTheme<ViewStyle>;
+  componentConfig: {
+    descendantStyle: [DescendantStyleName.TEXT, DescendantStyleName.INPUT],
+  },
+} satisfies ComponentTheme<ViewProps, TextareaThemeVariants>;

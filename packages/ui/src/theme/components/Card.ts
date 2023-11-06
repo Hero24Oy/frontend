@@ -1,3 +1,5 @@
+import { ViewProps } from 'react-native';
+
 import { Color } from '../constants';
 
 import { DescendantStyleName } from '$theme/enums';
@@ -12,9 +14,9 @@ export const Card = {
     borderRadius: 10,
     backgroundColor: Color.GREY_LIGHT_02,
     overflow: 'hidden',
-    _text: {
+    [DescendantStyleName.TEXT]: {
       color: Color.DARK_00,
     },
   },
   componentConfig: { descendantStyle: [DescendantStyleName.TEXT] },
-} satisfies ComponentTheme;
+} satisfies ComponentTheme<ViewProps>;

@@ -21,11 +21,13 @@ type PickedPropsFromTextareaInput = Pick<
   'placeholder'
 >;
 
+export type TextAreaSize = Extract<Size, 'sm' | 'md' | 'lg'>;
+
 type Props<Type extends FieldValues> = PropsWithChildren<
   {
     control: Control<Type>;
     name: Path<Type>;
-    size?: `${Size}`;
+    size?: TextAreaSize;
     style?: CommonStyles;
   } & PickedPropsFromTextarea &
     PickedPropsFromTextareaInput

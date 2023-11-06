@@ -5,7 +5,7 @@ import { InputSize } from '../types';
 import { StyledInputTitle } from '$styled';
 
 type Props = {
-  size?: `${InputSize}`;
+  size?: InputSize;
   value?: string;
 };
 
