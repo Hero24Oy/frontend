@@ -5,3 +5,4 @@ export * from './graphql';
 export * from './validation';
 export * from './routes';
 export * from './components';
+export * from './store';

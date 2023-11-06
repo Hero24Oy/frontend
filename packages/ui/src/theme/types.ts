@@ -6,10 +6,10 @@ import { AncestorStyleName, DescendantStyleName } from '$theme/enums';
 
 export type SxValues<StyleType = ViewStyle> = SxProps<StyleProp<StyleType>>;
 
-type ThemeConfigs = {
-  ancestorStyle?: Array<`${AncestorStyleName}`>;
+type ComponentConfig = {
+  ancestorStyle?: `${AncestorStyleName}`[];
   componentName?: string;
-  descendantStyle?: Array<`${DescendantStyleName}`>;
+  descendantStyle?: `${DescendantStyleName}`[];
 };
 
 export type ComponentTheme<
@@ -17,5 +17,5 @@ export type ComponentTheme<
   Variants extends Record<string, Record<string, SxValues>> | null = null,
 > = {
   theme: ITheme<Variants, ComponentProps>;
-  componentConfig?: ThemeConfigs;
+  componentConfig?: ComponentConfig;
 };

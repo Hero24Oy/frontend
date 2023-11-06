@@ -1,19 +1,25 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Button, VStack } from '@hero24/ui';
+import { Button, Hidden, VStack } from '@hero24/ui';
 
+import { AppleSignInButton } from './AppleSignInButton';
 import { GoogleSignInButton } from './GoogleSignInButton';
 
 export const SignInProvidersButtons: FC = () => {
   return (
     <VStack style={styles.container}>
       {/* TODO replace buttons labels with i18n call */}
-      <Button variant="outline" isDisabled>
-        Continue with Apple
-      </Button>
+      <Hidden platforms={['web', 'android']}>
+        <AppleSignInButton />
+      </Hidden>
+
       <GoogleSignInButton />
       <Button variant="outline" size="md" isDisabled>
+        Continue with Google
+      </Button>
+
+      <Button variant="outline" isDisabled>
         Continue with Facebook
       </Button>
     </VStack>
