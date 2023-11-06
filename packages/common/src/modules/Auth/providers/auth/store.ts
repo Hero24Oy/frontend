@@ -1,8 +1,12 @@
-import { create } from 'zustand';
+import { useAuthStore } from './provider';
+import { AuthConfig } from './types';
 
-import { AuthConfig, AuthStore } from './types';
+export const useAuthConfig = (): AuthConfig => {
+  const { authConfig } = useAuthStore();
 
-export const useAuthStore = create<AuthStore>((set) => ({
-  authConfig: null,
-  setAuthConfig: (authConfig: AuthConfig): void => set({ authConfig }),
-}));
+  if (!authConfig) {
+    throw new Error('Auth config is not initialized');
+  }
+
+  return authConfig;
+};

@@ -1,6 +1,9 @@
 import { Auth } from 'firebase/auth';
+import { create } from 'zustand';
 
-import { useFirebaseAuthStore } from './store';
+import { FirebaseAuthStore } from './types';
 
-export const initializeFirebaseStore = (auth: Auth): void =>
-  useFirebaseAuthStore.getState().setFirebaseAuth(auth);
+export const useFirebaseAuthStore = create<FirebaseAuthStore>((set) => ({
+  firebaseAuth: null,
+  setFirebaseAuth: (firebaseAuth: Auth): void => set({ firebaseAuth }),
+}));

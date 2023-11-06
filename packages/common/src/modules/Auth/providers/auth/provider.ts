@@ -1,5 +1,8 @@
-import { useAuthStore } from './store';
-import { AuthConfig } from './types';
+import { create } from 'zustand';
 
-export const initializeAuthStore = (config: AuthConfig): void =>
-  useAuthStore.getState().setAuthConfig(config);
+import { AuthConfig, AuthStore } from './types';
+
+export const useAuthStore = create<AuthStore>((set) => ({
+  authConfig: null,
+  setAuthConfig: (authConfig: AuthConfig): void => set({ authConfig }),
+}));
