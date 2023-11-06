@@ -4,18 +4,14 @@ import { Control, FieldValues, Path } from 'react-hook-form';
 
 import { Size } from '$theme';
 
-type PickedProps =
-  | 'orientation'
-  | 'maxValue'
-  | 'minValue'
-  | 'step'
-  | 'isDisabled';
-
-type CommonProps = Pick<ComponentProps<typeof Slider>, PickedProps>;
+type BaseSliderProps = Pick<
+  ComponentProps<typeof Slider>,
+  'orientation' | 'maxValue' | 'minValue' | 'step' | 'isDisabled'
+>;
 
 export type MarksProp = string[];
 
-export type SliderProps<Type extends FieldValues> = CommonProps & {
+export type SliderProps<Type extends FieldValues> = BaseSliderProps & {
   control: Control<Type>;
   name: Path<Type>;
   size?: SliderSize;

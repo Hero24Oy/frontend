@@ -1,12 +1,12 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 
 import { MarksProp, SliderSize } from '../types';
 
-import { Mark } from './components';
+import { Mark } from './Mark';
 
 import { StyledSliderMarksContainer } from '$styled';
 
-export const MarksContainer = StyledSliderMarksContainer;
+const MarksContainer = StyledSliderMarksContainer;
 
 type Props = {
   marks: MarksProp;
@@ -16,23 +16,23 @@ type Props = {
 
 export const Marks: FC<Props> = (props: Props) => {
   const { marks, parentWidth, ...restProps } = props;
+  const maxIndex = marks.length - 1;
+  const markWidth = parentWidth / maxIndex;
 
-  const markWidth = parentWidth / (marks.length - 1);
-
-  return (
-    <MarksContainer {...restProps}>
-      {marks.map((mark, index) => {
-        return (
-          <Mark
-            key={mark}
-            currentIndex={index}
-            maxIndex={marks.length - 1}
-            markWidth={markWidth}
-          >
-            {mark}
-          </Mark>
-        );
-      })}
-    </MarksContainer>
+  const marksItems = useMemo(
+    () =>
+      marks.map((mark, index) => (
+        <Mark
+          key={mark}
+          currentIndex={index}
+          maxIndex={maxIndex}
+          markWidth={markWidth}
+        >
+          {mark}
+        </Mark>
+      )),
+    [marks, markWidth],
   );
+
+  return <MarksContainer {...restProps}>{marksItems}</MarksContainer>;
 };
