@@ -11,6 +11,8 @@ export type Setters<Forms extends ScreensForms> = {
   ) => void;
 };
 
+export type Store<Forms extends ScreensForms> = Forms & Setters<Forms>;
+
 export type ZustandStore<Forms extends ScreensForms> = UseBoundStore<
-  StoreApi<Forms & Setters<Forms>>
+  StoreApi<Store<Forms>>
 >;
