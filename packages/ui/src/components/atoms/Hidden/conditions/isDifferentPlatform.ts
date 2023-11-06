@@ -2,8 +2,8 @@ import { Platform } from 'react-native';
 
 import { HiddenProps } from '../types';
 
-type Platforms = HiddenProps['platforms'] | undefined;
+type Platforms = HiddenProps['platforms'];
 
-export const haveProperPlatform = (platforms: Platforms): boolean => {
+export const isDifferentPlatform = (platforms: Platforms): boolean => {
   return !platforms?.includes(Platform.OS);
 };
