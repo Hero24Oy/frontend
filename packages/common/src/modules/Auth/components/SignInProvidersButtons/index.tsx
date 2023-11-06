@@ -13,12 +13,7 @@ export const SignInProvidersButtons: FC = () => {
       <Hidden platforms={['web', 'android']}>
         <AppleSignInButton />
       </Hidden>
-
       <GoogleSignInButton />
-      <Button variant="outline" size="md" isDisabled>
-        Continue with Google
-      </Button>
-
       <Button variant="outline" isDisabled>
         Continue with Facebook
       </Button>
