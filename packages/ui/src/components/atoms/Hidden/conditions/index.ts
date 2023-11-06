@@ -2,10 +2,10 @@ import { HiddenProps } from '../types';
 
 import { isDifferentPlatform } from './isDifferentPlatform';
 
-type IsConditionsSatisfiedArgs = Omit<HiddenProps, 'children'>;
+type AreConditionsSatisfiedArgs = Omit<HiddenProps, 'children'>;
 
 export const areConditionsSatisfied = (
-  args: IsConditionsSatisfiedArgs,
+  args: AreConditionsSatisfiedArgs,
 ): boolean => {
   const { platforms } = args;
 
