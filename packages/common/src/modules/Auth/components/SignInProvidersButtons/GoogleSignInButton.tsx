@@ -1,12 +1,13 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Button } from '@hero24/ui';
+import { Button, GoogleIcon } from '@hero24/ui';
 
 import { useAuthentication, useGoogleAuth } from '../../hooks';
 
 import { useEnvConfig } from '$common/core';
 
+// TODO remove redundant libs
 export const GoogleSignInButton: FC = () => {
   const { signInWithCredentials } = useAuthentication();
 
@@ -22,8 +23,10 @@ export const GoogleSignInButton: FC = () => {
   // TODO use i18next
   return (
     <Button
+      icon={GoogleIcon}
       style={styles.button}
       variant="outline"
+      action="secondary"
       size="md"
       onPress={signInWithGoogle}
     >
@@ -37,4 +40,3 @@ const styles = StyleSheet.create({
     height: 44,
   },
 });
-// TODO apple icon fix svg
