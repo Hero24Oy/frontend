@@ -8,7 +8,7 @@ import { initializeEnvConfig, initializeFirebaseAuth } from '@hero24/common';
 import { attachUiProviders } from '@hero24/ui';
 
 import 'expo-dev-client';
-import { envVariables } from '$/configs/env';
+import { envVariables } from '$configs';
 import { apolloClient, auth, useInitializeApp } from '$core';
 
 WebBrowser.maybeCompleteAuthSession();

@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { StyleSheet } from 'react-native';
 
 import { Button, GoogleIcon } from '@hero24/ui';
 
@@ -23,19 +22,12 @@ export const GoogleSignInButton: FC = () => {
   return (
     <Button
       icon={GoogleIcon}
-      style={styles.button}
       variant="outline"
       action="secondary"
-      size="md"
+      size="lg"
       onPress={signInWithGoogle}
     >
       Continue with Google
     </Button>
   );
 };
-
-const styles = StyleSheet.create({
-  button: {
-    height: 44,
-  },
-});

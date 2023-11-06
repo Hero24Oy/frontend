@@ -17,11 +17,7 @@ This command watches changes in packages and automatically updates them in the a
 _We should start watching packages during development, so run it in the root:_
 
 ```bash
-yarn ios
-
-# or
-
-yarn android
+yarn dev
 ```
 
 ### 3. Environments:
