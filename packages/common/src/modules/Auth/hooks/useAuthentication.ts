@@ -1,9 +1,9 @@
 import { signInWithCredential } from 'firebase/auth';
 import { useCallback } from 'react';
 
-import { SignInWithCredentials } from './types';
+import { useFirebaseAuth } from '../providers';
 
-import { useFirebaseAuth } from '$common/core';
+import { SignInWithCredentials } from './types';
 
 type UseAuthentication = () => {
   signInWithCredentials: SignInWithCredentials;
