@@ -6,5 +6,5 @@ export const Badge = {
   theme: {},
 } satisfies ComponentTheme<ViewProps>;
 
-export * from './outlined';
-export * from './solid';
+export * from './OutlinedBadge';
+export * from './SolidBadge';

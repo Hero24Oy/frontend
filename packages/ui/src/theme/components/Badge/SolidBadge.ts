@@ -1,7 +1,7 @@
 import { merge } from 'lodash';
 import { ViewProps, ViewStyle } from 'react-native';
 
-import { BaseBadge } from './base';
+import { customBaseBadgeConfig } from './BaseBadge';
 
 import { BadgeAction } from '$components';
 import { Color, ComponentTheme, DescendantStyleName, SxValues } from '$theme';
@@ -10,10 +10,8 @@ export type SolidBadgeVariants = {
   action: Record<BadgeAction, SxValues<ViewStyle>>;
 };
 
-export const SolidBadgeOverride = {
-  ...BaseBadge,
+export const customSolidBadgeConfig = {
   theme: {
-    ...BaseBadge.theme,
     [DescendantStyleName.TEXT]: {
       color: Color.WHITE_00,
     },
@@ -21,7 +19,6 @@ export const SolidBadgeOverride = {
       color: Color.WHITE_00,
     },
     variants: {
-      ...BaseBadge.theme.variants,
       action: {
         [BadgeAction.ERROR]: {
           backgroundColor: Color.RED_00,
@@ -47,7 +44,6 @@ export const SolidBadgeOverride = {
       },
     },
     defaultProps: {
-      ...BaseBadge.theme.defaultProps,
       action: BadgeAction.INFO,
     },
   },
@@ -56,4 +52,4 @@ export const SolidBadgeOverride = {
   },
 } satisfies ComponentTheme<ViewProps, SolidBadgeVariants>;
 
-export const SolidBadge = merge(BaseBadge, SolidBadgeOverride);
+export const SolidBadge = merge(customBaseBadgeConfig, customSolidBadgeConfig);

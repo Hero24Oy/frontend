@@ -15,7 +15,7 @@ export type BaseBadgeVariants = {
   size: Record<BadgeSize, SxValues<ViewStyle>>;
 };
 
-export const BaseBadge = {
+export const customBaseBadgeConfig = {
   theme: {
     alignSelf: 'flex-start',
     display: 'flex',

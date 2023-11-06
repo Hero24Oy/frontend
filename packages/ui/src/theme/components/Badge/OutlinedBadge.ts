@@ -1,7 +1,7 @@
 import { merge } from 'lodash';
 import { ViewProps, ViewStyle } from 'react-native';
 
-import { BaseBadge } from './base';
+import { customBaseBadgeConfig } from './BaseBadge';
 
 import { BadgeAction } from '$components';
 import { Color, ComponentTheme, DescendantStyleName, SxValues } from '$theme';
@@ -10,7 +10,7 @@ export type OutlinedBadgeVariants = {
   action: Record<BadgeAction, SxValues<ViewStyle>>;
 };
 
-const OutlinedBadgeOverride = {
+const customOutlinedBadgeConfig = {
   theme: {
     borderWidth: 1,
     variants: {
@@ -73,4 +73,7 @@ const OutlinedBadgeOverride = {
   },
 } satisfies ComponentTheme<ViewProps, OutlinedBadgeVariants>;
 
-export const OutlinedBadge = merge(BaseBadge, OutlinedBadgeOverride);
+export const OutlinedBadge = merge(
+  customBaseBadgeConfig,
+  customOutlinedBadgeConfig,
+);
