@@ -17,7 +17,11 @@ This command watches changes in packages and automatically updates them in the a
 _We should start watching packages during development, so run it in the root:_
 
 ```bash
-yarn dev
+yarn ios
+
+# or
+
+yarn android
 ```
 
 ### 3. Environments:
@@ -84,13 +88,5 @@ frontend
 ├── .github # Github actions and templates
 ├── .husky # Git hooks
 └── turbo.json # Turborepo pipeline config
-
-```
-
-```
-
-```
-
-```
 
 ```

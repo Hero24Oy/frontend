@@ -23,7 +23,8 @@
     "lint": "eslint . --fix",
     "reinstall:dependencies": "rm -rf node_modules && npm i",
     "reinstall:dependencies:full": "npm cache clean --force && yarn reinstall:dependencies",
-    "start:dev": "npx expo start --clear"
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "dependencies": {
     "@apollo/client": "3.8.3",

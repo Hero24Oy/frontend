@@ -1,9 +1,10 @@
 const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = [
   'heroBIOText',
   'Icon',
-  'ANDROID_CLIENT_ID',
-  'IOS_CLIENT_ID',
-  'WEB_CLIENT_ID',
+  'ANDROID_',
+  'FACEBOOK_APP_ID',
+  'IS_DEBUG_MODE',
+  'NODE_ENV',
 ];
 const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*VAT.*',
@@ -14,6 +15,8 @@ const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*HStack.*',
   '.*VStack.*',
   ':.*', //  match pseudo css classes
+  'FIREBASE*',
+  '.*CLIENT_ID',
 ];
 
 const excludeNamesNamingConventionWordsRegex =

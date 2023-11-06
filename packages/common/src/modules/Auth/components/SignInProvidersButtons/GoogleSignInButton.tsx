@@ -7,7 +7,6 @@ import { useAuthentication, useGoogleAuth } from '../../hooks';
 
 import { useEnvConfig } from '$common/core';
 
-// TODO remove redundant libs
 export const GoogleSignInButton: FC = () => {
   const { signInWithCredentials } = useAuthentication();
 

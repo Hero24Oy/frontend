@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/naming-convention -- TODO will be dealt with */
 import { create } from 'zustand';
 
 export type EnvConfig = {

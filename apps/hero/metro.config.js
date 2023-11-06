@@ -22,17 +22,6 @@ config.resolver.nodeModulesPaths = [
   path.resolve(workspaceRoot, 'node_modules'),
 ];
 
-config.transformer = {
-  ...config.transformer,
-  babelTransformerPath: require.resolve('react-native-svg-transformer'),
-};
-
-config.resolver.assetExts = config.resolver.assetExts.filter(
-  (ext) => ext !== 'svg',
-);
-
-config.resolver.sourceExts = [...config.resolver.sourceExts, 'svg'];
-
 // Use turborepo to restore the cache when possible
 config.cacheStores = [
   new FileStore({
