@@ -4,7 +4,7 @@ export type AuthConfig = {
   webClientId: string;
 };
 
-export type EnvConfigState = {
+export type AuthStore = {
   authConfig: AuthConfig | null;
   setAuthConfig: (config: AuthConfig) => void;
 };

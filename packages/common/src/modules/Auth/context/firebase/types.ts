@@ -1,6 +1,6 @@
 import { Auth } from 'firebase/auth';
 
-export type FirebaseAuthState = {
+export type FirebaseAuthStore = {
   firebaseAuth: Auth | null;
   setFirebaseAuth: (firebaseAuth: Auth) => void;
 };
