@@ -53,7 +53,7 @@ export const useAppleAuth: UseAppleAuth = (config) => {
 
       await onAuthSucceed(credentials);
     } catch (error) {
-      // console.error(error);
+      console.error(error);
 
       if (error instanceof Error) {
         onAuthFailed?.(error);
