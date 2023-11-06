@@ -10,13 +10,14 @@ export const createSetters = <Forms extends ScreensForms>(
 ): Setters<Forms> => {
   const screenNames: $Keys<Forms>[] = Object.keys(forms);
 
-  return Object.fromEntries(
-    screenNames.map((screenName) => {
-      return [
-        `set${capitalize(screenName as string)}`,
-        (form: Forms[typeof screenName]) =>
-          set({ [screenName]: form } as unknown as Store<Forms>, false),
-      ];
-    }),
-  ) as unknown as Setters<Forms>;
+  const setters = screenNames.reduce((setterAccumulator, screenName) => {
+    const name = `set${capitalize(screenName as string)}`;
+
+    const setter = (form: Forms[typeof screenName]) =>
+      set({ [screenName]: form } as unknown as Store<Forms>, false);
+
+    return { ...setterAccumulator, [name]: setter };
+  }, {});
+
+  return setters as Setters<Forms>;
 };
