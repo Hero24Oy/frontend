@@ -3,6 +3,8 @@ import { StyleSheet } from 'react-native';
 
 import { Button, VStack } from '@hero24/ui';
 
+import { AppleSignInButton } from './AppleSignInButton';
+
 export const SignInProvidersButtons: FC = () => {
   return (
     <VStack style={styles.container}>
@@ -13,9 +15,7 @@ export const SignInProvidersButtons: FC = () => {
       <Button variant="outline" isDisabled>
         Continue with Facebook
       </Button>
-      <Button variant="outline" isDisabled>
-        Continue with Apple
-      </Button>
+      <AppleSignInButton />
     </VStack>
   );
 };
