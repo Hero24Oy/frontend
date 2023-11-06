@@ -8,6 +8,7 @@ const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*HStack.*',
   '.*VStack.*',
   ':.*', //  match pseudo css classes
+  '.*IOS*.',
 ];
 
 const excludeNamesNamingConventionWordsRegex =
