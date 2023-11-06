@@ -1,4 +1,8 @@
-const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = ['heroBIOText', 'Icon'];
+const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = [
+  'heroBIOText',
+  'Icon',
+  'Booleanize',
+];
 const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*VAT.*',
   '.*URL.*',
