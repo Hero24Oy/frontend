@@ -9,13 +9,13 @@ export const SignInProvidersButtons: FC = () => {
   return (
     <VStack style={styles.container}>
       {/* TODO replace buttons labels with i18n call */}
+      <AppleSignInButton />
       <Button variant="outline" isDisabled>
         Continue with Google
       </Button>
       <Button variant="outline" isDisabled>
         Continue with Facebook
       </Button>
-      <AppleSignInButton />
     </VStack>
   );
 };
