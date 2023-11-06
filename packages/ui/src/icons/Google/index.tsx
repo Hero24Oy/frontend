@@ -1,9 +1,18 @@
-import { FC } from 'react';
 import Svg, { Path } from 'react-native-svg';
 
-export const GoogleIcon: FC = () => {
+import { BaseIcon } from '$icons/base';
+
+export const GoogleIcon: BaseIcon = (props) => {
+  const { size, ...restProps } = props;
+
   return (
-    <Svg width={18} height={18} viewBox="0 0 19 18" fill="none">
+    <Svg
+      height={size}
+      width={size}
+      viewBox="0 0 19 18"
+      fill="none"
+      {...restProps}
+    >
       <Path
         fillRule="evenodd"
         clipRule="evenodd"
