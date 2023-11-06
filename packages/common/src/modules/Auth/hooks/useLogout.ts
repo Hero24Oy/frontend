@@ -1,7 +1,7 @@
 import { useApolloClient } from '@apollo/client';
 import { useCallback } from 'react';
 
-import { useFirebaseAuth } from '../context';
+import { useFirebaseAuth } from '../providers';
 
 type UseLogout = () => () => Promise<void>;
 
