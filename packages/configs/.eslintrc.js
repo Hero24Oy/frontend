@@ -10,6 +10,7 @@ const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*HStack.*',
   '.*VStack.*',
   ':.*', //  match pseudo css classes
+  '.*IOS*.',
 ];
 
 const excludeNamesNamingConventionWordsRegex =
@@ -73,7 +74,10 @@ const tsRules = {
   'quote-props': 'off',
   '@typescript-eslint/explicit-function-return-type': [
     'error',
-    { allowExpressions: true },
+    {
+      allowExpressions: true,
+      allowFunctionsWithoutTypeParameters: true,
+    },
   ],
   '@typescript-eslint/no-floating-promises': 'error',
   '@typescript-eslint/unbound-method': 'off',
