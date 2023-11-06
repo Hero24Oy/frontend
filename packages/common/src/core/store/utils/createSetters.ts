@@ -15,10 +15,7 @@ export const createSetters = <Forms extends ScreensForms>(
       return [
         `set${capitalize(screenName as string)}`,
         (form: Forms[typeof screenName]) =>
-          set(
-            { [screenName]: form } as unknown as Forms & Setters<Forms>,
-            false,
-          ),
+          set({ [screenName]: form } as unknown as Store<Forms>, false),
       ];
     }),
   ) as unknown as Setters<Forms>;
