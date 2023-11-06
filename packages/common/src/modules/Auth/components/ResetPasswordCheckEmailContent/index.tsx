@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Button, Text, VStack } from '@hero24/ui';
+import { Button, Heading, Text, VStack } from '@hero24/ui';
 
 import { getMaskedEmail } from './utils';
 
@@ -15,9 +15,7 @@ export const ResetPasswordCheckEmailContent: FC<Props> = (props) => {
   return (
     <VStack style={styles.wrapper}>
       {/* TODO replace with i18n call */}
-      <Text variant="H2" color="BLACK_00">
-        Check your email
-      </Text>
+      <Heading variant="H2">Check your email</Heading>
       <Text variant="regular" color="BLACK_00">
         {`We sent a link to reset your password to ${getMaskedEmail(email)}`}
       </Text>

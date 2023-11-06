@@ -1,10 +1,12 @@
-import { PhoneSignInForm, PhoneSignInFormProps } from 'modules/Auth/forms';
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Button, SafeAreaKeyboardAwareView, VStack } from '@hero24/ui';
+import { Button, VStack } from '@hero24/ui';
 
-import { Footer, Header, Or, SignInProvidersButtons } from '../../components';
+import { Footer, Header, Or, SignInProvidersButtons } from '../components';
+import { PhoneSignInForm, PhoneSignInFormProps } from '../forms';
+
+import { SafeAreaKeyboardAwareScrollView } from '$common/core';
 
 type Props = PhoneSignInFormProps & {
   signInWithEmailHandler: () => void;
@@ -14,7 +16,7 @@ export const AuthScreen: FC<Props> = (props) => {
   const { signInWithPhoneHandler, signInWithEmailHandler } = props;
 
   return (
-    <SafeAreaKeyboardAwareView>
+    <SafeAreaKeyboardAwareScrollView>
       <VStack style={styles.wrapper}>
         <Header />
         <PhoneSignInForm signInWithPhoneHandler={signInWithPhoneHandler} />
@@ -31,7 +33,7 @@ export const AuthScreen: FC<Props> = (props) => {
         </Button>
       </VStack>
       <Footer />
-    </SafeAreaKeyboardAwareView>
+    </SafeAreaKeyboardAwareScrollView>
   );
 };
 

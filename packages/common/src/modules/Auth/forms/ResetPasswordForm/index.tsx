@@ -34,10 +34,11 @@ export const ResetPasswordForm: FC<ResetPasswordFormProps> = (props) => {
     <VStack style={styles.wrapper}>
       {/* TODO replace with i18n call */}
       <Input
-        placeholder="Email"
+        placeholder="Enter"
         control={control}
         name="email"
         title="Email"
+        keyboardType="email-address"
         isHelperDisabled
       />
       <Button

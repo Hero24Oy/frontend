@@ -1,12 +1,10 @@
 import { parsePhoneNumber } from 'libphonenumber-js';
-import { ConfirmationCodeFormText } from 'modules/Auth/components';
-import {
-  ConfirmationCodeForm,
-  ConfirmationCodeFormProps,
-} from 'modules/Auth/forms';
 import { FC } from 'react';
 
-import { StackKeyboardAwareView } from '@hero24/ui';
+import { ConfirmationCodeFormText } from '../components';
+import { ConfirmationCodeForm, ConfirmationCodeFormProps } from '../forms';
+
+import { StyledKeyboardAwareScrollView } from '$common/core';
 
 type Props = ConfirmationCodeFormProps;
 
@@ -16,9 +14,9 @@ export const ConfirmationCodeScreen: FC<Props> = (props) => {
   const phoneNumber = parsePhoneNumber(phone).formatInternational();
 
   return (
-    <StackKeyboardAwareView>
+    <StyledKeyboardAwareScrollView>
       <ConfirmationCodeFormText phone={phoneNumber} />
       <ConfirmationCodeForm {...props} />
-    </StackKeyboardAwareView>
+    </StyledKeyboardAwareScrollView>
   );
 };

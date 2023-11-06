@@ -63,6 +63,5 @@ const styles = StyleSheet.create({
   wrapper: {
     justifyContent: 'center',
     gap: 16,
-    marginBottom: 16,
   },
 });

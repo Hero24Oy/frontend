@@ -30,6 +30,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
       foregroundImage: './assets/images/adaptive-icon.png',
       backgroundColor: '#ffffff',
     },
+    softwareKeyboardLayoutMode: 'pan',
   },
   web: {
     favicon: './assets/images/favicon.png',

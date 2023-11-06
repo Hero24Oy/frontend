@@ -12,12 +12,18 @@ export const KeyboardAwareScrollView: FC<Props> = (props) => {
   const { children, ...restProps } = props;
 
   return (
-    <RnKeyboardAwareScrollView style={styles.main} {...restProps}>
+    <RnKeyboardAwareScrollView
+      enableAutomaticScroll
+      enableOnAndroid
+      keyboardShouldPersistTaps="handled"
+      style={styles.main}
+      {...restProps}
+    >
       {children}
     </RnKeyboardAwareScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  main: { flex: 1 },
+  main: { flexGrow: 1 },
 });

@@ -30,31 +30,6 @@ export const Text = {
           fontSize: FontSize.XS,
           lineHeight: LineHeight.XS,
         },
-        [TextVariant.H1]: {
-          fontSize: FontSize.XXXL,
-          lineHeight: LineHeight.XXXL,
-          fontWeight: FontWeight.SEMI_BOLD,
-        },
-        [TextVariant.H2]: {
-          fontSize: FontSize.XXL,
-          lineHeight: LineHeight.XXL,
-          fontWeight: FontWeight.SEMI_BOLD,
-        },
-        [TextVariant.H3]: {
-          fontSize: FontSize.XL,
-          lineHeight: LineHeight.XL,
-          fontWeight: FontWeight.SEMI_BOLD,
-        },
-        [TextVariant.H4]: {
-          fontSize: FontSize.LG,
-          lineHeight: LineHeight.LG,
-          fontWeight: FontWeight.MEDIUM,
-        },
-        [TextVariant.H5]: {
-          fontSize: FontSize.MD,
-          lineHeight: LineHeight.MD,
-          fontWeight: FontWeight.MEDIUM,
-        },
       },
     },
     defaultProps: {

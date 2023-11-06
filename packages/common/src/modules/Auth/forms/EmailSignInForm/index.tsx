@@ -32,10 +32,16 @@ export const EmailSignInForm: FC<EmailSignInFormProps> = (props) => {
   return (
     <VStack style={styles.container}>
       {/* TODO replace with i18n call */}
-      <Input placeholder="Email" control={control} name="email" title="Email" />
+      <Input
+        placeholder="Enter"
+        control={control}
+        name="email"
+        title="Email"
+        keyboardType="email-address"
+      />
       <VStack style={styles.passwordContainer}>
         <Input
-          placeholder="Password"
+          placeholder="Enter"
           type="password"
           control={control}
           name="password"

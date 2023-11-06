@@ -7,7 +7,7 @@ const ResetPassword: FC = () => {
   const router = useRouter();
 
   const onSuccessResetPasswordHandler = (): void => {
-    router.push('/(auth)/reset-password-check-email');
+    router.push('/reset-password-check-email');
   };
 
   return (

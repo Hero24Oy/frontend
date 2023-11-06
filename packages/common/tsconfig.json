@@ -10,5 +10,5 @@
   },
   "extends": "@hero24/configs/tsconfig.json",
   "exclude": ["node_modules", "dist"],
-  "include": ["**/*.ts", "**/*.tsx"]
+  "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts"]
 }

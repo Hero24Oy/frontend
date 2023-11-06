@@ -24,6 +24,5 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     gap: 16,
-    marginBottom: 16,
   },
 });

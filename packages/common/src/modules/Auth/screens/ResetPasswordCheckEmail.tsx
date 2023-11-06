@@ -1,14 +1,14 @@
-import { ResetPasswordCheckEmailContent } from 'modules/Auth/components';
+import { StyledKeyboardAwareScrollView } from 'core/components';
 import { FC } from 'react';
 
-import { StackKeyboardAwareView } from '@hero24/ui';
+import { ResetPasswordCheckEmailContent } from '../components';
 
 export const ResetPasswordCheckEmailScreen: FC = () => {
   const testEmail = 'testEmail@gmail.com';
 
   return (
-    <StackKeyboardAwareView>
+    <StyledKeyboardAwareScrollView>
       <ResetPasswordCheckEmailContent email={testEmail} />
-    </StackKeyboardAwareView>
+    </StyledKeyboardAwareScrollView>
   );
 };

@@ -1,8 +1,9 @@
-import { ResetPasswordFormText } from 'modules/Auth/components';
-import { ResetPasswordForm, ResetPasswordFormProps } from 'modules/Auth/forms';
 import { FC } from 'react';
 
-import { StackKeyboardAwareView } from '@hero24/ui';
+import { ResetPasswordFormText } from '../components';
+import { ResetPasswordForm, ResetPasswordFormProps } from '../forms';
+
+import { StyledKeyboardAwareScrollView } from '$common/core';
 
 type Props = ResetPasswordFormProps;
 
@@ -10,11 +11,11 @@ export const ResetPasswordScreen: FC<Props> = (props) => {
   const { onSuccessResetPasswordHandler } = props;
 
   return (
-    <StackKeyboardAwareView>
+    <StyledKeyboardAwareScrollView>
       <ResetPasswordFormText />
       <ResetPasswordForm
         onSuccessResetPasswordHandler={onSuccessResetPasswordHandler}
       />
-    </StackKeyboardAwareView>
+    </StyledKeyboardAwareScrollView>
   );
 };

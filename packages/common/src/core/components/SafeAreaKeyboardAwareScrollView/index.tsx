@@ -1,16 +1,17 @@
 import { FC, PropsWithChildren } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { KeyboardAwareScrollView } from '../KeyboardAwareScrollView';
-import { SafeAreaView } from '../SafeAreaView';
-
-import { LayoutStyles } from '$types';
+import {
+  KeyboardAwareScrollView,
+  LayoutStyles,
+  SafeAreaView,
+} from '@hero24/ui';
 
 type Props = PropsWithChildren & {
   style?: LayoutStyles;
 };
 
-export const SafeAreaKeyboardAwareView: FC<Props> = (props) => {
+export const SafeAreaKeyboardAwareScrollView: FC<Props> = (props) => {
   const { children, style } = props;
 
   return (

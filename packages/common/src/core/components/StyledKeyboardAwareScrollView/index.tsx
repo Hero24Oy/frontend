@@ -2,15 +2,15 @@ import { FC, PropsWithChildren } from 'react';
 import { StyleSheet, ViewStyle } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { KeyboardAwareScrollView } from '../KeyboardAwareScrollView';
-
-import { LayoutStyles } from '$types';
+import { KeyboardAwareScrollView, LayoutStyles } from '@hero24/ui';
 
 type Props = PropsWithChildren & {
   style?: LayoutStyles;
 };
 
-export const StackKeyboardAwareView: FC<Props> = (props) => {
+// Use this wrapper instead of SafeAreaKeyboardAwareScrollView
+// for screen with Stack header to avoid additional top padding
+export const StyledKeyboardAwareScrollView: FC<Props> = (props) => {
   const { children, style } = props;
   const styles = useStyles();
 

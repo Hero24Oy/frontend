@@ -14,7 +14,8 @@ export const Or: FC = () => {
 
 const styles = StyleSheet.create({
   orBox: {
-    paddingVertical: 16,
+    paddingTop: 32,
+    paddingBottom: 16,
     justifyContent: 'center',
   },
 });
