@@ -6,12 +6,14 @@ import { SignInWithEmailScreen } from '@hero24/common';
 const SignInWithEmail: FC = () => {
   const router = useRouter();
 
-  const onForgotPasswordHandler = (): void => {
+  const onForgotPasswordCallback = (): void => {
     router.push('/reset-password');
   };
 
   return (
-    <SignInWithEmailScreen onForgotPasswordHandler={onForgotPasswordHandler} />
+    <SignInWithEmailScreen
+      onForgotPasswordCallback={onForgotPasswordCallback}
+    />
   );
 };
 

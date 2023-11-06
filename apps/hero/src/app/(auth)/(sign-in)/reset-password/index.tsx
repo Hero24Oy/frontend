@@ -6,13 +6,13 @@ import { ResetPasswordScreen } from '@hero24/common';
 const ResetPassword: FC = () => {
   const router = useRouter();
 
-  const onSuccessResetPasswordHandler = (): void => {
+  const onSuccessResetPasswordCallback = (): void => {
     router.push('/reset-password-check-email');
   };
 
   return (
     <ResetPasswordScreen
-      onSuccessResetPasswordHandler={onSuccessResetPasswordHandler}
+      onSuccessResetPasswordCallback={onSuccessResetPasswordCallback}
     />
   );
 };

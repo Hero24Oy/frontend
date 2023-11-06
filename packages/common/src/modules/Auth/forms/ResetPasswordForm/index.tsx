@@ -11,14 +11,14 @@ interface FormData {
 }
 
 export type ResetPasswordFormProps = {
-  onSuccessResetPasswordHandler: () => void;
+  onSuccessResetPasswordCallback: () => void;
 };
 
 export const ResetPasswordForm: FC<ResetPasswordFormProps> = (props) => {
-  const { onSuccessResetPasswordHandler } = props;
+  const { onSuccessResetPasswordCallback } = props;
 
   const onSubmit = (_data: FormData): void => {
-    onSuccessResetPasswordHandler();
+    onSuccessResetPasswordCallback();
   };
 
   const { control, onSubmitHandler, isLoading } = useCustomForm<FormData>({

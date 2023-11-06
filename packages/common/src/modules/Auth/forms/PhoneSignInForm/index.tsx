@@ -13,16 +13,16 @@ type FormData = {
 };
 
 export type PhoneSignInFormProps = {
-  signInWithPhoneHandler: () => void;
+  signInWithPhoneCallback: () => void;
 };
 
 const PHONE_INITIAL_COUNTRY_CODE: CountryCode = 'FI';
 
 export const PhoneSignInForm: FC<PhoneSignInFormProps> = (props) => {
-  const { signInWithPhoneHandler } = props;
+  const { signInWithPhoneCallback } = props;
 
   const onSubmit = (_data: FormData): void => {
-    signInWithPhoneHandler();
+    signInWithPhoneCallback();
   };
 
   const { control, onSubmitHandler, isLoading } = useCustomForm<FormData>({

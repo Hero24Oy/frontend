@@ -9,17 +9,17 @@ import { PhoneSignInForm, PhoneSignInFormProps } from '../forms';
 import { SafeAreaKeyboardAwareScrollView } from '$common/core';
 
 type Props = PhoneSignInFormProps & {
-  signInWithEmailHandler: () => void;
+  signInWithEmailCallback: () => void;
 };
 
 export const AuthScreen: FC<Props> = (props) => {
-  const { signInWithPhoneHandler, signInWithEmailHandler } = props;
+  const { signInWithPhoneCallback, signInWithEmailCallback } = props;
 
   return (
     <SafeAreaKeyboardAwareScrollView>
       <VStack style={styles.wrapper}>
         <Header />
-        <PhoneSignInForm signInWithPhoneHandler={signInWithPhoneHandler} />
+        <PhoneSignInForm signInWithPhoneCallback={signInWithPhoneCallback} />
         <Or />
         <SignInProvidersButtons />
         <Or />
@@ -27,7 +27,7 @@ export const AuthScreen: FC<Props> = (props) => {
         <Button
           variant="outline"
           action="secondary"
-          onPress={signInWithEmailHandler}
+          onPress={signInWithEmailCallback}
         >
           Login with email
         </Button>

@@ -8,13 +8,13 @@ import { StyledKeyboardAwareScrollView } from '$common/core';
 type Props = ResetPasswordFormProps;
 
 export const ResetPasswordScreen: FC<Props> = (props) => {
-  const { onSuccessResetPasswordHandler } = props;
+  const { onSuccessResetPasswordCallback } = props;
 
   return (
     <StyledKeyboardAwareScrollView>
       <ResetPasswordFormText />
       <ResetPasswordForm
-        onSuccessResetPasswordHandler={onSuccessResetPasswordHandler}
+        onSuccessResetPasswordCallback={onSuccessResetPasswordCallback}
       />
     </StyledKeyboardAwareScrollView>
   );

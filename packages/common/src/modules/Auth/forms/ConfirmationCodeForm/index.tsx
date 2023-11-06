@@ -13,14 +13,14 @@ interface FormData {
 }
 
 export type ConfirmationCodeFormProps = {
-  onSuccessConfirmHandler: () => void;
+  onSuccessConfirmCallback: () => void;
 };
 
 export const ConfirmationCodeForm: FC<ConfirmationCodeFormProps> = (props) => {
-  const { onSuccessConfirmHandler } = props;
+  const { onSuccessConfirmCallback } = props;
 
   const onSubmit = (_data: FormData): void => {
-    onSuccessConfirmHandler();
+    onSuccessConfirmCallback();
   };
 
   const { control, onSubmitHandler, isLoading } = useCustomForm<FormData>({

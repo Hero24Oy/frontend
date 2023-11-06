@@ -3,12 +3,14 @@ import { FC } from 'react';
 import { ConfirmationCodeScreen } from '@hero24/common';
 
 const ConfirmationCode: FC = () => {
-  const onSuccessConfirmHandler = (): void => {
+  const onSuccessConfirmCallback = (): void => {
     return undefined;
   };
 
   return (
-    <ConfirmationCodeScreen onSuccessConfirmHandler={onSuccessConfirmHandler} />
+    <ConfirmationCodeScreen
+      onSuccessConfirmCallback={onSuccessConfirmCallback}
+    />
   );
 };
 

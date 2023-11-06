@@ -6,18 +6,18 @@ import { AuthScreen } from '@hero24/common';
 const Auth: FC = () => {
   const router = useRouter();
 
-  const signInWithEmailHandler = (): void => {
+  const signInWithEmailCallback = (): void => {
     router.push('/sign-in-with-email');
   };
 
-  const signInWithPhoneHandler = (): void => {
+  const signInWithPhoneCallback = (): void => {
     router.push('/confirmation-code');
   };
 
   return (
     <AuthScreen
-      signInWithEmailHandler={signInWithEmailHandler}
-      signInWithPhoneHandler={signInWithPhoneHandler}
+      signInWithEmailCallback={signInWithEmailCallback}
+      signInWithPhoneCallback={signInWithPhoneCallback}
     />
   );
 };

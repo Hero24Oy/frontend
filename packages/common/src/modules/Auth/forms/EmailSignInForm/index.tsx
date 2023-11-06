@@ -12,11 +12,11 @@ type FormData = {
 };
 
 export type EmailSignInFormProps = {
-  onForgotPasswordHandler: () => void;
+  onForgotPasswordCallback: () => void;
 };
 
 export const EmailSignInForm: FC<EmailSignInFormProps> = (props) => {
-  const { onForgotPasswordHandler } = props;
+  const { onForgotPasswordCallback } = props;
 
   const onSubmit = (_data: FormData): void => {
     return undefined;
@@ -48,7 +48,7 @@ export const EmailSignInForm: FC<EmailSignInFormProps> = (props) => {
           title="Password"
         />
         <Pressable
-          onPress={onForgotPasswordHandler}
+          onPress={onForgotPasswordCallback}
           style={styles.forgotPassword}
         >
           <Text color="BLACK_00">Forgot password?</Text>
