@@ -1,4 +1,4 @@
-const SIZES = ['XXL', 'XL', 'LG', 'MD', 'SM', 'XS', 'XXS'];
+const SIZES = ['XXL', 'XL', 'LG', 'MD', 'SM', 'XS', 'XXS', 'FULL'];
 
 const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = [
   'heroBIOText',
