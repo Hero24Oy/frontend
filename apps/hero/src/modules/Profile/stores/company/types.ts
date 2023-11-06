@@ -1,6 +1,4 @@
-import { ScreensForms, Store } from '@hero24/common';
-
-export interface CompanyCreation extends ScreensForms {
+export type CompanyCreation = {
   companyAddress: {
     address: string;
     city: string | null;
@@ -23,6 +21,4 @@ export interface CompanyCreation extends ScreensForms {
     insurance: Record<string, unknown> | null; // TODO: change after implementation loading images
     places: string[];
   };
-}
-
-export type CompanyCreationStore = Store<CompanyCreation>;
+};

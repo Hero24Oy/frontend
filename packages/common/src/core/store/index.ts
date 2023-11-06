@@ -12,5 +12,3 @@ export const createMultiScreenStore = <Forms extends ScreensForms>(
     return { ...forms, ...setters };
   });
 };
-
-export * from './types';

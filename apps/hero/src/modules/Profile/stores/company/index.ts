@@ -1,6 +1,6 @@
 import { createMultiScreenStore } from '@hero24/common';
 
-import { CompanyCreation, CompanyCreationStore } from './types';
+import { CompanyCreation } from './types';
 
 export const companyCreationInitialState: CompanyCreation = {
   companyInfo: {
@@ -27,10 +27,8 @@ export const companyCreationInitialState: CompanyCreation = {
   },
 };
 
-const useStore = createMultiScreenStore(companyCreationInitialState);
-
-export const useCompanyCreationStore = (): CompanyCreationStore => {
-  return useStore();
-};
+export const useCompanyCreationStore = createMultiScreenStore(
+  companyCreationInitialState,
+);
 
 export * from './types';
