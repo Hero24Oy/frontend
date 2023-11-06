@@ -3,4 +3,4 @@ words:
   - iban
   - oauthredirect
   - zustand
-  - 'booleanize'
+  - booleanize
