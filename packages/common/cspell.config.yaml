@@ -1,4 +1,6 @@
 words:
-  - 'netvisor'
-  - 'iban'
-  - 'oauthredirect'
+  - netvisor
+  - iban
+  - oauthredirect
+  - zustand
+  - booleanize
