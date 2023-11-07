@@ -6,6 +6,9 @@ import { useCallback, useEffect } from 'react';
 import { Platform } from 'react-native';
 
 import { WithCallback } from './types';
+import { useAuthentication } from './useAuthentication';
+
+import { parseError } from '$common/core';
 
 type GoogleAuthConfig = {
   androidClientId: string;
@@ -28,8 +31,9 @@ const REDIRECT_URI =
     : undefined;
 
 export const useGoogleAuth: UseGoogleAuth = (config) => {
-  const { onAuthSucceed, onAuthFailed, ...googleAuthConfig } = config;
+  const { onAuthFailed, onAuthSucceed, ...googleAuthConfig } = config;
   const { webClientId, iosClientId, androidClientId } = googleAuthConfig;
+  const { signInWithCredentials } = useAuthentication();
 
   const [_request, response, promptAsync] = Google.useIdTokenAuthRequest({
     redirectUri: REDIRECT_URI,
@@ -42,13 +46,9 @@ export const useGoogleAuth: UseGoogleAuth = (config) => {
     try {
       await promptAsync();
     } catch (error) {
-      console.error(error);
+      const parsedError = parseError(error);
 
-      if (error instanceof Error) {
-        onAuthFailed?.(error);
-      } else {
-        onAuthFailed?.(new Error('Unknown error'));
-      }
+      onAuthFailed?.(parsedError);
     }
   }, [promptAsync]);
 
@@ -65,8 +65,14 @@ export const useGoogleAuth: UseGoogleAuth = (config) => {
       response.params.id_token,
     );
 
-    onAuthSucceed?.(credentials).catch((error) => console.error(error));
-  }, [onAuthSucceed, response]);
+    signInWithCredentials(credentials)
+      .then((userCredentials) => onAuthSucceed?.(userCredentials))
+      .catch((error) => {
+        const parsedError = parseError(error);
+
+        onAuthFailed?.(parsedError);
+      });
+  }, [signInWithCredentials, response]);
 
   return { signInWithGoogle };
 };

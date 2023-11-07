@@ -3,21 +3,38 @@ import { useCallback } from 'react';
 
 import { useFirebaseAuth } from '../stores';
 
-import { EmailPasswordParams } from './types';
+import { EmailPasswordParams, WithCallback } from './types';
+
+import { parseError } from '$common/core';
 
 type SignUpWithEmail = (params: EmailPasswordParams) => Promise<void>;
 
-type UseEmailSignUp = () => {
+type EmailAuthConfig = WithCallback;
+
+type UseEmailSignUp = (config: EmailAuthConfig) => {
   signUpWithEmail: SignUpWithEmail;
 };
 
-export const useEmailSignUp: UseEmailSignUp = () => {
+export const useEmailSignUp: UseEmailSignUp = (props) => {
   const firebaseAuth = useFirebaseAuth();
+  const { onAuthFailed, onAuthSucceed } = props;
 
   const signUpWithEmail: SignUpWithEmail = useCallback(async (params) => {
     const { email, password } = params;
 
-    await createUserWithEmailAndPassword(firebaseAuth, email, password);
+    try {
+      const userCredentials = await createUserWithEmailAndPassword(
+        firebaseAuth,
+        email,
+        password,
+      );
+
+      onAuthSucceed?.(userCredentials);
+    } catch (error) {
+      const parsedError = parseError(error);
+
+      onAuthFailed?.(parsedError);
+    }
   }, []);
 
   return { signUpWithEmail };

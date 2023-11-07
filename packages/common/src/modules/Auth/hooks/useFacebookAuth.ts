@@ -4,6 +4,9 @@ import { FacebookAuthProvider, OAuthCredential } from 'firebase/auth';
 import { useCallback, useEffect } from 'react';
 
 import { WithCallback } from './types';
+import { useAuthentication } from './useAuthentication';
+
+import { parseError } from '$common/core';
 
 type FacebookAuthConfig = {
   facebookAppId: string;
@@ -14,7 +17,8 @@ type UseFacebookAuth = (config: FacebookAuthConfig) => {
 };
 
 export const useFacebookAuth: UseFacebookAuth = (config) => {
-  const { onAuthSucceed, onAuthFailed, ...facebookAuthConfig } = config;
+  const { onAuthFailed, onAuthSucceed, ...facebookAuthConfig } = config;
+  const { signInWithCredentials } = useAuthentication();
 
   const [_request, response, promptAsync] = Facebook.useAuthRequest({
     responseType: ResponseType.Token,
@@ -25,13 +29,9 @@ export const useFacebookAuth: UseFacebookAuth = (config) => {
     try {
       await promptAsync();
     } catch (error) {
-      console.error(error);
+      const parsedError = parseError(error);
 
-      if (error instanceof Error) {
-        onAuthFailed?.(error);
-      } else {
-        onAuthFailed?.(new Error('Unknown error'));
-      }
+      onAuthFailed?.(parsedError);
     }
   }, [promptAsync]);
 
@@ -48,8 +48,14 @@ export const useFacebookAuth: UseFacebookAuth = (config) => {
       response.params.access_token,
     );
 
-    onAuthSucceed(credentials).catch((error) => console.error(error));
-  }, [onAuthSucceed, response]);
+    signInWithCredentials(credentials)
+      .then((userCredentials) => onAuthSucceed?.(userCredentials))
+      .catch((error) => {
+        const parsedError = parseError(error);
+
+        onAuthFailed?.(parsedError);
+      });
+  }, [signInWithCredentials, response]);
 
   return { signInWithFacebook };
 };

@@ -4,6 +4,7 @@ import { OAuthCredential } from 'firebase/auth';
 import { useCallback } from 'react';
 
 import { WithCallback } from '../types';
+import { useAuthentication } from '../useAuthentication';
 
 import { AppleProvider, CSRF_END, NONCE_END, RADIX, START } from './constants';
 
@@ -14,6 +15,7 @@ type UseAppleAuth = (config: AppleAuthConfig) => {
 };
 
 export const useAppleAuth: UseAppleAuth = (config) => {
+  const { signInWithCredentials } = useAuthentication();
   const { onAuthSucceed, onAuthFailed } = config;
 
   const signInWithApple = useCallback(async () => {
@@ -51,7 +53,9 @@ export const useAppleAuth: UseAppleAuth = (config) => {
         rawNonce: nonce,
       });
 
-      await onAuthSucceed(credentials);
+      const userCredentials = await signInWithCredentials(credentials);
+
+      onAuthSucceed?.(userCredentials);
     } catch (error) {
       console.error(error);
 
