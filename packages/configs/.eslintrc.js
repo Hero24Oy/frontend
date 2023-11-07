@@ -2,6 +2,7 @@ const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = [
   'heroBIOText',
   'Icon',
   'Booleanize',
+  'IBAN',
 ];
 const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*VAT.*',
