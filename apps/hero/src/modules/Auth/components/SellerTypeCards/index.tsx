@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 100,
-    marginTop: -17,
+    marginTop: -22.5,
   },
   card: {
     margin: 0,
