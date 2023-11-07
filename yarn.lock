@@ -1722,31 +1722,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@callstack/react-theme-provider@npm:3.0.3":
-  version: 3.0.3
-  resolution: "@callstack/react-theme-provider@npm:3.0.3"
-  dependencies:
-    "@types/hoist-non-react-statics": "npm:^3.3.1"
-    deepmerge: "npm:^3.2.0"
-    hoist-non-react-statics: "npm:^3.3.0"
-  peerDependencies:
-    react: ^16.3.0
-  checksum: 3ef57b15173e31cebaad34fa5c2bb1c8621e547545aaf980365a1bb1718a395edaebccc11e08713e8b10dae48722991f3da869860bc486844a4f87533b9a5f51
-  languageName: node
-  linkType: hard
-
-"@callstack/react-theme-provider@npm:^3.0.9":
-  version: 3.0.9
-  resolution: "@callstack/react-theme-provider@npm:3.0.9"
-  dependencies:
-    deepmerge: "npm:^3.2.0"
-    hoist-non-react-statics: "npm:^3.3.0"
-  peerDependencies:
-    react: ">=16.3.0"
-  checksum: ac3463383c35e1a4ef813e869532bf86d3e83a4c211b00616c832a5f08545f04f07f769726664b5010124575af2cf8152aabfb7d4c37a64b22ae8a7f9490df0e
-  languageName: node
-  linkType: hard
-
 "@cspell/cspell-bundled-dicts@npm:7.3.8":
   version: 7.3.8
   resolution: "@cspell/cspell-bundled-dicts@npm:7.3.8"
@@ -4070,6 +4045,7 @@ __metadata:
     "@hero24/configs": "npm:*"
     "@hero24/ui": "npm:*"
     "@hookform/resolvers": "npm:^3.3.2"
+    "@react-navigation/native-stack": "npm:6.9.16"
     "@types/lodash": "npm:^4.14.199"
     "@types/react": "npm:^18.2.23"
     "@typescript-eslint/eslint-plugin": "npm:^6.6.0"
@@ -4166,10 +4142,7 @@ __metadata:
   resolution: "@hero24/ui@workspace:packages/ui"
   dependencies:
     "@callstack/react-theme-provider": "npm:^3.0.9"
-    "@callstack/react-theme-provider": "npm:^3.0.9"
     "@cspell/eslint-plugin": "npm:^7.3.6"
-    "@gluestack-style/animation-resolver": "npm:^1.0.2"
-    "@gluestack-style/legend-motion-animation-driver": "npm:^1.0.2"
     "@expo/html-elements": "npm:^0.5.1"
     "@gluestack-style/animation-resolver": "npm:^1.0.2"
     "@gluestack-style/legend-motion-animation-driver": "npm:^1.0.2"
@@ -5399,7 +5372,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/native-stack@npm:~6.9.12":
+"@react-navigation/native-stack@npm:6.9.16, @react-navigation/native-stack@npm:~6.9.12":
   version: 6.9.16
   resolution: "@react-navigation/native-stack@npm:6.9.16"
   dependencies:
@@ -8369,6 +8342,7 @@ __metadata:
     "@react-native-async-storage/async-storage": "npm:1.18.2"
     "@react-navigation/bottom-tabs": "npm:6.5.11"
     "@react-navigation/native": "npm:6.1.9"
+    "@react-navigation/native-stack": "npm:6.9.16"
     "@types/fs-extra": "npm:^11.0.2"
     "@types/i18n-js": "npm:^3.8.5"
     "@types/lodash": "npm:^4.14.195"
@@ -10976,6 +10950,7 @@ __metadata:
     "@react-native-async-storage/async-storage": "npm:1.18.2"
     "@react-navigation/bottom-tabs": "npm:6.5.11"
     "@react-navigation/native": "npm:6.1.9"
+    "@react-navigation/native-stack": "npm:6.9.16"
     "@types/fs-extra": "npm:^11.0.2"
     "@types/i18n-js": "npm:^3.8.5"
     "@types/lodash": "npm:^4.14.195"
