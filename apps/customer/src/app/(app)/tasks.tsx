@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 import { Text } from '@hero24/ui';
 
-const Tasks: FC = () => {
-  return <Text>Tasks page</Text>;
+const Offers: FC = () => {
+  return <Text>Offers page</Text>;
 };
 
-export default Tasks;
+export default Offers;
