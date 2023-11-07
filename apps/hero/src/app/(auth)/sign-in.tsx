@@ -1,60 +1,63 @@
-/* eslint-disable @cspell/spellchecker */
-import {
-  FirebaseRecaptchaBanner,
-  FirebaseRecaptchaVerifierModal,
-} from 'expo-firebase-recaptcha';
-import {
-  getAuth,
-  PhoneAuthProvider,
-  RecaptchaVerifier,
-  signInWithPhoneNumber,
-} from 'firebase/auth';
-import { FC, useEffect, useRef, useState } from 'react';
+/* eslint-disable @cspell/spellchecker -- TODO add to ignore */
 
-import { AuthScreen } from '@hero24/common';
-import { Button, SafeAreaView, View } from '@hero24/ui';
+import { FirebaseRecaptchaVerifierModal } from 'expo-firebase-recaptcha';
+import { OAuthCredential, PhoneAuthProvider } from 'firebase/auth';
+import { FC, useRef, useState } from 'react';
+import { TextInput } from 'react-native';
+
+import { useAuthentication } from '@hero24/common';
+// import { AuthScreen } from '@hero24/common';
+import { Button, SafeAreaView } from '@hero24/ui';
 
 import { firebaseConfig } from '$/configs';
-import { app, auth } from '$core';
+import { auth } from '$core';
 
-// const appVerifier = new RecaptchaVerifier(
-//   'recaptcha-container',
-//   {
-//     size: 'normal',
-//     callback: (response) => {
-//       // reCAPTCHA solved, allow signInWithPhoneNumber.
-//       // ...
-//     },
-//   },
-//   auth,
-// );
+const phoneProvider = new PhoneAuthProvider(auth);
 
 const Auth: FC = () => {
-  // useEffect(() => {
-  //   // signInWithPhoneNumber(auth, '+380932554113', appVerifier)
-  //   //   .then((confirmationResult) => {
-  //   //     // SMS sent. Prompt user to type the code from the message, then sign the
-  //   //     // user in with confirmationResult.confirm(code).
-  //   //     // window.confirmationResult = confirmationResult;
-  //   //     // ...
-  //   //   })
-  //   //   .catch((error) => {
-  //   //     // Error; SMS not sent
-  //   //     // ...
-  //   //   });
-  // }, []);
   const recaptchaVerifier = useRef(null);
+
+  const { signInWithCredentials } = useAuthentication();
+
+  // TODO make nice captcha window
+  // TODO test on andorid
+  const [verificationCode, setVerificationCode] = useState<string>();
+
   const [verificationId, setVerificationId] = useState<string>();
-  const [verificationCode, setVerificationCode] = useState();
 
   return (
     <SafeAreaView>
       {/* <AuthScreen /> */}
+      <TextInput
+        value={verificationCode}
+        onChangeText={(text) => setVerificationCode(text)}
+      />
       <FirebaseRecaptchaVerifierModal
         ref={recaptchaVerifier}
         firebaseConfig={firebaseConfig}
         attemptInvisibleVerification
       />
+      <Button
+        onPress={async () => {
+          try {
+            if (!verificationId || !verificationCode) {
+              return;
+            }
+
+            // TODO make this with usage of onAuthSucceed callback
+            const credentials = PhoneAuthProvider.credential(
+              verificationId,
+              verificationCode,
+            ) as unknown as OAuthCredential; // ts argues about type mismatch, but actually they are of type OAuthCredential
+
+            await signInWithCredentials(credentials);
+          } catch (error) {
+            console.error(error);
+          }
+        }}
+      >
+        Verify code
+      </Button>
       <Button
         onPress={async () => {
           // The FirebaseRecaptchaVerifierModal ref implements the
@@ -66,42 +69,15 @@ const Auth: FC = () => {
             return;
           }
 
-          // const phoneProvider = new PhoneAuthProvider(auth);
-
-          // const newVerificationId = await phoneProvider.verifyPhoneNumber(
-          //   ,
-          //   recaptchaVerifier.current,
-          // );
-
-          // console.log('newVerificationId', newVerificationId);
-
-          signInWithPhoneNumber(
-            auth,
-            '+380932554113',
+          const newVerificationId = await phoneProvider.verifyPhoneNumber(
+            '+380988818221',
             recaptchaVerifier.current,
-          )
-            .then((confirmationResult) => {
-              console.log('confirmationResult', confirmationResult);
-              setVerificationId(confirmationResult.verificationId);
+          );
 
-              confirmationResult.confirm('123456').then((result) => {
-                const { user } = result;
-
-                console.log('user', user);
-              });
-              // SMS sent. Prompt user to type the code from the message, then sign the
-              // user in with confirmationResult.confirm(code).
-              // window.confirmationResult = confirmationResult;
-              // ...
-            })
-            .catch((error) => {
-              console.error(error);
-              // Error; SMS not sent
-              // ...
-            });
+          setVerificationId(newVerificationId);
         }}
       >
-        Login phone
+        send code
       </Button>
     </SafeAreaView>
   );
