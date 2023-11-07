@@ -25,7 +25,7 @@ const customRadioConfig = {
     gap: 8,
     [DescendantStyleName.TEXT]: {
       color: Color.DARK_00,
-      fontFamily: Font.Onest400,
+      fontFamily: Font.ONEST_400,
       fontWeight: FontWeight.REGULAR,
     },
     variants: {

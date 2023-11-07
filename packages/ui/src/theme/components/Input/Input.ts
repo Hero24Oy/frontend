@@ -36,7 +36,7 @@ export const Input = {
       textAlignVertical: 'center',
       fontSize: FontSize.SM,
       fontWeight: FontWeight.REGULAR,
-      fontFamily: Font.Onest400,
+      fontFamily: Font.ONEST_400,
       ':focus': {
         color: Color.DARK_00,
       },

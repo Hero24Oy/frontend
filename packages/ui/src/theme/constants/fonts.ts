@@ -1,5 +1,5 @@
 export enum Font {
-  Onest400 = 'Onest400',
-  Onest500 = 'Onest500',
-  Onest600 = 'Onest600',
+  ONEST_400 = 'Onest400',
+  ONEST_500 = 'Onest500',
+  ONEST_600 = 'Onest600',
 }

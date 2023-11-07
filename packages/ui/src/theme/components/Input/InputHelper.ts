@@ -12,7 +12,7 @@ import { ComponentTheme } from '$theme/types';
 export const InputHelper = {
   theme: {
     color: Color.GREY_01,
-    fontFamily: Font.Onest400,
+    fontFamily: Font.ONEST_400,
     fontWeight: FontWeight.REGULAR,
     fontSize: FontSize.SM,
     lineHeight: LineHeight.SM,

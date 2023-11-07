@@ -26,7 +26,7 @@ const ButtonTheme = {
     gap: 4,
     [DescendantStyleName.TEXT]: {
       fontWeight: FontWeight.REGULAR,
-      fontFamily: Font.Onest500,
+      fontFamily: Font.ONEST_500,
     },
     ':focusVisible': {
       borderWidth: 2,

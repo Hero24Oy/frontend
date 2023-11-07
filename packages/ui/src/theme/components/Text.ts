@@ -17,7 +17,7 @@ export type TextThemeVariants = {
 export const Text = {
   theme: {
     color: Color.DARK_00,
-    fontFamily: Font.Onest400,
+    fontFamily: Font.ONEST_400,
     fontWeight: FontWeight.REGULAR,
     fontSize: FontSize.SM,
     lineHeight: LineHeight.SM,

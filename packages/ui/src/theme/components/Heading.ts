@@ -24,31 +24,31 @@ export const Heading = {
       variant: {
         [HeadingVariant.H1]: {
           props: { as: H1 },
-          fontFamily: Font.Onest600,
+          fontFamily: Font.ONEST_600,
           fontSize: FontSize.XXXL,
           lineHeight: LineHeight.XXXL,
         },
         [HeadingVariant.H2]: {
           props: { as: H2 },
-          fontFamily: Font.Onest600,
+          fontFamily: Font.ONEST_600,
           fontSize: FontSize.XXL,
           lineHeight: LineHeight.XXL,
         },
         [HeadingVariant.H3]: {
           props: { as: H3 },
-          fontFamily: Font.Onest600,
+          fontFamily: Font.ONEST_600,
           fontSize: FontSize.XL,
           lineHeight: LineHeight.XL,
         },
         [HeadingVariant.H4]: {
           props: { as: H4 },
-          fontFamily: Font.Onest500,
+          fontFamily: Font.ONEST_500,
           fontSize: FontSize.LG,
           lineHeight: LineHeight.LG,
         },
         [HeadingVariant.H5]: {
           props: { as: H5 },
-          fontFamily: Font.Onest500,
+          fontFamily: Font.ONEST_500,
           fontSize: FontSize.MD,
           lineHeight: LineHeight.MD,
         },
