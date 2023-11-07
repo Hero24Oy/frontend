@@ -4,9 +4,12 @@
     "paths": {
       "$/*": ["*"],
       "$app": ["app/*"],
-      "$core": ["core/index"],
-      "$configs": ["configs/index"],
-      "$modules": ["modules/index"]
+      "$core": ["core"],
+      "$core/*": ["core/*"],
+      "$configs": ["configs"],
+      "$configs/*": ["configs/*"],
+      "$modules": ["modules"],
+      "$modules/*": ["modules/*"]
     }
   },
   "extends": "@hero24/configs/tsconfig.json",
