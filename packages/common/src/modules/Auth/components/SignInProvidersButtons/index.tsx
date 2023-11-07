@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 import { Button, Hidden, VStack } from '@hero24/ui';
 
 import { AppleSignInButton } from './AppleSignInButton';
+import { GoogleSignInButton } from './GoogleSignInButton';
 
 export const SignInProvidersButtons: FC = () => {
   return (
@@ -12,11 +13,7 @@ export const SignInProvidersButtons: FC = () => {
       <Hidden platforms={['web', 'android']}>
         <AppleSignInButton />
       </Hidden>
-
-      <Button variant="outline" isDisabled>
-        Continue with Google
-      </Button>
-
+      <GoogleSignInButton />
       <Button variant="outline" isDisabled>
         Continue with Facebook
       </Button>
@@ -28,5 +25,6 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     gap: 16,
+    marginHorizontal: 16,
   },
 });
