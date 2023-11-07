@@ -4,6 +4,10 @@ import {
   InputThemeVariants,
   InputTitleThemeVariants,
   RadioThemeVariants,
+  SliderFilledTrackThemeVariants,
+  SliderThemeVariants,
+  SliderThumbThemeVariants,
+  SliderTrackThemeVariants,
   TextareaThemeVariants,
   TextThemeVariants,
 } from '$theme/components';
@@ -13,6 +17,11 @@ declare module '@gluestack-ui/themed' {
     Button: {
       theme: {
         variants: ButtonThemeVariants;
+      };
+    };
+    FilledTrack: {
+      theme: {
+        variant: SliderFilledTrackThemeVariants;
       };
     };
     Heading: {
@@ -33,6 +42,21 @@ declare module '@gluestack-ui/themed' {
     Radio: {
       theme: {
         variants: RadioThemeVariants;
+      };
+    };
+    Slider: {
+      theme: {
+        variant: SliderThemeVariants;
+      };
+    };
+    SliderThumb: {
+      theme: {
+        variant: SliderThumbThemeVariants;
+      };
+    };
+    SliderTrack: {
+      theme: {
+        variant: SliderTrackThemeVariants;
       };
     };
     Text: {
