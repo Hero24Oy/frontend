@@ -12,6 +12,7 @@ export * from './Checkbox';
 export * from './Chip';
 export * from './RadioGroup';
 export * from './Image';
+export * from './Badge';
 export * from './KeyboardAwareScrollView';
 export * from './IconButton';
 export * from './Textarea';
