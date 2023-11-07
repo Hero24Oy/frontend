@@ -25,8 +25,8 @@ const ButtonTheme = {
   theme: {
     gap: 4,
     [DescendantStyleName.TEXT]: {
-      fontFamily: Font.MAIN,
-      fontWeight: FontWeight.MEDIUM,
+      fontWeight: FontWeight.REGULAR,
+      fontFamily: Font.Onest500,
     },
     ':focusVisible': {
       borderWidth: 2,

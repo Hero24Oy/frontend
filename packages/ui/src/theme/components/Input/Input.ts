@@ -1,6 +1,6 @@
 import { ViewProps, ViewStyle } from 'react-native';
 
-import { Color, Font, FontSize } from '../../constants';
+import { Color, Font, FontSize, FontWeight } from '../../constants';
 
 import { InputSize } from '$molecules';
 import { DescendantStyleName } from '$theme/enums';
@@ -35,7 +35,8 @@ export const Input = {
       flex: 1,
       textAlignVertical: 'center',
       fontSize: FontSize.SM,
-      fontFamily: Font.MAIN,
+      fontWeight: FontWeight.REGULAR,
+      fontFamily: Font.Onest400,
       ':focus': {
         color: Color.DARK_00,
       },

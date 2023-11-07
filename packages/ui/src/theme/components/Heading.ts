@@ -18,37 +18,37 @@ export type HeadingThemeVariants = {
 export const Heading = {
   theme: {
     color: Color.DARK_00,
-    fontFamily: Font.MAIN,
+    fontWeight: FontWeight.REGULAR,
 
     variants: {
       variant: {
         [HeadingVariant.H1]: {
           props: { as: H1 },
-          fontWeight: FontWeight.SEMI_BOLD,
+          fontFamily: Font.Onest600,
           fontSize: FontSize.XXXL,
           lineHeight: LineHeight.XXXL,
         },
         [HeadingVariant.H2]: {
           props: { as: H2 },
-          fontWeight: FontWeight.SEMI_BOLD,
+          fontFamily: Font.Onest600,
           fontSize: FontSize.XXL,
           lineHeight: LineHeight.XXL,
         },
         [HeadingVariant.H3]: {
           props: { as: H3 },
-          fontWeight: FontWeight.SEMI_BOLD,
+          fontFamily: Font.Onest600,
           fontSize: FontSize.XL,
           lineHeight: LineHeight.XL,
         },
         [HeadingVariant.H4]: {
           props: { as: H4 },
-          fontWeight: FontWeight.MEDIUM,
+          fontFamily: Font.Onest500,
           fontSize: FontSize.LG,
           lineHeight: LineHeight.LG,
         },
         [HeadingVariant.H5]: {
           props: { as: H5 },
-          fontWeight: FontWeight.MEDIUM,
+          fontFamily: Font.Onest500,
           fontSize: FontSize.MD,
           lineHeight: LineHeight.MD,
         },

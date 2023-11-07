@@ -3,6 +3,7 @@ import { TextProps, TextStyle } from 'react-native';
 import { InputSize } from '$components';
 import {
   Color,
+  Font,
   FontSize,
   FontWeight,
   LineHeight,
@@ -17,6 +18,7 @@ export type InputTitleThemeVariants = {
 export const InputTitle = {
   theme: {
     color: Color.GREY_01,
+    fontFamily: Font.Onest400,
     fontWeight: FontWeight.REGULAR,
     fontSize: FontSize.SM,
     lineHeight: LineHeight.SM,

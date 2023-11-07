@@ -5,6 +5,7 @@ import { ViewProps, ViewStyle } from 'react-native';
 import { RadioSize, RadioVariant } from '$components';
 import {
   Color,
+  Font,
   FontSize,
   FontWeight,
   IconSize,
@@ -24,6 +25,7 @@ const customRadioConfig = {
     gap: 8,
     [DescendantStyleName.TEXT]: {
       color: Color.DARK_00,
+      fontFamily: Font.Onest400,
       fontWeight: FontWeight.REGULAR,
     },
     variants: {
@@ -72,7 +74,6 @@ const customRadioConfig = {
           [DescendantStyleName.TEXT]: {
             color: Color.DARK_00,
             fontSize: FontSize.MD,
-            fontWeight: FontWeight.REGULAR,
             paddingHorizontal: 12,
             paddingVertical: 8,
             lineHeight: LineHeight.SM,

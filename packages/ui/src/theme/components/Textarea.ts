@@ -32,10 +32,10 @@ export const Textarea = {
     [DescendantStyleName.TEXT]: {
       textAlign: 'left',
       color: Color.GREY_02,
-      fontFamily: Font.MAIN,
+      fontFamily: Font.Onest400,
+      fontWeight: FontWeight.REGULAR,
       fontSize: FontSize.SM,
       lineHeight: LineHeight.SM,
-      fontWeight: FontWeight.REGULAR,
     },
     ':focus': {
       borderColor: Color.DARK_00,

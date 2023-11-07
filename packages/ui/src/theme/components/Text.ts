@@ -1,7 +1,13 @@
 import { TextProps, TextStyle } from 'react-native';
 
 import { TextVariant } from '$components/atoms/Text/types';
-import { Color, FontSize, FontWeight, LineHeight } from '$theme/constants';
+import {
+  Color,
+  Font,
+  FontSize,
+  FontWeight,
+  LineHeight,
+} from '$theme/constants';
 import { ComponentTheme, SxValues } from '$theme/types';
 
 export type TextThemeVariants = {
@@ -11,6 +17,7 @@ export type TextThemeVariants = {
 export const Text = {
   theme: {
     color: Color.DARK_00,
+    fontFamily: Font.Onest400,
     fontWeight: FontWeight.REGULAR,
     fontSize: FontSize.SM,
     lineHeight: LineHeight.SM,
