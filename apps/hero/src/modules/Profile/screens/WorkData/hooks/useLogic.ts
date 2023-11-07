@@ -14,6 +14,7 @@ export const useLogic = () => {
   const {
     control,
     getValues,
+    setValue,
     formState: { isValid },
   } = useForm<WorkData>({
     resolver: yupResolver<WorkData>(workDataShape),
@@ -25,5 +26,5 @@ export const useLogic = () => {
     setWorkData(getValues());
   }, []);
 
-  return { control, isValid, onChange };
+  return { control, setValue, isValid, onChange };
 };
