@@ -1,5 +1,5 @@
 export * from './SignInProvidersButtons';
-export * from './Or';
+export * from './OrDivider';
 export * from './Footer';
 export * from './Header';
 export * from './ConfirmationCodeFormText';

@@ -2,7 +2,7 @@ import { Link } from 'expo-router';
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Text, VStack } from '@hero24/ui';
+import { Color, Text, VStack } from '@hero24/ui';
 
 export const Footer: FC = () => {
   return (
@@ -12,7 +12,7 @@ export const Footer: FC = () => {
       {/* TODO - replace with correct link */}
       <Link href="/">
         {/* TODO - replace with i18n */}
-        <Text color="BLACK_00">Service Provider Terms</Text>
+        <Text style={styles.text}>Service Provider Terms</Text>
       </Link>
     </VStack>
   );
@@ -23,5 +23,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     gap: 2,
+  },
+  text: {
+    color: Color.BLACK_00,
   },
 });

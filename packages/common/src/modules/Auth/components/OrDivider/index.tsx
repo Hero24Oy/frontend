@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import { HStack, Text } from '@hero24/ui';
 
-export const Or: FC = () => {
+export const OrDivider: FC = () => {
   return (
     <HStack style={styles.orBox}>
       {/* TODO replace "Or" with i18n call */}

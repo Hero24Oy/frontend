@@ -4064,6 +4064,7 @@ __metadata:
     eslint-plugin-typescript-sort-keys: "npm:^3.0.0"
     hero24-types: "npm:^0.2.2"
     i18next: "npm:^23.5.1"
+    libphonenumber-js: "npm:1.10.49"
     lodash: "npm:^4.17.21"
     npm-watch: "npm:^0.11.0"
     prettier: "npm:^3.0.3"
@@ -4078,7 +4079,7 @@ __metadata:
     "@react-native-async-storage/async-storage": 1.18.2
     "@react-navigation/bottom-tabs": 6.5.11
     "@react-navigation/native": 6.1.9
-    "@react-navigation/native-stack": "*"
+    "@react-navigation/native-stack": 6.9.17
     expo: 49.0.15
     expo-apple-authentication: 6.1.2
     expo-asset: 8.10.1
@@ -4093,7 +4094,6 @@ __metadata:
     firebase: 9.23.0
     graphql: 16.8.1
     graphql-ws: 5.14.0
-    libphonenumber-js: 1.10.49
     lucide-react-native: 0.288.0
     react: 18.2.0
     react-combine-providers: 0.9.6
@@ -5374,7 +5374,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/native-stack@npm:6.9.17, @react-navigation/native-stack@npm:^6.9.17":
+"@react-navigation/native-stack@npm:6.9.17":
   version: 6.9.17
   resolution: "@react-navigation/native-stack@npm:6.9.17"
   dependencies:
@@ -8360,7 +8360,7 @@ __metadata:
     "@react-native-async-storage/async-storage": "npm:1.18.2"
     "@react-navigation/bottom-tabs": "npm:6.5.11"
     "@react-navigation/native": "npm:6.1.9"
-    "@react-navigation/native-stack": "npm:^6.9.17"
+    "@react-navigation/native-stack": "npm:6.9.17"
     "@types/fs-extra": "npm:^11.0.2"
     "@types/i18n-js": "npm:^3.8.5"
     "@types/lodash": "npm:^4.14.195"
@@ -8396,7 +8396,7 @@ __metadata:
     expo-image-picker: "npm:14.3.2"
     expo-linking: "npm:~5.0.2"
     expo-notifications: "npm:~0.20.1"
-    expo-router: "npm:^2.0.10"
+    expo-router: "npm:2.0.10"
     expo-splash-screen: "npm:~0.20.5"
     expo-status-bar: "npm:~1.6.0"
     expo-system-ui: "npm:~2.4.0"
@@ -8408,7 +8408,6 @@ __metadata:
     graphql-ws: "npm:5.14.0"
     hero24-types: "npm:^0.2.2"
     i18next: "npm:^23.5.1"
-    libphonenumber-js: "npm:1.10.49"
     lodash: "npm:^4.17.21"
     lucide-react-native: "npm:0.288.0"
     prettier: "npm:^3.0.3"
@@ -9901,7 +9900,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expo-router@npm:2.0.10, expo-router@npm:^2.0.10":
+"expo-router@npm:2.0.10":
   version: 2.0.10
   resolution: "expo-router@npm:2.0.10"
   dependencies:
@@ -11018,7 +11017,6 @@ __metadata:
     graphql-ws: "npm:5.14.0"
     hero24-types: "npm:^0.2.2"
     i18next: "npm:^23.5.1"
-    libphonenumber-js: "npm:1.10.49"
     lodash: "npm:^4.17.21"
     lucide-react-native: "npm:0.288.0"
     prettier: "npm:^3.0.3"

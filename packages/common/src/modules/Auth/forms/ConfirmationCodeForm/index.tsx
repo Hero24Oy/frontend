@@ -1,34 +1,34 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { confirmationCodeFormValidationSchema } from 'core/validation';
-import { useCustomForm, useFieldValidation } from 'modules/Auth/hooks';
+import { confirmationCodeFormValidationSchema } from 'core';
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Button, ConfirmationInput, Pressable, Text, VStack } from '@hero24/ui';
+import {
+  Button,
+  Color,
+  ConfirmationInput,
+  Pressable,
+  Text,
+  VStack,
+} from '@hero24/ui';
 
-const CODE_LENGTH = 4;
+import { CODE_LENGTH, initialFormState } from './constants';
+import { ConfirmationCodeFormData } from './types';
 
-interface FormData {
-  code: string;
-}
+import { useCustomForm, useFieldValidation } from '$common/modules/Auth/hooks';
 
-export type ConfirmationCodeFormProps = {
-  onSuccessConfirmCallback: () => void;
-};
-
-export const ConfirmationCodeForm: FC<ConfirmationCodeFormProps> = (props) => {
-  const { onSuccessConfirmCallback } = props;
-
-  const onSubmit = (_data: FormData): void => {
-    onSuccessConfirmCallback();
+export const ConfirmationCodeForm: FC = () => {
+  const onSubmit = (_data: ConfirmationCodeFormData): void => {
+    // TODO -- add onSubmit logic
   };
 
-  const { control, onSubmitHandler, isLoading } = useCustomForm<FormData>({
-    resolver: yupResolver(confirmationCodeFormValidationSchema(CODE_LENGTH)),
-    defaultValues: { code: '' },
-    mode: 'onChange',
-    onSubmit,
-  });
+  const { control, onSubmitHandler, isLoading } =
+    useCustomForm<ConfirmationCodeFormData>({
+      resolver: yupResolver(confirmationCodeFormValidationSchema(CODE_LENGTH)),
+      defaultValues: initialFormState,
+      mode: 'onChange',
+      onSubmit,
+    });
 
   const isCodeValid = useFieldValidation({ control, name: 'code' });
 
@@ -50,7 +50,7 @@ export const ConfirmationCodeForm: FC<ConfirmationCodeFormProps> = (props) => {
             style={styles.sendOneMore}
             onPress={onSendOneMoreTimeHandler}
           >
-            <Text color="BLACK_00">Send one more time</Text>
+            <Text style={styles.message}>Send one more time</Text>
           </Pressable>
         ) : null}
       </VStack>
@@ -75,4 +75,9 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
   },
+  message: {
+    color: Color.BLACK_00,
+  },
 });
+
+export * from './types';

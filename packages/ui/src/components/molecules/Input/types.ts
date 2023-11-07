@@ -14,7 +14,7 @@ export type InputProps<Type extends FieldValues> = {
   control: Control<Type>;
   name: Path<Type>;
   isDisabled?: boolean;
-  isHelperDisabled?: boolean;
+  isHelperEnabled?: boolean;
   keyboardType?: KeyboardType;
   leftSlot?: JSX.Element;
   mask?: string;

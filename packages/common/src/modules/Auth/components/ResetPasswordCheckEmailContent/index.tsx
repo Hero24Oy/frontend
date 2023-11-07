@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Button, Heading, Text, VStack } from '@hero24/ui';
+import { Button, Color, Heading, Text, VStack } from '@hero24/ui';
 
 import { getMaskedEmail } from './utils';
 
@@ -16,7 +16,7 @@ export const ResetPasswordCheckEmailContent: FC<Props> = (props) => {
     <VStack style={styles.wrapper}>
       {/* TODO replace with i18n call */}
       <Heading variant="H2">Check your email</Heading>
-      <Text variant="regular" color="BLACK_00">
+      <Text variant="regular" style={styles.text}>
         {`We sent a link to reset your password to ${getMaskedEmail(email)}`}
       </Text>
       <VStack style={styles.button}>
@@ -37,5 +37,8 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 12,
+  },
+  text: {
+    color: Color.BLACK_00,
   },
 });

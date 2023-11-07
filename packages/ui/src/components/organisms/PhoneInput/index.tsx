@@ -30,7 +30,7 @@ export const PhoneInput = <Type extends FieldValues>(
       mask={DEFAULT_PHONE_MASK}
       name={phoneFieldName}
       leftSlot={leftSlotContent}
-      isHelperDisabled
+      isHelperEnabled={false}
       {...restProps}
     />
   );

@@ -1,32 +1,29 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { resetPasswordFormValidationSchema } from 'core/validation';
-import { useCustomForm, useFieldValidation } from 'modules/Auth/hooks';
+import { resetPasswordFormValidationSchema } from 'core';
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { Button, Input, VStack } from '@hero24/ui';
 
-interface FormData {
-  email: string;
-}
+import { initialFormState } from './constants';
+import { ResetPasswordFormData, ResetPasswordFormProps } from './types';
 
-export type ResetPasswordFormProps = {
-  onSuccessResetPasswordCallback: () => void;
-};
+import { useCustomForm, useFieldValidation } from '$common/modules/Auth/hooks';
 
 export const ResetPasswordForm: FC<ResetPasswordFormProps> = (props) => {
   const { onSuccessResetPasswordCallback } = props;
 
-  const onSubmit = (_data: FormData): void => {
+  const onSubmit = (_data: ResetPasswordFormData): void => {
     onSuccessResetPasswordCallback();
   };
 
-  const { control, onSubmitHandler, isLoading } = useCustomForm<FormData>({
-    resolver: yupResolver(resetPasswordFormValidationSchema),
-    defaultValues: { email: '' },
-    mode: 'onChange',
-    onSubmit,
-  });
+  const { control, onSubmitHandler, isLoading } =
+    useCustomForm<ResetPasswordFormData>({
+      resolver: yupResolver(resetPasswordFormValidationSchema),
+      defaultValues: initialFormState,
+      mode: 'onChange',
+      onSubmit,
+    });
 
   const isEmailValid = useFieldValidation({ control, name: 'email' });
 
@@ -39,7 +36,6 @@ export const ResetPasswordForm: FC<ResetPasswordFormProps> = (props) => {
         name="email"
         title="Email"
         keyboardType="email-address"
-        isHelperDisabled
       />
       <Button
         onPress={onSubmitHandler}
@@ -59,3 +55,5 @@ const styles = StyleSheet.create({
     gap: 24,
   },
 });
+
+export * from './types';

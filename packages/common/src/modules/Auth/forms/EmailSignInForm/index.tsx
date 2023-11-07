@@ -1,33 +1,29 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { emailSignInFormValidationSchema } from 'core/validation';
-import { useCustomForm } from 'modules/Auth/hooks';
+import { emailSignInFormValidationSchema } from 'core';
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Button, Input, Pressable, Text, VStack } from '@hero24/ui';
+import { Button, Color, Input, Pressable, Text, VStack } from '@hero24/ui';
 
-type FormData = {
-  email: string;
-  password: string;
-};
+import { initialFormState } from './constants';
+import { EmailSignInFormData, EmailSignInFormProps } from './types';
 
-export type EmailSignInFormProps = {
-  onForgotPasswordCallback: () => void;
-};
+import { useCustomForm } from '$common/modules/Auth/hooks';
 
 export const EmailSignInForm: FC<EmailSignInFormProps> = (props) => {
   const { onForgotPasswordCallback } = props;
 
-  const onSubmit = (_data: FormData): void => {
+  const onSubmit = (_data: EmailSignInFormData): void => {
     return undefined;
   };
 
-  const { control, onSubmitHandler, isLoading } = useCustomForm<FormData>({
-    resolver: yupResolver(emailSignInFormValidationSchema),
-    defaultValues: { email: '', password: '' },
-    mode: 'onSubmit',
-    onSubmit,
-  });
+  const { control, onSubmitHandler, isLoading } =
+    useCustomForm<EmailSignInFormData>({
+      resolver: yupResolver(emailSignInFormValidationSchema),
+      defaultValues: initialFormState,
+      mode: 'onSubmit',
+      onSubmit,
+    });
 
   return (
     <VStack style={styles.container}>
@@ -51,7 +47,7 @@ export const EmailSignInForm: FC<EmailSignInFormProps> = (props) => {
           onPress={onForgotPasswordCallback}
           style={styles.forgotPassword}
         >
-          <Text color="BLACK_00">Forgot password?</Text>
+          <Text style={styles.forgotPasswordText}>Forgot password?</Text>
         </Pressable>
       </VStack>
       <Button isLoading={isLoading} onPress={onSubmitHandler}>
@@ -73,4 +69,9 @@ const styles = StyleSheet.create({
     bottom: 0,
     right: 0,
   },
+  forgotPasswordText: {
+    color: Color.BLACK_00,
+  },
 });
+
+export * from './types';

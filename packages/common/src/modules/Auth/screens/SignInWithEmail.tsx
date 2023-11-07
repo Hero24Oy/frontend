@@ -3,7 +3,12 @@ import { StyleSheet } from 'react-native';
 
 import { VStack } from '@hero24/ui';
 
-import { Footer, Header, Or, SignInProvidersButtons } from '../components';
+import {
+  Footer,
+  Header,
+  OrDivider,
+  SignInProvidersButtons,
+} from '../components';
 import { EmailSignInForm, EmailSignInFormProps } from '../forms';
 
 import { StyledKeyboardAwareScrollView } from '$common/core';
@@ -16,7 +21,7 @@ export const SignInWithEmailScreen: FC<Props> = (props) => {
       <VStack style={styles.wrapper}>
         <Header />
         <EmailSignInForm {...props} />
-        <Or />
+        <OrDivider />
         <SignInProvidersButtons />
       </VStack>
       <Footer />

@@ -1,8 +1,9 @@
-import { logo } from 'modules/Auth/assets';
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { HStack, Image, View } from '@hero24/ui';
+
+import { logo } from '$common/modules/Auth/assets';
 
 export const Header: FC = () => {
   return (

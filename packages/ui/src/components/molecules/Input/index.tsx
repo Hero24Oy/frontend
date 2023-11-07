@@ -28,9 +28,9 @@ export const Input = <Type extends FieldValues>(
     leftSlot,
     rightSlot,
     title,
-    isHelperDisabled,
     size = Size.SM,
     type = InputType.TEXT,
+    isHelperEnabled = true,
     isDisabled = false,
     keyboardType = 'default',
   } = props;
@@ -75,7 +75,7 @@ export const Input = <Type extends FieldValues>(
           />
         ) : null}
       </GluestackInput>
-      {!isHelperDisabled ? <InputHelper error={error} /> : null}
+      {isHelperEnabled ? <InputHelper error={error} /> : null}
     </VStack>
   );
 };

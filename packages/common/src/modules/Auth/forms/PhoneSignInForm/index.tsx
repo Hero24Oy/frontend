@@ -1,36 +1,33 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { phoneSignInFormValidationSchema } from 'core/validation';
-import { useCustomForm, useFieldValidation } from 'modules/Auth/hooks';
+import { phoneSignInFormValidationSchema } from 'core';
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
-import { CountryCode } from 'react-native-country-picker-modal';
 
 import { Button, PhoneInput, VStack } from '@hero24/ui';
 
-type FormData = {
-  phone: string;
-  code?: string;
-};
+import {
+  initialFormState,
+  PHONE_INITIAL_COUNTRY_CODE,
+  PREFERRED_COUNTRIES,
+} from './constants';
+import { PhoneSignInFormData, PhoneSignInFormProps } from './types';
 
-export type PhoneSignInFormProps = {
-  signInWithPhoneCallback: () => void;
-};
-
-const PHONE_INITIAL_COUNTRY_CODE: CountryCode = 'FI';
+import { useCustomForm, useFieldValidation } from '$common/modules/Auth/hooks';
 
 export const PhoneSignInForm: FC<PhoneSignInFormProps> = (props) => {
   const { signInWithPhoneCallback } = props;
 
-  const onSubmit = (_data: FormData): void => {
+  const onSubmit = (_data: PhoneSignInFormData): void => {
     signInWithPhoneCallback();
   };
 
-  const { control, onSubmitHandler, isLoading } = useCustomForm<FormData>({
-    resolver: yupResolver(phoneSignInFormValidationSchema),
-    defaultValues: { phone: '', code: '' },
-    mode: 'onChange',
-    onSubmit,
-  });
+  const { control, onSubmitHandler, isLoading } =
+    useCustomForm<PhoneSignInFormData>({
+      resolver: yupResolver(phoneSignInFormValidationSchema),
+      defaultValues: initialFormState,
+      mode: 'onChange',
+      onSubmit,
+    });
 
   const isPhoneValid = useFieldValidation({ control, name: 'phone' });
 
@@ -42,6 +39,7 @@ export const PhoneSignInForm: FC<PhoneSignInFormProps> = (props) => {
         codeFieldName="code"
         phoneFieldName="phone"
         initialCountryCode={PHONE_INITIAL_COUNTRY_CODE}
+        preferredCountryCodes={PREFERRED_COUNTRIES}
         title="Phone number"
         placeholder="Enter"
       />
@@ -65,3 +63,5 @@ const styles = StyleSheet.create({
     gap: 16,
   },
 });
+
+export * from './types';

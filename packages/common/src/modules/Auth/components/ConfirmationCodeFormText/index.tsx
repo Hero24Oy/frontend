@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Text, VStack } from '@hero24/ui';
+import { Color, Text, VStack } from '@hero24/ui';
 
 type Props = {
   phone: string;
@@ -11,10 +11,10 @@ export const ConfirmationCodeFormText: FC<Props> = ({ phone }) => {
   return (
     <VStack style={styles.textContainer}>
       {/* TODO replace with i18n call */}
-      <Text variant="regular" color="BLACK_00">
+      <Text variant="regular" style={styles.text}>
         The code was sent to
       </Text>
-      <Text variant="medium" color="BLACK_00">
+      <Text variant="medium" style={styles.text}>
         {phone}
       </Text>
     </VStack>
@@ -26,5 +26,8 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     marginTop: 32,
     alignItems: 'center',
+  },
+  text: {
+    color: Color.BLACK_00,
   },
 });

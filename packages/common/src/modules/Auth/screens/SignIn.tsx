@@ -3,7 +3,12 @@ import { StyleSheet } from 'react-native';
 
 import { Button, VStack } from '@hero24/ui';
 
-import { Footer, Header, Or, SignInProvidersButtons } from '../components';
+import {
+  Footer,
+  Header,
+  OrDivider,
+  SignInProvidersButtons,
+} from '../components';
 import { PhoneSignInForm, PhoneSignInFormProps } from '../forms';
 
 import { SafeAreaKeyboardAwareScrollView } from '$common/core';
@@ -12,7 +17,7 @@ type Props = PhoneSignInFormProps & {
   signInWithEmailCallback: () => void;
 };
 
-export const AuthScreen: FC<Props> = (props) => {
+export const SignInScreen: FC<Props> = (props) => {
   const { signInWithPhoneCallback, signInWithEmailCallback } = props;
 
   return (
@@ -20,9 +25,9 @@ export const AuthScreen: FC<Props> = (props) => {
       <VStack style={styles.wrapper}>
         <Header />
         <PhoneSignInForm signInWithPhoneCallback={signInWithPhoneCallback} />
-        <Or />
+        <OrDivider />
         <SignInProvidersButtons />
-        <Or />
+        <OrDivider />
         {/* TODO replace with i18n call */}
         <Button
           variant="outline"

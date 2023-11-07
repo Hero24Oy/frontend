@@ -1,7 +1,8 @@
 import { FC } from 'react';
 
 import { ResetPasswordFormText } from '../components';
-import { ResetPasswordForm, ResetPasswordFormProps } from '../forms';
+import { ResetPasswordForm } from '../forms';
+import { ResetPasswordFormProps } from '../forms/ResetPasswordForm/types';
 
 import { StyledKeyboardAwareScrollView } from '$common/core';
 

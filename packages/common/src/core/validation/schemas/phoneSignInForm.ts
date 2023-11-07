@@ -1,6 +1,8 @@
 import { parsePhoneNumber } from 'libphonenumber-js';
 import * as yup from 'yup';
 
+import { ErrorHints } from '../constants';
+
 interface PhoneSignInFormFields {
   phone: string;
   code?: string;
@@ -13,7 +15,7 @@ export const phoneSignInFormValidationSchema = yup.object().shape({
     .required('Required')
     .test(
       'is-valid-phone',
-      'Invalid phone number',
+      ErrorHints.INVALID_PHONE,
       function validate(phone: string) {
         try {
           const { code } = this.parent as PhoneSignInFormFields;
