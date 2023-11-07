@@ -37,15 +37,17 @@ const MainProvider: FC = () => {
 const PostProviderApp: FC = () => {
   const { isAppInitialized, areFontsLoaded } = useInitializeApp();
 
+  const isAppNotReady = !isAppInitialized || !areFontsLoaded;
+
   useEffect(() => {
-    if (!isAppInitialized || !areFontsLoaded) {
+    if (isAppNotReady) {
       return;
     }
 
     SplashScreen.hideAsync();
   }, [isAppInitialized]);
 
-  if (!isAppInitialized || !areFontsLoaded) {
+  if (isAppNotReady) {
     return null;
   }
 
