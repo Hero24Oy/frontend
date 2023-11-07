@@ -4,14 +4,14 @@ import { Control, FieldValues, Path } from 'react-hook-form';
 
 import { Size } from '$theme';
 
-type BaseSliderProps = Pick<
+type GluestackSliderProps = Pick<
   ComponentProps<typeof Slider>,
   'orientation' | 'maxValue' | 'minValue' | 'step' | 'isDisabled'
 >;
 
 export type MarksProp = string[];
 
-export type SliderProps<Type extends FieldValues> = BaseSliderProps & {
+export type SliderProps<Type extends FieldValues> = GluestackSliderProps & {
   control: Control<Type>;
   name: Path<Type>;
   size?: SliderSize;

@@ -14,15 +14,15 @@ export const Mark: FC<Props> = (props) => {
 
   const styles = useStyle(markWidth, currentIndex, maxIndex);
 
-  return <Text style={styles}>{children}</Text>;
+  return <Text style={styles.mark}>{children}</Text>;
 };
 
 export const useStyle = (
   width: number,
   markIndex: number,
   maxIndex: number,
-): TextStyle => {
-  const getStyle = (): StyleSheet.NamedStyles<unknown> => {
+): { mark: TextStyle } => {
+  const getStyle = (): TextStyle => {
     if (markIndex === 0) {
       return {
         flex: 1,
@@ -43,5 +43,5 @@ export const useStyle = (
     };
   };
 
-  return StyleSheet.create(getStyle());
+  return StyleSheet.create({ mark: getStyle() });
 };

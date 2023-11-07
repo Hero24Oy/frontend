@@ -6,8 +6,6 @@ import { Mark } from './Mark';
 
 import { StyledSliderMarksContainer } from '$styled';
 
-const MarksContainer = StyledSliderMarksContainer;
-
 type Props = {
   marks: MarksProp;
   parentWidth: number;
@@ -34,5 +32,9 @@ export const Marks: FC<Props> = (props: Props) => {
     [marks, markWidth],
   );
 
-  return <MarksContainer {...restProps}>{marksItems}</MarksContainer>;
+  return (
+    <StyledSliderMarksContainer {...restProps}>
+      {marksItems}
+    </StyledSliderMarksContainer>
+  );
 };
