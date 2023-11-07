@@ -1,7 +1,10 @@
+const SIZES = ['XXL', 'XL', 'LG', 'MD', 'SM', 'XS', 'XXS', 'FULL'];
+
 const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = [
   'heroBIOText',
   'Icon',
   'Booleanize',
+  ...SIZES,
   'IBAN',
   'PDF',
 ];
@@ -368,7 +371,7 @@ const override = {
     },
   },
   noMagicNumbersExceptions: {
-    files: ['src/configs/*.ts', 'src/theme/**/*.ts'],
+    files: ['src/configs/*.ts', 'src/theme/**/*.ts', '**/*/enums.ts'],
     rules: {
       'no-magic-numbers': 'off',
     },

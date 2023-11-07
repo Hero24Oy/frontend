@@ -4045,6 +4045,7 @@ __metadata:
     "@hero24/configs": "npm:*"
     "@hero24/ui": "npm:*"
     "@hookform/resolvers": "npm:^3.3.2"
+    "@react-navigation/native-stack": "npm:6.9.16"
     "@types/lodash": "npm:^4.14.199"
     "@types/react": "npm:^18.2.23"
     "@typescript-eslint/eslint-plugin": "npm:^6.6.0"
@@ -5371,7 +5372,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/native-stack@npm:~6.9.12":
+"@react-navigation/native-stack@npm:6.9.16, @react-navigation/native-stack@npm:~6.9.12":
   version: 6.9.16
   resolution: "@react-navigation/native-stack@npm:6.9.16"
   dependencies:
@@ -8341,6 +8342,7 @@ __metadata:
     "@react-native-async-storage/async-storage": "npm:1.18.2"
     "@react-navigation/bottom-tabs": "npm:6.5.11"
     "@react-navigation/native": "npm:6.1.9"
+    "@react-navigation/native-stack": "npm:6.9.16"
     "@types/fs-extra": "npm:^11.0.2"
     "@types/i18n-js": "npm:^3.8.5"
     "@types/lodash": "npm:^4.14.195"
@@ -10949,6 +10951,7 @@ __metadata:
     "@react-native-async-storage/async-storage": "npm:1.18.2"
     "@react-navigation/bottom-tabs": "npm:6.5.11"
     "@react-navigation/native": "npm:6.1.9"
+    "@react-navigation/native-stack": "npm:6.9.16"
     "@types/fs-extra": "npm:^11.0.2"
     "@types/i18n-js": "npm:^3.8.5"
     "@types/lodash": "npm:^4.14.195"
