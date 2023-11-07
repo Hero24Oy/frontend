@@ -1,7 +1,7 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useCallback } from 'react';
 
-import { useFirebaseAuth } from '../providers';
+import { useFirebaseAuth } from '../store';
 
 import { EmailPasswordParams } from './types';
 

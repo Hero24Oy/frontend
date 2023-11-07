@@ -1,7 +1,7 @@
 import { User } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 
-import { useFirebaseAuth } from '../providers';
+import { useFirebaseAuth } from '../store';
 
 type UseFirebaseUser = () => {
   user: User | null;

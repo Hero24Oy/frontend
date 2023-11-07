@@ -1,7 +1,7 @@
 import { signInWithCredential } from 'firebase/auth';
 import { useCallback } from 'react';
 
-import { useFirebaseAuth } from '../providers';
+import { useFirebaseAuth } from '../store';
 
 import { SignInWithCredentials } from './types';
 
