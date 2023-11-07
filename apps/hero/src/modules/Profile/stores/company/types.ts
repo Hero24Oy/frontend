@@ -1,4 +1,4 @@
-import { File, Maybe, Range } from '@hero24/common';
+import { LoadedFile, Maybe, Range } from '@hero24/common';
 
 export type CompanyCreation = {
   companyAddress: {
@@ -20,7 +20,7 @@ export type CompanyCreation = {
     experience: Range | null;
     expertise: string[];
     places: string[];
-    certificate?: Maybe<File>;
-    insurance?: Maybe<File>;
+    certificate?: Maybe<LoadedFile>;
+    insurance?: Maybe<LoadedFile>;
   };
 };
