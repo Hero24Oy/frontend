@@ -11,3 +11,4 @@ export * from './IconButton';
 export * from './Checkbox';
 export * from './Textarea';
 export * from './TextareaInput';
+export * from './Card';
