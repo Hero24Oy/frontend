@@ -1,13 +1,16 @@
+import { Redirect } from 'expo-router';
 import { FC } from 'react';
 
-import { SafeAreaView, Text } from '@hero24/ui';
+import { useFirebaseUser } from '@hero24/common';
 
-const Home: FC = () => {
-  return (
-    <SafeAreaView>
-      <Text>Hello, world</Text>
-    </SafeAreaView>
-  );
+const Index: FC = () => {
+  const { user } = useFirebaseUser();
+
+  if (!user) {
+    return <Redirect href="/sign-in" />;
+  }
+
+  return <Redirect href="/home" />;
 };
 
-export default Home;
+export default Index;
