@@ -1,3 +1,5 @@
+import { File, Maybe, Range } from '@hero24/common';
+
 export type CompanyCreation = {
   companyAddress: {
     address: string;
@@ -7,7 +9,7 @@ export type CompanyCreation = {
   };
   companyInfo: {
     email: string;
-    employees: number | null;
+    employees: Range | null;
     name: string;
   };
   paymentData: {
@@ -15,10 +17,10 @@ export type CompanyCreation = {
     IBAN: string;
   };
   workData: {
-    certificate: Record<string, unknown> | null; // TODO: change after implementation loading images
-    experience: number | null;
+    experience: Range | null;
     expertise: string[];
-    insurance: Record<string, unknown> | null; // TODO: change after implementation loading images
     places: string[];
+    certificate?: Maybe<File>;
+    insurance?: Maybe<File>;
   };
 };

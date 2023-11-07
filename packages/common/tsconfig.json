@@ -3,7 +3,7 @@
     "baseUrl": "./src",
     "paths": {
       "$common/modules": ["modules/index"],
-      "$common/types": ["types/index"],
+      "$types": ["types/index"],
       "$common/core": ["core/index"],
       "$ui/providers": ["@hero24/ui/src/providers"]
     }
