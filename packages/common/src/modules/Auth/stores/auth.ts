@@ -11,16 +11,16 @@ export type AuthStore = {
   setAuthConfig: (config: AuthConfig) => void;
 };
 
-const useAuthStore = create<AuthStore>((set) => ({
+const useStore = create<AuthStore>((set) => ({
   authConfig: null,
   setAuthConfig: (authConfig: AuthConfig): void => set({ authConfig }),
 }));
 
 export const initializeAuthStore = (config: AuthConfig): void =>
-  useAuthStore.getState().setAuthConfig(config);
+  useStore.getState().setAuthConfig(config);
 
 export const useAuthConfig = (): AuthConfig => {
-  const { authConfig } = useAuthStore();
+  const { authConfig } = useStore();
 
   if (!authConfig) {
     throw new Error('Auth config is not initialized');
