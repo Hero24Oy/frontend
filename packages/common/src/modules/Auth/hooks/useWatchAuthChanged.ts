@@ -1,7 +1,7 @@
 import { User } from 'firebase/auth';
 import { useEffect } from 'react';
 
-import { useFirebaseAuth } from '$common/core';
+import { useFirebaseAuth } from '../stores';
 
 type UseWatchAuthChangesParams = {
   callback: (newState: User | null) => void;

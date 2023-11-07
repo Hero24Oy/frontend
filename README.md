@@ -31,7 +31,7 @@ Ensure that the .env and google-play-services.json files are placed in their app
 - apps/customer
 - apps/hero
 
-### 4. Watch app
+### 4. Start app
 
 _Use the following scripts from the apps/\*\*/ directories_
 
@@ -88,13 +88,5 @@ frontend
 ├── .github # Github actions and templates
 ├── .husky # Git hooks
 └── turbo.json # Turborepo pipeline config
-
-```
-
-```
-
-```
-
-```
 
 ```
