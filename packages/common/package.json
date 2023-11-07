@@ -45,6 +45,7 @@
     "@hero24/configs": "*",
     "@hero24/ui": "*",
     "@hookform/resolvers": "^3.3.2",
+    "@react-navigation/native-stack": "6.9.16",
     "hero24-types": "^0.2.2",
     "i18next": "^23.5.1",
     "lodash": "^4.17.21",
