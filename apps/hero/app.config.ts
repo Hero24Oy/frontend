@@ -48,5 +48,16 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     tsconfigPaths: true,
   },
   scheme: 'hero24-hero',
-  plugins: ['expo-router', 'expo-apple-authentication'],
+  plugins: [
+    'expo-router',
+    'expo-apple-authentication',
+    [
+      'expo-build-properties',
+      {
+        ios: {
+          useFrameworks: 'static',
+        },
+      },
+    ],
+  ],
 });
