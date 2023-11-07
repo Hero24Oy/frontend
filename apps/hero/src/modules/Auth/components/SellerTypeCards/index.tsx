@@ -12,6 +12,7 @@ export const SellerTypeCards: FC = () => {
 
   return (
     <HStack style={styles.hStack}>
+      {/* TODO replace text in cards with i18n call */}
       <Card onPress={onCompanySellerPress} style={styles.card}>
         <Image source={companySeller} style={styles.image} />
 

@@ -8,10 +8,12 @@ type ReturnType = {
 export const useLogic = (): ReturnType => {
   const router = useRouter();
 
+  // TODO replace with proper path after screen will be ready
   const onCompanySellerPress = () => {
     router.push('/');
   };
 
+  // TODO replace with proper path after screen will be ready
   const onSelfEmployedPress = () => {
     router.push('/');
   };
