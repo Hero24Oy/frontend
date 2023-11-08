@@ -1,11 +1,6 @@
 import { useRouter } from 'expo-router';
 
-type ReturnType = {
-  companySellerHandler: () => void;
-  selfEmployedHandler: () => void;
-};
-
-export const useLogic = (): ReturnType => {
+export const useLogic = () => {
   const router = useRouter();
 
   // TODO replace with proper path after screen will be ready

@@ -3,11 +3,7 @@ import { useEffect } from 'react';
 
 import { useInitializeUser, useLoadFonts } from '@hero24/common';
 
-type UseInitializeApp = () => {
-  isAppInitialized: boolean;
-};
-
-export const useMainProviderLogic: UseInitializeApp = () => {
+export const useMainProviderLogic = () => {
   const { isUserLoading } = useInitializeUser();
   const { areFontsLoaded } = useLoadFonts();
 
