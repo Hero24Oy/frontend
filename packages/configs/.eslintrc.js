@@ -6,7 +6,6 @@ const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = [
   'Booleanize',
   ...SIZES,
   'IBAN',
-  'PDF',
 ];
 const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*VAT.*',

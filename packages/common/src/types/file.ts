@@ -21,8 +21,8 @@ export interface Image extends File {
   size?: ImageSize;
 }
 
-export interface PDF extends File {
+export interface Pdf extends File {
   mime: MimeType.PDF;
 }
 
-export type LoadedFile = Image | PDF;
+export type LoadedFile = Image | Pdf;
