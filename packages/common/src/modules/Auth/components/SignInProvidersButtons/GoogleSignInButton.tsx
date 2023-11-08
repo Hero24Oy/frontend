@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { Button, GoogleIcon } from '@hero24/ui';
 
 import { useAuthentication, useGoogleAuth } from '../../hooks';
+import { handleAuthError } from '../../utils';
 
 import { useAuthConfig } from '$common/modules';
 
@@ -15,6 +16,7 @@ export const GoogleSignInButton: FC = () => {
     iosClientId,
     androidClientId,
     onAuthSucceed: signInWithCredentials,
+    onAuthFailed: handleAuthError,
   });
 
   // TODO use i18next

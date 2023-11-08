@@ -59,17 +59,19 @@ export const useGoogleAuth: UseGoogleAuth = (config) => {
       return;
     }
 
-    try {
-      const credentials: OAuthCredential = GoogleAuthProvider.credential(
-        response.params.id_token,
-      );
+    void (async () => {
+      try {
+        const credentials: OAuthCredential = GoogleAuthProvider.credential(
+          response.params.id_token,
+        );
 
-      onAuthSucceed?.(credentials);
-    } catch (error) {
-      const parsedError = parseError(error);
+        await onAuthSucceed?.(credentials);
+      } catch (error) {
+        const parsedError = parseError(error);
 
-      onAuthFailed?.(parsedError);
-    }
+        onAuthFailed?.(parsedError);
+      }
+    })();
   }, [response, onAuthSucceed, onAuthFailed]);
 
   return { signInWithGoogle };

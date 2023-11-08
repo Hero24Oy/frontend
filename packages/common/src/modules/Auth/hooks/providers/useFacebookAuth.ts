@@ -42,17 +42,19 @@ export const useFacebookAuth: UseFacebookAuth = (params) => {
       return;
     }
 
-    try {
-      const credentials: OAuthCredential = FacebookAuthProvider.credential(
-        response.params.id_token,
-      );
+    void (async () => {
+      try {
+        const credentials: OAuthCredential = FacebookAuthProvider.credential(
+          response.params.id_token,
+        );
 
-      onAuthSucceed?.(credentials);
-    } catch (error) {
-      const parsedError = parseError(error);
+        await onAuthSucceed?.(credentials);
+      } catch (error) {
+        const parsedError = parseError(error);
 
-      onAuthFailed?.(parsedError);
-    }
+        onAuthFailed?.(parsedError);
+      }
+    })();
   }, [onAuthSucceed, onAuthFailed, response]);
 
   return { signInWithFacebook };

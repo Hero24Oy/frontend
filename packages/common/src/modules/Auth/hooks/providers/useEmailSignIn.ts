@@ -5,7 +5,7 @@ import { EmailPasswordParams, WithCallback } from '../types';
 
 import { parseError } from '$common/core';
 
-type SignInWithEmail = (params: EmailPasswordParams) => void;
+type SignInWithEmail = (params: EmailPasswordParams) => Promise<void>;
 
 type EmailAuthConfig = WithCallback;
 
@@ -16,7 +16,7 @@ type UseEmailSignIn = (config: EmailAuthConfig) => {
 export const useEmailSignIn: UseEmailSignIn = (params) => {
   const { onAuthFailed, onAuthSucceed } = params;
 
-  const signInWithEmail: SignInWithEmail = useCallback((data) => {
+  const signInWithEmail: SignInWithEmail = useCallback(async (data) => {
     try {
       const { email, password } = data;
 
@@ -25,7 +25,7 @@ export const useEmailSignIn: UseEmailSignIn = (params) => {
         password,
       ) as OAuthCredential;
 
-      onAuthSucceed?.(credentials);
+      await onAuthSucceed?.(credentials);
     } catch (error) {
       const parsedError = parseError(error);
 

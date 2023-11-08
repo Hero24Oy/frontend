@@ -53,7 +53,7 @@ export const useAppleAuth: UseAppleAuth = (config) => {
         rawNonce: nonce,
       });
 
-      onAuthSucceed?.(credentials);
+      await onAuthSucceed?.(credentials);
     } catch (error) {
       const parsedError = parseError(error);
 
