@@ -6,7 +6,7 @@ import { LayoutStyles } from '$types';
 type PickedProps = Pick<ComponentProps<typeof StyledImage>, 'size'>;
 
 type Props = {
-  source: string;
+  source: number;
   style?: LayoutStyles;
 } & PickedProps;
 
