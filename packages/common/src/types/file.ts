@@ -16,13 +16,13 @@ export enum MimeType {
 }
 
 export interface Image extends File {
-  mime: MimeType.JPEG | MimeType.PNG;
+  mime: `${MimeType.JPEG | MimeType.PNG}`;
   blurHash?: string;
   size?: ImageSize;
 }
 
 export interface Pdf extends File {
-  mime: MimeType.PDF;
+  mime: `${MimeType.PDF}`;
 }
 
 export type LoadedFile = Image | Pdf;
