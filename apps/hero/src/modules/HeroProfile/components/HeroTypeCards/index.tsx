@@ -8,7 +8,7 @@ import { HeroTypeCard } from '../HeroTypeCard';
 import { useLogic } from './hooks';
 
 import {
-  companySellerImage,
+  companyHeroImage,
   selfEmployedImage,
 } from '$modules/HeroProfile/assets';
 
@@ -20,7 +20,7 @@ export const HeroTypeCards: FC = () => {
       {/* TODO replace text in cards with i18n call */}
       <HeroTypeCard
         selectionHandler={companySellerHandler}
-        imageSource={companySellerImage}
+        imageSource={companyHeroImage}
         cardText="I run a company"
       />
 
