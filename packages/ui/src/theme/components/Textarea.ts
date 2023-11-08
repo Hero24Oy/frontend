@@ -4,13 +4,7 @@ import { ComponentTheme, SxValues } from '../types';
 
 import { TextAreaSize } from '$components';
 import { DescendantStyleName, Size } from '$theme';
-import {
-  Color,
-  Font,
-  FontSize,
-  FontWeight,
-  LineHeight,
-} from '$theme/constants';
+import { Color, Font, FontSize, LineHeight } from '$theme/constants';
 
 export type TextareaThemeVariants = {
   size: Record<TextAreaSize, SxValues<ViewStyle>>;
@@ -32,8 +26,8 @@ export const Textarea = {
     [DescendantStyleName.TEXT]: {
       textAlign: 'left',
       color: Color.GREY_02,
-      fontFamily: Font.ONEST_400,
-      fontWeight: FontWeight.REGULAR,
+      fontFamily: Font.ONEST_REGULAR,
+      fontWeight: '400',
       fontSize: FontSize.SM,
       lineHeight: LineHeight.SM,
     },

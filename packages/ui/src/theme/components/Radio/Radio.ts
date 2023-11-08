@@ -7,7 +7,6 @@ import {
   Color,
   Font,
   FontSize,
-  FontWeight,
   IconSize,
   LineHeight,
   Size,
@@ -25,8 +24,8 @@ const customRadioConfig = {
     gap: 8,
     [DescendantStyleName.TEXT]: {
       color: Color.DARK_00,
-      fontFamily: Font.ONEST_400,
-      fontWeight: FontWeight.REGULAR,
+      fontFamily: Font.ONEST_REGULAR,
+      fontWeight: '400',
     },
     variants: {
       size: {

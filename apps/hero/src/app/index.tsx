@@ -7,7 +7,7 @@ const Index: FC = () => {
   const { user } = useFirebaseUser();
 
   if (!user) {
-    return <Redirect href="/sign-in" />;
+    return <Redirect href="/hero-type" />;
   }
 
   return <Redirect href="/home" />;
