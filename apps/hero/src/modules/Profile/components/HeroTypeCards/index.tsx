@@ -7,10 +7,7 @@ import { HeroTypeCard } from '../HeroTypeCard';
 
 import { useLogic } from './useLogic';
 
-import {
-  companyHeroImage,
-  selfEmployedImage,
-} from '$modules/HeroProfile/assets';
+import { companyHeroImage, selfEmployedImage } from '$/modules/Profile/assets';
 
 export const HeroTypeCards: FC = () => {
   const { companyHeroHandler, selfEmployedHandler } = useLogic();
