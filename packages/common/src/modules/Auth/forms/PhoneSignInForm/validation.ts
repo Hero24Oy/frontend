@@ -10,7 +10,7 @@ export const phoneSignInFormValidationSchema: yup.ObjectSchema<PhoneSignInFormDa
     code: yup.string(),
     phone: yup
       .string()
-      .required('Required')
+      .required(ErrorHints.REQUIRED)
       .test(
         'is-valid-phone',
         ErrorHints.INVALID_PHONE,
