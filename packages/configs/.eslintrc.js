@@ -399,6 +399,12 @@ const override = {
       '@typescript-eslint/naming-convention': 'off'
     },
   },
+  restrictedExports: {
+    files: ['src/app/**/*.tsx'],
+    rules: {
+      'no-restricted-exports': 'off',
+    },
+  },
 };
 
 /**

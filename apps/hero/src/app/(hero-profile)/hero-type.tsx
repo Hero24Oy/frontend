@@ -1,3 +1,1 @@
-import { HeroTypeSelectionScreen } from '$modules';
-
-export default HeroTypeSelectionScreen;
+export { HeroTypeSelectionScreen as default } from '$modules';
