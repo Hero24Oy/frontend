@@ -1,3 +1,1 @@
-import { ChatsScreen } from '@hero24/common';
-
-export default ChatsScreen;
+export { ChatsScreen as default } from '@hero24/common';

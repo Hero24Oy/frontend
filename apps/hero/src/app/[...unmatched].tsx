@@ -1,3 +1,1 @@
-import { UnmatchedRouteScreen } from '@hero24/common';
-
-export default UnmatchedRouteScreen;
+export { UnmatchedRouteScreen as default } from '@hero24/common';

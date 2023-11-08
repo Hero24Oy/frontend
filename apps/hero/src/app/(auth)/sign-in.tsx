@@ -1,3 +1,1 @@
-import { AuthScreen } from '@hero24/common';
-
-export default AuthScreen;
+export { AuthScreen as default } from '@hero24/common';

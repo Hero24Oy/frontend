@@ -1,3 +1,1 @@
-import { ProfileScreen } from '$core';
-
-export default ProfileScreen;
+export { ProfileScreen as default } from '$core';

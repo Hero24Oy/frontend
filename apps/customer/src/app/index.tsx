@@ -1,3 +1,1 @@
-import { RootScreen } from '@hero24/common';
-
-export default RootScreen;
+export { RootScreen as default } from '@hero24/common';

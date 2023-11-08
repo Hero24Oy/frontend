@@ -1,3 +1,1 @@
-import { HomeScreen } from '$modules';
-
-export default HomeScreen;
+export { HomeScreen as default } from '$core';

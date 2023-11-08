@@ -1,3 +1,1 @@
-import { OfferRequestsScreen } from '$modules';
-
-export default OfferRequestsScreen;
+export { OfferRequestsScreen as default } from '$modules';
