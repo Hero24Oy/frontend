@@ -5,7 +5,7 @@ import { HStack } from '@hero24/ui';
 
 import { HeroTypeCard } from '../HeroTypeCard';
 
-import { useLogic } from './hooks';
+import { useLogic } from './useLogic';
 
 import {
   companyHeroImage,
