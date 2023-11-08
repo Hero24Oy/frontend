@@ -1,20 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Control } from 'react-hook-form';
 
 import { initialFormState } from './constants';
 import { ResetPasswordFormData, ResetPasswordFormProps } from './types';
+import { resetPasswordFormValidationSchema } from './validation';
 
-import { resetPasswordFormValidationSchema } from '$common/core';
-import { useCustomForm, useFieldValidation } from '$common/modules';
+import { useCustomForm, useFieldValidation } from '$common';
 
-type ReturnType = {
-  control: Control<ResetPasswordFormData>;
-  isEmailValid: boolean;
-  isLoading: boolean;
-  onSubmitHandler: () => Promise<void>;
-};
-
-export const useLogic = (params: ResetPasswordFormProps): ReturnType => {
+export const useLogic = (params: ResetPasswordFormProps) => {
   const { onSuccessResetPasswordCallback } = params;
 
   const onSubmit = (_data: ResetPasswordFormData): void => {

@@ -1,7 +1,6 @@
 import * as yup from 'yup';
 
-import { ErrorHints } from '../constants';
+import { Maybe } from '$common';
 
-export const passwordSignInValidationSchema: yup.ISchema<string> = yup
-  .string()
-  .required(ErrorHints.REQUIRED);
+export const passwordSignInValidationSchema: yup.StringSchema<Maybe<string>> =
+  yup.string();

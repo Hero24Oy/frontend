@@ -1,21 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Control } from 'react-hook-form';
 
 import { CODE_LENGTH, initialFormState } from './constants';
 import { ConfirmationCodeFormData } from './types';
+import { confirmationCodeFormValidationSchema } from './validation';
 
-import { confirmationCodeFormValidationSchema } from '$common/core';
-import { useCustomForm, useFieldValidation } from '$common/modules';
+import { useCustomForm, useFieldValidation } from '$common';
 
-type ReturnType = {
-  control: Control<ConfirmationCodeFormData>;
-  isCodeValid: boolean;
-  isLoading: boolean;
-  onSendOneMoreTimeHandler: () => void;
-  onSubmitHandler: () => Promise<void>;
-};
-
-export const useLogic = (): ReturnType => {
+export const useLogic = () => {
   const onSubmit = (_data: ConfirmationCodeFormData): void => {
     // TODO -- add onSubmit logic
   };

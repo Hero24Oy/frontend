@@ -11,7 +11,7 @@ export type TextThemeVariants = {
 export const Text = {
   theme: {
     fontWeight: FontWeight.REGULAR,
-    color: Color.DARK_GREY_00,
+    color: Color.DARK_00,
     variants: {
       variant: {
         [TextVariant.REGULAR]: {

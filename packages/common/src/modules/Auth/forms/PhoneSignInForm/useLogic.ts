@@ -1,20 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Control } from 'react-hook-form';
 
 import { initialFormState } from './constants';
 import { PhoneSignInFormData, PhoneSignInFormProps } from './types';
+import { phoneSignInFormValidationSchema } from './validation';
 
-import { phoneSignInFormValidationSchema } from '$common/core';
-import { useCustomForm, useFieldValidation } from '$common/modules';
+import { useCustomForm, useFieldValidation } from '$common';
 
-type ReturnType = {
-  control: Control<PhoneSignInFormData>;
-  isLoading: boolean;
-  isPhoneValid: boolean;
-  onSubmitHandler: () => Promise<void>;
-};
-
-export const useLogic = (params: PhoneSignInFormProps): ReturnType => {
+export const useLogic = (params: PhoneSignInFormProps) => {
   const { signInWithPhoneCallback } = params;
 
   const onSubmit = (_data: PhoneSignInFormData): void => {

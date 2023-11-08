@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import { HStack, Image, View } from '@hero24/ui';
 
-import { logo } from '$common/modules/Auth/assets';
+import { logo } from '$common/modules/common';
 
 export const Header: FC = () => {
   return (

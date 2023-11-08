@@ -1,10 +1,8 @@
 import { Pressable as GluestackPressable } from '@gluestack-ui/themed';
-import { ComponentProps, FC, PropsWithChildren } from 'react';
+import { FC } from 'react';
+import { PressableProps } from 'react-native';
 
-type Props = PropsWithChildren &
-  Pick<ComponentProps<typeof GluestackPressable>, 'onPress' | 'style'>;
-
-export const Pressable: FC<Props> = (props) => {
+export const Pressable: FC<PressableProps> = (props) => {
   const { children, ...restProps } = props;
 
   return <GluestackPressable {...restProps}>{children}</GluestackPressable>;

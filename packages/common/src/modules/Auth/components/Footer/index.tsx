@@ -8,11 +8,11 @@ export const Footer: FC = () => {
   return (
     <VStack style={styles.container}>
       {/* TODO - replace with i18n */}
-      <Text>By using Hero24 you are agree to the</Text>
+      <Text style={styles.text}>By using Hero24 you are agree to the</Text>
       {/* TODO - replace with correct link */}
       <Link href="/">
         {/* TODO - replace with i18n */}
-        <Text style={styles.text}>Service Provider Terms</Text>
+        <Text>Service Provider Terms</Text>
       </Link>
     </VStack>
   );
@@ -25,6 +25,6 @@ const styles = StyleSheet.create({
     gap: 2,
   },
   text: {
-    color: Color.BLACK_00,
+    color: Color.GREY_01,
   },
 });

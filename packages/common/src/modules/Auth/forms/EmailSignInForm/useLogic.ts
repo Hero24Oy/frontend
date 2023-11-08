@@ -1,19 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Control } from 'react-hook-form';
 
 import { initialFormState } from './constants';
 import { EmailSignInFormData } from './types';
+import { emailSignInFormValidationSchema } from './validation';
 
-import { emailSignInFormValidationSchema } from '$common/core';
-import { useCustomForm } from '$common/modules';
+import { useCustomForm } from '$common';
 
-type ReturnType = {
-  control: Control<EmailSignInFormData>;
-  isLoading: boolean;
-  onSubmitHandler: () => Promise<void>;
-};
-
-export const useLogic = (): ReturnType => {
+export const useLogic = () => {
   const onSubmit = (_data: EmailSignInFormData): void => {
     // TODO -- add onSubmit logic
   };

@@ -12,12 +12,16 @@ type Props = {
 export const ResetPasswordCheckEmailContent: FC<Props> = (props) => {
   const { email } = props;
 
+  const message = `We sent a link to reset your password to ${getMaskedEmail(
+    email,
+  )}`;
+
   return (
     <VStack style={styles.wrapper}>
       {/* TODO replace with i18n call */}
       <Heading variant="H2">Check your email</Heading>
       <Text variant="regular" style={styles.text}>
-        {`We sent a link to reset your password to ${getMaskedEmail(email)}`}
+        {message}
       </Text>
       <VStack style={styles.button}>
         <Button variant="solid" action="primary">

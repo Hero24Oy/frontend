@@ -1,5 +1,7 @@
 import * as yup from 'yup';
 
-export const confirmationCodeValidationShape = (
+import { Maybe } from '$common';
+
+export const codeValidationSchema = (
   codeLength: number,
-): yup.ISchema<string> => yup.string().required().length(codeLength);
+): yup.StringSchema<Maybe<string>> => yup.string().length(codeLength);

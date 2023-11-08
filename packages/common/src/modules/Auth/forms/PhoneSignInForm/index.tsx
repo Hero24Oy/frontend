@@ -3,9 +3,13 @@ import { StyleSheet } from 'react-native';
 
 import { Button, PhoneInput, VStack } from '@hero24/ui';
 
-import { PHONE_INITIAL_COUNTRY_CODE, PREFERRED_COUNTRIES } from './constants';
 import { PhoneSignInFormProps } from './types';
 import { useLogic } from './useLogic';
+
+import {
+  COUNTRY_PICKER_PREFERRED_COUNTRIES,
+  PHONE_NUMBER_INITIAL_COUNTRY_CODE,
+} from '$configs';
 
 export const PhoneSignInForm: FC<PhoneSignInFormProps> = (props) => {
   const { control, onSubmitHandler, isLoading, isPhoneValid } = useLogic(props);
@@ -17,8 +21,8 @@ export const PhoneSignInForm: FC<PhoneSignInFormProps> = (props) => {
         control={control}
         codeFieldName="code"
         phoneFieldName="phone"
-        initialCountryCode={PHONE_INITIAL_COUNTRY_CODE}
-        preferredCountryCodes={PREFERRED_COUNTRIES}
+        initialCountryCode={PHONE_NUMBER_INITIAL_COUNTRY_CODE}
+        preferredCountryCodes={COUNTRY_PICKER_PREFERRED_COUNTRIES}
         title="Phone number"
         placeholder="Enter"
       />
