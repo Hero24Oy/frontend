@@ -1,9 +1,3 @@
-import { FC } from 'react';
+import { ChatsScreen } from '@hero24/common';
 
-import { Text } from '@hero24/ui';
-
-const Chats: FC = () => {
-  return <Text>Chats page</Text>;
-};
-
-export default Chats;
+export default ChatsScreen;

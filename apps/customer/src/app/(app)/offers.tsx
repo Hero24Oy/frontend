@@ -1,9 +1,3 @@
-import { FC } from 'react';
+import { OffersScreen } from '$modules';
 
-import { Text } from '@hero24/ui';
-
-const Offers: FC = () => {
-  return <Text>Offers page</Text>;
-};
-
-export default Offers;
+export default OffersScreen;

@@ -1,11 +1,11 @@
 import { useCachedGraphQlUser, useLogout, User } from '@hero24/common';
 
-export type UseProfile = () => {
+type UseLogic = () => {
   logout: () => Promise<void>;
   user: User;
 };
 
-export const useProfile: UseProfile = () => {
+export const useLogic: UseLogic = () => {
   const logout = useLogout();
   const { user } = useCachedGraphQlUser();
 
