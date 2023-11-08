@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { VStack } from '@hero24/ui';
+import { Color, VStack } from '@hero24/ui';
 
 import { Footer, Header, SignInProvidersButtons } from '../components';
 import { EmailSignInForm, EmailSignInFormProps } from '../forms';
@@ -17,7 +17,9 @@ export const SignInWithEmailScreen: FC<Props> = (props) => {
         <Header />
         <EmailSignInForm {...props} />
         {/* TODO replace with i18n call */}
-        <TextDivider style={styles.divider}>Or</TextDivider>
+        <TextDivider style={styles.divider} textStyle={styles.dividerText}>
+          Or
+        </TextDivider>
         <SignInProvidersButtons />
       </VStack>
       <Footer />
@@ -34,5 +36,8 @@ const styles = StyleSheet.create({
     paddingTop: 32,
     paddingBottom: 16,
     justifyContent: 'center',
+  },
+  dividerText: {
+    color: Color.GREY_01,
   },
 });

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Button, VStack } from '@hero24/ui';
+import { Button, Color, VStack } from '@hero24/ui';
 
 import { Footer, Header, SignInProvidersButtons } from '../components';
 import { PhoneSignInForm, PhoneSignInFormProps } from '../forms';
@@ -21,10 +21,14 @@ export const SignInScreen: FC<Props> = (props) => {
         <Header />
         <PhoneSignInForm signInWithPhoneCallback={signInWithPhoneCallback} />
         {/* TODO replace with i18n call */}
-        <TextDivider style={styles.divider}>Or</TextDivider>
+        <TextDivider style={styles.divider} textStyle={styles.dividerText}>
+          Or
+        </TextDivider>
         <SignInProvidersButtons />
         {/* TODO replace with i18n call */}
-        <TextDivider style={styles.divider}>Or</TextDivider>
+        <TextDivider style={styles.divider} textStyle={styles.dividerText}>
+          Or
+        </TextDivider>
         {/* TODO replace with i18n call */}
         <Button
           variant="outline"
@@ -48,5 +52,8 @@ const styles = StyleSheet.create({
     paddingTop: 32,
     paddingBottom: 16,
     justifyContent: 'center',
+  },
+  dividerText: {
+    color: Color.GREY_01,
   },
 });

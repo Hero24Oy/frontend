@@ -9,7 +9,7 @@ export type TextProps = Pick<
   'textAlign'
 > & {
   children: string;
-  style?: Pick<TextStyle, 'color'>;
+  style?: TextStyle;
   variant?: `${TextVariant}`;
 };
 

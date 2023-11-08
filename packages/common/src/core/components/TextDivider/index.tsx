@@ -1,19 +1,20 @@
 import { FC } from 'react';
-import { ViewStyle } from 'react-native';
+import { TextStyle, ViewStyle } from 'react-native';
 
 import { HStack, Text } from '@hero24/ui';
 
 type Props = {
   children: string;
   style?: ViewStyle;
+  textStyle?: TextStyle;
 };
 
 export const TextDivider: FC<Props> = (props) => {
-  const { children, style } = props;
+  const { children, style, textStyle } = props;
 
   return (
     <HStack style={style}>
-      <Text>{children}</Text>
+      <Text style={textStyle}>{children}</Text>
     </HStack>
   );
 };
