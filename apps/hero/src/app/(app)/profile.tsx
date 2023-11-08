@@ -1,1 +1,1 @@
-export { ProfileScreen as default } from '$core';
+export { ProfileScreen as default } from '$modules';

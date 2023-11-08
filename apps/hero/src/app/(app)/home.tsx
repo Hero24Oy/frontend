@@ -1,1 +1,1 @@
-export { HomeScreen as default } from '$core';
+export { HomeScreen as default } from '$modules';
