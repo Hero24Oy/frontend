@@ -1,8 +1,3 @@
-export type Range = {
-  max: number;
-  min: number;
-};
-
 export type ImageSize = {
   height: number;
   width: number;
@@ -14,14 +9,20 @@ export type File = {
   base64?: string;
 };
 
+export enum MimeType {
+  PNG = 'image/png',
+  JPEG = 'image/jpeg',
+  PDF = 'application/pdf',
+}
+
 export interface Image extends File {
-  type: 'image';
+  mime: MimeType.JPEG | MimeType.PNG;
   blurHash?: string;
   size?: ImageSize;
 }
 
 export interface PDF extends File {
-  type: 'pdf';
+  mime: MimeType.PDF;
 }
 
 export type LoadedFile = Image | PDF;

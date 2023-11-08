@@ -5,7 +5,7 @@ import { LoadedFile } from '$types';
 
 export const file: yup.ISchema<Maybe<LoadedFile>> = yup
   .object({
-    type: yup.string<LoadedFile['type']>().required(),
+    mime: yup.string<LoadedFile['mime']>().required(),
     name: yup.string().required(),
     src: yup.string().required(),
   })
