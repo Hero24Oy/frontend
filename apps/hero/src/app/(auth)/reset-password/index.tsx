@@ -1,3 +1,1 @@
-import { ResetPassword } from '$/modules/Auth';
-
-export default ResetPassword;
+export { ResetPasswordScreen as default } from '$modules';

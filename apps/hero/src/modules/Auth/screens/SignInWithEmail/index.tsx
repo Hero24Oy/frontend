@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
-import { SignInWithEmailScreen } from '@hero24/common';
+import { SignInWithEmailScreen as CommonSignInWithEmailScreen } from '@hero24/common';
 
 import { useLogic } from './useLogic';
 
-export const SignInWithEmail: FC = () => {
+export const SignInWithEmailScreen: FC = () => {
   const props = useLogic();
 
-  return <SignInWithEmailScreen {...props} />;
+  return <CommonSignInWithEmailScreen {...props} />;
 };

@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
-import { ResetPasswordScreen } from '@hero24/common';
+import { ResetPasswordScreen as CommonResetPasswordScreen } from '@hero24/common';
 
 import { useLogic } from './useLogic';
 
-export const ResetPassword: FC = () => {
+export const ResetPasswordScreen: FC = () => {
   const props = useLogic();
 
-  return <ResetPasswordScreen {...props} />;
+  return <CommonResetPasswordScreen {...props} />;
 };

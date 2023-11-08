@@ -1,3 +1,1 @@
-import { SignInWithEmail } from '$/modules/Auth';
-
-export default SignInWithEmail;
+export { SignInWithEmailScreen as default } from '$modules';

@@ -395,7 +395,13 @@ const override = {
       '@typescript-eslint/no-unsafe-assignment': 'off',
       'import/no-dynamic-require': 'off',
       'global-require': 'off',
-      '@typescript-eslint/naming-convention': 'off'
+      '@typescript-eslint/naming-convention': 'off',
+    },
+  },
+  appReexport: {
+    files: ['**/*/app/**/*.tsx'],
+    rules: {
+      'no-restricted-exports': 'off',
     },
   },
 };

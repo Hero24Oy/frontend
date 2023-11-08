@@ -1,3 +1,1 @@
-import { ConfirmationCode } from '$/modules/Auth';
-
-export default ConfirmationCode;
+export { ConfirmationCodeScreen as default } from '$modules';

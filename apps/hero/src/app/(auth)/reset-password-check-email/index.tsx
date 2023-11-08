@@ -1,3 +1,1 @@
-import { ResetPasswordCheckEmail } from '$/modules/Auth';
-
-export default ResetPasswordCheckEmail;
+export { ResetPasswordCheckEmailScreen as default } from '$modules';

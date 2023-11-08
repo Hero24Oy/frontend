@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import { ResetPasswordCheckEmailScreen } from '@hero24/common';
+import { ResetPasswordCheckEmailScreen as CommonResetPasswordCheckEmailScreen } from '@hero24/common';
 
-export const ResetPasswordCheckEmail: FC = () => {
-  return <ResetPasswordCheckEmailScreen />;
+export const ResetPasswordCheckEmailScreen: FC = () => {
+  return <CommonResetPasswordCheckEmailScreen />;
 };

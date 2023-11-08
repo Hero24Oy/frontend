@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
-import { SignInScreen } from '@hero24/common';
+import { SignInScreen as CommonSignInScreen } from '@hero24/common';
 
 import { useLogic } from './useLogic';
 
-export const SignIn: FC = () => {
+export const SignInScreen: FC = () => {
   const props = useLogic();
 
-  return <SignInScreen {...props} />;
+  return <CommonSignInScreen {...props} />;
 };

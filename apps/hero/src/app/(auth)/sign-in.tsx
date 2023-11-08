@@ -1,3 +1,1 @@
-import { SignIn } from '$/modules/Auth';
-
-export default SignIn;
+export { SignInScreen as default } from '$modules';
