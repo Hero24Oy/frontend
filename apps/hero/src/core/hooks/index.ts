@@ -1,1 +1,1 @@
-export * from './useInitializeApp';
+export * from './useMainProviderLogic';

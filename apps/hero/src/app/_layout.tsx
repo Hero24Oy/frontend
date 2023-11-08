@@ -1,7 +1,7 @@
 import { ApolloProvider } from '@apollo/client';
 import { Slot, SplashScreen } from 'expo-router';
 import * as WebBrowser from 'expo-web-browser';
-import { FC, useEffect } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { combineProviders } from 'react-combine-providers';
 
 import { initializeAuthStore, initializeFirebaseStore } from '@hero24/common';
@@ -9,7 +9,7 @@ import { attachUiProviders } from '@hero24/ui';
 
 import 'expo-dev-client';
 import { authConfig } from '$configs';
-import { apolloClient, auth, useInitializeApp } from '$core';
+import { apolloClient, auth, useMainProviderLogic } from '$core';
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -28,32 +28,25 @@ export const PreProviderApp = manager.master();
 
 SplashScreen.preventAutoHideAsync();
 
-const MainProvider: FC = () => {
+const MainProvider: FC<PropsWithChildren> = (props) => {
+  const { children } = props;
+  const { isAppInitialized } = useMainProviderLogic();
+
+  if (!isAppInitialized) {
+    return null;
+  }
+
+  return children;
+};
+
+const RootLayout: FC = () => {
   return (
     <PreProviderApp>
-      <PostProviderApp />
+      <MainProvider>
+        <Slot />
+      </MainProvider>
     </PreProviderApp>
   );
 };
 
-const PostProviderApp: FC = () => {
-  const { isAppInitialized, areFontsLoaded } = useInitializeApp();
-
-  const isAppNotReady = !isAppInitialized || !areFontsLoaded;
-
-  useEffect(() => {
-    if (isAppNotReady) {
-      return;
-    }
-
-    SplashScreen.hideAsync();
-  }, [isAppInitialized]);
-
-  if (isAppNotReady) {
-    return null;
-  }
-
-  return <Slot />;
-};
-
-export default MainProvider;
+export default RootLayout;
