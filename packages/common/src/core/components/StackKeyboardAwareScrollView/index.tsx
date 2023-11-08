@@ -10,7 +10,7 @@ type Props = PropsWithChildren & {
 
 // Use this wrapper instead of SafeAreaKeyboardAwareScrollView
 // for screen with Stack header to avoid additional top padding
-export const StyledKeyboardAwareScrollView: FC<Props> = (props) => {
+export const StackKeyboardAwareScrollView: FC<Props> = (props) => {
   const { children, style } = props;
   const styles = useStyles();
 

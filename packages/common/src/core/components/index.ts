@@ -1,4 +1,4 @@
 export * from './BottomNavigationTabs';
 export * from './SafeAreaKeyboardAwareScrollView';
-export * from './StyledKeyboardAwareScrollView';
+export * from './StackKeyboardAwareScrollView';
 export * from './TextDivider';

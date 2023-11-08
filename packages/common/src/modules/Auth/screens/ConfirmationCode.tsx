@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { ConfirmationCodeFormText } from '../components';
 import { ConfirmationCodeForm } from '../forms';
 
-import { StyledKeyboardAwareScrollView } from '$common/core';
+import { StackKeyboardAwareScrollView } from '$common/core';
 
 export const ConfirmationCodeScreen: FC = () => {
   // TODO replace with phone getter from store
@@ -12,9 +12,9 @@ export const ConfirmationCodeScreen: FC = () => {
   const phoneNumber = parsePhoneNumber(phone).formatInternational();
 
   return (
-    <StyledKeyboardAwareScrollView>
+    <StackKeyboardAwareScrollView>
       <ConfirmationCodeFormText phone={phoneNumber} />
       <ConfirmationCodeForm />
-    </StyledKeyboardAwareScrollView>
+    </StackKeyboardAwareScrollView>
   );
 };

@@ -1,31 +1,13 @@
-import { yupResolver } from '@hookform/resolvers/yup';
-import { resetPasswordFormValidationSchema } from 'core';
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { Button, Input, VStack } from '@hero24/ui';
 
-import { initialFormState } from './constants';
-import { ResetPasswordFormData, ResetPasswordFormProps } from './types';
-
-import { useCustomForm, useFieldValidation } from '$common/modules/Auth/hooks';
+import { ResetPasswordFormProps } from './types';
+import { useLogic } from './useLogic';
 
 export const ResetPasswordForm: FC<ResetPasswordFormProps> = (props) => {
-  const { onSuccessResetPasswordCallback } = props;
-
-  const onSubmit = (_data: ResetPasswordFormData): void => {
-    onSuccessResetPasswordCallback();
-  };
-
-  const { control, onSubmitHandler, isLoading } =
-    useCustomForm<ResetPasswordFormData>({
-      resolver: yupResolver(resetPasswordFormValidationSchema),
-      defaultValues: initialFormState,
-      mode: 'onChange',
-      onSubmit,
-    });
-
-  const isEmailValid = useFieldValidation({ control, name: 'email' });
+  const { control, onSubmitHandler, isLoading, isEmailValid } = useLogic(props);
 
   return (
     <VStack style={styles.wrapper}>

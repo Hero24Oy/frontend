@@ -1,4 +1,4 @@
-import { StyledKeyboardAwareScrollView } from 'core/components';
+import { StackKeyboardAwareScrollView } from 'core/components';
 import { FC } from 'react';
 
 import { ResetPasswordCheckEmailContent } from '../components';
@@ -8,8 +8,8 @@ export const ResetPasswordCheckEmailScreen: FC = () => {
   const testEmail = 'testEmail@gmail.com';
 
   return (
-    <StyledKeyboardAwareScrollView>
+    <StackKeyboardAwareScrollView>
       <ResetPasswordCheckEmailContent email={testEmail} />
-    </StyledKeyboardAwareScrollView>
+    </StackKeyboardAwareScrollView>
   );
 };

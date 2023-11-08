@@ -20,8 +20,10 @@ export const SignInScreen: FC<Props> = (props) => {
       <VStack style={styles.wrapper}>
         <Header />
         <PhoneSignInForm signInWithPhoneCallback={signInWithPhoneCallback} />
+        {/* TODO replace with i18n call */}
         <TextDivider style={styles.divider}>Or</TextDivider>
         <SignInProvidersButtons />
+        {/* TODO replace with i18n call */}
         <TextDivider style={styles.divider}>Or</TextDivider>
         {/* TODO replace with i18n call */}
         <Button

@@ -13,7 +13,6 @@ export const TextDivider: FC<Props> = (props) => {
 
   return (
     <HStack style={style}>
-      {/* TODO replace "Or" with i18n call */}
       <Text>{children}</Text>
     </HStack>
   );

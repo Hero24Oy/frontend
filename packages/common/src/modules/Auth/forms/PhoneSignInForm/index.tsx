@@ -1,35 +1,14 @@
-import { yupResolver } from '@hookform/resolvers/yup';
-import { phoneSignInFormValidationSchema } from 'core';
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { Button, PhoneInput, VStack } from '@hero24/ui';
 
-import {
-  initialFormState,
-  PHONE_INITIAL_COUNTRY_CODE,
-  PREFERRED_COUNTRIES,
-} from './constants';
-import { PhoneSignInFormData, PhoneSignInFormProps } from './types';
-
-import { useCustomForm, useFieldValidation } from '$common/modules/Auth/hooks';
+import { PHONE_INITIAL_COUNTRY_CODE, PREFERRED_COUNTRIES } from './constants';
+import { PhoneSignInFormProps } from './types';
+import { useLogic } from './useLogic';
 
 export const PhoneSignInForm: FC<PhoneSignInFormProps> = (props) => {
-  const { signInWithPhoneCallback } = props;
-
-  const onSubmit = (_data: PhoneSignInFormData): void => {
-    signInWithPhoneCallback();
-  };
-
-  const { control, onSubmitHandler, isLoading } =
-    useCustomForm<PhoneSignInFormData>({
-      resolver: yupResolver(phoneSignInFormValidationSchema),
-      defaultValues: initialFormState,
-      mode: 'onChange',
-      onSubmit,
-    });
-
-  const isPhoneValid = useFieldValidation({ control, name: 'phone' });
+  const { control, onSubmitHandler, isLoading, isPhoneValid } = useLogic(props);
 
   return (
     <VStack style={styles.wrapper}>

@@ -1,5 +1,3 @@
-import { yupResolver } from '@hookform/resolvers/yup';
-import { confirmationCodeFormValidationSchema } from 'core';
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
@@ -12,29 +10,17 @@ import {
   VStack,
 } from '@hero24/ui';
 
-import { CODE_LENGTH, initialFormState } from './constants';
-import { ConfirmationCodeFormData } from './types';
-
-import { useCustomForm, useFieldValidation } from '$common/modules/Auth/hooks';
+import { CODE_LENGTH } from './constants';
+import { useLogic } from './useLogic';
 
 export const ConfirmationCodeForm: FC = () => {
-  const onSubmit = (_data: ConfirmationCodeFormData): void => {
-    // TODO -- add onSubmit logic
-  };
-
-  const { control, onSubmitHandler, isLoading } =
-    useCustomForm<ConfirmationCodeFormData>({
-      resolver: yupResolver(confirmationCodeFormValidationSchema(CODE_LENGTH)),
-      defaultValues: initialFormState,
-      mode: 'onChange',
-      onSubmit,
-    });
-
-  const isCodeValid = useFieldValidation({ control, name: 'code' });
-
-  const onSendOneMoreTimeHandler = (): void => {
-    return undefined;
-  };
+  const {
+    control,
+    onSubmitHandler,
+    isLoading,
+    isCodeValid,
+    onSendOneMoreTimeHandler,
+  } = useLogic();
 
   return (
     <VStack style={styles.wrapper}>

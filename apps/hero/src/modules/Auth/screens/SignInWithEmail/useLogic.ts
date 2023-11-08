@@ -8,7 +8,6 @@ export const useLogic = (): ReturnType => {
   const router = useRouter();
 
   const onForgotPasswordCallback = (): void => {
-    // TODO -- repl
     router.push('/reset-password/');
   };
 

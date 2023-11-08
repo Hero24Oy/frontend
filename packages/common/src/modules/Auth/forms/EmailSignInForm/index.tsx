@@ -1,29 +1,14 @@
-import { yupResolver } from '@hookform/resolvers/yup';
-import { emailSignInFormValidationSchema } from 'core';
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { Button, Color, Input, Pressable, Text, VStack } from '@hero24/ui';
 
-import { initialFormState } from './constants';
-import { EmailSignInFormData, EmailSignInFormProps } from './types';
-
-import { useCustomForm } from '$common/modules/Auth/hooks';
+import { EmailSignInFormProps } from './types';
+import { useLogic } from './useLogic';
 
 export const EmailSignInForm: FC<EmailSignInFormProps> = (props) => {
   const { onForgotPasswordCallback } = props;
-
-  const onSubmit = (_data: EmailSignInFormData): void => {
-    return undefined;
-  };
-
-  const { control, onSubmitHandler, isLoading } =
-    useCustomForm<EmailSignInFormData>({
-      resolver: yupResolver(emailSignInFormValidationSchema),
-      defaultValues: initialFormState,
-      mode: 'onSubmit',
-      onSubmit,
-    });
+  const { control, onSubmitHandler, isLoading } = useLogic();
 
   return (
     <VStack style={styles.container}>

@@ -6,21 +6,22 @@ import { VStack } from '@hero24/ui';
 import { Footer, Header, SignInProvidersButtons } from '../components';
 import { EmailSignInForm, EmailSignInFormProps } from '../forms';
 
-import { StyledKeyboardAwareScrollView, TextDivider } from '$common/core';
+import { StackKeyboardAwareScrollView, TextDivider } from '$common/core';
 
 type Props = EmailSignInFormProps;
 
 export const SignInWithEmailScreen: FC<Props> = (props) => {
   return (
-    <StyledKeyboardAwareScrollView>
+    <StackKeyboardAwareScrollView>
       <VStack style={styles.wrapper}>
         <Header />
         <EmailSignInForm {...props} />
+        {/* TODO replace with i18n call */}
         <TextDivider style={styles.divider}>Or</TextDivider>
         <SignInProvidersButtons />
       </VStack>
       <Footer />
-    </StyledKeyboardAwareScrollView>
+    </StackKeyboardAwareScrollView>
   );
 };
 
