@@ -2,11 +2,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { defaultValues } from '../constants';
-import { WorkData } from '../types';
-import { workDataSchema } from '../validation';
+import { workDataSchema } from './validation';
 
-import { useCompanyCreationStore } from '$modules/Profile/stores';
+import {
+  CompanyCreation,
+  companyCreationInitialState,
+  useCompanyCreationStore,
+} from '$modules/Profile/stores';
 
 export const useLogic = () => {
   const { setWorkData } = useCompanyCreationStore();
@@ -16,9 +18,9 @@ export const useLogic = () => {
     getValues,
     setValue,
     formState: { isValid },
-  } = useForm<WorkData>({
-    resolver: yupResolver<WorkData>(workDataSchema),
-    defaultValues,
+  } = useForm<CompanyCreation['workData']>({
+    resolver: yupResolver<CompanyCreation['workData']>(workDataSchema),
+    defaultValues: companyCreationInitialState.workData,
     mode: 'onChange',
   });
 
