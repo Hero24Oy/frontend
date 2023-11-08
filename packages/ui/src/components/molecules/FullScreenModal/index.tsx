@@ -14,11 +14,11 @@ import { Header } from '../Header';
 import { JsxElement } from '$types';
 
 export type Props = {
-  body: JsxElement;
   header: ComponentProps<typeof Header>;
   isOpen: boolean;
   ref: RefObject<JsxElement>;
-  footer?: JsxElement[];
+  body?: JsxElement;
+  footer?: JsxElement;
 };
 
 export const FullScreenModal: FC<Props> = (props) => {
