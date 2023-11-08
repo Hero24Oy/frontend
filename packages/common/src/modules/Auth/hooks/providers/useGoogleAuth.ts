@@ -5,8 +5,7 @@ import { GoogleAuthProvider, OAuthCredential } from 'firebase/auth';
 import { useCallback, useEffect } from 'react';
 import { Platform } from 'react-native';
 
-import { WithCallback } from './types';
-import { useAuthentication } from './useAuthentication';
+import { WithCallback } from '../types';
 
 import { parseError } from '$common/core';
 
@@ -33,7 +32,6 @@ const REDIRECT_URI =
 export const useGoogleAuth: UseGoogleAuth = (config) => {
   const { onAuthFailed, onAuthSucceed, ...googleAuthConfig } = config;
   const { webClientId, iosClientId, androidClientId } = googleAuthConfig;
-  const { signInWithCredentials } = useAuthentication();
 
   const [_request, response, promptAsync] = Google.useIdTokenAuthRequest({
     redirectUri: REDIRECT_URI,
@@ -61,22 +59,18 @@ export const useGoogleAuth: UseGoogleAuth = (config) => {
       return;
     }
 
-    const credentials: OAuthCredential = GoogleAuthProvider.credential(
-      response.params.id_token,
-    );
+    try {
+      const credentials: OAuthCredential = GoogleAuthProvider.credential(
+        response.params.id_token,
+      );
 
-    void (async () => {
-      try {
-        const userCredentials = await signInWithCredentials(credentials);
+      onAuthSucceed?.(credentials);
+    } catch (error) {
+      const parsedError = parseError(error);
 
-        onAuthSucceed?.(userCredentials);
-      } catch (error) {
-        const parsedError = parseError(error);
-
-        onAuthFailed?.(parsedError);
-      }
-    })();
-  }, [signInWithCredentials, response]);
+      onAuthFailed?.(parsedError);
+    }
+  }, [response, onAuthSucceed, onAuthFailed]);
 
   return { signInWithGoogle };
 };

@@ -2,10 +2,14 @@ import { FC } from 'react';
 
 import { AppleIcon, Button } from '@hero24/ui';
 
-import { useAppleAuth } from '../../hooks';
+import { useAppleAuth, useAuthentication } from '../../hooks';
 
 export const AppleSignInButton: FC = () => {
-  const { signInWithApple } = useAppleAuth({});
+  const { signInWithCredentials } = useAuthentication();
+
+  const { signInWithApple } = useAppleAuth({
+    onAuthSucceed: signInWithCredentials,
+  });
 
   return (
     <Button

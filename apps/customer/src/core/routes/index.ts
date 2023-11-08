@@ -16,7 +16,7 @@ export const bottomTabRoutes: ExpoTabProps[] = [
     },
   },
   {
-    name: 'offer',
+    name: 'offers',
     options: {
       tabBarLabel: 'Tasks',
       tabBarIcon: CheckSquareIcon,

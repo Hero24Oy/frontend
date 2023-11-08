@@ -1,4 +1,4 @@
-import { UserCredential } from 'firebase/auth';
+import { OAuthCredential } from 'firebase/auth';
 
 export type EmailPasswordParams = {
   email: string;
@@ -7,5 +7,5 @@ export type EmailPasswordParams = {
 
 export type WithCallback = {
   onAuthFailed?: (error: Error) => void;
-  onAuthSucceed?: (credentials?: UserCredential) => void;
+  onAuthSucceed?: (credentials?: OAuthCredential) => unknown;
 };

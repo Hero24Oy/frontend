@@ -3,8 +3,7 @@ import * as Facebook from 'expo-auth-session/providers/facebook';
 import { FacebookAuthProvider, OAuthCredential } from 'firebase/auth';
 import { useCallback, useEffect } from 'react';
 
-import { WithCallback } from './types';
-import { useAuthentication } from './useAuthentication';
+import { WithCallback } from '../types';
 
 import { parseError } from '$common/core';
 
@@ -18,7 +17,6 @@ type UseFacebookAuth = (config: FacebookAuthConfig) => {
 
 export const useFacebookAuth: UseFacebookAuth = (params) => {
   const { onAuthFailed, onAuthSucceed, ...facebookAuthConfig } = params;
-  const { signInWithCredentials } = useAuthentication();
 
   const [_request, response, promptAsync] = Facebook.useAuthRequest({
     responseType: ResponseType.Token,
@@ -44,22 +42,18 @@ export const useFacebookAuth: UseFacebookAuth = (params) => {
       return;
     }
 
-    const credentials: OAuthCredential = FacebookAuthProvider.credential(
-      response.params.access_token,
-    );
+    try {
+      const credentials: OAuthCredential = FacebookAuthProvider.credential(
+        response.params.id_token,
+      );
 
-    void (async () => {
-      try {
-        const userCredentials = await signInWithCredentials(credentials);
+      onAuthSucceed?.(credentials);
+    } catch (error) {
+      const parsedError = parseError(error);
 
-        onAuthSucceed?.(userCredentials);
-      } catch (error) {
-        const parsedError = parseError(error);
-
-        onAuthFailed?.(parsedError);
-      }
-    })();
-  }, [signInWithCredentials, response]);
+      onAuthFailed?.(parsedError);
+    }
+  }, [onAuthSucceed, onAuthFailed, response]);
 
   return { signInWithFacebook };
 };

@@ -3,10 +3,11 @@ import * as Crypto from 'expo-crypto';
 import { OAuthCredential } from 'firebase/auth';
 import { useCallback } from 'react';
 
-import { WithCallback } from '../types';
-import { useAuthentication } from '../useAuthentication';
+import { WithCallback } from '../../types';
 
 import { AppleProvider, CSRF_END, NONCE_END, RADIX, START } from './constants';
+
+import { parseError } from '$common/core';
 
 type AppleAuthConfig = WithCallback;
 
@@ -15,7 +16,6 @@ type UseAppleAuth = (config: AppleAuthConfig) => {
 };
 
 export const useAppleAuth: UseAppleAuth = (config) => {
-  const { signInWithCredentials } = useAuthentication();
   const { onAuthSucceed, onAuthFailed } = config;
 
   const signInWithApple = useCallback(async () => {
@@ -53,17 +53,11 @@ export const useAppleAuth: UseAppleAuth = (config) => {
         rawNonce: nonce,
       });
 
-      const userCredentials = await signInWithCredentials(credentials);
-
-      onAuthSucceed?.(userCredentials);
+      onAuthSucceed?.(credentials);
     } catch (error) {
-      console.error(error);
+      const parsedError = parseError(error);
 
-      if (error instanceof Error) {
-        onAuthFailed?.(error);
-      } else {
-        onAuthFailed?.(new Error('Unknown error'));
-      }
+      onAuthFailed?.(parsedError);
     }
   }, [onAuthSucceed]);
 

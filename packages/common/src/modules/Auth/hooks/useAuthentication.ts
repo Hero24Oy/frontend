@@ -8,7 +8,7 @@ import { useCallback } from 'react';
 import { useFirebaseAuth } from '../stores';
 
 export type SignInWithCredentials = (
-  credentials: OAuthCredential,
+  credentials?: OAuthCredential,
 ) => Promise<UserCredential | undefined>;
 
 type UseAuthentication = () => {
@@ -25,6 +25,10 @@ export const useAuthentication: UseAuthentication = () => {
 
   const signInWithCredentials: SignInWithCredentials = useCallback(
     async (credentials) => {
+      if (!credentials) {
+        throw new Error('Credentials were not provided');
+      }
+
       return signInWithCredential(firebaseAuth, credentials);
     },
     [firebaseAuth],
