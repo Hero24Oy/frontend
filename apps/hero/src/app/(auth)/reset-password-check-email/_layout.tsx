@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import { Stack } from '@hero24/ui';
+import { ExpoStack } from '@hero24/common';
 
 const ResetPasswordCheckEmailLayout: FC = () => {
-  return <Stack />;
+  return <ExpoStack />;
 };
 
 export default ResetPasswordCheckEmailLayout;

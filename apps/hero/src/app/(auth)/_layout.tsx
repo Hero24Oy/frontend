@@ -1,8 +1,7 @@
 import { Redirect } from 'expo-router';
 import { FC } from 'react';
 
-import { useFirebaseUser } from '@hero24/common';
-import { HeadlessStack } from '@hero24/ui';
+import { HeadlessExpoStack, useFirebaseUser } from '@hero24/common';
 
 const AppLayout: FC = () => {
   const { user } = useFirebaseUser();
@@ -16,7 +15,7 @@ const AppLayout: FC = () => {
   }
 
   // This layout can be deferred because it's not the root layout.
-  return <HeadlessStack />;
+  return <HeadlessExpoStack />;
 };
 
 export default AppLayout;

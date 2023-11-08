@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import { Stack } from '@hero24/ui';
+import { ExpoStack } from '@hero24/common';
 
 const ConfirmationCodeLayout: FC = () => {
-  return <Stack title="Confirmation" />;
+  return <ExpoStack title="Confirmation" />;
 };
 
 export default ConfirmationCodeLayout;
