@@ -16,8 +16,8 @@ type UseFacebookAuth = (config: FacebookAuthConfig) => {
   signInWithFacebook: () => Promise<void>;
 };
 
-export const useFacebookAuth: UseFacebookAuth = (config) => {
-  const { onAuthFailed, onAuthSucceed, ...facebookAuthConfig } = config;
+export const useFacebookAuth: UseFacebookAuth = (params) => {
+  const { onAuthFailed, onAuthSucceed, ...facebookAuthConfig } = params;
   const { signInWithCredentials } = useAuthentication();
 
   const [_request, response, promptAsync] = Facebook.useAuthRequest({
@@ -48,13 +48,17 @@ export const useFacebookAuth: UseFacebookAuth = (config) => {
       response.params.access_token,
     );
 
-    signInWithCredentials(credentials)
-      .then((userCredentials) => onAuthSucceed?.(userCredentials))
-      .catch((error) => {
+    void (async () => {
+      try {
+        const userCredentials = await signInWithCredentials(credentials);
+
+        onAuthSucceed?.(userCredentials);
+      } catch (error) {
         const parsedError = parseError(error);
 
         onAuthFailed?.(parsedError);
-      });
+      }
+    })();
   }, [signInWithCredentials, response]);
 
   return { signInWithFacebook };

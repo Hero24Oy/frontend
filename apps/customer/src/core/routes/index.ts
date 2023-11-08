@@ -7,7 +7,7 @@ export type ExpoTabProps = Pick<
   'name' | 'options'
 >;
 
-export const routes: ExpoTabProps[] = [
+export const bottomTabRoutes: ExpoTabProps[] = [
   {
     name: 'home',
     options: {

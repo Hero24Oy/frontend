@@ -15,13 +15,13 @@ type UseEmailSignIn = (config: EmailAuthConfig) => {
   signInWithEmail: SignInWithEmail;
 };
 
-export const useEmailSignIn: UseEmailSignIn = (props) => {
+export const useEmailSignIn: UseEmailSignIn = (params) => {
   const firebaseAuth = useFirebaseAuth();
-  const { onAuthFailed, onAuthSucceed } = props;
+  const { onAuthFailed, onAuthSucceed } = params;
 
-  const signInWithEmail: SignInWithEmail = useCallback(async (params) => {
+  const signInWithEmail: SignInWithEmail = useCallback(async (credentials) => {
     try {
-      const { email, password } = params;
+      const { email, password } = credentials;
 
       const userCredentials = await signInWithEmailAndPassword(
         firebaseAuth,

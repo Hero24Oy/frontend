@@ -26,9 +26,9 @@ manager.push(ApolloProvider, {
   client: apolloClient,
 });
 
-export const PreProviderApp = manager.master();
+export const MasterProvider = manager.master();
 
-const MainProvider: FC<PropsWithChildren> = (props) => {
+const PostProviderApp: FC<PropsWithChildren> = (props) => {
   const { children } = props;
   const { isAppInitialized } = useInitializeApp();
 
@@ -47,14 +47,14 @@ const MainProvider: FC<PropsWithChildren> = (props) => {
   return children;
 };
 
-const RootLayout: FC = () => {
+const PreProviderApp: FC = () => {
   return (
-    <PreProviderApp>
-      <MainProvider>
+    <MasterProvider>
+      <PostProviderApp>
         <Slot />
-      </MainProvider>
-    </PreProviderApp>
+      </PostProviderApp>
+    </MasterProvider>
   );
 };
 
-export default RootLayout;
+export default PreProviderApp;

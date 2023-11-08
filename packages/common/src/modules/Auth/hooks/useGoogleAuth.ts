@@ -65,13 +65,17 @@ export const useGoogleAuth: UseGoogleAuth = (config) => {
       response.params.id_token,
     );
 
-    signInWithCredentials(credentials)
-      .then((userCredentials) => onAuthSucceed?.(userCredentials))
-      .catch((error) => {
+    void (async () => {
+      try {
+        const userCredentials = await signInWithCredentials(credentials);
+
+        onAuthSucceed?.(userCredentials);
+      } catch (error) {
         const parsedError = parseError(error);
 
         onAuthFailed?.(parsedError);
-      });
+      }
+    })();
   }, [signInWithCredentials, response]);
 
   return { signInWithGoogle };
