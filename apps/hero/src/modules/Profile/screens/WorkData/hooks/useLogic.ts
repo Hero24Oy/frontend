@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 
 import { defaultValues } from '../constants';
 import { WorkData } from '../types';
-import { workDataShape } from '../validation';
+import { workDataSchema } from '../validation';
 
 import { useCompanyCreationStore } from '$modules/Profile/stores';
 
@@ -17,7 +17,7 @@ export const useLogic = () => {
     setValue,
     formState: { isValid },
   } = useForm<WorkData>({
-    resolver: yupResolver<WorkData>(workDataShape),
+    resolver: yupResolver<WorkData>(workDataSchema),
     defaultValues,
     mode: 'onChange',
   });
