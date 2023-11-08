@@ -16,7 +16,7 @@ export const routes: ExpoTabProps[] = [
     },
   },
   {
-    name: 'offer-requests',
+    name: 'offer',
     options: {
       tabBarLabel: 'Tasks',
       tabBarIcon: CheckSquareIcon,

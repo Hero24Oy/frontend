@@ -1,7 +1,9 @@
-import { Redirect } from 'expo-router';
+import { Redirect, Tabs } from 'expo-router';
 import { FC } from 'react';
 
-import { BottomNavigationTabs, useFirebaseUser } from '@hero24/common';
+import { TabsContainer, useFirebaseUser } from '@hero24/common';
+
+import { routes } from '$/core';
 
 const AppLayout: FC = () => {
   const { user } = useFirebaseUser();
@@ -16,7 +18,13 @@ const AppLayout: FC = () => {
 
   // This layout can be deferred because it's not the root layout.
 
-  return <BottomNavigationTabs />;
+  return (
+    <Tabs tabBar={TabsContainer}>
+      {routes.map((routeProps) => (
+        <Tabs.Screen key={routeProps.name} {...routeProps} />
+      ))}
+    </Tabs>
+  );
 };
 
 export default AppLayout;
