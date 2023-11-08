@@ -1,6 +1,13 @@
 import * as yup from 'yup';
 
-export const multiSelectArray: yup.ISchema<string[]> = yup
-  .array()
-  .required('This field is required')
-  .min(1, 'You need to select at least one');
+import { ValidationHints } from '../enums';
+
+export const multiSelectArraySchema = <Type>(
+  optional = true,
+): yup.ArraySchema<Type[] | undefined, yup.AnyObject, undefined, ''> => {
+  if (optional) {
+    return yup.array();
+  }
+
+  return yup.array().min(1, ValidationHints.MORE_THAN_ZERO);
+};

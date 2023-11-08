@@ -1,13 +1,20 @@
 import * as yup from 'yup';
 
-import { file, multiSelectArray, range } from '@hero24/common';
+import {
+  fileSchema,
+  multiSelectArraySchema,
+  rangeSchema,
+  ValidationHints,
+} from '@hero24/common';
 
 import { CompanyCreation } from '$modules/Profile/stores';
 
+const stringMultiSelectArraySchema = multiSelectArraySchema<string>(false);
+
 export const workDataSchema = yup.object<CompanyCreation['workData']>().shape({
-  certificate: file,
-  insurance: file,
-  experience: range,
-  expertise: multiSelectArray,
-  places: multiSelectArray,
+  certificate: fileSchema.notRequired(),
+  insurance: fileSchema.notRequired(),
+  experience: rangeSchema.required(ValidationHints.REQUIRED),
+  expertise: stringMultiSelectArraySchema.required(ValidationHints.REQUIRED),
+  places: stringMultiSelectArraySchema.required(ValidationHints.REQUIRED),
 });
