@@ -2,12 +2,11 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "$common/assets": ["assets"],
-      "$common/assets/*": ["assets/*"],
-      "$common/modules": ["modules/index"],
-      "$common/types": ["types/index"],
-      "$common/core": ["core/index"],
-      "$ui/providers": ["@hero24/ui/src/providers"]
+      "$assets": ["assets"],
+      "$assets/*": ["assets/*"],
+      "$modules": ["modules/index"],
+      "$types": ["types/index"],
+      "$core": ["core/index"],
     }
   },
   "extends": "@hero24/configs/tsconfig.json",

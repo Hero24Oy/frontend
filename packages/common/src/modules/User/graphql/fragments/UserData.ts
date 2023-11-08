@@ -7,7 +7,7 @@ import {
 } from './UserDataActiveRoute';
 import { USER_DATA_ADDRESS_FRAGMENT, UserDataAddress } from './UserDataAddress';
 
-import { Maybe } from '$common/core';
+import { Maybe } from '$core';
 
 export type UserData = {
   createdAt: number;

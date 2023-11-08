@@ -4,7 +4,7 @@ import { Button, GoogleIcon } from '@hero24/ui';
 
 import { useAuthentication, useGoogleAuth } from '../../hooks';
 
-import { useAuthConfig } from '$common/modules';
+import { useAuthConfig } from '$modules';
 
 export const GoogleSignInButton: FC = () => {
   const { signInWithCredentials } = useAuthentication();

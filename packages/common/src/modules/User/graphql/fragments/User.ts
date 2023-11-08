@@ -3,7 +3,7 @@ import { gql } from '@apollo/client';
 import { USER_DATA_FRAGMENT, UserData } from './UserData';
 import { USER_OFFER_FRAGMENT, UserOffer } from './UserOffer';
 
-import { Maybe } from '$common/core';
+import { Maybe } from '$core';
 
 export type User = {
   data: UserData;

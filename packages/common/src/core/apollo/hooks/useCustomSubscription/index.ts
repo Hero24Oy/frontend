@@ -8,7 +8,7 @@ import {
 
 import { CustomSubscriptionResult, PrefixedSubscriptionResult } from './types';
 
-import { DEFAULT_RESPONSE_NAME, GraphQlResponse } from '$common/core';
+import { DEFAULT_RESPONSE_NAME, GraphQlResponse } from '$core';
 
 export * from './types';
 

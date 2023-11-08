@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 import { TabsContainer } from './TabsContainer';
 
-import { routes } from '$common/core';
+import { routes } from '$core';
 
 export const BottomNavigationTabs: FC = () => {
   return (
