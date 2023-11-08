@@ -1,6 +1,6 @@
 import { useFonts } from 'expo-font';
 
-import * as fonts from '$common/assets/fonts';
+import * as fonts from '$assets/fonts';
 
 type UseLoadFontsReturnType = {
   areFontsLoaded: boolean;
