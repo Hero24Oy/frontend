@@ -16,7 +16,7 @@ const useStore = create<AuthStore>((set) => ({
   setAuthConfig: (authConfig: AuthConfig): void => set({ authConfig }),
 }));
 
-export const setAuthStore = (config: AuthConfig): void =>
+export const initializeAuthStore = (config: AuthConfig): void =>
   useStore.getState().setAuthConfig(config);
 
 export const useAuthConfig = (): AuthConfig => {

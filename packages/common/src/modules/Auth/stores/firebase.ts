@@ -11,7 +11,7 @@ const useStore = create<FirebaseAuthStore>((set) => ({
   setFirebaseAuth: (firebaseAuth: Auth): void => set({ firebaseAuth }),
 }));
 
-export const setFirebaseStore = (auth: Auth): void =>
+export const initializeFirebaseStore = (auth: Auth): void =>
   useStore.getState().setFirebaseAuth(auth);
 
 export const useFirebaseAuth = (): Auth => {

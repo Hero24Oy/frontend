@@ -4,7 +4,7 @@ import * as WebBrowser from 'expo-web-browser';
 import { FC, PropsWithChildren, useEffect } from 'react';
 import { combineProviders } from 'react-combine-providers';
 
-import { setAuthStore, setFirebaseStore } from '@hero24/common';
+import { initializeAuthStore, initializeFirebaseStore } from '@hero24/common';
 import { attachUiProviders } from '@hero24/ui';
 
 import 'expo-dev-client'; // used for dev menu for easier debug, does not affect anything else
@@ -18,8 +18,8 @@ SplashScreen.preventAutoHideAsync();
 const manager = combineProviders();
 
 attachUiProviders(manager);
-setFirebaseStore(auth);
-setAuthStore(authConfig);
+initializeFirebaseStore(auth);
+initializeAuthStore(authConfig);
 
 manager.push(ApolloProvider, {
   children: null,
