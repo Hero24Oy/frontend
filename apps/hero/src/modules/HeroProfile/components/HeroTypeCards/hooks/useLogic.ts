@@ -1,25 +1,25 @@
 import { useRouter } from 'expo-router';
 
 type ReturnType = {
-  onCompanySellerPress: () => void;
-  onSelfEmployedPress: () => void;
+  companySellerHandler: () => void;
+  selfEmployedHandler: () => void;
 };
 
 export const useLogic = (): ReturnType => {
   const router = useRouter();
 
   // TODO replace with proper path after screen will be ready
-  const onCompanySellerPress = () => {
+  const companySellerHandler = () => {
     router.push('/');
   };
 
   // TODO replace with proper path after screen will be ready
-  const onSelfEmployedPress = () => {
+  const selfEmployedHandler = () => {
     router.push('/');
   };
 
   return {
-    onCompanySellerPress,
-    onSelfEmployedPress,
+    companySellerHandler,
+    selfEmployedHandler,
   };
 };

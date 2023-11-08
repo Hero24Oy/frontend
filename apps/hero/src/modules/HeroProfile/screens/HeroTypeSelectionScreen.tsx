@@ -4,15 +4,15 @@ import { StyleSheet } from 'react-native';
 
 import { Color, VStack } from '@hero24/ui';
 
-import { SellerTypeCards, WelcomeHeading } from '../components';
+import { HeroTypeCards, WelcomeHeading } from '../components';
 
-export const SellerTypeScreen: FC = () => {
+export const HeroTypeSelectionScreen: FC = () => {
   return (
     <>
       <StatusBar style="dark" />
       <VStack style={styles.container}>
         <WelcomeHeading />
-        <SellerTypeCards />
+        <HeroTypeCards />
       </VStack>
     </>
   );
