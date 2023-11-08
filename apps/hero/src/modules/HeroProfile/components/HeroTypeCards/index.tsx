@@ -13,13 +13,13 @@ import {
 } from '$modules/HeroProfile/assets';
 
 export const HeroTypeCards: FC = () => {
-  const { companySellerHandler, selfEmployedHandler } = useLogic();
+  const { companyHeroHandler, selfEmployedHandler } = useLogic();
 
   return (
     <HStack style={styles.hStack}>
       {/* TODO replace text in cards with i18n call */}
       <HeroTypeCard
-        selectionHandler={companySellerHandler}
+        selectionHandler={companyHeroHandler}
         imageSource={companyHeroImage}
         cardText="I run a company"
       />

@@ -4,7 +4,7 @@ export const useLogic = () => {
   const router = useRouter();
 
   // TODO replace with proper path after screen will be ready
-  const companySellerHandler = () => {
+  const companyHeroHandler = () => {
     router.push('/');
   };
 
@@ -14,7 +14,7 @@ export const useLogic = () => {
   };
 
   return {
-    companySellerHandler,
+    companyHeroHandler,
     selfEmployedHandler,
   };
 };
