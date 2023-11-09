@@ -2,7 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { CODE_LENGTH, initialFormState } from './constants';
+import { initialFormState } from './constants';
 import { ConfirmationCodeFormData } from './types';
 import { validationSchema } from './validation';
 
@@ -16,7 +16,7 @@ export const useLogic = () => {
     handleSubmit,
     formState: { isSubmitting, isValid },
   } = useForm<ConfirmationCodeFormData>({
-    resolver: yupResolver(validationSchema(CODE_LENGTH)),
+    resolver: yupResolver(validationSchema),
     defaultValues: initialFormState,
     mode: 'onChange',
   });
