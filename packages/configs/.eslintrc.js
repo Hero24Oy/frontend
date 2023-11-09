@@ -39,6 +39,10 @@ const initialRules = {
   curly: ['error', 'all'],
   'prefer-destructuring': 'error',
   'default-case': 'error',
+  'no-restricted-exports': [
+    'error',
+    { restrictDefaultExports: { defaultFrom: true } },
+  ],
   'func-names': ['error', 'always', { generators: 'never' }],
   'typescript-sort-keys/interface': [
     'error',
@@ -396,12 +400,6 @@ const override = {
       'import/no-dynamic-require': 'off',
       'global-require': 'off',
       '@typescript-eslint/naming-convention': 'off',
-    },
-  },
-  appReexport: {
-    files: ['**/*/app/**/*.tsx'],
-    rules: {
-      'no-restricted-exports': 'off',
     },
   },
 };
