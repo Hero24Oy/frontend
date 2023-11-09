@@ -28,8 +28,6 @@ manager.push(ApolloProvider, {
 
 export const MasterProvider = manager.master();
 
-SplashScreen.preventAutoHideAsync();
-
 const PostProviderApp: FC<PropsWithChildren> = (props) => {
   const { children } = props;
   const { isAppInitialized } = usePostProviderAppLogic();
