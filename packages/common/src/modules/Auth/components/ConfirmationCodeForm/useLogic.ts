@@ -2,13 +2,23 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { useAuthentication, useVerifyCode } from '../../hooks';
+
 import { CODE_LENGTH, initialFormState } from './constants';
 import { ConfirmationCodeFormData } from './types';
 import { validationSchema } from './validation';
 
 export const useLogic = () => {
-  const onSubmit = (_data: ConfirmationCodeFormData): void => {
-    // TODO -- add onSubmit logic
+  const { signInWithCredentials } = useAuthentication();
+
+  const { verifyCode } = useVerifyCode({
+    onAuthSucceed: signInWithCredentials,
+  });
+
+  const onSubmit = async (data: ConfirmationCodeFormData) => {
+    const { code } = data;
+
+    await verifyCode(code);
   };
 
   const {
@@ -23,6 +33,7 @@ export const useLogic = () => {
 
   const onSubmitHandler = useCallback(() => handleSubmit(onSubmit)(), []);
 
+  // TODO debounce
   const onSendOneMoreTimeHandler = (): void => {
     // TODO -- add logic here
   };

@@ -4,4 +4,3 @@ export * from './useLogout';
 export * from './types';
 export * from './useFirebaseUser';
 export * from './useWatchAuthChanged';
-export * from './usePhoneAuth';

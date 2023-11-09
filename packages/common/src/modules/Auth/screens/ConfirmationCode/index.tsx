@@ -5,16 +5,15 @@ import {
   ConfirmationCodeScreenText,
 } from '../../components';
 
-import { useLogic } from './useLogic';
-
+// import { useLogic } from './useLogic';
 import { StackKeyboardAwareScrollView } from '$common';
 
 export const ConfirmationCodeScreen: FC = () => {
-  const phoneNumber = useLogic();
+  // const phoneNumber = useLogic();
 
   return (
     <StackKeyboardAwareScrollView>
-      <ConfirmationCodeScreenText phone={phoneNumber} />
+      <ConfirmationCodeScreenText />
       <ConfirmationCodeForm />
     </StackKeyboardAwareScrollView>
   );

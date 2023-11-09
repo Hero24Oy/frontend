@@ -22,6 +22,7 @@ export const ConfirmationCodeForm: FC = () => {
     onSendOneMoreTimeHandler,
   } = useLogic();
 
+  // TODO logic for debounce
   return (
     <VStack style={styles.wrapper}>
       {/* TODO replace with i18n call */}

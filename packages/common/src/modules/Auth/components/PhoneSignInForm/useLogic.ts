@@ -1,6 +1,8 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useCallback } from 'react';
+// import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
+
+import { usePhoneAuthStore, useSendVerificationCode } from '../../hooks';
 
 import { initialFormState } from './constants';
 import { PhoneSignInFormData, PhoneSignInFormProps } from './types';
@@ -8,9 +10,23 @@ import { validationSchema } from './validation';
 
 export const useLogic = (params: PhoneSignInFormProps) => {
   const { signInWithPhoneCallback } = params;
+  const { reCaptcha } = usePhoneAuthStore();
 
-  const onSubmit = (_data: PhoneSignInFormData): void => {
-    // TODO -- add onSubmit logic
+  const { sendVerificationCode } = useSendVerificationCode();
+
+  const onSubmit = async (data: PhoneSignInFormData) => {
+    if (!reCaptcha) {
+      console.error('Recaptcha is not initialized'); // TODO better error handling
+
+      return;
+    }
+
+    const phoneNumber = (data.code + data.phone).replace(' ', '');
+
+    await sendVerificationCode({
+      phoneNumber,
+      reCaptcha,
+    });
   };
 
   const {
@@ -23,10 +39,11 @@ export const useLogic = (params: PhoneSignInFormProps) => {
     mode: 'onSubmit',
   });
 
-  const onSubmitHandler = useCallback(async () => {
+  const onSubmitHandler = async () => {
     await handleSubmit(onSubmit)();
+
     signInWithPhoneCallback();
-  }, []);
+  };
 
   return {
     control,

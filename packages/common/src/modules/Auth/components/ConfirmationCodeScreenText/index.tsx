@@ -3,11 +3,12 @@ import { StyleSheet } from 'react-native';
 
 import { Color, Text, VStack } from '@hero24/ui';
 
-type Props = {
-  phone: string;
-};
+import { usePhoneAuthStore } from '../../hooks/providers/usePhoneAuth/phoneAuthStore';
 
-export const ConfirmationCodeScreenText: FC<Props> = ({ phone }) => {
+export const ConfirmationCodeScreenText: FC = () => {
+  const { phoneNumber } = usePhoneAuthStore();
+
+  // TODO handle undefined phone
   return (
     <VStack style={styles.textContainer}>
       {/* TODO replace with i18n call */}
@@ -15,7 +16,7 @@ export const ConfirmationCodeScreenText: FC<Props> = ({ phone }) => {
         The code was sent to
       </Text>
       <Text variant="medium" style={styles.text}>
-        {phone}
+        {phoneNumber || ''}
       </Text>
     </VStack>
   );
