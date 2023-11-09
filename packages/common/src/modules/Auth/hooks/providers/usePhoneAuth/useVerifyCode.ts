@@ -1,6 +1,5 @@
 import { OAuthCredential, PhoneAuthProvider } from 'firebase/auth';
 
-// import { useCallback } from 'react';
 import { WithCallback } from '../../types';
 
 import { usePhoneAuthStore } from './phoneAuthStore';

@@ -13,6 +13,8 @@ import {
 import { CODE_LENGTH } from './constants';
 import { useLogic } from './useLogic';
 
+export * from './RecaptchaModal';
+
 export const ConfirmationCodeForm: FC = () => {
   const {
     control,
