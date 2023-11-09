@@ -3,7 +3,7 @@ import { FC } from 'react';
 import {
   ResetPasswordForm,
   ResetPasswordFormProps,
-  ResetPasswordScreenText,
+  ResetPasswordMessage,
 } from '../components';
 
 import { StackKeyboardAwareScrollView } from '$common';
@@ -13,7 +13,7 @@ type Props = ResetPasswordFormProps;
 export const ResetPasswordScreen: FC<Props> = (props) => {
   return (
     <StackKeyboardAwareScrollView>
-      <ResetPasswordScreenText />
+      <ResetPasswordMessage />
       <ResetPasswordForm {...props} />
     </StackKeyboardAwareScrollView>
   );

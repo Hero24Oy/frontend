@@ -1,6 +1,6 @@
 export const useLogic = () => {
   // TODO -- replace with store email getter
-  const testEmail = 'testEmail@gmail.com';
+  const email = 'testEmail@gmail.com';
 
-  return testEmail;
+  return { email };
 };

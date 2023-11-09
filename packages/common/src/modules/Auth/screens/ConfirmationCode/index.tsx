@@ -1,20 +1,17 @@
 import { FC } from 'react';
 
-import {
-  ConfirmationCodeForm,
-  ConfirmationCodeScreenText,
-} from '../../components';
+import { ConfirmationCodeForm, ConfirmationCodeHeader } from '../../components';
 
 import { useLogic } from './useLogic';
 
 import { StackKeyboardAwareScrollView } from '$common';
 
 export const ConfirmationCodeScreen: FC = () => {
-  const phoneNumber = useLogic();
+  const { phone } = useLogic();
 
   return (
     <StackKeyboardAwareScrollView>
-      <ConfirmationCodeScreenText phone={phoneNumber} />
+      <ConfirmationCodeHeader phone={phone} />
       <ConfirmationCodeForm />
     </StackKeyboardAwareScrollView>
   );

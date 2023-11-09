@@ -26,7 +26,7 @@ export const useLogic = (params: PhoneSignInFormProps) => {
   const onSubmitHandler = useCallback(async () => {
     await handleSubmit(onSubmit)();
     signInWithPhoneCallback();
-  }, []);
+  }, [signInWithPhoneCallback]);
 
   return {
     control,
