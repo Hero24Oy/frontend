@@ -3,6 +3,7 @@ import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useAuthentication, useVerifyCode } from '../../hooks';
+import { handleAuthError } from '../../utils';
 
 import { CODE_LENGTH, initialFormState } from './constants';
 import { ConfirmationCodeFormData } from './types';
@@ -13,6 +14,7 @@ export const useLogic = () => {
 
   const { verifyCode } = useVerifyCode({
     onAuthSucceed: signInWithCredentials,
+    onAuthFailed: handleAuthError,
   });
 
   const onSubmit = async (data: ConfirmationCodeFormData) => {
