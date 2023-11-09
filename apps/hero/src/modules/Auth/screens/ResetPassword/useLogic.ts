@@ -1,16 +1,12 @@
 import { useRouter } from 'expo-router';
 import { useCallback } from 'react';
 
-type ReturnType = {
-  onSuccessResetPasswordCallback: () => void;
-};
-
-export const useLogic = (): ReturnType => {
+export const useLogic = () => {
   const router = useRouter();
 
-  const onSuccessResetPasswordCallback = useCallback((): void => {
+  const onSuccessCallback = useCallback((): void => {
     router.push('/reset-password-check-email/');
   }, []);
 
-  return { onSuccessResetPasswordCallback };
+  return { onSuccessCallback };
 };

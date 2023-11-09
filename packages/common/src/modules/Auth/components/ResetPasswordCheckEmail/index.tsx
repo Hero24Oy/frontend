@@ -9,7 +9,7 @@ type Props = {
   email: string;
 };
 
-export const ResetPasswordCheckEmailContent: FC<Props> = (props) => {
+export const ResetPasswordCheckEmail: FC<Props> = (props) => {
   const { email } = props;
 
   const message = `We sent a link to reset your password to ${getMaskedEmail(
@@ -24,6 +24,7 @@ export const ResetPasswordCheckEmailContent: FC<Props> = (props) => {
         {message}
       </Text>
       <VStack style={styles.button}>
+        {/* TODO replace with i18n call */}
         <Button variant="solid" action="primary">
           Send one more time
         </Button>

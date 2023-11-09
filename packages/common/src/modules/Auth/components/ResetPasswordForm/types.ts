@@ -3,5 +3,5 @@ export type ResetPasswordFormData = {
 };
 
 export type ResetPasswordFormProps = {
-  onSuccessResetPasswordCallback: () => void;
+  onSuccessCallback: () => void;
 };

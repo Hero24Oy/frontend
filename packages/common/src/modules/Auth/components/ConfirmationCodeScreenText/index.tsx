@@ -7,7 +7,7 @@ type Props = {
   phone: string;
 };
 
-export const ConfirmationCodeFormText: FC<Props> = ({ phone }) => {
+export const ConfirmationCodeScreenText: FC<Props> = ({ phone }) => {
   return (
     <VStack style={styles.textContainer}>
       {/* TODO replace with i18n call */}

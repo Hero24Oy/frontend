@@ -3,8 +3,13 @@ import { StyleSheet } from 'react-native';
 
 import { Color, VStack } from '@hero24/ui';
 
-import { Footer, Header, SignInProvidersButtons } from '../components';
-import { EmailSignInForm, EmailSignInFormProps } from '../forms';
+import {
+  EmailSignInForm,
+  EmailSignInFormProps,
+  Footer,
+  Header,
+  SignInProvidersButtons,
+} from '../components';
 
 import { StackKeyboardAwareScrollView, TextDivider } from '$common/core';
 

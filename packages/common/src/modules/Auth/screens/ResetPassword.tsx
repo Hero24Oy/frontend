@@ -1,22 +1,20 @@
 import { FC } from 'react';
 
-import { ResetPasswordFormText } from '../components';
-import { ResetPasswordForm } from '../forms';
-import { ResetPasswordFormProps } from '../forms/ResetPasswordForm/types';
+import {
+  ResetPasswordForm,
+  ResetPasswordFormProps,
+  ResetPasswordScreenText,
+} from '../components';
 
-import { StackKeyboardAwareScrollView } from '$common/core';
+import { StackKeyboardAwareScrollView } from '$common';
 
 type Props = ResetPasswordFormProps;
 
 export const ResetPasswordScreen: FC<Props> = (props) => {
-  const { onSuccessResetPasswordCallback } = props;
-
   return (
     <StackKeyboardAwareScrollView>
-      <ResetPasswordFormText />
-      <ResetPasswordForm
-        onSuccessResetPasswordCallback={onSuccessResetPasswordCallback}
-      />
+      <ResetPasswordScreenText />
+      <ResetPasswordForm {...props} />
     </StackKeyboardAwareScrollView>
   );
 };

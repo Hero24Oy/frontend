@@ -5,8 +5,9 @@ import { PhoneSignInFormData } from './types';
 
 import { ErrorHints } from '$common';
 
-export const phoneSignInFormValidationSchema: yup.ObjectSchema<PhoneSignInFormData> =
-  yup.object().shape({
+export const validationSchema: yup.ObjectSchema<PhoneSignInFormData> = yup
+  .object()
+  .shape({
     code: yup.string(),
     phone: yup
       .string()

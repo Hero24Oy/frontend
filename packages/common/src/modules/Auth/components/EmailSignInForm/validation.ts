@@ -6,7 +6,7 @@ import {
   passwordSignInValidationSchema,
 } from '$common';
 
-export const emailSignInFormValidationSchema = yup.object({
+export const validationSchema = yup.object({
   email: emailValidationSchema.required(ErrorHints.REQUIRED),
   password: passwordSignInValidationSchema.required(ErrorHints.REQUIRED),
 });

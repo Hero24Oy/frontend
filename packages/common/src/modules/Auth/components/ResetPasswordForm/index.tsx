@@ -7,7 +7,7 @@ import { ResetPasswordFormProps } from './types';
 import { useLogic } from './useLogic';
 
 export const ResetPasswordForm: FC<ResetPasswordFormProps> = (props) => {
-  const { control, onSubmitHandler, isLoading, isEmailValid } = useLogic(props);
+  const { control, onSubmitHandler, isLoading, isValid } = useLogic(props);
 
   return (
     <VStack style={styles.wrapper}>
@@ -21,7 +21,7 @@ export const ResetPasswordForm: FC<ResetPasswordFormProps> = (props) => {
       />
       <Button
         onPress={onSubmitHandler}
-        isDisabled={!isEmailValid}
+        isDisabled={!isValid}
         isLoading={isLoading}
       >
         Reset password

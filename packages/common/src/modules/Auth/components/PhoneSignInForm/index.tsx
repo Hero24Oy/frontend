@@ -12,7 +12,7 @@ import {
 } from '$configs';
 
 export const PhoneSignInForm: FC<PhoneSignInFormProps> = (props) => {
-  const { control, onSubmitHandler, isLoading, isPhoneValid } = useLogic(props);
+  const { control, onSubmitHandler, isLoading, isValid } = useLogic(props);
 
   return (
     <VStack style={styles.wrapper}>
@@ -31,7 +31,7 @@ export const PhoneSignInForm: FC<PhoneSignInFormProps> = (props) => {
         size="md"
         action="primary"
         onPress={onSubmitHandler}
-        isDisabled={!isPhoneValid}
+        isDisabled={!isValid}
         isLoading={isLoading}
       >
         Continue

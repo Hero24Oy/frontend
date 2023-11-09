@@ -3,10 +3,15 @@ import { StyleSheet } from 'react-native';
 
 import { Button, Color, VStack } from '@hero24/ui';
 
-import { Footer, Header, SignInProvidersButtons } from '../components';
-import { PhoneSignInForm, PhoneSignInFormProps } from '../forms';
+import {
+  Footer,
+  Header,
+  PhoneSignInForm,
+  PhoneSignInFormProps,
+  SignInProvidersButtons,
+} from '../components';
 
-import { SafeAreaKeyboardAwareScrollView, TextDivider } from '$common/core';
+import { SafeAreaKeyboardAwareScrollView, TextDivider } from '$common';
 
 type Props = PhoneSignInFormProps & {
   signInWithEmailCallback: () => void;

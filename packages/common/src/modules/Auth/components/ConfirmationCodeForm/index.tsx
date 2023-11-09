@@ -18,7 +18,7 @@ export const ConfirmationCodeForm: FC = () => {
     control,
     onSubmitHandler,
     isLoading,
-    isCodeValid,
+    isValid,
     onSendOneMoreTimeHandler,
   } = useLogic();
 
@@ -31,7 +31,7 @@ export const ConfirmationCodeForm: FC = () => {
           name="code"
           cellCount={CODE_LENGTH}
         />
-        {!isCodeValid ? (
+        {!isValid ? (
           <Pressable
             style={styles.sendOneMore}
             onPress={onSendOneMoreTimeHandler}
@@ -42,7 +42,7 @@ export const ConfirmationCodeForm: FC = () => {
       </VStack>
       <Button
         onPress={onSubmitHandler}
-        isDisabled={!isCodeValid}
+        isDisabled={!isValid}
         isLoading={isLoading}
       >
         Continue

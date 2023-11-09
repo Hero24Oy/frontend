@@ -1,11 +1,7 @@
 import { useRouter } from 'expo-router';
 import { useCallback } from 'react';
 
-type ReturnType = {
-  onForgotPasswordCallback: () => void;
-};
-
-export const useLogic = (): ReturnType => {
+export const useLogic = () => {
   const router = useRouter();
 
   const onForgotPasswordCallback = useCallback((): void => {

@@ -1,12 +1,7 @@
 import { useRouter } from 'expo-router';
 import { useCallback } from 'react';
 
-type ReturnType = {
-  signInWithEmailCallback: () => void;
-  signInWithPhoneCallback: () => void;
-};
-
-export const useLogic = (): ReturnType => {
+export const useLogic = () => {
   const router = useRouter();
 
   const signInWithEmailCallback = useCallback((): void => {
