@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { TextStyle, ViewStyle } from 'react-native';
 
-import { HStack, Text } from '@hero24/ui';
+import { HStack, Text } from '$components/atoms';
 
 type Props = {
   children: string;
