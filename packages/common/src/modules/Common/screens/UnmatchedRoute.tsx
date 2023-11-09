@@ -1,7 +1,7 @@
 import { Redirect } from 'expo-router';
 import { FC } from 'react';
 
-import { stringifyPretty } from '../utils';
+import { stringifyPretty } from '../../../core/utils';
 
 export const UnmatchedRouteScreen: FC = (props) => {
   console.error('Oops! Such route does not exists! Redirecting to main page');
