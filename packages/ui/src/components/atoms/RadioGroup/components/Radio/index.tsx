@@ -3,27 +3,29 @@ import { FC, memo } from 'react';
 import { radioVariantMapper } from './constants';
 
 import { RadioOption, RadioSize, RadioVariant } from '$atoms/RadioGroup/types';
+import { LayoutStyles } from '$types';
 
 type Props = {
   options: RadioOption[];
-  size: RadioSize;
   variant: `${RadioVariant}`;
   isGloballyDisabled?: boolean;
+  size?: RadioSize;
+  style?: LayoutStyles;
 };
 
 export const Radio: FC<Props> = memo((props) => {
-  const { options, variant, size, isGloballyDisabled } = props;
+  const { options, variant, isGloballyDisabled, ...restProps } = props;
 
   const Component = radioVariantMapper[variant];
 
   return (
     Component &&
-    options.map(({ label, isDisabled, ...restProps }) => (
+    options.map(({ label, isDisabled, ...restOptionProps }) => (
       <Component
         key={label}
-        size={size}
         isDisabled={isDisabled || isGloballyDisabled}
         {...restProps}
+        {...restOptionProps}
       >
         {label}
       </Component>
