@@ -9,7 +9,9 @@ import {
 
 import { CompanyCreation } from '$modules/Profile/stores';
 
-const stringMultiSelectArraySchema = multiSelectArraySchema<string>(false);
+const stringMultiSelectArraySchema = multiSelectArraySchema<string>(false).of(
+  yup.string(),
+);
 
 export const workDataSchema = yup.object<CompanyCreation['workData']>().shape({
   certificate: fileSchema.notRequired(),
