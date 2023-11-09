@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { emailSignInFormValidationSchema } from 'core/validation';
+// import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useAuthentication, useEmailSignIn } from '../../hooks';
@@ -27,9 +28,7 @@ export const useLogic = () => {
     mode: 'onChange',
   });
 
-  const onSubmit = handleSubmit(async (data: FormData) => {
-    await signInWithEmail(data);
-  });
+  const onSubmit = handleSubmit(signInWithEmail);
 
   return {
     onSubmit,
