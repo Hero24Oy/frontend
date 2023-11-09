@@ -383,7 +383,7 @@ const override = {
     },
   },
   functionComponentDefinition: {
-    files: ['src/icons/Base/index.tsx'],
+    files: ['src/icons/Base/index.tsx', 'src/core/components/Layout/index.tsx'],
     rules: {
       'react/function-component-definition': 'off',
     },
