@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
+      "$app": ["src/app/*"],
+      "$core": ["src/core/index"],
+      "$configs": ["src/configs/index"],
+      "$modules/*": ["src/modules/*"],
+      "$modules": ["src/modules/index"],
       "$/*": ["*"],
-      "$app": ["app/*"],
-      "$core": ["core/index"],
-      "$configs": ["configs/index"],
-      "$modules": ["modules/index"]
     }
   },
   "extends": "@hero24/configs/tsconfig.json",
