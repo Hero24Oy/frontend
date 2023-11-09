@@ -1,2 +1,2 @@
-export * from './BottomNavigationTabs';
+export * from './BottomTabs';
 export * from './Layout';

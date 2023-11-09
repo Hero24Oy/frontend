@@ -7,11 +7,13 @@ import { combineProviders } from 'react-combine-providers';
 import { initializeAuthStore, initializeFirebaseStore } from '@hero24/common';
 import { attachUiProviders } from '@hero24/ui';
 
-import 'expo-dev-client';
+import 'expo-dev-client'; // used for dev menu for easier debug, does not affect anything else
 import { authConfig } from '$configs';
 import { apolloClient, auth, useMainProviderLogic } from '$core';
 
+// we don't care about order here
 WebBrowser.maybeCompleteAuthSession();
+SplashScreen.preventAutoHideAsync();
 
 const manager = combineProviders();
 
