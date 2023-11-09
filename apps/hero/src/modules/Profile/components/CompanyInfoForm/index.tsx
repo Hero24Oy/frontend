@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   chips: {
-    flexBasis: '31%',
+    flexBasis: '32%',
   },
   button: {
     width: '100%',
