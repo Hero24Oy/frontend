@@ -1,6 +1,7 @@
 import { Redirect } from 'expo-router';
-import { useFirebaseUser } from 'modules';
 import { FC } from 'react';
+
+import { useFirebaseUser } from '$modules';
 
 export const RootScreen: FC = () => {
   const { user } = useFirebaseUser();
