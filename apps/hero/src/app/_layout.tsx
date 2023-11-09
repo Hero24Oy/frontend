@@ -9,7 +9,7 @@ import { attachUiProviders } from '@hero24/ui';
 
 import 'expo-dev-client'; // used for dev menu for easier debug, does not affect anything else
 import { authConfig } from '$configs';
-import { apolloClient, auth, useMainProviderLogic } from '$core';
+import { apolloClient, auth, usePostProviderAppLogic } from '$core';
 
 // we don't care about order here
 WebBrowser.maybeCompleteAuthSession();
@@ -26,13 +26,13 @@ manager.push(ApolloProvider, {
   client: apolloClient,
 });
 
-export const PreProviderApp = manager.master();
+export const MasterProvider = manager.master();
 
 SplashScreen.preventAutoHideAsync();
 
-const MainProvider: FC<PropsWithChildren> = (props) => {
+const PostProviderApp: FC<PropsWithChildren> = (props) => {
   const { children } = props;
-  const { isAppInitialized } = useMainProviderLogic();
+  const { isAppInitialized } = usePostProviderAppLogic();
 
   if (!isAppInitialized) {
     return null;
@@ -41,14 +41,14 @@ const MainProvider: FC<PropsWithChildren> = (props) => {
   return children;
 };
 
-const RootLayout: FC = () => {
+const PreProviderApp: FC = () => {
   return (
-    <PreProviderApp>
-      <MainProvider>
+    <MasterProvider>
+      <PostProviderApp>
         <Slot />
-      </MainProvider>
-    </PreProviderApp>
+      </PostProviderApp>
+    </MasterProvider>
   );
 };
 
-export default RootLayout;
+export default PreProviderApp;
