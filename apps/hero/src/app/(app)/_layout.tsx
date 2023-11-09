@@ -3,7 +3,7 @@ import { FC, useMemo } from 'react';
 
 import { TabsContainer, useFirebaseUser } from '@hero24/common';
 
-import { bottomTabRoutes } from '$/core';
+import { bottomTabRoutes } from '$core';
 
 const AppLayout: FC = () => {
   const { user } = useFirebaseUser();

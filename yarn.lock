@@ -10963,6 +10963,7 @@ __metadata:
     "@hero24/common": "npm:*"
     "@hero24/configs": "npm:*"
     "@hero24/ui": "npm:*"
+    "@hookform/resolvers": "npm:^3.3.2"
     "@legendapp/motion": "npm:2.2.1"
     "@react-native-async-storage/async-storage": "npm:1.18.2"
     "@react-navigation/bottom-tabs": "npm:6.5.11"

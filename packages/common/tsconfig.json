@@ -4,8 +4,8 @@
     "paths": {
       "$common": ["index"],
       "$common/modules": ["modules/index"],
-      "$common/modules/*": ["modules/*"],
-      "$common/types": ["types/index"],
+      "$modules/*": ["modules/*"],
+      "$types": ["types/index"],
       "$common/core": ["core/index"],
       "$common/core/*": ["core/*"],
       "$configs": ["configs/index"],
