@@ -4,20 +4,20 @@ import { StyleSheet } from 'react-native';
 import { Card, Image, Text } from '@hero24/ui';
 
 type Props = {
-  cardText: string;
+  children: string;
   imageSource: number;
   selectionHandler: () => void;
 };
 
 export const HeroTypeCard: FC<Props> = (props) => {
-  const { imageSource, selectionHandler, cardText } = props;
+  const { imageSource, selectionHandler, children } = props;
 
   return (
     <Card onPress={selectionHandler} style={styles.card}>
       <Image source={imageSource} style={styles.image} />
 
       <Text variant="regular" style={styles.text}>
-        {cardText}
+        {children}
       </Text>
     </Card>
   );
@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 100,
+    // We need negative margin here to show image outside of card on top.
     marginTop: -22.5,
   },
   card: {
