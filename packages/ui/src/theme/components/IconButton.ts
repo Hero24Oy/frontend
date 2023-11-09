@@ -15,7 +15,7 @@ export const IconButton = {
     alignSelf: 'flex-start',
     padding: 10,
     borderRadius: 10,
-    backgroundColor: Color.GREY_03,
+    backgroundColor: Color.GREY_LIGHT_02,
     [DescendantStyleName.ICON]: {
       color: Color.BLACK_00,
     },
