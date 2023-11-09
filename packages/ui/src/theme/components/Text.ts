@@ -10,10 +10,8 @@ export type TextThemeVariants = {
 
 export const Text = {
   theme: {
-    color: Color.DARK_00,
     fontWeight: FontWeight.REGULAR,
-    fontSize: FontSize.SM,
-    lineHeight: LineHeight.SM,
+    color: Color.DARK_00,
     variants: {
       variant: {
         [TextVariant.REGULAR]: {
@@ -24,11 +22,19 @@ export const Text = {
           fontSize: FontSize.SM,
           lineHeight: LineHeight.SM,
         },
+        [TextVariant.MEDIUM]: {
+          fontSize: FontSize.MD,
+          lineHeight: LineHeight.MD,
+          fontWeight: FontWeight.SEMI_BOLD,
+        },
         [TextVariant.DESCRIPTOR]: {
           fontSize: FontSize.XS,
           lineHeight: LineHeight.XS,
         },
       },
+    },
+    defaultProps: {
+      variant: TextVariant.SMALL,
     },
   },
 } satisfies ComponentTheme<TextProps, TextThemeVariants>;

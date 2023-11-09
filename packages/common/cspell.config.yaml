@@ -4,3 +4,4 @@ words:
   - oauthredirect
   - zustand
   - booleanize
+  - libphonenumber

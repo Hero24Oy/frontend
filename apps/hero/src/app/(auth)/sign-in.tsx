@@ -1,1 +1,1 @@
-export { AuthScreen as default } from '@hero24/common';
+export { SignInScreen as default } from '$modules';

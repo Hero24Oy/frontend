@@ -1,17 +1,27 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 import { KeyboardAwareScrollView as RnKeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-export const KeyboardAwareScrollView: FC<PropsWithChildren> = (props) => {
-  const { children } = props;
+import { KeyboardAwareScrollViewProps } from './types';
+
+export const KeyboardAwareScrollView: FC<KeyboardAwareScrollViewProps> = (
+  props,
+) => {
+  const { children, ...restProps } = props;
 
   return (
-    <RnKeyboardAwareScrollView style={styles.main}>
+    <RnKeyboardAwareScrollView
+      enableAutomaticScroll
+      enableOnAndroid
+      keyboardShouldPersistTaps="handled"
+      style={styles.main}
+      {...restProps}
+    >
       {children}
     </RnKeyboardAwareScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  main: { flex: 1 },
+  main: { flexGrow: 1 },
 });

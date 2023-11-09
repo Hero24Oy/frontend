@@ -1,5 +1,6 @@
 import * as yup from 'yup';
 
-export const passwordSignInValidationSchema: yup.ISchema<string> = yup
-  .string()
-  .required('Required field');
+import { Maybe } from '$common';
+
+export const passwordValidationSchema: yup.StringSchema<Maybe<string>> =
+  yup.string();

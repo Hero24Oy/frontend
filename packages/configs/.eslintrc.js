@@ -391,6 +391,17 @@ const override = {
       'react/function-component-definition': 'off',
     },
   },
+  assets: {
+    files: ['**/*/assets/**/*.ts'],
+    rules: {
+      '@typescript-eslint/function-component-definition': 'off',
+      '@typescript-eslint/no-var-requires': 'off',
+      '@typescript-eslint/no-unsafe-assignment': 'off',
+      'import/no-dynamic-require': 'off',
+      'global-require': 'off',
+      '@typescript-eslint/naming-convention': 'off',
+    },
+  },
 };
 
 /**
