@@ -50,6 +50,7 @@
     "i18next": "^23.5.1",
     "libphonenumber-js": "1.10.49",
     "lodash": "^4.17.21",
+    "postcode-validator": "^3.8.20",
     "utility-types": "^3.10.0",
     "yup": "^1.3.1"
   },

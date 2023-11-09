@@ -4067,6 +4067,7 @@ __metadata:
     libphonenumber-js: "npm:1.10.49"
     lodash: "npm:^4.17.21"
     npm-watch: "npm:^0.11.0"
+    postcode-validator: "npm:^3.8.20"
     prettier: "npm:^3.0.3"
     semver: "npm:^7.5.4"
     tsup: "npm:^7.2.0"
@@ -14301,6 +14302,13 @@ __metadata:
   version: 3.4.0
   resolution: "pngjs@npm:3.4.0"
   checksum: 88ee73e2ad3f736e0b2573722309eb80bd2aa28916f0862379b4fd0f904751b4f61bb6bd1ecd7d4242d331f2b5c28c13309dd4b7d89a9b78306e35122fdc5011
+  languageName: node
+  linkType: hard
+
+"postcode-validator@npm:^3.8.20":
+  version: 3.8.20
+  resolution: "postcode-validator@npm:3.8.20"
+  checksum: e6044a31ffa58b77d68d67c9a08cf5c5d015082b77adbe9647eb1db0c5a45f8cf8a7dbc582ba67e370c2a7716d6cc4e988e7dca2eb2b4dc7507f921192719309
   languageName: node
   linkType: hard
 

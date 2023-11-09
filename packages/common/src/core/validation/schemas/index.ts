@@ -4,3 +4,5 @@ export * from './confirmationCode';
 export * from './file';
 export * from './multiselectArray';
 export * from './range';
+export * from './string';
+export * from './postcode';
