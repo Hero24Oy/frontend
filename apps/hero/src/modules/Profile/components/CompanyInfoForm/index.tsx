@@ -5,11 +5,11 @@ import { StyleSheet } from 'react-native';
 import { Button, Input, RadioGroup, View } from '@hero24/ui';
 
 import { chipOptions, defaultValues } from './constants';
-import { AddCompanyInfo } from './types';
+import { CompanyInfo } from './types';
 
-export const AddCompanyInfoForm: FC = () => {
+export const CompanyInfoForm: FC = () => {
   // TODO replace in useLogic after logic implementation
-  const { control } = useForm<AddCompanyInfo>({
+  const { control } = useForm<CompanyInfo>({
     defaultValues,
     mode: 'onChange',
   });

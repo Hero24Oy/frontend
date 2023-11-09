@@ -3,14 +3,14 @@ import { StyleSheet } from 'react-native';
 
 import { Color, Heading, VStack } from '@hero24/ui';
 
-import { AddCompanyInfoForm } from '../components';
+import { CompanyInfoForm } from '../components';
 
-export const AddCompanyInfoScreen: FC = () => {
+export const CompanyInfoScreen: FC = () => {
   return (
     // TODO replace text in heading with i18n call
     <VStack style={styles.vStack}>
       <Heading variant="H2">Add company info</Heading>
-      <AddCompanyInfoForm />
+      <CompanyInfoForm />
     </VStack>
   );
 };
