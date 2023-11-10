@@ -1,14 +1,7 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import {
-  Button,
-  Color,
-  ConfirmationInput,
-  Pressable,
-  Text,
-  VStack,
-} from '@hero24/ui';
+import { Button, ConfirmationInput, Pressable, Text, VStack } from '@hero24/ui';
 
 import { CODE_LENGTH } from './constants';
 import { useLogic } from './useLogic';
@@ -36,7 +29,7 @@ export const ConfirmationCodeForm: FC = () => {
             style={styles.sendOneMore}
             onPress={onSendOneMoreTimeHandler}
           >
-            <Text style={styles.message}>Send one more time</Text>
+            <Text variant="link">Send one more time</Text>
           </Pressable>
         ) : null}
       </VStack>
@@ -60,9 +53,6 @@ const styles = StyleSheet.create({
     marginTop: 40,
     width: '100%',
     alignItems: 'center',
-  },
-  message: {
-    color: Color.BLACK_00,
   },
 });
 
