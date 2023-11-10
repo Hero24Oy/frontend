@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Color, Heading, VStack } from '@hero24/ui';
+import { Heading, VStack } from '@hero24/ui';
 
 import { CompanyInfoForm } from '../../components';
 
@@ -36,7 +36,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 16,
     paddingBottom: 32,
-    backgroundColor: Color.WHITE_00,
-    position: 'relative',
   },
 });

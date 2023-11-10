@@ -1,7 +1,5 @@
 import { RadioOption } from '@hero24/ui';
 
-export const defaultValues = { name: '', email: '', employees: null };
-
 export const chipOptions = [
   { label: '0-10', value: { min: 0, max: 10 } },
   { label: '10-30', value: { min: 10, max: 30 } },
