@@ -1,20 +1,15 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { CODE_LENGTH, DEBOUNCE_TIME, initialFormState } from '../constants';
+import { CODE_LENGTH, initialFormState } from '../constants';
 import { ConfirmationCodeFormData } from '../types';
 import { validationSchema } from '../validation';
 
-import { useTimer } from './useTimer';
+import { useSendOneMoreTime } from './useSendOneMoreTime';
 
 import { parseError } from '$core';
-import {
-  useAuthentication,
-  useSendVerificationCode,
-  useVerifyCode,
-} from '$modules/Auth/hooks';
-import { usePhoneAuthStore } from '$modules/Auth/stores';
+import { useAuthentication, useVerifyCode } from '$modules/Auth/hooks';
 
 export const useLogic = () => {
   const {
@@ -27,22 +22,23 @@ export const useLogic = () => {
     defaultValues: initialFormState,
     mode: 'onChange',
   });
-
   const [errorText, setErrorText] = useState<string | null>(null);
-  const { timeLeft, resetTimer } = useTimer({ timeInSeconds: DEBOUNCE_TIME });
-  const { signInWithCredentials } = useAuthentication();
+  const setError = useCallback(
+    (error: Error) => setErrorText(error.message),
+    [],
+  );
 
+  const { signInWithCredentials } = useAuthentication();
   const { verifyCode } = useVerifyCode({
     onAuthSucceed: signInWithCredentials,
-    onAuthFailed: (error) => setErrorText(error.message),
+    onAuthFailed: setError,
+  });
+  const { sendOneMoreTime, debounceTime } = useSendOneMoreTime({
+    onAuthFailed: setError,
   });
 
-  const { sendVerificationCode } = useSendVerificationCode({
-    onAuthFailed: (error) => setErrorText(error.message),
-  });
-
-  const onSubmit = useCallback(
-    async (data: ConfirmationCodeFormData) => {
+  const onSubmitHandler = useCallback(
+    handleSubmit(async (data: ConfirmationCodeFormData) => {
       try {
         const { code } = data;
 
@@ -51,12 +47,9 @@ export const useLogic = () => {
         const parsedError = parseError(error);
         setErrorText(parsedError.message);
       }
-    },
-    [verifyCode],
+    }),
+    [verifyCode, handleSubmit],
   );
-
-  const onSubmitHandler = useMemo(() => handleSubmit(onSubmit), [onSubmit]);
-
   // If last length of code equals to amount of cells, then call onSubmit automatically
   useEffect(() => {
     const subscription = watch(({ code }) => {
@@ -75,29 +68,13 @@ export const useLogic = () => {
     return () => subscription.unsubscribe();
   }, [watch]);
 
-  const { phoneNumber, reCaptcha } = usePhoneAuthStore();
-  const onSendOneMoreTimeHandler = useCallback(async () => {
-    try {
-      if (!phoneNumber || !reCaptcha) {
-        // TODO this should not happen
-        throw new Error('Phone number or reCaptcha have not been initialized');
-      }
-
-      await sendVerificationCode({ phoneNumber, reCaptcha });
-      resetTimer();
-    } catch (error) {
-      const parsedError = parseError(error);
-      setErrorText(parsedError.message);
-    }
-  }, [timeLeft, phoneNumber, reCaptcha]);
-
   return {
     control,
-    debounceTime: timeLeft,
+    debounceTime,
     onSubmitHandler,
     isLoading: isSubmitting,
     isValid,
-    onSendOneMoreTimeHandler,
+    onSendOneMoreTimeHandler: sendOneMoreTime,
     errorText,
   };
 };

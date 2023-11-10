@@ -12,9 +12,9 @@ export { RecaptchaModal } from './components';
 export const ConfirmationCodeForm: FC = () => {
   const {
     control,
-    onSubmitHandler,
     isLoading,
     isValid,
+    onSubmitHandler,
     onSendOneMoreTimeHandler,
     debounceTime,
     errorText,
