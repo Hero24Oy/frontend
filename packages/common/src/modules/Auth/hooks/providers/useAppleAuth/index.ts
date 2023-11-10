@@ -7,7 +7,7 @@ import { WithCallback } from '../../types';
 
 import { AppleProvider, CSRF_END, NONCE_END, RADIX, START } from './constants';
 
-import { parseError } from '$common/core';
+import { parseError } from '$core';
 
 type AppleAuthConfig = WithCallback;
 

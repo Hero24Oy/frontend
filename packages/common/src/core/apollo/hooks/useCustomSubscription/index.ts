@@ -8,7 +8,8 @@ import {
 
 import { CustomSubscriptionResult, PrefixedSubscriptionResult } from './types';
 
-import { DEFAULT_RESPONSE_NAME, GraphQlResponse } from '$common/core';
+import { DEFAULT_RESPONSE_NAME } from '$core/apollo/constants';
+import { GraphQlResponse } from '$core/apollo/types';
 
 export * from './types';
 

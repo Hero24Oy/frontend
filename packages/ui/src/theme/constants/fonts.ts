@@ -1,3 +1,5 @@
 export enum Font {
-  MAIN = 'Onest',
+  ONEST_REGULAR = 'Onest400',
+  ONEST_MEDIUM = 'Onest500',
+  ONEST_SEMIBOLD = 'Onest600',
 }

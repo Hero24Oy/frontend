@@ -1,4 +1,4 @@
-import { ViewStyle } from 'react-native';
+import { TextStyle, ViewStyle } from 'react-native';
 
 export type CommonStyles = Pick<
   ViewStyle,
@@ -24,3 +24,6 @@ export type LayoutStyles = CommonStyles &
     | 'gap'
     | 'flexDirection'
   >;
+
+export type TextStyles = CommonStyles &
+  Pick<TextStyle, 'textAlign' | 'width' | 'color'>;

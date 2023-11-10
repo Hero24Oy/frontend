@@ -1,7 +1,7 @@
 import { TextProps, TextStyle } from 'react-native';
 
 import { TextVariant } from '$components/atoms/Text/types';
-import { Color, FontSize, FontWeight, LineHeight } from '$theme/constants';
+import { Color, Font, FontSize, LineHeight } from '$theme/constants';
 import { ComponentTheme, SxValues } from '$theme/types';
 
 export type TextThemeVariants = {
@@ -11,7 +11,8 @@ export type TextThemeVariants = {
 export const Text = {
   theme: {
     color: Color.DARK_00,
-    fontWeight: FontWeight.REGULAR,
+    fontFamily: Font.ONEST_REGULAR,
+    fontWeight: '400',
     fontSize: FontSize.SM,
     lineHeight: LineHeight.SM,
     variants: {
@@ -24,11 +25,25 @@ export const Text = {
           fontSize: FontSize.SM,
           lineHeight: LineHeight.SM,
         },
+        [TextVariant.MEDIUM]: {
+          fontSize: FontSize.MD,
+          lineHeight: LineHeight.MD,
+          fontFamily: Font.ONEST_MEDIUM,
+          fontWeight: '500',
+        },
         [TextVariant.DESCRIPTOR]: {
           fontSize: FontSize.XS,
           lineHeight: LineHeight.XS,
         },
+        [TextVariant.LINK]: {
+          textDecorationColor: Color.DARK_00,
+          textDecorationStyle: 'solid',
+          textDecorationLine: 'underline',
+        },
       },
+    },
+    defaultProps: {
+      variant: TextVariant.SMALL,
     },
   },
 } satisfies ComponentTheme<TextProps, TextThemeVariants>;

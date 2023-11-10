@@ -1,16 +1,12 @@
-import { View as GluestackView } from '@gluestack-ui/themed';
-import { ComponentProps, FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
+
+import { CardStyles, GluestackCardProps } from './types';
 
 import { StyledCard } from '$styled';
 import { LayoutStyles } from '$types';
 
-type ViewProps = ComponentProps<typeof GluestackView>;
-
-type PickedProps = Pick<
-  ViewProps,
-  'backgroundColor' | 'borderColor' | 'borderRadius' | 'maxWidth'
->;
-type Props = PropsWithChildren<LayoutStyles & PickedProps>;
+type Props = PropsWithChildren<{ style?: LayoutStyles & CardStyles }> &
+  GluestackCardProps;
 
 export const Card: FC<Props> = (props) => {
   const { children, ...restProps } = props;

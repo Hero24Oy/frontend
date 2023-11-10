@@ -35,7 +35,8 @@ export const Input = {
       flex: 1,
       textAlignVertical: 'center',
       fontSize: FontSize.SM,
-      fontFamily: Font.MAIN,
+      fontWeight: '400',
+      fontFamily: Font.ONEST_REGULAR,
       ':focus': {
         color: Color.DARK_00,
       },
