@@ -3,7 +3,7 @@ import * as yup from 'yup';
 
 import { PhoneSignInFormData } from './types';
 
-import { ErrorHints } from '$common';
+import { ValidationHints } from '$core';
 
 export const validationSchema: yup.ObjectSchema<PhoneSignInFormData> = yup
   .object()
@@ -11,10 +11,10 @@ export const validationSchema: yup.ObjectSchema<PhoneSignInFormData> = yup
     code: yup.string(),
     phone: yup
       .string()
-      .required(ErrorHints.REQUIRED)
+      .required(ValidationHints.REQUIRED)
       .test(
         'is-valid-phone',
-        ErrorHints.INVALID_PHONE,
+        ValidationHints.INVALID_PHONE,
         function validate(phone: string) {
           try {
             const { code } = this.parent as PhoneSignInFormData;

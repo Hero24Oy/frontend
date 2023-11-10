@@ -2,11 +2,11 @@ import * as yup from 'yup';
 
 import {
   emailValidationSchema,
-  ErrorHints,
   passwordValidationSchema,
-} from '$common';
+  ValidationHints,
+} from '$core';
 
 export const validationSchema = yup.object({
-  email: emailValidationSchema.required(ErrorHints.REQUIRED),
-  password: passwordValidationSchema.required(ErrorHints.REQUIRED),
+  email: emailValidationSchema.required(ValidationHints.REQUIRED),
+  password: passwordValidationSchema.required(ValidationHints.REQUIRED),
 });

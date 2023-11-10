@@ -1,27 +1,43 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useCallback } from 'react';
+import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { initialFormState } from './constants';
-import { EmailSignInFormData } from './types';
+import { useAuthentication, useEmailSignIn } from '../../hooks';
+import { handleAuthError } from '../../utils';
+
 import { validationSchema } from './validation';
 
+interface FormData {
+  email: string;
+  password: string;
+}
+
 export const useLogic = () => {
-  const onSubmit = (_data: EmailSignInFormData): void => {
-    // TODO -- add onSubmit logic
-  };
+  const { signInWithCredentials } = useAuthentication();
+
+  const { signInWithEmail } = useEmailSignIn({
+    onAuthSucceed: signInWithCredentials,
+    onAuthFailed: handleAuthError,
+  });
 
   const {
     control,
     handleSubmit,
     formState: { isSubmitting },
-  } = useForm<EmailSignInFormData>({
+  } = useForm<FormData>({
     resolver: yupResolver(validationSchema),
-    defaultValues: initialFormState,
-    mode: 'onSubmit',
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+    mode: 'onChange',
   });
 
-  const onSubmitHandler = useCallback(() => handleSubmit(onSubmit)(), []);
+  const onSubmit = useMemo(() => handleSubmit(signInWithEmail), []);
 
-  return { control, onSubmitHandler, isLoading: isSubmitting };
+  return {
+    onSubmit,
+    control,
+    isLoading: isSubmitting,
+  };
 };

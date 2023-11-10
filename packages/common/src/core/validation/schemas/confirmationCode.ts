@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-import { Maybe } from '$common';
+import { Maybe } from '$core';
 
 export const codeValidationSchema = (
   codeLength: number,

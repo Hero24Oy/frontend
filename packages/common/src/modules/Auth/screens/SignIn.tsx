@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Button, Color, VStack } from '@hero24/ui';
+import { Button, Color, TextDivider, VStack } from '@hero24/ui';
 
 import {
   Footer,
@@ -11,7 +11,7 @@ import {
   SignInProvidersButtons,
 } from '../components';
 
-import { SafeAreaKeyboardAwareScrollView, TextDivider } from '$common';
+import { SafeAreaKeyboardAwareScrollView } from '$core';
 
 type Props = PhoneSignInFormProps & {
   signInWithEmailCallback: () => void;

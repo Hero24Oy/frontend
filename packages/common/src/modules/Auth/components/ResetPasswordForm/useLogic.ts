@@ -26,7 +26,7 @@ export const useLogic = (params: ResetPasswordFormProps) => {
   const onSubmitHandler = useCallback(async () => {
     await handleSubmit(onSubmit)();
     onSuccessCallback();
-  }, []);
+  }, [onSuccessCallback]);
 
   return {
     control,

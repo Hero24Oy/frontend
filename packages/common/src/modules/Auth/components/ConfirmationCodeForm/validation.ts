@@ -1,8 +1,9 @@
 import * as yup from 'yup';
 
-import { codeValidationSchema, ErrorHints } from '$common';
+import { CODE_LENGTH } from './constants';
 
-export const validationSchema = (codeLength: number) =>
-  yup.object().shape({
-    code: codeValidationSchema(codeLength).required(ErrorHints.REQUIRED),
-  });
+import { codeValidationSchema, ValidationHints } from '$core';
+
+export const validationSchema = yup.object().shape({
+  code: codeValidationSchema(CODE_LENGTH).required(ValidationHints.REQUIRED),
+});

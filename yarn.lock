@@ -4158,6 +4158,7 @@ __metadata:
     expo-crypto: 12.4.1
     expo-device: 5.4.0
     expo-firebase-recaptcha: ^2.3.1
+    expo-font: 11.6.0
     expo-image: 1.3.4
     expo-image-picker: 14.3.2
     expo-notifications: 0.20.1
@@ -8461,7 +8462,7 @@ __metadata:
     expo-crypto: "npm:12.4.1"
     expo-dev-client: "npm:~2.4.11"
     expo-device: "npm:5.4.0"
-    expo-font: "npm:~11.4.0"
+    expo-font: "npm:11.6.0"
     expo-image: "npm:1.3.4"
     expo-image-picker: "npm:14.3.2"
     expo-linking: "npm:~5.0.2"
@@ -9874,6 +9875,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-font@npm:11.6.0":
+  version: 11.6.0
+  resolution: "expo-font@npm:11.6.0"
+  dependencies:
+    fontfaceobserver: "npm:^2.1.0"
+  peerDependencies:
+    expo: "*"
+  checksum: 28ef39103a72972f260bac02fd4175321b8d1c102d0abea05371f05c3a944cf43687ec5e36ae6b338b379ab228d5a645756628518c8453ce98d4fc850cde4cc0
+  languageName: node
+  linkType: hard
+
 "expo-font@npm:~11.4.0":
   version: 11.4.0
   resolution: "expo-font@npm:11.4.0"
@@ -11084,6 +11096,7 @@ __metadata:
     "@hero24/common": "npm:*"
     "@hero24/configs": "npm:*"
     "@hero24/ui": "npm:*"
+    "@hookform/resolvers": "npm:^3.3.2"
     "@legendapp/motion": "npm:2.2.1"
     "@react-native-async-storage/async-storage": "npm:1.18.2"
     "@react-navigation/bottom-tabs": "npm:6.5.11"
@@ -11120,7 +11133,7 @@ __metadata:
     expo-dev-client: "npm:~2.4.11"
     expo-device: "npm:5.4.0"
     expo-firebase-recaptcha: "npm:^2.3.1"
-    expo-font: "npm:~11.4.0"
+    expo-font: "npm:11.6.0"
     expo-image: "npm:1.3.4"
     expo-image-picker: "npm:14.3.2"
     expo-linking: "npm:~5.0.2"

@@ -8,7 +8,7 @@ import { useLogic } from './useLogic';
 
 export const EmailSignInForm: FC<EmailSignInFormProps> = (props) => {
   const { onForgotPasswordCallback } = props;
-  const { control, onSubmitHandler, isLoading } = useLogic();
+  const { control, onSubmit, isLoading } = useLogic();
 
   return (
     <VStack style={styles.container}>
@@ -35,7 +35,7 @@ export const EmailSignInForm: FC<EmailSignInFormProps> = (props) => {
           <Text style={styles.forgotPasswordText}>Forgot password?</Text>
         </Pressable>
       </VStack>
-      <Button isLoading={isLoading} onPress={onSubmitHandler}>
+      <Button isLoading={isLoading} onPress={onSubmit}>
         Login
       </Button>
     </VStack>

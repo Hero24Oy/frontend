@@ -5,19 +5,20 @@ import {
   View,
 } from 'react-native';
 
-import {
-  ConfirmationCodeForm,
-  ConfirmationCodeScreenText,
-} from '../../components';
+import { ConfirmationCodeForm, ConfirmationCodeHeader } from '../../components';
+
+import { StackKeyboardAwareScrollView } from '$core';
 
 export const ConfirmationCodeScreen = () => {
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={styles.inner}>
-        <ConfirmationCodeScreenText />
-        <ConfirmationCodeForm />
-      </View>
-    </TouchableWithoutFeedback>
+    <StackKeyboardAwareScrollView scrollEnabled={false}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.inner}>
+          <ConfirmationCodeHeader />
+          <ConfirmationCodeForm />
+        </View>
+      </TouchableWithoutFeedback>
+    </StackKeyboardAwareScrollView>
   );
 };
 

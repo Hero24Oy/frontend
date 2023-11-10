@@ -3,12 +3,12 @@ import { FC } from 'react';
 
 import { HeadingVariant } from './constants';
 
-import { CommonStyles } from '$types';
+import { TextStyles } from '$types';
 
 type Props = {
   children: string;
   variant: `${HeadingVariant}`;
-  style?: CommonStyles;
+  style?: TextStyles;
 };
 
 export const Heading: FC<Props> = ({ children, ...restProps }) => (

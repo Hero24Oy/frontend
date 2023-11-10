@@ -1,15 +1,13 @@
 import { Text as GluestackText } from '@gluestack-ui/themed';
-import { ComponentProps, FC } from 'react';
-import { TextStyle } from 'react-native';
+import { FC } from 'react';
 
 import { TextVariant } from './types';
 
-export type TextProps = Pick<
-  ComponentProps<typeof GluestackText>,
-  'textAlign'
-> & {
+import { TextStyles } from '$types';
+
+export type TextProps = {
   children: string;
-  style?: TextStyle;
+  style?: TextStyles;
   variant?: `${TextVariant}`;
 };
 

@@ -7,7 +7,7 @@ import { Platform } from 'react-native';
 
 import { WithCallback } from '../types';
 
-import { parseError } from '$common/core';
+import { parseError } from '$core';
 
 type GoogleAuthConfig = {
   androidClientId: string;

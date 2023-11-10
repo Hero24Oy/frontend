@@ -12,7 +12,7 @@ export const Footer: FC = () => {
       {/* TODO - replace with correct link */}
       <Link href="/">
         {/* TODO - replace with i18n */}
-        <Text style={styles.linkText}>Service Provider Terms</Text>
+        <Text variant="link">Service Provider Terms</Text>
       </Link>
     </VStack>
   );
@@ -26,10 +26,5 @@ const styles = StyleSheet.create({
   },
   text: {
     color: Color.GREY_01,
-  },
-  linkText: {
-    textDecorationColor: Color.DARK_00,
-    textDecorationStyle: 'solid',
-    textDecorationLine: 'underline',
   },
 });

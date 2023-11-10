@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Color, VStack } from '@hero24/ui';
+import { Color, TextDivider, VStack } from '@hero24/ui';
 
 import {
   EmailSignInForm,
@@ -11,7 +11,7 @@ import {
   SignInProvidersButtons,
 } from '../components';
 
-import { StackKeyboardAwareScrollView, TextDivider } from '$common/core';
+import { StackKeyboardAwareScrollView } from '$core';
 
 type Props = EmailSignInFormProps;
 

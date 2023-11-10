@@ -3,7 +3,7 @@ import { KeyboardAwareScrollViewProps as GluestackKeyboardAwareScrollViewProps }
 
 type PickedKeyboardAwareScrollViewProps = Pick<
   GluestackKeyboardAwareScrollViewProps,
-  'contentContainerStyle'
+  'contentContainerStyle' | 'scrollEnabled'
 >;
 
 export type KeyboardAwareScrollViewProps =

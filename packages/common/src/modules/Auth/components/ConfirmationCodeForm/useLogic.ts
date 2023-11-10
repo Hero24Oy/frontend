@@ -9,7 +9,7 @@ import { CODE_LENGTH, initialFormState } from './constants';
 import { ConfirmationCodeFormData } from './types';
 import { validationSchema } from './validation';
 
-import { parseError } from '$common/core';
+import { parseError } from '$core';
 
 export const useLogic = () => {
   const {
@@ -18,7 +18,7 @@ export const useLogic = () => {
     formState: { isSubmitting, isValid },
     watch,
   } = useForm<ConfirmationCodeFormData>({
-    resolver: yupResolver(validationSchema(CODE_LENGTH)),
+    resolver: yupResolver(validationSchema),
     defaultValues: initialFormState,
     mode: 'onChange',
   });

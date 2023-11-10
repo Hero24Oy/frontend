@@ -4,7 +4,7 @@ import {
   OperationVariables,
 } from '@apollo/client';
 
-import { GetGraphqlRequestKeyReturnType, GraphQlResponse } from '$common/core';
+import { GetGraphqlRequestKeyReturnType, GraphQlResponse } from '$core';
 
 export type CustomLazyQueryResult<
   Data,

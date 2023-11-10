@@ -158,6 +158,7 @@ const reactRules = {
   'react/style-prop-object': 'off', // we allow to use string as prop
   'react/require-default-props': 'off',
   'react/jsx-props-no-spreading': 'off',
+  'react/no-unescaped-entities': 'off',
   'react/function-component-definition': [
     'error',
     {
@@ -387,7 +388,7 @@ const override = {
     },
   },
   functionComponentDefinition: {
-    files: ['src/icons/Base/index.tsx'],
+    files: ['src/icons/Base/index.tsx', 'src/core/components/Layout/index.tsx'],
     rules: {
       'react/function-component-definition': 'off',
     },
@@ -400,7 +401,13 @@ const override = {
       '@typescript-eslint/no-unsafe-assignment': 'off',
       'import/no-dynamic-require': 'off',
       'global-require': 'off',
-      '@typescript-eslint/naming-convention': 'off',
+      '@typescript-eslint/naming-convention': 'off'
+    },
+  },
+  restrictedExports: {
+    files: ['src/app/**/*.tsx'],
+    rules: {
+      'no-restricted-exports': 'off',
     },
   },
 };

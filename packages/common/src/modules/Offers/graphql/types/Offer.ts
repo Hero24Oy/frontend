@@ -3,7 +3,7 @@ import { OFFER_STATUS } from 'hero24-types';
 import { OfferData } from './OfferData';
 import { OfferEarnings } from './OfferEarnings';
 
-import { Maybe } from '$common/core';
+import { Maybe } from '$core';
 
 export type Offer = {
   chatId: string;

@@ -4,7 +4,7 @@ import { WithCallback } from '../../types';
 
 import { usePhoneAuthStore } from './phoneAuthStore';
 
-import { parseError } from '$common/core';
+import { parseError } from '$core';
 
 export const useVerifyCode = (props: WithCallback) => {
   const { onAuthFailed, onAuthSucceed } = props;
