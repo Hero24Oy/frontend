@@ -15,11 +15,11 @@ export type ProgressBarVariants = {
 
 export const Progress = {
   theme: {
-    bg: Color.GREY_LIGHT_02,
+    backgroundColor: Color.GREY_LIGHT_02,
     borderRadius: 8,
-    width: '100%',
+    flexGrow: 1,
     [DescendantStyleName.FILLED_TRACK]: {
-      bg: Color.DARK_00,
+      backgroundColor: Color.DARK_00,
       borderRadius: 8,
     },
     variants: {
