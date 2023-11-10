@@ -1,18 +1,20 @@
 import { FC } from 'react';
-import { useForm } from 'react-hook-form';
+import { Control } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
 
 import { Button, Input, RadioGroup, View } from '@hero24/ui';
 
-import { chipOptions, defaultValues } from './constants';
+import { chipOptions } from './constants';
 import { CompanyInfo } from './types';
 
-export const CompanyInfoForm: FC = () => {
-  // TODO replace in useLogic after logic implementation
-  const { control } = useForm<CompanyInfo>({
-    defaultValues,
-    mode: 'onChange',
-  });
+type Props = {
+  control: Control<CompanyInfo>;
+  isValid: boolean;
+  submitData: () => void;
+};
+
+export const CompanyInfoForm: FC<Props> = (props) => {
+  const { control, isValid, submitData } = props;
 
   return (
     // TODO replace text in inputs and button with i18n call
@@ -36,7 +38,9 @@ export const CompanyInfoForm: FC = () => {
         childrenStyle={styles.chips}
       />
 
-      <Button style={styles.button}>Continue</Button>
+      <Button style={styles.button} isDisabled={!isValid} onPress={submitData}>
+        Continue
+      </Button>
     </View>
   );
 };
@@ -52,7 +56,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   chips: {
-    flexBasis: '31%',
+    flexBasis: '32%',
   },
   button: {
     width: '100%',

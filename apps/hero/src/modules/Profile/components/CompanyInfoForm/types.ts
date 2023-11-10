@@ -1,5 +1,3 @@
-export type CompanyInfo = {
-  email: string;
-  employees: number | null;
-  name: string;
-};
+import { CompanyCreation } from '$modules/Profile/stores';
+
+export type CompanyInfo = CompanyCreation['companyInfo'];
