@@ -1,9 +1,10 @@
-import { capitalize } from 'core/utils';
 import { ComponentProps, useState } from 'react';
 
 import { FullScreenModal } from '@hero24/ui';
 
 import { UseModalReturnValue } from './types';
+
+import { capitalize } from '$core/utils';
 
 type Props = Omit<ComponentProps<typeof FullScreenModal>, 'isOpen'>;
 

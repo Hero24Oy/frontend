@@ -5,13 +5,14 @@ import {
   TypedDocumentNode,
   useLazyQuery,
 } from '@apollo/client';
-import { DEFAULT_RESPONSE_NAME } from 'core/apollo/constants';
-import { GraphQlResponse } from 'core/apollo/types';
-import { getGraphqlRequestKey } from 'core/apollo/utils';
 import merge from 'lodash/merge';
 import { useCallback } from 'react';
 
 import { CustomLazyQueryResult, PrefixedLazyQueryResult } from './types';
+
+import { DEFAULT_RESPONSE_NAME } from '$core/apollo/constants';
+import { GraphQlResponse } from '$core/apollo/types';
+import { getGraphqlRequestKey } from '$core/apollo/utils';
 
 export * from './types';
 

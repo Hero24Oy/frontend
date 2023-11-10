@@ -1,7 +1,8 @@
-import { capitalize } from 'core/utils';
 import { $Keys } from 'utility-types';
 
 import { ScreensForms, Setters, Store } from '../types';
+
+import { capitalize } from '$core/utils';
 
 export const createSetters = <Forms extends ScreensForms>(
   forms: Forms,

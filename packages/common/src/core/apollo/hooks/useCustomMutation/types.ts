@@ -3,7 +3,8 @@ import {
   MutationResult,
   OperationVariables,
 } from '@apollo/client';
-import { GraphQlResponse } from 'core/apollo/types';
+
+import { GraphQlResponse } from '$core/apollo/types';
 
 export type CustomMutationResult<
   Data,

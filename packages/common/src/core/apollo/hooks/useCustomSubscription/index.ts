@@ -5,10 +5,11 @@ import {
   TypedDocumentNode,
   useSubscription,
 } from '@apollo/client';
-import { DEFAULT_RESPONSE_NAME } from 'core/apollo/constants';
-import { GraphQlResponse } from 'core/apollo/types';
 
 import { CustomSubscriptionResult, PrefixedSubscriptionResult } from './types';
+
+import { DEFAULT_RESPONSE_NAME } from '$core/apollo/constants';
+import { GraphQlResponse } from '$core/apollo/types';
 
 export * from './types';
 
