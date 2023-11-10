@@ -1,23 +1,14 @@
 import { FC } from 'react';
-import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
 
 import { ExpoStack } from '@hero24/common';
+import { KeyboardAvoidingView } from '@hero24/ui';
 
 const ConfirmationCodeLayout: FC = () => {
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.container}
-    >
+    <KeyboardAvoidingView>
       <ExpoStack title="Confirmation" />
     </KeyboardAvoidingView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default ConfirmationCodeLayout;
