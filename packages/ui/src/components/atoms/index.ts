@@ -11,7 +11,6 @@ export * from './Actionsheet';
 export * from './Alert';
 export * from './Checkbox';
 export * from './Chip';
-export * from './RadioGroup';
 export * from './Image';
 export * from './Badge';
 export * from './KeyboardAwareScrollView';

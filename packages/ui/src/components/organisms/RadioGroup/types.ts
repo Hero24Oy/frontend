@@ -7,9 +7,14 @@ export enum RadioVariant {
 
 export type RadioSize = Extract<Size, 'sm' | 'md' | 'lg'>;
 
+export type RadioRange = {
+  max: number;
+  min: number;
+};
+
 export type RadioOption = {
   label: string;
-  value: string;
+  value: string | number;
   isChecked?: boolean;
   isDisabled?: boolean;
 };
