@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useAuthentication, useVerifyCode } from '../../hooks';
@@ -12,19 +12,6 @@ import { validationSchema } from './validation';
 import { parseError } from '$common/core';
 
 export const useLogic = () => {
-  const { signInWithCredentials } = useAuthentication();
-
-  const { verifyCode } = useVerifyCode({
-    onAuthSucceed: signInWithCredentials,
-    onAuthFailed: handleAuthError,
-  });
-
-  const onSubmit = async (data: ConfirmationCodeFormData) => {
-    const { code } = data;
-
-    await verifyCode(code);
-  };
-
   const {
     control,
     handleSubmit,
@@ -36,8 +23,25 @@ export const useLogic = () => {
     mode: 'onChange',
   });
 
-  const onSubmitHandler = useMemo(() => handleSubmit(onSubmit), []);
+  const { signInWithCredentials } = useAuthentication();
 
+  const { verifyCode } = useVerifyCode({
+    onAuthSucceed: signInWithCredentials,
+    onAuthFailed: handleAuthError,
+  });
+
+  const onSubmit = useCallback(
+    async (data: ConfirmationCodeFormData) => {
+      const { code } = data;
+
+      await verifyCode(code);
+    },
+    [verifyCode],
+  );
+
+  const onSubmitHandler = useMemo(() => handleSubmit(onSubmit), [onSubmit]);
+
+  // If last length of code equals to amount of cells, then call onSubmit automatically
   useEffect(() => {
     const subscription = watch(({ code }) => {
       void (async () => {
@@ -56,9 +60,8 @@ export const useLogic = () => {
     return () => subscription.unsubscribe();
   }, [watch]);
 
-  // TODO debounce
   const onSendOneMoreTimeHandler = (): void => {
-    // TODO -- add logic here
+    // TODO implement debounce
   };
 
   return {
