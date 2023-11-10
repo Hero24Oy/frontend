@@ -1,11 +1,8 @@
-/* eslint-disable @cspell/spellchecker -- TODO handle it later */
-
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { Button, PhoneInput, VStack } from '@hero24/ui';
 
-// import { usePhoneAuthStore } from '../../hooks';
 import { PhoneSignInFormProps } from './types';
 import { useLogic } from './useLogic';
 
@@ -15,8 +12,6 @@ import {
 } from '$configs';
 
 export const PhoneSignInForm: FC<PhoneSignInFormProps> = (props) => {
-  // const { reCaptcha } = usePhoneAuthStore();
-
   const { control, onSubmitHandler, isLoading, isValid } = useLogic(props);
 
   return (
