@@ -5,9 +5,8 @@ import { Color, Text, VStack } from '@hero24/ui';
 
 import { usePhoneAuthStore } from '$modules/Auth/stores';
 
-// TODO handle undefined phone
 export const ConfirmationCodeHeader: FC = () => {
-  const { phoneNumber } = usePhoneAuthStore();
+  const { phoneNumber } = usePhoneAuthStore<'strict'>();
 
   return (
     <VStack style={styles.textContainer}>
@@ -16,7 +15,7 @@ export const ConfirmationCodeHeader: FC = () => {
         The code was sent to
       </Text>
       <Text variant="medium" style={styles.text}>
-        {phoneNumber || ''}
+        {phoneNumber}
       </Text>
     </VStack>
   );
