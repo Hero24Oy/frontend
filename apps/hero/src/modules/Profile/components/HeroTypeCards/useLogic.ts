@@ -4,7 +4,7 @@ export const useLogic = () => {
   const router = useRouter();
 
   const companyHeroHandler = () => {
-    router.push('/add-company-info');
+    router.push('/company-info');
   };
 
   // TODO replace with proper path after screen will be ready
