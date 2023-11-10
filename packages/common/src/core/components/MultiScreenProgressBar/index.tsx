@@ -7,7 +7,9 @@ import { useLogic } from './useLogic';
 import { ScreensForms, Store } from '$core/store';
 
 type Props<Forms extends ScreensForms> = {
+  // eslint-disable-next-line react/no-unused-prop-types
   state: Forms;
+  // eslint-disable-next-line react/no-unused-prop-types
   store: Store<Forms>;
 };
 

@@ -32,6 +32,7 @@ export const useLogic = <Forms extends ScreensForms>(
           return !isEqual(get(state, [storeScreenName, fieldKey]), fieldValue);
         });
 
+        // eslint-disable-next-line no-magic-numbers
         const progressValue = (fillingProgress.length / fields.length) * 100;
 
         return <ProgressBar value={progressValue} key={index} />;
