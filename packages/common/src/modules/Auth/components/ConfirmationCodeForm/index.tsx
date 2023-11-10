@@ -7,6 +7,8 @@ import { SendOneMoreTime } from './components';
 import { CODE_LENGTH } from './constants';
 import { useLogic } from './useLogic';
 
+export { RecaptchaModal } from './components';
+
 export const ConfirmationCodeForm: FC = () => {
   const {
     control,

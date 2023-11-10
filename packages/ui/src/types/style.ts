@@ -26,12 +26,4 @@ export type LayoutStyles = CommonStyles &
   >;
 
 export type TextStyles = CommonStyles &
-  Pick<
-    TextStyle,
-    | 'textAlign'
-    | 'width'
-    | 'color'
-    | 'textDecorationColor'
-    | 'textDecorationStyle'
-    | 'textDecorationLine'
-  >;
+  Pick<TextStyle, 'textAlign' | 'width' | 'color'>;

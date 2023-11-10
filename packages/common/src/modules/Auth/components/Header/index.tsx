@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import { HStack, Image, View } from '@hero24/ui';
 
-import { signInHeaderImage } from '$modules';
+import { signInHeaderImage } from '$modules/Auth/assets';
 
 export const Header: FC = () => {
   return (

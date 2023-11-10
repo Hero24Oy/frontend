@@ -5,8 +5,10 @@
       "$assets": ["assets"],
       "$assets/*": ["assets/*"],
       "$modules": ["modules/index"],
-      "$types": ["types/index"],
+      "$modules/*": ["modules/*"],
       "$core": ["core/index"],
+      "$core/*": ["core/*"],
+      "$types": ["types/index"],
       "$configs": ["configs/index"]
     }
   },
