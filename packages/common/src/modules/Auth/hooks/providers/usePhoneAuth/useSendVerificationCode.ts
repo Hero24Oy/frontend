@@ -1,21 +1,27 @@
-import { PhoneAuthProvider } from 'firebase/auth';
+import { ApplicationVerifier, PhoneAuthProvider } from 'firebase/auth';
 import { useCallback } from 'react';
 
-import { useFirebaseAuth } from '../../../stores';
 import { WithCallback } from '../../types';
 
-import { usePhoneAuthStore } from './phoneAuthStore';
-import { SendVerificationCode } from './types';
-
 import { parseError } from '$core';
+import { useFirebaseAuth, usePhoneAuthStore } from '$modules/Auth/stores';
 
-// TODO types
-// TODO do not go to next screen unless code is sent
+export type SendVerificationCodeParams = {
+  phoneNumber: string;
+  reCaptcha: ApplicationVerifier | null;
+};
+
+export type SendVerificationCode = (
+  config: SendVerificationCodeParams,
+) => Promise<void>;
+
 type UseSendVerificationCodeProps = WithCallback;
 
-export const useSendVerificationCode = (
-  props: UseSendVerificationCodeProps,
-) => {
+type UseSendVerificationCode = (props: UseSendVerificationCodeProps) => {
+  sendVerificationCode: SendVerificationCode;
+};
+
+export const useSendVerificationCode: UseSendVerificationCode = (props) => {
   const { onAuthFailed, onAuthSucceed } = props;
 
   const { setVerificationId, setPhoneNumber } = usePhoneAuthStore();

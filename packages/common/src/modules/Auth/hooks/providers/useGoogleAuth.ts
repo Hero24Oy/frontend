@@ -29,7 +29,6 @@ const REDIRECT_URI =
       })
     : undefined;
 
-// TODO remove onAuthSucceed callback and use useAuthentication hook here
 export const useGoogleAuth: UseGoogleAuth = (config) => {
   const { onAuthFailed, onAuthSucceed, ...googleAuthConfig } = config;
   const { webClientId, iosClientId, androidClientId } = googleAuthConfig;

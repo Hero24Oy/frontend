@@ -1,20 +1,26 @@
 import { OAuthCredential, PhoneAuthProvider } from 'firebase/auth';
+import { useCallback } from 'react';
 
 import { WithCallback } from '../../types';
 
-import { usePhoneAuthStore } from './phoneAuthStore';
-
 import { parseError } from '$core';
+import { usePhoneAuthStore } from '$modules/Auth/stores';
 
-export const useVerifyCode = (props: WithCallback) => {
-  const { onAuthFailed, onAuthSucceed } = props;
+type UseVerifyCodeParams = WithCallback;
+
+type UseVerifyCode = (params: UseVerifyCodeParams) => {
+  verifyCode: (verificationCode: string) => Promise<void>;
+};
+
+export const useVerifyCode: UseVerifyCode = (params) => {
+  const { onAuthFailed, onAuthSucceed } = params;
   const { verificationId } = usePhoneAuthStore();
 
-  const verifyCode = async (verificationCode: string) => {
+  const verifyCode = useCallback(async (verificationCode: string) => {
     try {
       if (!verificationId) {
         throw new Error(
-          'Verification id is not initialized! Send code firstly',
+          'Verification id has not been initialized! Send code firstly',
         );
       }
 
@@ -25,11 +31,9 @@ export const useVerifyCode = (props: WithCallback) => {
 
       await onAuthSucceed?.(credentials);
     } catch (error) {
-      const errorParsed = parseError(error);
-
-      onAuthFailed?.(errorParsed);
+      onAuthFailed?.(parseError(error));
     }
-  };
+  }, []);
 
   return { verifyCode };
 };

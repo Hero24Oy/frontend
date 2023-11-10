@@ -1,12 +1,11 @@
 import { ApplicationVerifier } from 'firebase/auth';
 import { create } from 'zustand';
 
-// TODO types
 export type PhoneAuthStore = {
   setPhoneNumber: (phoneNumber: string) => void;
   setReCaptcha: (reCaptcha: ApplicationVerifier) => void;
-
   setVerificationId: (verificationId: string) => void;
+
   phoneNumber?: string;
   reCaptcha?: ApplicationVerifier;
   verificationId?: string;

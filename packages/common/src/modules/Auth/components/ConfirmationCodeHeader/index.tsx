@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import { Color, Text, VStack } from '@hero24/ui';
 
-import { usePhoneAuthStore } from '../../hooks/providers/usePhoneAuth/phoneAuthStore';
+import { usePhoneAuthStore } from '$modules/Auth/stores';
 
 // TODO handle undefined phone
 export const ConfirmationCodeHeader: FC = () => {

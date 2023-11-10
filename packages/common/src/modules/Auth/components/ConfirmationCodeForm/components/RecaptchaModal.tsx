@@ -1,8 +1,7 @@
 import { FirebaseRecaptchaVerifierModal } from 'expo-firebase-recaptcha';
 import { FC, useEffect, useRef } from 'react';
 
-import { usePhoneAuthStore } from '../../../hooks';
-import { useFirebaseAuth } from '../../../stores';
+import { useFirebaseAuth, usePhoneAuthStore } from '$modules/Auth/stores';
 
 export const RecaptchaModal: FC = () => {
   const { setReCaptcha } = usePhoneAuthStore();

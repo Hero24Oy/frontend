@@ -18,7 +18,11 @@ export const SendOneMoreTime = (props: SendOneMoreProps) => {
       : ' Send one more time';
 
   return (
-    <Pressable style={styles.sendOneMore} onPress={onPress}>
+    <Pressable
+      disabled={debounceTime > 0}
+      style={styles.sendOneMore}
+      onPress={onPress}
+    >
       <Text variant="link" style={styles.message}>
         {text}
       </Text>

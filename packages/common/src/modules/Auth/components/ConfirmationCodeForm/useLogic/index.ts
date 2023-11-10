@@ -2,12 +2,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import {
-  useAuthentication,
-  usePhoneAuthStore,
-  useSendVerificationCode,
-  useVerifyCode,
-} from '../../../hooks';
 import { CODE_LENGTH, DEBOUNCE_TIME, initialFormState } from '../constants';
 import { ConfirmationCodeFormData } from '../types';
 import { validationSchema } from '../validation';
@@ -15,6 +9,12 @@ import { validationSchema } from '../validation';
 import { useTimer } from './useTimer';
 
 import { parseError } from '$core';
+import {
+  useAuthentication,
+  useSendVerificationCode,
+  useVerifyCode,
+} from '$modules/Auth/hooks';
+import { usePhoneAuthStore } from '$modules/Auth/stores';
 
 export const useLogic = () => {
   const {
