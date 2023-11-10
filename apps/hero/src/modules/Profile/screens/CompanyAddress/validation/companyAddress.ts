@@ -10,7 +10,7 @@ export const companyAddressSchema = yup.object({
   country: yup.string().required(ValidationHints.REQUIRED),
   postcode: yup
     .string()
-    .required(ValidationHints.REQUIRED)
     .length(DEFAULT_POSTCODE_LENGTH)
-    .matches(POSTCODE_REGEX, ValidationHints.INVALID_POSTCODE),
+    .matches(POSTCODE_REGEX, ValidationHints.INVALID_POSTCODE)
+    .required(ValidationHints.REQUIRED),
 });
