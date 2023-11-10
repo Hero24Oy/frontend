@@ -20,7 +20,7 @@ export const useSendOneMoreTime: UseSendOneMoreTime = (params) => {
 
   const { timeLeft, resetTimer } = useTimer({ timeInSeconds: DEBOUNCE_TIME });
   // We are sure that on this page phone number and reCaptcha are defined
-  const { phoneNumber, reCaptcha } = usePhoneAuthStore<true>();
+  const { phoneNumber, reCaptcha } = usePhoneAuthStore<'strict'>();
 
   const { sendVerificationCode } = useSendVerificationCode({
     onAuthFailed,

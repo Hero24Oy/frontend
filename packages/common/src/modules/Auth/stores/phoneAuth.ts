@@ -3,16 +3,18 @@ import { create } from 'zustand';
 
 import { Maybe } from '$core';
 
-export type PhoneAuthStore<Strict extends boolean = false> = {
-  phoneNumber: Strict extends true ? string : Maybe<string>;
-  reCaptcha: Strict extends true
+type StrictTyping = 'strict' | 'notStrict';
+
+export type PhoneAuthStore<Strict extends StrictTyping = 'notStrict'> = {
+  phoneNumber: Strict extends 'strict' ? string : Maybe<string>;
+  reCaptcha: Strict extends 'strict'
     ? ApplicationVerifier
     : Maybe<ApplicationVerifier>;
   setPhoneNumber: (phoneNumber: string) => void;
 
   setReCaptcha: (reCaptcha: ApplicationVerifier) => void;
   setVerificationId: (verificationId: string) => void;
-  verificationId: Strict extends true ? string : Maybe<string>;
+  verificationId: Strict extends 'strict' ? string : Maybe<string>;
 };
 
 const useStore = create<PhoneAuthStore>((set) => ({
@@ -25,7 +27,7 @@ const useStore = create<PhoneAuthStore>((set) => ({
 }));
 
 export const usePhoneAuthStore = <
-  Strict extends boolean = false,
+  Strict extends StrictTyping = 'notStrict',
 >(): PhoneAuthStore<Strict> => {
   const store = useStore();
 
