@@ -5,16 +5,13 @@ import {
   TypedDocumentNode,
   useQuery,
 } from '@apollo/client';
+import { DEFAULT_RESPONSE_NAME } from 'core/apollo/constants';
+import { GraphQlResponse } from 'core/apollo/types';
+import { getGraphqlRequestKey } from 'core/apollo/utils';
 import merge from 'lodash/merge';
 import { useCallback } from 'react';
 
 import { PrefixedQueryResult, StrictPrefixedQueryResult } from './types';
-
-import {
-  DEFAULT_RESPONSE_NAME,
-  getGraphqlRequestKey,
-  GraphQlResponse,
-} from '$core';
 
 export * from './types';
 export const useCustomQuery = <

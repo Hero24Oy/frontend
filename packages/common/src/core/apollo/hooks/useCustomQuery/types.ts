@@ -3,8 +3,8 @@ import {
   QueryHookOptions,
   QueryResult,
 } from '@apollo/client';
-
-import { GetGraphqlRequestKeyReturnType, GraphQlResponse } from '$core';
+import { GraphQlResponse } from 'core/apollo/types';
+import { GetGraphqlRequestKeyReturnType } from 'core/apollo/utils';
 
 export type CustomQueryResult<
   Data,

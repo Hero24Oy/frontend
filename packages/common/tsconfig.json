@@ -5,9 +5,12 @@
       "$assets": ["assets"],
       "$assets/*": ["assets/*"],
       "$modules": ["modules/index"],
-      "$types": ["types/index"],
+      "$modules/*": ["modules/*"],
       "$core": ["core/index"],
-      "$configs": ["configs/index"]
+      "$core/*": ["core/*"],
+      "$types": ["types/index"],
+      "$configs": ["configs/index"],
+      "$ui/providers": ["@hero24/ui/src/providers"]
     }
   },
   "extends": "@hero24/configs/tsconfig.json",

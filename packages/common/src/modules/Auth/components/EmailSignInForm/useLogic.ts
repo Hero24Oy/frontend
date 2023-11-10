@@ -2,10 +2,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { useAuthentication, useEmailSignIn } from '../../hooks';
-import { handleAuthError } from '../../utils';
-
 import { validationSchema } from './validation';
+
+import { useAuthentication, useEmailSignIn } from '$modules/Auth/hooks';
+import { handleAuthError } from '$modules/Auth/utils';
 
 interface FormData {
   email: string;

@@ -5,11 +5,11 @@ import {
   TypedDocumentNode,
   useMutation,
 } from '@apollo/client';
+import { DEFAULT_RESPONSE_NAME } from 'core/apollo/constants';
+import { GraphQlResponse } from 'core/apollo/types';
 import { useCallback } from 'react';
 
 import { CustomMutationResult, PrefixedMutationResult } from './types';
-
-import { DEFAULT_RESPONSE_NAME, GraphQlResponse } from '$core';
 
 export * from './types';
 
