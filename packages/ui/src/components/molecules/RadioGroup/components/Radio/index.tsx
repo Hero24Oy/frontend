@@ -6,7 +6,7 @@ import {
   RadioOption,
   RadioSize,
   RadioVariant,
-} from '$organisms/RadioGroup/types';
+} from '$molecules/RadioGroup/types';
 import { LayoutStyles } from '$types';
 
 type Props = {

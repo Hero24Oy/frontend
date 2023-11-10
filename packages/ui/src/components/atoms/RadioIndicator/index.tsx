@@ -5,7 +5,7 @@ import {
   RadioIndicator as GluestackRadioIndicator,
   RadioLabel,
 } from '@gluestack-ui/themed';
-import { FC, PropsWithChildren, useMemo } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
 import { GluestackRadioIndicatorProps } from './types';
 
@@ -13,8 +13,8 @@ import {
   RadioOption,
   RadioSize,
   RadioVariant,
-} from '$organisms/RadioGroup/types';
-import { stringifyRadioValue } from '$organisms/RadioGroup/utils';
+  stringifyRadioValue,
+} from '$molecules';
 
 type Props = {
   value: RadioOption['value'];
@@ -24,12 +24,10 @@ type Props = {
 export const RadioIndicator: FC<Props> = (props) => {
   const { children, value, ...restProps } = props;
 
-  const memoizedValue = useMemo(() => stringifyRadioValue(value), []);
-
   return (
     <GluestackRadio
       variant={RadioVariant.RADIO_INDICATOR}
-      value={memoizedValue}
+      value={stringifyRadioValue(value)}
       {...restProps}
     >
       <GluestackRadioIndicator>

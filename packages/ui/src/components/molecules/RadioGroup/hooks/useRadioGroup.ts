@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Control, FieldValues, Path, useController } from 'react-hook-form';
 
 import { RadioOption } from '../types';
 
-type Args<Type extends FieldValues> = {
+type Params<Type extends FieldValues> = {
   control: Control<Type>;
   name: Path<Type>;
   options: RadioOption[];
@@ -15,9 +15,9 @@ type ReturnType = {
 };
 
 export const useRadioGroup = <Type extends FieldValues>(
-  args: Args<Type>,
+  params: Params<Type>,
 ): ReturnType => {
-  const { control, name, options } = args;
+  const { control, name, options } = params;
 
   const [radioGroupValue, setRadioGroupValue] = useState<string>('');
 
@@ -29,12 +29,12 @@ export const useRadioGroup = <Type extends FieldValues>(
     options.forEach((option) => option.isChecked && onChange(option.value));
   }, []);
 
-  const radioGroupHandler = (selectedValue: string) => {
+  const radioGroupHandler = useCallback((selectedValue: string) => {
     const radioValue = JSON.parse(selectedValue) as RadioOption['value'];
 
     onChange(radioValue);
     setRadioGroupValue(selectedValue);
-  };
+  }, []);
 
   return {
     radioGroupValue,
