@@ -1,4 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useRouter } from 'expo-router';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -11,6 +12,7 @@ import {
 } from '$modules/Profile/stores';
 
 export const useLogic = () => {
+  const router = useRouter();
   const { setCompanyInfo } = useCompanyCreationStore();
 
   const {
@@ -24,8 +26,10 @@ export const useLogic = () => {
     mode: 'onChange',
   });
 
+  // TODO set proper route when screen will be ready
   const submitData = useCallback(() => {
     setCompanyInfo(getValues());
+    router.push('/');
   }, []);
 
   return { control, setValue, isValid, submitData };
