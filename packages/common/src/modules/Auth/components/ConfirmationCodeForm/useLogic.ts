@@ -16,7 +16,7 @@ export const useLogic = () => {
     handleSubmit,
     formState: { isSubmitting, isValid },
   } = useForm<ConfirmationCodeFormData>({
-    resolver: yupResolver(validationSchema),
+    resolver: yupResolver<ConfirmationCodeFormData>(validationSchema),
     defaultValues: initialFormState,
     mode: 'onChange',
   });

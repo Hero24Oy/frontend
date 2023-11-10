@@ -18,7 +18,7 @@ export const useLogic = (params: ResetPasswordFormProps) => {
     handleSubmit,
     formState: { isSubmitting, isValid },
   } = useForm<ResetPasswordFormData>({
-    resolver: yupResolver(validationSchema),
+    resolver: yupResolver<ResetPasswordFormData>(validationSchema),
     defaultValues: initialFormState,
     mode: 'onChange',
   });

@@ -9,8 +9,7 @@
       "$core": ["core/index"],
       "$core/*": ["core/*"],
       "$types": ["types/index"],
-      "$configs": ["configs/index"],
-      "$ui/providers": ["@hero24/ui/src/providers"]
+      "$configs": ["configs/index"]
     }
   },
   "extends": "@hero24/configs/tsconfig.json",

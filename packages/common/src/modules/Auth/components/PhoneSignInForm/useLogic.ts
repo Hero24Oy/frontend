@@ -18,7 +18,7 @@ export const useLogic = (params: PhoneSignInFormProps) => {
     handleSubmit,
     formState: { isSubmitting, isValid },
   } = useForm<PhoneSignInFormData>({
-    resolver: yupResolver(validationSchema),
+    resolver: yupResolver<PhoneSignInFormData>(validationSchema),
     defaultValues: initialFormState,
     mode: 'onSubmit',
   });
