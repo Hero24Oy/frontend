@@ -9,7 +9,7 @@ export type CompanyCreation = {
   };
   companyInfo: {
     email: string;
-    employees: Range | null;
+    employees: number | null;
     name: string;
   };
   paymentData: {

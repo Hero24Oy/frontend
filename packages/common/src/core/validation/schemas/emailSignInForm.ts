@@ -1,9 +1,11 @@
 import * as yup from 'yup';
 
-import { emailValidationShape } from './email';
+import { ValidationHints } from '../enums';
+
+import { emailSchema } from './email';
 import { passwordSignInValidationSchema } from './password';
 
 export const emailSignInFormValidationSchema = yup.object().shape({
-  email: emailValidationShape,
+  email: emailSchema.required(ValidationHints.REQUIRED),
   password: passwordSignInValidationSchema,
 });
