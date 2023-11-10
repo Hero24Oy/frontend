@@ -2,12 +2,22 @@ import { PhoneAuthProvider } from 'firebase/auth';
 import { useCallback, useMemo } from 'react';
 
 import { useFirebaseAuth } from '../../../stores';
+import { WithCallback } from '../../types';
 
 import { usePhoneAuthStore } from './phoneAuthStore';
 import { SendVerificationCode } from './types';
 
+import { parseError } from '$core';
+
 // TODO types
-export const useSendVerificationCode = () => {
+// TODO do not go to next screen unless code is sent
+type UseSendVerificationCodeProps = WithCallback;
+
+export const useSendVerificationCode = (
+  props: UseSendVerificationCodeProps,
+) => {
+  const { onAuthFailed, onAuthSucceed } = props;
+
   const { setVerificationId, setPhoneNumber } = usePhoneAuthStore();
 
   const auth = useFirebaseAuth();
@@ -29,8 +39,9 @@ export const useSendVerificationCode = () => {
 
         setVerificationId(newVerificationId);
         setPhoneNumber(phoneNumber);
+        await onAuthSucceed?.();
       } catch (error) {
-        console.error(error); // TODO add error handling
+        onAuthFailed?.(parseError(error));
       }
     },
     [],

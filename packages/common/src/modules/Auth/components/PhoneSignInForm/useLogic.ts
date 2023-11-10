@@ -12,7 +12,7 @@ export const useLogic = (params: PhoneSignInFormProps) => {
   const { signInWithPhoneCallback } = params;
   const { reCaptcha } = usePhoneAuthStore();
 
-  const { sendVerificationCode } = useSendVerificationCode();
+  const { sendVerificationCode } = useSendVerificationCode({});
 
   const onSubmit = async (data: PhoneSignInFormData) => {
     if (!reCaptcha) {

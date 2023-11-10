@@ -2,12 +2,18 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useCallback, useEffect, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { useAuthentication, useVerifyCode } from '../../hooks';
-import { handleAuthError } from '../../utils';
+import {
+  useAuthentication,
+  usePhoneAuthStore,
+  useSendVerificationCode,
+  useVerifyCode,
+} from '../../../hooks';
+import { handleAuthError } from '../../../utils';
+import { CODE_LENGTH, DEBOUNCE_TIME, initialFormState } from '../constants';
+import { ConfirmationCodeFormData } from '../types';
+import { validationSchema } from '../validation';
 
-import { CODE_LENGTH, initialFormState } from './constants';
-import { ConfirmationCodeFormData } from './types';
-import { validationSchema } from './validation';
+import { useTimer } from './useTimer';
 
 import { parseError } from '$core';
 
@@ -23,10 +29,16 @@ export const useLogic = () => {
     mode: 'onChange',
   });
 
+  const { timeLeft, resetTimer } = useTimer({ timeInSeconds: DEBOUNCE_TIME });
+
   const { signInWithCredentials } = useAuthentication();
 
   const { verifyCode } = useVerifyCode({
     onAuthSucceed: signInWithCredentials,
+    onAuthFailed: handleAuthError,
+  });
+
+  const { sendVerificationCode } = useSendVerificationCode({
     onAuthFailed: handleAuthError,
   });
 
@@ -60,12 +72,21 @@ export const useLogic = () => {
     return () => subscription.unsubscribe();
   }, [watch]);
 
-  const onSendOneMoreTimeHandler = (): void => {
-    // TODO implement debounce
-  };
+  const { phoneNumber, reCaptcha } = usePhoneAuthStore();
+  const onSendOneMoreTimeHandler = useCallback(async () => {
+    if (!phoneNumber || !reCaptcha) {
+      // TODO this should not happen
+      console.error('Phone number or reCaptcha have not been initialized');
+      return;
+    }
+
+    await sendVerificationCode({ phoneNumber, reCaptcha });
+    resetTimer();
+  }, [timeLeft, phoneNumber, reCaptcha]);
 
   return {
     control,
+    debounceTime: timeLeft, // TODO better naming
     onSubmitHandler,
     isLoading: isSubmitting,
     isValid,

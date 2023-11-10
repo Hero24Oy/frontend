@@ -6,7 +6,7 @@ const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = [
   'Booleanize',
   ...SIZES,
   'IBAN',
-  'recaptcha'
+  'recaptcha',
 ];
 const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*VAT.*',
@@ -29,6 +29,7 @@ const underscoreAndExcludeNamingConventionWordsRegex = `^(_|${excludeNamesNaming
 const finalExcludeRegex = `${excludeNamesNamingConventionRegexpsRegex}|${underscoreAndExcludeNamingConventionWordsRegex}`;
 
 const initialRules = {
+  'consistent-return': 'off',
   'eslint-comments/disable-enable-pair': 'off',
   'eslint-comments/require-description': [
     'warn',
@@ -401,7 +402,7 @@ const override = {
       '@typescript-eslint/no-unsafe-assignment': 'off',
       'import/no-dynamic-require': 'off',
       'global-require': 'off',
-      '@typescript-eslint/naming-convention': 'off'
+      '@typescript-eslint/naming-convention': 'off',
     },
   },
   restrictedExports: {
