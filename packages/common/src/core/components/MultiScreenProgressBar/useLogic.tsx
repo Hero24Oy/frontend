@@ -1,10 +1,10 @@
-import { ScreensForms, Store } from 'core/store';
-import { PERCENTAGE_CONVERSION_FACTOR } from 'core/utils';
 import get from 'lodash/get';
 import isEqual from 'lodash/isEqual';
 import { useMemo } from 'react';
 
 import { JsxElement, ProgressBar } from '@hero24/ui';
+
+import { ScreensForms, Store } from '$core/store';
 
 type Props<Forms extends ScreensForms> = {
   state: Forms;
@@ -16,27 +16,25 @@ type ReturnValue = {
 };
 
 export const useLogic = <Forms extends ScreensForms>(
-  props: Props<Forms>,
+  params: Props<Forms>,
 ): ReturnValue => {
-  const { state, store } = props;
+  const { state, store } = params;
 
   const progressBarArray = useMemo(() => {
-    const screens = Object.entries(store);
+    const storesByScreens = Object.entries(store);
 
-    return screens
-      .filter(([screenKey]) => !screenKey.startsWith('set'))
-      .map(([screenKey, screenValue], index) => {
-        const fields = Object.entries(screenValue);
+    return storesByScreens
+      .filter(([storeScreenName]) => !storeScreenName.startsWith('set'))
+      .map(([storeScreenName, storeScreenFields], index) => {
+        const fields = Object.entries(storeScreenFields);
 
-        const completedProgress = fields.filter(([fieldKey, fieldValue]) => {
-          return !isEqual(get(state, [screenKey, fieldKey]), fieldValue);
+        const fillingProgress = fields.filter(([fieldKey, fieldValue]) => {
+          return !isEqual(get(state, [storeScreenName, fieldKey]), fieldValue);
         });
 
-        const progressFilling =
-          (completedProgress.length / fields.length) *
-          PERCENTAGE_CONVERSION_FACTOR;
+        const progressValue = (fillingProgress.length / fields.length) * 100;
 
-        return <ProgressBar value={progressFilling} key={index} />;
+        return <ProgressBar value={progressValue} key={index} />;
       });
   }, [store]);
 

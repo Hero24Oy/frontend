@@ -4,7 +4,7 @@ import { HStack, JsxElement } from '@hero24/ui';
 
 import { useLogic } from './useLogic';
 
-import { ScreensForms, Store } from '$common/core';
+import { ScreensForms, Store } from '$core/store';
 
 type Props<Forms extends ScreensForms> = {
   state: Forms;
@@ -16,11 +16,11 @@ export const MultiScreenProgressBar = <Forms extends ScreensForms>(
 ): JsxElement => {
   const { progressBarArray } = useLogic(props);
 
-  return <HStack style={styles.gap}>{progressBarArray}</HStack>;
+  return <HStack style={styles.wrapper}>{progressBarArray}</HStack>;
 };
 
 const styles = StyleSheet.create({
-  gap: {
+  wrapper: {
     gap: 8,
   },
 });
