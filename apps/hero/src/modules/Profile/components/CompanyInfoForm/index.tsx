@@ -4,37 +4,48 @@ import { StyleSheet } from 'react-native';
 
 import { Button, Input, RadioGroup, View } from '@hero24/ui';
 
-import { chipOptions, defaultValues } from './constants';
-import { CompanyInfo } from './types';
+import { chipOptions } from './constants';
+
+import {
+  CompanyCreation,
+  companyCreationInitialState,
+} from '$modules/Profile/stores';
 
 export const CompanyInfoForm: FC = () => {
   // TODO replace in useLogic after logic implementation
-  const { control } = useForm<CompanyInfo>({
-    defaultValues,
+  const { control } = useForm<CompanyCreation['companyInfo']>({
+    defaultValues: companyCreationInitialState.companyInfo,
     mode: 'onChange',
   });
 
   return (
     // TODO replace text in inputs and button with i18n call
     <View style={styles.view}>
-      <Input
-        control={control}
-        name="name"
-        placeholder="Enter"
-        title="Company name"
-      />
+      <View style={styles.form}>
+        <Input
+          control={control}
+          name="name"
+          placeholder="Enter"
+          title="Company name"
+        />
 
-      <Input control={control} name="email" placeholder="Enter" title="Email" />
+        <Input
+          control={control}
+          name="email"
+          placeholder="Enter"
+          title="Email"
+        />
 
-      <RadioGroup
-        control={control}
-        name="employees"
-        variant="chip"
-        options={chipOptions}
-        title="Number of employees"
-        style={styles.radioGroup}
-        childrenStyle={styles.chips}
-      />
+        <RadioGroup
+          control={control}
+          name="employees"
+          variant="chip"
+          options={chipOptions}
+          title="Number of employees"
+          style={styles.radioGroup}
+          childrenStyle={styles.chips}
+        />
+      </View>
 
       <Button style={styles.button}>Continue</Button>
     </View>
@@ -44,8 +55,10 @@ export const CompanyInfoForm: FC = () => {
 const styles = StyleSheet.create({
   view: {
     flex: 1,
+    justifyContent: 'space-between',
+  },
+  form: {
     gap: 3,
-    position: 'relative',
   },
   radioGroup: {
     flexWrap: 'wrap',
@@ -56,7 +69,5 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '100%',
-    position: 'absolute',
-    bottom: 0,
   },
 });
