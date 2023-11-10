@@ -1,10 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { emailSignInFormValidationSchema } from 'core/validation';
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { useAuthentication, useEmailSignIn } from '../../hooks';
-import { handleAuthError } from '../../utils';
+import { EmailSignInFormData } from './types';
+import { validationSchema } from './validation';
+
+import { useAuthentication, useEmailSignIn } from '$modules/Auth/hooks';
+import { handleAuthError } from '$modules/Auth/utils';
 
 interface FormData {
   email: string;
@@ -19,8 +21,12 @@ export const useLogic = () => {
     onAuthFailed: handleAuthError,
   });
 
-  const { control, handleSubmit } = useForm<FormData>({
-    resolver: yupResolver(emailSignInFormValidationSchema),
+  const {
+    control,
+    handleSubmit,
+    formState: { isSubmitting },
+  } = useForm<FormData>({
+    resolver: yupResolver<EmailSignInFormData>(validationSchema),
     defaultValues: {
       email: '',
       password: '',
@@ -33,5 +39,6 @@ export const useLogic = () => {
   return {
     onSubmit,
     control,
+    isLoading: isSubmitting,
   };
 };

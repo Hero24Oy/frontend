@@ -1,6 +1,8 @@
 import * as yup from 'yup';
 
-export const emailValidationShape: yup.ISchema<string> = yup
+import { Maybe } from '$core/types';
+import { ValidationHints } from '$core/validation/enums';
+
+export const emailValidationSchema: yup.StringSchema<Maybe<string>> = yup
   .string()
-  .required('Required field')
-  .email('This field must be valid email');
+  .email(ValidationHints.INVALID_EMAIL);
