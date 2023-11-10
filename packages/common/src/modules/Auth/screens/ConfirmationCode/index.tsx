@@ -7,18 +7,14 @@ import {
 
 import { ConfirmationCodeForm, ConfirmationCodeHeader } from '../../components';
 
-import { StackKeyboardAwareScrollView } from '$core';
-
 export const ConfirmationCodeScreen = () => {
   return (
-    <StackKeyboardAwareScrollView scrollEnabled={false}>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.inner}>
-          <ConfirmationCodeHeader />
-          <ConfirmationCodeForm />
-        </View>
-      </TouchableWithoutFeedback>
-    </StackKeyboardAwareScrollView>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={styles.inner}>
+        <ConfirmationCodeHeader />
+        <ConfirmationCodeForm />
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 
