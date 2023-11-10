@@ -1,7 +1,8 @@
 words:
-  - netvisor
   - iban
+  - netvisor
   - oauthredirect
+  - Onest
   - zustand
   - booleanize
   - libphonenumber

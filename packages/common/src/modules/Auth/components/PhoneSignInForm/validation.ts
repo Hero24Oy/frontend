@@ -3,7 +3,7 @@ import * as yup from 'yup';
 
 import { PhoneSignInFormData } from './types';
 
-import { ValidationHints } from '$common';
+import { ValidationHints } from '$core';
 
 export const validationSchema: yup.ObjectSchema<PhoneSignInFormData> = yup
   .object()

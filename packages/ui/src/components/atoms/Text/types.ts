@@ -3,4 +3,5 @@ export enum TextVariant {
   MEDIUM = 'medium',
   SMALL = 'small',
   DESCRIPTOR = 'descriptor',
+  LINK = 'link',
 }

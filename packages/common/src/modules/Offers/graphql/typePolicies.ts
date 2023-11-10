@@ -6,7 +6,7 @@ import {
 
 import { OFFER_TYPE_NAME } from './constants';
 
-import { GraphQlInput, GraphQlPagination } from '$common/core';
+import { GraphQlInput, GraphQlPagination } from '$core';
 
 export const offersTypePolicies: TypePolicies = {
   Query: {

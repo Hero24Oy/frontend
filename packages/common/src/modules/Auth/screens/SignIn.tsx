@@ -11,7 +11,7 @@ import {
   SignInProvidersButtons,
 } from '../components';
 
-import { SafeAreaKeyboardAwareScrollView } from '$common';
+import { SafeAreaKeyboardAwareScrollView } from '$core';
 
 type Props = PhoneSignInFormProps & {
   signInWithEmailCallback: () => void;

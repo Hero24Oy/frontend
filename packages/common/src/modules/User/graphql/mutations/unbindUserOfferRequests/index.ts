@@ -1,6 +1,6 @@
 import { Data, MUTATION, PREFIX, Variables } from './mutation';
 
-import { useCustomMutation, UseMutationWrapper } from '$common/core';
+import { useCustomMutation, UseMutationWrapper } from '$core';
 
 export type UseUnbindUserOfferRequests = UseMutationWrapper<
   typeof PREFIX,

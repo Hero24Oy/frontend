@@ -13,3 +13,4 @@ export * from './Checkbox';
 export * from './Textarea';
 export * from './TextareaInput';
 export * from './Slider';
+export * from './Card';

@@ -5,7 +5,6 @@ import {
   ComponentTheme,
   DescendantStyleName,
   FontSize,
-  FontWeight,
   LineHeight,
   Size,
   SxValues,
@@ -36,7 +35,7 @@ export const customBaseBadgeConfig = {
           [DescendantStyleName.TEXT]: {
             fontSize: FontSize.XS,
             lineHeight: LineHeight.XS,
-            fontWeight: FontWeight.REGULAR,
+            fontWeight: '400',
           },
         },
         [Size.MD]: {
@@ -48,7 +47,7 @@ export const customBaseBadgeConfig = {
           [DescendantStyleName.TEXT]: {
             fontSize: FontSize.SM,
             lineHeight: LineHeight.SM,
-            fontWeight: FontWeight.MEDIUM,
+            fontWeight: '400',
           },
         },
       },

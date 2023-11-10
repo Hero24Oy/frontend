@@ -10,7 +10,7 @@ export const ResetPasswordMessage: FC = () => {
 
   return (
     <VStack style={styles.textContainer}>
-      <Text variant="regular" style={styles.message} textAlign="justify">
+      <Text variant="regular" style={styles.message}>
         {message}
       </Text>
     </VStack>
@@ -26,5 +26,6 @@ const styles = StyleSheet.create({
   },
   message: {
     color: Color.BLACK_00,
+    textAlign: 'justify',
   },
 });

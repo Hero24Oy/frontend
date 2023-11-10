@@ -11,7 +11,7 @@ import {
   SignInProvidersButtons,
 } from '../components';
 
-import { StackKeyboardAwareScrollView } from '$common/core';
+import { StackKeyboardAwareScrollView } from '$core';
 
 type Props = EmailSignInFormProps;
 

@@ -25,3 +25,5 @@ export const KeyboardAwareScrollView: FC<KeyboardAwareScrollViewProps> = (
 const styles = StyleSheet.create({
   main: { flexGrow: 1 },
 });
+
+export * from './types';

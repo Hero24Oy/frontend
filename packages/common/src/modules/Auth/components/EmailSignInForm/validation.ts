@@ -4,7 +4,7 @@ import {
   emailValidationSchema,
   passwordValidationSchema,
   ValidationHints,
-} from '$common';
+} from '$core';
 
 export const validationSchema = yup.object({
   email: emailValidationSchema.required(ValidationHints.REQUIRED),
