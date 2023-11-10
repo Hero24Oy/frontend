@@ -1,5 +1,5 @@
 import { PhoneAuthProvider } from 'firebase/auth';
-import { useCallback, useMemo } from 'react';
+import { useCallback } from 'react';
 
 import { useFirebaseAuth } from '../../../stores';
 import { WithCallback } from '../../types';
@@ -21,12 +21,13 @@ export const useSendVerificationCode = (
   const { setVerificationId, setPhoneNumber } = usePhoneAuthStore();
 
   const auth = useFirebaseAuth();
-  const phoneProvider = useMemo(() => new PhoneAuthProvider(auth), []);
 
   const sendVerificationCode: SendVerificationCode = useCallback(
     async (config) => {
       try {
         const { phoneNumber, reCaptcha } = config;
+
+        const phoneProvider = new PhoneAuthProvider(auth);
 
         if (!reCaptcha) {
           throw new Error('Recaptcha has not been initialized');
@@ -44,7 +45,7 @@ export const useSendVerificationCode = (
         onAuthFailed?.(parseError(error));
       }
     },
-    [],
+    [onAuthFailed, onAuthSucceed],
   );
 
   return { sendVerificationCode };

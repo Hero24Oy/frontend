@@ -11,18 +11,18 @@ export const useVerifyCode = (props: WithCallback) => {
   const { verificationId } = usePhoneAuthStore();
 
   const verifyCode = async (verificationCode: string) => {
-    if (!verificationId) {
-      console.error('Verification id is not initialized! Send code firstly');
-
-      return;
-    }
-
-    const credentials = PhoneAuthProvider.credential(
-      verificationId,
-      verificationCode,
-    ) as unknown as OAuthCredential; // ts argues about type mismatch, but actually they are of type OAuthCredential
-
     try {
+      if (!verificationId) {
+        throw new Error(
+          'Verification id is not initialized! Send code firstly',
+        );
+      }
+
+      const credentials = PhoneAuthProvider.credential(
+        verificationId,
+        verificationCode,
+      ) as unknown as OAuthCredential; // ts argues about type mismatch, but actually they are of type OAuthCredential
+
       await onAuthSucceed?.(credentials);
     } catch (error) {
       const errorParsed = parseError(error);

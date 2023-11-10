@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import {
@@ -8,7 +8,6 @@ import {
   useSendVerificationCode,
   useVerifyCode,
 } from '../../../hooks';
-import { handleAuthError } from '../../../utils';
 import { CODE_LENGTH, DEBOUNCE_TIME, initialFormState } from '../constants';
 import { ConfirmationCodeFormData } from '../types';
 import { validationSchema } from '../validation';
@@ -29,24 +28,29 @@ export const useLogic = () => {
     mode: 'onChange',
   });
 
+  const [errorText, setErrorText] = useState<string | null>(null);
   const { timeLeft, resetTimer } = useTimer({ timeInSeconds: DEBOUNCE_TIME });
-
   const { signInWithCredentials } = useAuthentication();
 
   const { verifyCode } = useVerifyCode({
     onAuthSucceed: signInWithCredentials,
-    onAuthFailed: handleAuthError,
+    onAuthFailed: (error) => setErrorText(error.message),
   });
 
   const { sendVerificationCode } = useSendVerificationCode({
-    onAuthFailed: handleAuthError,
+    onAuthFailed: (error) => setErrorText(error.message),
   });
 
   const onSubmit = useCallback(
     async (data: ConfirmationCodeFormData) => {
-      const { code } = data;
+      try {
+        const { code } = data;
 
-      await verifyCode(code);
+        await verifyCode(code);
+      } catch (error) {
+        const parsedError = parseError(error);
+        setErrorText(parsedError.message);
+      }
     },
     [verifyCode],
   );
@@ -62,9 +66,8 @@ export const useLogic = () => {
             await onSubmitHandler(undefined);
           }
         } catch (error) {
-          const errorParsed = parseError(error);
-
-          handleAuthError(errorParsed);
+          const parsedError = parseError(error);
+          setErrorText(parsedError.message);
         }
       })();
     });
@@ -74,22 +77,27 @@ export const useLogic = () => {
 
   const { phoneNumber, reCaptcha } = usePhoneAuthStore();
   const onSendOneMoreTimeHandler = useCallback(async () => {
-    if (!phoneNumber || !reCaptcha) {
-      // TODO this should not happen
-      console.error('Phone number or reCaptcha have not been initialized');
-      return;
-    }
+    try {
+      if (!phoneNumber || !reCaptcha) {
+        // TODO this should not happen
+        throw new Error('Phone number or reCaptcha have not been initialized');
+      }
 
-    await sendVerificationCode({ phoneNumber, reCaptcha });
-    resetTimer();
+      await sendVerificationCode({ phoneNumber, reCaptcha });
+      resetTimer();
+    } catch (error) {
+      const parsedError = parseError(error);
+      setErrorText(parsedError.message);
+    }
   }, [timeLeft, phoneNumber, reCaptcha]);
 
   return {
     control,
-    debounceTime: timeLeft, // TODO better naming
+    debounceTime: timeLeft,
     onSubmitHandler,
     isLoading: isSubmitting,
     isValid,
     onSendOneMoreTimeHandler,
+    errorText,
   };
 };
