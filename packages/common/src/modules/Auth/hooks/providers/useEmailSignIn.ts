@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 
 import { EmailPasswordParams, WithCallback } from '../types';
 
-import { parseError } from '$common/core';
+import { parseError } from '$core';
 
 type SignInWithEmail = (params: EmailPasswordParams) => Promise<void>;
 

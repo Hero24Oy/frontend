@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 import { User, USER_FRAGMENT, UserData } from '../../fragments';
 
-import { capitalize, DEFAULT_RESPONSE_NAME } from '$common/core';
+import { capitalize, DEFAULT_RESPONSE_NAME } from '$core';
 
 export const PREFIX = 'editUser';
 

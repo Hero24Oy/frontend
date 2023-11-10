@@ -7,7 +7,6 @@ import {
   Color,
   Font,
   FontSize,
-  FontWeight,
   IconSize,
   LineHeight,
   Size,
@@ -25,8 +24,8 @@ const ButtonTheme = {
   theme: {
     gap: 4,
     [DescendantStyleName.TEXT]: {
-      fontFamily: Font.MAIN,
-      fontWeight: FontWeight.MEDIUM,
+      fontWeight: '400',
+      fontFamily: Font.ONEST_MEDIUM,
     },
     ':focusVisible': {
       borderWidth: 2,

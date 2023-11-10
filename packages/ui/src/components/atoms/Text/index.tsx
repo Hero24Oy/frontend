@@ -4,10 +4,12 @@ import { FC } from 'react';
 import { TextVariant } from './types';
 
 import { Color } from '$theme/constants';
+import { TextStyles } from '$types';
 
 export type TextProps = {
   children: string;
   color?: `${Color}`;
+  style?: TextStyles;
   variant?: `${TextVariant}`;
 };
 

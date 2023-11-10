@@ -15,11 +15,11 @@ export const useCheckConditions = (
 ): UseCheckConditionsReturnType => {
   const { platforms } = args;
 
-  const conditions = [isDifferentPlatform(platforms)];
+  const conditionChecks = [isDifferentPlatform(platforms)];
 
   const areConditionsSatisfied = useMemo(
-    () => conditions.every((condition) => condition),
-    [conditions],
+    () => conditionChecks.every((isConditionSatisfied) => isConditionSatisfied),
+    [conditionChecks],
   );
 
   return {

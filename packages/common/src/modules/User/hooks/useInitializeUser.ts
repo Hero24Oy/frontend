@@ -3,8 +3,8 @@ import { useCallback, useState } from 'react';
 
 import { useCreateUser, useGetUser, UserDataInput } from '../graphql';
 
-import { getCurrentLanguage } from '$common/core';
-import { useWatchAuthChanges } from '$common/modules';
+import { getCurrentLanguage } from '$core';
+import { useWatchAuthChanges } from '$modules';
 
 type UseInitializeUser = () => {
   isUserLoading: boolean;

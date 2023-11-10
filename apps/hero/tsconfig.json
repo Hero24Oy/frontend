@@ -2,11 +2,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "$app": ["src/app/*"],
-      "$core": ["src/core/index"],
-      "$configs": ["src/configs/index"],
+      "$app": ["src/app"],
+      "$app/*": ["src/app/*"],
+      "$core": ["src/core"],
+      "$core/*": ["src/core/*"],
+      "$configs": ["src/configs"],
+      "$configs/*": ["src/configs/*"],
+      "$modules": ["src/modules"],
       "$modules/*": ["src/modules/*"],
-      "$modules": ["src/modules/index"],
       "$/*": ["*"],
     }
   },

@@ -4,7 +4,7 @@ import { FullScreenModal } from '@hero24/ui';
 
 import { UseModalReturnValue } from './types';
 
-import { capitalize } from '$common/core';
+import { capitalize } from '$core';
 
 type Props = Omit<ComponentProps<typeof FullScreenModal>, 'isOpen'>;
 

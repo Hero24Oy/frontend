@@ -14,7 +14,7 @@ import {
   DEFAULT_RESPONSE_NAME,
   getGraphqlRequestKey,
   GraphQlResponse,
-} from '$common/core';
+} from '$core';
 
 export * from './types';
 export const useCustomQuery = <

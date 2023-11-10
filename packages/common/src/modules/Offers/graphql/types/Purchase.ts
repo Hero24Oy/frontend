@@ -1,4 +1,4 @@
-import { Maybe } from '$common/core';
+import { Maybe } from '$core';
 
 export type Purchase = {
   createdAt: Date;

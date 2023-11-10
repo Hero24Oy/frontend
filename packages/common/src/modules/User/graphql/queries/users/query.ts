@@ -2,11 +2,7 @@ import { gql } from '@apollo/client';
 
 import { User, USER_FRAGMENT } from '../../fragments';
 
-import {
-  capitalize,
-  DEFAULT_RESPONSE_NAME,
-  GraphQlPagination,
-} from '$common/core';
+import { capitalize, DEFAULT_RESPONSE_NAME, GraphQlPagination } from '$core';
 
 export const PREFIX = 'users';
 
