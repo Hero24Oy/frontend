@@ -5,7 +5,7 @@ import {
   RadioIndicator as GluestackRadioIndicator,
   RadioLabel,
 } from '@gluestack-ui/themed';
-import { FC, PropsWithChildren, useRef } from 'react';
+import { FC, PropsWithChildren, useMemo } from 'react';
 
 import { GluestackRadioIndicatorProps } from './types';
 
@@ -23,12 +23,13 @@ type Props = {
 
 export const RadioIndicator: FC<Props> = (props) => {
   const { children, value, ...restProps } = props;
-  const valueRef = useRef(stringifyRadioValue(value));
+
+  const memoizedValue = useMemo(() => stringifyRadioValue(value), []);
 
   return (
     <GluestackRadio
       variant={RadioVariant.RADIO_INDICATOR}
-      value={valueRef.current}
+      value={memoizedValue}
       {...restProps}
     >
       <GluestackRadioIndicator>
