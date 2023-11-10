@@ -5,7 +5,7 @@ import { useCallback, useEffect } from 'react';
 
 import { WithCallback } from '../types';
 
-import { parseError } from '$common/core';
+import { parseError } from '$core';
 
 type FacebookAuthConfig = {
   facebookAppId: string;

@@ -6,7 +6,7 @@ import {
   ResetPasswordMessage,
 } from '../components';
 
-import { StackKeyboardAwareScrollView } from '$common';
+import { StackKeyboardAwareScrollView } from '$core';
 
 type Props = ResetPasswordFormProps;
 

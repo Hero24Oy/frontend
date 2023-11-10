@@ -4,7 +4,7 @@ import { ConfirmationCodeForm, ConfirmationCodeHeader } from '../../components';
 
 import { useLogic } from './useLogic';
 
-import { StackKeyboardAwareScrollView } from '$common';
+import { StackKeyboardAwareScrollView } from '$core';
 
 export const ConfirmationCodeScreen: FC = () => {
   const { phone } = useLogic();

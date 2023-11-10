@@ -2,10 +2,10 @@ import * as yup from 'yup';
 
 import { ResetPasswordFormData } from './types';
 
-import { emailValidationSchema, ValidationHints } from '$common/core';
+import { emailValidationSchema, ValidationHints } from '$core';
 
 export const validationSchema: yup.ObjectSchema<ResetPasswordFormData> = yup
-  .object()
+  .object({})
   .shape({
     email: emailValidationSchema.required(ValidationHints.REQUIRED),
   });

@@ -1,6 +1,6 @@
 import { gql } from '@apollo/client';
 
-import { capitalize, DEFAULT_RESPONSE_NAME } from '$common/core';
+import { capitalize, DEFAULT_RESPONSE_NAME } from '$core';
 
 export const PREFIX = 'phone';
 

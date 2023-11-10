@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-import { Maybe } from '$common';
+import { Maybe } from '$core/types';
 
 export const passwordValidationSchema: yup.StringSchema<Maybe<string>> =
   yup.string();

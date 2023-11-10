@@ -4,7 +4,8 @@ import {
   QueryResult,
 } from '@apollo/client';
 
-import { GetGraphqlRequestKeyReturnType, GraphQlResponse } from '$common/core';
+import { GraphQlResponse } from '$core/apollo/types';
+import { GetGraphqlRequestKeyReturnType } from '$core/apollo/utils';
 
 export type CustomQueryResult<
   Data,
