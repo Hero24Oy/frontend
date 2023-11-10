@@ -6,12 +6,8 @@ import { FC, PropsWithChildren } from 'react';
 
 import { GluestackChipProps } from './types';
 
-import {
-  RadioOption,
-  RadioSize,
-  RadioVariant,
-  stringifyRadioValue,
-} from '$molecules';
+import { RadioOption, RadioSize, RadioVariant } from '$atoms/Radio';
+import { useStringifiedValue } from '$hooks';
 
 type Props = {
   value: RadioOption['value'];
@@ -21,10 +17,12 @@ type Props = {
 export const Chip: FC<Props> = (props) => {
   const { children, value, ...restProps } = props;
 
+  const { stringifiedValue } = useStringifiedValue(value);
+
   return (
     <GluestackRadio
       variant={RadioVariant.CHIP}
-      value={stringifyRadioValue(value)}
+      value={stringifiedValue}
       {...restProps}
     >
       <GluestackRadioLabel>{children}</GluestackRadioLabel>

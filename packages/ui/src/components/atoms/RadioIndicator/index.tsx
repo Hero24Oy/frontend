@@ -9,12 +9,8 @@ import { FC, PropsWithChildren } from 'react';
 
 import { GluestackRadioIndicatorProps } from './types';
 
-import {
-  RadioOption,
-  RadioSize,
-  RadioVariant,
-  stringifyRadioValue,
-} from '$molecules';
+import { RadioOption, RadioSize, RadioVariant } from '$atoms/Radio';
+import { useStringifiedValue } from '$hooks';
 
 type Props = {
   value: RadioOption['value'];
@@ -24,10 +20,12 @@ type Props = {
 export const RadioIndicator: FC<Props> = (props) => {
   const { children, value, ...restProps } = props;
 
+  const { stringifiedValue } = useStringifiedValue(value);
+
   return (
     <GluestackRadio
       variant={RadioVariant.RADIO_INDICATOR}
-      value={stringifyRadioValue(value)}
+      value={stringifiedValue}
       {...restProps}
     >
       <GluestackRadioIndicator>

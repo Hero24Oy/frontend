@@ -1,7 +1,4 @@
-import { RadioVariant } from '../../types';
-
-import { Chip } from '$atoms/Chip';
-import { RadioIndicator } from '$components/atoms/RadioIndicator';
+import { Chip, RadioIndicator, RadioVariant } from '$atoms';
 
 export const radioVariantMapper = {
   [RadioVariant.CHIP]: Chip,

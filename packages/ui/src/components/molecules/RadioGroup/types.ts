@@ -1,23 +1,4 @@
-import { Size } from '$theme';
-
-export enum RadioVariant {
-  CHIP = 'chip',
-  RADIO_INDICATOR = 'radio_indicator',
-}
-
-export type RadioSize = Extract<Size, 'sm' | 'md' | 'lg'>;
-
-export type RadioRange = {
-  max: number;
-  min: number;
-};
-
-export type RadioOption = {
-  label: string;
-  value: string | RadioRange;
-  isChecked?: boolean;
-  isDisabled?: boolean;
-};
+import { RadioOption, RadioVariant } from '$atoms';
 
 export type RadioGroupProps = {
   options: RadioOption[];

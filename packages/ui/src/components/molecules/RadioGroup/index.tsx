@@ -4,8 +4,9 @@ import { Control, FieldValues, Path } from 'react-hook-form';
 
 import { Radio, RadioTitle } from './components';
 import { useRadioGroup } from './hooks';
-import { RadioGroupProps, RadioSize } from './types';
+import { RadioGroupProps } from './types';
 
+import { RadioSize } from '$atoms';
 import { LayoutStyles } from '$types';
 
 type Props<Type extends FieldValues> = {
@@ -58,5 +59,3 @@ export const RadioGroup = <Type extends FieldValues>(
 };
 
 export * from './types';
-
-export * from './utils';

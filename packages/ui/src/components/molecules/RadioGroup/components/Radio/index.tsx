@@ -2,11 +2,7 @@ import { FC, memo } from 'react';
 
 import { radioVariantMapper } from './constants';
 
-import {
-  RadioOption,
-  RadioSize,
-  RadioVariant,
-} from '$molecules/RadioGroup/types';
+import { RadioOption, RadioSize, RadioVariant } from '$atoms';
 import { LayoutStyles } from '$types';
 
 type Props = {

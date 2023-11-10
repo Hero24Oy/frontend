@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Control, FieldValues, Path, useController } from 'react-hook-form';
 
-import { RadioOption } from '../types';
+import { RadioOption } from '$atoms';
 
 type Params<Type extends FieldValues> = {
   control: Control<Type>;
