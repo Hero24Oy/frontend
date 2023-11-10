@@ -1,7 +1,7 @@
-import { Stack } from '@hero24/ui';
+import { ExpoStack } from '../ExpoStack';
 
 export const createLayout = (title?: string) => {
   return () => {
-    return <Stack title={title} />;
+    return <ExpoStack title={title} />;
   };
 };

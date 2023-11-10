@@ -31,4 +31,5 @@ export type LayoutStyles = CommonStyles &
     | 'flexBasis'
   >;
 
-export type TextStyles = CommonStyles & Pick<TextStyle, 'textAlign' | 'width'>;
+export type TextStyles = CommonStyles &
+  Pick<TextStyle, 'textAlign' | 'width' | 'color'>;

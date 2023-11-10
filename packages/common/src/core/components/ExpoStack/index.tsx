@@ -1,24 +1,19 @@
 import { NativeStackHeaderProps } from '@react-navigation/native-stack';
-import { Stack as ExpoStack } from 'expo-router';
+import { Stack } from 'expo-router';
 import { FC, useCallback } from 'react';
 
-import { Header } from '$components';
-import { LeftIcon } from '$icons';
+import { Header, LeftIcon } from '@hero24/ui';
 
 interface Props {
   title?: string;
 }
 
-export const Stack: FC<Props> = (props) => {
+export const ExpoStack: FC<Props> = (props) => {
   const { title } = props;
 
   const header = useCallback(
     (headerProps: NativeStackHeaderProps) => {
       const { navigation } = headerProps;
-
-      if (!title) {
-        return null;
-      }
 
       return (
         <Header
@@ -32,7 +27,7 @@ export const Stack: FC<Props> = (props) => {
   );
 
   return (
-    <ExpoStack
+    <Stack
       screenOptions={() => ({
         header,
       })}
