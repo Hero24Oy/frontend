@@ -26,7 +26,7 @@ export const useLogic = () => {
     mode: 'onChange',
   });
 
-  // TODO set proper route when screen will be ready
+  // TODO set proper route when next screen will be ready
   const submitData = useCallback(() => {
     setCompanyInfo(getValues());
     router.push('/');
