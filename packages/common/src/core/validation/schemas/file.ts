@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-import { LoadedFile, MimeType } from '$types';
+import { LoadedFile, MimeType } from '$core';
 
 export const fileSchema: yup.ObjectSchema<
   Pick<LoadedFile, 'mime' | 'name' | 'src'>
