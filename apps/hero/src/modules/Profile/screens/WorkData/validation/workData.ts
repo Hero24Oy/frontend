@@ -10,7 +10,7 @@ import {
 import { CompanyCreation } from '$modules/Profile/stores';
 
 const stringMultiSelectArraySchema = multiSelectArraySchema<string>(false).of(
-  yup.string(),
+  yup.string().required(),
 );
 
 export const workDataSchema = yup.object<CompanyCreation['workData']>().shape({
