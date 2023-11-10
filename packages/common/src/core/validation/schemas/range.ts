@@ -1,8 +1,8 @@
 import * as yup from 'yup';
 
-import { Range } from '$types';
+import { RadioRange } from '@hero24/ui';
 
-export const rangeSchema: yup.ObjectSchema<Range> = yup.object({
+export const rangeSchema: yup.ObjectSchema<RadioRange> = yup.object({
   min: yup.number().required(),
   max: yup.number().required(),
 });

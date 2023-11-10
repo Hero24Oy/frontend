@@ -7,5 +7,5 @@ export const stringifyRadioValue = (value: RadioOption['value']): string => {
     return value;
   }
 
-  return String(value);
+  return JSON.stringify(value);
 };

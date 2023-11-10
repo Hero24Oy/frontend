@@ -14,7 +14,7 @@ export type RadioRange = {
 
 export type RadioOption = {
   label: string;
-  value: string | number;
+  value: string | RadioRange;
   isChecked?: boolean;
   isDisabled?: boolean;
 };
