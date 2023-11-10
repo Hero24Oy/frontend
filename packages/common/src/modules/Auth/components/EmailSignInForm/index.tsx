@@ -1,31 +1,12 @@
-import { yupResolver } from '@hookform/resolvers/yup';
-import { emailSignInFormValidationSchema } from 'core/validation';
 import { FC } from 'react';
-import { useForm } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
 
 import { Button, Input, VStack } from '@hero24/ui';
 
-interface FormData {
-  email: string;
-  password: string;
-}
+import { useLogic } from './useLogic';
 
 export const EmailSignInForm: FC = () => {
-  const { control, handleSubmit } = useForm<FormData>({
-    resolver: yupResolver(emailSignInFormValidationSchema),
-    defaultValues: {
-      email: '',
-      password: '',
-    },
-    mode: 'onChange',
-  });
-
-  const onSubmit = (): void => {
-    void handleSubmit((_data: FormData): void => {
-      return undefined;
-    })();
-  };
+  const { control, onSubmit } = useLogic();
 
   return (
     <VStack style={styles.container}>
