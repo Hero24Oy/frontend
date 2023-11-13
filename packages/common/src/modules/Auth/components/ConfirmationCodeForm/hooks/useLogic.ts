@@ -22,17 +22,21 @@ export const useLogic = () => {
     defaultValues: initialFormState,
     mode: 'onChange',
   });
+
   const [errorText, setErrorText] = useState<string | null>(null);
+
   const setError = useCallback(
     (error: Error) => setErrorText(error.message),
     [],
   );
 
   const { signInWithCredentials } = useAuthentication();
+
   const { verifyCode } = useVerifyCode({
     onAuthSucceed: signInWithCredentials,
     onAuthFailed: setError,
   });
+
   const { sendOneMoreTime, debounceTime } = useSendOneMoreTime({
     onAuthFailed: setError,
   });
@@ -45,11 +49,13 @@ export const useLogic = () => {
         await verifyCode(code);
       } catch (error) {
         const parsedError = parseError(error);
+
         setErrorText(parsedError.message);
       }
     }),
     [verifyCode, handleSubmit],
   );
+
   // If last length of code equals to amount of cells, then call onSubmit automatically
   useEffect(() => {
     const subscription = watch(({ code }) => {
@@ -60,6 +66,7 @@ export const useLogic = () => {
           }
         } catch (error) {
           const parsedError = parseError(error);
+
           setErrorText(parsedError.message);
         }
       })();

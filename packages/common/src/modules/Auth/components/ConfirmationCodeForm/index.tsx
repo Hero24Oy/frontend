@@ -5,7 +5,7 @@ import { Button, Color, ConfirmationInput, Text, VStack } from '@hero24/ui';
 
 import { SendOneMoreTime } from './components';
 import { CODE_LENGTH } from './constants';
-import { useLogic } from './useLogic';
+import { useLogic } from './hooks';
 
 export { RecaptchaModal } from './components';
 
