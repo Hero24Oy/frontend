@@ -1,3 +1,3 @@
-import { createLayout } from '@hero24/common';
+import { createStackLayout } from '@hero24/common';
 
-export default createLayout();
+export default createStackLayout();
