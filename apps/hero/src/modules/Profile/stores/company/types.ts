@@ -7,6 +7,10 @@ export type CompanyCreation = {
     country: string | null;
     postcode: string;
   };
+  companyBio: {
+    info: string;
+    languages: string[];
+  };
   companyInfo: {
     email: string;
     employees: Range | null;

@@ -25,6 +25,10 @@ export const companyCreationInitialState: CompanyCreation = {
     companyId: '',
     IBAN: '',
   },
+  companyBio: {
+    info: '',
+    languages: [],
+  },
 };
 
 export const useCompanyCreationStore = createMultiScreenStore(
