@@ -2,7 +2,8 @@ import { FC } from 'react';
 import { Control } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
 
-import { Button, Input, RadioGroup, View } from '@hero24/ui';
+import { RadioGroup } from '@hero24/common';
+import { Button, Input, View } from '@hero24/ui';
 
 import { chipOptions } from './constants';
 import { CompanyInfo } from './types';

@@ -1,5 +1,4 @@
-import { LoadedFile, Maybe } from '@hero24/common';
-import { RadioRange } from '@hero24/ui';
+import { LoadedFile, Maybe, Range } from '@hero24/common';
 
 export type CompanyCreation = {
   companyAddress: {
@@ -10,7 +9,7 @@ export type CompanyCreation = {
   };
   companyInfo: {
     email: string;
-    employees: RadioRange | null;
+    employees: Range | null;
     name: string;
   };
   paymentData: {
@@ -18,7 +17,7 @@ export type CompanyCreation = {
     IBAN: string;
   };
   workData: {
-    experience: RadioRange | null;
+    experience: Range | null;
     expertise: string[];
     places: string[];
     certificate?: Maybe<LoadedFile>;
