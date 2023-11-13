@@ -5,12 +5,6 @@ import {
   StyleSheet,
 } from 'react-native';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
 export const KeyboardAvoidingView: FC<PropsWithChildren> = (props) => {
   const { children } = props;
 
@@ -23,3 +17,9 @@ export const KeyboardAvoidingView: FC<PropsWithChildren> = (props) => {
     </RnKeyboardAvoidingView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

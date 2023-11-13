@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import { DEBOUNCE_TIME } from '../constants';
+import { DEBOUNCE_TIME_IN_SECONDS } from '../constants';
 
 import { useTimer } from './useTimer';
 
@@ -18,7 +18,10 @@ type UseSendOneMoreTime = (params: UseSendOneMoreTimeParams) => {
 export const useSendOneMoreTime: UseSendOneMoreTime = (params) => {
   const { onAuthFailed } = params;
 
-  const { timeLeft, resetTimer } = useTimer({ timeInSeconds: DEBOUNCE_TIME });
+  const { timeLeftInSeconds, resetTimer } = useTimer({
+    timeInSeconds: DEBOUNCE_TIME_IN_SECONDS,
+  });
+
   // We are sure that on this page phone number and reCaptcha are defined
   const { phoneNumber, reCaptcha } = usePhoneAuthStore<'strict'>();
 
@@ -33,10 +36,10 @@ export const useSendOneMoreTime: UseSendOneMoreTime = (params) => {
     } catch (error) {
       onAuthFailed?.(parseError(error));
     }
-  }, [timeLeft, phoneNumber, reCaptcha]);
+  }, [timeLeftInSeconds, phoneNumber, reCaptcha]);
 
   return {
     sendOneMoreTime,
-    debounceTime: timeLeft,
+    debounceTime: timeLeftInSeconds,
   };
 };

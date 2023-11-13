@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-const ONE_SECOND = 1000;
+const ONE_SECOND = 1;
 
 type UseDebounceProps = {
   timeInSeconds: number;
@@ -8,28 +8,29 @@ type UseDebounceProps = {
 
 export const useTimer = (props: UseDebounceProps) => {
   const { timeInSeconds } = props;
-  const [timeLeft, setTimeLeft] = useState(timeInSeconds);
+  const [timeLeftInSeconds, setTimeLeftInSeconds] = useState(timeInSeconds);
   const [hasTimerStarted, setHasTimerStarted] = useState(true);
 
   const resetTimer = useCallback(() => {
-    setTimeLeft(timeInSeconds);
+    setTimeLeftInSeconds(timeInSeconds);
     setHasTimerStarted(true);
   }, []);
 
   useEffect(() => {
-    if (timeLeft <= 0 || !hasTimerStarted) {
+    if (timeLeftInSeconds <= 0 || !hasTimerStarted) {
       return;
     }
 
     const interval = setInterval(() => {
-      setTimeLeft((prevTime) => prevTime - 1);
-    }, ONE_SECOND);
+      setTimeLeftInSeconds((prevTime) => prevTime - ONE_SECOND);
+      // eslint-disable-next-line no-magic-numbers -- setInterval accepts time in milliseconds
+    }, ONE_SECOND * 1000);
 
     return () => clearInterval(interval);
-  }, [timeLeft]);
+  }, [timeLeftInSeconds]);
 
   return {
-    timeLeft,
+    timeLeftInSeconds,
     resetTimer,
   };
 };
