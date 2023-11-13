@@ -9,7 +9,7 @@ import { FC, PropsWithChildren } from 'react';
 
 import { GluestackRadioIndicatorProps } from './types';
 
-import { RadioSize, RadioVariant } from '$atoms/Radio';
+import { RadioSize, RadioVariant } from '$atoms/Radio/types';
 
 type Props = {
   size?: RadioSize;

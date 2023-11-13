@@ -6,7 +6,7 @@ import { FC, PropsWithChildren } from 'react';
 
 import { GluestackChipProps } from './types';
 
-import { RadioSize, RadioVariant } from '$atoms/Radio';
+import { RadioSize, RadioVariant } from '$atoms/Radio/types';
 
 type Props = {
   size?: RadioSize;
