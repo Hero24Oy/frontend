@@ -1,7 +1,7 @@
 import { RadioGroup } from '@gluestack-ui/themed';
 import { ComponentProps } from 'react';
 
-import { RadioOption, RadioSize, RadioVariant } from '$atoms';
+import { BlankRadioOption, RadioSize, RadioVariant } from '$atoms';
 import { LayoutStyles } from '$types';
 
 type GluestackRadioGroup = Pick<
@@ -10,7 +10,7 @@ type GluestackRadioGroup = Pick<
 >;
 
 export type BlankRadioGroupProps = {
-  options: RadioOption[];
+  options: BlankRadioOption[];
   variant: `${RadioVariant}`;
   childrenStyle?: LayoutStyles;
   isGloballyDisabled?: boolean;

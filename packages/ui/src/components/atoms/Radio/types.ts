@@ -7,7 +7,7 @@ export enum RadioVariant {
 
 export type RadioSize = Extract<Size, 'sm' | 'md' | 'lg'>;
 
-export type RadioOption = {
+export type BlankRadioOption = {
   label: string;
   value: string;
   isChecked?: boolean;

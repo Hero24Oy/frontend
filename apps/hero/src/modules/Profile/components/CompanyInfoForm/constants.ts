@@ -1,4 +1,4 @@
-import { RadioOption } from '@hero24/ui';
+import { RadioOption } from '@hero24/common';
 
 export const chipOptions = [
   { label: '0-10', value: { min: 0, max: 10 } },
