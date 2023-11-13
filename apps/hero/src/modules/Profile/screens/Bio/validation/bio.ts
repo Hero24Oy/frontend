@@ -1,8 +1,8 @@
 import * as yup from 'yup';
 
-import { defaultLanguages } from './constants';
+import { multiSelectArraySchema } from '@hero24/common';
 
-import { multiSelectArraySchema } from '$core';
+import { defaultLanguages } from './constants';
 
 const stringMultiSelectArraySchema = multiSelectArraySchema<string>(false).of(
   yup.string().required(),

@@ -8,4 +8,4 @@ export const BioScreen: FC<Props> = () => {
   return null;
 };
 
-export * from './useBioLogic';
+export * from './useLogic';
