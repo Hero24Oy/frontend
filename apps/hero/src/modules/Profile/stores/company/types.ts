@@ -1,6 +1,6 @@
 import { LoadedFile, Maybe, Range } from '@hero24/common';
 
-import { Bio } from '$modules/Profile/screens';
+import { Bio } from '$modules/Common';
 
 export type CompanyCreation = {
   companyAddress: {
