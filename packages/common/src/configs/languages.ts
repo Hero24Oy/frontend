@@ -1,3 +1,3 @@
 import { CountryCode } from 'react-native-country-picker-modal';
 
-export const defaultLanguages: CountryCode[] = ['FI'];
+export const DEFAULT_LANGUAGES: CountryCode[] = ['FI'];
