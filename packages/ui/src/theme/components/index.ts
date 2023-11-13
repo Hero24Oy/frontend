@@ -14,3 +14,4 @@ export * from './Textarea';
 export * from './TextareaInput';
 export * from './Slider';
 export * from './Card';
+export * from './Select';

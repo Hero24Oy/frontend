@@ -9,8 +9,8 @@ import { IconPosition } from '../types';
 import { BaseIcon } from '$icons/base';
 
 type Props = PropsWithChildren<{
-  icon: BaseIcon;
-  iconPosition: `${IconPosition}`;
+  icon: BaseIcon | undefined;
+  iconPosition?: `${IconPosition}`;
 }>;
 
 export const BadgeContent: FC<Props> = (props) => {
