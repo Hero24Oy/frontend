@@ -3,14 +3,19 @@ import { FC } from 'react';
 
 import { ProgressBarSize } from './types';
 
+import { CommonStyles } from '$types';
+
 type Props = {
-  size?: ProgressBarSize;
+  size?: `${ProgressBarSize}`;
+  styles?: CommonStyles;
   value?: number;
 };
 
 export const ProgressBar: FC<Props> = (props) => {
+  const { value = 0, ...restProps } = props;
+
   return (
-    <Progress {...props}>
+    <Progress value={value} {...restProps}>
       <ProgressFilledTrack />
     </Progress>
   );
