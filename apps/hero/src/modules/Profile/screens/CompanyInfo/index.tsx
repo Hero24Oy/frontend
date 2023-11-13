@@ -16,7 +16,7 @@ export const CompanyInfoScreen: FC = () => {
     <>
       <StatusBar style="dark" />
 
-      <VStack style={styles.vStack}>
+      <VStack style={styles.container}>
         <Heading variant="H2">Add company info</Heading>
 
         <CompanyInfoForm
@@ -30,7 +30,7 @@ export const CompanyInfoScreen: FC = () => {
 };
 
 const styles = StyleSheet.create({
-  vStack: {
+  container: {
     flex: 1,
     gap: 24,
     paddingHorizontal: 16,
