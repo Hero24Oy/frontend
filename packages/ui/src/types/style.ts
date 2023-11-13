@@ -25,4 +25,5 @@ export type LayoutStyles = CommonStyles &
     | 'flexDirection'
   >;
 
-export type TextStyles = CommonStyles & Pick<TextStyle, 'textAlign' | 'width'>;
+export type TextStyles = CommonStyles &
+  Pick<TextStyle, 'textAlign' | 'width' | 'color'>;

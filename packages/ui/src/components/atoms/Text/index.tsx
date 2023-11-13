@@ -3,18 +3,18 @@ import { FC } from 'react';
 
 import { TextVariant } from './types';
 
-import { Color } from '$theme/constants';
 import { TextStyles } from '$types';
 
 export type TextProps = {
   children: string;
-  color?: `${Color}`;
   style?: TextStyles;
   variant?: `${TextVariant}`;
 };
 
-export const Text: FC<TextProps> = ({ children, ...restProps }) => (
-  <GluestackText {...restProps}>{children}</GluestackText>
-);
+export const Text: FC<TextProps> = (props) => {
+  const { children, ...restProps } = props;
+
+  return <GluestackText {...restProps}>{children}</GluestackText>;
+};
 
 export * from './types';

@@ -9,4 +9,5 @@ export type PhoneInputProps<Type extends FieldValues> = {
   isDisabled?: boolean;
   placeholder?: string;
   preferredCountryCodes?: CountryCode[];
+  title?: string;
 };

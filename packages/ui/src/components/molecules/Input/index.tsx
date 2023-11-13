@@ -30,6 +30,7 @@ export const Input = <Type extends FieldValues>(
     title,
     size = Size.SM,
     type = InputType.TEXT,
+    isHelperEnabled = true,
     isDisabled = false,
     keyboardType = 'default',
   } = props;
@@ -74,14 +75,14 @@ export const Input = <Type extends FieldValues>(
           />
         ) : null}
       </GluestackInput>
-      <InputHelper error={error} />
+      {isHelperEnabled ? <InputHelper error={error} /> : null}
     </VStack>
   );
 };
 
 const styles = StyleSheet.create({
   mainWrapper: {
-    gap: 6,
+    gap: 4,
   },
 });
 
