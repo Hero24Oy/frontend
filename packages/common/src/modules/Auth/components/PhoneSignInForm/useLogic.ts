@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
@@ -38,12 +39,14 @@ export const useLogic = (params: PhoneSignInFormProps) => {
         return;
       }
 
-      const phoneNumber = (data.code + data.phone).replace(' ', '');
+      const { phone, code } = data;
+      const phoneNumber = (code + phone).replace(' ', '');
 
-      await sendVerificationCode({
-        phoneNumber,
-        reCaptcha,
-      });
+      // await sendVerificationCode({
+      //   phoneNumber,
+      //   reCaptcha,
+      // });
+      signInWithPhoneCallback();
     }),
     [reCaptcha, handleSubmit],
   );

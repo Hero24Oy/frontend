@@ -6,6 +6,7 @@ import { Button, Color, ConfirmationInput, Text, VStack } from '@hero24/ui';
 import { SendOneMoreTime } from './components';
 import { CODE_LENGTH } from './constants';
 import { useLogic } from './hooks';
+import { TimerProvider } from './store';
 
 export { RecaptchaModal } from './components';
 
@@ -16,34 +17,35 @@ export const ConfirmationCodeForm: FC = () => {
     isValid,
     onSubmitHandler,
     onSendOneMoreTimeHandler,
-    debounceTime,
+    // debounceTime,
     errorText,
   } = useLogic();
 
+  console.log('rerender confirmation code form');
+
   // TODO error handling will be deal with when design is ready
   return (
-    <VStack style={styles.wrapper}>
-      {/* TODO replace with i18n call */}
-      <VStack style={styles.centered}>
-        <ConfirmationInput
-          control={control}
-          name="code"
-          cellCount={CODE_LENGTH}
-        />
-        {errorText && <Text style={styles.errorText}>{errorText}</Text>}
-        <SendOneMoreTime
-          debounceTime={debounceTime}
-          onPress={onSendOneMoreTimeHandler}
-        />
+    <TimerProvider>
+      <VStack style={styles.wrapper}>
+        {/* TODO replace with i18n call */}
+        <VStack style={styles.centered}>
+          <ConfirmationInput
+            control={control}
+            name="code"
+            cellCount={CODE_LENGTH}
+          />
+          {errorText && <Text style={styles.errorText}>{errorText}</Text>}
+          <SendOneMoreTime onPress={onSendOneMoreTimeHandler} />
+        </VStack>
+        <Button
+          onPress={onSubmitHandler}
+          isDisabled={!isValid}
+          isLoading={isLoading}
+        >
+          Continue
+        </Button>
       </VStack>
-      <Button
-        onPress={onSubmitHandler}
-        isDisabled={!isValid}
-        isLoading={isLoading}
-      >
-        Continue
-      </Button>
-    </VStack>
+    </TimerProvider>
   );
 };
 

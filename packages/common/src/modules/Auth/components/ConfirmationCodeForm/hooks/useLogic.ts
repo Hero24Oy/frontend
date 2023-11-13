@@ -18,7 +18,7 @@ export const useLogic = () => {
     formState: { isSubmitting, isValid },
     watch,
   } = useForm<ConfirmationCodeFormData>({
-    resolver: yupResolver(validationSchema),
+    resolver: yupResolver<ConfirmationCodeFormData>(validationSchema),
     defaultValues: initialFormState,
     mode: 'onChange',
   });
@@ -37,7 +37,7 @@ export const useLogic = () => {
     onAuthFailed: setError,
   });
 
-  const { sendOneMoreTime, debounceTime } = useSendOneMoreTime({
+  const { sendOneMoreTime } = useSendOneMoreTime({
     onAuthFailed: setError,
   });
 
@@ -77,7 +77,6 @@ export const useLogic = () => {
 
   return {
     control,
-    debounceTime,
     onSubmitHandler,
     isLoading: isSubmitting,
     isValid,
