@@ -2,11 +2,12 @@ import { RadioGroup as GluestackRadioGroup, View } from '@gluestack-ui/themed';
 import { ReactElement } from 'react';
 import { Control, FieldValues, Path } from 'react-hook-form';
 
-import { Radio, RadioTitle } from './components';
-import { useRadioGroup } from './hooks';
-import { RadioGroupProps } from './types';
+import { useRadioGroup } from '../RadioGroup/hooks';
+import { RadioGroupProps } from '../RadioGroup/types';
 
 import { RadioSize } from '$atoms';
+import { Radio } from '$atoms/Radio';
+import { RadioTitle } from '$atoms/RadioTitle';
 import { LayoutStyles } from '$types';
 
 type Props<Type extends FieldValues> = {
@@ -58,4 +59,4 @@ export const RadioGroup = <Type extends FieldValues>(
   );
 };
 
-export * from './types';
+export * from '../RadioGroup/types';
