@@ -6,7 +6,6 @@ import { initialFormState } from './constants';
 import { PhoneSignInFormData, PhoneSignInFormProps } from './types';
 import { validationSchema } from './validation';
 
-import { parseError } from '$core/utils';
 import { useSendVerificationCode } from '$modules/Auth/hooks';
 import { usePhoneAuthStore } from '$modules/Auth/stores';
 import { handleAuthError } from '$modules/Auth/utils';
@@ -26,30 +25,25 @@ export const useLogic = (params: PhoneSignInFormProps) => {
   });
 
   const { sendVerificationCode } = useSendVerificationCode({
+    onAuthSucceed: signInWithPhoneCallback,
     onAuthFailed: handleAuthError,
   });
 
   const onSubmit = useCallback(
     handleSubmit(async (data: PhoneSignInFormData) => {
-      try {
-        if (!reCaptcha) {
-          throw new Error('Recaptcha is not initialized');
-        }
+      // TODO handle and show auth error in UI
+      if (!reCaptcha) {
+        handleAuthError(new Error('Recaptcha is not initialized'));
 
-        const phoneNumber = (data.code + data.phone).replace(' ', '');
-
-        await sendVerificationCode({
-          phoneNumber,
-          reCaptcha,
-        });
-
-        signInWithPhoneCallback();
-      } catch (error) {
-        // TODO handle and show auth error in UI
-        const parsedError = parseError(error);
-
-        handleAuthError(parsedError);
+        return;
       }
+
+      const phoneNumber = (data.code + data.phone).replace(' ', '');
+
+      await sendVerificationCode({
+        phoneNumber,
+        reCaptcha,
+      });
     }),
     [reCaptcha, handleSubmit],
   );
