@@ -1,6 +1,6 @@
-import { Maybe } from '$core';
+import { Maybe } from '@hero24/common';
 
-export type BioBase = {
+export type Bio = {
   languages: string[] | null;
   info?: Maybe<string>;
 };

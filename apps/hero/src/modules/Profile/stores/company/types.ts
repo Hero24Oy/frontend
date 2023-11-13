@@ -1,5 +1,7 @@
 import { LoadedFile, Maybe, Range } from '@hero24/common';
 
+import { Bio } from '$modules/Profile/screens';
+
 export type CompanyCreation = {
   companyAddress: {
     address: string;
@@ -7,10 +9,7 @@ export type CompanyCreation = {
     country: string | null;
     postcode: string;
   };
-  companyBio: {
-    info: string;
-    languages: string[];
-  };
+  companyBio: Bio;
   companyInfo: {
     email: string;
     employees: Range | null;
