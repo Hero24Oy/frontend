@@ -38,6 +38,10 @@ export const useTimeLeft = () => useContext(TimerDataContext);
 
 export const useResetTimer = () => useContext(TimerApiContext);
 
+// * Zustand does not provide way of creating providers, so we are forced to use react context
+// * This provider was created in order to optimize the app
+// * By creating two context - one with timer value and one with resetting timer, we are cutting out redundant rerenders of form
+// * Only components that use timer value will rerender
 export const TimerProvider: FC<PropsWithChildren> = (props) => {
   const { children } = props;
 
