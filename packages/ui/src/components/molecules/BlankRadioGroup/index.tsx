@@ -1,53 +1,27 @@
 import { RadioGroup as GluestackRadioGroup, View } from '@gluestack-ui/themed';
-import { ReactElement } from 'react';
-import { Control, FieldValues, Path } from 'react-hook-form';
+import { FC } from 'react';
 
-import { useRadioGroup } from '../RadioGroup/hooks';
-import { RadioGroupProps } from '../RadioGroup/types';
+import { BlankRadioGroupProps } from './types';
 
-import { RadioSize } from '$atoms';
-import { Radio } from '$atoms/Radio';
-import { RadioTitle } from '$atoms/RadioTitle';
-import { LayoutStyles } from '$types';
+import { Radio, RadioTitle } from '$atoms';
 
-type Props<Type extends FieldValues> = {
-  control: Control<Type>;
-  name: Path<Type>;
-  childrenStyle?: LayoutStyles;
-  size?: RadioSize;
-  style?: LayoutStyles;
-  title?: string;
-} & RadioGroupProps;
-
-export const RadioGroup = <Type extends FieldValues>(
-  props: Props<Type>,
-): ReactElement => {
+export const BlankRadioGroup: FC<BlankRadioGroupProps> = (props) => {
   const {
-    name,
-    control,
     size,
     options,
     style,
     title,
     childrenStyle,
+    value,
+    onChange,
     ...restProps
   } = props;
-
-  const { radioGroupHandler, radioGroupValue } = useRadioGroup({
-    name,
-    control,
-    options,
-  });
 
   return (
     <View>
       <RadioTitle value={title} />
 
-      <GluestackRadioGroup
-        value={radioGroupValue}
-        onChange={radioGroupHandler}
-        style={style}
-      >
+      <GluestackRadioGroup value={value} onChange={onChange} style={style}>
         <Radio
           size={size}
           options={options}
@@ -59,4 +33,4 @@ export const RadioGroup = <Type extends FieldValues>(
   );
 };
 
-export * from '../RadioGroup/types';
+export * from './types';
