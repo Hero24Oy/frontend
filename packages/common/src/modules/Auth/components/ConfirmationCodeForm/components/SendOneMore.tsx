@@ -12,7 +12,7 @@ export const SendOneMoreTime = (props: SendOneMoreProps) => {
   const { debounceTime, onPress } = props;
 
   // TODO i18n
-  const text =
+  const message =
     debounceTime > 0
       ? `Send one more time after ${debounceTime}`
       : ' Send one more time';
@@ -24,7 +24,7 @@ export const SendOneMoreTime = (props: SendOneMoreProps) => {
       onPress={onPress}
     >
       <Text variant="link" style={styles.message}>
-        {text}
+        {message}
       </Text>
     </Pressable>
   );
