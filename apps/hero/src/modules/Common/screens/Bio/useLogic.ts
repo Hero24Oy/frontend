@@ -10,7 +10,7 @@ type Params = {
   setter: (form: Bio) => void;
 };
 
-export const useBioLogic = (params: Params) => {
+export const useLogic = (params: Params) => {
   const { defaultValues, setter } = params;
 
   const {
