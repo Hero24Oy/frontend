@@ -2,18 +2,13 @@ import { PressableProps, StyleSheet } from 'react-native';
 
 import { Color, Pressable, Text } from '@hero24/ui';
 
-import { useTimerData } from '../store';
+import { useTimeLeft } from '../timerStore';
 
-type PickerProps = Pick<PressableProps, 'onPress'>;
-
-type SendOneMoreProps = {
-  // debounceTime: number;
-} & PickerProps;
+type SendOneMoreProps = Pick<PressableProps, 'onPress'>;
 
 export const SendOneMoreTime = (props: SendOneMoreProps) => {
-  console.log('rerender send one more time ');
   const { onPress } = props;
-  const debounceTime = useTimerData();
+  const debounceTime = useTimeLeft();
 
   // TODO i18n
   const message =

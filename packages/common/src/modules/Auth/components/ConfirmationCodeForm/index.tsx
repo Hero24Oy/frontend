@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Button, Color, ConfirmationInput, Text, VStack } from '@hero24/ui';
+import { Button, Color, ConfirmationInput, VStack } from '@hero24/ui';
 
 import { SendOneMoreTime } from './components';
 import { CODE_LENGTH } from './constants';
 import { useLogic } from './hooks';
-import { TimerProvider } from './store';
+import { TimerProvider } from './timerStore';
 
 export { RecaptchaModal } from './components';
 
@@ -17,11 +17,7 @@ export const ConfirmationCodeForm: FC = () => {
     isValid,
     onSubmitHandler,
     onSendOneMoreTimeHandler,
-    // debounceTime,
-    errorText,
   } = useLogic();
-
-  console.log('rerender confirmation code form');
 
   // TODO error handling will be deal with when design is ready
   return (
@@ -34,7 +30,6 @@ export const ConfirmationCodeForm: FC = () => {
             name="code"
             cellCount={CODE_LENGTH}
           />
-          {errorText && <Text style={styles.errorText}>{errorText}</Text>}
           <SendOneMoreTime onPress={onSendOneMoreTimeHandler} />
         </VStack>
         <Button
@@ -61,5 +56,3 @@ const styles = StyleSheet.create({
     color: Color.RED_00,
   },
 });
-
-export * from './types';

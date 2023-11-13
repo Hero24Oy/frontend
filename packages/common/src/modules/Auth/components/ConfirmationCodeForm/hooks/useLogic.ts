@@ -1,86 +1,20 @@
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useCallback, useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
-
-import { CODE_LENGTH, initialFormState } from '../constants';
-import { ConfirmationCodeFormData } from '../types';
-import { validationSchema } from '../validation';
-
 import { useSendOneMoreTime } from './useSendOneMoreTime';
+import { useValidation } from './useValidation';
 
-import { parseError } from '$core';
-import { useAuthentication, useVerifyCode } from '$modules/Auth/hooks';
+import { handleAuthError } from '$modules/Auth/utils';
 
 export const useLogic = () => {
-  const {
-    control,
-    handleSubmit,
-    formState: { isSubmitting, isValid },
-    watch,
-  } = useForm<ConfirmationCodeFormData>({
-    resolver: yupResolver<ConfirmationCodeFormData>(validationSchema),
-    defaultValues: initialFormState,
-    mode: 'onChange',
-  });
-
-  const [errorText, setErrorText] = useState<string | null>(null);
-
-  const setError = useCallback(
-    (error: Error) => setErrorText(error.message),
-    [],
-  );
-
-  const { signInWithCredentials } = useAuthentication();
-
-  const { verifyCode } = useVerifyCode({
-    onAuthSucceed: signInWithCredentials,
-    onAuthFailed: setError,
-  });
+  const { control, isSubmitting, isValid, onSubmit } = useValidation();
 
   const { sendOneMoreTime } = useSendOneMoreTime({
-    onAuthFailed: setError,
+    onAuthFailed: handleAuthError,
   });
-
-  const onSubmitHandler = useCallback(
-    handleSubmit(async (data: ConfirmationCodeFormData) => {
-      try {
-        const { code } = data;
-
-        await verifyCode(code);
-      } catch (error) {
-        const parsedError = parseError(error);
-
-        setErrorText(parsedError.message);
-      }
-    }),
-    [verifyCode, handleSubmit],
-  );
-
-  // If last length of code equals to amount of cells, then call onSubmit automatically
-  useEffect(() => {
-    const subscription = watch(({ code }) => {
-      void (async () => {
-        try {
-          if (code?.length === CODE_LENGTH) {
-            await onSubmitHandler(undefined);
-          }
-        } catch (error) {
-          const parsedError = parseError(error);
-
-          setErrorText(parsedError.message);
-        }
-      })();
-    });
-
-    return () => subscription.unsubscribe();
-  }, [watch]);
 
   return {
     control,
-    onSubmitHandler,
-    isLoading: isSubmitting,
     isValid,
+    isLoading: isSubmitting,
+    onSubmitHandler: onSubmit,
     onSendOneMoreTimeHandler: sendOneMoreTime,
-    errorText,
   };
 };

@@ -1,9 +1,5 @@
-import { ConfirmationCodeFormData } from './types';
-
 export const CODE_LENGTH = 6;
 
-export const DEBOUNCE_TIME_IN_SECONDS = 60;
+export const ONE_SECOND = 1;
 
-export const initialFormState: ConfirmationCodeFormData = {
-  code: '',
-};
+export const DEBOUNCE_TIME_IN_SECONDS = 60;
