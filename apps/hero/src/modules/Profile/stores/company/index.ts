@@ -1,4 +1,4 @@
-import { createMultiScreenStore } from '@hero24/common';
+import { createMultiScreenStore, DEFAULT_LANGUAGES } from '@hero24/common';
 
 import { CompanyCreation } from './types';
 
@@ -27,7 +27,7 @@ export const companyCreationInitialState: CompanyCreation = {
   },
   companyBio: {
     info: '',
-    languages: [],
+    languages: DEFAULT_LANGUAGES,
   },
 };
 
