@@ -1,8 +1,8 @@
 import { FC, memo } from 'react';
 
 import { radioVariantMapper } from './constants';
+import { RadioOption, RadioSize, RadioVariant } from './types';
 
-import { RadioOption, RadioSize, RadioVariant } from '$atoms';
 import { LayoutStyles } from '$types';
 
 type Props = {
@@ -32,3 +32,5 @@ export const Radio: FC<Props> = memo((props) => {
     ))
   );
 });
+
+export * from './types';
