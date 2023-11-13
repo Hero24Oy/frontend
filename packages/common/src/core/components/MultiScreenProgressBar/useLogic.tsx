@@ -4,36 +4,33 @@ import { useMemo } from 'react';
 
 import { JsxElement, ProgressBar } from '@hero24/ui';
 
-import { ScreensForms, Store } from '$core/store';
-import { convertToPercentage } from '$core/utils';
+import { MultiScreenProgressBarProps } from './types';
 
-type Props<Forms extends ScreensForms> = {
-  currentStoreValue: Store<Forms>;
-  initialStoreState: Forms;
-};
+import { ScreensForms } from '$core/store';
+import { computePercentageFraction } from '$core/utils';
 
 type ReturnValue = {
   progressBars: JsxElement[];
 };
 
 export const useLogic = <Forms extends ScreensForms>(
-  params: Props<Forms>,
+  params: MultiScreenProgressBarProps<Forms>,
 ): ReturnValue => {
   const { initialStoreState, currentStoreValue } = params;
 
   const progressBars = useMemo(() => {
-    const storeArray = Object.entries(currentStoreValue);
+    const storeEntries = Object.entries(currentStoreValue);
 
-    // Filtering methods for setting fields from the stored value
-    const storeScreenFieldsArray = storeArray.filter(
+    // Filtering methods for setting fields value from the store
+    const screenFormValuesEntries = storeEntries.filter(
       ([storeScreenName]) => !storeScreenName.startsWith('set'),
     );
 
-    return storeScreenFieldsArray.map(
+    return screenFormValuesEntries.map(
       ([storeScreenName, storeScreenFields], index) => {
         const fields = Object.entries(storeScreenFields);
 
-        const changedFieldsCount = fields.filter(([fieldKey, fieldValue]) => {
+        const changedFields = fields.filter(([fieldKey, fieldValue]) => {
           const fieldInitialValue = get(initialStoreState, [
             storeScreenName,
             fieldKey,
@@ -42,12 +39,12 @@ export const useLogic = <Forms extends ScreensForms>(
           return !isEqual(fieldInitialValue, fieldValue);
         });
 
-        const progressValue = convertToPercentage(
-          changedFieldsCount.length,
+        const progressBarValue = computePercentageFraction(
+          changedFields.length,
           fields.length,
         );
 
-        return <ProgressBar value={progressValue} key={index} />;
+        return <ProgressBar value={progressBarValue} key={index} />;
       },
     );
   }, [currentStoreValue]);

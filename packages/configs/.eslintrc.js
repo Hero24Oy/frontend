@@ -148,7 +148,6 @@ const importRules = {
 };
 
 const reactRules = {
-  'react/no-unused-prop-types': 'off',
   'react/react-in-jsx-scope': 'off',
   'react/jsx-uses-react': 'off',
   'react/display-name': 'off',

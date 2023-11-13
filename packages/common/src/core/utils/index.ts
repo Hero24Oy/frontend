@@ -3,4 +3,4 @@ export * from './mergeObjects';
 export * from './getCurrentLanguage';
 export * from './stringifyPretty';
 export * from './parseError';
-export * from './convertToPercentage';
+export * from './computePercentageFraction';

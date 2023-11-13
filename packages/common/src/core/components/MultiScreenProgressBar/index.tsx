@@ -2,17 +2,13 @@ import { StyleSheet } from 'react-native';
 
 import { HStack, JsxElement } from '@hero24/ui';
 
+import { MultiScreenProgressBarProps } from './types';
 import { useLogic } from './useLogic';
 
-import { ScreensForms, Store } from '$core/store';
-
-type Props<Forms extends ScreensForms> = {
-  currentStoreValue: Store<Forms>;
-  initialStoreState: Forms;
-};
+import { ScreensForms } from '$core/store';
 
 export const MultiScreenProgressBar = <Forms extends ScreensForms>(
-  props: Props<Forms>,
+  props: MultiScreenProgressBarProps<Forms>,
 ): JsxElement => {
   const { progressBars } = useLogic(props);
 
@@ -24,3 +20,5 @@ const styles = StyleSheet.create({
     gap: 8,
   },
 });
+
+export * from './types';
