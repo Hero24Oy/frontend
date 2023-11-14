@@ -3,16 +3,10 @@ import { StyleSheet } from 'react-native';
 
 import { Button, Color, Heading, Text, VStack } from '@hero24/ui';
 
-import { getMaskedEmail } from './utils';
-
-import { useEmailAuthStore } from '$modules/Auth/stores';
+import { useLogic } from './useLogic';
 
 export const ResetPasswordCheckEmail: FC = () => {
-  const { email } = useEmailAuthStore<'strict'>();
-
-  const message = `We sent a link to reset your password to ${getMaskedEmail(
-    email,
-  )}`;
+  const { message, sendOneMoreTime } = useLogic({});
 
   return (
     <VStack style={styles.wrapper}>
@@ -23,7 +17,7 @@ export const ResetPasswordCheckEmail: FC = () => {
       </Text>
       <VStack style={styles.button}>
         {/* TODO replace with i18n call */}
-        <Button variant="solid" action="primary">
+        <Button onPress={sendOneMoreTime} variant="solid" action="primary">
           Send one more time
         </Button>
       </VStack>
