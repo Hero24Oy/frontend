@@ -7,5 +7,3 @@ type Props = {
 export const BioScreen: FC<Props> = () => {
   return null;
 };
-
-export * from './types';

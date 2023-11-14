@@ -25,7 +25,7 @@ export const profileCreationInitialState: ProfileCreation = {
     companyId: '',
     IBAN: '',
   },
-  companyBio: {
+  bio: {
     info: '',
     languages: DEFAULT_LANGUAGES,
   },
