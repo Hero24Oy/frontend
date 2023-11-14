@@ -1,5 +1,4 @@
-import { PREFIX, QUERY } from './query';
-import { Data } from './types';
+import { Data, PREFIX, QUERY } from './query';
 
 import { useCustomQuery, UseQueryWrapper } from '$core';
 
