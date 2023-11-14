@@ -24,13 +24,13 @@ export const RadioGroup = <Type extends FieldValues, Value>(
   props: Props<Type, Value>,
 ): ReactElement => {
   const {
+    control,
+    name,
     size,
     options,
     style,
     title,
     childrenStyle,
-    control,
-    name,
     ...restProps
   } = props;
 
