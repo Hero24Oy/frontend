@@ -9,7 +9,9 @@ export type StringifyObject<Type> = Type extends ObjectType
             Type[Key],
             ObjectType
           > extends ObjectType
-            ? StringifyObject<Extract<Type[Key], ObjectType>>
+            ?
+                | StringifyObject<Extract<Type[Key], ObjectType>>
+                | Exclude<Type[Key], ObjectType>
             : Type[Key];
         }
       | string
