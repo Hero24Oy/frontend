@@ -7,7 +7,7 @@ import {
 
 import { ConfirmationCodeForm, ConfirmationCodeHeader } from '../../components';
 
-import { TimerProvider } from '$modules/Auth/components/ConfirmationCodeForm/timerStore';
+import { TimerProvider } from '$modules/Auth/components';
 
 export const ConfirmationCodeScreen = () => {
   return (

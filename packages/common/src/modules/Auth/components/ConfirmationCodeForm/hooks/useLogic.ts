@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { useResetTimer } from '../timerStore';
+import { useResetTimer } from '../components';
 
 import { useSendOneMoreTime } from './useSendOneMoreTime';
 import { useValidation } from './useValidation';

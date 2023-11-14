@@ -2,7 +2,7 @@ import { PressableProps, StyleSheet } from 'react-native';
 
 import { Color, Pressable, Text } from '@hero24/ui';
 
-import { useTimeLeft } from '../timerStore';
+import { useTimeLeft } from './TimerProvider';
 
 type SendOneMoreProps = Pick<PressableProps, 'onPress'>;
 

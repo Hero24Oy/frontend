@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import { useResetTimer } from '../timerStore';
+import { useResetTimer } from '../components';
 
 import { parseError } from '$core';
 import { useSendVerificationCode, WithCallback } from '$modules/Auth/hooks';

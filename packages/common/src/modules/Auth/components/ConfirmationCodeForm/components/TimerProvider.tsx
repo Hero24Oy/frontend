@@ -8,7 +8,7 @@ import {
   useState,
 } from 'react';
 
-import { DEBOUNCE_TIME_IN_SECONDS } from './constants';
+import { DEBOUNCE_TIME_IN_SECONDS } from '../constants';
 
 const TimerDataContext = createContext<number>(0);
 
