@@ -2,34 +2,18 @@ import {
   createContext,
   FC,
   PropsWithChildren,
+  useCallback,
   useContext,
   useEffect,
+  useState,
 } from 'react';
-import { create } from 'zustand';
 
 import { DEBOUNCE_TIME_IN_SECONDS, ONE_SECOND } from './constants';
 
 type TimerState = {
-  hasTimerStarted: boolean;
-  resetTimer: (timeInSeconds?: number) => void;
-  subtractOneSecond: () => void;
+  resetTimer: () => void;
   timeLeftInSeconds: number;
 };
-
-const useTimerStore = create<TimerState>()((set) => ({
-  timeLeftInSeconds: DEBOUNCE_TIME_IN_SECONDS,
-  resetTimer: (timeLeftInSeconds) =>
-    set(() => ({
-      timeLeftInSeconds: timeLeftInSeconds ?? 0,
-      hasTimerStarted: true,
-    })),
-  subtractOneSecond: () =>
-    set(({ timeLeftInSeconds }) => ({
-      timeLeftInSeconds: timeLeftInSeconds - ONE_SECOND,
-    })),
-  hasTimerStarted: true,
-}));
-
 const TimerDataContext = createContext<number>(1);
 
 const TimerApiContext = createContext<() => void>(() => undefined);
@@ -45,16 +29,22 @@ export const useResetTimer = () => useContext(TimerApiContext);
 export const TimerProvider: FC<PropsWithChildren> = (props) => {
   const { children } = props;
 
-  const { timeLeftInSeconds, resetTimer, subtractOneSecond, hasTimerStarted } =
-    useTimerStore();
+  const [timeLeftInSeconds, setTimeLeftInSeconds] = useState<
+    TimerState['timeLeftInSeconds']
+  >(DEBOUNCE_TIME_IN_SECONDS);
+
+  const resetTimer: TimerState['resetTimer'] = useCallback(
+    () => setTimeLeftInSeconds(DEBOUNCE_TIME_IN_SECONDS),
+    [],
+  );
 
   useEffect(() => {
-    if (timeLeftInSeconds <= 0 || !hasTimerStarted) {
+    if (timeLeftInSeconds <= 0) {
       return;
     }
 
     const interval = setInterval(() => {
-      subtractOneSecond();
+      setTimeLeftInSeconds((prevState) => prevState - ONE_SECOND);
       // eslint-disable-next-line no-magic-numbers -- setInterval accepts time in milliseconds
     }, ONE_SECOND * 1000);
 
