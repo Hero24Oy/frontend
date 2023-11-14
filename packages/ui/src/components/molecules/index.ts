@@ -5,4 +5,4 @@ export * from './Card';
 export * from './Header';
 export * from './FullScreenModal';
 export * from './TextDivider';
-export * from './BlankRadioGroup';
+export * from './RadioGroup';

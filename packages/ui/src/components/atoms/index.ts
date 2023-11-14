@@ -20,4 +20,3 @@ export * from './Pressable';
 export * from './KeyboardAwareScrollView';
 export * from './Hidden';
 export * from './Radio';
-export * from './RadioTitle';

@@ -5,21 +5,30 @@ import {
   RadioIndicator as GluestackRadioIndicator,
   RadioLabel,
 } from '@gluestack-ui/themed';
-import { FC, PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 
 import { GluestackRadioIndicatorProps } from './types';
 
-import { RadioSize, RadioVariant } from '$atoms/Radio/types';
+import { RadioSize, RadioVariant } from '$atoms/Radio';
+import { useStringifiedValue } from '$hooks';
+import { JsxElement } from '$types';
 
-type Props = {
+type Props<Value> = {
+  value: Value;
   size?: RadioSize;
 } & PropsWithChildren<GluestackRadioIndicatorProps>;
 
-export const RadioIndicator: FC<Props> = (props) => {
-  const { children, ...restProps } = props;
+export const RadioIndicator = <Value,>(props: Props<Value>): JsxElement => {
+  const { children, value, ...restProps } = props;
+
+  const { stringifiedValue } = useStringifiedValue(value);
 
   return (
-    <GluestackRadio variant={RadioVariant.RADIO_INDICATOR} {...restProps}>
+    <GluestackRadio
+      variant={RadioVariant.RADIO_INDICATOR}
+      value={stringifiedValue}
+      {...restProps}
+    >
       <GluestackRadioIndicator>
         <RadioIcon as={CircleIcon} />
       </GluestackRadioIndicator>
