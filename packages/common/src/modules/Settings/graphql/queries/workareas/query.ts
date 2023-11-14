@@ -1,6 +1,6 @@
 import { createSettingsQuery } from '../builder';
 
-export const PREFIX = 'englishLanguages';
+export const PREFIX = 'workareas';
 
 export const QUERY = createSettingsQuery({
   workareas: {
