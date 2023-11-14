@@ -24,7 +24,7 @@ export const useRadioGroup = <Type extends FieldValues, Value>(
     field: { onChange },
   } = useController({ name, control });
 
-  // * We need this to maintain already checked option via options config.
+  // * We need this to check predefined option via options config.
   useEffect(() => {
     options.forEach((option) => option.isChecked && onChange(option.value));
   }, []);
