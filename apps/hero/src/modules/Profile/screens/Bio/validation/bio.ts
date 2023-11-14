@@ -1,18 +1,14 @@
-import {
-  CountryCode,
-  CountryCodeList,
-} from 'react-native-country-picker-modal';
 import * as yup from 'yup';
 
 import { DEFAULT_LANGUAGES, multiSelectArraySchema } from '@hero24/common';
 
-const countryCodeMultiSelectArraySchema = multiSelectArraySchema<CountryCode>(
+const languagesMultiSelectArraySchema = multiSelectArraySchema<string>(
   false,
-).of(yup.mixed<CountryCode>().oneOf(CountryCodeList).required());
+).of(yup.string().required());
 
 export const bioSchema = yup.object({
   info: yup.string().notRequired(),
-  languages: countryCodeMultiSelectArraySchema
+  languages: languagesMultiSelectArraySchema
     .default(DEFAULT_LANGUAGES)
     .notRequired(),
 });

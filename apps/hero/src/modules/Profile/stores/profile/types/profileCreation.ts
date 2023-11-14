@@ -1,12 +1,10 @@
-import { CountryCode } from 'react-native-country-picker-modal';
-
 import { LoadedFile, Maybe, Range } from '@hero24/common';
 
 import { ProfileType } from './profileType';
 
 export type ProfileCreation = {
   bio: {
-    languages: CountryCode[] | null;
+    languages: string[] | null;
     info?: Maybe<string>;
   };
   companyAddress: {
