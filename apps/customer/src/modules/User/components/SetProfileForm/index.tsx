@@ -8,6 +8,7 @@ import { useLogic } from './useLogic';
 export const SetProfileForm: FC = () => {
   const { control, onSubmitHandler, isLoading, isValid } = useLogic();
 
+  // TODO add fields for business customer
   return (
     <SafeAreaView>
       <VStack style={styles.form}>
