@@ -8,7 +8,7 @@ import {
   useState,
 } from 'react';
 
-import { DEBOUNCE_TIME_IN_SECONDS, ONE_SECOND } from './constants';
+import { DEBOUNCE_TIME_IN_SECONDS } from './constants';
 
 type TimerState = {
   resetTimer: () => void;
@@ -44,9 +44,9 @@ export const TimerProvider: FC<PropsWithChildren> = (props) => {
     }
 
     const interval = setInterval(() => {
-      setTimeLeftInSeconds((prevState) => prevState - ONE_SECOND);
+      setTimeLeftInSeconds((prevState) => prevState - 1);
       // eslint-disable-next-line no-magic-numbers -- setInterval accepts time in milliseconds
-    }, ONE_SECOND * 1000);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [timeLeftInSeconds]);
