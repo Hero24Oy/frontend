@@ -1,8 +1,10 @@
 import { LoadedFile, Maybe, Range } from '@hero24/common';
 
+import { ProfileType } from './profileType';
+
 import { Bio } from '$modules/Common';
 
-export type CompanyCreation = {
+export type ProfileCreation = {
   companyAddress: {
     address: string;
     city: string | null;
@@ -18,6 +20,9 @@ export type CompanyCreation = {
   paymentData: {
     companyId: string;
     IBAN: string;
+  };
+  welcome: {
+    profileType: `${ProfileType}` | null;
   };
   workData: {
     experience: Range | null;

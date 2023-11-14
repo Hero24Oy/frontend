@@ -1,8 +1,8 @@
 import { createMultiScreenStore, DEFAULT_LANGUAGES } from '@hero24/common';
 
-import { CompanyCreation } from './types';
+import { ProfileCreation } from './types';
 
-export const companyCreationInitialState: CompanyCreation = {
+export const profileCreationInitialState: ProfileCreation = {
   companyInfo: {
     name: '',
     email: '',
@@ -29,10 +29,13 @@ export const companyCreationInitialState: CompanyCreation = {
     info: '',
     languages: DEFAULT_LANGUAGES,
   },
+  welcome: {
+    profileType: null,
+  },
 };
 
-export const useCompanyCreationStore = createMultiScreenStore(
-  companyCreationInitialState,
+export const useProfileCreationStore = createMultiScreenStore(
+  profileCreationInitialState,
 );
 
 export * from './types';
