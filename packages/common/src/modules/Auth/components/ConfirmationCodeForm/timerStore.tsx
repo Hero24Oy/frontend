@@ -10,7 +10,7 @@ import {
 
 import { DEBOUNCE_TIME_IN_SECONDS } from './constants';
 
-const TimerDataContext = createContext<number>(1);
+const TimerDataContext = createContext<number>(0);
 
 const TimerApiContext = createContext<() => void>(() => undefined);
 
