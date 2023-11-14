@@ -3,7 +3,7 @@ import { createMultiScreenStore, DEFAULT_LANGUAGES } from '@hero24/common';
 import { ProfileCreation } from './types';
 
 export const profileCreationInitialState: ProfileCreation = {
-  companyInfo: {
+  info: {
     name: '',
     email: '',
     employees: null,
@@ -15,7 +15,7 @@ export const profileCreationInitialState: ProfileCreation = {
     insurance: null,
     certificate: null,
   },
-  companyAddress: {
+  address: {
     country: null,
     city: null,
     address: '',

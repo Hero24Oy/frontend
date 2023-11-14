@@ -11,22 +11,21 @@ import {
 } from '$modules/Profile/stores';
 
 export const useLogic = () => {
-  const { setCompanyAddress } = useProfileCreationStore();
+  const { setAddress } = useProfileCreationStore();
 
   const {
     control,
     getValues,
     setValue,
     formState: { isValid },
-  } = useForm<ProfileCreation['companyAddress']>({
-    resolver:
-      yupResolver<ProfileCreation['companyAddress']>(companyAddressSchema),
-    defaultValues: profileCreationInitialState.companyAddress,
+  } = useForm<ProfileCreation['address']>({
+    resolver: yupResolver<ProfileCreation['address']>(companyAddressSchema),
+    defaultValues: profileCreationInitialState.address,
     mode: 'onChange',
   });
 
   const onChange = useCallback(() => {
-    setCompanyAddress(getValues());
+    setAddress(getValues());
   }, []);
 
   return { onChange, isValid, control, setValue, getValues };
