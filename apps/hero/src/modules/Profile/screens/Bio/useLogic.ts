@@ -2,30 +2,30 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { Bio } from './types';
 import { bioSchema } from './validation';
 
-type Params = {
-  defaultValues: Bio;
-  setter: (form: Bio) => void;
-};
+import {
+  ProfileCreation,
+  profileCreationInitialState,
+  useProfileCreationStore,
+} from '$modules/Profile/stores';
 
-export const useLogic = (params: Params) => {
-  const { defaultValues, setter } = params;
+export const useLogic = () => {
+  const { setBio } = useProfileCreationStore();
 
   const {
     control,
     getValues,
     setValue,
     formState: { isValid },
-  } = useForm<Bio>({
-    resolver: yupResolver<Bio>(bioSchema),
-    defaultValues,
+  } = useForm<ProfileCreation['bio']>({
+    resolver: yupResolver<ProfileCreation['bio']>(bioSchema),
+    defaultValues: profileCreationInitialState.bio,
     mode: 'onChange',
   });
 
   const onChange = useCallback(() => {
-    setter(getValues());
+    setBio(getValues());
   }, []);
 
   return { control, setValue, isValid, onChange };
