@@ -1,6 +1,9 @@
 import { LoadedFile, Maybe, Range } from '@hero24/common';
 
-import { ProfileType } from './profileType';
+export enum ProfileType {
+  SELF_EMPLOYED = 'self-employed',
+  COMPANY = 'company',
+}
 
 export type ProfileCreation = {
   address: {
@@ -10,7 +13,7 @@ export type ProfileCreation = {
     postcode: string;
   };
   bio: {
-    languages: string[] | null;
+    languages: string[];
     info?: Maybe<string>;
   };
   info: {
