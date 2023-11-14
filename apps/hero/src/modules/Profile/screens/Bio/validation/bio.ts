@@ -10,5 +10,5 @@ export const bioSchema = yup.object({
   info: yup.string().notRequired(),
   languages: languagesMultiSelectArraySchema
     .default(DEFAULT_LANGUAGES)
-    .notRequired(),
+    .required(),
 });
