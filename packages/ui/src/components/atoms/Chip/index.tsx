@@ -7,7 +7,7 @@ import { PropsWithChildren } from 'react';
 import { GluestackChipProps } from './types';
 
 import { RadioSize, RadioVariant } from '$atoms/Radio';
-import { useStringifiedValue } from '$hooks';
+import { useLogic } from '$atoms/Radio/useLogic';
 import { JsxElement } from '$types';
 
 type Props<Value> = {
@@ -18,7 +18,7 @@ type Props<Value> = {
 export const Chip = <Value,>(props: Props<Value>): JsxElement => {
   const { children, value, ...restProps } = props;
 
-  const { stringifiedValue } = useStringifiedValue(value);
+  const { stringifiedValue } = useLogic(value);
 
   return (
     <GluestackRadio
