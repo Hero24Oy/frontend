@@ -5,12 +5,10 @@ import { Button, Color, Heading, Text, VStack } from '@hero24/ui';
 
 import { getMaskedEmail } from './utils';
 
-type Props = {
-  email: string;
-};
+import { useEmailAuthStore } from '$modules/Auth/stores';
 
-export const ResetPasswordCheckEmail: FC<Props> = (props) => {
-  const { email } = props;
+export const ResetPasswordCheckEmail: FC = () => {
+  const { email } = useEmailAuthStore<'strict'>();
 
   const message = `We sent a link to reset your password to ${getMaskedEmail(
     email,

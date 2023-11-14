@@ -8,10 +8,12 @@ import { validationSchema } from './validation';
 
 import { parseError } from '$core';
 import { useResetEmailPassword } from '$modules/Auth/hooks';
+import { useEmailAuthStore } from '$modules/Auth/stores';
 import { handleAuthError } from '$modules/Auth/utils';
 
 export const useLogic = (params: ResetPasswordFormProps) => {
   const { onSuccessCallback } = params;
+  const { setEmail } = useEmailAuthStore();
 
   const {
     control,
@@ -25,6 +27,7 @@ export const useLogic = (params: ResetPasswordFormProps) => {
 
   const { resetPassword } = useResetEmailPassword({
     onAuthSucceed: onSuccessCallback,
+    onAuthFailed: handleAuthError,
   });
 
   const onSubmitHandler = useCallback(
@@ -32,6 +35,7 @@ export const useLogic = (params: ResetPasswordFormProps) => {
       try {
         const { email } = data;
 
+        setEmail(email);
         await resetPassword(email);
       } catch (error) {
         const parsedError = parseError(error);
