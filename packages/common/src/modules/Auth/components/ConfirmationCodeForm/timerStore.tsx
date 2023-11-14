@@ -10,10 +10,6 @@ import {
 
 import { DEBOUNCE_TIME_IN_SECONDS } from './constants';
 
-type TimerState = {
-  resetTimer: () => void;
-  timeLeftInSeconds: number;
-};
 const TimerDataContext = createContext<number>(1);
 
 const TimerApiContext = createContext<() => void>(() => undefined);
@@ -29,11 +25,11 @@ export const useResetTimer = () => useContext(TimerApiContext);
 export const TimerProvider: FC<PropsWithChildren> = (props) => {
   const { children } = props;
 
-  const [timeLeftInSeconds, setTimeLeftInSeconds] = useState<
-    TimerState['timeLeftInSeconds']
-  >(DEBOUNCE_TIME_IN_SECONDS);
+  const [timeLeftInSeconds, setTimeLeftInSeconds] = useState<number>(
+    DEBOUNCE_TIME_IN_SECONDS,
+  );
 
-  const resetTimer: TimerState['resetTimer'] = useCallback(
+  const resetTimer = useCallback(
     () => setTimeLeftInSeconds(DEBOUNCE_TIME_IN_SECONDS),
     [],
   );

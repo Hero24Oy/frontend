@@ -29,7 +29,7 @@ export const useSendOneMoreTime: UseSendOneMoreTime = (params) => {
     } catch (error) {
       onAuthFailed?.(parseError(error));
     }
-  }, [phoneNumber, reCaptcha]);
+  }, [phoneNumber, reCaptcha, onAuthFailed, resetTimer]);
 
   return {
     sendOneMoreTime,
