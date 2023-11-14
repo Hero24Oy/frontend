@@ -1,1 +1,1 @@
-export { RootScreen as default } from '@hero24/common';
+export { RootScreen as default } from '$modules';
