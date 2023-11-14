@@ -9,14 +9,9 @@ type Params<Type extends FieldValues, Value> = {
   options: RadioOption<Value>[];
 };
 
-type ReturnType = {
-  radioGroupValue: string;
-  radioGroupValueHandler: (value: string) => void;
-};
-
-export const useRadioGroup = <Type extends FieldValues, Value>(
+export const useLogic = <Type extends FieldValues, Value>(
   params: Params<Type, Value>,
-): ReturnType => {
+) => {
   const { control, name, options } = params;
   const [radioGroupValue, setRadioGroupValue] = useState<string>('');
 
@@ -29,10 +24,13 @@ export const useRadioGroup = <Type extends FieldValues, Value>(
     options.forEach((option) => option.isChecked && onChange(option.value));
   }, []);
 
-  const radioGroupValueHandler = useCallback((value: string) => {
-    onChange(JSON.parse(value) as Value);
-    setRadioGroupValue(value);
-  }, []);
+  const radioGroupValueHandler = useCallback(
+    (value: string) => {
+      onChange(JSON.parse(value) as Value);
+      setRadioGroupValue(value);
+    },
+    [onChange],
+  );
 
   return {
     radioGroupValue,

@@ -3,7 +3,7 @@ import { ReactElement } from 'react';
 import { Control, FieldValues, Path } from 'react-hook-form';
 
 import { Radio, RadioTitle } from './components';
-import { useRadioGroup } from './hooks';
+import { useLogic } from './useLogic';
 
 import { RadioOption, RadioSize, RadioVariant } from '$atoms';
 import { LayoutStyles } from '$types';
@@ -34,7 +34,7 @@ export const RadioGroup = <Type extends FieldValues, Value>(
     ...restProps
   } = props;
 
-  const { radioGroupValue, radioGroupValueHandler } = useRadioGroup({
+  const { radioGroupValue, radioGroupValueHandler } = useLogic({
     control,
     name,
     options,
