@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-import { Text } from '@hero24/ui';
+import { SetProfileForm } from '../components';
 
 export const SetProfile: FC = () => {
-  return <Text>SetProfile</Text>;
+  return <SetProfileForm />;
 };

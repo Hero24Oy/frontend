@@ -36,6 +36,7 @@
     "@hero24/common": "*",
     "@hero24/configs": "*",
     "@hero24/ui": "*",
+    "@hookform/resolvers": "^3.3.2",
     "@legendapp/motion": "2.2.1",
     "@react-native-async-storage/async-storage": "1.18.2",
     "@react-navigation/bottom-tabs": "6.5.11",

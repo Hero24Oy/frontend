@@ -17,6 +17,7 @@ export const RootScreen: FC = () => {
   }
 
   if (!email || !firstName || !lastName) {
+    // if (true) {
     return <Redirect href="/set-profile" />;
   }
 
