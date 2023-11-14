@@ -7,12 +7,16 @@ import {
 
 import { ConfirmationCodeForm, ConfirmationCodeHeader } from '../../components';
 
+import { TimerProvider } from '$modules/Auth/components/ConfirmationCodeForm/timerStore';
+
 export const ConfirmationCodeScreen = () => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.inner}>
-        <ConfirmationCodeHeader />
-        <ConfirmationCodeForm />
+        <TimerProvider>
+          <ConfirmationCodeHeader />
+          <ConfirmationCodeForm />
+        </TimerProvider>
       </View>
     </TouchableWithoutFeedback>
   );

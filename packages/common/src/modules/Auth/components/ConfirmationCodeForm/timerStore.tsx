@@ -29,23 +29,33 @@ export const TimerProvider: FC<PropsWithChildren> = (props) => {
     DEBOUNCE_TIME_IN_SECONDS,
   );
 
-  const resetTimer = useCallback(
-    () => setTimeLeftInSeconds(DEBOUNCE_TIME_IN_SECONDS),
-    [],
-  );
+  const [hasTimerStarted, setHasTimerStarted] = useState(true);
+
+  const resetTimer = useCallback(() => {
+    setTimeLeftInSeconds(DEBOUNCE_TIME_IN_SECONDS);
+    setHasTimerStarted(true);
+  }, []);
 
   useEffect(() => {
-    if (timeLeftInSeconds <= 0) {
+    if (!hasTimerStarted) {
       return;
     }
 
     const interval = setInterval(() => {
-      setTimeLeftInSeconds((prevState) => prevState - 1);
+      setTimeLeftInSeconds((prevState) => {
+        const updatedTime = prevState - 1;
+
+        if (updatedTime <= 0) {
+          setHasTimerStarted(false);
+        }
+
+        return updatedTime;
+      });
       // eslint-disable-next-line no-magic-numbers -- setInterval accepts time in milliseconds
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [timeLeftInSeconds]);
+  }, [hasTimerStarted]);
 
   return (
     <TimerDataContext.Provider value={timeLeftInSeconds}>
