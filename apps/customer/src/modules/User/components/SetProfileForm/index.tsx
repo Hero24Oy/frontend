@@ -6,13 +6,7 @@ import { Button, Input, SafeAreaView, Text, VStack } from '@hero24/ui';
 import { useLogic } from './useLogic';
 
 export const SetProfileForm: FC = () => {
-  const {
-    control,
-    // onSubmitHandler,
-    // isLoading,
-    // isValid,
-    // onSendOneMoreTimeHandler,
-  } = useLogic();
+  const { control, onSubmitHandler, isLoading, isValid } = useLogic();
 
   return (
     <SafeAreaView>
@@ -39,7 +33,13 @@ export const SetProfileForm: FC = () => {
             title="Email"
           />
         </VStack>
-        <Button>Continue</Button>
+        <Button
+          isLoading={isLoading}
+          isDisabled={isLoading || !isValid}
+          onPress={onSubmitHandler}
+        >
+          Continue
+        </Button>
       </VStack>
     </SafeAreaView>
   );

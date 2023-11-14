@@ -1,5 +1,9 @@
-import * as yup from 'yup';
+import { InferType, object, string } from 'yup';
 
-export const validationSchema = yup.object({
-  // code: codeValidationSchema(CODE_LENGTH).required(ValidationHints.REQUIRED),
+export const validationSchema = object({
+  email: string().required(),
+  firstName: string().required(),
+  lastName: string().required(),
 });
+
+export type SetProfileFormData = InferType<typeof validationSchema>;

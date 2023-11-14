@@ -2,36 +2,48 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { initialFormState } from './constants';
-import { ConfirmationCodeFormData } from './types';
-import { validationSchema } from './validation';
+import { useCachedGraphQlUser } from '@hero24/common';
+
+import { SetProfileFormData, validationSchema } from './validation';
 
 export const useLogic = () => {
-  const onSubmit = (_data: ConfirmationCodeFormData): void => {
-    // TODO -- add onSubmit logic
-  };
+  const {
+    user: {
+      data: { firstName, lastName, email },
+    },
+  } = useCachedGraphQlUser();
 
   const {
     control,
     handleSubmit,
     formState: { isSubmitting, isValid },
-  } = useForm<ConfirmationCodeFormData>({
-    resolver: yupResolver<ConfirmationCodeFormData>(validationSchema),
-    defaultValues: initialFormState,
+  } = useForm<SetProfileFormData>({
+    resolver: yupResolver(validationSchema),
+    defaultValues: {
+      firstName: firstName ?? '',
+      lastName: lastName ?? '',
+      email,
+    },
     mode: 'onChange',
   });
 
-  const onSubmitHandler = useCallback(() => handleSubmit(onSubmit)(), []);
-
-  const onSendOneMoreTimeHandler = (): void => {
-    // TODO -- add logic here
-  };
+  const onSubmitHandler = useCallback(
+    handleSubmit(async (data: SetProfileFormData) => {
+      console.debug('data', data);
+      await new Promise<void>((resolve) => {
+        setTimeout(() => {
+          resolve();
+          // eslint-disable-next-line  no-magic-numbers -- TODO stub
+        }, 3000);
+      });
+    }),
+    [],
+  );
 
   return {
     control,
     onSubmitHandler,
     isLoading: isSubmitting,
     isValid,
-    onSendOneMoreTimeHandler,
   };
 };
