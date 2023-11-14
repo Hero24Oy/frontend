@@ -1,4 +1,4 @@
 export * from './useAppleAuth';
-export * from './useEmailSignIn';
+export * from './useEmailAuth';
 export * from './useFacebookAuth';
 export * from './useGoogleAuth';

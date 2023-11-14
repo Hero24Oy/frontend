@@ -1,7 +1,7 @@
 import { EmailAuthProvider, OAuthCredential } from 'firebase/auth';
 import { useCallback } from 'react';
 
-import { EmailPasswordParams, WithCallback } from '../types';
+import { EmailPasswordParams, WithCallback } from '../../types';
 
 import { parseError } from '$core';
 
