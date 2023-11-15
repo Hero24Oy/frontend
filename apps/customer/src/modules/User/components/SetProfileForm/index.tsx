@@ -22,7 +22,10 @@ export const SetProfileForm: FC = () => {
   // TODO disable editing email if logged via provider where email is provided
   // TODO add validation based on business customer flag
   return (
-    <KeyboardAwareScrollView contentContainerStyle={styles.form}>
+    <KeyboardAwareScrollView
+      contentContainerStyle={styles.form}
+      scrollEnabled={false}
+    >
       <BusinessCustomerSwitch control={control} name="businessCustomer" />
 
       <VStack style={styles.inputFieldsContainer}>
