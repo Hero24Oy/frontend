@@ -5,7 +5,10 @@ import {
   View,
 } from 'react-native';
 
-import { ConfirmationCodeForm, ConfirmationCodeHeader } from '../../components';
+import {
+  ConfirmationCodeForm,
+  ConfirmationCodeHeader,
+} from '$modules/Auth/components';
 
 export const ConfirmationCodeScreen = () => {
   return (

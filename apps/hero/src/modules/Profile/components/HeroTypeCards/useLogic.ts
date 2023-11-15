@@ -6,10 +6,9 @@ export const useLogic = () => {
   const router = useRouter();
   const { setWelcome } = useProfileCreationStore();
 
-  // TODO replace with proper path after screen will be ready
   const companyHeroHandler = () => {
     setWelcome({ profileType: ProfileType.COMPANY });
-    router.push('/');
+    router.push('/company-info');
   };
 
   // TODO replace with proper path after screen will be ready

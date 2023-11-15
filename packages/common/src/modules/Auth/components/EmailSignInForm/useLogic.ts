@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { EmailSignInFormData } from './types';
 import { validationSchema } from './validation';
 
-import { useAuthentication, useEmailSignIn } from '$modules/Auth/hooks';
+import { useAuthentication, useEmailAuth } from '$modules/Auth/hooks';
 import { handleAuthError } from '$modules/Auth/utils';
 
 interface FormData {
@@ -16,7 +16,7 @@ interface FormData {
 export const useLogic = () => {
   const { signInWithCredentials } = useAuthentication();
 
-  const { signInWithEmail } = useEmailSignIn({
+  const { signInWithEmail } = useEmailAuth({
     onAuthSucceed: signInWithCredentials,
     onAuthFailed: handleAuthError,
   });
