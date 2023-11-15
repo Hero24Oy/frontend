@@ -1,9 +1,3 @@
-import { FC } from 'react';
+import { createStackLayout } from '@hero24/common';
 
-import { ExpoStack } from '@hero24/common';
-
-const SignInWithEmailLayout: FC = () => {
-  return <ExpoStack />;
-};
-
-export default SignInWithEmailLayout;
+export default createStackLayout();
