@@ -3,7 +3,7 @@ export * from './Footer';
 export * from './Header';
 export * from './ConfirmationCodeHeader';
 export * from './ResetPasswordMessage';
-export * from './ResetPasswordCheckEmail';
+export * from './ResetPasswordByEmailVerification';
 export * from './ConfirmationCodeForm';
 export * from './EmailSignInForm';
 export * from './PhoneSignInForm';

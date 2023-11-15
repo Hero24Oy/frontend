@@ -1,7 +1,7 @@
 import { EmailAuthProvider, OAuthCredential } from 'firebase/auth';
 import { useCallback } from 'react';
 
-import { EmailPasswordParams, WithCallback } from '../types';
+import { EmailPasswordParams, WithCallback } from '../../types';
 
 import { parseError } from '$core';
 
@@ -9,11 +9,11 @@ type SignInWithEmail = (params: EmailPasswordParams) => Promise<void>;
 
 type EmailAuthConfig = WithCallback;
 
-type UseEmailSignIn = (config: EmailAuthConfig) => {
+type UseEmailAuth = (config: EmailAuthConfig) => {
   signInWithEmail: SignInWithEmail;
 };
 
-export const useEmailSignIn: UseEmailSignIn = (params) => {
+export const useEmailAuth: UseEmailAuth = (params) => {
   const { onAuthFailed, onAuthSucceed } = params;
 
   const signInWithEmail: SignInWithEmail = useCallback(async (data) => {
