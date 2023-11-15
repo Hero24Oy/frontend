@@ -7,14 +7,14 @@ import { Button, Input, RadioGroup, View } from '@hero24/ui';
 import { chipOptions } from './constants';
 
 import {
-  CompanyCreation,
-  companyCreationInitialState,
+  ProfileCreation,
+  profileCreationInitialState,
 } from '$modules/Profile/stores';
 
 export const CompanyInfoForm: FC = () => {
   // TODO replace in useLogic after logic implementation
-  const { control } = useForm<CompanyCreation['companyInfo']>({
-    defaultValues: companyCreationInitialState.companyInfo,
+  const { control } = useForm<ProfileCreation['info']>({
+    defaultValues: profileCreationInitialState.info,
     mode: 'onChange',
   });
 
