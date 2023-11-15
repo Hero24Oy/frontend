@@ -6,4 +6,5 @@ words:
   - zustand
   - booleanize
   - libphonenumber
-  - recaptcha
+  - reCaptcha
+  - workareas

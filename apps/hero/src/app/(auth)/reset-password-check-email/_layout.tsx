@@ -1,9 +1,3 @@
-import { FC } from 'react';
+import { createStackLayout } from '@hero24/common';
 
-import { ExpoStack } from '@hero24/common';
-
-const ResetPasswordCheckEmailLayout: FC = () => {
-  return <ExpoStack />;
-};
-
-export default ResetPasswordCheckEmailLayout;
+export default createStackLayout();
