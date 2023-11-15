@@ -4,6 +4,6 @@ export enum SettingsDictionaryKeys {
 }
 
 export type Settings = {
-  langs: Record<SettingsDictionaryKeys, string[]>;
-  workareas: Record<SettingsDictionaryKeys, string[]>;
+  langs: Record<`${SettingsDictionaryKeys}`, string[]>;
+  workareas: Record<`${SettingsDictionaryKeys}`, string[]>;
 };
