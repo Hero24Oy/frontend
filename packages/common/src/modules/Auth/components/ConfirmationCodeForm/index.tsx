@@ -1,37 +1,35 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Button, ConfirmationInput, Pressable, Text, VStack } from '@hero24/ui';
+import { Button, Color, ConfirmationInput, VStack } from '@hero24/ui';
 
-import { CODE_LENGTH } from './constants';
-import { useLogic } from './useLogic';
+import { SendOneMoreTime } from './components';
+import { useLogic } from './hooks';
+
+import { CODE_LENGTH } from '$configs';
+
+export { ReCaptchaModal } from './components';
 
 export const ConfirmationCodeForm: FC = () => {
   const {
     control,
-    onSubmitHandler,
     isLoading,
     isValid,
-    onSendOneMoreTimeHandler,
+    onSubmitHandler,
+    sendOneMoreTimeHandler,
   } = useLogic();
 
+  // TODO error handling will be deal with when design is ready
   return (
     <VStack style={styles.wrapper}>
       {/* TODO replace with i18n call */}
-      <VStack>
+      <VStack style={styles.centered}>
         <ConfirmationInput
           control={control}
           name="code"
           cellCount={CODE_LENGTH}
         />
-        {!isValid ? (
-          <Pressable
-            style={styles.sendOneMore}
-            onPress={onSendOneMoreTimeHandler}
-          >
-            <Text variant="link">Send one more time</Text>
-          </Pressable>
-        ) : null}
+        <SendOneMoreTime onPress={sendOneMoreTimeHandler} />
       </VStack>
       <Button
         onPress={onSubmitHandler}
@@ -49,11 +47,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
   },
-  sendOneMore: {
-    marginTop: 40,
-    width: '100%',
+  centered: {
     alignItems: 'center',
   },
+  errorText: {
+    color: Color.RED_00,
+  },
 });
-
-export * from './types';

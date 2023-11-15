@@ -19,4 +19,5 @@ export * from './RadioIndicator';
 export * from './Pressable';
 export * from './KeyboardAwareScrollView';
 export * from './Hidden';
+export * from './KeyboardAvoidingView';
 export * from './Radio';

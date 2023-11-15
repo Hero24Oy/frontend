@@ -32,6 +32,7 @@ export const ConfirmationInput = <Type extends FieldValues>(
 
   return (
     <CodeField
+      autoFocus
       keyboardType="number-pad"
       textContentType="oneTimeCode"
       ref={ref}
