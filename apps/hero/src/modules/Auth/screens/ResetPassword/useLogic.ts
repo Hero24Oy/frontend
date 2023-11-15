@@ -5,7 +5,7 @@ export const useLogic = () => {
   const router = useRouter();
 
   const onSuccessCallback = useCallback((): void => {
-    router.push('/reset-password-check-email/');
+    router.push('/reset-password-email-verification');
   }, []);
 
   return { onSuccessCallback };
