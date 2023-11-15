@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 import { useLogic } from './useLogic';
 
-export const RecaptchaModal: FC = () => {
+export const ReCaptchaModal: FC = () => {
   const { firebaseConfig, reCaptchaRef } = useLogic();
 
   return (

@@ -1,3 +1,3 @@
-export * from './RecaptchaModal';
+export * from './ReCaptchaModal';
 export * from './SendOneMore';
 export * from './TimerProvider';

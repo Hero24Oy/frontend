@@ -8,9 +8,11 @@ import {
 export const KeyboardAvoidingView: FC<PropsWithChildren> = (props) => {
   const { children } = props;
 
+  const keyboardAvoidingBehavior = Platform.OS === 'ios' ? 'padding' : 'height';
+
   return (
     <RnKeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      behavior={keyboardAvoidingBehavior}
       style={styles.container}
     >
       {children}

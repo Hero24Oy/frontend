@@ -2,14 +2,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useCallback, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { CODE_LENGTH } from '../../constants';
-
 import {
   ConfirmationCodeFormData,
   initialFormState,
   validationSchema,
 } from './validation';
 
+import { CODE_LENGTH } from '$configs';
 import { parseError } from '$core';
 import { useAuthentication, useVerifyCode } from '$modules/Auth/hooks';
 import { handleAuthError } from '$modules/Auth/utils';

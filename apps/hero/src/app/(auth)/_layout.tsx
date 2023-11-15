@@ -3,7 +3,7 @@ import { FC } from 'react';
 
 import {
   HeadlessExpoStack,
-  RecaptchaModal,
+  ReCaptchaModal,
   useFirebaseUser,
 } from '@hero24/common';
 
@@ -22,7 +22,7 @@ const AppLayout: FC = () => {
   // We need to store captcha modal here because it gets unmounted otherwise
   return (
     <>
-      <RecaptchaModal />
+      <ReCaptchaModal />
       <HeadlessExpoStack />
     </>
   );

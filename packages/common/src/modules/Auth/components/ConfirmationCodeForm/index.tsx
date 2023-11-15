@@ -4,10 +4,11 @@ import { StyleSheet } from 'react-native';
 import { Button, Color, ConfirmationInput, VStack } from '@hero24/ui';
 
 import { SendOneMoreTime } from './components';
-import { CODE_LENGTH } from './constants';
 import { useLogic } from './hooks';
 
-export { RecaptchaModal, TimerProvider } from './components';
+import { CODE_LENGTH } from '$configs';
+
+export { ReCaptchaModal, TimerProvider } from './components';
 
 export const ConfirmationCodeForm: FC = () => {
   const {

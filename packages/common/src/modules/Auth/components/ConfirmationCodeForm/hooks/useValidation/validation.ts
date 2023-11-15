@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
+import { CODE_LENGTH } from '$configs';
 import { codeValidationSchema, ValidationHints } from '$core';
-import { CODE_LENGTH } from '$modules/Auth/components/ConfirmationCodeForm/constants';
 
 export type ConfirmationCodeFormData = {
   code: string;
