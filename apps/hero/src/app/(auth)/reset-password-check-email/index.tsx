@@ -1,1 +1,1 @@
-export { ResetPasswordCheckEmailScreen as default } from '$modules';
+export { ResetPasswordEmailVerificationScreen as default } from '$modules';

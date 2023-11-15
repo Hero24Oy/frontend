@@ -10,11 +10,11 @@ type ResetPassword = (email: string) => Promise<void>;
 
 type EmailAuthConfig = WithCallback;
 
-export type UseResetEmailPassword = (params: EmailAuthConfig) => {
+export type UseResetPasswordByEmail = (params: EmailAuthConfig) => {
   resetPassword: ResetPassword;
 };
 
-export const useResetEmailPassword: UseResetEmailPassword = (params) => {
+export const useResetPasswordByEmail: UseResetPasswordByEmail = (params) => {
   const { onAuthFailed, onAuthSucceed } = params;
   const auth = useFirebaseAuth();
 

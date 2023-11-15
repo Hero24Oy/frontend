@@ -5,8 +5,8 @@ import { Button, Color, Heading, Text, VStack } from '@hero24/ui';
 
 import { useLogic } from './useLogic';
 
-export const ResetPasswordCheckEmail: FC = () => {
-  const { message, sendOneMoreTime } = useLogic({});
+export const ResetPasswordByEmailVerification: FC = () => {
+  const { message, sendOneMoreTime } = useLogic();
 
   return (
     <VStack style={styles.wrapper}>

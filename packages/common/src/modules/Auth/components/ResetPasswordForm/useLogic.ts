@@ -7,7 +7,7 @@ import { ResetPasswordFormData, ResetPasswordFormProps } from './types';
 import { validationSchema } from './validation';
 
 import { parseError } from '$core';
-import { useResetEmailPassword } from '$modules/Auth/hooks';
+import { useResetPasswordByEmail } from '$modules/Auth/hooks';
 import { useEmailAuthStore } from '$modules/Auth/stores';
 import { handleAuthError } from '$modules/Auth/utils';
 
@@ -25,7 +25,7 @@ export const useLogic = (params: ResetPasswordFormProps) => {
     mode: 'onChange',
   });
 
-  const { resetPassword } = useResetEmailPassword({
+  const { resetPassword } = useResetPasswordByEmail({
     onAuthSucceed: onSuccessCallback,
     onAuthFailed: handleAuthError,
   });

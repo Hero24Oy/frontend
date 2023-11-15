@@ -1,2 +1,2 @@
-export * from './useEmailSignIn';
-export * from './useResetEmailPassword';
+export * from './useEmailAuth';
+export * from './useResetPasswordByEmail';

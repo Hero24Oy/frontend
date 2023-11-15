@@ -2,19 +2,13 @@ import { useCallback } from 'react';
 
 import { getMaskedEmail } from './utils';
 
-import { useResetEmailPassword, WithCallback } from '$modules/Auth/hooks';
+import { useResetPasswordByEmail } from '$modules/Auth/hooks';
 import { useEmailAuthStore } from '$modules/Auth/stores';
 
-type UseLogicParams = WithCallback;
-
-export const useLogic = (params: UseLogicParams) => {
-  const { onAuthFailed, onAuthSucceed } = params;
+export const useLogic = () => {
   const { email } = useEmailAuthStore<'strict'>();
 
-  const { resetPassword } = useResetEmailPassword({
-    onAuthSucceed,
-    onAuthFailed,
-  });
+  const { resetPassword } = useResetPasswordByEmail({});
 
   const sendOneMoreTime = useCallback(async () => {
     await resetPassword(email);
