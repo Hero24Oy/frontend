@@ -1,5 +1,4 @@
-import { Settings } from '../../types';
-import { createSettingsQuery } from '../builder';
+import { createSettingsQuery, Settings } from '@hero24/common';
 
 export const PREFIX = 'languages';
 

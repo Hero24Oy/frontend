@@ -1,6 +1,6 @@
-import { Data, PREFIX, QUERY } from './query';
+import { useCustomQuery, UseQueryWrapper } from '@hero24/common';
 
-import { useCustomQuery, UseQueryWrapper } from '$core';
+import { Data, PREFIX, QUERY } from './query';
 
 export type UseGetWorkareas = UseQueryWrapper<typeof PREFIX, Data, never>;
 
