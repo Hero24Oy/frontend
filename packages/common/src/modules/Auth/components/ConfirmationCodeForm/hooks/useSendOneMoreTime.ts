@@ -1,7 +1,5 @@
 import { useCallback } from 'react';
 
-import { useResetTimer } from '../components';
-
 import { parseError } from '$core';
 import { useSendVerificationCode, WithCallback } from '$modules/Auth/hooks';
 import { usePhoneAuthStore } from '$modules/Auth/stores';
@@ -14,7 +12,6 @@ type UseSendOneMoreTime = (params: UseSendOneMoreTimeParams) => {
 
 export const useSendOneMoreTime: UseSendOneMoreTime = (params) => {
   const { onAuthFailed } = params;
-  const resetTimer = useResetTimer();
   // We are sure that on this page phone number and reCaptcha are defined
   const { phoneNumber, reCaptcha } = usePhoneAuthStore<'strict'>();
 
@@ -25,11 +22,10 @@ export const useSendOneMoreTime: UseSendOneMoreTime = (params) => {
   const sendOneMoreTime = useCallback(async () => {
     try {
       await sendVerificationCode({ phoneNumber, reCaptcha });
-      resetTimer();
     } catch (error) {
       onAuthFailed?.(parseError(error));
     }
-  }, [phoneNumber, reCaptcha, onAuthFailed, resetTimer]);
+  }, [phoneNumber, reCaptcha, onAuthFailed]);
 
   return {
     sendOneMoreTime,

@@ -1,26 +1,20 @@
-import { PressableProps, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import { Color, Pressable, Text } from '@hero24/ui';
 
-import { useTimeLeft } from './TimerProvider';
+import { useLogic, UseLogicParams } from './useLogic';
 
-type SendOneMoreProps = Pick<PressableProps, 'onPress'>;
+type SendOneMoreProps = UseLogicParams;
 
 export const SendOneMoreTime = (props: SendOneMoreProps) => {
   const { onPress } = props;
-  const debounceTime = useTimeLeft();
-
-  // TODO i18n
-  const message =
-    debounceTime > 0
-      ? `Send one more time after ${debounceTime}`
-      : ' Send one more time';
+  const { onPressHandler, message, isDisabled } = useLogic({ onPress });
 
   return (
     <Pressable
-      disabled={debounceTime > 0}
+      disabled={isDisabled}
       style={styles.sendOneMore}
-      onPress={onPress}
+      onPress={onPressHandler}
     >
       <Text variant="link" style={styles.message}>
         {message}

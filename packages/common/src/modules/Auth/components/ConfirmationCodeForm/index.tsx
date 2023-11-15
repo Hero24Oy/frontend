@@ -8,7 +8,7 @@ import { useLogic } from './hooks';
 
 import { CODE_LENGTH } from '$configs';
 
-export { ReCaptchaModal, TimerProvider } from './components';
+export { ReCaptchaModal } from './components';
 
 export const ConfirmationCodeForm: FC = () => {
   const {
@@ -16,7 +16,7 @@ export const ConfirmationCodeForm: FC = () => {
     isLoading,
     isValid,
     onSubmitHandler,
-    onSendOneMoreTimeHandler,
+    sendOneMoreTimeHandler,
   } = useLogic();
 
   // TODO error handling will be deal with when design is ready
@@ -29,7 +29,7 @@ export const ConfirmationCodeForm: FC = () => {
           name="code"
           cellCount={CODE_LENGTH}
         />
-        <SendOneMoreTime onPress={onSendOneMoreTimeHandler} />
+        <SendOneMoreTime onPress={sendOneMoreTimeHandler} />
       </VStack>
       <Button
         onPress={onSubmitHandler}
