@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     marginTop: 24,
     gap: 12,
+    marginHorizontal: 16,
   },
   button: {
     marginTop: 12,
