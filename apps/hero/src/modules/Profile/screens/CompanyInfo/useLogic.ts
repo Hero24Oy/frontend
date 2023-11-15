@@ -6,29 +6,29 @@ import { useForm } from 'react-hook-form';
 import { companyInfoSchema } from './validation';
 
 import {
-  CompanyCreation,
-  companyCreationInitialState,
-  useCompanyCreationStore,
+  ProfileCreation,
+  profileCreationInitialState,
+  useProfileCreationStore,
 } from '$modules/Profile/stores';
 
 export const useLogic = () => {
   const router = useRouter();
-  const { setCompanyInfo } = useCompanyCreationStore();
+  const { setInfo } = useProfileCreationStore();
 
   const {
     control,
     getValues,
     setValue,
     formState: { isValid },
-  } = useForm<CompanyCreation['companyInfo']>({
-    resolver: yupResolver<CompanyCreation['companyInfo']>(companyInfoSchema),
-    defaultValues: companyCreationInitialState.companyInfo,
+  } = useForm<ProfileCreation['info']>({
+    resolver: yupResolver<ProfileCreation['info']>(companyInfoSchema),
+    defaultValues: profileCreationInitialState.info,
     mode: 'onChange',
   });
 
   // TODO set proper route when next screen will be ready
   const submitData = useCallback(() => {
-    setCompanyInfo(getValues());
+    setInfo(getValues());
     router.push('/');
   }, []);
 

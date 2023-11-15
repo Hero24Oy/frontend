@@ -162,6 +162,7 @@ const reactRules = {
     'error',
     {
       namedComponents: 'arrow-function',
+      unnamedComponents: 'arrow-function',
     },
   ],
 };
@@ -384,12 +385,6 @@ const override = {
     files: ['src/theme/**/*.ts'],
     rules: {
       'quote-props': 'off',
-    },
-  },
-  functionComponentDefinition: {
-    files: ['src/icons/Base/index.tsx', 'src/core/components/Layout/index.tsx'],
-    rules: {
-      'react/function-component-definition': 'off',
     },
   },
   assets: {
