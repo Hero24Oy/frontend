@@ -5,6 +5,8 @@ export const validationSchema = object({
   firstName: string().required(),
   lastName: string().required(),
   businessCustomer: boolean().required(),
+  businessName: string().optional(),
+  businessId: string().optional(),
 });
 
 export type SetProfileFormData = InferType<typeof validationSchema>;

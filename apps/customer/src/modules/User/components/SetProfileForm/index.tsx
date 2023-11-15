@@ -2,9 +2,16 @@ import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { Button, Input, Text, View, VStack } from '@hero24/ui';
+import {
+  Button,
+  Input,
+  KeyboardAwareScrollView,
+  Text,
+  View,
+  VStack,
+} from '@hero24/ui';
 
-import { BusinessCustomerSwitch } from './components';
+import { BusinessCustomerForm, BusinessCustomerSwitch } from './components';
 import { useLogic } from './useLogic';
 
 export const SetProfileForm: FC = () => {
@@ -13,8 +20,9 @@ export const SetProfileForm: FC = () => {
 
   // TODO add fields for business customer
   // TODO disable editing email if logged via provider where email is provided
+  // TODO add validation based on business customer flag
   return (
-    <VStack style={styles.form}>
+    <KeyboardAwareScrollView contentContainerStyle={styles.form}>
       <BusinessCustomerSwitch control={control} name="businessCustomer" />
 
       <VStack style={styles.inputFieldsContainer}>
@@ -43,6 +51,12 @@ export const SetProfileForm: FC = () => {
             title="Email"
           />
         </View>
+        <BusinessCustomerForm
+          control={control}
+          businessCustomerControllerName="businessCustomer"
+          businessIdControllerName="businessId"
+          businessNameControllerName="businessName"
+        />
       </VStack>
       <Button
         isLoading={isLoading}
@@ -52,7 +66,7 @@ export const SetProfileForm: FC = () => {
       >
         Continue
       </Button>
-    </VStack>
+    </KeyboardAwareScrollView>
   );
 };
 
