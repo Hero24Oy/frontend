@@ -5,11 +5,12 @@ import { FC, useCallback } from 'react';
 import { Header, LeftIcon } from '@hero24/ui';
 
 interface Props {
+  canGoBack?: boolean;
   title?: string;
 }
 
 export const ExpoStack: FC<Props> = (props) => {
-  const { title } = props;
+  const { title, canGoBack } = props;
 
   const header = useCallback(
     (headerProps: NativeStackHeaderProps) => {
@@ -20,6 +21,7 @@ export const ExpoStack: FC<Props> = (props) => {
           goBack={navigation.goBack}
           title={title}
           goBackIcon={LeftIcon}
+          canGoBack={canGoBack}
         />
       );
     },

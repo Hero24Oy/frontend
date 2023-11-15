@@ -11,39 +11,29 @@ export const bottomTabRoutes: ExpoTabProps[] = [
   {
     name: 'home',
     options: {
-      headerTitle: 'Home',
+      tabBarLabel: 'Home',
       tabBarIcon: HomeIcon,
     },
   },
   {
     name: 'offers',
     options: {
-      headerTitle: 'Offers',
+      tabBarLabel: 'Offers',
       tabBarIcon: CheckSquareIcon,
     },
   },
   {
     name: 'chats',
     options: {
-      headerTitle: 'Chats',
+      tabBarLabel: 'Chats',
       tabBarIcon: MessageIcon,
     },
   },
   {
-    name: '(profile)/profile',
+    name: 'profile',
     options: {
-      headerTitle: 'Profile',
+      tabBarLabel: 'Profile',
       tabBarIcon: UserIcon,
-    },
-  },
-  {
-    name: '(profile)/set-profile',
-    options: {
-      headerTitle: 'Set Profile',
-      tabBarStyle: {
-        display: 'none',
-      },
-      href: null,
     },
   },
 ];

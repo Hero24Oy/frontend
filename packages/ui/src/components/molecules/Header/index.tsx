@@ -9,13 +9,20 @@ import { JsxElement } from '$types';
 
 interface Props {
   goBackIcon: BaseIcon;
+  canGoBack?: boolean;
   goBack?: () => void;
   rightComponent?: JsxElement;
   title?: string;
 }
 
 export const Header: FC<Props> = (props) => {
-  const { goBack, title, goBackIcon, rightComponent = null } = props;
+  const {
+    goBack,
+    title,
+    goBackIcon,
+    rightComponent = null,
+    canGoBack = true,
+  } = props;
 
   const styles = useStyles();
 
@@ -23,7 +30,9 @@ export const Header: FC<Props> = (props) => {
     <View style={styles.view}>
       <HStack style={styles.container}>
         <HStack style={{ ...styles.left, ...styles.sides }}>
-          <IconButton icon={goBackIcon} size="md" onPress={goBack} />
+          {canGoBack && (
+            <IconButton icon={goBackIcon} size="md" onPress={goBack} />
+          )}
         </HStack>
         {title ? <Heading variant="H5">{title}</Heading> : null}
         <HStack style={{ ...styles.right, ...styles.sides }}>
