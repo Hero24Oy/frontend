@@ -9,6 +9,7 @@ type BusinessCustomerFormProps<Type extends FieldValues> = {
   businessNameControllerName: Path<Type>;
   control: Control<Type>;
   isBusinessCustomerControllerName: Path<Type>;
+  isDisabled: boolean;
 };
 
 export const BusinessCustomerForm = <Type extends FieldValues>(
@@ -20,6 +21,7 @@ export const BusinessCustomerForm = <Type extends FieldValues>(
     businessIdControllerName,
     businessNameControllerName,
     isBusinessCustomerControllerName,
+    isDisabled,
   } = props;
 
   const {
@@ -34,6 +36,7 @@ export const BusinessCustomerForm = <Type extends FieldValues>(
     <>
       <View style={styles.inputFieldContainer}>
         <Input
+          isDisabled={isDisabled}
           placeholder="Enter"
           control={control}
           name={businessNameControllerName}
@@ -42,6 +45,7 @@ export const BusinessCustomerForm = <Type extends FieldValues>(
       </View>
       <View style={styles.inputFieldContainer}>
         <Input
+          isDisabled={isDisabled}
           placeholder="Enter"
           control={control}
           name={businessIdControllerName}

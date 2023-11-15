@@ -9,12 +9,13 @@ const stub = { size: 'sm' }; // TODO remove
 type BusinessCustomerSwitchProps<Type extends FieldValues> = {
   control: Control<Type>;
   name: Path<Type>;
+  isDisabled?: boolean;
 };
 
 export const BusinessCustomerSwitch = <Type extends FieldValues>(
   props: BusinessCustomerSwitchProps<Type>,
 ): JsxElement => {
-  const { control, name } = props;
+  const { control, name, isDisabled } = props;
 
   const {
     field: { value, onChange },
@@ -24,7 +25,12 @@ export const BusinessCustomerSwitch = <Type extends FieldValues>(
   return (
     <HStack style={styles.container}>
       <Text style={styles.businessCustomer}>I'am a business customer</Text>
-      <Switch {...stub} onToggle={onChange} value={value} />
+      <Switch
+        isDisabled={isDisabled}
+        {...stub}
+        onToggle={onChange}
+        value={value}
+      />
     </HStack>
   );
 };

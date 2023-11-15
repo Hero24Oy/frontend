@@ -25,11 +25,16 @@ export const SetProfileForm: FC = () => {
       contentContainerStyle={styles.form}
       scrollEnabled={false}
     >
-      <BusinessCustomerSwitch control={control} name="isBusinessCustomer" />
+      <BusinessCustomerSwitch
+        isDisabled={isLoading}
+        control={control}
+        name="isBusinessCustomer"
+      />
       <VStack style={styles.inputFieldsContainer}>
         <Text style={styles.header}>Add personal info</Text>
         <View style={styles.inputFieldContainer}>
           <Input
+            isDisabled={isLoading}
             placeholder="Enter"
             control={control}
             name="firstName"
@@ -38,6 +43,7 @@ export const SetProfileForm: FC = () => {
         </View>
         <View style={styles.inputFieldContainer}>
           <Input
+            isDisabled={isLoading}
             placeholder="Enter"
             control={control}
             name="lastName"
@@ -48,13 +54,14 @@ export const SetProfileForm: FC = () => {
           <Input
             placeholder="Enter"
             control={control}
-            isDisabled={isEmailProvided}
+            isDisabled={isEmailProvided || isLoading}
             name="email"
             title="Email"
           />
         </View>
         <BusinessCustomerForm
           control={control}
+          isDisabled={isLoading}
           isBusinessCustomerControllerName="isBusinessCustomer"
           businessIdControllerName="businessId"
           businessNameControllerName="businessName"
