@@ -7,15 +7,9 @@ export enum RadioVariant {
 
 export type RadioSize = Extract<Size, 'sm' | 'md' | 'lg'>;
 
-export type RadioOption = {
+export type RadioOption<Value> = {
   label: string;
-  value: string;
+  value: Value;
   isChecked?: boolean;
   isDisabled?: boolean;
-};
-
-export type RadioGroupProps = {
-  options: RadioOption[];
-  variant: `${RadioVariant}`;
-  isGloballyDisabled?: boolean;
 };

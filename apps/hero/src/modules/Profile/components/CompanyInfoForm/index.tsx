@@ -1,22 +1,20 @@
 import { FC } from 'react';
-import { useForm } from 'react-hook-form';
+import { Control } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
 
 import { Button, Input, RadioGroup, View } from '@hero24/ui';
 
 import { chipOptions } from './constants';
+import { CompanyInfo } from './types';
 
-import {
-  ProfileCreation,
-  profileCreationInitialState,
-} from '$modules/Profile/stores';
+type Props = {
+  control: Control<CompanyInfo>;
+  isValid: boolean;
+  submitData: () => void;
+};
 
-export const CompanyInfoForm: FC = () => {
-  // TODO replace in useLogic after logic implementation
-  const { control } = useForm<ProfileCreation['info']>({
-    defaultValues: profileCreationInitialState.info,
-    mode: 'onChange',
-  });
+export const CompanyInfoForm: FC<Props> = (props) => {
+  const { control, isValid, submitData } = props;
 
   return (
     // TODO replace text in inputs and button with i18n call
@@ -47,7 +45,9 @@ export const CompanyInfoForm: FC = () => {
         />
       </View>
 
-      <Button style={styles.button}>Continue</Button>
+      <Button style={styles.button} isDisabled={!isValid} onPress={submitData}>
+        Continue
+      </Button>
     </View>
   );
 };

@@ -1,27 +1,31 @@
 import { RadioGroup as GluestackRadioGroup, View } from '@gluestack-ui/themed';
-import { ReactElement, useEffect } from 'react';
-import { Control, FieldValues, Path, useController } from 'react-hook-form';
+import { ReactElement } from 'react';
+import { Control, FieldValues, Path } from 'react-hook-form';
 
 import { Radio, RadioTitle } from './components';
-import { RadioGroupProps, RadioSize } from './types';
+import { useLogic } from './useLogic';
 
+import { RadioOption, RadioSize, RadioVariant } from '$atoms';
 import { LayoutStyles } from '$types';
 
-type Props<Type extends FieldValues> = {
+type Props<Type extends FieldValues, Value> = {
   control: Control<Type>;
   name: Path<Type>;
+  options: RadioOption<Value>[];
+  variant: `${RadioVariant}`;
   childrenStyle?: LayoutStyles;
+  isRadioGroupDisabled?: boolean;
   size?: RadioSize;
   style?: LayoutStyles;
   title?: string;
-} & RadioGroupProps;
+};
 
-export const RadioGroup = <Type extends FieldValues>(
-  props: Props<Type>,
+export const RadioGroup = <Type extends FieldValues, Value>(
+  props: Props<Type, Value>,
 ): ReactElement => {
   const {
-    name,
     control,
+    name,
     size,
     options,
     style,
@@ -30,19 +34,21 @@ export const RadioGroup = <Type extends FieldValues>(
     ...restProps
   } = props;
 
-  const {
-    field: { value, onChange },
-  } = useController({ name, control });
-
-  useEffect(() => {
-    options.forEach((option) => option.isChecked && onChange(option.value));
-  }, []);
+  const { radioGroupValue, radioGroupValueHandler } = useLogic({
+    control,
+    name,
+    options,
+  });
 
   return (
     <View>
       <RadioTitle value={title} />
 
-      <GluestackRadioGroup value={value} onChange={onChange} style={style}>
+      <GluestackRadioGroup
+        value={radioGroupValue}
+        onChange={radioGroupValueHandler}
+        style={style}
+      >
         <Radio
           size={size}
           options={options}
@@ -53,5 +59,3 @@ export const RadioGroup = <Type extends FieldValues>(
     </View>
   );
 };
-
-export * from './types';
