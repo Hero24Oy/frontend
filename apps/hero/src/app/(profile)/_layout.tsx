@@ -1,3 +1,9 @@
-import { createLayout } from '@hero24/common';
+import { FC } from 'react';
 
-export default createLayout();
+import { HeadlessExpoStack } from '@hero24/common';
+
+const ProfileLayout: FC = () => {
+  return <HeadlessExpoStack />;
+};
+
+export default ProfileLayout;

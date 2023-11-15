@@ -1,7 +1,8 @@
 words:
-  - 'signin'
-  - 'signup'
-  - 'xlink'
-  - 'netvisor'
-  - 'iban'
-  - 'actionsheet'
+  - actionsheet
+  - iban
+  - netvisor
+  - signin
+  - signup
+  - Workareas
+  - xlink

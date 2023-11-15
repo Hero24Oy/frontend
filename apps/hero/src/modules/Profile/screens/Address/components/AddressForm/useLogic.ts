@@ -2,6 +2,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { defaultCountry } from '@hero24/common';
+
 import { companyAddressSchema } from './validation';
 
 import {
@@ -19,8 +21,9 @@ export const useLogic = () => {
     setValue,
     formState: { isValid },
   } = useForm<CompanyCreation['companyAddress']>({
-    resolver:
-      yupResolver<CompanyCreation['companyAddress']>(companyAddressSchema),
+    resolver: yupResolver<CompanyCreation['companyAddress']>(
+      companyAddressSchema(defaultCountry),
+    ),
     defaultValues: companyCreationInitialState.companyAddress,
     mode: 'onChange',
   });
