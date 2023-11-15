@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 
 import { useCachedGraphQlUser } from '@hero24/common';
 
+import { normalizeProfileData } from './utils';
 import { SetProfileFormData, validationSchema } from './validation';
 
 export const useLogic = () => {
@@ -23,16 +24,18 @@ export const useLogic = () => {
       email,
       firstName: firstName ?? '',
       lastName: lastName ?? '',
-      businessCustomer: false,
+      isBusinessCustomer: false,
     },
     mode: 'onChange',
   });
 
   const onSubmitHandler = useCallback(
     handleSubmit(async (data: SetProfileFormData) => {
-      console.debug('data', data);
+      const profileData = normalizeProfileData(data);
+
       await new Promise<void>((resolve) => {
         setTimeout(() => {
+          console.debug('profileData', profileData);
           resolve();
           // eslint-disable-next-line  no-magic-numbers -- TODO stub
         }, 3000);

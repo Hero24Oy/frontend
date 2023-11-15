@@ -5,10 +5,10 @@ import { StyleSheet, View } from 'react-native';
 import { Input } from '@hero24/ui';
 
 type BusinessCustomerFormProps<Type extends FieldValues> = {
-  businessCustomerControllerName: Path<Type>;
   businessIdControllerName: Path<Type>;
   businessNameControllerName: Path<Type>;
   control: Control<Type>;
+  isBusinessCustomerControllerName: Path<Type>;
 };
 
 export const BusinessCustomerForm = <Type extends FieldValues>(
@@ -19,12 +19,12 @@ export const BusinessCustomerForm = <Type extends FieldValues>(
     control,
     businessIdControllerName,
     businessNameControllerName,
-    businessCustomerControllerName,
+    isBusinessCustomerControllerName,
   } = props;
 
   const {
     field: { value: isBusinessCustomer },
-  } = useController({ name: businessCustomerControllerName, control });
+  } = useController({ name: isBusinessCustomerControllerName, control });
 
   if (!isBusinessCustomer) {
     return null;

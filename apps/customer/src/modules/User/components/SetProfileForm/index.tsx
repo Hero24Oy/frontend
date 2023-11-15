@@ -18,16 +18,13 @@ export const SetProfileForm: FC = () => {
   const { control, onSubmitHandler, isLoading, isValid } = useLogic();
   const { bottom } = useSafeAreaInsets();
 
-  // TODO add fields for business customer
   // TODO disable editing email if logged via provider where email is provided
-  // TODO add validation based on business customer flag
   return (
     <KeyboardAwareScrollView
       contentContainerStyle={styles.form}
       scrollEnabled={false}
     >
-      <BusinessCustomerSwitch control={control} name="businessCustomer" />
-
+      <BusinessCustomerSwitch control={control} name="isBusinessCustomer" />
       <VStack style={styles.inputFieldsContainer}>
         <Text style={styles.header}>Add personal info</Text>
         <View style={styles.inputFieldContainer}>
@@ -56,7 +53,7 @@ export const SetProfileForm: FC = () => {
         </View>
         <BusinessCustomerForm
           control={control}
-          businessCustomerControllerName="businessCustomer"
+          isBusinessCustomerControllerName="isBusinessCustomer"
           businessIdControllerName="businessId"
           businessNameControllerName="businessName"
         />
