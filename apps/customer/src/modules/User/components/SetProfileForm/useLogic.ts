@@ -2,7 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { useCachedGraphQlUser } from '@hero24/common';
+import { useCachedGraphQlUser, useFirebaseUser } from '@hero24/common';
 
 import { normalizeProfileData } from './utils';
 import { SetProfileFormData, validationSchema } from './validation';
@@ -13,6 +13,10 @@ export const useLogic = () => {
       data: { firstName, lastName, email },
     },
   } = useCachedGraphQlUser();
+
+  const firebaseUser = useFirebaseUser();
+
+  const isEmailProvided = Boolean(firebaseUser.user?.email);
 
   const {
     control,
@@ -49,5 +53,6 @@ export const useLogic = () => {
     onSubmitHandler,
     isLoading: isSubmitting,
     isValid,
+    isEmailProvided,
   };
 };

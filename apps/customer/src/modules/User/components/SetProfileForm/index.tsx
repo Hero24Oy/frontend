@@ -15,10 +15,11 @@ import { BusinessCustomerForm, BusinessCustomerSwitch } from './components';
 import { useLogic } from './useLogic';
 
 export const SetProfileForm: FC = () => {
-  const { control, onSubmitHandler, isLoading, isValid } = useLogic();
+  const { control, onSubmitHandler, isLoading, isValid, isEmailProvided } =
+    useLogic();
+
   const { bottom } = useSafeAreaInsets();
 
-  // TODO disable editing email if logged via provider where email is provided
   return (
     <KeyboardAwareScrollView
       contentContainerStyle={styles.form}
@@ -47,6 +48,7 @@ export const SetProfileForm: FC = () => {
           <Input
             placeholder="Enter"
             control={control}
+            isDisabled={isEmailProvided}
             name="email"
             title="Email"
           />
