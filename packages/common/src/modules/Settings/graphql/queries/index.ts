@@ -1,3 +1,1 @@
-export * from './builder';
-export * from './languages';
-export * from './workareas';
+export * from './settings';
