@@ -4,6 +4,8 @@ import { FC, useCallback } from 'react';
 
 import { Header, LeftIcon } from '@hero24/ui';
 
+import { stackConfig } from '$configs';
+
 interface Props {
   canGoBack?: boolean;
   title?: string;
@@ -32,6 +34,7 @@ export const ExpoStack: FC<Props> = (props) => {
     <Stack
       screenOptions={() => ({
         header,
+        ...stackConfig,
       })}
     />
   );

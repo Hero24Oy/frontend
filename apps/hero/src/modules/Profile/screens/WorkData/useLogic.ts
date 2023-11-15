@@ -5,22 +5,22 @@ import { useForm } from 'react-hook-form';
 import { workDataSchema } from './validation';
 
 import {
-  CompanyCreation,
-  companyCreationInitialState,
-  useCompanyCreationStore,
+  ProfileCreation,
+  profileCreationInitialState,
+  useProfileCreationStore,
 } from '$modules/Profile/stores';
 
 export const useLogic = () => {
-  const { setWorkData } = useCompanyCreationStore();
+  const { setWorkData } = useProfileCreationStore();
 
   const {
     control,
     getValues,
     setValue,
     formState: { isValid },
-  } = useForm<CompanyCreation['workData']>({
-    resolver: yupResolver<CompanyCreation['workData']>(workDataSchema),
-    defaultValues: companyCreationInitialState.workData,
+  } = useForm<ProfileCreation['workData']>({
+    resolver: yupResolver<ProfileCreation['workData']>(workDataSchema),
+    defaultValues: profileCreationInitialState.workData,
     mode: 'onChange',
   });
 

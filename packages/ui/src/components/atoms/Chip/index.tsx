@@ -2,19 +2,30 @@ import {
   Radio as GluestackRadio,
   RadioLabel as GluestackRadioLabel,
 } from '@gluestack-ui/themed';
-import { FC, PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 
 import { GluestackChipProps } from './types';
 
-import { RadioSize, RadioVariant } from '$atoms/RadioGroup/types';
+import { RadioSize, RadioVariant } from '$atoms/Radio';
+import { useLogic } from '$atoms/Radio/useLogic';
+import { JsxElement } from '$types';
 
-type Props = { size: RadioSize } & PropsWithChildren<GluestackChipProps>;
+type Props<Value> = {
+  value: Value;
+  size?: RadioSize;
+} & PropsWithChildren<GluestackChipProps>;
 
-export const Chip: FC<Props> = (props) => {
-  const { children, ...restProps } = props;
+export const Chip = <Value,>(props: Props<Value>): JsxElement => {
+  const { children, value, ...restProps } = props;
+
+  const { stringifiedValue } = useLogic(value);
 
   return (
-    <GluestackRadio variant={RadioVariant.CHIP} {...restProps}>
+    <GluestackRadio
+      value={stringifiedValue}
+      variant={RadioVariant.CHIP}
+      {...restProps}
+    >
       <GluestackRadioLabel>{children}</GluestackRadioLabel>
     </GluestackRadio>
   );

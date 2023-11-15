@@ -11,6 +11,11 @@ export type CommonStyles = Pick<
   | 'marginVertical'
   | 'height'
   | 'width'
+  | 'position'
+  | 'top'
+  | 'left'
+  | 'right'
+  | 'bottom'
 >;
 
 export type LayoutStyles = CommonStyles &
@@ -23,6 +28,7 @@ export type LayoutStyles = CommonStyles &
     | 'flex'
     | 'gap'
     | 'flexDirection'
+    | 'flexBasis'
   >;
 
 export type TextStyles = CommonStyles &

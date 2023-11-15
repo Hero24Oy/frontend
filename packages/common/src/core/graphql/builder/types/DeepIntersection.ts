@@ -8,7 +8,9 @@ import {
 
 import { ObjectType } from './ObjectType';
 
-export type DeepIntersection<Entity, Selection> = Entity extends unknown[]
+export type DeepIntersection<Entity, Selection> = Entity extends Primitive
+  ? Entity
+  : Entity extends unknown[]
   ? DeepIntersection<$ElementType<Entity, number>, Selection>[]
   : Entity extends ObjectType
   ? Selection extends ObjectType

@@ -5,28 +5,27 @@ import { useForm } from 'react-hook-form';
 import { companyAddressSchema } from './validation';
 
 import {
-  CompanyCreation,
-  companyCreationInitialState,
-  useCompanyCreationStore,
+  ProfileCreation,
+  profileCreationInitialState,
+  useProfileCreationStore,
 } from '$modules/Profile/stores';
 
 export const useLogic = () => {
-  const { setCompanyAddress } = useCompanyCreationStore();
+  const { setAddress } = useProfileCreationStore();
 
   const {
     control,
     getValues,
     setValue,
     formState: { isValid },
-  } = useForm<CompanyCreation['companyAddress']>({
-    resolver:
-      yupResolver<CompanyCreation['companyAddress']>(companyAddressSchema),
-    defaultValues: companyCreationInitialState.companyAddress,
+  } = useForm<ProfileCreation['address']>({
+    resolver: yupResolver<ProfileCreation['address']>(companyAddressSchema),
+    defaultValues: profileCreationInitialState.address,
     mode: 'onChange',
   });
 
   const onChange = useCallback(() => {
-    setCompanyAddress(getValues());
+    setAddress(getValues());
   }, []);
 
   return { onChange, isValid, control, setValue, getValues };

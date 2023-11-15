@@ -6,12 +6,14 @@ import { initialFormState } from './constants';
 import { ResetPasswordFormData, ResetPasswordFormProps } from './types';
 import { validationSchema } from './validation';
 
+import { parseError } from '$core';
+import { useResetPasswordByEmail } from '$modules/Auth/hooks';
+import { useEmailAuthStore } from '$modules/Auth/stores';
+import { handleAuthError } from '$modules/Auth/utils';
+
 export const useLogic = (params: ResetPasswordFormProps) => {
   const { onSuccessCallback } = params;
-
-  const onSubmit = (_data: ResetPasswordFormData): void => {
-    // TODO -- add onSubmit logic
-  };
+  const { setEmail } = useEmailAuthStore();
 
   const {
     control,
@@ -23,10 +25,26 @@ export const useLogic = (params: ResetPasswordFormProps) => {
     mode: 'onChange',
   });
 
-  const onSubmitHandler = useCallback(async () => {
-    await handleSubmit(onSubmit)();
-    onSuccessCallback();
-  }, [onSuccessCallback]);
+  const { resetPassword } = useResetPasswordByEmail({
+    onAuthSucceed: onSuccessCallback,
+    onAuthFailed: handleAuthError,
+  });
+
+  const onSubmitHandler = useCallback(
+    handleSubmit(async (data: ResetPasswordFormData) => {
+      try {
+        const { email } = data;
+
+        setEmail(email);
+        await resetPassword(email);
+      } catch (error) {
+        const parsedError = parseError(error);
+
+        handleAuthError(parsedError);
+      }
+    }),
+    [],
+  );
 
   return {
     control,

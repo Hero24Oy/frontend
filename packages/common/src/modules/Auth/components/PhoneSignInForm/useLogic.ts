@@ -6,31 +6,52 @@ import { initialFormState } from './constants';
 import { PhoneSignInFormData, PhoneSignInFormProps } from './types';
 import { validationSchema } from './validation';
 
+import { useSendVerificationCode } from '$modules/Auth/hooks';
+import { usePhoneAuthStore } from '$modules/Auth/stores';
+import { handleAuthError } from '$modules/Auth/utils';
+
 export const useLogic = (params: PhoneSignInFormProps) => {
   const { signInWithPhoneCallback } = params;
-
-  const onSubmit = (_data: PhoneSignInFormData): void => {
-    // TODO -- add onSubmit logic
-  };
+  const { reCaptcha } = usePhoneAuthStore();
 
   const {
     control,
     handleSubmit,
     formState: { isSubmitting, isValid },
   } = useForm<PhoneSignInFormData>({
-    resolver: yupResolver<PhoneSignInFormData>(validationSchema),
+    resolver: yupResolver(validationSchema),
     defaultValues: initialFormState,
     mode: 'onSubmit',
   });
 
-  const onSubmitHandler = useCallback(async () => {
-    await handleSubmit(onSubmit)();
-    signInWithPhoneCallback();
-  }, [signInWithPhoneCallback]);
+  const { sendVerificationCode } = useSendVerificationCode({
+    onAuthSucceed: signInWithPhoneCallback,
+    onAuthFailed: handleAuthError,
+  });
+
+  const onSubmit = useCallback(
+    handleSubmit(async (data: PhoneSignInFormData) => {
+      // TODO handle and show auth error in UI
+      if (!reCaptcha) {
+        handleAuthError(new Error('Recaptcha is not initialized'));
+
+        return;
+      }
+
+      const { phone, code } = data;
+      const phoneNumber = (code + phone).replace(' ', '');
+
+      await sendVerificationCode({
+        phoneNumber,
+        reCaptcha,
+      });
+    }),
+    [reCaptcha, handleSubmit],
+  );
 
   return {
     control,
-    onSubmitHandler,
+    onSubmitHandler: onSubmit,
     isLoading: isSubmitting,
     isValid,
   };
