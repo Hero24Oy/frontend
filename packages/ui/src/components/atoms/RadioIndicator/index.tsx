@@ -12,7 +12,7 @@ import { RadioSize, RadioVariant } from '../RadioGroup';
 import { GluestackRadioIndicatorProps } from './types';
 
 type Props = {
-  size: RadioSize;
+  size?: RadioSize;
 } & PropsWithChildren<GluestackRadioIndicatorProps>;
 
 export const RadioIndicator: FC<Props> = (props) => {

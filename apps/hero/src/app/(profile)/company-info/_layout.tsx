@@ -1,3 +1,3 @@
 import { createStackLayout } from '@hero24/common';
 
-export default createStackLayout();
+export default createStackLayout('Set profile');

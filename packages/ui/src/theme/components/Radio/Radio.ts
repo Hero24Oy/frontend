@@ -72,7 +72,7 @@ const customRadioConfig = {
           justifyContent: 'center',
           [DescendantStyleName.TEXT]: {
             color: Color.DARK_00,
-            fontSize: FontSize.MD,
+            fontSize: FontSize.SM,
             paddingHorizontal: 12,
             paddingVertical: 8,
             lineHeight: LineHeight.SM,
@@ -87,6 +87,9 @@ const customRadioConfig = {
         },
         [RadioVariant.RADIO_INDICATOR]: {},
       },
+    },
+    defaultProps: {
+      size: Size.MD,
     },
   },
   componentConfig: {
