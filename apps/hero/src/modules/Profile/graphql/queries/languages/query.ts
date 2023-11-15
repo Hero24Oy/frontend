@@ -1,8 +1,6 @@
-import { createSettingsQuery, Settings } from '@hero24/common';
+import { createSettingsQuery, InferSelection } from '@hero24/common';
 
 export const PREFIX = 'languages';
-
-export type Data = Pick<Settings, 'langs'>;
 
 export const QUERY = createSettingsQuery({
   langs: {
@@ -10,3 +8,5 @@ export const QUERY = createSettingsQuery({
     fi: true,
   },
 });
+
+export type Data = InferSelection<typeof QUERY>;
