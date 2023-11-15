@@ -26,4 +26,4 @@ export type LayoutStyles = CommonStyles &
   >;
 
 export type TextStyles = CommonStyles &
-  Pick<TextStyle, 'textAlign' | 'width' | 'color'>;
+  Pick<TextStyle, 'textAlign' | 'width' | 'color' | 'fontSize'>;

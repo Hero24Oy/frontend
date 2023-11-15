@@ -20,9 +20,10 @@ export const useLogic = () => {
   } = useForm<SetProfileFormData>({
     resolver: yupResolver(validationSchema),
     defaultValues: {
+      email,
       firstName: firstName ?? '',
       lastName: lastName ?? '',
-      email,
+      businessCustomer: false,
     },
     mode: 'onChange',
   });
