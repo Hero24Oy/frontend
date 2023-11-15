@@ -48,7 +48,7 @@ export const useStyles = () => {
 
   return StyleSheet.create({
     view: {
-      borderBottomWidth: 0.2,
+      borderBottomWidth: 1,
       borderColor: Color.GREY_LIGHT_02,
       marginTop: insets.top,
     },
