@@ -20,7 +20,8 @@ export const Footer: FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
+    flex: 1,
+    justifyContent: 'flex-end',
     alignItems: 'center',
     gap: 2,
   },
