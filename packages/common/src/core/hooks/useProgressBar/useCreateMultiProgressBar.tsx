@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 
 import { HStack, JsxElement, ProgressBar } from '@hero24/ui';
 
+import { CurrentProgressBar, SetCurrentProgressBar } from './types';
 import { useCreateProgressBar } from './useCreateProgressBar';
 
 import { ScreenForm } from '$core/store';
@@ -16,15 +17,7 @@ type Params<Form extends ScreenForm> = {
 
 type RerunValue<Form extends ScreenForm> = {
   multiScreenProgressBar: JsxElement;
-  setCurrentProgressBarInfo: React.Dispatch<
-    React.SetStateAction<UseStateType<Form>>
-  >;
-};
-
-type UseStateType<Form extends ScreenForm> = {
-  currentFormState: FormState<Form>;
-  currentGetValueFunction: UseFormGetValues<Form>;
-  currentProgressBarIndex: number;
+  setCurrentProgressBarInfo: SetCurrentProgressBar<Form>;
 };
 
 export const useCreateMultiProgressBar = <Form extends ScreenForm>(
@@ -33,7 +26,7 @@ export const useCreateMultiProgressBar = <Form extends ScreenForm>(
   const { initialState, formState, getValues } = params;
 
   const [currentProgressBarInfo, setCurrentProgressBarInfo] = useState<
-    UseStateType<Form>
+    CurrentProgressBar<Form>
   >({
     currentProgressBarIndex: 0,
     currentFormState: formState,
@@ -48,17 +41,19 @@ export const useCreateMultiProgressBar = <Form extends ScreenForm>(
     getValues: currentGetValueFunction,
   });
 
-  const progressBars = Object.values(initialState).map((_, index) => {
-    if (index < currentProgressBarIndex) {
-      return <ProgressBar value={100} key={index} />;
-    }
+  const progressBars = Object.values(initialState).map(
+    (storeEntries, index) => {
+      if (index < currentProgressBarIndex) {
+        return <ProgressBar value={100} key={index} />;
+      }
 
-    if (index === currentProgressBarIndex) {
-      return currentProgressBar;
-    }
+      if (index === currentProgressBarIndex) {
+        return currentProgressBar;
+      }
 
-    return <ProgressBar value={0} key={index} />;
-  });
+      return <ProgressBar value={0} key={index} />;
+    },
+  );
 
   const multiScreenProgressBar = (
     <HStack style={styles.wrapper}>{progressBars}</HStack>

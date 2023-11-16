@@ -2,7 +2,7 @@ import { FormState, UseFormGetValues } from 'react-hook-form';
 
 import { JsxElement, ProgressBar } from '@hero24/ui';
 
-import { computePercentageFraction, isFalsy } from '../../utils';
+import { calculatePercentageFraction, isFalsy } from '../../utils';
 
 import { ScreenForm } from '$core/store';
 
@@ -22,8 +22,8 @@ export const useCreateProgressBar = <Form extends ScreenForm>(
   const allFields = Object.entries(storeFields);
 
   const changedFields = allFields.filter(([fieldKey, fieldValue]) => {
-    const isTouchedField = dirtyFields[fieldKey] !== undefined;
-    const isErrorFieldEmpty = errors[fieldKey] === undefined;
+    const isTouchedField = !dirtyFields[fieldKey];
+    const isErrorFieldEmpty = Boolean(errors[fieldKey]);
 
     const isFieldChanged =
       (isTouchedField && isErrorFieldEmpty) || !isFalsy(fieldValue);
@@ -31,7 +31,7 @@ export const useCreateProgressBar = <Form extends ScreenForm>(
     return isFieldChanged;
   });
 
-  const progressBarValue = computePercentageFraction(
+  const progressBarValue = calculatePercentageFraction(
     changedFields.length,
     allFields.length,
   );

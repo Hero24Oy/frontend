@@ -1,4 +1,4 @@
-export const computePercentageFraction = (
+export const calculatePercentageFraction = (
   numerator: number,
   denominator: number,
 ): number => {
