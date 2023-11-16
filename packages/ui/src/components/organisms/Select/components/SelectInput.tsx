@@ -15,12 +15,12 @@ type Props = {
 };
 
 export const SelectInput: FC<Props> = (props) => {
-  const { label, size, text, badgeValue } = props;
+  const { label, ...restProps } = props;
 
   return (
     <View style={styles.input}>
       <SelectLabel label={label} />
-      <SelectText size={size} text={text} badgeValue={badgeValue} />
+      <SelectText {...restProps} />
     </View>
   );
 };
