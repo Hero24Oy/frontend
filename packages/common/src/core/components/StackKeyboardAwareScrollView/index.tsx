@@ -34,7 +34,7 @@ const useStyles = (): Record<'content', ViewStyle> => {
 
   return StyleSheet.create({
     content: {
-      flex: 1,
+      flexGrow: 1,
       justifyContent: 'space-between',
       paddingHorizontal: 16,
       paddingBottom: insets.bottom,
