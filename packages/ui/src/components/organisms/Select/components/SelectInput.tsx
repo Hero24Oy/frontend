@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
+import { SelectSize } from '../types';
+
 import { SelectLabel, SelectText } from './components';
 
 import { View } from '$atoms';
-import { SelectSize } from '$components';
 
 type Props = {
   badgeValue: number;

@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { SelectProps } from '$components';
+import { SelectProps } from '../../types';
+
 import { StyledSelectLabel } from '$components/styled';
 
 type Props = Pick<SelectProps, 'label'>;

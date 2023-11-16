@@ -1,6 +1,6 @@
 import { ViewProps, ViewStyle } from 'react-native';
 
-import { SelectSize } from '$components';
+import { SelectSize } from '$components/organisms/Select/types';
 import {
   Color,
   ComponentTheme,

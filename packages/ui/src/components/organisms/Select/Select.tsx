@@ -4,27 +4,19 @@ import { StyleSheet } from 'react-native';
 
 import { SelectInput } from './components';
 import { handleSelectedValues } from './helpers';
-import { SelectSize } from './types';
+import { SelectProps } from './types';
 
 import { HStack } from '$atoms';
-import { PressableProps } from '$atoms/Pressable/types';
 import { RightIcon } from '$icons';
 import { StyledSelect, StyledSelectDivider } from '$styled';
 
-export type SelectProps = PressableProps & {
-  size: SelectSize;
-  hasDivider?: boolean;
-  label?: string;
-  selectedValues?: string[];
-};
-
 export const Select: FC<SelectProps> = (props) => {
-  const { onPress, hasDivider, label, selectedValues, ...restProps } = props;
+  const { hasDivider, label, selectedValues, ...restProps } = props;
 
   const { inputText, badgeValue } = handleSelectedValues(selectedValues);
 
   return (
-    <StyledSelect {...restProps} onPress={onPress}>
+    <StyledSelect {...restProps}>
       <HStack style={styles.input}>
         <SelectInput
           label={label}
@@ -45,5 +37,3 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
 });
-
-export * from './types';
