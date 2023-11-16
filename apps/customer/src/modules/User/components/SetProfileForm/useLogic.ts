@@ -1,6 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
+import { $Keys } from 'utility-types';
 
 import {
   handleAuthError,
@@ -8,9 +9,15 @@ import {
   useCachedGraphQlUser,
   useFirebaseUser,
 } from '@hero24/common';
+import { Input } from '@hero24/ui';
 
 import { normalizeProfileData } from './utils';
 import { SetProfileFormData, validationSchema } from './validation';
+
+// TODO separate to hooks
+export type InputField<FieldName extends string> = {
+  name: FieldName;
+} & Pick<Parameters<typeof Input>[0], 'placeholder' | 'isDisabled' | 'title'>;
 
 export type UseLogicParams = {
   onSetProfileSucceed: () => void;
@@ -66,11 +73,34 @@ export const useLogic = (params: UseLogicParams) => {
     [],
   );
 
+  const inputFields = useMemo<InputField<$Keys<SetProfileFormData>>[]>(
+    () => [
+      {
+        name: 'firstName',
+        title: 'First name',
+        placeholder: 'Enter',
+      },
+      {
+        name: 'lastName',
+        title: 'Last name',
+        placeholder: 'Enter',
+      },
+      {
+        name: 'email',
+        title: 'Email',
+        placeholder: 'Enter',
+        isDisabled: isEmailProvided,
+      },
+    ],
+    [],
+  );
+
   return {
     control,
-    onSubmitHandler,
-    isLoading: isSubmitting,
     isValid,
     isEmailProvided,
+    inputFields,
+    onSubmitHandler,
+    isLoading: isSubmitting,
   };
 };

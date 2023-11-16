@@ -4,8 +4,6 @@ import { StyleSheet } from 'react-native';
 
 import { JsxElement, Text } from '@hero24/ui';
 
-const stub = { size: 'sm' }; // TODO remove
-
 type BusinessCustomerSwitchProps<Type extends FieldValues> = {
   control: Control<Type>;
   name: Path<Type>;
@@ -25,12 +23,7 @@ export const BusinessCustomerSwitch = <Type extends FieldValues>(
   return (
     <HStack style={styles.container}>
       <Text style={styles.businessCustomer}>I'am a business customer</Text>
-      <Switch
-        isDisabled={isDisabled}
-        {...stub}
-        onToggle={onChange}
-        value={value}
-      />
+      <Switch isDisabled={isDisabled} onToggle={onChange} value={value} />
     </HStack>
   );
 };

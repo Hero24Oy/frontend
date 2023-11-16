@@ -2,20 +2,14 @@ import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import {
-  Button,
-  Input,
-  KeyboardAwareScrollView,
-  Text,
-  View,
-  VStack,
-} from '@hero24/ui';
+import { Button, KeyboardAwareScrollView, Text, VStack } from '@hero24/ui';
 
-import { BusinessCustomerForm, BusinessCustomerSwitch } from './components';
+import { BusinessCustomerSwitch } from './components';
+import { BasicInformationSection } from './components/BasicInformationSection';
 import { useLogic, UseLogicParams } from './useLogic';
 
 export const SetProfileForm: FC<UseLogicParams> = (props) => {
-  const { control, onSubmitHandler, isLoading, isValid, isEmailProvided } =
+  const { control, inputFields, isLoading, isValid, onSubmitHandler } =
     useLogic(props);
 
   const { bottom } = useSafeAreaInsets();
@@ -30,42 +24,11 @@ export const SetProfileForm: FC<UseLogicParams> = (props) => {
         control={control}
         name="isBusinessCustomer"
       />
+
       <VStack style={styles.inputFieldsContainer}>
         <Text style={styles.header}>Add personal info</Text>
-        <View style={styles.inputFieldContainer}>
-          <Input
-            isDisabled={isLoading}
-            placeholder="Enter"
-            control={control}
-            name="firstName"
-            title="First name"
-          />
-        </View>
-        <View style={styles.inputFieldContainer}>
-          <Input
-            isDisabled={isLoading}
-            placeholder="Enter"
-            control={control}
-            name="lastName"
-            title="Last name"
-          />
-        </View>
-        <View style={styles.inputFieldContainer}>
-          <Input
-            placeholder="Enter"
-            control={control}
-            isDisabled={isEmailProvided || isLoading}
-            name="email"
-            title="Email"
-          />
-        </View>
-        <BusinessCustomerForm
-          control={control}
-          isDisabled={isLoading}
-          isBusinessCustomerControllerName="isBusinessCustomer"
-          businessIdControllerName="businessId"
-          businessNameControllerName="businessName"
-        />
+        <BasicInformationSection inputFields={inputFields} />
+        {/* <BusinessCustomerForm control={control} isDisabled={isLoading} /> */}
       </VStack>
       <Button
         isLoading={isLoading}

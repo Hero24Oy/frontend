@@ -1,19 +1,14 @@
 import { Redirect, Tabs } from 'expo-router';
 import { FC, useMemo } from 'react';
 
-import {
-  TabsContainer,
-  useCachedGraphQlUser,
-  useFirebaseUser,
-} from '@hero24/common';
+import { TabsContainer, useFirebaseUser } from '@hero24/common';
 
-import { bottomTabRoutes } from '$/core';
+import { bottomTabRoutes } from '$core';
+import { useCheckRequiredProfileFields } from '$modules';
 
-// TODO fix layout
 const AppLayout: FC = () => {
   const { user } = useFirebaseUser();
-
-  const { user: graphqlUser } = useCachedGraphQlUser();
+  const { hasRequiredFields } = useCheckRequiredProfileFields();
 
   const tabs = useMemo(
     () =>
@@ -31,11 +26,7 @@ const AppLayout: FC = () => {
     return <Redirect href="/" />;
   }
 
-  if (
-    !graphqlUser.data.email ||
-    !graphqlUser.data.firstName ||
-    !graphqlUser.data.lastName
-  ) {
+  if (!hasRequiredFields) {
     return <Redirect href="/(profile)/set-profile" />;
   }
   // This layout can be deferred because it's not the root layout.
