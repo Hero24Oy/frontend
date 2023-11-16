@@ -11,11 +11,11 @@ const query = createUserQuery({
   },
 });
 
-type Response = InferSelection<typeof query>;
+export type GetUserResponse = InferSelection<typeof query>;
 
 export type UseGetUser = UseQueryWrapper<
   typeof USER_QUERY_PREFIX,
-  Response,
+  GetUserResponse,
   Variables,
   true
 >;
