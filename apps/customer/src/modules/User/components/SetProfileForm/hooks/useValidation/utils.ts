@@ -1,4 +1,4 @@
-import { SetProfileFormData } from './validation';
+import { SetProfileFormData } from '../../validation';
 
 export const normalizeProfileData = (
   data: SetProfileFormData,

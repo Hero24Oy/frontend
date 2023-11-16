@@ -1,29 +1,22 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useCallback, useMemo } from 'react';
+import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
-import { $Keys } from 'utility-types';
 
 import {
   handleAuthError,
   parseError,
   useCachedGraphQlUser,
-  useFirebaseUser,
 } from '@hero24/common';
-import { Input } from '@hero24/ui';
+
+import { SetProfileFormData, validationSchema } from '../../validation';
 
 import { normalizeProfileData } from './utils';
-import { SetProfileFormData, validationSchema } from './validation';
 
-// TODO separate to hooks
-export type InputField<FieldName extends string> = {
-  name: FieldName;
-} & Pick<Parameters<typeof Input>[0], 'placeholder' | 'isDisabled' | 'title'>;
-
-export type UseLogicParams = {
+export type UseValidationParams = {
   onSetProfileSucceed: () => void;
 };
 
-export const useLogic = (params: UseLogicParams) => {
+export const useValidation = (params: UseValidationParams) => {
   const { onSetProfileSucceed } = params;
 
   const {
@@ -31,10 +24,6 @@ export const useLogic = (params: UseLogicParams) => {
       data: { firstName, lastName, email },
     },
   } = useCachedGraphQlUser();
-
-  const firebaseUser = useFirebaseUser();
-
-  const isEmailProvided = Boolean(firebaseUser.user?.email);
 
   const {
     control,
@@ -73,34 +62,10 @@ export const useLogic = (params: UseLogicParams) => {
     [],
   );
 
-  const inputFields = useMemo<InputField<$Keys<SetProfileFormData>>[]>(
-    () => [
-      {
-        name: 'firstName',
-        title: 'First name',
-        placeholder: 'Enter',
-      },
-      {
-        name: 'lastName',
-        title: 'Last name',
-        placeholder: 'Enter',
-      },
-      {
-        name: 'email',
-        title: 'Email',
-        placeholder: 'Enter',
-        isDisabled: isEmailProvided,
-      },
-    ],
-    [],
-  );
-
   return {
-    control,
-    isValid,
-    isEmailProvided,
-    inputFields,
     onSubmitHandler,
+    isValid,
+    control,
     isLoading: isSubmitting,
   };
 };

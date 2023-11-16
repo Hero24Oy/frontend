@@ -1,18 +1,27 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { Button, KeyboardAwareScrollView, Text, VStack } from '@hero24/ui';
+import { KeyboardAwareScrollView, Text, VStack } from '@hero24/ui';
 
-import { BusinessCustomerSwitch } from './components';
-import { BasicInformationSection } from './components/BasicInformationSection';
-import { useLogic, UseLogicParams } from './useLogic';
+import {
+  BusinessCustomerSection,
+  BusinessCustomerSwitch,
+  InputSection,
+  SubmitButton,
+} from './components';
+import { useLogic, UseLogicParams } from './hooks';
 
-export const SetProfileForm: FC<UseLogicParams> = (props) => {
-  const { control, inputFields, isLoading, isValid, onSubmitHandler } =
-    useLogic(props);
+type SetProfileFormProps = UseLogicParams;
 
-  const { bottom } = useSafeAreaInsets();
+export const SetProfileForm: FC<SetProfileFormProps> = (props) => {
+  const {
+    control,
+    basicInputFields,
+    businessCustomerInputFields,
+    isLoading,
+    isValid,
+    onSubmitHandler,
+  } = useLogic(props);
 
   return (
     <KeyboardAwareScrollView
@@ -27,17 +36,17 @@ export const SetProfileForm: FC<UseLogicParams> = (props) => {
 
       <VStack style={styles.inputFieldsContainer}>
         <Text style={styles.header}>Add personal info</Text>
-        <BasicInformationSection inputFields={inputFields} />
-        {/* <BusinessCustomerForm control={control} isDisabled={isLoading} /> */}
+        <InputSection control={control} inputFields={basicInputFields} />
+        <BusinessCustomerSection
+          control={control}
+          inputFields={businessCustomerInputFields}
+        />
       </VStack>
-      <Button
+      <SubmitButton
         isLoading={isLoading}
-        isDisabled={isLoading || !isValid}
+        isDisabled={!isValid}
         onPress={onSubmitHandler}
-        style={{ marginBottom: bottom }}
-      >
-        Continue
-      </Button>
+      />
     </KeyboardAwareScrollView>
   );
 };
@@ -52,7 +61,4 @@ const styles = StyleSheet.create({
   },
   header: { fontSize: 24, fontWeight: '600', lineHeight: 28.8 },
   inputFieldsContainer: { flex: 1, gap: 24 },
-  inputFieldContainer: {
-    height: 65,
-  },
 });
