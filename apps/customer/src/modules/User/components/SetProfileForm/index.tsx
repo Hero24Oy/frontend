@@ -39,6 +39,7 @@ export const SetProfileForm: FC<SetProfileFormProps> = (props) => {
         <InputSection control={control} inputFields={basicInputFields} />
         <BusinessCustomerSection
           control={control}
+          isBusinessCustomerControllerName="isBusinessCustomer"
           inputFields={businessCustomerInputFields}
         />
       </VStack>
