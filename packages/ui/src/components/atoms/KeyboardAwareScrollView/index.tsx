@@ -13,8 +13,8 @@ export const KeyboardAwareScrollView: FC<KeyboardAwareScrollViewProps> = (
     <RnKeyboardAwareScrollView
       enableAutomaticScroll
       enableOnAndroid
-      extraScrollHeight={200} // it's not scrolled to the needed height, so add this height manually
       keyboardShouldPersistTaps="handled"
+      keyboardOpeningTime={0}
       style={styles.main}
       {...restProps}
     >

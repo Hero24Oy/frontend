@@ -26,10 +26,7 @@ export const SetProfileForm: FC<SetProfileFormProps> = (props) => {
   return (
     <View style={styles.form}>
       <BusinessCustomerSwitch control={control} name="isBusinessCustomer" />
-      <KeyboardAwareScrollView
-        contentContainerStyle={styles.keyboardAwareView}
-        scrollEnabled={false}
-      >
+      <KeyboardAwareScrollView contentContainerStyle={styles.keyboardAwareView}>
         <VStack style={styles.inputFieldsContainer}>
           <Text style={styles.header}>Add personal info</Text>
           <InputSection control={control} inputFields={basicInputFields} />
@@ -39,13 +36,12 @@ export const SetProfileForm: FC<SetProfileFormProps> = (props) => {
             inputFields={businessCustomerInputFields}
           />
         </VStack>
-
-        <SubmitButton
-          isLoading={isLoading}
-          isDisabled={!isValid}
-          onPress={onSubmitHandler}
-        />
       </KeyboardAwareScrollView>
+      <SubmitButton
+        isLoading={isLoading}
+        isDisabled={!isValid}
+        onPress={onSubmitHandler}
+      />
     </View>
   );
 };

@@ -19,7 +19,7 @@ export const BusinessCustomerSwitch = <Type extends FieldValues>(
   // TODO replace Switch with component from hero24-ui
   return (
     <HStack style={styles.container}>
-      <Text style={styles.businessCustomer}>I'am a business customer</Text>
+      <Text style={styles.title}>I am a business customer</Text>
       <Switch {...switchProps} />
     </HStack>
   );
@@ -27,7 +27,7 @@ export const BusinessCustomerSwitch = <Type extends FieldValues>(
 
 const styles = StyleSheet.create({
   container: { justifyContent: 'space-between', alignItems: 'center' },
-  businessCustomer: {
+  title: {
     fontSize: 14,
   },
 });
