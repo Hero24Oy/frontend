@@ -2,12 +2,23 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { useCachedGraphQlUser, useFirebaseUser } from '@hero24/common';
+import {
+  handleAuthError,
+  parseError,
+  useCachedGraphQlUser,
+  useFirebaseUser,
+} from '@hero24/common';
 
 import { normalizeProfileData } from './utils';
 import { SetProfileFormData, validationSchema } from './validation';
 
-export const useLogic = () => {
+export type UseLogicParams = {
+  onSetProfileSucceed: () => void;
+};
+
+export const useLogic = (params: UseLogicParams) => {
+  const { onSetProfileSucceed } = params;
+
   const {
     user: {
       data: { firstName, lastName, email },
@@ -35,15 +46,22 @@ export const useLogic = () => {
 
   const onSubmitHandler = useCallback(
     handleSubmit(async (data: SetProfileFormData) => {
-      const profileData = normalizeProfileData(data);
+      try {
+        const profileData = normalizeProfileData(data);
 
-      await new Promise<void>((resolve) => {
-        setTimeout(() => {
-          console.debug('profileData', profileData);
-          resolve();
-          // eslint-disable-next-line  no-magic-numbers -- TODO stub
-        }, 3000);
-      });
+        // TODO remove after, imitate request
+        await new Promise<void>((resolve) => {
+          setTimeout(() => {
+            console.debug('profileData', profileData);
+            resolve();
+            // eslint-disable-next-line  no-magic-numbers -- TODO will be removed
+          }, 1000);
+        });
+
+        onSetProfileSucceed();
+      } catch (error) {
+        handleAuthError(parseError(error));
+      }
     }),
     [],
   );

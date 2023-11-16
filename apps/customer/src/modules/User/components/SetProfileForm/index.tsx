@@ -12,11 +12,11 @@ import {
 } from '@hero24/ui';
 
 import { BusinessCustomerForm, BusinessCustomerSwitch } from './components';
-import { useLogic } from './useLogic';
+import { useLogic, UseLogicParams } from './useLogic';
 
-export const SetProfileForm: FC = () => {
+export const SetProfileForm: FC<UseLogicParams> = (props) => {
   const { control, onSubmitHandler, isLoading, isValid, isEmailProvided } =
-    useLogic();
+    useLogic(props);
 
   const { bottom } = useSafeAreaInsets();
 

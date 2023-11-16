@@ -1,7 +1,9 @@
 import { boolean, InferType, object, string } from 'yup';
 
+import { emailValidationSchema, ValidationHints } from '@hero24/common';
+
 export const validationSchema = object({
-  email: string().required(),
+  email: emailValidationSchema.required(ValidationHints.REQUIRED),
   firstName: string().required(),
   lastName: string().required(),
   isBusinessCustomer: boolean().optional().default(false),

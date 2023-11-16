@@ -31,7 +31,6 @@ const AppLayout: FC = () => {
     return <Redirect href="/" />;
   }
 
-  // TODO test this
   if (
     !graphqlUser.data.email ||
     !graphqlUser.data.firstName ||
