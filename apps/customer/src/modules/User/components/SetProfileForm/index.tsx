@@ -28,11 +28,7 @@ export const SetProfileForm: FC<SetProfileFormProps> = (props) => {
       contentContainerStyle={styles.form}
       scrollEnabled={false}
     >
-      <BusinessCustomerSwitch
-        isDisabled={isLoading}
-        control={control}
-        name="isBusinessCustomer"
-      />
+      <BusinessCustomerSwitch control={control} name="isBusinessCustomer" />
 
       <VStack style={styles.inputFieldsContainer}>
         <Text style={styles.header}>Add personal info</Text>
