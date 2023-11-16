@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { KeyboardAwareScrollView, Text, VStack } from '@hero24/ui';
+import { KeyboardAwareScrollView, Text, View, VStack } from '@hero24/ui';
 
 import {
   BusinessCustomerSection,
@@ -24,27 +24,29 @@ export const SetProfileForm: FC<SetProfileFormProps> = (props) => {
   } = useLogic(props);
 
   return (
-    <KeyboardAwareScrollView
-      contentContainerStyle={styles.form}
-      scrollEnabled={false}
-    >
+    <View style={styles.form}>
       <BusinessCustomerSwitch control={control} name="isBusinessCustomer" />
+      <KeyboardAwareScrollView
+        contentContainerStyle={styles.keyboardAwareView}
+        scrollEnabled={false}
+      >
+        <VStack style={styles.inputFieldsContainer}>
+          <Text style={styles.header}>Add personal info</Text>
+          <InputSection control={control} inputFields={basicInputFields} />
+          <BusinessCustomerSection
+            control={control}
+            isBusinessCustomerControllerName="isBusinessCustomer"
+            inputFields={businessCustomerInputFields}
+          />
+        </VStack>
 
-      <VStack style={styles.inputFieldsContainer}>
-        <Text style={styles.header}>Add personal info</Text>
-        <InputSection control={control} inputFields={basicInputFields} />
-        <BusinessCustomerSection
-          control={control}
-          isBusinessCustomerControllerName="isBusinessCustomer"
-          inputFields={businessCustomerInputFields}
+        <SubmitButton
+          isLoading={isLoading}
+          isDisabled={!isValid}
+          onPress={onSubmitHandler}
         />
-      </VStack>
-      <SubmitButton
-        isLoading={isLoading}
-        isDisabled={!isValid}
-        onPress={onSubmitHandler}
-      />
-    </KeyboardAwareScrollView>
+      </KeyboardAwareScrollView>
+    </View>
   );
 };
 
@@ -56,6 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 24,
   },
+  keyboardAwareView: { flex: 1 },
   header: { fontSize: 24, fontWeight: '600', lineHeight: 28.8 },
   inputFieldsContainer: { flex: 1, gap: 24 },
 });
