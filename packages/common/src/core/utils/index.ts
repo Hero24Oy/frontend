@@ -4,3 +4,4 @@ export * from './getCurrentLanguage';
 export * from './stringifyPretty';
 export * from './parseError';
 export * from './computePercentageFraction';
+export * from './isFalsy';
