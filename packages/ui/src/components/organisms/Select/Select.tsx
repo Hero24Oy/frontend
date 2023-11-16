@@ -7,11 +7,11 @@ import { handleSelectedValues } from './helpers';
 import { SelectSize } from './types';
 
 import { HStack } from '$atoms';
+import { PressableProps } from '$atoms/Pressable/types';
 import { RightIcon } from '$icons';
 import { StyledSelect, StyledSelectDivider } from '$styled';
 
-export type SelectProps = {
-  onPress: () => void;
+export type SelectProps = PressableProps & {
   size: SelectSize;
   hasDivider?: boolean;
   label?: string;
