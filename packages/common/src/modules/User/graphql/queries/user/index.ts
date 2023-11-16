@@ -1,6 +1,6 @@
-import { createUserQuery, Data, USER_QUERY_PREFIX, Variables } from './query';
+import { createUserQuery, USER_QUERY_PREFIX, Variables } from './query';
 
-import { useCustomQuery, UseQueryWrapper } from '$core';
+import { InferSelection, useCustomQuery, UseQueryWrapper } from '$core';
 
 const query = createUserQuery({
   id: true,
@@ -11,9 +11,11 @@ const query = createUserQuery({
   },
 });
 
+type Response = InferSelection<typeof query>;
+
 export type UseGetUser = UseQueryWrapper<
   typeof USER_QUERY_PREFIX,
-  Data,
+  Response,
   Variables,
   true
 >;
