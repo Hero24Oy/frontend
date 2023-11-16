@@ -9,7 +9,7 @@ import { IconPosition } from '../types';
 import { BaseIcon } from '$icons/base';
 
 type Props = PropsWithChildren<{
-  icon: BaseIcon | undefined;
+  icon?: BaseIcon;
   iconPosition?: `${IconPosition}`;
 }>;
 

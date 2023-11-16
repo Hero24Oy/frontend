@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Badge, HStack } from '$components/atoms';
+import { Badge, HStack } from '$atoms';
 import { SelectSize } from '$components/organisms/Select/types';
 
 type Props = {

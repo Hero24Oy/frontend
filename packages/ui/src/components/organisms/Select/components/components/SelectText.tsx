@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native';
 
 import { SelectBadge } from './components';
 
+import { VStack } from '$atoms';
 import { SelectSize } from '$components';
-import { VStack } from '$components/atoms';
 import { StyledSelectText } from '$styled';
 
 type Props = {

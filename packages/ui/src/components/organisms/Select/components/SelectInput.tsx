@@ -3,8 +3,8 @@ import { StyleSheet } from 'react-native';
 
 import { SelectLabel, SelectText } from './components';
 
+import { View } from '$atoms';
 import { SelectSize } from '$components';
-import { View } from '$components/atoms';
 
 type Props = {
   badgeValue: number;
