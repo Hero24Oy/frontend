@@ -14,10 +14,12 @@ type Props = {
 };
 
 export const SelectText: FC<Props> = ({ size, text, badgeValue }) => {
+  const selectText = text || 'Not selected';
+
   return (
     <VStack style={styles.text}>
       <StyledSelectText numberOfLines={1} ellipsizeMode="tail">
-        {text || 'Not selected'}
+        {selectText}
       </StyledSelectText>
       <SelectBadge badgeValue={badgeValue} size={size} />
     </VStack>
