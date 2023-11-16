@@ -15,14 +15,14 @@ type Params<Form extends ScreenForm> = {
   initialState: object;
 };
 
-type RerunValue<Form extends ScreenForm> = {
+type ReturnValue<Form extends ScreenForm> = {
   multiScreenProgressBar: JsxElement;
   setCurrentProgressBarInfo: SetCurrentProgressBar<Form>;
 };
 
 export const useCreateMultiProgressBar = <Form extends ScreenForm>(
   params: Params<Form>,
-): RerunValue<Form> => {
+): ReturnValue<Form> => {
   const { initialState, formState, getValues } = params;
 
   const [currentProgressBarInfo, setCurrentProgressBarInfo] = useState<
