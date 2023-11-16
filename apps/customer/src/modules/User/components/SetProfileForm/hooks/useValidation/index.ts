@@ -48,7 +48,6 @@ export const useValidation = (params: UseValidationParams) => {
     handleSubmit(async (data: SetProfileFormData) => {
       try {
         // TODO handle business account as well
-
         await editUser.request({
           userId,
           data: normalizeProfileData(data),

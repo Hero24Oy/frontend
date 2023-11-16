@@ -1,11 +1,11 @@
 import { useMemo } from 'react';
 import { Control, FieldValues, Path } from 'react-hook-form';
 
-import { Input, JsxElement, VStack } from '@hero24/ui';
+import { Input, InputProps, JsxElement, VStack } from '@hero24/ui';
 
 export type InputField<FieldName> = {
   name: FieldName;
-} & Pick<Parameters<typeof Input>[0], 'placeholder' | 'isDisabled' | 'title'>;
+} & Pick<InputProps<never>, 'placeholder' | 'isDisabled' | 'title'>;
 
 export type InputSectionProps<Type extends FieldValues> = {
   control: Control<Type>;

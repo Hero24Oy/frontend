@@ -2,6 +2,7 @@ import { FieldFunctionOptions, TypePolicies } from '@apollo/client';
 
 import { USER_TYPE_NAME } from './constants';
 import { User } from './fragments';
+import { EditUserMutationVariables } from './mutations';
 
 export const userTypePolicies: TypePolicies = {
   Query: {
@@ -27,7 +28,7 @@ export const userTypePolicies: TypePolicies = {
       editUserData: {
         keyArgs: false,
         merge: (_existing, incoming, { toReference, mergeObjects, args }) => {
-          const userId = args!.userId as string;
+          const { userId } = args as Pick<EditUserMutationVariables, 'userId'>;
 
           const cachedUser = toReference({
             __typename: USER_TYPE_NAME,
