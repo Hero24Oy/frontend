@@ -1,8 +1,7 @@
 import { useMemo } from 'react';
 import { Control, FieldValues, Path } from 'react-hook-form';
-import { StyleSheet, View } from 'react-native';
 
-import { Input, JsxElement } from '@hero24/ui';
+import { Input, JsxElement, VStack } from '@hero24/ui';
 
 export type InputField<FieldName> = {
   name: FieldName;
@@ -15,24 +14,16 @@ export type InputSectionProps<Type extends FieldValues> = {
 
 export const InputSection = <Type extends FieldValues>(
   props: InputSectionProps<Type>,
-): JsxElement[] => {
+): JsxElement => {
   const { inputFields, control } = props;
 
   const inputFieldsComponents = useMemo(
     () =>
       inputFields.map((restProps) => (
-        <View key={restProps.title} style={styles.inputFieldContainer}>
-          <Input {...restProps} control={control} />
-        </View>
+        <Input key={restProps.title} {...restProps} control={control} />
       )),
     [],
   );
 
-  return inputFieldsComponents;
+  return <VStack>{inputFieldsComponents}</VStack>;
 };
-
-const styles = StyleSheet.create({
-  inputFieldContainer: {
-    height: 65,
-  },
-});

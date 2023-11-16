@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { KeyboardAwareScrollView, Text, View, VStack } from '@hero24/ui';
+import { Heading, KeyboardAwareScrollView, View, VStack } from '@hero24/ui';
 
 import {
   BusinessCustomerSection,
@@ -26,9 +26,12 @@ export const SetProfileForm: FC<SetProfileFormProps> = (props) => {
   return (
     <View style={styles.form}>
       <BusinessCustomerSwitch control={control} name="isBusinessCustomer" />
-      <KeyboardAwareScrollView contentContainerStyle={styles.keyboardAwareView}>
-        <VStack style={styles.inputFieldsContainer}>
-          <Text style={styles.header}>Add personal info</Text>
+      <KeyboardAwareScrollView
+        scrollEnabled={false}
+        contentContainerStyle={styles.keyboardAwareView}
+      >
+        <VStack>
+          <Heading variant="H2">Add personal info</Heading>
           <InputSection control={control} inputFields={basicInputFields} />
           <BusinessCustomerSection
             control={control}
@@ -55,6 +58,4 @@ const styles = StyleSheet.create({
     gap: 24,
   },
   keyboardAwareView: { flex: 1 },
-  header: { fontSize: 24, fontWeight: '600', lineHeight: 28.8 },
-  inputFieldsContainer: { flex: 1, gap: 24 },
 });

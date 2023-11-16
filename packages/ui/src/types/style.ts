@@ -32,7 +32,4 @@ export type LayoutStyles = CommonStyles &
   >;
 
 export type TextStyles = CommonStyles &
-  Pick<
-    TextStyle,
-    'textAlign' | 'width' | 'color' | 'fontSize' | 'fontWeight' | 'lineHeight'
-  >;
+  Pick<TextStyle, 'textAlign' | 'width' | 'color'>;

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { StyleSheet } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Button, GluestackButtonProps } from '@hero24/ui';
@@ -9,16 +10,26 @@ type SubmitButtonProps = {
 
 export const SubmitButton: FC<SubmitButtonProps> = (props) => {
   const { isLoading, isDisabled, onPress } = props;
-  const { bottom } = useSafeAreaInsets();
+  const styles = useStyles();
 
   return (
     <Button
       isLoading={isLoading}
       isDisabled={isLoading || isDisabled}
       onPress={onPress}
-      style={{ marginBottom: bottom }}
+      style={styles.button}
     >
       Continue
     </Button>
   );
+};
+
+export const useStyles = () => {
+  const { bottom } = useSafeAreaInsets();
+
+  return StyleSheet.create({
+    button: {
+      marginBottom: bottom,
+    },
+  });
 };
