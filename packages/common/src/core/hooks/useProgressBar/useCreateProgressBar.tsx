@@ -7,14 +7,19 @@ import { calculatePercentageFraction, isFalsy } from '../../utils';
 import { ScreenForm } from '$core/store';
 
 type Params<Form extends ScreenForm> = {
-  formState: FormState<Form>;
-  getValues: UseFormGetValues<Form>;
+  formState: FormState<Form> | null;
+  getValues: UseFormGetValues<Form> | null;
 };
 
 export const useCreateProgressBar = <Form extends ScreenForm>(
   params: Params<Form>,
 ): JsxElement => {
   const { formState, getValues } = params;
+
+  if (formState === null || getValues === null) {
+    return <ProgressBar value={0} />;
+  }
+
   const { errors, dirtyFields } = formState;
 
   const storeFields = getValues();

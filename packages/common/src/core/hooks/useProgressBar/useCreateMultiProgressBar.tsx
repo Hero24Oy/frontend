@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { FormState, UseFormGetValues } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
 
 import { HStack, JsxElement, ProgressBar } from '@hero24/ui';
@@ -7,47 +6,39 @@ import { HStack, JsxElement, ProgressBar } from '@hero24/ui';
 import { CurrentProgressBar, SetCurrentProgressBar } from './types';
 import { useCreateProgressBar } from './useCreateProgressBar';
 
-import { ScreenForm } from '$core/store';
-
-type Params<Form extends ScreenForm> = {
-  formState: FormState<Form>;
-  getValues: UseFormGetValues<Form>;
+type Params = {
   initialState: object;
 };
 
-type ReturnValue<Form extends ScreenForm> = {
+type ReturnValue = {
   multiScreenProgressBar: JsxElement;
-  setCurrentProgressBarInfo: SetCurrentProgressBar<Form>;
+  setCurrentProgressBarInfo: SetCurrentProgressBar;
 };
 
-export const useCreateMultiProgressBar = <Form extends ScreenForm>(
-  params: Params<Form>,
-): ReturnValue<Form> => {
-  const { initialState, formState, getValues } = params;
+export const useCreateMultiProgressBar = (params: Params): ReturnValue => {
+  const { initialState } = params;
 
-  const [currentProgressBarInfo, setCurrentProgressBarInfo] = useState<
-    CurrentProgressBar<Form>
-  >({
-    currentProgressBarIndex: 0,
-    currentFormState: formState,
-    currentGetValueFunction: getValues,
-  });
+  const [currentProgressBarInfo, setCurrentProgressBarInfo] =
+    useState<CurrentProgressBar>({
+      progressBarIndex: 0,
+      getValues: null,
+      formState: null,
+    });
 
-  const { currentFormState, currentProgressBarIndex, currentGetValueFunction } =
-    currentProgressBarInfo;
+  const { formState, progressBarIndex, getValues } = currentProgressBarInfo;
 
   const currentProgressBar = useCreateProgressBar({
-    formState: currentFormState,
-    getValues: currentGetValueFunction,
+    formState,
+    getValues,
   });
 
   const progressBars = Object.values(initialState).map(
     (storeEntries, index) => {
-      if (index < currentProgressBarIndex) {
+      if (index < progressBarIndex) {
         return <ProgressBar value={100} key={index} />;
       }
 
-      if (index === currentProgressBarIndex) {
+      if (index === progressBarIndex) {
         return currentProgressBar;
       }
 

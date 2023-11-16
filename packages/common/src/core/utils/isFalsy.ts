@@ -1,10 +1,9 @@
-export const isFalsy = (value: unknown): boolean => {
-  if (typeof value === 'object' && value !== null) {
-    const isObjectEmpty = Array.isArray(value)
-      ? !value.length
-      : !Object.keys(value).length;
+import isEmpty from 'lodash/isEmpty';
+import isObject from 'lodash/isObject';
 
-    return isObjectEmpty;
+export const isFalsy = (value: unknown): boolean => {
+  if (isObject(value)) {
+    return isEmpty(value);
   }
 
   return !value;

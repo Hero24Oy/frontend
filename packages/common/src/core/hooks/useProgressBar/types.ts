@@ -1,13 +1,12 @@
-import { FormState, UseFormGetValues } from 'react-hook-form';
+import { Dispatch } from 'react';
+import { FieldValues, FormState, UseFormGetValues } from 'react-hook-form';
 
-import { ScreenForm } from '$core/store';
-
-export type CurrentProgressBar<Form extends ScreenForm> = {
-  currentFormState: FormState<Form>;
-  currentGetValueFunction: UseFormGetValues<Form>;
-  currentProgressBarIndex: number;
+export type CurrentProgressBar = {
+  formState: FormState<FieldValues> | null;
+  getValues: UseFormGetValues<FieldValues> | null;
+  progressBarIndex: number;
 };
 
-export type SetCurrentProgressBar<Form extends ScreenForm> = React.Dispatch<
-  React.SetStateAction<CurrentProgressBar<Form>>
+export type SetCurrentProgressBar = Dispatch<
+  React.SetStateAction<CurrentProgressBar>
 >;
