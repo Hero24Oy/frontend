@@ -6,7 +6,7 @@ export const validationSchema = object({
   email: emailValidationSchema.required(ValidationHints.INVALID_EMAIL),
   firstName: string().required(ValidationHints.REQUIRED),
   lastName: string().required(ValidationHints.REQUIRED),
-  isBusinessCustomer: boolean().optional().default(false),
+  isBusinessCustomer: boolean().optional(),
   businessName: boolean()
     .nullable()
     .when('isBusinessCustomer', ([isBusinessCustomer]: boolean[]) => {

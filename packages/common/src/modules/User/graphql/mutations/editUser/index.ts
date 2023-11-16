@@ -1,8 +1,33 @@
-import { Data, MUTATION, PREFIX, Variables } from './mutation';
+import { DocumentNode, gql } from '@apollo/client';
 
-import { useCustomMutation, UseMutationWrapper } from '$core';
+import { User, UserData } from '../../fragments';
 
-export type UseEditUser = UseMutationWrapper<typeof PREFIX, Data, Variables>;
+import { capitalize, createGraphqlBuilder, DEFAULT_RESPONSE_NAME } from '$core';
 
-export const useEditUser: UseEditUser = (...args) =>
-  useCustomMutation(PREFIX, MUTATION, ...args);
+export const EDIT_USER_PREFIX = 'editUser';
+
+export type Data = User;
+
+export type PartialUserDataInput = Omit<
+  Partial<UserData>,
+  'createdAt' | 'updatedAt' | 'deletedAt'
+>;
+
+export type EditUserMutationVariables = {
+  data: PartialUserDataInput;
+  userId: string;
+};
+
+export const createEditUserMutation = createGraphqlBuilder<Data, DocumentNode>(
+  (selection) =>
+    gql`
+
+  mutation ${capitalize(
+    EDIT_USER_PREFIX,
+  )}($data: PartialUserDataInput!, $userId: String!) {
+    ${DEFAULT_RESPONSE_NAME}: editUserData(data: $data, userId: $userId) {
+      ${selection}
+    }
+  }
+`,
+);

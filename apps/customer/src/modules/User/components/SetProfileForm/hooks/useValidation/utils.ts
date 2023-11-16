@@ -1,14 +1,16 @@
+import omit from 'lodash/omit';
+
 import { SetProfileFormData } from '../../validation';
 
 export const normalizeProfileData = (
   data: SetProfileFormData,
 ): SetProfileFormData => {
-  const profileData = { ...data };
-
-  if (!profileData.isBusinessCustomer) {
-    profileData.businessName = null;
-    profileData.businessId = null;
-  }
+  // * Depending on how server will be setup, we will adjust the mutation
+  const profileData = omit(data, [
+    'isBusinessCustomer',
+    'businessId',
+    'businessName',
+  ]);
 
   return profileData;
 };

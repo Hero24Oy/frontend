@@ -1,8 +1,22 @@
-import { Data, PREFIX, QUERY, Variables } from './query';
+import { createUserQuery, Data, USER_QUERY_PREFIX, Variables } from './query';
 
 import { useCustomQuery, UseQueryWrapper } from '$core';
 
-export type UseGetUser = UseQueryWrapper<typeof PREFIX, Data, Variables, true>;
+const query = createUserQuery({
+  id: true,
+  data: {
+    email: true,
+    firstName: true,
+    lastName: true,
+  },
+});
+
+export type UseGetUser = UseQueryWrapper<
+  typeof USER_QUERY_PREFIX,
+  Data,
+  Variables,
+  true
+>;
 
 export const useGetUser: UseGetUser = (...args) =>
-  useCustomQuery(PREFIX, QUERY, ...args) as ReturnType<UseGetUser>;
+  useCustomQuery(USER_QUERY_PREFIX, query, ...args) as ReturnType<UseGetUser>;

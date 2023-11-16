@@ -12,6 +12,8 @@ export const ProfileScreen: FC = () => {
     <View>
       <Text>Hello</Text>
       <Text>{user.data.email}</Text>
+      <Text>{user.data.firstName}</Text>
+      <Text>{user.data.lastName}</Text>
       <Button variant="solid" size="md" onPress={logout}>
         Logout
       </Button>

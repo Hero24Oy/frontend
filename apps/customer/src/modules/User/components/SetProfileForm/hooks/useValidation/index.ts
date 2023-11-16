@@ -12,15 +12,19 @@ import { SetProfileFormData, validationSchema } from '../../validation';
 
 import { normalizeProfileData } from './utils';
 
+import { useSetRequiredProfileFields } from '$modules/User/hooks';
+
 export type UseValidationParams = {
   onSetProfileSucceed: () => void;
 };
 
 export const useValidation = (params: UseValidationParams) => {
   const { onSetProfileSucceed } = params;
+  const { editUser } = useSetRequiredProfileFields();
 
   const {
     user: {
+      id: userId,
       data: { firstName, lastName, email },
     },
   } = useCachedGraphQlUser();
@@ -43,15 +47,11 @@ export const useValidation = (params: UseValidationParams) => {
   const onSubmitHandler = useCallback(
     handleSubmit(async (data: SetProfileFormData) => {
       try {
-        const profileData = normalizeProfileData(data);
+        // TODO handle business account as well
 
-        // TODO remove after, imitate request
-        await new Promise<void>((resolve) => {
-          setTimeout(() => {
-            console.debug('profileData', profileData);
-            resolve();
-            // eslint-disable-next-line  no-magic-numbers -- TODO will be removed
-          }, 1000);
+        await editUser.request({
+          userId,
+          data: normalizeProfileData(data),
         });
 
         onSetProfileSucceed();

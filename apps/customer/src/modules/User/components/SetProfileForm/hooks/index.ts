@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { $Keys } from 'utility-types';
 
-import { useFirebaseUser } from '@hero24/common';
+import { useCachedGraphQlUser } from '@hero24/common';
 
 import { InputField } from '../components/InputSection';
 import { SetProfileFormData } from '../validation';
@@ -12,11 +12,15 @@ export type UseLogicParams = UseValidationParams;
 
 export const useLogic = (params: UseLogicParams) => {
   const validation = useValidation(params);
-  const firebaseUser = useFirebaseUser();
+  const {
+    user: {
+      data: { email },
+    },
+  } = useCachedGraphQlUser();
 
   const { control } = validation;
 
-  const isEmailProvided = Boolean(firebaseUser.user?.email);
+  const isEmailProvided = Boolean(email);
   const basicInputFields = useMemo<InputField<$Keys<SetProfileFormData>>[]>(
     () => [
       {
