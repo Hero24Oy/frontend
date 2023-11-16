@@ -1,12 +1,11 @@
 import { useCachedGraphQlUser } from '@hero24/common';
 
 export const useCheckRequiredProfileFields = () => {
-  const { user: graphqlUser } = useCachedGraphQlUser();
+  const { user } = useCachedGraphQlUser();
 
-  const hasRequiredFields =
-    graphqlUser.data.email ||
-    graphqlUser.data.firstName ||
-    graphqlUser.data.lastName;
+  const hasRequiredFields = Boolean(
+    user?.data?.email || user?.data?.firstName || user.data?.lastName,
+  );
 
   return {
     hasRequiredFields,
