@@ -7,24 +7,20 @@ export const validationSchema = object({
   firstName: string().required(ValidationHints.REQUIRED),
   lastName: string().required(ValidationHints.REQUIRED),
   isBusinessCustomer: boolean().optional().default(false),
-  businessName: boolean()
+  businessName: string()
     .nullable()
-    .when('isBusinessCustomer', ([isBusinessCustomer]: boolean[]) => {
-      if (isBusinessCustomer) {
-        return string().required(ValidationHints.REQUIRED);
-      }
-
-      return string().optional();
-    }),
-  businessId: boolean()
+    .when('isBusinessCustomer', ([isBusinessCustomer], schema) =>
+      isBusinessCustomer
+        ? schema.required(ValidationHints.REQUIRED)
+        : schema.optional(),
+    ),
+  businessId: string()
     .nullable()
-    .when('isBusinessCustomer', ([isBusinessCustomer]: boolean[]) => {
-      if (isBusinessCustomer) {
-        return string().required(ValidationHints.REQUIRED);
-      }
-
-      return string().optional();
-    }),
+    .when('isBusinessCustomer', ([isBusinessCustomer], schema) =>
+      isBusinessCustomer
+        ? schema.required(ValidationHints.REQUIRED)
+        : schema.optional(),
+    ),
 });
 
 export type SetProfileFormData = InferType<typeof validationSchema>;

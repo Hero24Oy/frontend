@@ -10,7 +10,7 @@ import {
 
 import { SetProfileFormData, validationSchema } from '../../validation';
 
-import { normalizeProfileData } from './utils';
+// import { normalizeProfileData } from './utils';
 
 export type UseValidationParams = {
   onSetProfileSucceed: () => void;
@@ -41,19 +41,9 @@ export const useValidation = (params: UseValidationParams) => {
   });
 
   const onSubmitHandler = useCallback(
-    handleSubmit(async (data: SetProfileFormData) => {
+    handleSubmit((_data: SetProfileFormData) => {
       try {
-        const profileData = normalizeProfileData(data);
-
-        // TODO remove after, imitate request
-        await new Promise<void>((resolve) => {
-          setTimeout(() => {
-            console.debug('profileData', profileData);
-            resolve();
-            // eslint-disable-next-line  no-magic-numbers -- TODO will be removed
-          }, 1000);
-        });
-
+        // const profileData = normalizeProfileData(data);
         onSetProfileSucceed();
       } catch (error) {
         handleAuthError(parseError(error));

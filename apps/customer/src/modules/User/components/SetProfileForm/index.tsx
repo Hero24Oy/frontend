@@ -55,6 +55,6 @@ const styles = StyleSheet.create({
     gap: 24,
   },
   keyboardAwareView: { flex: 1 },
-  header: { fontSize: 24, fontWeight: '600', lineHeight: 28.8 },
+  header: { fontSize: 24, lineHeight: 28.8 },
   inputFieldsContainer: { flex: 1, gap: 24 },
 });
