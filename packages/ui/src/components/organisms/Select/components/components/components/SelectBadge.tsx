@@ -10,6 +10,8 @@ type Props = {
 };
 
 export const SelectBadge: FC<Props> = ({ size, badgeValue }) => {
+  const badgeText = `+${badgeValue}`;
+
   if (!badgeValue) {
     return null;
   }
@@ -17,7 +19,7 @@ export const SelectBadge: FC<Props> = ({ size, badgeValue }) => {
   return (
     <HStack style={styles.badge}>
       <Badge variant="solid" action="muted" size={size}>
-        {`+${badgeValue}`}
+        {badgeText}
       </Badge>
     </HStack>
   );
