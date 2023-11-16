@@ -2,7 +2,7 @@ import { ConfigContext, ExpoConfig } from 'expo/config';
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
-  name: 'Hero24',
+  name: 'Customer App',
   slug: 'app-customer',
   description: 'Hero24 Marketplace',
   owner: 'hero24',
