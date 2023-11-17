@@ -1,10 +1,10 @@
 import { FC } from 'react';
 
-import { SelectSize } from '../../types';
 import { SelectLabel } from '../SelectLabel';
 import { SelectText } from '../SelectText';
 
 import { View } from '$atoms';
+import { SelectSize } from '$components/organisms/Select/types';
 
 type Props = {
   badgeValue: number;
