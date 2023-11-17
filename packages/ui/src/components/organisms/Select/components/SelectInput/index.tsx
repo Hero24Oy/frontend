@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { SelectSize } from '../../types';
-
-import { SelectLabel, SelectText } from './components';
+import { SelectLabel } from '../SelectLabel';
+import { SelectText } from '../SelectText';
 
 import { View } from '$atoms';
 

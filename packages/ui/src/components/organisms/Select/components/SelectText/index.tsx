@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { SelectBadge } from './components/SelectBadge';
+import { SelectBadge } from '../SelectBadge';
 
 import { VStack } from '$atoms';
 import { SelectSize } from '$components/organisms/Select/types';
