@@ -32,6 +32,7 @@ export const useCreateMultiProgressBar = <Type extends FieldValues>(
   const { formState, progressBarIndex, getValues } = currentProgressBarInfo;
 
   const currentProgressBar = useCreateProgressBar({
+    key: progressBarIndex,
     formState,
     getValues,
   });
