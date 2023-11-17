@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FieldValues } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
 
 import { HStack, JsxElement, ProgressBar } from '@hero24/ui';
@@ -10,20 +11,23 @@ type Params = {
   initialState: object;
 };
 
-type ReturnValue = {
+type ReturnValue<Type extends FieldValues> = {
   multiScreenProgressBar: JsxElement;
-  setCurrentProgressBarInfo: SetCurrentProgressBar;
+  setCurrentProgressBarInfo: SetCurrentProgressBar<Type>;
 };
 
-export const useCreateMultiProgressBar = (params: Params): ReturnValue => {
+export const useCreateMultiProgressBar = <Type extends FieldValues>(
+  params: Params,
+): ReturnValue<Type> => {
   const { initialState } = params;
 
-  const [currentProgressBarInfo, setCurrentProgressBarInfo] =
-    useState<CurrentProgressBar>({
-      progressBarIndex: 0,
-      getValues: null,
-      formState: null,
-    });
+  const [currentProgressBarInfo, setCurrentProgressBarInfo] = useState<
+    CurrentProgressBar<Type>
+  >({
+    progressBarIndex: 0,
+    getValues: null,
+    formState: null,
+  });
 
   const { formState, progressBarIndex, getValues } = currentProgressBarInfo;
 
