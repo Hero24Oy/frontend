@@ -5,7 +5,9 @@ import {
   Color,
   ComponentTheme,
   DescendantStyleName,
+  FontSize,
   IconSize,
+  LineHeight,
   Size,
   SxValues,
 } from '$theme';
@@ -35,12 +37,12 @@ export const CustomSelect = {
       size: {
         [Size.SM]: {
           [DescendantStyleName.LABEL]: {
-            fontSize: 12,
-            lineHeight: 18,
+            fontSize: FontSize.XS,
+            lineHeight: LineHeight.XS,
           },
           [DescendantStyleName.TEXT]: {
-            fontSize: 14,
-            lineHeight: 21,
+            fontSize: FontSize.SM,
+            lineHeight: LineHeight.SM,
           },
           [DescendantStyleName.ICON]: {
             props: {
@@ -50,12 +52,12 @@ export const CustomSelect = {
         },
         [Size.MD]: {
           [DescendantStyleName.LABEL]: {
-            fontSize: 14,
-            lineHeight: 21,
+            fontSize: FontSize.SM,
+            lineHeight: LineHeight.SM,
           },
           [DescendantStyleName.TEXT]: {
-            fontSize: 16,
-            lineHeight: 24,
+            fontSize: FontSize.MD,
+            lineHeight: LineHeight.MD,
           },
           [DescendantStyleName.ICON]: {
             props: {
