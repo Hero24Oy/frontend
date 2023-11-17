@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { StyleSheet } from 'react-native';
 
 import { SelectSize } from '../../types';
 import { SelectLabel } from '../SelectLabel';
@@ -18,15 +17,9 @@ export const SelectInput: FC<Props> = (props) => {
   const { label, ...restProps } = props;
 
   return (
-    <View style={styles.input}>
+    <View>
       <SelectLabel label={label} />
       <SelectText {...restProps} />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  input: {
-    width: 293,
-  },
-});

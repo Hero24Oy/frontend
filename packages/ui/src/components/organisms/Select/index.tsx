@@ -27,7 +27,7 @@ export const Select = <Type extends FieldValues>(
           text={inputText}
           badgeValue={badgeValue}
         />
-        <GluestackSelectIcon as={RightIcon} />
+        <GluestackSelectIcon as={RightIcon} style={styles.icon} />
       </HStack>
       {hasDivider && <StyledSelectDivider />}
     </StyledSelect>
@@ -38,5 +38,8 @@ const styles = StyleSheet.create({
   input: {
     alignItems: 'center',
     marginHorizontal: 16,
+  },
+  icon: {
+    marginLeft: 'auto',
   },
 });
