@@ -1,9 +1,28 @@
-import { FC } from 'react';
+import { StyleSheet } from 'react-native';
 
-type Props = {
-  title: string;
+import { VStack } from '@hero24/ui';
+
+import { useLogic } from './useLogic';
+
+import { BioForm, BioHeading } from '$modules/Profile/components';
+
+export const BioScreen = () => {
+  const { profileType, ...restProps } = useLogic();
+
+  return (
+    <VStack style={styles.container}>
+      <BioHeading profileType={profileType} />
+      <BioForm profileType={profileType} {...restProps} />
+    </VStack>
+  );
 };
 
-export const BioScreen: FC<Props> = () => {
-  return null;
-};
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    gap: 10,
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    paddingBottom: 32,
+  },
+});
