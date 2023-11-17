@@ -7,16 +7,21 @@ import { bioSchema } from './validation';
 import {
   ProfileCreation,
   profileCreationInitialState,
+  ProfileType,
   useProfileCreationStore,
 } from '$modules/Profile/stores';
 
 export const useLogic = () => {
-  const { setBio } = useProfileCreationStore();
+  const {
+    welcome: { profileType },
+    setBio,
+  } = useProfileCreationStore();
 
   const {
     control,
     getValues,
     setValue,
+    resetField,
     formState: { isValid },
   } = useForm<ProfileCreation['bio']>({
     resolver: yupResolver<ProfileCreation['bio']>(bioSchema),
@@ -28,5 +33,13 @@ export const useLogic = () => {
     setBio(getValues());
   }, []);
 
-  return { control, setValue, isValid, onChange };
+  return {
+    control,
+    setValue,
+    isValid,
+    onChange,
+    getValues,
+    resetField,
+    profileType: profileType as ProfileType,
+  };
 };
