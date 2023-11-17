@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { SelectProps } from '../../types';
-
 import { StyledSelectLabel } from '$components/styled';
 
-type Props = Pick<SelectProps, 'label'>;
+type Props = {
+  label?: string;
+};
 
 export const SelectLabel: FC<Props> = ({ label }) => {
   if (!label) {

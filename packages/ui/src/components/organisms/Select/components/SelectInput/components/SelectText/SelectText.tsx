@@ -1,11 +1,10 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { SelectSize } from '../../types';
-
-import { SelectBadge } from './components';
+import { SelectBadge } from './components/SelectBadge';
 
 import { VStack } from '$atoms';
+import { SelectSize } from '$components/organisms/Select/types';
 import { StyledSelectText } from '$styled';
 
 type Props = {
