@@ -28,6 +28,6 @@ export const SelectBadge: FC<Props> = ({ size, badgeValue }) => {
 const styles = StyleSheet.create({
   badge: {
     marginLeft: 8,
-    width: 26,
+    paddingHorizontal: 4,
   },
 });
