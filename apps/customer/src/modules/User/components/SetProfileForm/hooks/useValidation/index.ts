@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useCallback } from 'react';
+import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 import {
@@ -9,8 +9,6 @@ import {
 } from '@hero24/common';
 
 import { SetProfileFormData, validationSchema } from '../../validation';
-
-// import { normalizeProfileData } from './utils';
 
 export type UseValidationParams = {
   onSetProfileSucceed: () => void;
@@ -40,15 +38,17 @@ export const useValidation = (params: UseValidationParams) => {
     mode: 'onChange',
   });
 
-  const onSubmitHandler = useCallback(
-    handleSubmit((_data: SetProfileFormData) => {
-      try {
-        // const profileData = normalizeProfileData(data);
-        onSetProfileSucceed();
-      } catch (error) {
-        handleAuthError(parseError(error));
-      }
-    }),
+  const onSubmitHandler = useMemo(
+    () =>
+      handleSubmit((_data: SetProfileFormData) => {
+        try {
+          // TODO handle business account as well
+
+          onSetProfileSucceed();
+        } catch (error) {
+          handleAuthError(parseError(error));
+        }
+      }),
     [],
   );
 
