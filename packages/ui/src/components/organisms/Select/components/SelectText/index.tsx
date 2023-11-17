@@ -13,7 +13,9 @@ type Props = {
   text: string;
 };
 
-export const SelectText: FC<Props> = ({ size, text, badgeValue }) => {
+export const SelectText: FC<Props> = (props) => {
+  const { size, text, badgeValue } = props;
+
   return (
     <VStack style={styles.container}>
       <StyledSelectText
