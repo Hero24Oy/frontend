@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { StyleSheet } from 'react-native';
 
 import { SelectLabel } from '../SelectLabel';
 import { SelectText } from '../SelectText';
@@ -17,9 +18,15 @@ export const SelectInput: FC<Props> = (props) => {
   const { label, ...restProps } = props;
 
   return (
-    <View>
+    <View style={styles.container}>
       <SelectLabel label={label} />
       <SelectText {...restProps} />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    gap: 2,
+  },
+});
