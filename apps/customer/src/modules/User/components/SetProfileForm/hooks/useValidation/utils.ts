@@ -1,16 +1,19 @@
-import omit from 'lodash/omit';
+import pick from 'lodash/pick';
 
 import { SetProfileFormData } from '../../validation';
 
-export const normalizeProfileData = (
+export const getUserData = (
   data: SetProfileFormData,
-): SetProfileFormData => {
-  // * Depending on how server will be setup, we will adjust the mutation
-  const profileData = omit(data, [
-    'isBusinessCustomer',
-    'businessId',
-    'businessName',
-  ]);
+): Pick<SetProfileFormData, 'firstName' | 'lastName' | 'email'> => {
+  const profileData = pick(data, ['email', 'firstName', 'lastName']);
+
+  return profileData;
+};
+
+export const getCustomerData = (
+  data: SetProfileFormData,
+): Pick<SetProfileFormData, 'businessId' | 'businessName'> => {
+  const profileData = pick(data, ['businessId', 'businessName']);
 
   return profileData;
 };

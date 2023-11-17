@@ -21,7 +21,7 @@ export const BusinessCustomerSwitch = <Type extends FieldValues>(
   return (
     <HStack style={styles.container}>
       <Text>I am a business customer</Text>
-      <Switch disabled {...switchProps} />
+      <Switch {...switchProps} />
     </HStack>
   );
 };

@@ -7,7 +7,7 @@ export const validationSchema = object({
   firstName: string().required(ValidationHints.REQUIRED),
   lastName: string().required(ValidationHints.REQUIRED),
   isBusinessCustomer: boolean().optional(),
-  businessName: boolean()
+  businessName: string()
     .nullable()
     .when('isBusinessCustomer', ([isBusinessCustomer], schema) =>
       isBusinessCustomer

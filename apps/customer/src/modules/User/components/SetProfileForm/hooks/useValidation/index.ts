@@ -10,8 +10,9 @@ import {
 
 import { SetProfileFormData, validationSchema } from '../../validation';
 
-import { normalizeProfileData } from './utils';
+import { getCustomerData, getUserData } from './utils';
 
+import { useEditCustomer } from '$modules/Customer';
 import { useSetRequiredProfileFields } from '$modules/User/hooks';
 
 export type UseValidationParams = {
@@ -21,11 +22,16 @@ export type UseValidationParams = {
 export const useValidation = (params: UseValidationParams) => {
   const { onSetProfileSucceed } = params;
   const { editUser } = useSetRequiredProfileFields();
+  const { editCustomer } = useEditCustomer();
 
   const {
     user: {
       id: userId,
-      data: { firstName, lastName, email },
+      data: {
+        firstName: initialFirstName,
+        lastName: initialLastName,
+        email: initialEmail,
+      },
     },
   } = useCachedGraphQlUser();
 
@@ -36,9 +42,9 @@ export const useValidation = (params: UseValidationParams) => {
   } = useForm<SetProfileFormData>({
     resolver: yupResolver(validationSchema),
     defaultValues: {
-      email,
-      firstName: firstName ?? '',
-      lastName: lastName ?? '',
+      email: initialEmail,
+      firstName: initialFirstName ?? '',
+      lastName: initialLastName ?? '',
       isBusinessCustomer: false,
     },
     mode: 'onChange',
@@ -48,10 +54,25 @@ export const useValidation = (params: UseValidationParams) => {
     () =>
       handleSubmit(async (data: SetProfileFormData) => {
         try {
-          // TODO handle business account as well
+          const userData = getUserData(data);
+
           await editUser.request({
             userId,
-            data: normalizeProfileData(data),
+            data: userData,
+          });
+
+          if (!data.isBusinessCustomer) {
+            return;
+          }
+
+          const professionalCustomerData = getCustomerData(data);
+
+          await editCustomer.request({
+            id: userId,
+            data: {
+              type: 'PROFESSIONAL',
+              ...professionalCustomerData,
+            },
           });
 
           onSetProfileSucceed();

@@ -15,6 +15,9 @@ const query = createCustomerQuery({
   data: {
     displayName: true,
     photoURL: true,
+    type: true,
+    businessId: true,
+    businessName: true,
   },
 });
 
