@@ -6,14 +6,14 @@ import { CheckboxOption } from './CheckboxOption';
 import { CheckboxOptionsProps } from './types';
 
 export const CheckboxOptions: FC<CheckboxOptionsProps> = (props) => {
-  const { options, ...restProps } = props;
+  const { options, style, ...restProps } = props;
 
   const optionsToRender = useMemo(
     () =>
       options.map((optionProps, index) => (
         <Fragment key={optionProps.label}>
           <CheckboxOption
-            wrapperStyle={styles.wrapper}
+            wrapperStyle={[styles.wrapper, style]}
             {...optionProps}
             {...restProps}
           />
