@@ -6,6 +6,7 @@ const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = [
   'Booleanize',
   ...SIZES,
   'IBAN',
+  'reCaptcha',
 ];
 const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*VAT.*',
@@ -16,6 +17,7 @@ const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*HStack.*',
   '.*VStack.*',
   ':.*', //  match pseudo css classes
+  '.*Context',
 ];
 
 const excludeNamesNamingConventionWordsRegex =
@@ -28,6 +30,7 @@ const underscoreAndExcludeNamingConventionWordsRegex = `^(_|${excludeNamesNaming
 const finalExcludeRegex = `${excludeNamesNamingConventionRegexpsRegex}|${underscoreAndExcludeNamingConventionWordsRegex}`;
 
 const initialRules = {
+  'consistent-return': 'off',
   'eslint-comments/disable-enable-pair': 'off',
   'eslint-comments/require-description': [
     'warn',
@@ -162,6 +165,7 @@ const reactRules = {
     'error',
     {
       namedComponents: 'arrow-function',
+      unnamedComponents: 'arrow-function',
     },
   ],
 };
@@ -386,12 +390,6 @@ const override = {
       'quote-props': 'off',
     },
   },
-  functionComponentDefinition: {
-    files: ['src/icons/Base/index.tsx', 'src/core/components/Layout/index.tsx'],
-    rules: {
-      'react/function-component-definition': 'off',
-    },
-  },
   assets: {
     files: ['**/*/assets/**/*.ts'],
     rules: {
@@ -409,6 +407,12 @@ const override = {
       'no-restricted-exports': 'off',
     },
   },
+  useLogic: {
+    files: ['src/**/useLogic.ts'],
+    rules: {
+      '@typescript-eslint/explicit-function-return-type': 'off',
+    },
+  }
 };
 
 /**

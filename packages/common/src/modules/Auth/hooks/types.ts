@@ -7,5 +7,5 @@ export type EmailPasswordParams = {
 
 export type WithCallback = {
   onAuthFailed?: (error: Error) => void;
-  onAuthSucceed?: (credentials?: OAuthCredential) => Promise<unknown>;
+  onAuthSucceed?: (credentials?: OAuthCredential) => Promise<unknown> | void;
 };

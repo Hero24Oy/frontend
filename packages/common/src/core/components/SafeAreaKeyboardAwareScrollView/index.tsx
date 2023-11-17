@@ -27,7 +27,7 @@ export const SafeAreaKeyboardAwareScrollView: FC<Props> = (props) => {
 
 const styles = StyleSheet.create({
   scrollViewContent: {
-    flex: 1,
+    flexGrow: 1,
     paddingHorizontal: 16,
     justifyContent: 'space-between',
   },

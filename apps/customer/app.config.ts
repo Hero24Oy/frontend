@@ -2,7 +2,7 @@ import { ConfigContext, ExpoConfig } from 'expo/config';
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
-  name: 'Hero24',
+  name: 'Customer App',
   slug: 'app-customer',
   description: 'Hero24 Marketplace',
   owner: 'hero24',
@@ -48,5 +48,16 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     tsconfigPaths: true,
   },
   scheme: 'hero24-customer',
-  plugins: ['expo-router', 'expo-apple-authentication'],
+  plugins: [
+    'expo-router',
+    'expo-apple-authentication',
+    [
+      'expo-build-properties',
+      {
+        ios: {
+          useFrameworks: 'static',
+        },
+      },
+    ],
+  ],
 });

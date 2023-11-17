@@ -1,3 +1,1 @@
-import { createLayout } from '@hero24/common';
-
-export default createLayout();
+export { HeadlessExpoStack as default } from '@hero24/common';
