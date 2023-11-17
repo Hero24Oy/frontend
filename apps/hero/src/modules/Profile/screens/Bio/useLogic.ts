@@ -1,10 +1,13 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+
+import { useCreateMultiProgressBar } from '@hero24/common';
 
 import { bioSchema } from './validation';
 
 import {
+  getMultiProgressBarInitialState,
   ProfileCreation,
   profileCreationInitialState,
   ProfileType,
@@ -17,17 +20,26 @@ export const useLogic = () => {
     setBio,
   } = useProfileCreationStore();
 
-  const {
-    control,
-    getValues,
-    setValue,
-    resetField,
-    formState: { isValid },
-  } = useForm<ProfileCreation['bio']>({
+  const { multiScreenProgressBar, setCurrentProgressBarInfo } =
+    useCreateMultiProgressBar<ProfileCreation['bio']>({
+      initialState: getMultiProgressBarInitialState(),
+    });
+
+  const { control, getValues, setValue, resetField, formState } = useForm<
+    ProfileCreation['bio']
+  >({
     resolver: yupResolver<ProfileCreation['bio']>(bioSchema),
     defaultValues: profileCreationInitialState.bio,
     mode: 'onChange',
   });
+
+  useEffect(() => {
+    setCurrentProgressBarInfo({
+      progressBarIndex: 5,
+      formState,
+      getValues,
+    });
+  }, []);
 
   const onChange = useCallback(() => {
     setBio(getValues());
@@ -36,10 +48,11 @@ export const useLogic = () => {
   return {
     control,
     setValue,
-    isValid,
+    isValid: formState.isValid,
     onChange,
     getValues,
     resetField,
+    multiScreenProgressBar,
     profileType: profileType as ProfileType,
   };
 };

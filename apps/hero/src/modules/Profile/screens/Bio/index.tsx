@@ -1,23 +1,31 @@
 import { StyleSheet } from 'react-native';
 
-import { VStack } from '@hero24/ui';
+import { View, VStack } from '@hero24/ui';
 
 import { useLogic } from './useLogic';
 
 import { BioForm, BioHeading } from '$modules/Profile/components';
 
 export const BioScreen = () => {
-  const { profileType, ...restProps } = useLogic();
+  const { profileType, multiScreenProgressBar, ...restProps } = useLogic();
 
   return (
     <VStack style={styles.container}>
-      <BioHeading profileType={profileType} />
+      <View style={styles.heading}>
+        {multiScreenProgressBar}
+
+        <BioHeading profileType={profileType} />
+      </View>
+
       <BioForm profileType={profileType} {...restProps} />
     </VStack>
   );
 };
 
 const styles = StyleSheet.create({
+  heading: {
+    gap: 24,
+  },
   container: {
     flex: 1,
     gap: 10,

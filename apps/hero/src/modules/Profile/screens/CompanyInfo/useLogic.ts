@@ -1,11 +1,14 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'expo-router';
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+
+import { useCreateMultiProgressBar } from '@hero24/common';
 
 import { companyInfoSchema } from './validation';
 
 import {
+  getMultiProgressBarInitialState,
   ProfileCreation,
   profileCreationInitialState,
   useProfileCreationStore,
@@ -15,12 +18,14 @@ export const useLogic = () => {
   const router = useRouter();
   const { setInfo } = useProfileCreationStore();
 
-  const {
-    control,
-    getValues,
-    setValue,
-    formState: { isValid },
-  } = useForm<ProfileCreation['info']>({
+  const { multiScreenProgressBar, setCurrentProgressBarInfo } =
+    useCreateMultiProgressBar<ProfileCreation['info']>({
+      initialState: getMultiProgressBarInitialState(),
+    });
+
+  const { control, getValues, setValue, formState } = useForm<
+    ProfileCreation['info']
+  >({
     resolver: yupResolver<ProfileCreation['info']>(companyInfoSchema),
     defaultValues: profileCreationInitialState.info,
     mode: 'onChange',
@@ -32,5 +37,19 @@ export const useLogic = () => {
     router.push('/');
   }, []);
 
-  return { control, setValue, isValid, submitData };
+  useEffect(() => {
+    setCurrentProgressBarInfo({
+      progressBarIndex: 0,
+      formState,
+      getValues,
+    });
+  }, []);
+
+  return {
+    multiScreenProgressBar,
+    control,
+    setValue,
+    isValid: formState.isValid,
+    submitData,
+  };
 };
