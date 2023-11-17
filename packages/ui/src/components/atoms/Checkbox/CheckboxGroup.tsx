@@ -17,16 +17,8 @@ import { Color } from '$theme';
 export const CheckboxGroup = <Type extends FieldValues>(
   props: CheckboxGroupProps<Type>,
 ): ReactElement => {
-  const {
-    options,
-    label,
-    control,
-    name,
-    hasRootCheck,
-    style,
-    optionStyle,
-    ...restProps
-  } = props;
+  const { options, label, control, name, hasRootCheck, style, ...restProps } =
+    props;
 
   const {
     isIndeterminate,
@@ -60,7 +52,12 @@ export const CheckboxGroup = <Type extends FieldValues>(
         />
       )}
       {errorMessage && <Text style={styles.error}>{errorMessage}</Text>}
-      <CheckboxOptions options={options} style={optionStyle} {...restProps} />
+
+      <CheckboxOptions
+        options={options}
+        hasRootCheck={hasRootCheck}
+        {...restProps}
+      />
     </GluestackCheckboxGroup>
   );
 };

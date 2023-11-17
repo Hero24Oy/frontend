@@ -3,17 +3,20 @@ import { FC, Fragment, useMemo } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { CheckboxOption } from './CheckboxOption';
+import { ROOT_CHECK_PADDING } from './constants';
 import { CheckboxOptionsProps } from './types';
 
 export const CheckboxOptions: FC<CheckboxOptionsProps> = (props) => {
-  const { options, style, ...restProps } = props;
+  const { options, hasRootCheck, ...restProps } = props;
+
+  const styles = useStyles(hasRootCheck);
 
   const optionsToRender = useMemo(
     () =>
       options.map((optionProps, index) => (
         <Fragment key={optionProps.label}>
           <CheckboxOption
-            wrapperStyle={[styles.wrapper, style]}
+            wrapperStyle={styles.wrapper}
             {...optionProps}
             {...restProps}
           />
@@ -26,10 +29,12 @@ export const CheckboxOptions: FC<CheckboxOptionsProps> = (props) => {
   return <VStack>{optionsToRender}</VStack>;
 };
 
-const styles = StyleSheet.create({
-  wrapper: {
-    paddingLeft: 32,
-    paddingRight: 24,
-    paddingVertical: 16,
-  },
-});
+const useStyles = (hasRootCheck: boolean) => {
+  return StyleSheet.create({
+    wrapper: {
+      paddingLeft: hasRootCheck ? ROOT_CHECK_PADDING : 0,
+      paddingRight: 24,
+      paddingVertical: 16,
+    },
+  });
+};

@@ -16,13 +16,6 @@ export type CommonStyles = Pick<
   | 'left'
   | 'right'
   | 'bottom'
-  | 'padding'
-  | 'paddingLeft'
-  | 'paddingRight'
-  | 'paddingBottom'
-  | 'paddingTop'
-  | 'paddingVertical'
-  | 'paddingHorizontal'
 >;
 
 export type LayoutStyles = CommonStyles &

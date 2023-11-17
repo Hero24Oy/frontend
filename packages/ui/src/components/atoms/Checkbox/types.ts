@@ -9,9 +9,9 @@ export type CheckboxOption = {
 };
 
 export type CheckboxOptionsProps = {
+  hasRootCheck: boolean;
   options: CheckboxOption[];
   size?: Size;
-  style?: LayoutStyles;
 };
 
 // we may add check that controller with such name is a array of string
@@ -23,7 +23,6 @@ export type CheckboxGroupProps<
   control: Control<Type>;
   name: FieldName;
   hasRootCheck?: HasRootCheck;
-  optionStyle?: LayoutStyles;
   style?: LayoutStyles;
 } & CheckboxOptionsProps &
   (HasRootCheck extends true
