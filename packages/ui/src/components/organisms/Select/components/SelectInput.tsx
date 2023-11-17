@@ -10,8 +10,8 @@ import { View } from '$atoms';
 type Props = {
   badgeValue: number;
   size: SelectSize;
+  text: string;
   label?: string;
-  text?: string;
 };
 
 export const SelectInput: FC<Props> = (props) => {

@@ -1,10 +1,13 @@
 import { SelectedInputValues } from './types';
 
 export const handleSelectedValues = (
-  values: string[] = [''],
+  selectedValue: string[] | string,
 ): SelectedInputValues => {
-  return {
-    inputText: values[0],
-    badgeValue: values.length - 1,
-  };
+  if (Array.isArray(selectedValue)) {
+    const inputText = selectedValue[0];
+
+    return { inputText, badgeValue: selectedValue.length - 1 };
+  }
+
+  return { inputText: selectedValue, badgeValue: 0 };
 };

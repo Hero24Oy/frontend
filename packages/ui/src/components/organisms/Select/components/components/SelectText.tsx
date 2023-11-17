@@ -11,16 +11,14 @@ import { StyledSelectText } from '$styled';
 type Props = {
   badgeValue: number;
   size: SelectSize;
-  text?: string;
+  text: string;
 };
 
 export const SelectText: FC<Props> = ({ size, text, badgeValue }) => {
-  const selectText = text || 'Not selected';
-
   return (
     <VStack style={styles.text}>
       <StyledSelectText numberOfLines={1} ellipsizeMode="tail">
-        {selectText}
+        {text}
       </StyledSelectText>
       <SelectBadge badgeValue={badgeValue} size={size} />
     </VStack>
