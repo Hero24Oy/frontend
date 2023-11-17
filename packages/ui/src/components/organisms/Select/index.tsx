@@ -7,7 +7,7 @@ import { useLogic } from './hooks';
 import { SelectProps } from './types';
 
 import { HStack } from '$atoms';
-import { RightIcon } from '$icons';
+import { ChevronRightIcon } from '$icons';
 import { StyledSelect, StyledSelectDivider } from '$styled';
 import { JsxElement } from '$types';
 
@@ -27,7 +27,7 @@ export const Select = <Type extends FieldValues>(
           text={inputText}
           badgeValue={badgeValue}
         />
-        <GluestackSelectIcon as={RightIcon} style={styles.icon} />
+        <GluestackSelectIcon as={ChevronRightIcon} style={styles.icon} />
       </HStack>
       {hasDivider && <StyledSelectDivider />}
     </StyledSelect>
