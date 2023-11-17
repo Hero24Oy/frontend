@@ -4,6 +4,7 @@ export enum DescendantStyleName {
   SPINNER = '_spinner',
   INPUT = '_input',
   INDICATOR = '_indicator',
+  FILLED_TRACK = '_filledTrack',
   LABEL = '_label',
   DIVIDER = '_divider',
 }
