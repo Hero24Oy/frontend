@@ -1,5 +1,4 @@
 import { Control, FieldValues, Path } from 'react-hook-form';
-import { StyleSheet } from 'react-native';
 
 import { CheckboxGroup, JsxElement } from '@hero24/ui';
 
@@ -23,13 +22,7 @@ export const ModalBody = <Type extends FieldValues>(
       control={control}
       name={name}
       options={options}
-      optionStyle={styles.option}
+      hasRootCheck={false}
     />
   );
 };
-
-const styles = StyleSheet.create({
-  option: {
-    paddingLeft: 0,
-  },
-});
