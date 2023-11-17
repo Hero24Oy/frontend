@@ -15,8 +15,12 @@ type Props = {
 
 export const SelectText: FC<Props> = ({ size, text, badgeValue }) => {
   return (
-    <VStack style={styles.text}>
-      <StyledSelectText numberOfLines={1} ellipsizeMode="tail">
+    <VStack style={styles.container}>
+      <StyledSelectText
+        style={styles.text}
+        numberOfLines={1}
+        ellipsizeMode="tail"
+      >
         {text}
       </StyledSelectText>
       <SelectBadge badgeValue={badgeValue} size={size} />
@@ -25,8 +29,10 @@ export const SelectText: FC<Props> = ({ size, text, badgeValue }) => {
 };
 
 const styles = StyleSheet.create({
-  text: {
+  container: {
     flexDirection: 'row',
-    alignItems: 'center',
+  },
+  text: {
+    marginRight: 8,
   },
 });

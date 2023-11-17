@@ -1,7 +1,6 @@
 import { FC } from 'react';
-import { StyleSheet } from 'react-native';
 
-import { Badge, HStack } from '$atoms';
+import { Badge } from '$atoms';
 import { SelectSize } from '$components/organisms/Select/types';
 
 type Props = {
@@ -17,17 +16,8 @@ export const SelectBadge: FC<Props> = ({ size, badgeValue }) => {
   }
 
   return (
-    <HStack style={styles.badge}>
-      <Badge variant="solid" action="muted" size={size}>
-        {badgeText}
-      </Badge>
-    </HStack>
+    <Badge variant="solid" action="muted" size={size}>
+      {badgeText}
+    </Badge>
   );
 };
-
-const styles = StyleSheet.create({
-  badge: {
-    marginLeft: 8,
-    paddingHorizontal: 4,
-  },
-});
