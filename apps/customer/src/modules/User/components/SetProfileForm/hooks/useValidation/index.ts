@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useCallback } from 'react';
+import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 
 import {
@@ -44,20 +44,21 @@ export const useValidation = (params: UseValidationParams) => {
     mode: 'onChange',
   });
 
-  const onSubmitHandler = useCallback(
-    handleSubmit(async (data: SetProfileFormData) => {
-      try {
-        // TODO handle business account as well
-        await editUser.request({
-          userId,
-          data: normalizeProfileData(data),
-        });
+  const onSubmitHandler = useMemo(
+    () =>
+      handleSubmit(async (data: SetProfileFormData) => {
+        try {
+          // TODO handle business account as well
+          await editUser.request({
+            userId,
+            data: normalizeProfileData(data),
+          });
 
-        onSetProfileSucceed();
-      } catch (error) {
-        handleAuthError(parseError(error));
-      }
-    }),
+          onSetProfileSucceed();
+        } catch (error) {
+          handleAuthError(parseError(error));
+        }
+      }),
     [],
   );
 
