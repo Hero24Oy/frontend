@@ -8,17 +8,16 @@ import { Button, Color, Text, Textarea, View } from '@hero24/ui';
 import { LanguagesSelect } from '../LanguagesSelect';
 
 import { textareaPlaceholderMapper } from './constants';
-import { Bio } from './types';
 
-import { ProfileType } from '$modules/Profile/stores';
+import { ProfileCreation, ProfileType } from '$modules/Profile/stores';
 
 type Props = {
-  control: Control<Bio>;
-  getValues: UseFormGetValues<Bio>;
+  control: Control<ProfileCreation['bio']>;
+  getValues: UseFormGetValues<ProfileCreation['bio']>;
   isValid: boolean;
   onChange: () => void;
   profileType: ProfileType;
-  resetField: UseFormResetField<Bio>;
+  resetField: UseFormResetField<ProfileCreation['bio']>;
 };
 
 export const BioForm: FC<Props> = (props) => {

@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { UseFormGetValues, UseFormResetField } from 'react-hook-form';
 
-import { Bio } from '../BioForm/types';
-
 import { LANGUAGES_FIELD_NAME, RESET_FIELD_DELAY } from './constants';
 
 import { useGetLanguages } from '$modules/Profile/graphql';
-import { profileCreationInitialState } from '$modules/Profile/stores';
+import {
+  ProfileCreation,
+  profileCreationInitialState,
+} from '$modules/Profile/stores';
 
 type Params = {
-  getValues: UseFormGetValues<Bio>;
-  resetField: UseFormResetField<Bio>;
+  getValues: UseFormGetValues<ProfileCreation['bio']>;
+  resetField: UseFormResetField<ProfileCreation['bio']>;
 };
 
 export const useLogic = (params: Params) => {
