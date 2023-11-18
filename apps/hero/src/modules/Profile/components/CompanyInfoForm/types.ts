@@ -1,3 +1,3 @@
 import { ProfileCreation } from '$modules/Profile/stores';
 
-export type CompanyInfo = ProfileCreation['info'];
+export type CompanyInfo = ProfileCreation['companyInfo'];
