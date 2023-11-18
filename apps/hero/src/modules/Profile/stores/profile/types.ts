@@ -5,6 +5,11 @@ export enum ProfileType {
   COMPANY = 'company',
 }
 
+type ProfileInfo = {
+  email: string;
+  name: string;
+};
+
 export type ProfileCreation = {
   address: {
     address: string;
@@ -16,14 +21,18 @@ export type ProfileCreation = {
     languages: string[];
     info?: Maybe<string>;
   };
-  info: {
-    email: string;
+  companyInfo: ProfileInfo & {
     employees: Range | null;
-    name: string;
   };
   paymentData: {
     companyId: string | null;
     IBAN: string;
+  };
+  personalInfo: ProfileInfo & {
+    birthday: Date | null;
+    displayedName: string;
+    lastName: string | null;
+    socialId: string;
   };
   welcome: {
     profileType: `${ProfileType}` | null;
