@@ -4,6 +4,8 @@ import { createMultiScreenStore, DEFAULT_LANGUAGES } from '@hero24/common';
 
 import { ProfileCreation } from './types';
 
+import { SELF_EMPLOYED_DISPLAYED_NAME_PREFIX } from '$configs';
+
 const companyCreationInfoInitialState: Pick<ProfileCreation, 'companyInfo'> = {
   companyInfo: {
     name: '',
@@ -20,7 +22,7 @@ const selfEmployedCreationInfoInitialState: Pick<
     name: '',
     email: '',
     birthday: null,
-    displayedName: '',
+    displayedName: SELF_EMPLOYED_DISPLAYED_NAME_PREFIX,
     lastName: '',
     socialId: '',
   },

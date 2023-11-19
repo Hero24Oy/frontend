@@ -46,6 +46,7 @@
     "@hero24/configs": "*",
     "@hero24/ui": "*",
     "@hookform/resolvers": "^3.3.2",
+    "date-fns": "^2.30.0",
     "hero24-types": "^0.2.2",
     "i18next": "^23.5.1",
     "libphonenumber-js": "1.10.49",

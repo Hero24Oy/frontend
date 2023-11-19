@@ -22,3 +22,4 @@ export * from './Hidden';
 export * from './KeyboardAvoidingView';
 export * from './Radio';
 export * from './ProgressBar';
+export * from './ScrollView';

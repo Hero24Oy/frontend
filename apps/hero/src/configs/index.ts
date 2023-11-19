@@ -5,3 +5,4 @@ export * from './server';
 export * from './constants';
 export * from './firebase';
 export * from './region';
+export * from './prefixes';
