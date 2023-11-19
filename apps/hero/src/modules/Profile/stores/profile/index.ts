@@ -21,7 +21,7 @@ const selfEmployedCreationInfoInitialState: Pick<
     email: '',
     birthday: null,
     displayedName: '',
-    lastName: null,
+    lastName: '',
     socialId: '',
   },
 };

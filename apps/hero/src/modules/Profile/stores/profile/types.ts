@@ -5,7 +5,7 @@ export enum ProfileType {
   COMPANY = 'company',
 }
 
-type ProfileInfo = {
+type CommonInfo = {
   email: string;
   name: string;
 };
@@ -21,17 +21,17 @@ export type ProfileCreation = {
     languages: string[];
     info?: Maybe<string>;
   };
-  companyInfo: ProfileInfo & {
+  companyInfo: CommonInfo & {
     employees: Range | null;
   };
   paymentData: {
     companyId: string | null;
     IBAN: string;
   };
-  personalInfo: ProfileInfo & {
+  personalInfo: CommonInfo & {
     birthday: Date | null;
     displayedName: string;
-    lastName: string | null;
+    lastName: string;
     socialId: string;
   };
   welcome: {
