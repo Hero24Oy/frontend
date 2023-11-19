@@ -6,12 +6,8 @@ import {
   DEFAULT_RESPONSE_NAME,
 } from '@hero24/common';
 
+import { GqlCustomerType } from '../../constants';
 import { CustomerProfile, CustomerProfileData } from '../../types';
-
-export enum GqlCustomerType {
-  INDIVIDUAL = 'INDIVIDUAL',
-  PROFESSIONAL = 'PROFESSIONAL',
-}
 
 type Data = CustomerProfile;
 

@@ -3,7 +3,7 @@ import { useFirebaseUser } from '@hero24/common';
 import { GetCustomerResponse, useGetCustomer } from './useGetCustomer';
 
 type UseCachedGqlCustomer = () => {
-  user: GetCustomerResponse;
+  customer: GetCustomerResponse;
 };
 
 // * We should use it only when authenticated
@@ -16,5 +16,5 @@ export const useCachedGqlCustomer: UseCachedGqlCustomer = () => {
     },
   });
 
-  return { user: getCustomer.data };
+  return { customer: getCustomer.data };
 };

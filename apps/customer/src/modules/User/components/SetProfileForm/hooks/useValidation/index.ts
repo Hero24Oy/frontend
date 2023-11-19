@@ -12,7 +12,7 @@ import { SetProfileFormData, validationSchema } from '../../validation';
 
 import { getCustomerData, getUserData } from './utils';
 
-import { useEditCustomer } from '$modules/Customer';
+import { GqlCustomerType, useEditCustomer } from '$modules/Customer';
 import { useSetRequiredProfileFields } from '$modules/User/hooks';
 
 export type UseValidationParams = {
@@ -56,24 +56,26 @@ export const useValidation = (params: UseValidationParams) => {
         try {
           const userData = getUserData(data);
 
-          await editUser.request({
+          const editUserRequest = editUser.request({
             userId,
             data: userData,
           });
 
-          if (!data.isBusinessCustomer) {
-            return;
-          }
+          const customerType = data.isBusinessCustomer
+            ? GqlCustomerType.PROFESSIONAL
+            : GqlCustomerType.INDIVIDUAL;
 
           const professionalCustomerData = getCustomerData(data);
 
-          await editCustomer.request({
+          const editCustomerRequest = editCustomer.request({
             id: userId,
             data: {
-              type: 'PROFESSIONAL',
+              type: customerType,
               ...professionalCustomerData,
             },
           });
+
+          await Promise.allSettled([editUserRequest, editCustomerRequest]);
 
           onSetProfileSucceed();
         } catch (error) {

@@ -6,8 +6,8 @@ import {
   DEFAULT_RESPONSE_NAME,
 } from '@hero24/common';
 
+import { GqlCustomerType } from '../../constants';
 import { CustomerProfile, CustomerProfileData } from '../../types';
-import { GqlCustomerType } from '../createCustomer';
 
 type Data = CustomerProfile;
 

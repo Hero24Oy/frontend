@@ -1,5 +1,7 @@
 import { Maybe } from '@hero24/common';
 
+import { GqlCustomerType } from '../constants';
+
 export enum CustomerType {
   INDIVIDUAL = 'individual',
   PROFESSIONAL = 'professional',
@@ -13,9 +15,9 @@ export type CustomerProfile = {
 
 export type CustomerProfileData = {
   displayName: string;
-  type: `${CustomerType}`;
   businessId?: Maybe<string>;
   businessName?: Maybe<string>;
   isCreatedFromWeb?: Maybe<boolean>;
   photoURL?: Maybe<string>;
+  type?: `${GqlCustomerType}`;
 };

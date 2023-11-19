@@ -6,13 +6,15 @@ type UseInitializeApp = () => {
   isAppInitialized: boolean;
 };
 
+// TODO handle case when something is not loaded
 export const useInitializeApp: UseInitializeApp = () => {
   const { isUserLoading } = useInitializeUser();
+
   const { isCustomerLoading } = useInitializeCustomer();
 
   // * Check that every initializer finished loading
   const isAppInitialized = [isUserLoading, isCustomerLoading].every(
-    (isItemLoaded) => !isItemLoaded,
+    (isItemLoading) => !isItemLoading,
   );
 
   return { isAppInitialized };
