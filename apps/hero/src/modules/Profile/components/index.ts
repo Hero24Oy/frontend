@@ -4,3 +4,4 @@ export * from './CompanyInfoForm';
 export * from './LanguagesSelect';
 export * from './BioForm';
 export * from './BioHeading';
+export * from './PaymentDataForm';
