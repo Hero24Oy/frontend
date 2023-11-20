@@ -13,3 +13,4 @@ export * from './Right';
 export * from './Upload';
 export * from './File';
 export * from './Camera';
+export * from './Image';
