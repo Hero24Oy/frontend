@@ -22,6 +22,7 @@ export const PaymentDataForm: FC<Props> = (props) => {
   const fields = fieldsMapper[heroType];
 
   return (
+    // TODO Replace text with i18n calls.
     <VStack style={styles.form}>
       <PaymentDataFields control={control} fields={fields} />
 

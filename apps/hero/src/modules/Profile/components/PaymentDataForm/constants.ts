@@ -2,6 +2,7 @@ import { PaymentField } from './types';
 
 import { HeroType } from '$modules/Profile/stores';
 
+// TODO Replace text with i18n calls.
 export const fieldsMapper = {
   [HeroType.PROFESSIONAL]: [
     {

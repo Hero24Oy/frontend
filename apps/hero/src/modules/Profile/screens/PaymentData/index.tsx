@@ -11,6 +11,7 @@ export const PaymentDataScreen: FC = () => {
   const { multiScreenProgressBar, ...restProps } = useLogic();
 
   return (
+    // TODO Replace text with i18n calls.
     <VStack style={styles.container}>
       <View style={styles.heading}>
         {multiScreenProgressBar}
