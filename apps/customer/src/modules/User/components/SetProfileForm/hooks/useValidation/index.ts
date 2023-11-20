@@ -26,6 +26,7 @@ export const useValidation = (params: UseValidationParams) => {
   const {
     control,
     handleSubmit,
+    getValues,
     formState: { isSubmitting, isValid },
   } = useForm<SetProfileFormData>({
     resolver: yupResolver(validationSchema),
@@ -37,6 +38,8 @@ export const useValidation = (params: UseValidationParams) => {
     },
     mode: 'onChange',
   });
+
+  const isBusinessCustomer = getValues('isBusinessCustomer');
 
   const onSubmitHandler = useMemo(
     () =>
@@ -54,6 +57,7 @@ export const useValidation = (params: UseValidationParams) => {
 
   return {
     onSubmitHandler,
+    isBusinessCustomer,
     isValid,
     control,
     isLoading: isSubmitting,
