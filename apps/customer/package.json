@@ -88,6 +88,7 @@
     "react-native-svg": "13.9.0",
     "react-native-web": "0.19.9",
     "react-native-webview": "13.2.2",
+    "utility-types": "^3.10.0",
     "yup": "^1.2.0",
     "zustand": "4.4.4"
   },
