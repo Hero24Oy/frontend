@@ -57,6 +57,7 @@ export const useValidation = (params: UseValidationParams) => {
     () =>
       handleSubmit(async (data: SetProfileFormData) => {
         try {
+          // TODO when migrating to SQL create transaction for editing customer and user data
           const editUserRequest = editUser.request({
             userId,
             data: prepareUserData(data),
