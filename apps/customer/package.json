@@ -69,6 +69,7 @@
     "graphql-ws": "5.14.0",
     "hero24-types": "^0.2.2",
     "i18next": "^23.5.1",
+    "ibantools": "4.3.5",
     "lodash": "^4.17.21",
     "lucide-react-native": "0.288.0",
     "react": "18.2.0",
