@@ -8,7 +8,7 @@ import { capitalize, createGraphqlBuilder, DEFAULT_RESPONSE_NAME } from '$core';
 type Data = CustomerProfile;
 
 type CreateCustomerData = Omit<CustomerProfileData, 'type'> & {
-  type: `${GqlCustomerType}`;
+  type?: `${GqlCustomerType}`;
 };
 
 export type CreateCustomerMutationVariables = {
@@ -18,7 +18,10 @@ export type CreateCustomerMutationVariables = {
 
 export const CREATE_CUSTOMER_MUTATION_PREFIX = 'createCustomer';
 
-export const createCustomerMutation = createGraphqlBuilder<Data, DocumentNode>(
+export const createCreateCreateCustomerMutation = createGraphqlBuilder<
+  Data,
+  DocumentNode
+>(
   (selection) => gql`
     mutation ${capitalize(
       CREATE_CUSTOMER_MUTATION_PREFIX,

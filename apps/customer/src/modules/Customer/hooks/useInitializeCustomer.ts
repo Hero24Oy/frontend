@@ -3,13 +3,12 @@ import { useCallback, useState } from 'react';
 
 import {
   CreateCustomerMutationVariables,
-  GqlCustomerType,
   handleAuthError,
   parseError,
   useWatchAuthChanges,
 } from '@hero24/common';
 
-import { useCreateCustomer, useGetCustomer } from '../graphql';
+import { useCreateCustomer, useLazyGetCustomer } from '../graphql';
 
 type UseInitializeCustomer = () => {
   isCustomerLoading: boolean;
@@ -18,7 +17,7 @@ type UseInitializeCustomer = () => {
 export const useInitializeCustomer: UseInitializeCustomer = () => {
   const [isCustomerLoading, setIsCustomerLoading] = useState(true);
 
-  const { getCustomer } = useGetCustomer({ skip: true });
+  const { getCustomer } = useLazyGetCustomer();
   const { createCustomer } = useCreateCustomer();
 
   const onAuthChange = useCallback(async (firebaseUser: User | null) => {
@@ -29,8 +28,7 @@ export const useInitializeCustomer: UseInitializeCustomer = () => {
         return;
       }
 
-      const response = await getCustomer.refetch({ id: firebaseUser.uid });
-      const customer = response.data.response;
+      const customer = await getCustomer.request({ id: firebaseUser.uid });
 
       // * If user users the app first time, we need to create customer in the database
       if (customer) {
@@ -39,7 +37,6 @@ export const useInitializeCustomer: UseInitializeCustomer = () => {
 
       const initialCustomerData: CreateCustomerMutationVariables['data'] = {
         displayName: '',
-        type: GqlCustomerType.INDIVIDUAL,
       };
 
       // * Type policy will handle storing user automatically

@@ -27,7 +27,6 @@ export const customerTypePolicies: TypePolicies = {
   Mutation: {
     fields: {
       editBuyer: {
-        keyArgs: false,
         merge: (
           _existing,
           updatedCustomer,
@@ -46,9 +45,9 @@ export const customerTypePolicies: TypePolicies = {
           ) as CustomerProfile;
         },
       },
-      [CUSTOMER_DATA_TYPE_NAME]: {
-        keyArgs: false,
-      },
     },
+  },
+  [CUSTOMER_DATA_TYPE_NAME]: {
+    merge: true,
   },
 };

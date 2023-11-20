@@ -4,7 +4,7 @@ import { EditCustomerData, GqlCustomerType } from '@hero24/common';
 
 import { SetProfileFormData } from '../../validation';
 
-export const getUserData = (
+export const prepareUserData = (
   data: SetProfileFormData,
 ): Pick<SetProfileFormData, 'firstName' | 'lastName' | 'email'> => {
   const profileData = pick(data, ['email', 'firstName', 'lastName']);
@@ -12,7 +12,9 @@ export const getUserData = (
   return profileData;
 };
 
-export const getCustomerData = (data: SetProfileFormData): EditCustomerData => {
+export const prepareCustomerData = (
+  data: SetProfileFormData,
+): EditCustomerData => {
   const { businessId, isBusinessCustomer, businessName, firstName, lastName } =
     data;
 

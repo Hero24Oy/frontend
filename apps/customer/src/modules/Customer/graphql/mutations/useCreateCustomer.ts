@@ -1,13 +1,13 @@
 import {
   CREATE_CUSTOMER_MUTATION_PREFIX,
-  createCustomerMutation,
+  createCreateCreateCustomerMutation,
   CreateCustomerMutationVariables,
   InferSelection,
   useCustomMutation,
   UseMutationWrapper,
 } from '@hero24/common';
 
-const mutation = createCustomerMutation({
+const mutation = createCreateCreateCustomerMutation({
   id: true,
   data: {
     displayName: true,

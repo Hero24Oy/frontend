@@ -6,20 +6,20 @@ import { capitalize, createGraphqlBuilder, DEFAULT_RESPONSE_NAME } from '$core';
 
 export const EDIT_USER_PREFIX = 'editUser';
 
-export type Response = User;
+export type EditUserResponse = User;
 
 export type PartialUserDataInput = Omit<
   Partial<UserData>,
   'createdAt' | 'updatedAt' | 'deletedAt'
 >;
 
-export type EditUserMutationVariables = {
+export type EditUserVariables = {
   data: PartialUserDataInput;
   userId: string;
 };
 
 export const createEditUserMutation = createGraphqlBuilder<
-  Response,
+  EditUserResponse,
   DocumentNode
 >(
   (selection) =>

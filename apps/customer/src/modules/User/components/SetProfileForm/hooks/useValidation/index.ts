@@ -10,10 +10,10 @@ import {
 
 import { SetProfileFormData, validationSchema } from '../../validation';
 
-import { getCustomerData, getUserData } from './utils';
+import { prepareCustomerData, prepareUserData } from './utils';
 
 import { useEditCustomer } from '$modules/Customer';
-import { useSetRequiredProfileFields } from '$modules/User/hooks';
+import { useEditUser } from '$modules/User/hooks';
 
 export type UseValidationParams = {
   onSetProfileSucceed: () => void;
@@ -21,7 +21,7 @@ export type UseValidationParams = {
 
 export const useValidation = (params: UseValidationParams) => {
   const { onSetProfileSucceed } = params;
-  const { editUser } = useSetRequiredProfileFields();
+  const { editUser } = useEditUser();
   const { editCustomer } = useEditCustomer();
 
   const {
@@ -57,17 +57,14 @@ export const useValidation = (params: UseValidationParams) => {
     () =>
       handleSubmit(async (data: SetProfileFormData) => {
         try {
-          const userData = getUserData(data);
-
           const editUserRequest = editUser.request({
             userId,
-            data: userData,
+            data: prepareUserData(data),
           });
-          const customerData = getCustomerData(data);
 
           const editCustomerRequest = editCustomer.request({
             id: userId,
-            data: customerData,
+            data: prepareCustomerData(data),
           });
 
           await Promise.allSettled([editUserRequest, editCustomerRequest]);

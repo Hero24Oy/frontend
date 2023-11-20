@@ -5,8 +5,6 @@ import { defaultTypePolicies } from './typePolicies';
 
 export const createCache = (policies?: InMemoryCacheConfig): InMemoryCache => {
   return new InMemoryCache({
-    typePolicies: policies?.typePolicies
-      ? merge(defaultTypePolicies, policies.typePolicies)
-      : defaultTypePolicies,
+    typePolicies: merge({}, defaultTypePolicies, policies?.typePolicies || {}),
   });
 };
