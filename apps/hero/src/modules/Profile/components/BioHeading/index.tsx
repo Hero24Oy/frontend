@@ -5,15 +5,16 @@ import { Heading } from '@hero24/ui';
 
 import { headingTextMapper } from './constants';
 
-import { ProfileType } from '$modules/Profile/stores';
+import { HeroType } from '$modules/Profile/stores';
 
 type Props = {
-  profileType: ProfileType;
+  heroType: HeroType | null;
 };
 
 export const BioHeading: FC<Props> = (props) => {
-  const { profileType } = props;
-  const text = headingTextMapper[profileType];
+  const { heroType } = props;
+
+  const text = headingTextMapper[heroType ?? HeroType.INDIVIDUAL];
 
   return (
     <Heading variant="H2" style={styles.text}>

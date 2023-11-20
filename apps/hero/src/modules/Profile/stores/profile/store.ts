@@ -30,7 +30,7 @@ export const profileCreationInitialState: ProfileCreation = {
     languages: DEFAULT_LANGUAGES,
   },
   welcome: {
-    profileType: null,
+    heroType: null,
   },
 };
 

@@ -10,13 +10,12 @@ import {
   getMultiProgressBarInitialState,
   ProfileCreation,
   profileCreationInitialState,
-  ProfileType,
   useProfileCreationStore,
 } from '$modules/Profile/stores';
 
 export const useLogic = () => {
   const {
-    welcome: { profileType },
+    welcome: { heroType },
     setBio,
   } = useProfileCreationStore();
 
@@ -53,6 +52,6 @@ export const useLogic = () => {
     getValues,
     resetField,
     multiScreenProgressBar,
-    profileType: profileType as ProfileType,
+    heroType,
   };
 };

@@ -7,17 +7,17 @@ import { useLogic } from './useLogic';
 import { BioForm, BioHeading } from '$modules/Profile/components';
 
 export const BioScreen = () => {
-  const { profileType, multiScreenProgressBar, ...restProps } = useLogic();
+  const { heroType, multiScreenProgressBar, ...restProps } = useLogic();
 
   return (
     <VStack style={styles.container}>
       <View style={styles.heading}>
         {multiScreenProgressBar}
 
-        <BioHeading profileType={profileType} />
+        <BioHeading heroType={heroType} />
       </View>
 
-      <BioForm profileType={profileType} {...restProps} />
+      <BioForm heroType={heroType} {...restProps} />
     </VStack>
   );
 };

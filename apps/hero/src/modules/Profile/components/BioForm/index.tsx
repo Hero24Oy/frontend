@@ -9,21 +9,22 @@ import { LanguagesSelect } from '../LanguagesSelect';
 
 import { textareaPlaceholderMapper } from './constants';
 
-import { ProfileCreation, ProfileType } from '$modules/Profile/stores';
+import { HeroType, ProfileCreation } from '$modules/Profile/stores';
 
 type Props = {
   control: Control<ProfileCreation['bio']>;
   getValues: UseFormGetValues<ProfileCreation['bio']>;
+  heroType: HeroType | null;
   isValid: boolean;
   onChange: () => void;
-  profileType: ProfileType;
   resetField: UseFormResetField<ProfileCreation['bio']>;
 };
 
 export const BioForm: FC<Props> = (props) => {
-  const { control, isValid, onChange, profileType, ...restProps } = props;
+  const { control, isValid, onChange, heroType, ...restProps } = props;
 
-  const placeholder = textareaPlaceholderMapper[profileType];
+  const placeholder =
+    textareaPlaceholderMapper[heroType ?? HeroType.INDIVIDUAL];
 
   // TODO replace text with i18n
   return (
