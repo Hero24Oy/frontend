@@ -27,7 +27,7 @@ export const useLogic = (params: Params) => {
     profileCreationInitialState.bio.languages,
   );
 
-  const openModalHandler = () => {
+  const onOpenHandler = () => {
     setIsOpen(true);
   };
 
@@ -49,7 +49,7 @@ export const useLogic = (params: Params) => {
     isOpen,
     languages: data?.langs.en,
     isLanguagesLoading,
-    openModalHandler,
+    onOpenHandler,
     onApplyHandler,
     onCloseHandler,
   };

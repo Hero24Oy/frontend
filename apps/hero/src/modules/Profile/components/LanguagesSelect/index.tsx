@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { Button, CloseIcon as goBackIcon, FullScreenModal } from '@hero24/ui';
+import { CloseIcon as goBackIcon, FullScreenModal, Select } from '@hero24/ui';
 
 import { ModalBody, ModalFooter } from './components';
 import { LanguagesSelectProps } from './types';
@@ -9,18 +9,20 @@ import { useLogic } from './useLogic';
 export const LanguagesSelect: FC<LanguagesSelectProps> = (props) => {
   const { control, getValues, name, resetField } = props;
 
-  const {
-    isOpen,
-    languages,
-    openModalHandler,
-    onApplyHandler,
-    onCloseHandler,
-  } = useLogic({ getValues, resetField });
+  const { isOpen, languages, onOpenHandler, onApplyHandler, onCloseHandler } =
+    useLogic({ getValues, resetField });
 
   return (
-    // TODO Replace button with select after its implementation. Add i18n.
+    // TODO Replace text with i18n call.
     <>
-      <Button onPress={openModalHandler}>Set Modal Visible</Button>
+      <Select
+        control={control}
+        name={name}
+        size="md"
+        label="Language to communicate"
+        onPress={onOpenHandler}
+        hasDivider
+      />
 
       <FullScreenModal
         isOpen={isOpen}
