@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 
 import { Heading, VStack } from '@hero24/ui';
 
-import { CompanyInfoForm } from '../../components';
+import { ProfessionalInfoForm } from '../../components';
 
 import { useLogic } from './useLogic';
 
@@ -19,7 +19,7 @@ export const ProfessionalInfoScreen: FC = () => {
       <VStack style={styles.container}>
         <Heading variant="H2">Add company info</Heading>
 
-        <CompanyInfoForm
+        <ProfessionalInfoForm
           control={control}
           isValid={isValid}
           submitData={submitData}
