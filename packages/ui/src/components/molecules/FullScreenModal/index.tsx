@@ -6,26 +6,26 @@ import {
   ModalFooter,
   ScrollView,
 } from '@gluestack-ui/themed';
-import { ComponentProps, FC, RefObject } from 'react';
+import { ComponentProps, FC } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { Header } from '../Header';
 
+import { Color } from '$theme';
 import { JsxElement } from '$types';
 
 export type Props = {
   header: ComponentProps<typeof Header>;
   isOpen: boolean;
-  ref: RefObject<JsxElement>;
   body?: JsxElement;
   footer?: JsxElement;
 };
 
 export const FullScreenModal: FC<Props> = (props) => {
-  const { footer, body, isOpen, ref, header } = props;
+  const { footer, body, isOpen, header } = props;
 
   return (
-    <GluestackModal size="full" isOpen={isOpen} finalFocusRef={ref}>
+    <GluestackModal size="full" isOpen={isOpen}>
       <ModalBackdrop />
       <ModalContent style={styles.content}>
         <Header {...header} />
@@ -41,6 +41,7 @@ export const FullScreenModal: FC<Props> = (props) => {
 const styles = StyleSheet.create({
   content: {
     flex: 1,
+    backgroundColor: Color.WHITE_00,
   },
   footer: {
     gap: 16,
