@@ -8,8 +8,10 @@ import {
   Actionsheet as GluestackActionsheet,
   ActionsheetBackdrop,
   ActionsheetContent,
+  Text as GluestackText,
 } from '@gluestack-ui/themed';
 import { FC } from 'react';
+import { StyleSheet } from 'react-native';
 
 import { ActionsheetDragIndicator } from './ActionsheetDragIndicator';
 import { ActionsheetItems } from './ActionsheetItems';
@@ -18,18 +20,31 @@ import { GluestackActionsheetProps, Item } from './types';
 type Props = {
   items: Item[];
   showDragIndicator?: boolean;
+  title?: string;
 } & GluestackActionsheetProps;
 
 export const Actionsheet: FC<Props> = (props) => {
-  const { showDragIndicator, items, ...restProps } = props;
+  const { showDragIndicator, items, title, ...restProps } = props;
 
   return (
     <GluestackActionsheet {...restProps}>
       <ActionsheetBackdrop />
-      <ActionsheetContent>
+      <ActionsheetContent style={styles.container}>
         {showDragIndicator && <ActionsheetDragIndicator />}
+        <GluestackText style={styles.title}>{title}</GluestackText>
         <ActionsheetItems items={items} />
       </ActionsheetContent>
     </GluestackActionsheet>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'flex-start',
+  },
+  title: {
+    paddingVertical: 16,
+    paddingHorizontal: 10,
+    textAlign: 'left',
+  },
+});
