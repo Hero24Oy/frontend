@@ -21,6 +21,7 @@ export const SetProfileForm: FC<SetProfileFormProps> = (props) => {
     isLoading,
     isValid,
     onSubmitHandler,
+    isBusinessCustomer,
   } = useLogic(props);
 
   return (
@@ -34,8 +35,8 @@ export const SetProfileForm: FC<SetProfileFormProps> = (props) => {
           <Heading variant="H2">Add personal info</Heading>
           <InputSection control={control} inputFields={basicInputFields} />
           <BusinessCustomerSection
+            isShown={isBusinessCustomer}
             control={control}
-            isBusinessCustomerControllerName="isBusinessCustomer"
             inputFields={businessCustomerInputFields}
           />
         </VStack>

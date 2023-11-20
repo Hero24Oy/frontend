@@ -39,6 +39,7 @@ export const useValidation = (params: UseValidationParams) => {
     control,
     handleSubmit,
     formState: { isSubmitting, isValid },
+    getValues,
   } = useForm<SetProfileFormData>({
     resolver: yupResolver(validationSchema),
     defaultValues: {
@@ -49,6 +50,8 @@ export const useValidation = (params: UseValidationParams) => {
     },
     mode: 'onChange',
   });
+
+  const isBusinessCustomer = getValues('isBusinessCustomer');
 
   const onSubmitHandler = useMemo(
     () =>
@@ -65,6 +68,7 @@ export const useValidation = (params: UseValidationParams) => {
             ? GqlCustomerType.PROFESSIONAL
             : GqlCustomerType.INDIVIDUAL;
 
+          // TODO find out about display name on buyerProfile logic
           const professionalCustomerData = getCustomerData(data);
 
           const editCustomerRequest = editCustomer.request({
@@ -87,6 +91,7 @@ export const useValidation = (params: UseValidationParams) => {
 
   return {
     onSubmitHandler,
+    isBusinessCustomer,
     isValid,
     control,
     isLoading: isSubmitting,
