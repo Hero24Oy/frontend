@@ -8,13 +8,13 @@ import { headingTextMapper } from './constants';
 import { HeroType } from '$modules/Profile/stores';
 
 type Props = {
-  heroType: HeroType | null;
+  heroType: HeroType;
 };
 
 export const BioHeading: FC<Props> = (props) => {
   const { heroType } = props;
 
-  const text = headingTextMapper[heroType ?? HeroType.INDIVIDUAL];
+  const text = headingTextMapper[heroType];
 
   return (
     <Heading variant="H2" style={styles.text}>

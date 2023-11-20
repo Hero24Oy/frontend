@@ -8,6 +8,7 @@ import { bioSchema } from './validation';
 
 import {
   getMultiProgressBarInitialState,
+  HeroType,
   ProfileCreation,
   profileCreationInitialState,
   useProfileCreationStore,
@@ -52,6 +53,6 @@ export const useLogic = () => {
     getValues,
     resetField,
     multiScreenProgressBar,
-    heroType,
+    heroType: heroType ?? HeroType.INDIVIDUAL,
   };
 };

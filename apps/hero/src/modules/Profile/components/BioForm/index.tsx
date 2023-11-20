@@ -14,7 +14,7 @@ import { HeroType, ProfileCreation } from '$modules/Profile/stores';
 type Props = {
   control: Control<ProfileCreation['bio']>;
   getValues: UseFormGetValues<ProfileCreation['bio']>;
-  heroType: HeroType | null;
+  heroType: HeroType;
   isValid: boolean;
   onChange: () => void;
   resetField: UseFormResetField<ProfileCreation['bio']>;
@@ -22,9 +22,7 @@ type Props = {
 
 export const BioForm: FC<Props> = (props) => {
   const { control, isValid, onChange, heroType, ...restProps } = props;
-
-  const placeholder =
-    textareaPlaceholderMapper[heroType ?? HeroType.INDIVIDUAL];
+  const placeholder = textareaPlaceholderMapper[heroType];
 
   // TODO replace text with i18n
   return (
