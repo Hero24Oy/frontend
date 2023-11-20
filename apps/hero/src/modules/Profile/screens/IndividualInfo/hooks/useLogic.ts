@@ -3,8 +3,8 @@ import { useRouter } from 'expo-router';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { preparePersonalInfo } from '../utils';
-import { personalInfoSchema } from '../validation';
+import { prepareIndividualInfo } from '../utils';
+import { individualInfoSchema } from '../validation';
 
 import {
   ProfileCreation,
@@ -15,11 +15,12 @@ import {
 export const useLogic = () => {
   const router = useRouter();
 
-  const { setPersonalInfo } = useProfileCreationStore();
+  const { setIndividualInfo } = useProfileCreationStore();
 
   const { control, getValues, setValue, formState, watch } = useForm({
-    resolver: yupResolver<ProfileCreation['personalInfo']>(personalInfoSchema),
-    defaultValues: profileCreationInitialState.personalInfo,
+    resolver:
+      yupResolver<ProfileCreation['individualInfo']>(individualInfoSchema),
+    defaultValues: profileCreationInitialState.individualInfo,
     mode: 'onChange',
   });
 
@@ -27,9 +28,9 @@ export const useLogic = () => {
   const submitData = useCallback(() => {
     const values = getValues();
 
-    const preparedPersonalInfo = preparePersonalInfo(values);
+    const preparedPersonalInfo = prepareIndividualInfo(values);
 
-    setPersonalInfo(preparedPersonalInfo);
+    setIndividualInfo(preparedPersonalInfo);
     router.push('/');
   }, []);
 

@@ -4,7 +4,7 @@ import { emailValidationSchema, ValidationHints } from '@hero24/common';
 
 import { SOCIAL_ID_LENGTH } from './constants';
 
-export const personalInfoSchema = yup.object({
+export const individualInfoSchema = yup.object({
   email: emailValidationSchema.required(ValidationHints.REQUIRED),
   name: yup.string().required(ValidationHints.REQUIRED),
   displayedName: yup.string().required(ValidationHints.REQUIRED),

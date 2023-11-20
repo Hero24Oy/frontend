@@ -8,7 +8,7 @@ import { CompanyInfoForm } from '../../components';
 
 import { useLogic } from './useLogic';
 
-export const CompanyInfoScreen: FC = () => {
+export const ProfessionalInfoScreen: FC = () => {
   const { control, isValid, submitData } = useLogic();
 
   return (

@@ -1,11 +1,11 @@
 import { LoadedFile, Maybe, Range } from '@hero24/common';
 
-export enum ProfileType {
-  SELF_EMPLOYED = 'self-employed',
-  COMPANY = 'company',
+export enum HeroType {
+  INDIVIDUAL = 'individual',
+  PROFESSIONAL = 'professional',
 }
 
-type CommonInfo = {
+export type CommonHeroInfo = {
   email: string;
   name: string;
 };
@@ -21,21 +21,21 @@ export type ProfileCreation = {
     languages: string[];
     info?: Maybe<string>;
   };
-  companyInfo: CommonInfo & {
-    employees: Range | null;
-  };
-  paymentData: {
-    companyId: string | null;
-    IBAN: string;
-  };
-  personalInfo: CommonInfo & {
+  individualInfo: CommonHeroInfo & {
     birthday: Date | null;
     displayedName: string;
     lastName: string;
     socialId: string;
   };
+  paymentData: {
+    companyId: string | null;
+    IBAN: string;
+  };
+  professionalInfo: CommonHeroInfo & {
+    employees: Range | null;
+  };
   welcome: {
-    profileType: `${ProfileType}` | null;
+    profileType: `${HeroType}` | null;
   };
   workData: {
     experience: Range | null;

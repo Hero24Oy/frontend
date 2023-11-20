@@ -6,7 +6,7 @@ import {
   ValidationHints,
 } from '@hero24/common';
 
-export const companyInfoSchema = yup.object({
+export const professionalInfoSchema = yup.object({
   email: emailValidationSchema.required(ValidationHints.REQUIRED),
   employees: rangeSchema.required(ValidationHints.REQUIRED),
   name: yup.string().required(ValidationHints.REQUIRED),

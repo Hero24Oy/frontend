@@ -3,7 +3,7 @@ import { useRouter } from 'expo-router';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { companyInfoSchema } from './validation';
+import { professionalInfoSchema } from './validation';
 
 import {
   ProfileCreation,
@@ -13,22 +13,24 @@ import {
 
 export const useLogic = () => {
   const router = useRouter();
-  const { setCompanyInfo } = useProfileCreationStore();
+  const { setProfessionalInfo } = useProfileCreationStore();
 
   const {
     control,
     getValues,
     setValue,
     formState: { isValid },
-  } = useForm<ProfileCreation['companyInfo']>({
-    resolver: yupResolver<ProfileCreation['companyInfo']>(companyInfoSchema),
-    defaultValues: profileCreationInitialState.companyInfo,
+  } = useForm<ProfileCreation['professionalInfo']>({
+    resolver: yupResolver<ProfileCreation['professionalInfo']>(
+      professionalInfoSchema,
+    ),
+    defaultValues: profileCreationInitialState.professionalInfo,
     mode: 'onChange',
   });
 
   // TODO set proper route when next screen will be ready
   const submitData = useCallback(() => {
-    setCompanyInfo(getValues());
+    setProfessionalInfo(getValues());
     router.push('/');
   }, []);
 
