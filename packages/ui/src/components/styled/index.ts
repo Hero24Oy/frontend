@@ -6,3 +6,4 @@ export * from './Input';
 export * from './Slider';
 export * from './ConfirmationInput';
 export * from './RadioTitle';
+export * from './Select';
