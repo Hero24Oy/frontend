@@ -12,3 +12,4 @@ export * from './Apple';
 export * from './Right';
 export * from './Upload';
 export * from './File';
+export * from './Camera';
