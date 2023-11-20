@@ -1,8 +1,7 @@
-import { HStack, Switch } from '@gluestack-ui/themed';
 import { Control, FieldValues, Path } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
 
-import { JsxElement, Text } from '@hero24/ui';
+import { HStack, JsxElement, Switch, Text } from '@hero24/ui';
 
 import { useLogic } from './useLogic';
 
