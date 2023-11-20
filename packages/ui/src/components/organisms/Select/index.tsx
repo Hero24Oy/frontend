@@ -37,7 +37,6 @@ export const Select = <Type extends FieldValues>(
 const styles = StyleSheet.create({
   input: {
     alignItems: 'center',
-    marginHorizontal: 16,
   },
   icon: {
     marginLeft: 'auto',

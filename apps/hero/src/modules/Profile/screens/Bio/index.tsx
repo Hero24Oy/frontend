@@ -1,9 +1,36 @@
-import { FC } from 'react';
+import { StyleSheet } from 'react-native';
 
-type Props = {
-  title: string;
+import { View, VStack } from '@hero24/ui';
+
+import { useLogic } from './useLogic';
+
+import { BioForm, BioHeading } from '$modules/Profile/components';
+
+export const BioScreen = () => {
+  const { heroType, multiScreenProgressBar, ...restProps } = useLogic();
+
+  return (
+    <VStack style={styles.container}>
+      <View style={styles.heading}>
+        {multiScreenProgressBar}
+
+        <BioHeading heroType={heroType} />
+      </View>
+
+      <BioForm heroType={heroType} {...restProps} />
+    </VStack>
+  );
 };
 
-export const BioScreen: FC<Props> = () => {
-  return null;
-};
+const styles = StyleSheet.create({
+  heading: {
+    gap: 24,
+  },
+  container: {
+    flex: 1,
+    gap: 10,
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    paddingBottom: 32,
+  },
+});

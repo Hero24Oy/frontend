@@ -1,8 +1,8 @@
 import { LoadedFile, Maybe, Range } from '@hero24/common';
 
-export enum ProfileType {
-  SELF_EMPLOYED = 'self-employed',
-  COMPANY = 'company',
+export enum HeroType {
+  INDIVIDUAL = 'individual',
+  PROFESSIONAL = 'professional',
 }
 
 export type ProfileCreation = {
@@ -26,7 +26,7 @@ export type ProfileCreation = {
     IBAN: string;
   };
   welcome: {
-    profileType: `${ProfileType}` | null;
+    heroType: HeroType | null;
   };
   workData: {
     experience: Range | null;
