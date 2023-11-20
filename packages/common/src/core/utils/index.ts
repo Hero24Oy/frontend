@@ -3,4 +3,5 @@ export * from './mergeObjects';
 export * from './getCurrentLanguage';
 export * from './stringifyPretty';
 export * from './parseError';
-export * from './computePercentageFraction';
+export * from './calculatePercentageFraction';
+export * from './isFalsy';
