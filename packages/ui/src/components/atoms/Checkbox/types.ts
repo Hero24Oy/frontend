@@ -17,11 +17,10 @@ export type CheckboxOptionsProps = {
 // we may add check that controller with such name is a array of string
 export type CheckboxGroupProps<
   Type extends FieldValues,
-  FieldName = Path<Type>,
   HasRootCheck = boolean,
 > = {
   control: Control<Type>;
-  name: FieldName;
+  name: Path<Type>;
   hasRootCheck?: HasRootCheck;
   style?: LayoutStyles;
 } & CheckboxOptionsProps &

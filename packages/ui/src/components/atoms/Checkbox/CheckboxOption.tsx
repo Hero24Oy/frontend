@@ -3,7 +3,7 @@ import {
   CheckboxLabel,
 } from '@gluestack-ui/themed';
 import { FC } from 'react';
-import { StyleSheet, ViewProps } from 'react-native';
+import { StyleSheet, TextStyle } from 'react-native';
 
 import { CheckboxIndicator } from './CheckboxIndicator';
 
@@ -12,7 +12,7 @@ export type CheckboxOptionProps = {
   value: string;
   isChecked?: boolean;
   isIndeterminate?: boolean;
-  wrapperStyle?: ViewProps['style'];
+  wrapperStyle?: TextStyle;
 };
 
 export const CheckboxOption: FC<CheckboxOptionProps> = (props) => {
