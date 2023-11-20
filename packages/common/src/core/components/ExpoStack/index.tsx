@@ -2,7 +2,7 @@ import { NativeStackHeaderProps } from '@react-navigation/native-stack';
 import { Stack } from 'expo-router';
 import { FC, useCallback } from 'react';
 
-import { Header, LeftIcon } from '@hero24/ui';
+import { ChevronLeftIcon, Header } from '@hero24/ui';
 
 import { stackConfig } from '$configs';
 
@@ -21,7 +21,7 @@ export const ExpoStack: FC<Props> = (props) => {
         <Header
           goBack={navigation.goBack}
           title={title}
-          goBackIcon={LeftIcon}
+          goBackIcon={ChevronLeftIcon}
         />
       );
     },

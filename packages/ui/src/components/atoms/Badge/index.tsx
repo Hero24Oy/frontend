@@ -7,21 +7,15 @@ import { StyledOutlinedBadge, StyledSolidBadge } from '$components/styled';
 import { BaseIcon } from '$icons/base';
 
 type Props = PropsWithChildren<{
-  icon: BaseIcon;
   variant: `${BadgeVariant}`;
   action?: `${BadgeAction}`;
+  icon?: BaseIcon;
   iconPosition?: `${IconPosition}`;
   size?: `${BadgeSize}`;
 }>;
 
 export const Badge: FC<Props> = (props) => {
-  const {
-    icon,
-    iconPosition = IconPosition.RIGHT,
-    children,
-    variant,
-    ...restProps
-  } = props;
+  const { icon, iconPosition, children, variant, ...restProps } = props;
 
   const content = (
     <BadgeContent icon={icon} iconPosition={iconPosition}>
