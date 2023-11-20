@@ -5,8 +5,14 @@ export enum DescendantStyleName {
   INPUT = '_input',
   INDICATOR = '_indicator',
   FILLED_TRACK = '_filledTrack',
+  LABEL = '_label',
+  DIVIDER = '_divider',
 }
 
 export enum AncestorStyleName {
+  DIVIDER = '_divider',
+  TEXT = '_text',
+  LABEL = '_label',
   BUTTON = '_button',
+  SELECT = '_select',
 }

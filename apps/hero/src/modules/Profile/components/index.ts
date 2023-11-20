@@ -1,5 +1,5 @@
 export * from './WelcomeHeading';
 export * from './HeroTypeCards';
-export * from './CompanyInfoForm';
+export * from './ProfessionalInfoForm';
 export * from './LanguagesSelect';
-export * from './PersonalInfoForm';
+export * from './IndividualInfoForm';

@@ -2,35 +2,39 @@ import { merge } from 'lodash';
 
 import { createMultiScreenStore, DEFAULT_LANGUAGES } from '@hero24/common';
 
-import { ProfileCreation } from './types';
+import { CommonHeroInfo, ProfileCreation } from './types';
 
 import { SELF_EMPLOYED_DISPLAYED_NAME_PREFIX } from '$configs';
 
-const companyCreationInfoInitialState: Pick<ProfileCreation, 'companyInfo'> = {
-  companyInfo: {
-    name: '',
-    email: '',
-    employees: null,
-  },
+const profileCommonInfoCreationInitialState: CommonHeroInfo = {
+  name: '',
+  email: '',
 };
 
-const selfEmployedCreationInfoInitialState: Pick<
+const professionalCreationInfoInitialState: Pick<
   ProfileCreation,
-  'personalInfo'
+  'professionalInfo'
 > = {
-  personalInfo: {
-    name: '',
-    email: '',
+  professionalInfo: merge(profileCommonInfoCreationInitialState, {
+    employees: null,
+  }),
+};
+
+const individualCreationInfoInitialState: Pick<
+  ProfileCreation,
+  'individualInfo'
+> = {
+  individualInfo: merge(profileCommonInfoCreationInitialState, {
     birthday: null,
     displayedName: SELF_EMPLOYED_DISPLAYED_NAME_PREFIX,
     lastName: '',
     socialId: '',
-  },
+  }),
 };
 
 export const profileCreationInitialState: ProfileCreation = merge(
-  companyCreationInfoInitialState,
-  selfEmployedCreationInfoInitialState,
+  professionalCreationInfoInitialState,
+  individualCreationInfoInitialState,
   {
     workData: {
       expertise: [],
