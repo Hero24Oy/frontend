@@ -38,6 +38,7 @@ export const useValidation = (params: UseValidationParams) => {
   const {
     control,
     handleSubmit,
+    getValues,
     formState: { isSubmitting, isValid },
     getValues,
   } = useForm<SetProfileFormData>({

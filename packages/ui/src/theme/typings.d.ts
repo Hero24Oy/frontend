@@ -3,6 +3,7 @@ import {
   HeadingThemeVariants,
   InputThemeVariants,
   InputTitleThemeVariants,
+  ProgressBarVariants,
   RadioThemeVariants,
   SliderFilledTrackThemeVariants,
   SliderThemeVariants,
@@ -37,6 +38,11 @@ declare module '@gluestack-ui/themed' {
     InputTitle: {
       theme: {
         variants: InputTitleThemeVariants;
+      };
+    };
+    Progress: {
+      theme: {
+        variants: ProgressBarVariants;
       };
     };
     Radio: {
