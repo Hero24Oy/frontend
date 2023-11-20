@@ -1,6 +1,6 @@
-import { useCachedGraphQlUser } from '@hero24/common';
+import { GqlCustomerType, useCachedGraphQlUser } from '@hero24/common';
 
-import { GqlCustomerType, useCachedGqlCustomer } from '$modules/Customer';
+import { useCachedGqlCustomer } from '$modules/Customer';
 
 // TODO think about moving to common
 export const useCheckRequiredProfileFields = () => {

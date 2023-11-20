@@ -34,7 +34,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apollo/client@npm:^3.8.7":
+"@apollo/client@npm:3.8.7":
   version: 3.8.7
   resolution: "@apollo/client@npm:3.8.7"
   dependencies:
@@ -8417,7 +8417,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "customer-app@workspace:apps/customer"
   dependencies:
-    "@apollo/client": "npm:^3.8.7"
+    "@apollo/client": "npm:3.8.7"
     "@babel/core": "npm:^7.22.7"
     "@babel/runtime": "npm:^7.23.2"
     "@cspell/eslint-plugin": "npm:^7.3.6"
@@ -11091,7 +11091,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hero-app@workspace:apps/hero"
   dependencies:
-    "@apollo/client": "npm:^3.8.7"
+    "@apollo/client": "npm:3.8.7"
     "@babel/core": "npm:^7.22.7"
     "@babel/runtime": "npm:^7.23.2"
     "@cspell/eslint-plugin": "npm:^7.3.6"

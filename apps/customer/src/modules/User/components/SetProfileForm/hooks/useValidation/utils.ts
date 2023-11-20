@@ -1,8 +1,8 @@
 import pick from 'lodash/pick';
 
-import { SetProfileFormData } from '../../validation';
+import { EditCustomerData, GqlCustomerType } from '@hero24/common';
 
-import { EditCustomerData, GqlCustomerType } from '$modules/Customer';
+import { SetProfileFormData } from '../../validation';
 
 export const getUserData = (
   data: SetProfileFormData,

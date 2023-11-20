@@ -1,6 +1,6 @@
 import { FieldFunctionOptions, TypePolicies } from '@apollo/client';
 
-import { CUSTOMER_TYPE_NAME } from './constants';
+import { CUSTOMER_DATA_TYPE_NAME, CUSTOMER_TYPE_NAME } from './constants';
 import { EditCustomerMutationVariables } from './mutations';
 import { CustomerQueryVariables } from './queries';
 import { CustomerProfile } from './types';
@@ -45,6 +45,9 @@ export const customerTypePolicies: TypePolicies = {
             updatedCustomer,
           ) as CustomerProfile;
         },
+      },
+      [CUSTOMER_DATA_TYPE_NAME]: {
+        keyArgs: false,
       },
     },
   },

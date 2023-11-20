@@ -1,23 +1,18 @@
 import {
+  CREATE_CUSTOMER_MUTATION_PREFIX,
+  createCustomerMutation,
+  CreateCustomerMutationVariables,
   InferSelection,
   useCustomMutation,
   UseMutationWrapper,
 } from '@hero24/common';
 
-import {
-  CREATE_CUSTOMER_MUTATION_PREFIX,
-  createCustomerMutation,
-  CreateCustomerMutationVariables,
-} from '../graphql';
-
 const mutation = createCustomerMutation({
   id: true,
   data: {
     displayName: true,
-    photoURL: true,
     type: true,
     businessId: true,
-    businessName: true,
   },
 });
 

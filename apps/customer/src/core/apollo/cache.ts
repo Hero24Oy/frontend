@@ -1,8 +1,9 @@
 import { InMemoryCacheConfig, TypePolicies } from '@apollo/client';
 
-import { mergeObjects } from '@hero24/common';
+import { customerTypePolicies, mergeObjects } from '@hero24/common';
 
-import { customerTypePolicies } from '$modules';
+// * Follow this import syntax because of possible cycle imports, in some files we use code from core
+// * but in apollo we import type policies from modules
 
 const typePoliciesToMerge: TypePolicies[] = [customerTypePolicies];
 

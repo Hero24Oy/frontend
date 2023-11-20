@@ -1,6 +1,6 @@
-import { Maybe } from '@hero24/common';
-
 import { GqlCustomerType } from '../constants';
+
+import { Maybe } from '$core';
 
 export enum CustomerType {
   INDIVIDUAL = 'individual',

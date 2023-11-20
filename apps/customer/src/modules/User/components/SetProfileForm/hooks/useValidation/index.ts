@@ -40,7 +40,6 @@ export const useValidation = (params: UseValidationParams) => {
     handleSubmit,
     getValues,
     formState: { isSubmitting, isValid },
-    getValues,
   } = useForm<SetProfileFormData>({
     resolver: yupResolver(validationSchema),
     defaultValues: {

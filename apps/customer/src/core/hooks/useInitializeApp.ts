@@ -1,6 +1,6 @@
 import { useInitializeUser } from '@hero24/common';
 
-import { useInitializeCustomer } from '$modules';
+import { useInitializeCustomer } from '$modules/Customer/hooks';
 
 type UseInitializeApp = () => {
   isAppInitialized: boolean;

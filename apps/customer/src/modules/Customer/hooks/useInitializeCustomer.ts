@@ -2,12 +2,12 @@ import { User } from 'firebase/auth';
 import { useCallback, useState } from 'react';
 
 import {
+  CreateCustomerMutationVariables,
+  GqlCustomerType,
   handleAuthError,
   parseError,
   useWatchAuthChanges,
 } from '@hero24/common';
-
-import { CreateCustomerMutationVariables, GqlCustomerType } from '../graphql';
 
 import { useCreateCustomer } from './useCreateCustomer';
 import { useGetCustomer } from './useGetCustomer';

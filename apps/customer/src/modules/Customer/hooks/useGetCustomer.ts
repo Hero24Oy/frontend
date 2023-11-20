@@ -1,20 +1,16 @@
 import {
+  createCustomerQuery,
+  CUSTOMER_QUERY_PREFIX,
+  CustomerQueryVariables,
   InferSelection,
   useCustomQuery,
   UseQueryWrapper,
 } from '@hero24/common';
 
-import {
-  createCustomerQuery,
-  CUSTOMER_QUERY_PREFIX,
-  CustomerQueryVariables,
-} from '../graphql';
-
 const query = createCustomerQuery({
   id: true,
   data: {
     displayName: true,
-    photoURL: true,
     type: true,
     businessId: true,
   },

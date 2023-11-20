@@ -1,13 +1,9 @@
 import { DocumentNode, gql } from '@apollo/client';
 
-import {
-  capitalize,
-  createGraphqlBuilder,
-  DEFAULT_RESPONSE_NAME,
-} from '@hero24/common';
-
 import { GqlCustomerType } from '../../constants';
 import { CustomerProfile, CustomerProfileData } from '../../types';
+
+import { capitalize, createGraphqlBuilder, DEFAULT_RESPONSE_NAME } from '$core';
 
 type Data = CustomerProfile;
 
