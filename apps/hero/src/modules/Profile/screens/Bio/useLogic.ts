@@ -35,7 +35,7 @@ export const useLogic = () => {
 
   useEffect(() => {
     setCurrentProgressBarInfo({
-      progressBarIndex: 5,
+      progressBarIndex: 4,
       formState,
       getValues,
     });
