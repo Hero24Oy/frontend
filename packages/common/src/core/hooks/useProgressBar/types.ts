@@ -1,12 +1,12 @@
 import { Dispatch } from 'react';
 import { FieldValues, FormState, UseFormGetValues } from 'react-hook-form';
 
-export type CurrentProgressBar = {
-  formState: FormState<FieldValues> | null;
-  getValues: UseFormGetValues<FieldValues> | null;
+export type CurrentProgressBar<Type extends FieldValues> = {
+  formState: FormState<Type> | null;
+  getValues: UseFormGetValues<Type> | null;
   progressBarIndex: number;
 };
 
-export type SetCurrentProgressBar = Dispatch<
-  React.SetStateAction<CurrentProgressBar>
+export type SetCurrentProgressBar<Type extends FieldValues> = Dispatch<
+  React.SetStateAction<CurrentProgressBar<Type>>
 >;
