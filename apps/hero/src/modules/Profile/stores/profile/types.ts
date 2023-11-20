@@ -22,8 +22,8 @@ export type ProfileCreation = {
     name: string;
   };
   paymentData: {
-    companyId: string | null;
     IBAN: string;
+    companyId?: Maybe<string>;
   };
   welcome: {
     heroType: HeroType | null;
