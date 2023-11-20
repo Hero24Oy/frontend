@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { KeyboardAwareScrollView as RnKeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 import { KeyboardAwareScrollViewProps } from './types';
@@ -9,11 +9,16 @@ export const KeyboardAwareScrollView: FC<KeyboardAwareScrollViewProps> = (
 ) => {
   const { children, ...restProps } = props;
 
+  // eslint-disable-next-line no-magic-numbers -- Those are values for extra height above the keyboard
+  const extraScrollHeight = Platform.OS === 'ios' ? 150 : 0;
+
   return (
     <RnKeyboardAwareScrollView
       enableAutomaticScroll
       enableOnAndroid
       keyboardShouldPersistTaps="handled"
+      extraScrollHeight={extraScrollHeight}
+      keyboardOpeningTime={0}
       style={styles.main}
       {...restProps}
     >
