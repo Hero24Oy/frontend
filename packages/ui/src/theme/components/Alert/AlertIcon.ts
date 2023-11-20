@@ -7,7 +7,6 @@ import { ComponentTheme } from '$theme/types';
 
 const customAlertIconConfig = {
   theme: {
-    marginRight: 5,
     props: {
       size: IconSize.MD,
     },
