@@ -2,6 +2,8 @@ import pick from 'lodash/pick';
 
 import { SetProfileFormData } from '../../validation';
 
+import { EditCustomerData, GqlCustomerType } from '$modules/Customer';
+
 export const getUserData = (
   data: SetProfileFormData,
 ): Pick<SetProfileFormData, 'firstName' | 'lastName' | 'email'> => {
@@ -10,10 +12,23 @@ export const getUserData = (
   return profileData;
 };
 
-export const getCustomerData = (
-  data: SetProfileFormData,
-): Pick<SetProfileFormData, 'businessId' | 'businessName'> => {
-  const profileData = pick(data, ['businessId', 'businessName']);
+export const getCustomerData = (data: SetProfileFormData): EditCustomerData => {
+  const { businessId, isBusinessCustomer, businessName, firstName, lastName } =
+    data;
+
+  const customerType = isBusinessCustomer
+    ? GqlCustomerType.PROFESSIONAL
+    : GqlCustomerType.INDIVIDUAL;
+
+  const displayName = isBusinessCustomer
+    ? (businessName as string) // thanks to validation we are sure that businessName is defined
+    : `${firstName} ${lastName}`;
+
+  const profileData: EditCustomerData = {
+    businessId,
+    type: customerType,
+    displayName,
+  };
 
   return profileData;
 };

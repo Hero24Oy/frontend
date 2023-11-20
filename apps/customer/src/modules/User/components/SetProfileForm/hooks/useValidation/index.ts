@@ -12,7 +12,7 @@ import { SetProfileFormData, validationSchema } from '../../validation';
 
 import { getCustomerData, getUserData } from './utils';
 
-import { GqlCustomerType, useEditCustomer } from '$modules/Customer';
+import { useEditCustomer } from '$modules/Customer';
 import { useSetRequiredProfileFields } from '$modules/User/hooks';
 
 export type UseValidationParams = {
@@ -63,20 +63,11 @@ export const useValidation = (params: UseValidationParams) => {
             userId,
             data: userData,
           });
-
-          const customerType = data.isBusinessCustomer
-            ? GqlCustomerType.PROFESSIONAL
-            : GqlCustomerType.INDIVIDUAL;
-
-          // TODO find out about display name on buyerProfile logic
-          const professionalCustomerData = getCustomerData(data);
+          const customerData = getCustomerData(data);
 
           const editCustomerRequest = editCustomer.request({
             id: userId,
-            data: {
-              type: customerType,
-              ...professionalCustomerData,
-            },
+            data: customerData,
           });
 
           await Promise.allSettled([editUserRequest, editCustomerRequest]);

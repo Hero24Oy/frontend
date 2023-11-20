@@ -10,10 +10,11 @@ export const useCheckRequiredProfileFields = () => {
   const hasBusinessCustomerRequiredFields =
     customer?.data?.type === GqlCustomerType.PROFESSIONAL &&
     customer?.data?.businessId &&
-    customer?.data?.businessName;
+    customer?.data?.displayName;
 
   const hasIndividualCustomerRequiredFields =
-    customer?.data?.type === GqlCustomerType.INDIVIDUAL;
+    customer?.data?.type === GqlCustomerType.INDIVIDUAL &&
+    customer?.data.displayName;
 
   const hasUserRequiredFields = Boolean(
     user?.data?.email && user?.data?.firstName && user?.data?.lastName,

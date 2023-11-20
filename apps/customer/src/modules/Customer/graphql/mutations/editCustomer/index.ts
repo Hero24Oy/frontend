@@ -11,7 +11,7 @@ import { CustomerProfile, CustomerProfileData } from '../../types';
 
 type Data = CustomerProfile;
 
-type EditCustomerData = Partial<
+export type EditCustomerData = Partial<
   Omit<CustomerProfileData, 'type'> & {
     type: `${GqlCustomerType}`;
   }

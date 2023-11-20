@@ -16,7 +16,6 @@ export type CustomerProfile = {
 export type CustomerProfileData = {
   displayName: string;
   businessId?: Maybe<string>;
-  businessName?: Maybe<string>;
   isCreatedFromWeb?: Maybe<boolean>;
   photoURL?: Maybe<string>;
   type?: `${GqlCustomerType}`;
