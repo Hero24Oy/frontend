@@ -25,6 +25,7 @@ export const BioScreen = () => {
 const styles = StyleSheet.create({
   heading: {
     gap: 24,
+    paddingVertical: 10,
   },
   container: {
     flex: 1,
