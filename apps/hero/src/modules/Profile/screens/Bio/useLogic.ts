@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useCallback, useEffect } from 'react';
+import { useRouter } from 'expo-router';
+import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useCreateMultiProgressBar } from '@hero24/common';
@@ -20,10 +21,7 @@ export const useLogic = () => {
     setBio,
   } = useProfileCreationStore();
 
-  const { multiScreenProgressBar, setCurrentProgressBarInfo } =
-    useCreateMultiProgressBar<ProfileCreation['bio']>({
-      initialState: getMultiProgressBarInitialState(),
-    });
+  const router = useRouter();
 
   const { control, getValues, setValue, resetField, formState } = useForm<
     ProfileCreation['bio']
@@ -33,23 +31,28 @@ export const useLogic = () => {
     mode: 'onChange',
   });
 
-  useEffect(() => {
-    setCurrentProgressBarInfo({
-      progressBarIndex: 4,
+  const { multiScreenProgressBar } = useCreateMultiProgressBar<
+    ProfileCreation['bio']
+  >({
+    initialState: getMultiProgressBarInitialState(),
+    progressBarInfo: {
       formState,
       getValues,
-    });
-  }, []);
+      progressBarIndex: 4,
+    },
+  });
 
-  const onChange = useCallback(() => {
+  // TODO set proper route when next screen will be ready
+  const submitData = useCallback(() => {
     setBio(getValues());
+    router.push('/');
   }, []);
 
   return {
     control,
     setValue,
     isValid: formState.isValid,
-    onChange,
+    submitData,
     getValues,
     resetField,
     multiScreenProgressBar,

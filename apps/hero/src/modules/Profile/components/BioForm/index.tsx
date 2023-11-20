@@ -16,12 +16,12 @@ type Props = {
   getValues: UseFormGetValues<ProfileCreation['bio']>;
   heroType: HeroType;
   isValid: boolean;
-  onChange: () => void;
   resetField: UseFormResetField<ProfileCreation['bio']>;
+  submitData: () => void;
 };
 
 export const BioForm: FC<Props> = (props) => {
-  const { control, isValid, onChange, heroType, ...restProps } = props;
+  const { control, isValid, submitData, heroType, ...restProps } = props;
   const placeholder = textareaPlaceholderMapper[heroType];
 
   // TODO replace text with i18n
@@ -44,7 +44,7 @@ export const BioForm: FC<Props> = (props) => {
         <LanguagesSelect control={control} name="languages" {...restProps} />
       </View>
 
-      <Button isDisabled={!isValid} onPress={onChange}>
+      <Button isDisabled={!isValid} onPress={submitData}>
         Continue
       </Button>
     </VStack>
