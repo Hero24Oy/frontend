@@ -1,4 +1,4 @@
-import { Control, FieldValues, Path } from 'react-hook-form';
+import { FieldValues, Path, UseFormSetValue } from 'react-hook-form';
 
 export type DateForm = {
   day?: string;
@@ -7,8 +7,8 @@ export type DateForm = {
 };
 
 export type DateThreeFieldInputUseLogicParams<FormType extends FieldValues> = {
-  control: Control<FormType>;
   name: Path<FormType>;
+  setValue: UseFormSetValue<FormType>;
 };
 
 export type DateThreeFieldInputProps<FormType extends FieldValues> =

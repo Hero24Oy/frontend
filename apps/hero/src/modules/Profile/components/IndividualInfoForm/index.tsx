@@ -20,7 +20,7 @@ export const IndividualInfoForm: FC<PersonalInfoFormProps> = (props) => {
       <View style={styles.form}>
         <NameInputs control={control} setValue={setValue} watch={watch} />
         <DateThreeFieldInput
-          control={control}
+          setValue={setValue}
           name="birthday"
           title="Birth day"
         />

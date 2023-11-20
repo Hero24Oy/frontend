@@ -10,7 +10,7 @@ import { useLogic } from './hooks';
 import { IndividualInfoForm } from '$modules/Profile/components';
 
 export const IndividualInfoScreen: FC = () => {
-  const { ...restProps } = useLogic();
+  const { multiScreenProgressBar, ...restProps } = useLogic();
 
   return (
     // TODO replace text in heading with i18n call
@@ -18,6 +18,7 @@ export const IndividualInfoScreen: FC = () => {
       <StatusBar style="dark" />
       <StackKeyboardAwareScrollView style={styles.container}>
         <Heading variant="H2">Add personal info</Heading>
+        {multiScreenProgressBar}
         <IndividualInfoForm {...restProps} />
       </StackKeyboardAwareScrollView>
     </>

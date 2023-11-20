@@ -4,7 +4,8 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   ErrorOption,
   FieldValues,
-  useController,
+  Path,
+  PathValue,
   useForm,
 } from 'react-hook-form';
 
@@ -18,11 +19,7 @@ type SetNewDate = (args: DateForm) => void;
 export const useLogic = <FormType extends FieldValues>(
   params: DateThreeFieldInputUseLogicParams<FormType>,
 ) => {
-  const { control: mainControl, name } = params;
-
-  const {
-    field: { onChange },
-  } = useController({ control: mainControl, name });
+  const { name, setValue } = params;
 
   const [inputError, setInputError] = useState<ErrorOption | undefined>(
     undefined,
@@ -40,15 +37,19 @@ export const useLogic = <FormType extends FieldValues>(
     return () => subscription.unsubscribe();
   }, [watch]);
 
-  const setNewDate: SetNewDate = useMemo(
-    () => (args) => {
-      const date = parseDate(args);
+  const setNewDate: SetNewDate = (args) => {
+    const date = parseDate(args);
 
-      setAllFieldsError(isValid(date));
-      onChange(date);
-    },
-    [onChange, watch],
-  );
+    const isDateValid = isValid(date);
+
+    setAllFieldsError(isDateValid);
+
+    setValue(
+      name,
+      (isDateValid ? date : null) as PathValue<FormType, Path<FormType>>,
+      { shouldDirty: true, shouldValidate: true },
+    );
+  };
 
   const setAllFieldsError = useMemo(
     () => (isDateValid: boolean) => {

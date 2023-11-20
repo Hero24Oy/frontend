@@ -9,15 +9,16 @@ import { ScreenForm } from '$core/store';
 type Params<Form extends ScreenForm> = {
   formState: FormState<Form> | null;
   getValues: UseFormGetValues<Form> | null;
+  key: number;
 };
 
 export const useCreateProgressBar = <Form extends ScreenForm>(
   params: Params<Form>,
 ): JsxElement => {
-  const { formState, getValues } = params;
+  const { formState, getValues, key } = params;
 
   if (formState === null || getValues === null) {
-    return <ProgressBar value={0} />;
+    return <ProgressBar value={0} key={key} />;
   }
 
   const { errors, dirtyFields } = formState;
@@ -27,13 +28,10 @@ export const useCreateProgressBar = <Form extends ScreenForm>(
   const allFields = Object.entries(storeFields);
 
   const changedFields = allFields.filter(([fieldKey, fieldValue]) => {
-    const isTouchedField = !dirtyFields[fieldKey];
-    const isErrorFieldEmpty = Boolean(errors[fieldKey]);
+    const isTouchedField = Boolean(dirtyFields[fieldKey]);
+    const isInvalidField = Boolean(errors[fieldKey]);
 
-    const isFieldChanged =
-      (isTouchedField && isErrorFieldEmpty) || !isFalsy(fieldValue);
-
-    return isFieldChanged;
+    return !isInvalidField && (!isFalsy(fieldValue) || isTouchedField);
   });
 
   const progressBarValue = calculatePercentageFraction(
@@ -41,5 +39,5 @@ export const useCreateProgressBar = <Form extends ScreenForm>(
     allFields.length,
   );
 
-  return <ProgressBar value={progressBarValue} />;
+  return <ProgressBar key={key} value={progressBarValue} />;
 };
