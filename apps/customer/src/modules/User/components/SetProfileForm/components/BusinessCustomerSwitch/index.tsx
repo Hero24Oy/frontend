@@ -15,8 +15,6 @@ export const BusinessCustomerSwitch = <Type extends FieldValues>(
 ): JsxElement => {
   const switchProps = useLogic(props);
 
-  // * business customer creation will be handler in another PR
-  // TODO replace Switch with component from hero24-ui
   return (
     <HStack style={styles.container}>
       <Text>I am a business customer</Text>
