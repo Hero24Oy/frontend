@@ -15,3 +15,4 @@ export * from './TextareaInput';
 export * from './Slider';
 export * from './ProgressBar';
 export * from './Card';
+export * from './Switch';
