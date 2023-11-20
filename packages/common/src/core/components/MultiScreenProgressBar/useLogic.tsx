@@ -7,7 +7,7 @@ import { JsxElement, ProgressBar } from '@hero24/ui';
 import { MultiScreenProgressBarProps } from './types';
 
 import { ScreensForms } from '$core/store';
-import { computePercentageFraction } from '$core/utils';
+import { calculatePercentageFraction } from '$core/utils';
 
 type ReturnValue = {
   progressBars: JsxElement[];
@@ -39,7 +39,7 @@ export const useLogic = <Forms extends ScreensForms>(
           return !isEqual(fieldInitialValue, fieldValue);
         });
 
-        const progressBarValue = computePercentageFraction(
+        const progressBarValue = calculatePercentageFraction(
           changedFields.length,
           fields.length,
         );
