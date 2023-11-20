@@ -23,7 +23,7 @@ export const useLogic = () => {
 
   const router = useRouter();
 
-  const { control, getValues, setValue, formState } = useForm<
+  const { control, getValues, formState } = useForm<
     ProfileCreation['paymentData']
   >({
     resolver: yupResolver<ProfileCreation['paymentData']>(
@@ -50,7 +50,6 @@ export const useLogic = () => {
   return {
     multiScreenProgressBar,
     control,
-    setValue,
     isValid: formState.isValid,
     submitData,
     heroType: heroType ?? HeroType.INDIVIDUAL,
