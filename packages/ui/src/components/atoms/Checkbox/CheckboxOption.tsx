@@ -3,7 +3,7 @@ import {
   CheckboxLabel,
 } from '@gluestack-ui/themed';
 import { FC } from 'react';
-import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { StyleSheet, TextStyle } from 'react-native';
 
 import { CheckboxIndicator } from './CheckboxIndicator';
 
@@ -12,8 +12,7 @@ export type CheckboxOptionProps = {
   value: string;
   isChecked?: boolean;
   isIndeterminate?: boolean;
-  labelStyle?: TextStyle;
-  wrapperStyle?: ViewStyle;
+  wrapperStyle?: TextStyle;
 };
 
 export const CheckboxOption: FC<CheckboxOptionProps> = (props) => {
@@ -22,7 +21,6 @@ export const CheckboxOption: FC<CheckboxOptionProps> = (props) => {
     label,
     value,
     isIndeterminate,
-    labelStyle,
     wrapperStyle,
     ...restProps
   } = props;
@@ -37,7 +35,7 @@ export const CheckboxOption: FC<CheckboxOptionProps> = (props) => {
       {...restProps}
     >
       <CheckboxIndicator isIndeterminate={isIndeterminate} />
-      <CheckboxLabel style={[labelStyle, styles.label]}>{label}</CheckboxLabel>
+      <CheckboxLabel style={styles.label}>{label}</CheckboxLabel>
     </GluestackCheckbox>
   );
 };

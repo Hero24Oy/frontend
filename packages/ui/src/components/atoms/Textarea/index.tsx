@@ -27,6 +27,7 @@ type Props<Type extends FieldValues> = PropsWithChildren<
   {
     control: Control<Type>;
     name: Path<Type>;
+    isHelperTextEnabled?: boolean;
     size?: TextAreaSize;
     style?: CommonStyles;
   } & PickedPropsFromTextarea &
@@ -39,6 +40,7 @@ export const Textarea = <Type extends FieldValues>(
   const {
     isDisabled = false,
     isFocused = false,
+    isHelperTextEnabled = true,
     placeholder = '',
     name,
     control,
@@ -46,7 +48,7 @@ export const Textarea = <Type extends FieldValues>(
   } = props;
 
   const {
-    field,
+    field: { onChange, ...field },
     fieldState: { error },
   } = useController({ name, control });
 
@@ -58,13 +60,21 @@ export const Textarea = <Type extends FieldValues>(
         isInvalid={Boolean(error)}
         isFocused={isFocused}
       >
-        <GluestackTextareaInput {...field} placeholder={placeholder} />
+        <GluestackTextareaInput
+          role="none"
+          onChangeText={onChange}
+          placeholder={placeholder}
+          {...field}
+        />
       </GluestackTextarea>
-      <GluestackFormControlHelper>
-        <GluestackFormControlHelperText>
-          {error?.message}
-        </GluestackFormControlHelperText>
-      </GluestackFormControlHelper>
+
+      {isHelperTextEnabled ? (
+        <GluestackFormControlHelper>
+          <GluestackFormControlHelperText>
+            {error?.message}
+          </GluestackFormControlHelperText>
+        </GluestackFormControlHelper>
+      ) : null}
     </GluestackFormControl>
   );
 };

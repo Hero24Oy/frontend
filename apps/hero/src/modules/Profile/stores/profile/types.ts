@@ -35,7 +35,7 @@ export type ProfileCreation = {
     employees: Range | null;
   };
   welcome: {
-    profileType: `${HeroType}` | null;
+    heroType: HeroType | null;
   };
   workData: {
     experience: Range | null;
