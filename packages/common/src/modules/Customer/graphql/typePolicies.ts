@@ -2,7 +2,7 @@ import { FieldFunctionOptions, TypePolicies } from '@apollo/client';
 
 import { CUSTOMER_DATA_TYPE_NAME, CUSTOMER_TYPE_NAME } from './constants';
 import { EditCustomerMutationVariables } from './mutations';
-import { CustomerQueryVariables } from './queries';
+import { GetCustomerQueryVariables } from './queries';
 import { CustomerProfile } from './types';
 
 export const customerTypePolicies: TypePolicies = {
@@ -12,7 +12,7 @@ export const customerTypePolicies: TypePolicies = {
         keyArgs: false,
         read: (
           _cachedKey,
-          options: FieldFunctionOptions<Partial<CustomerQueryVariables>>,
+          options: FieldFunctionOptions<Partial<GetCustomerQueryVariables>>,
         ) => {
           const { args, toReference } = options;
 

@@ -1,7 +1,7 @@
 import {
   createCustomerQuery,
   CUSTOMER_QUERY_PREFIX,
-  CustomerQueryVariables,
+  GetCustomerQueryVariables,
   InferSelection,
   useCustomQuery,
   UseQueryWrapper,
@@ -21,7 +21,7 @@ export type GetCustomerResponse = InferSelection<typeof query>;
 export type UseGetCustomer = UseQueryWrapper<
   typeof CUSTOMER_QUERY_PREFIX,
   GetCustomerResponse,
-  CustomerQueryVariables,
+  GetCustomerQueryVariables,
   true
 >;
 

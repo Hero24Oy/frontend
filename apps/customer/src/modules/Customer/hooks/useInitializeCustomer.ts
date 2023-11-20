@@ -9,8 +9,7 @@ import {
   useWatchAuthChanges,
 } from '@hero24/common';
 
-import { useCreateCustomer } from './useCreateCustomer';
-import { useGetCustomer } from './useGetCustomer';
+import { useCreateCustomer, useGetCustomer } from '../graphql';
 
 type UseInitializeCustomer = () => {
   isCustomerLoading: boolean;

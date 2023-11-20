@@ -1,6 +1,6 @@
 import { useFirebaseUser } from '@hero24/common';
 
-import { GetCustomerResponse, useGetCustomer } from './useGetCustomer';
+import { GetCustomerResponse, useGetCustomer } from '../graphql';
 
 type UseCachedGqlCustomer = () => {
   customer: GetCustomerResponse;

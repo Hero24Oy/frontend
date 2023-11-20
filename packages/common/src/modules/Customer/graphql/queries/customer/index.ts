@@ -6,7 +6,7 @@ import { capitalize, createGraphqlBuilder, DEFAULT_RESPONSE_NAME } from '$core';
 
 export type Data = CustomerProfile;
 
-export type CustomerQueryVariables = {
+export type GetCustomerQueryVariables = {
   id: string;
 };
 

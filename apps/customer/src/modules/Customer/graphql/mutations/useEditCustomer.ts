@@ -8,6 +8,7 @@ import {
 } from '@hero24/common';
 
 const mutation = createEditCustomerMutation({
+  id: true,
   data: {
     displayName: true,
     type: true,
