@@ -1,7 +1,5 @@
 import { useMemo } from 'react';
 
-import { CheckboxOption } from '@hero24/ui';
-
 type Params = {
   languages: string[];
 };
@@ -9,14 +7,14 @@ type Params = {
 export const useLogic = (params: Params) => {
   const { languages } = params;
 
-  const prepareOptions = (languageSet: string[]): CheckboxOption[] => {
-    return languageSet.map((language) => ({
-      label: language,
-      value: language,
-    }));
-  };
-
-  const options = useMemo(() => prepareOptions(languages), []);
+  const options = useMemo(
+    () =>
+      languages.map((language) => ({
+        label: language,
+        value: language,
+      })),
+    [],
+  );
 
   return {
     options,
