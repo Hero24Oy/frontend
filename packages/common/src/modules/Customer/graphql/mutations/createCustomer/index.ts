@@ -18,7 +18,7 @@ export type CreateCustomerMutationVariables = {
 
 export const CREATE_CUSTOMER_MUTATION_PREFIX = 'createCustomer';
 
-export const createCreateCreateCustomerMutation = createGraphqlBuilder<
+export const createCreateCustomerMutation = createGraphqlBuilder<
   Data,
   DocumentNode
 >(

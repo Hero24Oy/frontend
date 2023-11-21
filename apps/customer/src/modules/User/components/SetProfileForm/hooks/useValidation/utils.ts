@@ -7,9 +7,9 @@ import { SetProfileFormData } from '../../validation';
 export const prepareUserData = (
   data: SetProfileFormData,
 ): Pick<SetProfileFormData, 'firstName' | 'lastName' | 'email'> => {
-  const profileData = pick(data, ['email', 'firstName', 'lastName']);
+  const preparedUserData = pick(data, ['email', 'firstName', 'lastName']);
 
-  return profileData;
+  return preparedUserData;
 };
 
 export const prepareCustomerData = (
@@ -26,11 +26,11 @@ export const prepareCustomerData = (
     ? (businessName as string) // thanks to validation we are sure that businessName is defined
     : `${firstName} ${lastName}`;
 
-  const profileData: EditCustomerData = {
+  const preparedCustomerData: EditCustomerData = {
     businessId,
     type: customerType,
     displayName,
   };
 
-  return profileData;
+  return preparedCustomerData;
 };
