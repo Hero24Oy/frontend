@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 import { Button, Color, Text, UploadIcon, VStack } from '@hero24/ui';
 
 type Props = {
-  isRequired: boolean | undefined;
+  isRequired?: boolean;
   onPress?: () => void;
 };
 
