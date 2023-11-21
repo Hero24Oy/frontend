@@ -29,7 +29,7 @@ export const PaymentDataScreen: FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    gap: 10,
+    gap: 24,
     paddingHorizontal: 16,
     paddingTop: 16,
     paddingBottom: 32,
