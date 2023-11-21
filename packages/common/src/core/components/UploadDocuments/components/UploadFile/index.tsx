@@ -3,10 +3,9 @@ import { StyleSheet } from 'react-native';
 
 import { DeleteIcon, IconButton, Image, View } from '@hero24/ui';
 
-type Props = {
-  onDeleteFile: () => void;
-  source: string;
-};
+import { UploadDocumentsProps } from '../../types';
+
+type Props = Pick<UploadDocumentsProps, 'source' | 'onDeleteFile'>;
 
 export const UploadFile: FC<Props> = (props) => {
   const { source, onDeleteFile } = props;
@@ -17,7 +16,7 @@ export const UploadFile: FC<Props> = (props) => {
         size="sm"
         icon={DeleteIcon}
         style={styles.button}
-        onPress={() => onDeleteFile()}
+        onPress={onDeleteFile}
       />
       <Image source={source} style={styles.file} />
     </View>

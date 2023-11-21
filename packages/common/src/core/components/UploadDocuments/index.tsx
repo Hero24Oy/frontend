@@ -1,25 +1,17 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Actionsheet, Color, Item, Text, VStack } from '@hero24/ui';
+import { Actionsheet, Color, Text, VStack } from '@hero24/ui';
 
 import { UploadButton, UploadFile } from './components';
 import { useLogic } from './hooks';
+import { UploadDocumentsProps } from './types';
 
-type Props = {
-  actionSheetItems: Item[];
-  label: string;
-  onDeleteFile: () => void;
-  actionsheetTitle?: string;
-  isRequired?: boolean;
-  source?: string;
-};
-
-export const UploadDocuments: FC<Props> = (props) => {
+export const UploadDocuments: FC<UploadDocumentsProps> = (props) => {
   const {
     label,
     isRequired,
-    source,
+    source = '',
     onDeleteFile,
     actionSheetItems,
     actionsheetTitle,

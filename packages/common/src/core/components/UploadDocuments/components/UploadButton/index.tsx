@@ -3,10 +3,11 @@ import { StyleSheet } from 'react-native';
 
 import { Button, Color, Text, UploadIcon, VStack } from '@hero24/ui';
 
+import { UploadDocumentsProps } from '../../types';
+
 type Props = {
-  isRequired?: boolean;
   onPress?: () => void;
-};
+} & Pick<UploadDocumentsProps, 'isRequired'>;
 
 export const UploadButton: FC<Props> = (props) => {
   const { isRequired, onPress } = props;
