@@ -4,5 +4,5 @@ export type UseLogicReturnType = {
   isActionsheetOpen: boolean;
   items: Item[];
   onCloseActionsheet: () => void;
-  onOpenActionSheet: () => void;
+  onOpenActionsheet: () => void;
 };

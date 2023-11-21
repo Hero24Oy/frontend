@@ -10,7 +10,7 @@ export const useLogic = (actionSheetItems: Item[]): UseLogicReturnType => {
 
   const onCloseActionsheet = (): void => setIsActionsheetOpen(false);
 
-  const onOpenActionSheet = (): void => setIsActionsheetOpen(true);
+  const onOpenActionsheet = (): void => setIsActionsheetOpen(true);
 
   const items: Item[] = actionSheetItems.map((item) => {
     return {
@@ -26,5 +26,5 @@ export const useLogic = (actionSheetItems: Item[]): UseLogicReturnType => {
     };
   });
 
-  return { items, isActionsheetOpen, onCloseActionsheet, onOpenActionSheet };
+  return { items, isActionsheetOpen, onCloseActionsheet, onOpenActionsheet };
 };

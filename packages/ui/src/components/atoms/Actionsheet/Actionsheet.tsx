@@ -33,7 +33,7 @@ export const Actionsheet: FC<Props> = (props) => {
       <ActionsheetBackdrop />
       <ActionsheetContent style={styles.container}>
         {showDragIndicator && <ActionsheetDragIndicator />}
-        <GluestackText style={styles.title}>{title}</GluestackText>
+        {title && <GluestackText style={styles.title}>{title}</GluestackText>}
         <ActionsheetItems items={items} />
       </ActionsheetContent>
     </GluestackActionsheet>
