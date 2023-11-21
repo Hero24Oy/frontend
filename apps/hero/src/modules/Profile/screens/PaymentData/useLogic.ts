@@ -10,26 +10,23 @@ import { getPaymentDataSchema } from './validation';
 
 import {
   getMultiProgressBarInitialState,
-  HeroType,
   ProfileCreation,
   useProfileCreationStore,
 } from '$modules/Profile/stores';
 
 export const useLogic = () => {
-  const {
-    setPaymentData,
-    welcome: { heroType },
-  } = useProfileCreationStore();
-
   const router = useRouter();
+  const { setPaymentData, welcome } = useProfileCreationStore();
+
+  const heroType = welcome.heroType!;
 
   const { control, getValues, setValue, formState } = useForm<
     ProfileCreation['paymentData']
   >({
     resolver: yupResolver<ProfileCreation['paymentData']>(
-      getPaymentDataSchema(heroType!),
+      getPaymentDataSchema(heroType),
     ),
-    defaultValues: getDefaultValues(heroType!),
+    defaultValues: getDefaultValues(heroType),
     mode: 'onChange',
   });
 
@@ -53,6 +50,6 @@ export const useLogic = () => {
     setValue,
     isValid: formState.isValid,
     submitData,
-    heroType: heroType ?? HeroType.INDIVIDUAL,
+    heroType,
   };
 };
