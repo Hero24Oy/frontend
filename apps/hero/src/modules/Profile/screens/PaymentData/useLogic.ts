@@ -42,7 +42,7 @@ export const useLogic = () => {
 
   const submitData = useCallback(() => {
     setPaymentData(getValues());
-    router.push('/');
+    router.push('/bio');
   }, []);
 
   return {
