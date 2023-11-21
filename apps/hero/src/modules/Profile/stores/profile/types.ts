@@ -1,5 +1,6 @@
 import { LoadedFile, Maybe, Range } from '@hero24/common';
 
+// TODO replace it into hero24-types.
 export enum HeroType {
   INDIVIDUAL = 'individual',
   PROFESSIONAL = 'professional',

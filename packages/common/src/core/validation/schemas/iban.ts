@@ -6,6 +6,6 @@ import { ValidationHints } from '$core/validation/enums';
 
 export const ibanValidationSchema: yup.StringSchema<Maybe<string>> = yup
   .string()
-  .test('iban', ValidationHints.INVALID_IBAN, (value) =>
-    Boolean(isValidIBAN(value ?? '')),
+  .test('iban', ValidationHints.INVALID_IBAN, (value = '') =>
+    isValidIBAN(value),
   );

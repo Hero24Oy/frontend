@@ -16,20 +16,18 @@ import {
 } from '$modules/Profile/stores';
 
 export const useLogic = () => {
-  const {
-    setPaymentData,
-    welcome: { heroType },
-  } = useProfileCreationStore();
-
   const router = useRouter();
+  const { setPaymentData, welcome } = useProfileCreationStore();
+
+  const heroType = welcome.heroType as HeroType;
 
   const { control, getValues, formState } = useForm<
     ProfileCreation['paymentData']
   >({
     resolver: yupResolver<ProfileCreation['paymentData']>(
-      getPaymentDataSchema(heroType!),
+      getPaymentDataSchema(heroType),
     ),
-    defaultValues: getDefaultValues(heroType!),
+    defaultValues: getDefaultValues(heroType),
     mode: 'onChange',
   });
 
@@ -52,6 +50,6 @@ export const useLogic = () => {
     control,
     isValid: formState.isValid,
     submitData,
-    heroType: heroType ?? HeroType.INDIVIDUAL,
+    heroType,
   };
 };
