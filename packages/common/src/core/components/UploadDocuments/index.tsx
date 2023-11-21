@@ -27,17 +27,14 @@ export const UploadDocuments: FC<Props> = (props) => {
       </Text>
 
       {!source && (
-        <UploadButton
-          isRequired={isRequired}
-          onPress={() => toggleActionSheet()}
-        />
+        <UploadButton isRequired={isRequired} onPress={toggleActionSheet} />
       )}
 
       {source && <UploadedFile source={source} onDeleteFile={onDeleteFile} />}
 
       <Actionsheet
         isOpen={showActionSheet}
-        onClose={() => toggleActionSheet()}
+        onClose={toggleActionSheet}
         title="Upload Liability insurance"
         items={items}
         showDragIndicator
