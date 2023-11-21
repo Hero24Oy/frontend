@@ -10,6 +10,7 @@ import { getPaymentDataSchema } from './validation';
 
 import {
   getMultiProgressBarInitialState,
+  HeroType,
   ProfileCreation,
   useProfileCreationStore,
 } from '$modules/Profile/stores';
@@ -18,7 +19,7 @@ export const useLogic = () => {
   const router = useRouter();
   const { setPaymentData, welcome } = useProfileCreationStore();
 
-  const heroType = welcome.heroType!;
+  const heroType = welcome.heroType as HeroType;
 
   const { control, getValues, setValue, formState } = useForm<
     ProfileCreation['paymentData']
