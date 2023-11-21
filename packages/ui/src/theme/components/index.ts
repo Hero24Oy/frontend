@@ -16,3 +16,4 @@ export * from './Slider';
 export * from './ProgressBar';
 export * from './Card';
 export * from './Select';
+export * from './Switch';

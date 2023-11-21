@@ -8506,6 +8506,7 @@ __metadata:
     semver: "npm:^7.5.4"
     ts-node: "npm:^10.9.1"
     typescript: "npm:^5.1.3"
+    utility-types: "npm:^3.10.0"
     yup: "npm:^1.2.0"
     zustand: "npm:4.4.4"
   languageName: unknown
@@ -11164,7 +11165,7 @@ __metadata:
     fs-extra: "npm:^11.1.1"
     graphql: "npm:16.8.1"
     graphql-ws: "npm:5.14.0"
-    hero24-types: "npm:^0.2.2"
+    hero24-types: "npm:^1.7.0"
     i18next: "npm:^23.5.1"
     lodash: "npm:^4.17.21"
     lucide-react-native: "npm:0.288.0"
@@ -11197,6 +11198,13 @@ __metadata:
   version: 0.2.2
   resolution: "hero24-types@npm:0.2.2"
   checksum: 40649fa9aa08b690c877b0fa16342db1d71d24a62eead74311b6f083c237cb195d3131b9adcabd06071256062b84e16cd51aecc14aebec6341ded58f03d6a2de
+  languageName: node
+  linkType: hard
+
+"hero24-types@npm:^1.7.0":
+  version: 1.7.0
+  resolution: "hero24-types@npm:1.7.0"
+  checksum: e054fcb497ee6432ebfeebcb66e2d48bfeade2eee9ff315e4872f366d83fba3b9ddb394a4a66edd681afc061117d64a106ca2fb6c99557ca7bf3d634a481d266
   languageName: node
   linkType: hard
 

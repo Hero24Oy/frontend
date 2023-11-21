@@ -3,10 +3,12 @@ import { FC, useMemo } from 'react';
 
 import { TabsContainer, useFirebaseUser } from '@hero24/common';
 
-import { bottomTabRoutes } from '$/core';
+import { bottomTabRoutes } from '$core';
+import { useCheckRequiredProfileFields } from '$modules';
 
 const AppLayout: FC = () => {
   const { user } = useFirebaseUser();
+  const { hasRequiredFields } = useCheckRequiredProfileFields();
 
   const tabs = useMemo(
     () =>
@@ -22,6 +24,10 @@ const AppLayout: FC = () => {
     // On web, static rendering will stop here as the user is not authenticated
     // in the headless Node process that the pages are rendered in.
     return <Redirect href="/" />;
+  }
+
+  if (!hasRequiredFields) {
+    return <Redirect href="/set-profile" />;
   }
   // This layout can be deferred because it's not the root layout.
 

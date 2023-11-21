@@ -7,13 +7,13 @@ export const useLogic = () => {
   const { setWelcome } = useProfileCreationStore();
 
   const companyHeroHandler = () => {
-    setWelcome({ profileType: HeroType.PROFESSIONAL });
+    setWelcome({ heroType: HeroType.PROFESSIONAL });
     router.push('/company-info');
   };
 
   // TODO replace with proper path after screen will be ready
   const selfEmployedHandler = () => {
-    setWelcome({ profileType: HeroType.INDIVIDUAL });
+    setWelcome({ heroType: HeroType.INDIVIDUAL });
     router.push('/');
   };
 

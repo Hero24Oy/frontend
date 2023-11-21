@@ -2,8 +2,6 @@ import { createMultiScreenStore, DEFAULT_LANGUAGES } from '@hero24/common';
 
 import { CommonHeroInfo, ProfileCreation } from './types';
 
-import { SELF_EMPLOYED_DISPLAYED_NAME_PREFIX } from '$configs';
-
 const profileCommonInfoCreationInitialState: CommonHeroInfo = {
   name: '',
   email: '',
@@ -26,7 +24,7 @@ const individualCreationInfoInitialState: Pick<
   individualInfo: {
     ...profileCommonInfoCreationInitialState,
     birthday: null,
-    displayedName: SELF_EMPLOYED_DISPLAYED_NAME_PREFIX,
+    displayedName: '',
     lastName: '',
     socialId: '',
   },
@@ -57,7 +55,7 @@ export const profileCreationInitialState: ProfileCreation = {
     languages: DEFAULT_LANGUAGES,
   },
   welcome: {
-    profileType: null,
+    heroType: null,
   },
 };
 
