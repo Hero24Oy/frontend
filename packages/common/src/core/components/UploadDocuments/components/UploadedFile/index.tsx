@@ -26,21 +26,19 @@ export const UploadedFile: FC<Props> = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    position: 'relative',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 10,
     zIndex: 0,
+    width: 167,
   },
   file: {
-    width: 167,
     height: 120,
+    position: 'relative',
     borderRadius: 8,
-    gap: 4,
   },
   button: {
     position: 'absolute',
-    left: 125,
+    right: 6,
     top: 6,
     zIndex: 1,
   },
