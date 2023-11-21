@@ -11155,7 +11155,7 @@ __metadata:
     fs-extra: "npm:^11.1.1"
     graphql: "npm:16.8.1"
     graphql-ws: "npm:5.14.0"
-    hero24-types: "npm:^1.7.0"
+    hero24-types: "npm:^1.7.1"
     i18next: "npm:^23.5.1"
     lodash: "npm:^4.17.21"
     lucide-react-native: "npm:0.288.0"
@@ -11191,10 +11191,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hero24-types@npm:^1.7.0":
-  version: 1.7.0
-  resolution: "hero24-types@npm:1.7.0"
-  checksum: e054fcb497ee6432ebfeebcb66e2d48bfeade2eee9ff315e4872f366d83fba3b9ddb394a4a66edd681afc061117d64a106ca2fb6c99557ca7bf3d634a481d266
+"hero24-types@npm:^1.7.1":
+  version: 1.7.1
+  resolution: "hero24-types@npm:1.7.1"
+  checksum: d9861a3298293ef53937e99fce5fb068ad479d4447f9269c4df7aef92a17ae099a7ab43dfd7d234474fe7d5022b3ab0c5032493dfb78de76e3a00b1241d1145e
   languageName: node
   linkType: hard
 
