@@ -6,10 +6,10 @@ import { Item } from '@hero24/ui';
 import { UseLogicReturnType } from './types';
 
 export const useLogic = (actionSheetItems: Item[]): UseLogicReturnType => {
-  const [isActionSheetOpen, setIsActionSheetOpen] = useState<boolean>(false);
+  const [isActionsheetOpen, setIsActionsheetOpen] = useState<boolean>(false);
 
-  const toggleActionSheet = (): void =>
-    setIsActionSheetOpen(!isActionSheetOpen);
+  const toggleActionsheet = (): void =>
+    setIsActionsheetOpen(!isActionsheetOpen);
 
   const items: Item[] = actionSheetItems.map((item) => {
     return {
@@ -20,10 +20,10 @@ export const useLogic = (actionSheetItems: Item[]): UseLogicReturnType => {
         }
 
         item.onPress(event);
-        toggleActionSheet();
+        toggleActionsheet();
       },
     };
   });
 
-  return { items, isActionSheetOpen, toggleActionSheet };
+  return { items, isActionsheetOpen, toggleActionsheet };
 };

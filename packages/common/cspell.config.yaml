@@ -1,10 +1,11 @@
 words:
+  - Actionsheet
+  - booleanize
   - iban
+  - libphonenumber
   - netvisor
   - oauthredirect
   - Onest
-  - zustand
-  - booleanize
-  - libphonenumber
   - reCaptcha
   - workareas
+  - zustand
