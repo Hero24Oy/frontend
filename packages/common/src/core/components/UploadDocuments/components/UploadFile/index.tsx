@@ -8,7 +8,7 @@ type Props = {
   source: string;
 };
 
-export const UploadedFile: FC<Props> = (props) => {
+export const UploadFile: FC<Props> = (props) => {
   const { source, onDeleteFile } = props;
 
   return (
@@ -26,8 +26,6 @@ export const UploadedFile: FC<Props> = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
     zIndex: 0,
     width: 167,
   },
