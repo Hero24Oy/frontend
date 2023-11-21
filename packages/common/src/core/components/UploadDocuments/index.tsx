@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import { Actionsheet, Color, Item, Text, VStack } from '@hero24/ui';
 
-import { UploadedButton, UploadedFile } from './components';
+import { UploadButton, UploadedFile } from './components';
 import { useLogic } from './hooks';
 
 type Props = {
@@ -27,7 +27,7 @@ export const UploadDocuments: FC<Props> = (props) => {
       </Text>
 
       {!source && (
-        <UploadedButton
+        <UploadButton
           isRequired={isRequired}
           onPress={() => toggleActionSheet()}
         />

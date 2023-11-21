@@ -8,7 +8,7 @@ type Props = {
   onPress?: () => void;
 };
 
-export const UploadedButton: FC<Props> = (props) => {
+export const UploadButton: FC<Props> = (props) => {
   const { isRequired, onPress } = props;
 
   return (
