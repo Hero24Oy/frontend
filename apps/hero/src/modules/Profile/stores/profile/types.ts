@@ -1,10 +1,6 @@
-import { LoadedFile, Maybe, Range } from '@hero24/common';
+import { HeroType } from 'hero24-types';
 
-// TODO replace it into hero24-types.
-export enum HeroType {
-  INDIVIDUAL = 'individual',
-  PROFESSIONAL = 'professional',
-}
+import { LoadedFile, Maybe, Range } from '@hero24/common';
 
 export type ProfileCreation = {
   address: {

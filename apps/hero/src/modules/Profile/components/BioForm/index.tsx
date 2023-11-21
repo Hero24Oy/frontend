@@ -1,4 +1,5 @@
 import { VStack } from '@gluestack-ui/themed';
+import { HeroType } from 'hero24-types';
 import { FC } from 'react';
 import { Control, UseFormGetValues, UseFormResetField } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
@@ -9,7 +10,7 @@ import { LanguagesSelect } from '../LanguagesSelect';
 
 import { textareaPlaceholderMapper } from './constants';
 
-import { HeroType, ProfileCreation } from '$modules/Profile/stores';
+import { ProfileCreation } from '$modules/Profile/stores';
 
 type Props = {
   control: Control<ProfileCreation['bio']>;

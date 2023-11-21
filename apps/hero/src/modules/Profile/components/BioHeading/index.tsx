@@ -1,11 +1,10 @@
+import { HeroType } from 'hero24-types';
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { Heading } from '@hero24/ui';
 
 import { headingTextMapper } from './constants';
-
-import { HeroType } from '$modules/Profile/stores';
 
 type Props = {
   heroType: HeroType;
