@@ -1,3 +1,4 @@
+import { HeroType } from 'hero24-types';
 import { FC } from 'react';
 import { Control } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
@@ -7,7 +8,7 @@ import { Alert, Button, LockIcon, VStack } from '@hero24/ui';
 import { PaymentDataFields } from './components';
 import { fieldsMapper } from './constants';
 
-import { HeroType, ProfileCreation } from '$modules/Profile/stores';
+import { ProfileCreation } from '$modules/Profile/stores';
 
 type Props = {
   control: Control<ProfileCreation['paymentData']>;

@@ -1,6 +1,6 @@
-import { PaymentField } from './types';
+import { HeroType } from 'hero24-types';
 
-import { HeroType } from '$modules/Profile/stores';
+import { PaymentField } from './types';
 
 // TODO replace text with i18n calls.
 export const fieldsMapper = {
