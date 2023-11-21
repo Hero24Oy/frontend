@@ -7,11 +7,12 @@ import { ChevronLeftIcon, Header } from '@hero24/ui';
 import { stackConfig } from '$configs';
 
 interface Props {
+  canGoBack?: boolean;
   title?: string;
 }
 
 export const ExpoStack: FC<Props> = (props) => {
-  const { title } = props;
+  const { title, canGoBack } = props;
 
   const header = useCallback(
     (headerProps: NativeStackHeaderProps) => {
@@ -21,6 +22,7 @@ export const ExpoStack: FC<Props> = (props) => {
         <Header
           goBack={navigation.goBack}
           title={title}
+          canGoBack={canGoBack}
           goBackIcon={ChevronLeftIcon}
         />
       );

@@ -2,22 +2,27 @@ import { StatusBar } from 'expo-status-bar';
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { Heading, VStack } from '@hero24/ui';
+import { Heading, View, VStack } from '@hero24/ui';
 
 import { CompanyInfoForm } from '../../components';
 
 import { useLogic } from './useLogic';
 
 export const CompanyInfoScreen: FC = () => {
-  const { control, isValid, submitData } = useLogic();
+  const { multiScreenProgressBar, control, isValid, submitData } = useLogic();
 
   return (
-    // TODO replace text in heading with i18n call
     <>
       <StatusBar style="dark" />
 
       <VStack style={styles.container}>
-        <Heading variant="H2">Add company info</Heading>
+        <View style={styles.heading}>
+          {multiScreenProgressBar}
+
+          <Heading style={styles.text} variant="H2">
+            Add company info
+          </Heading>
+        </View>
 
         <CompanyInfoForm
           control={control}
@@ -30,6 +35,12 @@ export const CompanyInfoScreen: FC = () => {
 };
 
 const styles = StyleSheet.create({
+  heading: {
+    gap: 24,
+  },
+  text: {
+    marginVertical: 0,
+  },
   container: {
     flex: 1,
     gap: 24,
