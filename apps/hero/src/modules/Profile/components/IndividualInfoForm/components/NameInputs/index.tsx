@@ -1,6 +1,9 @@
 import { FC } from 'react';
+import { StyleSheet } from 'react-native';
 
-import { Input } from '@hero24/ui';
+import { Input, View } from '@hero24/ui';
+
+import { DISPLAYED_NAME_PLACEHOLDER } from '../../constants';
 
 import { NameInputsProps } from './types';
 import { useLogic } from './useLogic';
@@ -19,13 +22,22 @@ export const NameInputs: FC<NameInputsProps> = (props) => {
         placeholder="Enter"
         title="Last name"
       />
-      <Input
-        isDisabled
-        control={control}
-        name="displayedName"
-        placeholder="Hero payments OY / Name"
-        title="Displayed name"
-      />
+      <View style={styles.displayedName}>
+        <Input
+          isDisabled
+          isHelperEnabled={false}
+          control={control}
+          name="displayedName"
+          placeholder={DISPLAYED_NAME_PLACEHOLDER}
+          title="Displayed name"
+        />
+      </View>
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  displayedName: {
+    marginBottom: 24,
+  },
+});

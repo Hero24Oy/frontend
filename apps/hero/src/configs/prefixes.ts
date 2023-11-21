@@ -1,1 +1,1 @@
-export const SELF_EMPLOYED_DISPLAYED_NAME_PREFIX = 'Hero payments OY / ';
+export const INDIVIDUAL_DISPLAYED_NAME_PREFIX = 'Hero payments OY / ';

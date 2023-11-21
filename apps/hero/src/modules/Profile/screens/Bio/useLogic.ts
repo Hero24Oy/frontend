@@ -34,7 +34,7 @@ export const useLogic = () => {
   const { multiScreenProgressBar } = useCreateMultiProgressBar<
     ProfileCreation['bio']
   >({
-    initialState: getMultiProgressBarInitialState().bio,
+    initialState: getMultiProgressBarInitialState(),
     progressBarInfo: {
       formState,
       getValues,

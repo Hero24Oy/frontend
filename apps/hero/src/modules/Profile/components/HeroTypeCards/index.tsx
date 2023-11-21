@@ -7,10 +7,10 @@ import { HeroTypeCard } from '../HeroTypeCard';
 
 import { useLogic } from './useLogic';
 
-import { companyHeroImage, selfEmployedImage } from '$modules/Profile/assets';
+import { companyHeroImage, individualHeroImage } from '$modules/Profile/assets';
 
 export const HeroTypeCards: FC = () => {
-  const { companyHeroHandler, selfEmployedHandler } = useLogic();
+  const { companyHeroHandler, individualHeroHandler } = useLogic();
 
   return (
     <HStack style={styles.hStack}>
@@ -23,8 +23,8 @@ export const HeroTypeCards: FC = () => {
       </HeroTypeCard>
 
       <HeroTypeCard
-        selectionHandler={selfEmployedHandler}
-        imageSource={selfEmployedImage}
+        selectionHandler={individualHeroHandler}
+        imageSource={individualHeroImage}
       >
         I'm self employed
       </HeroTypeCard>

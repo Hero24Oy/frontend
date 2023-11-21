@@ -12,13 +12,13 @@ export const useLogic = () => {
   };
 
   // TODO replace with proper path after screen will be ready
-  const selfEmployedHandler = () => {
+  const individualHeroHandler = () => {
     setWelcome({ heroType: HeroType.INDIVIDUAL });
     router.push('/');
   };
 
   return {
     companyHeroHandler,
-    selfEmployedHandler,
+    individualHeroHandler,
   };
 };

@@ -6,7 +6,7 @@ import { HStack, JsxElement, ProgressBar } from '@hero24/ui';
 import { useCreateProgressBar } from './useCreateProgressBar';
 
 type Params<Type extends FieldValues> = {
-  initialState: Type;
+  initialState: object;
   progressBarInfo: {
     formState: FormState<Type>;
     getValues: UseFormGetValues<Type>;
