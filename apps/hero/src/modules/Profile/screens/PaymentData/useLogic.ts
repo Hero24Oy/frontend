@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'expo-router';
+import { HeroType } from 'hero24-types';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -10,7 +11,6 @@ import { getPaymentDataSchema } from './validation';
 
 import {
   getMultiProgressBarInitialState,
-  HeroType,
   ProfileCreation,
   useProfileCreationStore,
 } from '$modules/Profile/stores';

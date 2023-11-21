@@ -4133,7 +4133,7 @@ __metadata:
     eslint-plugin-react-native: "npm:^4.0.0"
     eslint-plugin-simple-import-sort: "npm:^10.0.0"
     eslint-plugin-typescript-sort-keys: "npm:^3.0.0"
-    hero24-types: "npm:^0.2.2"
+    hero24-types: "npm:^1.7.1"
     i18next: "npm:^23.5.1"
     libphonenumber-js: "npm:1.10.49"
     lodash: "npm:^4.17.21"
@@ -8482,7 +8482,7 @@ __metadata:
     fs-extra: "npm:^11.1.1"
     graphql: "npm:16.8.1"
     graphql-ws: "npm:5.14.0"
-    hero24-types: "npm:^0.2.2"
+    hero24-types: "npm:^1.7.1"
     i18next: "npm:^23.5.1"
     ibantools: "npm:4.3.5"
     lodash: "npm:^4.17.21"
@@ -11157,7 +11157,7 @@ __metadata:
     fs-extra: "npm:^11.1.1"
     graphql: "npm:16.8.1"
     graphql-ws: "npm:5.14.0"
-    hero24-types: "npm:^0.2.2"
+    hero24-types: "npm:^1.7.1"
     i18next: "npm:^23.5.1"
     ibantools: "npm:4.3.5"
     lodash: "npm:^4.17.21"
@@ -11187,10 +11187,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"hero24-types@npm:^0.2.2":
-  version: 0.2.2
-  resolution: "hero24-types@npm:0.2.2"
-  checksum: 40649fa9aa08b690c877b0fa16342db1d71d24a62eead74311b6f083c237cb195d3131b9adcabd06071256062b84e16cd51aecc14aebec6341ded58f03d6a2de
+"hero24-types@npm:^1.7.1":
+  version: 1.7.1
+  resolution: "hero24-types@npm:1.7.1"
+  checksum: d9861a3298293ef53937e99fce5fb068ad479d4447f9269c4df7aef92a17ae099a7ab43dfd7d234474fe7d5022b3ab0c5032493dfb78de76e3a00b1241d1145e
   languageName: node
   linkType: hard
 

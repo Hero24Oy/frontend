@@ -1,8 +1,7 @@
+import { HeroType } from 'hero24-types';
 import * as yup from 'yup';
 
 import { ibanValidationSchema, ValidationHints } from '@hero24/common';
-
-import { HeroType } from '$modules/Profile/stores';
 
 export const getPaymentDataSchema = (heroType: HeroType) => {
   const isProfessional = heroType === HeroType.PROFESSIONAL;
