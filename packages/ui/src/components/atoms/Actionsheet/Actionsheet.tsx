@@ -17,6 +17,8 @@ import { ActionsheetDragIndicator } from './ActionsheetDragIndicator';
 import { ActionsheetItems } from './ActionsheetItems';
 import { GluestackActionsheetProps, Item } from './types';
 
+import { Color } from '$theme';
+
 type Props = {
   items: Item[];
   showDragIndicator?: boolean;
@@ -43,6 +45,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   title: {
+    color: Color.BLACK_00,
     paddingVertical: 16,
     paddingHorizontal: 10,
     textAlign: 'left',
