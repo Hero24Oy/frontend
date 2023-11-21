@@ -33,9 +33,7 @@ export const UploadDocuments: FC<Props> = (props) => {
         />
       )}
 
-      {source && (
-        <UploadedFile source={source} onDeleteFile={() => onDeleteFile()} />
-      )}
+      {source && <UploadedFile source={source} onDeleteFile={onDeleteFile} />}
 
       <Actionsheet
         isOpen={showActionSheet}
