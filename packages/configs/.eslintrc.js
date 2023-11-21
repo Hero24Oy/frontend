@@ -6,6 +6,7 @@ const EXCLUDE_NAMES_NAMING_CONVENTION_WORDS = [
   'Booleanize',
   ...SIZES,
   'IBAN',
+  'reCaptcha',
 ];
 const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*VAT.*',
@@ -16,6 +17,7 @@ const EXCLUDE_NAMES_NAMING_CONVENTION_REGEXPS = [
   '.*HStack.*',
   '.*VStack.*',
   ':.*', //  match pseudo css classes
+  '.*Context',
 ];
 
 const excludeNamesNamingConventionWordsRegex =
@@ -28,6 +30,7 @@ const underscoreAndExcludeNamingConventionWordsRegex = `^(_|${excludeNamesNaming
 const finalExcludeRegex = `${excludeNamesNamingConventionRegexpsRegex}|${underscoreAndExcludeNamingConventionWordsRegex}`;
 
 const initialRules = {
+  'consistent-return': 'off',
   'eslint-comments/disable-enable-pair': 'off',
   'eslint-comments/require-description': [
     'warn',
@@ -395,7 +398,7 @@ const override = {
       '@typescript-eslint/no-unsafe-assignment': 'off',
       'import/no-dynamic-require': 'off',
       'global-require': 'off',
-      '@typescript-eslint/naming-convention': 'off'
+      '@typescript-eslint/naming-convention': 'off',
     },
   },
   restrictedExports: {
@@ -404,6 +407,12 @@ const override = {
       'no-restricted-exports': 'off',
     },
   },
+  useLogic: {
+    files: ['src/**/useLogic.ts'],
+    rules: {
+      '@typescript-eslint/explicit-function-return-type': 'off',
+    },
+  }
 };
 
 /**

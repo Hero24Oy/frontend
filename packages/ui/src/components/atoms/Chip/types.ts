@@ -3,5 +3,5 @@ import { ComponentProps } from 'react';
 
 export type GluestackChipProps = Pick<
   ComponentProps<typeof Radio>,
-  'value' | 'style' | 'isDisabled'
+  'style' | 'isDisabled'
 >;

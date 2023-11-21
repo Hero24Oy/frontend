@@ -4,11 +4,11 @@ import { Countries, ValidationHints } from '@hero24/common';
 
 import { Postcodes } from '../constants';
 
-import { CompanyCreation } from '$modules/Profile/stores';
+import { ProfileCreation } from '$modules/Profile/stores';
 
 type CompanyAddressSchema = (
   country: keyof typeof Countries,
-) => yup.ObjectSchema<CompanyCreation['companyAddress']>;
+) => yup.ObjectSchema<ProfileCreation['address']>;
 
 export const companyAddressSchema: CompanyAddressSchema = (country) => {
   const { maxLength, regex } = Postcodes[country];

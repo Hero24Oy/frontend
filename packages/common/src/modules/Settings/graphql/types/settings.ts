@@ -1,6 +1,9 @@
-import { SettingsDictionary } from './dictionary';
+export enum SettingsDictionaryKeys {
+  ENGLISH = 'en',
+  FINNISH = 'fi',
+}
 
 export type Settings = {
-  langs: SettingsDictionary;
-  workareas: SettingsDictionary;
+  langs: Record<`${SettingsDictionaryKeys}`, string[]>;
+  workareas: Record<`${SettingsDictionaryKeys}`, string[]>;
 };

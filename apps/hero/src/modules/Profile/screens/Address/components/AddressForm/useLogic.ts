@@ -7,29 +7,29 @@ import { defaultCountry } from '@hero24/common';
 import { companyAddressSchema } from './validation';
 
 import {
-  CompanyCreation,
-  companyCreationInitialState,
-  useCompanyCreationStore,
+  ProfileCreation,
+  profileCreationInitialState,
+  useProfileCreationStore,
 } from '$modules/Profile/stores';
 
 export const useLogic = () => {
-  const { setCompanyAddress } = useCompanyCreationStore();
+  const { setAddress } = useProfileCreationStore();
 
   const {
     control,
     getValues,
     setValue,
     formState: { isValid },
-  } = useForm<CompanyCreation['companyAddress']>({
-    resolver: yupResolver<CompanyCreation['companyAddress']>(
+  } = useForm<ProfileCreation['address']>({
+    resolver: yupResolver<ProfileCreation['address']>(
       companyAddressSchema(defaultCountry),
     ),
-    defaultValues: companyCreationInitialState.companyAddress,
+    defaultValues: profileCreationInitialState.address,
     mode: 'onChange',
   });
 
   const onChange = useCallback(() => {
-    setCompanyAddress(getValues());
+    setAddress(getValues());
   }, []);
 
   return { onChange, isValid, control, setValue, getValues };

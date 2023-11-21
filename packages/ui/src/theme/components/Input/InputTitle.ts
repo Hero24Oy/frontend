@@ -11,7 +11,7 @@ export type InputTitleThemeVariants = {
 export const InputTitle = {
   theme: {
     color: Color.GREY_01,
-    fontFamily: Font.ONEST_REGULAR,
+    fontFamily: Font.ONEST_MEDIUM,
     fontWeight: '400',
     fontSize: FontSize.SM,
     lineHeight: LineHeight.SM,
