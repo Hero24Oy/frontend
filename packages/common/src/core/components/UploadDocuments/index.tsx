@@ -17,7 +17,7 @@ type Props = {
 export const UploadDocuments: FC<Props> = (props) => {
   const { label, isRequired, source, onDeleteFile, actionSheetItems } = props;
 
-  const { items, isActionsheetOpen, toggleActionsheet } =
+  const { items, isActionsheetOpen, onCloseActionsheet, onOpenActionSheet } =
     useLogic(actionSheetItems);
 
   return (
@@ -27,14 +27,14 @@ export const UploadDocuments: FC<Props> = (props) => {
       </Text>
 
       {!source && (
-        <UploadButton isRequired={isRequired} onPress={toggleActionsheet} />
+        <UploadButton isRequired={isRequired} onPress={onOpenActionSheet} />
       )}
 
       {source && <UploadFile source={source} onDeleteFile={onDeleteFile} />}
 
       <Actionsheet
         isOpen={isActionsheetOpen}
-        onClose={toggleActionsheet}
+        onClose={onCloseActionsheet}
         title="Upload Liability insurance"
         items={items}
         showDragIndicator

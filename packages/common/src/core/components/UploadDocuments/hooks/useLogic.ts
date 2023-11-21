@@ -8,8 +8,9 @@ import { UseLogicReturnType } from './types';
 export const useLogic = (actionSheetItems: Item[]): UseLogicReturnType => {
   const [isActionsheetOpen, setIsActionsheetOpen] = useState<boolean>(false);
 
-  const toggleActionsheet = (): void =>
-    setIsActionsheetOpen(!isActionsheetOpen);
+  const onCloseActionsheet = (): void => setIsActionsheetOpen(false);
+
+  const onOpenActionSheet = (): void => setIsActionsheetOpen(true);
 
   const items: Item[] = actionSheetItems.map((item) => {
     return {
@@ -20,10 +21,10 @@ export const useLogic = (actionSheetItems: Item[]): UseLogicReturnType => {
         }
 
         item.onPress(event);
-        toggleActionsheet();
+        onCloseActionsheet();
       },
     };
   });
 
-  return { items, isActionsheetOpen, toggleActionsheet };
+  return { items, isActionsheetOpen, onCloseActionsheet, onOpenActionSheet };
 };
