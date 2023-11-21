@@ -6,9 +6,10 @@ import { Item } from '@hero24/ui';
 import { UseLogicReturnType } from './types';
 
 export const useLogic = (actionSheetItems: Item[]): UseLogicReturnType => {
-  const [showActionSheet, setShowActionSheet] = useState<boolean>(false);
+  const [isActionSheetOpen, setIsActionSheetOpen] = useState<boolean>(false);
 
-  const toggleActionSheet = (): void => setShowActionSheet(!showActionSheet);
+  const toggleActionSheet = (): void =>
+    setIsActionSheetOpen(!isActionSheetOpen);
 
   const items: Item[] = actionSheetItems.map((item) => {
     return {
@@ -24,5 +25,5 @@ export const useLogic = (actionSheetItems: Item[]): UseLogicReturnType => {
     };
   });
 
-  return { items, showActionSheet, toggleActionSheet };
+  return { items, isActionSheetOpen, toggleActionSheet };
 };

@@ -1,7 +1,7 @@
 import { Item } from '@hero24/ui';
 
 export type UseLogicReturnType = {
+  isActionSheetOpen: boolean;
   items: Item[];
-  showActionSheet: boolean;
   toggleActionSheet: () => void;
 };
