@@ -15,25 +15,19 @@ import { BaseIcon } from '$icons/base';
 export * from './constants';
 
 type Props = {
-  title: string;
   action?: `${AlertAction}`;
   Icon?: BaseIcon;
   text?: string;
 };
 
 export const Alert: FC<Props> = (props) => {
-  const { title, text, Icon, ...restProps } = props;
+  const { text, Icon, ...restProps } = props;
 
-  // * Icon with opacity 0 is used to align text
   return (
     <GluestackAlert {...restProps}>
       <VStack>
-        <HStack alignItems="center">
+        <HStack style={styles.content}>
           <AlertIcon as={Icon} />
-          <AlertText style={styles.title}>{title}</AlertText>
-        </HStack>
-        <HStack>
-          <AlertIcon style={styles.invisible} as={Icon} />
           <AlertText>{text}</AlertText>
         </HStack>
       </VStack>
@@ -42,10 +36,7 @@ export const Alert: FC<Props> = (props) => {
 };
 
 const styles = StyleSheet.create({
-  invisible: {
-    opacity: 0,
-  },
-  title: {
-    fontWeight: 'bold',
+  content: {
+    gap: 12,
   },
 });

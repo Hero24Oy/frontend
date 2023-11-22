@@ -3,4 +3,5 @@ export * from './HeroTypeCards';
 export * from './CompanyInfoForm';
 export * from './BioForm';
 export * from './BioHeading';
+export * from './PaymentDataForm';
 export * from './AddressForm';

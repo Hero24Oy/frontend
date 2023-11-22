@@ -11,4 +11,5 @@ const typePoliciesToMerge: TypePolicies[] = [
   userTypePolicies,
 ];
 
-export const typePolicies = mergeObjects<TypePolicies>(typePoliciesToMerge);
+export const defaultTypePolicies =
+  mergeObjects<TypePolicies>(typePoliciesToMerge);

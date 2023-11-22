@@ -35,8 +35,8 @@ export const SetProfileForm: FC<SetProfileFormProps> = (props) => {
           <Heading variant="H2">Add personal info</Heading>
           <InputSection control={control} inputFields={basicInputFields} />
           <BusinessCustomerSection
-            control={control}
             isShown={isBusinessCustomer}
+            control={control}
             inputFields={businessCustomerInputFields}
           />
         </VStack>
