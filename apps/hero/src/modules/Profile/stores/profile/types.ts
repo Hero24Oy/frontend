@@ -1,9 +1,6 @@
-import { LoadedFile, Maybe, Range } from '@hero24/common';
+import { HeroType } from 'hero24-types';
 
-export enum HeroType {
-  INDIVIDUAL = 'individual',
-  PROFESSIONAL = 'professional',
-}
+import { LoadedFile, Maybe, Range } from '@hero24/common';
 
 export type CommonHeroInfo = {
   email: string;
@@ -23,13 +20,13 @@ export type ProfileCreation = {
   };
   individualInfo: CommonHeroInfo & {
     birthday: Date | null;
-    displayedName: string;
+    firstName: string;
     lastName: string;
     socialId: string;
   };
   paymentData: {
-    companyId: string | null;
     IBAN: string;
+    companyId?: Maybe<string>;
   };
   professionalInfo: CommonHeroInfo & {
     employees: Range | null;

@@ -1,28 +1,28 @@
-import { useCallback } from 'react';
+// import { useCallback } from 'react';
 
-import { useEditUser, useGetUser, User } from '../../graphql';
+// import { useEditUser, useGetUser, User } from '../../graphql';
 
-type UpdateLastAskedReviewTime = (newTime: number) => Promise<User | undefined>;
+// type UpdateLastAskedReviewTime = (newTime: number) => Promise<User | undefined>;
 
-export const useUpdateUserLastAskedReviewTime =
-  (): UpdateLastAskedReviewTime => {
-    const { getUser } = useGetUser();
-    const { editUser } = useEditUser();
+// export const useUpdateUserLastAskedReviewTime =
+//   (): UpdateLastAskedReviewTime => {
+//     const { getUser } = useGetUser();
+//     const { editUser } = useEditUser();
 
-    const updateLastAskedReviewTime: UpdateLastAskedReviewTime = useCallback(
-      async (lastAskedReviewTime) => {
-        const userId = getUser.data.id;
+//     const updateLastAskedReviewTime: UpdateLastAskedReviewTime = useCallback(
+//       async (lastAskedReviewTime) => {
+//         const userId = getUser.data.id;
 
-        // TODO move logic to server
-        return editUser.request({
-          userId,
-          data: {
-            lastAskedReviewTime,
-          },
-        });
-      },
-      [editUser, getUser.data],
-    );
+//         // TODO move logic to server
+//         return editUser.request({
+//           userId,
+//           data: {
+//             lastAskedReviewTime,
+//           },
+//         });
+//       },
+//       [editUser, getUser.data],
+//     );
 
-    return updateLastAskedReviewTime;
-  };
+//     return updateLastAskedReviewTime;
+//   };

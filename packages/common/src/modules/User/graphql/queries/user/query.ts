@@ -1,10 +1,10 @@
-import { gql } from '@apollo/client';
+import { DocumentNode, gql } from '@apollo/client';
 
-import { User, USER_FRAGMENT } from '../../fragments';
+import { User } from '../../fragments';
 
-import { capitalize, DEFAULT_RESPONSE_NAME } from '$core';
+import { capitalize, createGraphqlBuilder, DEFAULT_RESPONSE_NAME } from '$core';
 
-export const PREFIX = 'user';
+export const USER_QUERY_PREFIX = 'user';
 
 export type Data = User;
 
@@ -12,12 +12,14 @@ export type Variables = {
   id: string;
 };
 
-export const QUERY = gql`
-  ${USER_FRAGMENT}
+export const createUserQuery = createGraphqlBuilder<Data, DocumentNode>(
+  (selection) =>
+    gql`
 
-  query ${capitalize(PREFIX)}($id: String!) {
+  query ${capitalize(USER_QUERY_PREFIX)}($id: String!) {
     ${DEFAULT_RESPONSE_NAME}: user(id: $id) {
-      ...UserFragment
+      ${selection}
     }
   }
-`;
+`,
+);

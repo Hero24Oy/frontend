@@ -24,7 +24,7 @@ const individualCreationInfoInitialState: Pick<
   individualInfo: {
     ...profileCommonInfoCreationInitialState,
     birthday: null,
-    displayedName: '',
+    firstName: '',
     lastName: '',
     socialId: '',
   },

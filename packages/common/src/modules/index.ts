@@ -4,3 +4,4 @@ export * from './Auth';
 export * from './Chats';
 export * from './Common';
 export * from './Settings';
+export * from './Customer';

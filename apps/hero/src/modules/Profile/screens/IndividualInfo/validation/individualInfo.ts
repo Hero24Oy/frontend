@@ -8,8 +8,9 @@ import { DISPLAYED_NAME_PLACEHOLDER } from '$modules/Profile/components/Individu
 
 export const individualInfoSchema = yup.object({
   email: emailValidationSchema.required(ValidationHints.REQUIRED),
-  name: yup.string().required(ValidationHints.REQUIRED),
-  displayedName: yup
+  firstName: yup.string().required(ValidationHints.REQUIRED),
+  lastName: yup.string().required(ValidationHints.REQUIRED),
+  name: yup
     .string()
     .test(
       'is-field-changed',
@@ -17,7 +18,6 @@ export const individualInfoSchema = yup.object({
       (value) => value !== DISPLAYED_NAME_PLACEHOLDER,
     )
     .required(),
-  lastName: yup.string().required(ValidationHints.REQUIRED),
   socialId: yup
     .string()
     .length(SOCIAL_ID_LENGTH, ValidationHints.INVALID_SOCIAL_ID)

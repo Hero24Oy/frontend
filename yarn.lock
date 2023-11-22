@@ -34,9 +34,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apollo/client@npm:3.8.3":
-  version: 3.8.3
-  resolution: "@apollo/client@npm:3.8.3"
+"@apollo/client@npm:3.8.7":
+  version: 3.8.7
+  resolution: "@apollo/client@npm:3.8.7"
   dependencies:
     "@graphql-typed-document-node/core": "npm:^3.1.1"
     "@wry/context": "npm:^0.7.3"
@@ -66,7 +66,7 @@ __metadata:
       optional: true
     subscriptions-transport-ws:
       optional: true
-  checksum: f622299670fbd895ec6b3960560829b1575fcfc733dffe967afe6ebba17796b6c2d4f8fac5686761a24c394f99270877190914c7161bce9b4ea0e76e12d33de2
+  checksum: e88be52f6393ab0625999abf7f6ed6c1035e5f290a738477210f9563d85d369b3dcb86dff7613be84a012192b66c2fae18ee9d5acf55f2b0ca30c1cc77c38559
   languageName: node
   linkType: hard
 
@@ -4134,7 +4134,6 @@ __metadata:
     eslint-plugin-react-native: "npm:^4.0.0"
     eslint-plugin-simple-import-sort: "npm:^10.0.0"
     eslint-plugin-typescript-sort-keys: "npm:^3.0.0"
-    hero24-types: "npm:^0.2.2"
     i18next: "npm:^23.5.1"
     libphonenumber-js: "npm:1.10.49"
     lodash: "npm:^4.17.21"
@@ -4146,7 +4145,7 @@ __metadata:
     utility-types: "npm:^3.10.0"
     yup: "npm:^1.3.1"
   peerDependencies:
-    "@apollo/client": 3.8.3
+    "@apollo/client": 3.8.7
     "@legendapp/motion": 2.2.1
     "@react-native-async-storage/async-storage": 1.18.2
     "@react-navigation/bottom-tabs": 6.5.11
@@ -4167,6 +4166,8 @@ __metadata:
     firebase: 9.23.0
     graphql: 16.8.1
     graphql-ws: 5.14.0
+    hero24-types: 1.7.1
+    ibantools: 4.3.5
     lucide-react-native: 0.288.0
     react: 18.2.0
     react-combine-providers: 0.9.6
@@ -8418,7 +8419,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "customer-app@workspace:apps/customer"
   dependencies:
-    "@apollo/client": "npm:3.8.3"
+    "@apollo/client": "npm:3.8.7"
     "@babel/core": "npm:^7.22.7"
     "@babel/runtime": "npm:^7.23.2"
     "@cspell/eslint-plugin": "npm:^7.3.6"
@@ -8482,8 +8483,9 @@ __metadata:
     fs-extra: "npm:^11.1.1"
     graphql: "npm:16.8.1"
     graphql-ws: "npm:5.14.0"
-    hero24-types: "npm:^0.2.2"
+    hero24-types: "npm:1.7.1"
     i18next: "npm:^23.5.1"
+    ibantools: "npm:4.3.5"
     lodash: "npm:^4.17.21"
     lucide-react-native: "npm:0.288.0"
     prettier: "npm:^3.0.3"
@@ -11101,7 +11103,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hero-app@workspace:apps/hero"
   dependencies:
-    "@apollo/client": "npm:3.8.3"
+    "@apollo/client": "npm:3.8.7"
     "@babel/core": "npm:^7.22.7"
     "@babel/runtime": "npm:^7.23.2"
     "@cspell/eslint-plugin": "npm:^7.3.6"
@@ -11165,8 +11167,9 @@ __metadata:
     fs-extra: "npm:^11.1.1"
     graphql: "npm:16.8.1"
     graphql-ws: "npm:5.14.0"
-    hero24-types: "npm:^1.7.0"
+    hero24-types: "npm:1.7.1"
     i18next: "npm:^23.5.1"
+    ibantools: "npm:4.3.5"
     lodash: "npm:^4.17.21"
     lucide-react-native: "npm:0.288.0"
     prettier: "npm:^3.0.3"
@@ -11194,17 +11197,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"hero24-types@npm:^0.2.2":
-  version: 0.2.2
-  resolution: "hero24-types@npm:0.2.2"
-  checksum: 40649fa9aa08b690c877b0fa16342db1d71d24a62eead74311b6f083c237cb195d3131b9adcabd06071256062b84e16cd51aecc14aebec6341ded58f03d6a2de
-  languageName: node
-  linkType: hard
-
-"hero24-types@npm:^1.7.0":
-  version: 1.7.0
-  resolution: "hero24-types@npm:1.7.0"
-  checksum: e054fcb497ee6432ebfeebcb66e2d48bfeade2eee9ff315e4872f366d83fba3b9ddb394a4a66edd681afc061117d64a106ca2fb6c99557ca7bf3d634a481d266
+"hero24-types@npm:1.7.1":
+  version: 1.7.1
+  resolution: "hero24-types@npm:1.7.1"
+  checksum: d9861a3298293ef53937e99fce5fb068ad479d4447f9269c4df7aef92a17ae099a7ab43dfd7d234474fe7d5022b3ab0c5032493dfb78de76e3a00b1241d1145e
   languageName: node
   linkType: hard
 
@@ -11319,6 +11315,13 @@ __metadata:
   dependencies:
     "@babel/runtime": "npm:^7.22.5"
   checksum: 292055897c01dd7720b3c6ab1321bd2b3b1f89e36702da9da90493f2a9e931e6a1f762a5b40d8e91c72803a8e80102ba9b64a4ffc0174acb91805f969072437c
+  languageName: node
+  linkType: hard
+
+"ibantools@npm:4.3.5":
+  version: 4.3.5
+  resolution: "ibantools@npm:4.3.5"
+  checksum: 19a5542405fb76ef017ee3e9297fe1c44301949e5aad20b78bc77b124a047102eb463b898e0839ce8e6f2fadba58fc9889b68d476540f755b1c2c0d5e181f2b1
   languageName: node
   linkType: hard
 
