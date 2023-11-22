@@ -1,13 +1,12 @@
 import * as yup from 'yup';
 
-import { Countries, ValidationHints } from '@hero24/common';
+import { Country, DEFAULT_COUNTRY, ValidationHints } from '@hero24/common';
 
-import { Postcodes } from '../constants';
-
+import { Postcodes } from '$modules/Profile/components';
 import { ProfileCreation } from '$modules/Profile/stores';
 
 type CompanyAddressSchema = (
-  country: keyof typeof Countries,
+  country: Country,
 ) => yup.ObjectSchema<ProfileCreation['address']>;
 
 export const companyAddressSchema: CompanyAddressSchema = (country) => {
@@ -16,10 +15,13 @@ export const companyAddressSchema: CompanyAddressSchema = (country) => {
   return yup.object({
     address: yup.string().required(ValidationHints.REQUIRED),
     city: yup.string().required(ValidationHints.REQUIRED),
-    country: yup.string().required(ValidationHints.REQUIRED),
+    country: yup
+      .string()
+      .default(DEFAULT_COUNTRY)
+      .required(ValidationHints.REQUIRED),
     postcode: yup
       .string()
-      .length(maxLength)
+      .length(maxLength, ValidationHints.INVALID_POSTCODE)
       .matches(regex, ValidationHints.INVALID_POSTCODE)
       .required(ValidationHints.REQUIRED),
   });
