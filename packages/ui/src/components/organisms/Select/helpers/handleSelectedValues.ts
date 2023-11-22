@@ -1,3 +1,5 @@
+import { NOT_SELECTED } from '../constants';
+
 import { SelectedInputValues } from './types';
 
 import { Maybe } from '$types';
@@ -11,5 +13,5 @@ export const handleSelectedValues = (
     return { inputText, badgeValue: selectedValue.length - 1 };
   }
 
-  return { inputText: selectedValue ?? 'Not selected', badgeValue: 0 };
+  return { inputText: selectedValue ?? NOT_SELECTED, badgeValue: 0 };
 };
