@@ -7,7 +7,7 @@ import {
   UseFormResetField,
 } from 'react-hook-form';
 
-import { RESET_FIELD_DELAY } from './constants';
+import { RESET_FIELD_DELAY_IN_MS } from './constants';
 
 type Params<Type extends FieldValues> = {
   getValues: UseFormGetValues<Type>;
@@ -53,7 +53,7 @@ export const useModal = <Type extends FieldValues>(
     if (isResetDelayed) {
       setTimeout(() => {
         resetField(name, { defaultValue: fieldState });
-      }, RESET_FIELD_DELAY);
+      }, RESET_FIELD_DELAY_IN_MS);
     } else {
       resetField(name, { defaultValue: fieldState });
     }

@@ -1,1 +1,1 @@
-export const RESET_FIELD_DELAY = 60;
+export const RESET_FIELD_DELAY_IN_MS = 60;
