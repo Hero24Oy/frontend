@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { AttachmentGroupProps } from '../types';
+import { AttachmentGroupProps } from '../../types';
 
 import { IconButton, Image, View } from '$components';
 import { DeleteIcon } from '$icons';

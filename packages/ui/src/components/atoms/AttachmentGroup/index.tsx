@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { Attachment } from './components';
-import { AttachmentGroupProps } from './components/types';
+import { AttachmentGroupProps } from './types';
 
 import { HStack } from '$components';
 
