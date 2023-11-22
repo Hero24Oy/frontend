@@ -1,29 +1,20 @@
 import { FC } from 'react';
-import { StyleSheet } from 'react-native';
 
-import { Attachment, FileType } from '$atoms/Attachment';
-import { HStack } from '$components/atoms/HStack';
+import { MimeComponents } from './constants';
+import { AttachmentGroupProps } from './type';
 
-type Props = {
-  files: FileType[];
-  onDelete: (id: number) => void;
-};
+import { Attachment } from '$atoms/Attachment';
 
-export const AttachmentGroup: FC<Props> = (props) => {
-  const { files, onDelete } = props;
+export const AttachmentGroup: FC<AttachmentGroupProps> = (props) => {
+  const { files, onDelete, mime } = props;
+
+  const GroupComponent = MimeComponents[mime];
 
   return (
-    <HStack style={styles.container}>
+    <GroupComponent>
       {files.map((file) => (
-        <Attachment key={file.id} file={file} onDelete={onDelete} />
+        <Attachment key={file.id} file={file} onDelete={onDelete} mime={mime} />
       ))}
-    </HStack>
+    </GroupComponent>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flexWrap: 'wrap',
-    gap: 8,
-  },
-});
