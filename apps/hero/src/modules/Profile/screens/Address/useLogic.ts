@@ -20,7 +20,7 @@ export const useLogic = () => {
   const { welcome, setAddress } = useProfileCreationStore();
 
   // * We are sure that we will have heroType on this stage.
-  const heroType = welcome.heroType ?? HeroType.PROFESSIONAL;
+  const heroType = welcome.heroType as HeroType;
 
   const { control, getValues, setValue, formState, resetField } = useForm<
     ProfileCreation['address']
