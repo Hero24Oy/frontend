@@ -6,56 +6,52 @@ import { useForm } from 'react-hook-form';
 
 import { useCreateMultiProgressBar } from '@hero24/common';
 
-import { bioSchema } from './validation';
+import { getDefaultValues } from './utils';
+import { getPaymentDataSchema } from './validation';
 
 import {
   getMultiProgressBarInitialState,
   ProfileCreation,
-  profileCreationInitialState,
   useProfileCreationStore,
 } from '$modules/Profile/stores';
 
 export const useLogic = () => {
-  const {
-    welcome: { heroType },
-    setBio,
-  } = useProfileCreationStore();
-
   const router = useRouter();
+  const { setPaymentData, welcome } = useProfileCreationStore();
 
-  const { control, getValues, setValue, resetField, formState } = useForm<
-    ProfileCreation['bio']
+  // * We are sure that we will have heroType on this stage.
+  const heroType = welcome.heroType as HeroType;
+
+  const { control, getValues, setValue, formState } = useForm<
+    ProfileCreation['paymentData']
   >({
-    resolver: yupResolver<ProfileCreation['bio']>(bioSchema),
-    defaultValues: profileCreationInitialState.bio,
+    resolver: yupResolver<ProfileCreation['paymentData']>(
+      getPaymentDataSchema(heroType),
+    ),
+    defaultValues: getDefaultValues(heroType),
     mode: 'onChange',
   });
 
-  const { multiScreenProgressBar } = useCreateMultiProgressBar<
-    ProfileCreation['bio']
-  >({
+  const { multiScreenProgressBar } = useCreateMultiProgressBar({
     initialState: getMultiProgressBarInitialState(),
     progressBarInfo: {
       formState,
       getValues,
-      progressBarIndex: 4,
+      progressBarIndex: 3,
     },
   });
 
-  // TODO set proper route when next screen will be ready
   const submitData = useCallback(() => {
-    setBio(getValues());
-    router.push('/');
+    setPaymentData(getValues());
+    router.push('/bio');
   }, []);
 
   return {
+    multiScreenProgressBar,
     control,
     setValue,
     isValid: formState.isValid,
     submitData,
-    getValues,
-    resetField,
-    multiScreenProgressBar,
-    heroType: heroType ?? HeroType.INDIVIDUAL,
+    heroType,
   };
 };
