@@ -1,6 +1,7 @@
 import { useRouter } from 'expo-router';
+import { HeroType } from 'hero24-types';
 
-import { HeroType, useProfileCreationStore } from '$modules/Profile/stores';
+import { useProfileCreationStore } from '$modules/Profile/stores';
 
 export const useLogic = () => {
   const router = useRouter();
