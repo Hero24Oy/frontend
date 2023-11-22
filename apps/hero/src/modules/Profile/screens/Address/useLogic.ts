@@ -39,7 +39,7 @@ export const useLogic = () => {
 
   const submitData = useCallback(() => {
     setAddress(getValues());
-    router.push('/');
+    router.push('/payment-data');
   }, []);
 
   return {
