@@ -10,16 +10,28 @@ import {
 
 import { SetProfileFormData, validationSchema } from '../../validation';
 
+import { prepareCustomerData, prepareUserData } from './utils';
+
+import { useEditCustomer } from '$modules/Customer';
+import { useEditUser } from '$modules/User/hooks';
+
 export type UseValidationParams = {
   onSetProfileSucceed: () => void;
 };
 
 export const useValidation = (params: UseValidationParams) => {
   const { onSetProfileSucceed } = params;
+  const { editUser } = useEditUser();
+  const { editCustomer } = useEditCustomer();
 
   const {
     user: {
-      data: { firstName, lastName, email },
+      id: userId,
+      data: {
+        firstName: initialFirstName,
+        lastName: initialLastName,
+        email: initialEmail,
+      },
     },
   } = useCachedGraphQlUser();
 
@@ -31,9 +43,9 @@ export const useValidation = (params: UseValidationParams) => {
   } = useForm<SetProfileFormData>({
     resolver: yupResolver(validationSchema),
     defaultValues: {
-      email,
-      firstName: firstName ?? '',
-      lastName: lastName ?? '',
+      email: initialEmail,
+      firstName: initialFirstName ?? '',
+      lastName: initialLastName ?? '',
       isBusinessCustomer: false,
     },
     mode: 'onChange',
@@ -43,9 +55,20 @@ export const useValidation = (params: UseValidationParams) => {
 
   const onSubmitHandler = useMemo(
     () =>
-      handleSubmit((_data: SetProfileFormData) => {
+      handleSubmit(async (data: SetProfileFormData) => {
         try {
-          // TODO handle business account as well
+          // TODO when migrating to SQL create transaction for editing customer and user data
+          const editUserRequest = editUser.request({
+            userId,
+            data: prepareUserData(data),
+          });
+
+          const editCustomerRequest = editCustomer.request({
+            id: userId,
+            data: prepareCustomerData(data),
+          });
+
+          await Promise.allSettled([editUserRequest, editCustomerRequest]);
 
           onSetProfileSucceed();
         } catch (error) {

@@ -1,8 +1,8 @@
 import { useFirebaseUser } from '../../Auth';
-import { useGetUser, User } from '../graphql';
+import { GetUserResponse, useGetUser } from '../graphql';
 
 type UseCachedGraphQlUser = () => {
-  user: User;
+  user: GetUserResponse;
 };
 
 // * We should use it only when authenticated
