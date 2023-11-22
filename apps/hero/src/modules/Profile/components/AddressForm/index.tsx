@@ -2,11 +2,10 @@ import { FC } from 'react';
 import { Control, UseFormGetValues, UseFormResetField } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
 
-import { DEFAULT_COUNTRY } from '@hero24/common';
 import { Button, Input, View } from '@hero24/ui';
 
 import { CitySelect, CountrySelect } from './components';
-import { Postcodes } from './constants';
+import { usePostcode } from './hooks';
 
 import { ProfileCreation } from '$modules/Profile/stores';
 
@@ -19,15 +18,20 @@ type Props = {
 };
 
 export const AddressForm: FC<Props> = (props) => {
-  const { submitData, isValid, control, ...restProps } = props;
-  const { mask, placeholder } = Postcodes[DEFAULT_COUNTRY];
+  const { submitData, isValid, control, getValues, ...restProps } = props;
+  const postcode = usePostcode({ getValues });
 
   return (
     <View style={styles.view}>
       <View style={styles.form}>
         <CountrySelect control={control} name="country" />
 
-        <CitySelect control={control} name="city" {...restProps} />
+        <CitySelect
+          control={control}
+          name="city"
+          getValues={getValues}
+          {...restProps}
+        />
 
         <View style={styles.inputs}>
           <Input
@@ -40,9 +44,9 @@ export const AddressForm: FC<Props> = (props) => {
           <Input
             control={control}
             name="postcode"
-            placeholder={placeholder}
+            placeholder={postcode?.placeholder}
             title="Postcode"
-            mask={mask}
+            mask={postcode?.mask}
           />
         </View>
       </View>
@@ -67,4 +71,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export * from './constants';
+export * from './hooks';
