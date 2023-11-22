@@ -7,14 +7,11 @@ import {
   UseFormResetField,
 } from 'react-hook-form';
 
-import { RESET_FIELD_DELAY_IN_MS } from './constants';
-
 type Params<Type extends FieldValues> = {
   getValues: UseFormGetValues<Type>;
   initialState: PathValue<Type, Path<Type>>;
   name: Path<Type>;
   resetField: UseFormResetField<Type>;
-  isResetDelayed?: boolean;
 };
 
 type ReturnType = {
@@ -27,13 +24,7 @@ type ReturnType = {
 export const useModal = <Type extends FieldValues>(
   params: Params<Type>,
 ): ReturnType => {
-  const {
-    getValues,
-    initialState,
-    resetField,
-    name,
-    isResetDelayed = true,
-  } = params;
+  const { getValues, initialState, resetField, name } = params;
 
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -49,19 +40,9 @@ export const useModal = <Type extends FieldValues>(
     setFieldState(getValues(name));
   };
 
-  const onResetHandler = () => {
-    if (isResetDelayed) {
-      setTimeout(() => {
-        resetField(name, { defaultValue: fieldState });
-      }, RESET_FIELD_DELAY_IN_MS);
-    } else {
-      resetField(name, { defaultValue: fieldState });
-    }
-  };
-
   const onCloseHandler = () => {
     setIsOpen(false);
-    onResetHandler();
+    resetField(name, { defaultValue: fieldState });
   };
 
   return {
