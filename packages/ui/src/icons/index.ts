@@ -10,3 +10,4 @@ export * from './Base';
 export * from './Google';
 export * from './Apple';
 export * from './Right';
+export * from './Paperclip';
