@@ -8,20 +8,20 @@ export const prepareIndividualInfo = (
   personalInfo: ProfileCreation['individualInfo'],
 ) => {
   const {
-    name: dirtyName,
+    firstName: dirtyFirstName,
     lastName: dirtyLastName,
     socialId: dirtySocialId,
   } = personalInfo;
 
   const socialId = dirtySocialId.replace(WHITESPACE_REGEX, '');
 
-  const name = dirtyName.trim();
+  const firstName = dirtyFirstName.trim();
   const lastName = dirtyLastName.trim();
 
   const preparedPersonalInfo: ProfileCreation['individualInfo'] = merge(
     personalInfo,
     {
-      name,
+      firstName,
       lastName,
       socialId,
     },

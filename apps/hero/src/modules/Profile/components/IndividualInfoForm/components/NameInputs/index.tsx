@@ -15,7 +15,12 @@ export const NameInputs: FC<NameInputsProps> = (props) => {
 
   return (
     <>
-      <Input control={control} name="name" placeholder="Enter" title="Name" />
+      <Input
+        control={control}
+        name="firstName"
+        placeholder="Enter"
+        title="Name"
+      />
       <Input
         control={control}
         name="lastName"
@@ -27,7 +32,7 @@ export const NameInputs: FC<NameInputsProps> = (props) => {
           isDisabled
           isHelperEnabled={false}
           control={control}
-          name="displayedName"
+          name="name"
           placeholder={DISPLAYED_NAME_PLACEHOLDER}
           title="Displayed name"
         />

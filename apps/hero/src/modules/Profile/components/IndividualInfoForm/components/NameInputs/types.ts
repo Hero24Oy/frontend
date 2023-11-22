@@ -1,8 +1,12 @@
 import { PersonalInfoFormProps } from '../../types';
 
-type UseLogicParams = Pick<PersonalInfoFormProps, 'setValue' | 'watch'>;
+import { ProfileCreation } from '$modules/Profile/stores';
 
-export type UseLogic = (params: UseLogicParams) => void;
+export type UseLogicParams = Pick<PersonalInfoFormProps, 'setValue' | 'watch'>;
 
 export type NameInputsProps = UseLogicParams &
   Pick<PersonalInfoFormProps, 'control'>;
+
+export type SetDisplayName = (
+  args: Partial<ProfileCreation['individualInfo']>,
+) => void;

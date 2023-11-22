@@ -4121,6 +4121,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^6.6.0"
     "@typescript-eslint/parser": "npm:^6.6.0"
     date-fns: "npm:^2.30.0"
+    date-fns-tz: "npm:2.0.0"
     eslint: "npm:^8.48.0"
     eslint-config-airbnb: "npm:^19.0.4"
     eslint-config-airbnb-typescript: "npm:^17.1.0"
@@ -4134,6 +4135,7 @@ __metadata:
     eslint-plugin-react-native: "npm:^4.0.0"
     eslint-plugin-simple-import-sort: "npm:^10.0.0"
     eslint-plugin-typescript-sort-keys: "npm:^3.0.0"
+    hero24-types: "npm:1.7.1"
     i18next: "npm:^23.5.1"
     libphonenumber-js: "npm:1.10.49"
     lodash: "npm:^4.17.21"
@@ -8532,6 +8534,15 @@ __metadata:
   version: 0.9.0
   resolution: "date-and-time@npm:0.9.0"
   checksum: b041881565c7315f9e347e5e10c531d9f712ac5b0845ae4ecda86fc1f2a03c67fa6d860ecf9f201faa4c49dfb271316ef03a5d4bdf51bf47330e120b3c548a2e
+  languageName: node
+  linkType: hard
+
+"date-fns-tz@npm:2.0.0":
+  version: 2.0.0
+  resolution: "date-fns-tz@npm:2.0.0"
+  peerDependencies:
+    date-fns: ">=2.0.0"
+  checksum: 31cacb83c675ef8c2cf31d21c298ab6d74c5e975412dd804664d031ac0f2f03ed5bfb2a950fa15a321bbbcb90b833c300823fbceba0133680065a71894cc1170
   languageName: node
   linkType: hard
 

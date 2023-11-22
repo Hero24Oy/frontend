@@ -2,37 +2,38 @@ import { useEffect, useMemo } from 'react';
 
 import { DISPLAYED_NAME_PLACEHOLDER } from '../../constants';
 
-import { UseLogic } from './types';
+import { SetDisplayName, UseLogicParams } from './types';
 
 import { INDIVIDUAL_DISPLAYED_NAME_PREFIX } from '$configs';
 import { ProfileCreation } from '$modules/Profile/stores';
 
-type SetDisplayName = (
-  args: Partial<ProfileCreation['individualInfo']>,
-) => void;
+const watchedNames: (keyof ProfileCreation['individualInfo'])[] = [
+  'firstName',
+  'lastName',
+];
 
-export const useLogic: UseLogic = (params) => {
+export const useLogic = (params: UseLogicParams) => {
   const { setValue, watch } = params;
 
   const setDisplayedName: SetDisplayName = useMemo(
     () => (args) => {
-      const { name, lastName } = args;
-      const fullName = `${name?.trim()} ${lastName?.trim()}`.trim();
+      const { firstName, lastName } = args;
+      const fullName = `${firstName?.trim()} ${lastName?.trim()}`;
 
-      const displayedName = fullName
+      const displayedName = fullName.trim()
         ? INDIVIDUAL_DISPLAYED_NAME_PREFIX.concat(fullName)
         : DISPLAYED_NAME_PLACEHOLDER;
 
-      setValue('displayedName', displayedName, {
+      setValue('name', displayedName, {
         shouldValidate: true,
       });
     },
-    [setValue],
+    [setValue, watch],
   );
 
   useEffect(() => {
     const subscription = watch((value, { name }) => {
-      if (name && ['name', 'lastName'].includes(name)) {
+      if (name && watchedNames.includes(name)) {
         setDisplayedName(value);
       }
     });

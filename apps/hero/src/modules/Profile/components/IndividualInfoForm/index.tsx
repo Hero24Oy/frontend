@@ -1,11 +1,13 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { DateThreeFieldInput } from '@hero24/common';
+import { DateInput } from '@hero24/common';
 import { Button, Input, ScrollView, View } from '@hero24/ui';
 
 import { NameInputs } from './components';
 import {
+  BIRTH_DATE_INPUT_PLACEHOLDER,
+  BIRTH_DATE_MASK,
   SOCIAL_SECURITY_ID_MASK,
   SOCIAL_SECURITY_ID_PLACEHOLDER,
 } from './constants';
@@ -19,10 +21,12 @@ export const IndividualInfoForm: FC<PersonalInfoFormProps> = (props) => {
     <ScrollView style={styles.view}>
       <View style={styles.form}>
         <NameInputs control={control} setValue={setValue} watch={watch} />
-        <DateThreeFieldInput
-          setValue={setValue}
+        <DateInput
+          control={control}
           name="birthday"
           title="Birth day"
+          dateMask={BIRTH_DATE_MASK}
+          placeholder={BIRTH_DATE_INPUT_PLACEHOLDER}
         />
         <Input
           control={control}
