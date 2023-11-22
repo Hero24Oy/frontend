@@ -6,14 +6,14 @@ import { AttachmentGroupProps } from './type';
 import { Attachment } from '$atoms/Attachment';
 
 export const AttachmentGroup: FC<AttachmentGroupProps> = (props) => {
-  const { files, onDelete, mime } = props;
+  const { files, onDelete, type } = props;
 
-  const GroupComponent = MimeComponents[mime];
+  const GroupComponent = MimeComponents[type];
 
   return (
     <GroupComponent>
       {files.map((file) => (
-        <Attachment key={file.id} file={file} onDelete={onDelete} mime={mime} />
+        <Attachment key={file.id} file={file} onDelete={onDelete} type={type} />
       ))}
     </GroupComponent>
   );

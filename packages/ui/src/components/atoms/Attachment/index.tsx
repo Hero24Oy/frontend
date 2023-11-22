@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
 import { AttachmentImage, AttachmentPdf } from './components';
-import { AttachmentMime, AttachmentProps } from './types';
+import { AttachmentProps, AttachmentType } from './types';
 
 export const Attachment: FC<AttachmentProps> = (props) => {
-  const { file, mime, ...restProps } = props;
+  const { file, type, ...restProps } = props;
 
-  const isPdfFile = mime === AttachmentMime.PDF;
+  const isPdfFile = type === AttachmentType.PDF;
 
   if (isPdfFile) {
     return <AttachmentPdf {...file} {...restProps} />;

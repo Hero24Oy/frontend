@@ -1,6 +1,6 @@
-import { AttachmentMime, AttachmentProps, FileType } from '$components/atoms';
+import { AttachmentProps, AttachmentType, FileType } from '$components/atoms';
 
 export type AttachmentGroupProps = {
   files: FileType[];
-  mime: AttachmentMime;
+  type: `${AttachmentType}`;
 } & Pick<AttachmentProps, 'onDelete'>;

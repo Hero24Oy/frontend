@@ -1,8 +1,8 @@
 import { ImageGroup, PdfGroup } from './components';
 
-import { AttachmentMime } from '$atoms/Attachment';
+import { AttachmentType } from '$atoms/Attachment';
 
 export const MimeComponents = {
-  [AttachmentMime.PDF]: PdfGroup,
-  [AttachmentMime.IMAGE]: ImageGroup,
+  [AttachmentType.PDF]: PdfGroup,
+  [AttachmentType.IMAGE]: ImageGroup,
 };
