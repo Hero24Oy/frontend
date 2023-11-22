@@ -25,8 +25,8 @@ export type ProfileCreation = {
     socialId: string;
   };
   paymentData: {
-    companyId: string | null;
     IBAN: string;
+    companyId?: Maybe<string>;
   };
   professionalInfo: CommonHeroInfo & {
     employees: Range | null;
