@@ -1,4 +1,4 @@
-import { HeroType } from '$modules/Profile/stores';
+import { HeroType } from 'hero24-types';
 
 // TODO replace text with i18n
 export const textareaPlaceholderMapper = {

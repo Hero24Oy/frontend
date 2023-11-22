@@ -6,7 +6,7 @@ import { ComponentTheme } from '$theme/types';
 
 const customAlertConfig = {
   theme: {
-    borderRadius: 20,
+    borderRadius: 8,
   },
 } satisfies ComponentTheme<ViewProps>;
 

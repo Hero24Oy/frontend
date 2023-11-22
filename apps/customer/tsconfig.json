@@ -2,11 +2,11 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "$/*": ["*"],
       "$app": ["app/*"],
       "$core": ["core/index"],
       "$configs": ["configs/index"],
-      "$modules": ["modules/index"]
+      "$modules": ["modules/index"],
+      "$modules/*": ["modules/*"]
     }
   },
   "extends": "@hero24/configs/tsconfig.json",
