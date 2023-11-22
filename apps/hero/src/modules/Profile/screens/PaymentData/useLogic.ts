@@ -19,6 +19,7 @@ export const useLogic = () => {
   const router = useRouter();
   const { setPaymentData, welcome } = useProfileCreationStore();
 
+  // * We are sure that we will have heroType on this stage.
   const heroType = welcome.heroType as HeroType;
 
   const { control, getValues, formState } = useForm<
