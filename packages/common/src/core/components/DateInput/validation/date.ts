@@ -1,8 +1,7 @@
-import { isPast, isValid, parse } from 'date-fns';
-import { zonedTimeToUtc } from 'date-fns-tz';
+import { isPast, isValid } from 'date-fns';
 import * as yup from 'yup';
 
-import { DATE_PARSE_LOCALE } from '../constants';
+import { parseDate } from '../utils';
 
 import { ValidationHints } from '$core/validation';
 
@@ -19,10 +18,7 @@ export const dateSchema = (dateMask: string) =>
             return false;
           }
 
-          const parsedDate = zonedTimeToUtc(
-            parse(value, dateMask, new Date()),
-            DATE_PARSE_LOCALE,
-          );
+          const parsedDate = parseDate(value, dateMask);
 
           return isValid(parsedDate) && isPast(parsedDate);
         },
