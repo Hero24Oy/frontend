@@ -14,6 +14,7 @@ type Props<Type extends FieldValues, Value> = {
   options: RadioOption<Value>[];
   variant: `${RadioVariant}`;
   childrenStyle?: LayoutStyles;
+  hasDivider?: boolean;
   isRadioGroupDisabled?: boolean;
   size?: RadioSize;
   style?: LayoutStyles;
@@ -31,6 +32,7 @@ export const RadioGroup = <Type extends FieldValues, Value>(
     style,
     title,
     childrenStyle,
+    hasDivider = false,
     ...restProps
   } = props;
 
@@ -53,6 +55,7 @@ export const RadioGroup = <Type extends FieldValues, Value>(
           size={size}
           options={options}
           style={childrenStyle}
+          hasDivider={hasDivider}
           {...restProps}
         />
       </GluestackRadioGroup>

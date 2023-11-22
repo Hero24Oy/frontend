@@ -1,11 +1,13 @@
-import { memo } from 'react';
+import { Divider } from '@gluestack-ui/themed';
+import { Fragment } from 'react';
 
 import { radioVariantMapper } from './constants';
 
 import { RadioOption, RadioSize, RadioVariant } from '$atoms';
-import { LayoutStyles } from '$types';
+import { JsxElement, LayoutStyles } from '$types';
 
 type Props<Value> = {
+  hasDivider: boolean;
   options: RadioOption<Value>[];
   variant: `${RadioVariant}`;
   isRadioGroupDisabled?: boolean;
@@ -13,22 +15,27 @@ type Props<Value> = {
   style?: LayoutStyles;
 };
 
-export const Radio = memo(<Value,>(props: Props<Value>) => {
-  const { options, variant, isRadioGroupDisabled, ...restProps } = props;
+export const Radio = <Value,>(props: Props<Value>): JsxElement[] => {
+  const { options, variant, isRadioGroupDisabled, hasDivider, ...restProps } =
+    props;
 
   const Component = radioVariantMapper[variant];
 
   return (
     Component &&
-    options.map(({ label, isDisabled, ...restOptionProps }) => (
-      <Component
-        key={label}
-        isDisabled={isDisabled || isRadioGroupDisabled}
-        {...restProps}
-        {...restOptionProps}
-      >
-        {label}
-      </Component>
+    options.map(({ label, isDisabled, ...restOptionProps }, index) => (
+      <Fragment key={label}>
+        <Component
+          isDisabled={isDisabled || isRadioGroupDisabled}
+          hasDivider={hasDivider}
+          {...restProps}
+          {...restOptionProps}
+        >
+          {label}
+        </Component>
+
+        {hasDivider && index !== options.length - 1 && <Divider />}
+      </Fragment>
     ))
   );
-});
+};
