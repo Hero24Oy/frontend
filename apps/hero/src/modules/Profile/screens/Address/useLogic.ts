@@ -3,13 +3,9 @@ import { useRouter } from 'expo-router';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
-import {
-  DEFAULT_COUNTRY,
-  StrictValue,
-  useCreateMultiProgressBar,
-} from '@hero24/common';
+import { StrictValue, useCreateMultiProgressBar } from '@hero24/common';
 
-import { companyAddressSchema } from './validation';
+import { addressSchema } from './validation';
 
 import {
   getMultiProgressBarInitialState,
@@ -27,9 +23,7 @@ export const useLogic = () => {
   const { control, getValues, setValue, formState, resetField } = useForm<
     ProfileCreation['address']
   >({
-    resolver: yupResolver<ProfileCreation['address']>(
-      companyAddressSchema(DEFAULT_COUNTRY),
-    ),
+    resolver: yupResolver<ProfileCreation['address']>(addressSchema),
     defaultValues: profileCreationInitialState.address,
     mode: 'onChange',
   });
