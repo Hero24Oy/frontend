@@ -22,7 +22,7 @@ export const useLogic = () => {
   // * We are sure that we will have heroType on this stage.
   const heroType = welcome.heroType as HeroType;
 
-  const { control, getValues, setValue, formState } = useForm<
+  const { control, getValues, formState } = useForm<
     ProfileCreation['paymentData']
   >({
     resolver: yupResolver<ProfileCreation['paymentData']>(
@@ -49,7 +49,6 @@ export const useLogic = () => {
   return {
     multiScreenProgressBar,
     control,
-    setValue,
     isValid: formState.isValid,
     submitData,
     heroType,
