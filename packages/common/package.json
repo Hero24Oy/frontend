@@ -46,7 +46,7 @@
     "@hero24/configs": "*",
     "@hero24/ui": "*",
     "@hookform/resolvers": "^3.3.2",
-    "date-fns": "^2.30.0",
+    "date-fns": "2.30.0",
     "date-fns-tz": "2.0.0",
     "hero24-types": "1.7.1",
     "i18next": "^23.5.1",
