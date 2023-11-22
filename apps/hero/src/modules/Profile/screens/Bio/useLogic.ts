@@ -1,10 +1,9 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'expo-router';
-import { HeroType } from 'hero24-types';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { useCreateMultiProgressBar } from '@hero24/common';
+import { StrictValue, useCreateMultiProgressBar } from '@hero24/common';
 
 import { bioSchema } from './validation';
 
@@ -12,14 +11,13 @@ import {
   getMultiProgressBarInitialState,
   ProfileCreation,
   profileCreationInitialState,
+  useHeroType,
   useProfileCreationStore,
 } from '$modules/Profile/stores';
 
 export const useLogic = () => {
-  const {
-    welcome: { heroType },
-    setBio,
-  } = useProfileCreationStore();
+  const { setBio } = useProfileCreationStore();
+  const { heroType } = useHeroType<StrictValue.STRICT>();
 
   const router = useRouter();
 
@@ -56,6 +54,6 @@ export const useLogic = () => {
     getValues,
     resetField,
     multiScreenProgressBar,
-    heroType: heroType ?? HeroType.INDIVIDUAL,
+    heroType,
   };
 };

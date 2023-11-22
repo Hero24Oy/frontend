@@ -1,10 +1,13 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'expo-router';
-import { HeroType } from 'hero24-types';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { DEFAULT_COUNTRY, useCreateMultiProgressBar } from '@hero24/common';
+import {
+  DEFAULT_COUNTRY,
+  StrictValue,
+  useCreateMultiProgressBar,
+} from '@hero24/common';
 
 import { companyAddressSchema } from './validation';
 
@@ -12,15 +15,14 @@ import {
   getMultiProgressBarInitialState,
   ProfileCreation,
   profileCreationInitialState,
+  useHeroType,
   useProfileCreationStore,
 } from '$modules/Profile/stores';
 
 export const useLogic = () => {
   const router = useRouter();
-  const { welcome, setAddress } = useProfileCreationStore();
-
-  // * We are sure that we will have heroType on this stage.
-  const heroType = welcome.heroType as HeroType;
+  const { setAddress } = useProfileCreationStore();
+  const { heroType } = useHeroType<StrictValue.STRICT>();
 
   const { control, getValues, setValue, formState, resetField } = useForm<
     ProfileCreation['address']

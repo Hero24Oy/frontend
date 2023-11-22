@@ -1,10 +1,9 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'expo-router';
-import { HeroType } from 'hero24-types';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { useCreateMultiProgressBar } from '@hero24/common';
+import { StrictValue, useCreateMultiProgressBar } from '@hero24/common';
 
 import { getDefaultValues } from './utils';
 import { getPaymentDataSchema } from './validation';
@@ -12,15 +11,14 @@ import { getPaymentDataSchema } from './validation';
 import {
   getMultiProgressBarInitialState,
   ProfileCreation,
+  useHeroType,
   useProfileCreationStore,
 } from '$modules/Profile/stores';
 
 export const useLogic = () => {
   const router = useRouter();
-  const { setPaymentData, welcome } = useProfileCreationStore();
-
-  // * We are sure that we will have heroType on this stage.
-  const heroType = welcome.heroType as HeroType;
+  const { setPaymentData } = useProfileCreationStore();
+  const { heroType } = useHeroType<StrictValue.STRICT>();
 
   const { control, getValues, formState } = useForm<
     ProfileCreation['paymentData']
