@@ -1,26 +1,29 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { AttachmentGroupProps } from '../../types';
+import { FileType } from './types';
 
-import { IconButton, Image, View } from '$components';
+import { IconButton } from '$atoms/IconButton';
+import { Image } from '$atoms/Image';
+import { View } from '$atoms/View';
 import { DeleteIcon } from '$icons';
 
 type Props = {
-  source: string;
-} & Pick<AttachmentGroupProps, 'onDelete'>;
+  file: FileType;
+  onDelete: (id: number) => void;
+};
 
 export const Attachment: FC<Props> = (props) => {
-  const { source, onDelete } = props;
+  const { file, onDelete } = props;
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={source} />
+      <Image style={styles.image} source={file.imageSource} />
       <IconButton
         size="sm"
         icon={DeleteIcon}
         style={styles.iconButton}
-        onPress={onDelete}
+        onPress={() => onDelete(file.id)}
       />
     </View>
   );
@@ -41,3 +44,5 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
 });
+
+export * from './types';
