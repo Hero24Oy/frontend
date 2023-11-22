@@ -34,9 +34,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apollo/client@npm:3.8.3":
-  version: 3.8.3
-  resolution: "@apollo/client@npm:3.8.3"
+"@apollo/client@npm:3.8.7":
+  version: 3.8.7
+  resolution: "@apollo/client@npm:3.8.7"
   dependencies:
     "@graphql-typed-document-node/core": "npm:^3.1.1"
     "@wry/context": "npm:^0.7.3"
@@ -66,7 +66,7 @@ __metadata:
       optional: true
     subscriptions-transport-ws:
       optional: true
-  checksum: f622299670fbd895ec6b3960560829b1575fcfc733dffe967afe6ebba17796b6c2d4f8fac5686761a24c394f99270877190914c7161bce9b4ea0e76e12d33de2
+  checksum: e88be52f6393ab0625999abf7f6ed6c1035e5f290a738477210f9563d85d369b3dcb86dff7613be84a012192b66c2fae18ee9d5acf55f2b0ca30c1cc77c38559
   languageName: node
   linkType: hard
 
@@ -4144,7 +4144,7 @@ __metadata:
     utility-types: "npm:^3.10.0"
     yup: "npm:^1.3.1"
   peerDependencies:
-    "@apollo/client": 3.8.3
+    "@apollo/client": 3.8.7
     "@legendapp/motion": 2.2.1
     "@react-native-async-storage/async-storage": 1.18.2
     "@react-navigation/bottom-tabs": 6.5.11
@@ -8418,7 +8418,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "customer-app@workspace:apps/customer"
   dependencies:
-    "@apollo/client": "npm:3.8.3"
+    "@apollo/client": "npm:3.8.7"
     "@babel/core": "npm:^7.22.7"
     "@babel/runtime": "npm:^7.23.2"
     "@cspell/eslint-plugin": "npm:^7.3.6"
@@ -11093,7 +11093,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hero-app@workspace:apps/hero"
   dependencies:
-    "@apollo/client": "npm:3.8.3"
+    "@apollo/client": "npm:3.8.7"
     "@babel/core": "npm:^7.22.7"
     "@babel/runtime": "npm:^7.23.2"
     "@cspell/eslint-plugin": "npm:^7.3.6"
