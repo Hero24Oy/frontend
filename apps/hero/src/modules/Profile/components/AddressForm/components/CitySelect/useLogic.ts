@@ -23,7 +23,6 @@ export const useLogic = (params: Params) => {
   } = useGetWorkareas();
 
   const { isOpen, onApplyHandler, onCloseHandler, onOpenHandler } = useModal({
-    isResetDelayed: false,
     getValues,
     resetField,
     name,
@@ -31,10 +30,10 @@ export const useLogic = (params: Params) => {
   });
 
   const options = useMemo(() => {
+    // TODO with i18n we will be able to choose right languages set. For now - english set will be used.
     const workareas = data?.workareas.en;
 
     if (workareas) {
-      // TODO with i18n we will be able to choose right languages set. For now - english set will be used.
       return workareas.map((item) => ({
         label: item,
         value: item,
