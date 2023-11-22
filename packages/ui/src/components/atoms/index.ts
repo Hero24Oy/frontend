@@ -23,4 +23,4 @@ export * from './KeyboardAvoidingView';
 export * from './Radio';
 export * from './ProgressBar';
 export * from './Switch';
-export * from './AttachmentGroup';
+export * from './Attachment';
