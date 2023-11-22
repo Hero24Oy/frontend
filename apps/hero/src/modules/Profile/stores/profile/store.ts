@@ -1,4 +1,8 @@
-import { createMultiScreenStore, DEFAULT_LANGUAGES } from '@hero24/common';
+import {
+  createMultiScreenStore,
+  DEFAULT_COUNTRY,
+  DEFAULT_LANGUAGES,
+} from '@hero24/common';
 
 import { ProfileCreation } from './types';
 
@@ -16,7 +20,7 @@ export const profileCreationInitialState: ProfileCreation = {
     certificate: null,
   },
   address: {
-    country: null,
+    country: DEFAULT_COUNTRY,
     city: null,
     address: '',
     postcode: '',

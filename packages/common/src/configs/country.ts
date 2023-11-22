@@ -1,7 +1,5 @@
-import { $Keys } from 'utility-types';
+export enum Country {
+  FI = 'Finland',
+}
 
-export const Countries = {
-  FI: 'FI',
-} as const;
-
-export const defaultCountry: $Keys<typeof Countries> = 'FI';
+export const DEFAULT_COUNTRY = Country.FI;
