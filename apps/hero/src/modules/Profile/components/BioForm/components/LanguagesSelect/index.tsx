@@ -1,16 +1,22 @@
 import { FC } from 'react';
+import { StyleSheet } from 'react-native';
 
-import { CloseIcon as goBackIcon, FullScreenModal, Select } from '@hero24/ui';
+import {
+  Button,
+  CheckboxGroup,
+  CloseIcon as goBackIcon,
+  FullScreenModal,
+  Select,
+} from '@hero24/ui';
 
-import { ModalBody, ModalFooter } from './components';
 import { LanguagesSelectProps } from './types';
 import { useLogic } from './useLogic';
 
 export const LanguagesSelect: FC<LanguagesSelectProps> = (props) => {
   const { control, getValues, name, resetField } = props;
 
-  const { isOpen, languages, onOpenHandler, onApplyHandler, onCloseHandler } =
-    useLogic({ getValues, resetField });
+  const { isOpen, options, onOpenHandler, onApplyHandler, onCloseHandler } =
+    useLogic({ getValues, resetField, name });
 
   return (
     // TODO Replace text with i18n call.
@@ -32,14 +38,25 @@ export const LanguagesSelect: FC<LanguagesSelectProps> = (props) => {
           goBack: onCloseHandler,
         }}
         body={
-          <ModalBody
+          <CheckboxGroup
             control={control}
             name={name}
-            languages={languages ?? []}
+            options={options}
+            hasRootCheck={false}
           />
         }
-        footer={<ModalFooter onClose={onApplyHandler} />}
+        footer={
+          <Button style={styles.button} onPress={onApplyHandler}>
+            Apply
+          </Button>
+        }
       />
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  button: {
+    width: '100%',
+  },
+});
