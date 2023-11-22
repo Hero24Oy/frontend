@@ -1,1 +1,1 @@
-export * from './useCheckRequiredProfileFields';
+export * from './useEditUserMutation';
