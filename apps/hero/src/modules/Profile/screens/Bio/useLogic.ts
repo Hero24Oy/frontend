@@ -3,7 +3,7 @@ import { useRouter } from 'expo-router';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { StrictValue, useCreateMultiProgressBar } from '@hero24/common';
+import { StrictType, useCreateMultiProgressBar } from '@hero24/common';
 
 import { bioSchema } from './validation';
 
@@ -17,7 +17,7 @@ import {
 
 export const useLogic = () => {
   const { setBio } = useProfileCreationStore();
-  const { heroType } = useHeroType<StrictValue.STRICT>();
+  const { heroType } = useHeroType<StrictType.STRICT>();
 
   const router = useRouter();
 

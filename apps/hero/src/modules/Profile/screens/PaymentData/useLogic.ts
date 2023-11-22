@@ -3,7 +3,7 @@ import { useRouter } from 'expo-router';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { StrictValue, useCreateMultiProgressBar } from '@hero24/common';
+import { StrictType, useCreateMultiProgressBar } from '@hero24/common';
 
 import { getDefaultValues } from './utils';
 import { getPaymentDataSchema } from './validation';
@@ -18,7 +18,7 @@ import {
 export const useLogic = () => {
   const router = useRouter();
   const { setPaymentData } = useProfileCreationStore();
-  const { heroType } = useHeroType<StrictValue.STRICT>();
+  const { heroType } = useHeroType<StrictType.STRICT>();
 
   const { control, getValues, formState } = useForm<
     ProfileCreation['paymentData']
