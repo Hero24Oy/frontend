@@ -20,7 +20,7 @@ export type ProfileCreation = {
   };
   individualInfo: CommonHeroInfo & {
     birthday: Date | null;
-    displayedName: string;
+    firstName: string;
     lastName: string;
     socialId: string;
   };

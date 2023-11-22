@@ -7,7 +7,7 @@ import { SOCIAL_ID_LENGTH } from './constants';
 export const individualInfoSchema = yup.object({
   email: emailValidationSchema.required(ValidationHints.REQUIRED),
   name: yup.string().required(ValidationHints.REQUIRED),
-  displayedName: yup.string().required(ValidationHints.REQUIRED),
+  firstName: yup.string().required(ValidationHints.REQUIRED),
   lastName: yup.string().required(ValidationHints.REQUIRED),
   socialId: yup
     .string()
