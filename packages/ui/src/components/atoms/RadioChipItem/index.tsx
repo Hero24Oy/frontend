@@ -6,8 +6,8 @@ import { PropsWithChildren } from 'react';
 
 import { GluestackChipProps } from './types';
 
-import { RadioSize, RadioVariant } from '$components/atoms/RadioItem';
-import { useLogic } from '$components/atoms/RadioItem/useLogic';
+import { RadioSize, RadioVariant } from '$atoms/RadioItem';
+import { useLogic } from '$atoms/RadioItem/useLogic';
 import { JsxElement } from '$types';
 
 type Props<Value> = {
