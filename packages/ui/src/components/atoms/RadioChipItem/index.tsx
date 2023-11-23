@@ -15,7 +15,7 @@ type Props<Value> = {
   size?: RadioSize;
 } & PropsWithChildren<GluestackChipProps>;
 
-export const Chip = <Value,>(props: Props<Value>): JsxElement => {
+export const RadioChipItem = <Value,>(props: Props<Value>): JsxElement => {
   const { children, value, ...restProps } = props;
 
   const { stringifiedValue } = useLogic(value);
