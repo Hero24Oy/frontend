@@ -10,7 +10,7 @@ export type TextProps = {
   children: string;
   style?: TextStyles;
   variant?: `${TextVariant}`;
-} & ReactNativeTextProps;
+} & Pick<ReactNativeTextProps, 'numberOfLines' | 'ellipsizeMode'>;
 
 export const Text: FC<TextProps> = (props) => {
   const { children, ...restProps } = props;
