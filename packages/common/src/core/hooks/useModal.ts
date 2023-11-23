@@ -35,15 +35,15 @@ export const useModal = <Type extends FieldValues>(
     setIsOpen(true);
   }, []);
 
-  const onApplyHandler = () => {
+  const onApplyHandler = useCallback(() => {
     setIsOpen(false);
     setFieldState(getValues(name));
-  };
+  }, [getValues, name]);
 
-  const onCloseHandler = () => {
+  const onCloseHandler = useCallback(() => {
     setIsOpen(false);
     resetField(name, { defaultValue: fieldState });
-  };
+  }, [resetField, name, fieldState]);
 
   return {
     isOpen,
