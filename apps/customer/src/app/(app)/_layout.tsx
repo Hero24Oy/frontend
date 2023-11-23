@@ -27,7 +27,7 @@ const AppLayout: FC = () => {
   }
 
   if (!hasRequiredFields) {
-    return <Redirect href="/(profile)/set-profile" />;
+    return <Redirect href="/set-profile" />;
   }
   // This layout can be deferred because it's not the root layout.
 

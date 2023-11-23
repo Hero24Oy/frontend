@@ -4,11 +4,11 @@ import { StyleSheet } from 'react-native';
 
 import { Heading, View, VStack } from '@hero24/ui';
 
-import { CompanyInfoForm } from '../../components';
+import { ProfessionalInfoForm } from '../../components';
 
 import { useLogic } from './useLogic';
 
-export const CompanyInfoScreen: FC = () => {
+export const ProfessionalInfoScreen: FC = () => {
   const { multiScreenProgressBar, control, isValid, submitData } = useLogic();
 
   return (
@@ -24,7 +24,7 @@ export const CompanyInfoScreen: FC = () => {
           </Heading>
         </View>
 
-        <CompanyInfoForm
+        <ProfessionalInfoForm
           control={control}
           isValid={isValid}
           submitData={submitData}
