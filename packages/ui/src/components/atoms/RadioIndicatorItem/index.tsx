@@ -11,8 +11,8 @@ import { StyleSheet } from 'react-native';
 import { DIVIDER_PADDING } from './constants';
 import { GluestackRadioIndicatorItemProps } from './types';
 
-import { RadioSize, RadioVariant } from '$atoms/Radio';
-import { useLogic } from '$atoms/Radio/useLogic';
+import { RadioSize, RadioVariant } from '$components/atoms/RadioItem';
+import { useLogic } from '$components/atoms/RadioItem/useLogic';
 import { JsxElement } from '$types';
 
 type Props<Value> = {

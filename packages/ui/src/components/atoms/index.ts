@@ -20,6 +20,6 @@ export * from './Pressable';
 export * from './KeyboardAwareScrollView';
 export * from './Hidden';
 export * from './KeyboardAvoidingView';
-export * from './Radio';
+export * from './RadioItem';
 export * from './ProgressBar';
 export * from './Switch';
