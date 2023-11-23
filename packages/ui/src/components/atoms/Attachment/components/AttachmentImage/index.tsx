@@ -23,11 +23,12 @@ export const AttachmentImage: FC<Props> = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    position: 'relative',
-    width: 167,
+    width: '100%',
+    maxWidth: 167,
+    height: '100%',
+    maxHeight: 120,
   },
   image: {
-    height: 120,
     borderRadius: 8,
   },
   button: {

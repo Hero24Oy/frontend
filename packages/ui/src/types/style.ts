@@ -29,6 +29,7 @@ export type LayoutStyles = CommonStyles &
     | 'gap'
     | 'flexDirection'
     | 'flexBasis'
+    | 'borderRadius'
   >;
 
 export type TextStyles = CommonStyles &
