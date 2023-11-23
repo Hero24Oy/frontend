@@ -16,7 +16,7 @@ export const AttachmentImage: FC<AttachmentImageProps> = (props) => {
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={fileSource} />
+      <Image source={fileSource} />
       <RemoveButton onPress={handleDelete} style={styles.button} />
     </View>
   );
@@ -28,9 +28,8 @@ const styles = StyleSheet.create({
     maxWidth: 167,
     height: '100%',
     maxHeight: 120,
-  },
-  image: {
     borderRadius: 8,
+    overflow: 'hidden',
   },
   button: {
     position: 'absolute',
