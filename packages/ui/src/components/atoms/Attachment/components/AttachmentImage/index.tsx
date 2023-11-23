@@ -13,10 +13,14 @@ type Props = Pick<AttachmentProps, 'onDelete'> &
 export const AttachmentImage: FC<Props> = (props) => {
   const { id, fileSource, onDelete } = props;
 
+  const handleDelete = () => {
+    onDelete(id);
+  };
+
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={fileSource} />
-      <RemoveButton onPress={() => onDelete(id)} style={styles.button} />
+      <RemoveButton onPress={handleDelete} style={styles.button} />
     </View>
   );
 };

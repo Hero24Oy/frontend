@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
 import { AttachmentGroupMapper } from './constants';
-import { useLogic } from './hooks';
 import { AttachmentGroupProps } from './type';
+import { useLogic } from './useLogic';
 
 export const AttachmentGroup: FC<AttachmentGroupProps> = (props) => {
   const { type, ...restProps } = props;

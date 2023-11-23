@@ -1,12 +1,10 @@
 import { useMemo } from 'react';
 
-import { AttachmentGroupProps } from '../type';
-
-import { UseLogicReturnType } from './types';
+import { AttachmentGroupProps } from './type';
 
 import { Attachment } from '$atoms/Attachment';
 
-export const useLogic = (props: AttachmentGroupProps): UseLogicReturnType => {
+export const useLogic = (props: AttachmentGroupProps) => {
   const { files, onDelete, type } = props;
 
   const attachments = useMemo(() => {
