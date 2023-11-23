@@ -2,6 +2,8 @@ import * as yup from 'yup';
 
 import { Country, DEFAULT_COUNTRY, ValidationHints } from '@hero24/common';
 
+import { AddressField } from './types';
+
 import { postcodeMapper } from '$modules/Profile/components';
 import { Postcode } from '$modules/Profile/components/AddressForm/hooks/usePostcode/types';
 
@@ -15,7 +17,7 @@ export const addressSchema = yup.object({
     .required(ValidationHints.REQUIRED),
   postcode: yup
     .string()
-    .when('country', ([country]: Country[], schema) => {
+    .when(AddressField.COUNTRY, ([country]: Country[], schema) => {
       const postcode = postcodeMapper.get(country);
       const defaultPostcode = postcodeMapper.get(DEFAULT_COUNTRY) as Postcode;
 
