@@ -31,16 +31,12 @@ export const useLogic = (params: Params) => {
 
   const options = useMemo(() => {
     // TODO with i18n we will be able to choose right languages set. For now - english set will be used.
-    const workareas = data?.workareas.en;
+    const workareas = data?.workareas.en ?? [];
 
-    if (workareas) {
-      return workareas.map((item) => ({
-        label: item,
-        value: item,
-      }));
-    }
-
-    return [];
+    return workareas.map((item) => ({
+      label: item,
+      value: item,
+    }));
   }, [data]);
 
   return {
