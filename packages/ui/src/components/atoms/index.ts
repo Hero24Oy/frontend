@@ -15,7 +15,7 @@ export * from './Image';
 export * from './Badge';
 export * from './IconButton';
 export * from './Textarea';
-export * from './RadioIndicator';
+export * from './RadioIndicatorItem';
 export * from './Pressable';
 export * from './KeyboardAwareScrollView';
 export * from './Hidden';
