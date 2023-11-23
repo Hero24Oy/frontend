@@ -5,7 +5,7 @@ export enum AttachmentType {
 
 export type AttachmentProps = {
   file: FileType;
-  onDelete: (id: number) => void;
+  onDelete: () => void;
   type: `${AttachmentType}`;
 };
 

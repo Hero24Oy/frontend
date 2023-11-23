@@ -8,16 +8,12 @@ import { Image } from '$atoms/Image';
 import { View } from '$atoms/View';
 
 export const AttachmentImage: FC<AttachmentImageProps> = (props) => {
-  const { id, fileSource, onDelete } = props;
-
-  const handleDelete = () => {
-    onDelete(id);
-  };
+  const { fileSource, onDelete } = props;
 
   return (
     <View style={styles.container}>
       <Image source={fileSource} />
-      <RemoveButton onPress={handleDelete} {...styles.button} />
+      <RemoveButton onPress={onDelete} {...styles.button} />
     </View>
   );
 };
