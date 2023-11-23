@@ -9,7 +9,7 @@ export const useLogic = (props: AttachmentGroupProps) => {
 
   const attachments = useMemo(() => {
     return files.map((file) => {
-      const handleDelete = () => {
+      const deleteHandler = () => {
         onDelete(file.id);
       };
 
@@ -17,7 +17,7 @@ export const useLogic = (props: AttachmentGroupProps) => {
         <Attachment
           key={file.id}
           file={file}
-          onDelete={handleDelete}
+          onDelete={deleteHandler}
           type={type}
         />
       );
