@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react';
 
 import {
-  DISPLAYED_NAME_PLACEHOLDER,
+  INDIVIDUAL_HERO_NAME_PLACEHOLDER,
   INDIVIDUAL_HERO_NAME_SEPARATOR,
 } from '../../constants';
 
@@ -25,7 +25,7 @@ export const useLogic = (params: UseLogicParams) => {
 
       const displayedName = fullName.trim()
         ? HERO_COMPANY_NAME.concat(INDIVIDUAL_HERO_NAME_SEPARATOR, fullName)
-        : DISPLAYED_NAME_PLACEHOLDER;
+        : INDIVIDUAL_HERO_NAME_PLACEHOLDER;
 
       setValue('name', displayedName, {
         shouldValidate: true,

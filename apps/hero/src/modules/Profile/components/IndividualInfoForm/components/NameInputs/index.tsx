@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 import { Input, View } from '@hero24/ui';
 
-import { DISPLAYED_NAME_PLACEHOLDER } from '../../constants';
+import { INDIVIDUAL_HERO_NAME_PLACEHOLDER } from '../../constants';
 
 import { NameInputsProps } from './types';
 import { useLogic } from './useLogic';
@@ -33,7 +33,7 @@ export const NameInputs: FC<NameInputsProps> = (props) => {
           isHelperEnabled={false}
           control={control}
           name="name"
-          placeholder={DISPLAYED_NAME_PLACEHOLDER}
+          placeholder={INDIVIDUAL_HERO_NAME_PLACEHOLDER}
           title="Displayed name"
         />
       </View>
