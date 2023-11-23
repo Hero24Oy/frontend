@@ -13,21 +13,31 @@ export const useLogic = <Type extends FieldValues, Value>(
   params: Params<Type, Value>,
 ) => {
   const { control, name, options } = params;
-  const [radioGroupValue, setRadioGroupValue] = useState<string>('');
 
   const {
-    field: { onChange },
+    field: { value: controllerValue, onChange },
   } = useController({ name, control });
+
+  const [radioGroupValue, setRadioGroupValue] = useState<string>(
+    JSON.stringify(controllerValue),
+  );
 
   // * We need this to check predefined option via options config.
   useEffect(() => {
-    options.forEach((option) => option.isChecked && onChange(option.value));
+    options.forEach((option) => {
+      const { isChecked, value } = option;
+
+      if (isChecked && !controllerValue) {
+        setRadioGroupValue(JSON.stringify(value));
+        onChange(value);
+      }
+    });
   }, []);
 
   const radioGroupValueHandler = useCallback(
-    (value: string) => {
-      onChange(JSON.parse(value) as Value);
-      setRadioGroupValue(value);
+    (selectedValue: string) => {
+      onChange(JSON.parse(selectedValue) as Value);
+      setRadioGroupValue(selectedValue);
     },
     [onChange],
   );
