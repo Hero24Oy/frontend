@@ -2,6 +2,7 @@ import { Divider } from '@gluestack-ui/themed';
 import { Fragment, useMemo } from 'react';
 
 import { radioItemsMapper } from './constants';
+import { useLogic } from './useLogic';
 
 import { RadioOption, RadioSize, RadioVariant } from '$atoms';
 import { JsxElement, LayoutStyles } from '$types';
@@ -21,6 +22,8 @@ export const RadioItems = <Value,>(props: Props<Value>): JsxElement[] => {
 
   const Component = radioItemsMapper[variant];
 
+  const { isDividerVisible } = useLogic({ hasDivider, options });
+
   const optionsToRender = useMemo(
     () =>
       Component &&
@@ -35,7 +38,7 @@ export const RadioItems = <Value,>(props: Props<Value>): JsxElement[] => {
             {label}
           </Component>
 
-          {hasDivider && index !== options.length - 1 && <Divider />}
+          {isDividerVisible(index) && <Divider />}
         </Fragment>
       )),
     [options],
