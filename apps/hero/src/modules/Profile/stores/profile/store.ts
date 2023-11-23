@@ -4,14 +4,39 @@ import {
   DEFAULT_LANGUAGES,
 } from '@hero24/common';
 
-import { ProfileCreation } from './types';
+import { CommonHeroInfo, ProfileCreation } from './types';
 
-export const profileCreationInitialState: ProfileCreation = {
-  info: {
-    name: '',
-    email: '',
+const profileCommonInfoCreationInitialState: CommonHeroInfo = {
+  name: '',
+  email: '',
+};
+
+const professionalCreationInfoInitialState: Pick<
+  ProfileCreation,
+  'professionalInfo'
+> = {
+  professionalInfo: {
+    ...profileCommonInfoCreationInitialState,
     employees: null,
   },
+};
+
+const individualCreationInfoInitialState: Pick<
+  ProfileCreation,
+  'individualInfo'
+> = {
+  individualInfo: {
+    ...profileCommonInfoCreationInitialState,
+    birthday: null,
+    firstName: '',
+    lastName: '',
+    socialId: '',
+  },
+};
+
+export const profileCreationInitialState: ProfileCreation = {
+  ...professionalCreationInfoInitialState,
+  ...individualCreationInfoInitialState,
   workData: {
     expertise: [],
     experience: null,
