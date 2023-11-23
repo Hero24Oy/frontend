@@ -8,7 +8,6 @@ import {
 import { PropsWithChildren } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { DIVIDER_PADDING } from './constants';
 import { GluestackRadioIndicatorItemProps } from './types';
 
 import { RadioSize, RadioVariant } from '$components/atoms/RadioItem';
@@ -45,9 +44,11 @@ export const RadioIndicatorItem = <Value,>(props: Props<Value>): JsxElement => {
 };
 
 const useStyles = (hasDivider: boolean) => {
+  const dividerPadding = 16;
+
   return StyleSheet.create({
     component: {
-      paddingHorizontal: hasDivider ? DIVIDER_PADDING : 0,
+      paddingHorizontal: hasDivider ? dividerPadding : 0,
     },
   });
 };
