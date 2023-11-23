@@ -1,12 +1,12 @@
 import { FC } from 'react';
 
-import { AttachmentComponents } from './constants';
+import { AttachmentMapper } from './constants';
 import { AttachmentProps } from './types';
 
 export const Attachment: FC<AttachmentProps> = (props) => {
   const { file, type, ...restProps } = props;
 
-  const Component = AttachmentComponents[type];
+  const Component = AttachmentMapper[type];
 
   return <Component {...file} {...restProps} />;
 };

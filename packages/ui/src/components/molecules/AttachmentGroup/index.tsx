@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { MimeComponents } from './constants';
+import { AttachmentGroupMapper } from './constants';
 import { useLogic } from './hooks';
 import { AttachmentGroupProps } from './type';
 
@@ -9,7 +9,7 @@ export const AttachmentGroup: FC<AttachmentGroupProps> = (props) => {
 
   const { attachments } = useLogic({ type, ...restProps });
 
-  const GroupComponent = MimeComponents[type];
+  const GroupComponent = AttachmentGroupMapper[type];
 
   return <GroupComponent>{attachments}</GroupComponent>;
 };
