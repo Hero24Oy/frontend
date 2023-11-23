@@ -17,7 +17,7 @@ export const AttachmentImage: FC<AttachmentImageProps> = (props) => {
   return (
     <View style={styles.container}>
       <Image source={fileSource} />
-      <RemoveButton onPress={handleDelete} style={styles.button} />
+      <RemoveButton onPress={handleDelete} {...styles.button} />
     </View>
   );
 };

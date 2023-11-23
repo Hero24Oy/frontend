@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { AttachmentGroupProps } from './type';
+import { AttachmentGroupProps } from './types';
 
 import { Attachment } from '$atoms/Attachment';
 
