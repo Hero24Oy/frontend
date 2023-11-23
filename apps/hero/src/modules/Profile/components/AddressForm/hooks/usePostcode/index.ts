@@ -17,3 +17,4 @@ export const usePostcode = (params: Params): Postcode | undefined => {
 };
 
 export * from './constants';
+export * from './types';

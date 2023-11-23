@@ -4,8 +4,7 @@ import { Country, DEFAULT_COUNTRY, ValidationHints } from '@hero24/common';
 
 import { AddressField } from './types';
 
-import { postcodeMapper } from '$modules/Profile/components';
-import { Postcode } from '$modules/Profile/components/AddressForm/hooks/usePostcode/types';
+import { Postcode, postcodeMapper } from '$modules/Profile/components';
 
 export const addressSchema = yup.object({
   address: yup.string().required(ValidationHints.REQUIRED),
