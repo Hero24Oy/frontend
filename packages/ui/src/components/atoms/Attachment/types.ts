@@ -10,7 +10,7 @@ export type AttachmentProps = {
 };
 
 export type FileType = {
+  fileName: string;
   fileSource: string;
   id: number;
-  fileName?: string;
 };

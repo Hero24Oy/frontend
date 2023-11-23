@@ -16,13 +16,16 @@ type Props = Pick<AttachmentProps, 'onDelete'> &
 export const AttachmentPdf: FC<Props> = (props) => {
   const { id, fileName, onDelete } = props;
 
-  const name = `${fileName || 'file'}.pdf`;
-
   return (
     <HStack style={styles.container}>
       <Icon as={Paperclip} />
-      <Text style={styles.name} variant="small">
-        {name}
+      <Text
+        style={styles.name}
+        variant="small"
+        numberOfLines={1}
+        ellipsizeMode="tail"
+      >
+        {fileName}
       </Text>
       <RemoveButton onPress={() => onDelete(id)} style={styles.button} />
     </HStack>
@@ -36,6 +39,7 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   name: {
+    marginRight: 182,
     marginLeft: 8,
   },
   button: {
