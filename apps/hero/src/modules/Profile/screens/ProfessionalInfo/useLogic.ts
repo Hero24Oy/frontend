@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 
 import { useCreateMultiProgressBar } from '@hero24/common';
 
-import { companyInfoSchema } from './validation';
+import { professionalInfoSchema } from './validation';
 
 import {
   getMultiProgressBarInitialState,
@@ -16,18 +16,20 @@ import {
 
 export const useLogic = () => {
   const router = useRouter();
-  const { setInfo } = useProfileCreationStore();
+  const { setProfessionalInfo } = useProfileCreationStore();
 
   const { control, getValues, setValue, formState } = useForm<
-    ProfileCreation['info']
+    ProfileCreation['professionalInfo']
   >({
-    resolver: yupResolver<ProfileCreation['info']>(companyInfoSchema),
-    defaultValues: profileCreationInitialState.info,
+    resolver: yupResolver<ProfileCreation['professionalInfo']>(
+      professionalInfoSchema,
+    ),
+    defaultValues: profileCreationInitialState.professionalInfo,
     mode: 'onChange',
   });
 
   const { multiScreenProgressBar } = useCreateMultiProgressBar<
-    ProfileCreation['info']
+    ProfileCreation['professionalInfo']
   >({
     initialState: getMultiProgressBarInitialState(),
     progressBarInfo: {
@@ -39,7 +41,7 @@ export const useLogic = () => {
 
   // TODO set proper route when next screen will be ready
   const submitData = useCallback(() => {
-    setInfo(getValues());
+    setProfessionalInfo(getValues());
     router.push('/');
   }, []);
 

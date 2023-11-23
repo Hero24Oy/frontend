@@ -5,15 +5,15 @@ import { StyleSheet } from 'react-native';
 import { Button, Input, RadioGroup, View } from '@hero24/ui';
 
 import { chipOptions } from './constants';
-import { CompanyInfo } from './types';
+import { ProfessionalInfo } from './types';
 
 type Props = {
-  control: Control<CompanyInfo>;
+  control: Control<ProfessionalInfo>;
   isValid: boolean;
   submitData: () => void;
 };
 
-export const CompanyInfoForm: FC<Props> = (props) => {
+export const ProfessionalInfoForm: FC<Props> = (props) => {
   const { control, isValid, submitData } = props;
 
   return (
