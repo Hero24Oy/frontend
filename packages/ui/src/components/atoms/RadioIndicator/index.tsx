@@ -5,7 +5,7 @@ import {
   RadioIndicator as GluestackRadioIndicator,
   RadioLabel,
 } from '@gluestack-ui/themed';
-import { memo, PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { DIVIDER_PADDING } from './constants';
@@ -21,30 +21,28 @@ type Props<Value> = {
   size?: RadioSize;
 } & PropsWithChildren<GluestackRadioIndicatorProps>;
 
-export const RadioIndicator = memo(
-  <Value,>(props: Props<Value>): JsxElement => {
-    const { children, value, hasDivider, style, ...restProps } = props;
+export const RadioIndicator = <Value,>(props: Props<Value>): JsxElement => {
+  const { children, value, hasDivider, style, ...restProps } = props;
 
-    const { stringifiedValue } = useLogic(value);
+  const { stringifiedValue } = useLogic(value);
 
-    const styles = useStyles(hasDivider);
+  const styles = useStyles(hasDivider);
 
-    return (
-      <GluestackRadio
-        variant={RadioVariant.RADIO_INDICATOR}
-        value={stringifiedValue}
-        style={[styles.component, style]}
-        {...restProps}
-      >
-        <GluestackRadioIndicator>
-          <RadioIcon as={CircleIcon} />
-        </GluestackRadioIndicator>
+  return (
+    <GluestackRadio
+      variant={RadioVariant.RADIO_INDICATOR}
+      value={stringifiedValue}
+      style={[styles.component, style]}
+      {...restProps}
+    >
+      <GluestackRadioIndicator>
+        <RadioIcon as={CircleIcon} />
+      </GluestackRadioIndicator>
 
-        <RadioLabel>{children}</RadioLabel>
-      </GluestackRadio>
-    );
-  },
-);
+      <RadioLabel>{children}</RadioLabel>
+    </GluestackRadio>
+  );
+};
 
 const useStyles = (hasDivider: boolean) => {
   return StyleSheet.create({

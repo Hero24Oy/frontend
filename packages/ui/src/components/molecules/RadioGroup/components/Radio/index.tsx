@@ -1,5 +1,5 @@
 import { Divider } from '@gluestack-ui/themed';
-import { Fragment } from 'react';
+import { Fragment, useMemo } from 'react';
 
 import { radioVariantMapper } from './constants';
 
@@ -21,21 +21,25 @@ export const Radio = <Value,>(props: Props<Value>): JsxElement[] => {
 
   const Component = radioVariantMapper[variant];
 
-  return (
-    Component &&
-    options.map(({ label, isDisabled, ...restOptionProps }, index) => (
-      <Fragment key={label}>
-        <Component
-          isDisabled={isDisabled || isRadioGroupDisabled}
-          hasDivider={hasDivider}
-          {...restProps}
-          {...restOptionProps}
-        >
-          {label}
-        </Component>
+  const optionsToRender = useMemo(
+    () =>
+      Component &&
+      options.map(({ label, isDisabled, ...restOptionProps }, index) => (
+        <Fragment key={label}>
+          <Component
+            isDisabled={isDisabled || isRadioGroupDisabled}
+            hasDivider={hasDivider}
+            {...restProps}
+            {...restOptionProps}
+          >
+            {label}
+          </Component>
 
-        {hasDivider && index !== options.length - 1 && <Divider />}
-      </Fragment>
-    ))
+          {hasDivider && index !== options.length - 1 && <Divider />}
+        </Fragment>
+      )),
+    [options],
   );
+
+  return optionsToRender;
 };
