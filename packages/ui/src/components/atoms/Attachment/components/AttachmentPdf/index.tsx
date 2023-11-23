@@ -3,17 +3,14 @@ import { Paperclip } from 'lucide-react-native';
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { AttachmentProps, FileType } from '../../types';
+import { AttachmentPdfProps } from '../../types';
 import { RemoveButton } from '../RemoveButton';
 
 import { HStack } from '$atoms/HStack';
 import { Text } from '$atoms/Text';
 import { Color } from '$theme';
 
-type Props = Pick<AttachmentProps, 'onDelete'> &
-  Pick<FileType, 'id' | 'fileName'>;
-
-export const AttachmentPdf: FC<Props> = (props) => {
+export const AttachmentPdf: FC<AttachmentPdfProps> = (props) => {
   const { id, fileName, onDelete } = props;
 
   return (

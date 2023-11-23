@@ -14,3 +14,9 @@ export type FileType = {
   fileSource: string;
   id: number;
 };
+
+export type AttachmentPdfProps = Pick<AttachmentProps, 'onDelete'> &
+  Pick<FileType, 'id' | 'fileName'>;
+
+export type AttachmentImageProps = Pick<AttachmentProps, 'onDelete'> &
+  Pick<FileType, 'id' | 'fileSource'>;

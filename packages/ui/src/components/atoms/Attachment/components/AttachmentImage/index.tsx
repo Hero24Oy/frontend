@@ -1,16 +1,13 @@
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { AttachmentProps, FileType } from '../../types';
+import { AttachmentImageProps } from '../../types';
 import { RemoveButton } from '../RemoveButton';
 
 import { Image } from '$atoms/Image';
 import { View } from '$atoms/View';
 
-type Props = Pick<AttachmentProps, 'onDelete'> &
-  Pick<FileType, 'id' | 'fileSource'>;
-
-export const AttachmentImage: FC<Props> = (props) => {
+export const AttachmentImage: FC<AttachmentImageProps> = (props) => {
   const { id, fileSource, onDelete } = props;
 
   const handleDelete = () => {
