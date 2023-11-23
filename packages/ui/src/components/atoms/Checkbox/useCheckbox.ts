@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import {
   Control,
   FieldValues,
@@ -31,16 +31,12 @@ export const useCheckbox = <Type extends FieldValues>(
 ): UseCheckboxReturnType => {
   const { control, name, options } = config;
 
-  const [checkboxGroupValue, setCheckboxGroupValue] = useState<string[]>([]);
-
   const {
     field: { value, ref, onChange },
     fieldState: { error },
   } = useController({ name, control });
 
-  useEffect(() => {
-    setCheckboxGroupValue(value);
-  }, []);
+  const [checkboxGroupValue, setCheckboxGroupValue] = useState<string[]>(value);
 
   const isAnythingChecked = checkboxGroupValue.length > 0;
   const isEverythingChecked = checkboxGroupValue.length === options.length;
