@@ -10,7 +10,7 @@ export * from './Heading';
 export * from './Actionsheet';
 export * from './Alert';
 export * from './Checkbox';
-export * from './Chip';
+export * from './RadioChipItem';
 export * from './Image';
 export * from './Badge';
 export * from './IconButton';
