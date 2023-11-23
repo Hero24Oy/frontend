@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   file: {
-    justifyContent: 'flex-start',
     gap: 8,
     maxWidth: 250,
   },
