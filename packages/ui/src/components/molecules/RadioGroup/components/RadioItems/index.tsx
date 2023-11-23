@@ -15,7 +15,7 @@ type Props<Value> = {
   style?: LayoutStyles;
 };
 
-export const Radio = <Value,>(props: Props<Value>): JsxElement[] => {
+export const RadioItems = <Value,>(props: Props<Value>): JsxElement[] => {
   const { options, variant, isRadioGroupDisabled, hasDivider, ...restProps } =
     props;
 
