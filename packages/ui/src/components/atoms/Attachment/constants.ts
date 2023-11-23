@@ -9,7 +9,7 @@ import {
 
 export const AttachmentMapper: Record<
   AttachmentType,
-  FC<AttachmentPdfProps & AttachmentImageProps>
+  FC<AttachmentPdfProps> | FC<AttachmentImageProps>
 > = {
   [AttachmentType.PDF]: AttachmentPdf,
   [AttachmentType.IMAGE]: AttachmentImage,
