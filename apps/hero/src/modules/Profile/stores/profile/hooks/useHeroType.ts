@@ -5,16 +5,12 @@ import { ProfileCreation } from '../types';
 
 type HeroType = ProfileCreation['welcome']['heroType'];
 
-type ReturnType<Strict = StrictType> = {
-  heroType: Strict extends StrictType.STRICT ? NonNullable<HeroType> : HeroType;
-};
+type HeroValue<Strict extends StrictType> = Strict extends StrictType.STRICT
+  ? NonNullable<HeroType>
+  : HeroType;
 
-export const useHeroType = <Strict = StrictType>(): ReturnType<Strict> => {
-  const {
-    welcome: { heroType },
-  } = useProfileCreationStore();
+export const useHeroType = <Strict extends StrictType>(): HeroValue<Strict> => {
+  const heroType = useProfileCreationStore((state) => state.welcome.heroType);
 
-  return {
-    heroType,
-  } as ReturnType<Strict>;
+  return heroType as HeroValue<Strict>;
 };

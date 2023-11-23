@@ -18,7 +18,7 @@ import {
 export const useLogic = () => {
   const router = useRouter();
   const { setAddress } = useProfileCreationStore();
-  const { heroType } = useHeroType<StrictType.STRICT>();
+  const heroType = useHeroType<StrictType.STRICT>();
 
   const { control, getValues, setValue, formState, resetField } = useForm<
     ProfileCreation['address']

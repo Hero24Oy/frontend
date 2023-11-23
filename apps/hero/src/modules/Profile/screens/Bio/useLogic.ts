@@ -17,7 +17,7 @@ import {
 
 export const useLogic = () => {
   const { setBio } = useProfileCreationStore();
-  const { heroType } = useHeroType<StrictType.STRICT>();
+  const heroType = useHeroType<StrictType.STRICT>();
 
   const router = useRouter();
 

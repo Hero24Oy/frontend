@@ -18,7 +18,7 @@ import {
 export const useLogic = () => {
   const router = useRouter();
   const { setPaymentData } = useProfileCreationStore();
-  const { heroType } = useHeroType<StrictType.STRICT>();
+  const heroType = useHeroType<StrictType.STRICT>();
 
   const { control, getValues, formState } = useForm<
     ProfileCreation['paymentData']
