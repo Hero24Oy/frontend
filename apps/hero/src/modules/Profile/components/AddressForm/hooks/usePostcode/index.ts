@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { UseFormGetValues } from 'react-hook-form';
 
 import { postcodeMapper } from './constants';
@@ -14,9 +13,7 @@ export const usePostcode = (params: Params): Postcode | undefined => {
   const { getValues } = params;
   const key = getValues('country');
 
-  const postcode = useMemo(() => postcodeMapper.get(key), [key]);
-
-  return postcode;
+  return postcodeMapper.get(key);
 };
 
 export * from './constants';
