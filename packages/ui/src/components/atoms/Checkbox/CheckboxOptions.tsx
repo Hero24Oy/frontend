@@ -3,7 +3,6 @@ import { FC, Fragment, useMemo } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { CheckboxOption } from './CheckboxOption';
-import { DEFAULT_PADDING, ROOT_CHECK_PADDING } from './constants';
 import { CheckboxOptionsProps } from './types';
 
 export const CheckboxOptions: FC<CheckboxOptionsProps> = (props) => {
@@ -30,9 +29,12 @@ export const CheckboxOptions: FC<CheckboxOptionsProps> = (props) => {
 };
 
 const useStyles = (hasRootCheck: boolean) => {
+  const rootCheckPadding = 32;
+  const defaultPadding = 16;
+
   return StyleSheet.create({
     wrapper: {
-      paddingLeft: hasRootCheck ? ROOT_CHECK_PADDING : DEFAULT_PADDING,
+      paddingLeft: hasRootCheck ? rootCheckPadding : defaultPadding,
       paddingRight: 24,
       paddingVertical: 16,
     },
