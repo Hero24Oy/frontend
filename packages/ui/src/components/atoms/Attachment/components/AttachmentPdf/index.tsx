@@ -8,38 +8,39 @@ import { RemoveButton } from '../RemoveButton';
 
 import { HStack } from '$atoms/HStack';
 import { Text } from '$atoms/Text';
+import { VStack } from '$atoms/VStack';
+import { StyledSelectDivider } from '$components/styled';
 import { Color } from '$theme';
 
 export const AttachmentPdf: FC<AttachmentPdfProps> = (props) => {
   const { id, fileName, onDelete } = props;
 
   return (
-    <HStack style={styles.container}>
-      <Icon as={Paperclip} />
-      <Text
-        style={styles.name}
-        variant="small"
-        numberOfLines={1}
-        ellipsizeMode="tail"
-      >
-        {fileName}
-      </Text>
-      <RemoveButton onPress={() => onDelete(id)} style={styles.button} />
-    </HStack>
+    <VStack>
+      <HStack style={styles.container}>
+        <HStack style={styles.file}>
+          <Icon as={Paperclip} />
+          <Text variant="small" numberOfLines={1} ellipsizeMode="tail">
+            {fileName}
+          </Text>
+        </HStack>
+        <RemoveButton onPress={() => onDelete(id)} />
+      </HStack>
+      <StyledSelectDivider />
+    </VStack>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
+    justifyContent: 'space-between',
     backgroundColor: Color.WHITE_00,
     padding: 8,
   },
-  name: {
-    marginRight: 182,
-    marginLeft: 8,
-  },
-  button: {
-    marginLeft: 'auto',
+  file: {
+    justifyContent: 'flex-start',
+    gap: 8,
+    maxWidth: 250,
   },
 });
