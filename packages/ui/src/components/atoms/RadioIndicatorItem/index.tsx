@@ -9,7 +9,7 @@ import { PropsWithChildren } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { DIVIDER_PADDING } from './constants';
-import { GluestackRadioIndicatorProps } from './types';
+import { GluestackRadioIndicatorItemProps } from './types';
 
 import { RadioSize, RadioVariant } from '$atoms/Radio';
 import { useLogic } from '$atoms/Radio/useLogic';
@@ -19,9 +19,9 @@ type Props<Value> = {
   hasDivider: boolean;
   value: Value;
   size?: RadioSize;
-} & PropsWithChildren<GluestackRadioIndicatorProps>;
+} & PropsWithChildren<GluestackRadioIndicatorItemProps>;
 
-export const RadioIndicator = <Value,>(props: Props<Value>): JsxElement => {
+export const RadioIndicatorItem = <Value,>(props: Props<Value>): JsxElement => {
   const { children, value, hasDivider, style, ...restProps } = props;
 
   const { stringifiedValue } = useLogic(value);

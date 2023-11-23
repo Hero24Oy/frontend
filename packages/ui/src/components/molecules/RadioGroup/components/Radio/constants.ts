@@ -1,6 +1,6 @@
-import { Chip, RadioIndicator, RadioVariant } from '$atoms';
+import { Chip, RadioIndicatorItem, RadioVariant } from '$atoms';
 
 export const radioVariantMapper = {
   [RadioVariant.CHIP]: Chip,
-  [RadioVariant.RADIO_INDICATOR]: RadioIndicator,
+  [RadioVariant.RADIO_INDICATOR]: RadioIndicatorItem,
 };

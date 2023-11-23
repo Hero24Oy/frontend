@@ -1,7 +1,7 @@
 import { Radio } from '@gluestack-ui/themed';
 import { ComponentProps } from 'react';
 
-export type GluestackRadioIndicatorProps = Pick<
+export type GluestackRadioIndicatorItemProps = Pick<
   ComponentProps<typeof Radio>,
   'style' | 'isDisabled'
 >;
