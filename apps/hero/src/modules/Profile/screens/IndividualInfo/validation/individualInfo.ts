@@ -14,7 +14,7 @@ export const individualInfoSchema = yup.object({
     .string()
     .test(
       'is-field-changed',
-      'Field not changed',
+      ValidationHints.FIELD_NOT_CHANGED,
       (value) => value !== DISPLAYED_NAME_PLACEHOLDER,
     )
     .required(),

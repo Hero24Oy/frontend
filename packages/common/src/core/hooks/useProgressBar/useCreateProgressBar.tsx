@@ -28,10 +28,10 @@ export const useCreateProgressBar = <Form extends ScreenForm>(
   const allFields = Object.entries(storeFields);
 
   const changedFields = allFields.filter(([fieldKey, fieldValue]) => {
-    const isTouchedField = Boolean(dirtyFields[fieldKey]);
+    const isDirtyField = Boolean(dirtyFields[fieldKey]);
     const isInvalidField = Boolean(errors[fieldKey]);
 
-    return !isInvalidField && (!isFalsy(fieldValue) || isTouchedField);
+    return !isInvalidField && (!isFalsy(fieldValue) || isDirtyField);
   });
 
   const progressBarValue = calculatePercentageFraction(

@@ -7,17 +7,20 @@ import { HeroTypeCard } from '../HeroTypeCard';
 
 import { useLogic } from './useLogic';
 
-import { companyHeroImage, individualHeroImage } from '$modules/Profile/assets';
+import {
+  individualHeroImage,
+  professionalHeroImage,
+} from '$modules/Profile/assets';
 
 export const HeroTypeCards: FC = () => {
-  const { companyHeroHandler, individualHeroHandler } = useLogic();
+  const { professionalHeroHandler, individualHeroHandler } = useLogic();
 
   return (
     <HStack style={styles.hStack}>
       {/* TODO replace text in cards with i18n call */}
       <HeroTypeCard
-        selectionHandler={companyHeroHandler}
-        imageSource={companyHeroImage}
+        selectionHandler={professionalHeroHandler}
+        imageSource={professionalHeroImage}
       >
         I run a company
       </HeroTypeCard>

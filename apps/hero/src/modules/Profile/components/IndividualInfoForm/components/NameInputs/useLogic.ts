@@ -1,10 +1,13 @@
 import { useEffect, useMemo } from 'react';
 
-import { DISPLAYED_NAME_PLACEHOLDER } from '../../constants';
+import {
+  DISPLAYED_NAME_PLACEHOLDER,
+  INDIVIDUAL_HERO_NAME_SEPARATOR,
+} from '../../constants';
 
 import { SetDisplayName, UseLogicParams } from './types';
 
-import { INDIVIDUAL_DISPLAYED_NAME_PREFIX } from '$configs';
+import { HERO_COMPANY_NAME } from '$configs';
 import { ProfileCreation } from '$modules/Profile/stores';
 
 const watchedNames: (keyof ProfileCreation['individualInfo'])[] = [
@@ -21,7 +24,7 @@ export const useLogic = (params: UseLogicParams) => {
       const fullName = `${firstName?.trim()} ${lastName?.trim()}`;
 
       const displayedName = fullName.trim()
-        ? INDIVIDUAL_DISPLAYED_NAME_PREFIX.concat(fullName)
+        ? HERO_COMPANY_NAME.concat(INDIVIDUAL_HERO_NAME_SEPARATOR, fullName)
         : DISPLAYED_NAME_PLACEHOLDER;
 
       setValue('name', displayedName, {

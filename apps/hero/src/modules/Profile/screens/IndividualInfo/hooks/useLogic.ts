@@ -8,22 +8,23 @@ import { useCreateMultiProgressBar } from '@hero24/common';
 import { prepareIndividualInfo } from '../utils';
 import { individualInfoSchema } from '../validation';
 
+import { useDefaultValues } from './useDefaultValues';
+
 import {
   getMultiProgressBarInitialState,
   ProfileCreation,
-  profileCreationInitialState,
   useProfileCreationStore,
 } from '$modules/Profile/stores';
 
 export const useLogic = () => {
   const router = useRouter();
-
   const { setIndividualInfo } = useProfileCreationStore();
+  const { defaultValues } = useDefaultValues();
 
   const { control, getValues, setValue, formState, watch } = useForm({
     resolver:
       yupResolver<ProfileCreation['individualInfo']>(individualInfoSchema),
-    defaultValues: profileCreationInitialState.individualInfo,
+    defaultValues,
     mode: 'onChange',
   });
 

@@ -7,6 +7,8 @@ type Props = PropsWithChildren<{
   style?: LayoutStyles;
 }>;
 
-export const ScrollView: FC<Props> = ({ children, style }) => (
-  <GluestackScrollView style={style}>{children}</GluestackScrollView>
-);
+export const ScrollView: FC<Props> = (props) => {
+  const { children, style } = props;
+
+  return <GluestackScrollView style={style}>{children}</GluestackScrollView>;
+};

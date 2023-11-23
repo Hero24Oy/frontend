@@ -1,4 +1,4 @@
-import { isPast, isValid } from 'date-fns';
+import { isValid } from 'date-fns';
 import * as yup from 'yup';
 
 import { parseDate } from '../utils';
@@ -20,7 +20,7 @@ export const dateSchema = (dateMask: string) =>
 
           const parsedDate = parseDate(value, dateMask);
 
-          return isValid(parsedDate) && isPast(parsedDate);
+          return isValid(parsedDate);
         },
       )
       .required(ValidationHints.REQUIRED),

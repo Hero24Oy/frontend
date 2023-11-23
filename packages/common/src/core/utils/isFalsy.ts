@@ -1,4 +1,6 @@
-import { isDate, isEmpty, isObject } from 'lodash';
+import isDate from 'lodash/isDate';
+import isEmpty from 'lodash/isEmpty';
+import isObject from 'lodash/isObject';
 
 export const isFalsy = (value: unknown): boolean => {
   if (isDate(value)) {
