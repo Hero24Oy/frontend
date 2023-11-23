@@ -29,7 +29,7 @@ export const useLogic = () => {
   });
 
   const { multiScreenProgressBar } = useCreateMultiProgressBar({
-    initialState: getMultiProgressBarInitialState(),
+    initialState: getMultiProgressBarInitialState(heroType),
     progressBarInfo: {
       formState,
       getValues,
