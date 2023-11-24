@@ -9,9 +9,7 @@ export const useLogic = (
   attachments: JsxElement[],
   numberOfColumns: number,
 ) => {
-  const components = [...attachments];
-
-  const numberOfElements = components.length;
+  const numberOfElements = attachments.length;
 
   const numberOfRows = Math.ceil(numberOfElements / numberOfColumns);
 
@@ -20,7 +18,7 @@ export const useLogic = (
 
   const componentsWithFullRows = addEmptyContainers(
     numberOfEmptyContainers,
-    components,
+    attachments,
   );
 
   const slicedComponents = sliceIntoRows(
