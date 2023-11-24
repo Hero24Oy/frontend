@@ -1,17 +1,27 @@
 import { FC, PropsWithChildren } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { HStack } from '$atoms/HStack';
+import { AttachmentGroupProps } from '../../types';
 
-export const ImageGroup: FC<PropsWithChildren> = (props) => {
-  const { children } = props;
+import { useLogic } from './useLogic';
 
-  return <HStack style={styles.container}>{children}</HStack>;
+import { VStack } from '$components/atoms';
+import { JsxElement } from '$types';
+
+type Props = Pick<AttachmentGroupProps, 'numberOfColumns'> & PropsWithChildren;
+
+export const ImageGroup: FC<Props> = (props) => {
+  const { numberOfColumns, children } = props;
+
+  const numberColumns = numberOfColumns || 1;
+
+  const { groupedRows } = useLogic(children as JsxElement[], numberColumns);
+
+  return <VStack style={styles.container}>{groupedRows}</VStack>;
 };
 
 const styles = StyleSheet.create({
   container: {
-    flexWrap: 'wrap',
     gap: 8,
   },
 });

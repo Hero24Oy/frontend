@@ -1,51 +1,16 @@
 import { FC } from 'react';
-import { StyleSheet } from 'react-native';
 
 import { AttachmentImageProps } from '../../types';
-import { RemoveButton } from '../RemoveButton';
 
-import { Image } from '$atoms/Image';
-import { View } from '$atoms/View';
+import { GroupImage } from './GroupImage';
+import { ImageContainer } from './ImageContainer';
 
 export const AttachmentImage: FC<AttachmentImageProps> = (props) => {
-  const { fileDetails, onDelete } = props;
+  const { fileDetails, onDelete, isSoloImage } = props;
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.image}>
-        <Image source={fileDetails} />
-      </View>
-      <View style={styles.indicator} />
-      <RemoveButton onPress={onDelete} {...styles.button} />
-    </View>
-  );
+  if (isSoloImage) {
+    return <GroupImage fileDetails={fileDetails} onDelete={onDelete} />;
+  }
+
+  return <ImageContainer fileDetails={fileDetails} onDelete={onDelete} />;
 };
-
-const styles = StyleSheet.create({
-  container: {
-    height: 120,
-    borderRadius: 8,
-    overflow: 'hidden',
-  },
-  image: {
-    position: 'absolute',
-    width: '100%',
-    height: '100%',
-  },
-  indicator: {
-    paddingRight: '48%',
-  },
-  // container: {
-  //   width: '100%',
-  //   maxWidth: 100,
-  //   height: '100%',
-  //   maxHeight: 120,
-  //   borderRadius: 8,
-  //   overflow: 'hidden',
-  // },
-  button: {
-    position: 'absolute',
-    right: 6,
-    top: 6,
-  },
-});

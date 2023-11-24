@@ -4,4 +4,5 @@ export type AttachmentGroupProps = {
   files: FileType[];
   onDelete: (id: number) => void;
   type: `${AttachmentType}`;
+  numberOfColumns?: number;
 };

@@ -16,8 +16,13 @@ export type AttachmentProps = {
   file: FileType;
   onDelete: () => void;
   type: `${AttachmentType}`;
+  isSoloImage?: boolean;
 };
 
 export type AttachmentPdfProps = Pick<AttachmentProps, 'onDelete'> & FileType;
 
-export type AttachmentImageProps = Pick<AttachmentProps, 'onDelete'> & FileType;
+export type AttachmentImageProps = Pick<
+  AttachmentProps,
+  'onDelete' | 'isSoloImage'
+> &
+  FileType;
