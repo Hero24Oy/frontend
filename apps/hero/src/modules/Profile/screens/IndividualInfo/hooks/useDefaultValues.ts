@@ -8,8 +8,6 @@ import { INDIVIDUAL_HERO_NAME_SEPARATOR } from '$modules/Profile/components/Indi
 import { profileCreationInitialState } from '$modules/Profile/stores';
 
 export const useDefaultValues = () => {
-  // const { user } = useFirebaseUser();
-
   const {
     user: {
       data: {
