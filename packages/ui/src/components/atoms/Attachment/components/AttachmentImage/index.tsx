@@ -6,11 +6,11 @@ import { GroupImage } from './GroupImage';
 import { ImageContainer } from './ImageContainer';
 
 export const AttachmentImage: FC<AttachmentImageProps> = (props) => {
-  const { fileDetails, onDelete, isSoloImage } = props;
+  const { isSoloImage, ...restProps } = props;
 
   if (isSoloImage) {
-    return <GroupImage fileDetails={fileDetails} onDelete={onDelete} />;
+    return <GroupImage {...restProps} />;
   }
 
-  return <ImageContainer fileDetails={fileDetails} onDelete={onDelete} />;
+  return <ImageContainer {...restProps} />;
 };

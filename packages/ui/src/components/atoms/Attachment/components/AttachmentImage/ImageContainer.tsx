@@ -5,7 +5,7 @@ import { AttachmentImageProps } from '../../types';
 import { RemoveButton } from '../RemoveButton';
 
 import { Image } from '$atoms/Image';
-import { View } from '$components/atoms/View';
+import { View } from '$atoms/View';
 
 type Props = Pick<AttachmentImageProps, 'fileDetails' | 'onDelete'>;
 

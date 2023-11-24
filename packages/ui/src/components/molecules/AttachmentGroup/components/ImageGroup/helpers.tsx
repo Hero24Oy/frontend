@@ -7,13 +7,11 @@ export const addEmptyContainers = (
   amount: number,
   components: JsxElement[],
 ) => {
-  const result = [...components];
-
   for (let index = 1; index <= amount; index += 1) {
-    result.push(<View style={styles.emptyContainer} />);
+    components.push(<View style={styles.emptyContainer} />);
   }
 
-  return result;
+  return components;
 };
 
 export const sliceIntoRows = (
