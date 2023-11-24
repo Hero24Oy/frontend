@@ -7,4 +7,5 @@ export enum ValidationHints {
   INVALID_DATE = 'Invalid date',
   INVALID_SOCIAL_ID = 'Invalid social security ID',
   INVALID_IBAN = 'Invalid IBAN',
+  INVALID_COUNTRY = 'Invalid country',
 }
