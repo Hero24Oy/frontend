@@ -3,7 +3,7 @@ import { useRouter } from 'expo-router';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { useCreateMultiProgressBar } from '@hero24/common';
+import { StrictType, useCreateMultiProgressBar } from '@hero24/common';
 
 import { professionalInfoSchema } from './validation';
 
@@ -11,12 +11,14 @@ import {
   getMultiProgressBarInitialState,
   ProfileCreation,
   profileCreationInitialState,
+  useHeroType,
   useProfileCreationStore,
 } from '$modules/Profile/stores';
 
 export const useLogic = () => {
   const router = useRouter();
   const { setProfessionalInfo } = useProfileCreationStore();
+  const heroType = useHeroType<StrictType.STRICT>();
 
   const { control, getValues, setValue, formState } = useForm<
     ProfileCreation['professionalInfo']
@@ -31,7 +33,7 @@ export const useLogic = () => {
   const { multiScreenProgressBar } = useCreateMultiProgressBar<
     ProfileCreation['professionalInfo']
   >({
-    initialState: getMultiProgressBarInitialState(),
+    initialState: getMultiProgressBarInitialState(heroType),
     progressBarInfo: {
       formState,
       getValues,

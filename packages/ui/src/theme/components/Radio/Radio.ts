@@ -85,7 +85,9 @@ const customRadioConfig = {
             },
           },
         },
-        [RadioVariant.RADIO_INDICATOR]: {},
+        [RadioVariant.RADIO_INDICATOR]: {
+          paddingVertical: 16,
+        },
       },
     },
     defaultProps: {

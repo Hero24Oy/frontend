@@ -1,8 +1,11 @@
 words:
+  - booleanize
   - iban
+  - libphonenumber
   - netvisor
   - oauthredirect
   - Onest
+  - workareas
   - zustand
   - booleanize
   - libphonenumber

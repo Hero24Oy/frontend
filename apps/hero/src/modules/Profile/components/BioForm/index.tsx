@@ -6,8 +6,7 @@ import { StyleSheet } from 'react-native';
 
 import { Button, Color, Text, Textarea, View } from '@hero24/ui';
 
-import { LanguagesSelect } from '../LanguagesSelect';
-
+import { LanguagesSelect } from './components';
 import { textareaPlaceholderMapper } from './constants';
 
 import { ProfileCreation } from '$modules/Profile/stores';
