@@ -13,7 +13,7 @@ import { StyledSelectDivider } from '$components/styled';
 import { Color } from '$theme';
 
 export const AttachmentPdf: FC<AttachmentPdfProps> = (props) => {
-  const { fileName, onDelete } = props;
+  const { fileDetails, onDelete } = props;
 
   return (
     <VStack>
@@ -21,7 +21,7 @@ export const AttachmentPdf: FC<AttachmentPdfProps> = (props) => {
         <HStack style={styles.file}>
           <Icon as={Paperclip} />
           <Text variant="small" numberOfLines={1} ellipsizeMode="tail">
-            {fileName}
+            {fileDetails as string}
           </Text>
         </HStack>
         <RemoveButton onPress={onDelete} />

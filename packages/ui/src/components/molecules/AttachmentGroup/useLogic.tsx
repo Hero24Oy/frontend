@@ -3,8 +3,11 @@ import { useMemo } from 'react';
 import { AttachmentGroupProps } from './types';
 
 import { Attachment } from '$atoms/Attachment';
+import { JsxElement } from '$types';
 
-export const useLogic = (props: AttachmentGroupProps) => {
+export const useLogic = (
+  props: AttachmentGroupProps,
+): { attachments: JsxElement[] } => {
   const { files, onDelete, type } = props;
 
   const attachments = useMemo(() => {

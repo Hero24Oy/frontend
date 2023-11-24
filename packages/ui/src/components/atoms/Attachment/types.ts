@@ -1,7 +1,16 @@
+import { ImageSource } from '$atoms/Image';
+
 export enum AttachmentType {
   IMAGE = 'image',
   PDF = 'pdf',
 }
+
+type FileName = string;
+
+export type FileType = {
+  fileDetails: FileName | ImageSource;
+  id: number;
+};
 
 export type AttachmentProps = {
   file: FileType;
@@ -9,14 +18,6 @@ export type AttachmentProps = {
   type: `${AttachmentType}`;
 };
 
-export type FileType = {
-  fileName: string;
-  fileSource: string;
-  id: number;
-};
+export type AttachmentPdfProps = Pick<AttachmentProps, 'onDelete'> & FileType;
 
-export type AttachmentPdfProps = Pick<AttachmentProps, 'onDelete'> &
-  Pick<FileType, 'id' | 'fileName'>;
-
-export type AttachmentImageProps = Pick<AttachmentProps, 'onDelete'> &
-  Pick<FileType, 'id' | 'fileSource'>;
+export type AttachmentImageProps = Pick<AttachmentProps, 'onDelete'> & FileType;
