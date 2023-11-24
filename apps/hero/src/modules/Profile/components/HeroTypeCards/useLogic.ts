@@ -9,7 +9,7 @@ export const useLogic = () => {
 
   const professionalHeroHandler = () => {
     setWelcome({ heroType: HeroType.PROFESSIONAL });
-    router.push('/company-info');
+    router.push('/professional-info/');
   };
 
   // TODO replace with proper path after screen will be ready
