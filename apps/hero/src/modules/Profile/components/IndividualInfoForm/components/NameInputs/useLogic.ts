@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 
 import {
   INDIVIDUAL_HERO_NAME_PLACEHOLDER,
@@ -18,21 +18,18 @@ const watchedNames: (keyof ProfileCreation['individualInfo'])[] = [
 export const useLogic = (params: UseLogicParams) => {
   const { setValue, watch } = params;
 
-  const setDisplayedName: SetDisplayName = useMemo(
-    () => (args) => {
-      const { firstName, lastName } = args;
-      const fullName = `${firstName?.trim()} ${lastName?.trim()}`;
+  const setDisplayedName: SetDisplayName = (args) => {
+    const { firstName, lastName } = args;
+    const fullName = `${firstName?.trim()} ${lastName?.trim()}`;
 
-      const displayedName = fullName.trim()
-        ? HERO_COMPANY_NAME.concat(INDIVIDUAL_HERO_NAME_SEPARATOR, fullName)
-        : INDIVIDUAL_HERO_NAME_PLACEHOLDER;
+    const displayedName = fullName.trim()
+      ? HERO_COMPANY_NAME.concat(INDIVIDUAL_HERO_NAME_SEPARATOR, fullName)
+      : INDIVIDUAL_HERO_NAME_PLACEHOLDER;
 
-      setValue('name', displayedName, {
-        shouldValidate: true,
-      });
-    },
-    [setValue, watch],
-  );
+    setValue('name', displayedName, {
+      shouldValidate: true,
+    });
+  };
 
   useEffect(() => {
     const subscription = watch((value, { name }) => {
