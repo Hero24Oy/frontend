@@ -8,4 +8,5 @@ export enum ValidationHints {
   INVALID_SOCIAL_ID = 'Invalid social security ID',
   INVALID_IBAN = 'Invalid IBAN',
   FIELD_NOT_CHANGED = 'Field must be changed',
+  INVALID_COUNTRY = 'Invalid country',
 }

@@ -30,7 +30,7 @@ export const FullScreenModal: FC<Props> = (props) => {
       <ModalContent style={styles.content}>
         <Header {...header} />
         <ScrollView>
-          <ModalBody>{body}</ModalBody>
+          <ModalBody style={styles.body}>{body}</ModalBody>
         </ScrollView>
         <ModalFooter style={styles.footer}>{footer}</ModalFooter>
       </ModalContent>
@@ -46,5 +46,8 @@ const styles = StyleSheet.create({
   footer: {
     gap: 16,
     paddingBottom: 33,
+  },
+  body: {
+    paddingHorizontal: 0,
   },
 });

@@ -1,6 +1,6 @@
 import { HeroType } from 'hero24-types';
 
-import { LoadedFile, Maybe, Range } from '@hero24/common';
+import { Country, LoadedFile, Maybe, Range } from '@hero24/common';
 
 export type CommonHeroInfo = {
   email: string;
@@ -11,7 +11,7 @@ export type ProfileCreation = {
   address: {
     address: string;
     city: string | null;
-    country: string | null;
+    country: Country;
     postcode: string;
   };
   bio: {

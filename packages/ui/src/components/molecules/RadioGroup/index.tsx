@@ -2,7 +2,7 @@ import { RadioGroup as GluestackRadioGroup, View } from '@gluestack-ui/themed';
 import { ReactElement } from 'react';
 import { Control, FieldValues, Path } from 'react-hook-form';
 
-import { Radio, RadioTitle } from './components';
+import { RadioItems, RadioTitle } from './components';
 import { useLogic } from './useLogic';
 
 import { RadioOption, RadioSize, RadioVariant } from '$atoms';
@@ -14,6 +14,7 @@ type Props<Type extends FieldValues, Value> = {
   options: RadioOption<Value>[];
   variant: `${RadioVariant}`;
   childrenStyle?: LayoutStyles;
+  hasDivider?: boolean;
   isRadioGroupDisabled?: boolean;
   size?: RadioSize;
   style?: LayoutStyles;
@@ -31,6 +32,7 @@ export const RadioGroup = <Type extends FieldValues, Value>(
     style,
     title,
     childrenStyle,
+    hasDivider = false,
     ...restProps
   } = props;
 
@@ -49,10 +51,11 @@ export const RadioGroup = <Type extends FieldValues, Value>(
         onChange={radioGroupValueHandler}
         style={style}
       >
-        <Radio
+        <RadioItems
           size={size}
           options={options}
           style={childrenStyle}
+          hasDivider={hasDivider}
           {...restProps}
         />
       </GluestackRadioGroup>
