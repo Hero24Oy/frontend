@@ -8,7 +8,7 @@ export type AttachmentGroupProps = {
   numberOfColumns?: number;
 } & Pick<AttachmentProps, 'gap' | 'externalPaddingsSum' | 'type'>;
 
-export type AttachmentGroupType = Record<
+export type AttachmentGroupMapperType = Record<
   AttachmentType,
   FC<Pick<AttachmentGroupProps, 'gap'> & PropsWithChildren>
 >;
