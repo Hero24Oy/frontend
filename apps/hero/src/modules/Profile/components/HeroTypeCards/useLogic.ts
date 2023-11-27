@@ -7,19 +7,19 @@ export const useLogic = () => {
   const router = useRouter();
   const { setWelcome } = useProfileCreationStore();
 
-  const companyHeroHandler = () => {
+  const professionalHeroHandler = () => {
     setWelcome({ heroType: HeroType.PROFESSIONAL });
-    router.push('/professional-info');
+    router.push('/professional-info/');
   };
 
   // TODO replace with proper path after screen will be ready
-  const selfEmployedHandler = () => {
+  const individualHeroHandler = () => {
     setWelcome({ heroType: HeroType.INDIVIDUAL });
-    router.push('/');
+    router.push('/individual-info/');
   };
 
   return {
-    companyHeroHandler,
-    selfEmployedHandler,
+    professionalHeroHandler,
+    individualHeroHandler,
   };
 };
