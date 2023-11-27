@@ -1,8 +1,7 @@
 import { FC } from 'react';
 
+import { ImageAttachment, PdfAttachment } from './components';
 import { AttachmentProps, AttachmentType, FileType } from './types';
-
-import { ImageAttachment, PdfAttachment } from '$atoms/Attachment/components';
 
 export const AttachmentMapper: Record<
   AttachmentType,
