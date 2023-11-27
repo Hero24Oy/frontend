@@ -3,15 +3,15 @@ import { Dimensions } from 'react-native';
 const ONE_HUNDRED_PERCENT = 100;
 
 export const getWidthInPercent = (
-  padding: number,
-  gap: number,
-  numberOfColumns: number = 2,
+  padding: number = 0,
+  gap: number = 0,
+  divisor: number = 2,
 ): number => {
   const screenWidth = Dimensions.get('screen').width;
 
-  const sumOfGaps = (numberOfColumns - 1) * gap;
+  const sumOfGaps = (divisor - 1) * gap;
 
-  const width = (screenWidth - padding - sumOfGaps) / numberOfColumns;
+  const width = (screenWidth - padding - sumOfGaps) / divisor;
 
   const widthInPercent =
     (width / (screenWidth - padding)) * ONE_HUNDRED_PERCENT;
