@@ -3,34 +3,51 @@ import { useRouter } from 'expo-router';
 import { useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { StrictType, useCreateMultiProgressBar } from '@hero24/common';
+
 import { prepareIndividualInfo } from '../utils';
 import { individualInfoSchema } from '../validation';
 
+import { useDefaultValues } from './useDefaultValues';
+
 import {
+  getMultiProgressBarInitialState,
   ProfileCreation,
-  profileCreationInitialState,
+  useHeroType,
   useProfileCreationStore,
 } from '$modules/Profile/stores';
 
 export const useLogic = () => {
   const router = useRouter();
-
   const { setIndividualInfo } = useProfileCreationStore();
+  const { defaultValues } = useDefaultValues();
+  const heroType = useHeroType<StrictType.STRICT>();
 
   const { control, getValues, setValue, formState, watch } = useForm({
     resolver:
       yupResolver<ProfileCreation['individualInfo']>(individualInfoSchema),
-    defaultValues: profileCreationInitialState.individualInfo,
+    defaultValues,
     mode: 'onChange',
+  });
+
+  const { multiScreenProgressBar } = useCreateMultiProgressBar<
+    ProfileCreation['individualInfo']
+  >({
+    initialState: getMultiProgressBarInitialState(heroType),
+    progressBarInfo: {
+      formState,
+      getValues,
+      progressBarIndex: 0,
+    },
   });
 
   // TODO set proper route when next screen will be ready
   const submitData = useCallback(() => {
     const values = getValues();
 
-    const preparedPersonalInfo = prepareIndividualInfo(values);
+    const preparedIndividualInfo = prepareIndividualInfo(values);
 
-    setIndividualInfo(preparedPersonalInfo);
+    setIndividualInfo(preparedIndividualInfo);
     router.push('/');
   }, []);
 
@@ -41,5 +58,6 @@ export const useLogic = () => {
     isValid: formState.isValid,
     submitData,
     watch,
+    multiScreenProgressBar,
   };
 };

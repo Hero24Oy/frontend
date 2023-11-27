@@ -29,7 +29,7 @@ export const Input = {
     },
     ':disabled': {
       borderColor: Color.GREY_01,
-      backgroundColor: Color.GREY_03,
+      backgroundColor: Color.GREY_LIGHT_03,
     },
     [DescendantStyleName.INPUT]: {
       flex: 1,
@@ -39,6 +39,9 @@ export const Input = {
       fontFamily: Font.ONEST_REGULAR,
       ':focus': {
         color: Color.DARK_00,
+      },
+      ':disabled': {
+        color: Color.GREY_02,
       },
       [DescendantStyleName.ICON]: {
         color: Color.DARK_00,
