@@ -39,5 +39,5 @@ export const useLogic = (params: UseLogicParams) => {
     });
 
     return () => subscription.unsubscribe();
-  }, [watch]);
+  }, []);
 };
