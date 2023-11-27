@@ -12,9 +12,15 @@ import { DeleteIcon } from '$icons';
 type Props = Omit<AttachmentProps, 'file' | 'type'> & FileType;
 
 export const ImageAttachment: FC<Props> = (props) => {
-  const { fileDetails, onDelete, width, gap, externalPaddingsSum } = props;
+  const { fileDetails, onDelete, width, ...restProps } = props;
 
-  const styles = useStyles(width, gap, externalPaddingsSum);
+  const { dynamicWidth } = useDynamicWidth({
+    ...restProps,
+  });
+
+  const containerWidth = width || dynamicWidth;
+
+  const styles = useStyles(containerWidth);
 
   return (
     <View style={styles.container}>
@@ -30,21 +36,7 @@ export const ImageAttachment: FC<Props> = (props) => {
   );
 };
 
-export const useStyles = (
-  width?: number,
-  gap?: number,
-  externalPaddingsSum?: number,
-) => {
-  const divisor = 2;
-
-  const { dynamicWidth } = useDynamicWidth({
-    divisor,
-    externalPaddingsSum,
-    gap,
-  });
-
-  const containerWidth = width || dynamicWidth;
-
+export const useStyles = (containerWidth: number) => {
   return StyleSheet.create({
     container: {
       position: 'relative',
