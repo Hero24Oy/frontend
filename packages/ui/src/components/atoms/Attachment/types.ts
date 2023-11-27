@@ -14,6 +14,5 @@ export type AttachmentProps = {
   file: FileType;
   onDelete: () => void;
   type: `${AttachmentType}`;
-  isSoloImage?: boolean;
   widthInPercent?: string;
 };
