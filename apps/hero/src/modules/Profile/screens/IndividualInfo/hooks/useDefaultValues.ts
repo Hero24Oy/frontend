@@ -1,4 +1,3 @@
-import merge from 'lodash/merge';
 import { useMemo } from 'react';
 
 import { useCachedGraphQlUser } from '@hero24/common';
@@ -34,12 +33,13 @@ export const useDefaultValues = () => {
       `${initialFirstName} ${initialLastName}`,
     );
 
-    return merge(profileCreationInitialState.individualInfo, {
+    return {
+      ...profileCreationInitialState.individualInfo,
       firstName,
       lastName,
       email,
       name,
-    });
+    };
   }, [initialEmail, initialFirstName, initialLastName]);
 
   return { defaultValues };
