@@ -1,8 +1,18 @@
-import { AttachmentType, FileType } from '$components/atoms';
+import { FC, PropsWithChildren } from 'react';
+
+import { AttachmentProps, AttachmentType, FileType } from '$atoms';
 
 export type AttachmentGroupProps = {
   files: FileType[];
   onDelete: (id: number) => void;
-  type: `${AttachmentType}`;
   numberOfColumns?: number;
+} & Pick<AttachmentProps, 'gap' | 'externalPaddingsSum' | 'type'>;
+
+export type AttachmentGroupType = Record<
+  AttachmentType,
+  FC<Pick<AttachmentGroupProps, 'gap'> & PropsWithChildren>
+>;
+
+export type UseLogicReturnType = {
+  attachments: JSX.Element[];
 };

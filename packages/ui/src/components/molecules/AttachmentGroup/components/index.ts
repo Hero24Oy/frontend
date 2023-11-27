@@ -1,2 +1,2 @@
-export * from './ImageGroup';
-export * from './PdfGroup';
+export * from './PdfAttachmentGroup';
+export * from './ImageAttachmentGroup';

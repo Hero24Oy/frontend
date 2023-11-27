@@ -1,21 +1,25 @@
 import { useMemo } from 'react';
 
-import { getWidthInPercent } from './helpers';
-import { AttachmentGroupProps } from './types';
+import { AttachmentGroupProps, UseLogicReturnType } from './types';
 
 import { Attachment } from '$atoms/Attachment';
-import { JsxElement } from '$types';
+import { useDynamicWidth } from '$hooks';
 
-export const useLogic = (
-  props: AttachmentGroupProps,
-): { attachments: JsxElement[] } => {
-  const { files, onDelete, type, numberOfColumns = 1 } = props;
+export const useLogic = (props: AttachmentGroupProps): UseLogicReturnType => {
+  const {
+    files,
+    onDelete,
+    type,
+    externalPaddingsSum,
+    gap,
+    numberOfColumns = 1,
+  } = props;
 
-  const paddings = 32;
-
-  const gap = 8;
-
-  const widthInPercent = getWidthInPercent(paddings, gap, numberOfColumns);
+  const { dynamicWidth } = useDynamicWidth({
+    externalPaddingsSum,
+    divisor: numberOfColumns,
+    gap,
+  });
 
   const attachments = useMemo(() => {
     return files.map((file) => {
@@ -29,7 +33,7 @@ export const useLogic = (
           file={file}
           onDelete={deleteHandler}
           type={type}
-          widthInPercent={`${widthInPercent}%`}
+          width={dynamicWidth}
         />
       );
     });

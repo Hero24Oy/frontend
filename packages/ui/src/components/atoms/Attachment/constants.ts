@@ -2,12 +2,12 @@ import { FC } from 'react';
 
 import { AttachmentProps, AttachmentType, FileType } from './types';
 
-import { AttachmentImage, AttachmentPdf } from '$atoms/Attachment/components';
+import { ImageAttachment, PdfAttachment } from '$atoms/Attachment/components';
 
 export const AttachmentMapper: Record<
   AttachmentType,
-  FC<Pick<AttachmentProps, 'onDelete' | 'widthInPercent'> & FileType>
+  FC<Omit<AttachmentProps, 'file' | 'type'> & FileType>
 > = {
-  [AttachmentType.PDF]: AttachmentPdf,
-  [AttachmentType.IMAGE]: AttachmentImage,
+  [AttachmentType.PDF]: PdfAttachment,
+  [AttachmentType.IMAGE]: ImageAttachment,
 };

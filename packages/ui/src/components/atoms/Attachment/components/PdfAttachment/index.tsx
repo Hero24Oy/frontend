@@ -9,13 +9,12 @@ import { HStack } from '$atoms/HStack';
 import { IconButton } from '$atoms/IconButton';
 import { Text } from '$atoms/Text';
 import { VStack } from '$atoms/VStack';
-import { StyledSelectDivider } from '$components/styled';
 import { DeleteIcon } from '$icons';
 import { Color } from '$theme';
 
 type Props = Pick<AttachmentProps, 'onDelete'> & FileType;
 
-export const AttachmentPdf: FC<Props> = (props) => {
+export const PdfAttachment: FC<Props> = (props) => {
   const { fileDetails, onDelete } = props;
 
   return (
@@ -29,7 +28,6 @@ export const AttachmentPdf: FC<Props> = (props) => {
         </HStack>
         <IconButton size="sm" icon={DeleteIcon} onPress={onDelete} />
       </HStack>
-      <StyledSelectDivider />
     </VStack>
   );
 };
@@ -40,6 +38,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: Color.WHITE_00,
     padding: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: Color.GREY_LIGHT_01,
   },
   file: {
     gap: 8,

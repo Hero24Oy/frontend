@@ -1,21 +1,19 @@
 import { FC } from 'react';
 
-import { AttachmentGroupMapper } from './constants';
+import { attachmentGroupMapper } from './constants';
 import { AttachmentGroupProps } from './types';
 import { useLogic } from './useLogic';
 
 export const AttachmentGroup: FC<AttachmentGroupProps> = (props) => {
-  const { type, numberOfColumns, ...restProps } = props;
+  const { type, gap, ...restProps } = props;
 
-  const { attachments } = useLogic({ type, numberOfColumns, ...restProps });
+  const { attachments } = useLogic({
+    type,
+    gap,
+    ...restProps,
+  });
 
-  const GroupComponent = AttachmentGroupMapper[type];
+  const GroupComponent = attachmentGroupMapper[type];
 
-  return (
-    <GroupComponent numberOfColumns={numberOfColumns}>
-      {attachments}
-    </GroupComponent>
-  );
+  return <GroupComponent gap={gap}>{attachments}</GroupComponent>;
 };
-
-export * from './helpers';

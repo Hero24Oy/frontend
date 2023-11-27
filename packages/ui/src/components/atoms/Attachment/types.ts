@@ -14,5 +14,7 @@ export type AttachmentProps = {
   file: FileType;
   onDelete: () => void;
   type: `${AttachmentType}`;
-  widthInPercent?: string;
+  externalPaddingsSum?: number;
+  gap?: number;
+  width?: number;
 };
