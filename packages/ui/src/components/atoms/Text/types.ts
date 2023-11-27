@@ -8,7 +8,7 @@ export enum TextVariant {
   LINK = 'link',
 }
 
-export type TextLimitedProps = Pick<
+export type TextContentProps = Pick<
   ReactNativeTextProps,
   'numberOfLines' | 'ellipsizeMode'
 >;

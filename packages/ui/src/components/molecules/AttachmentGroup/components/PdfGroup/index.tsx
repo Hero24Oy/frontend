@@ -1,9 +1,14 @@
-import { FC, PropsWithChildren } from 'react';
+import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
 import { VStack } from '$atoms/VStack';
+import { JsxElement } from '$types';
 
-export const PdfGroup: FC<PropsWithChildren> = (props) => {
+type Props = {
+  children: JsxElement[];
+};
+
+export const PdfGroup: FC<Props> = (props) => {
   const { children } = props;
 
   return <VStack style={styles.container}>{children}</VStack>;

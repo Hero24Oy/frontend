@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 
+import { getWidthInPercent } from './helpers';
 import { AttachmentGroupProps } from './types';
 
 import { Attachment } from '$atoms/Attachment';
@@ -8,7 +9,13 @@ import { JsxElement } from '$types';
 export const useLogic = (
   props: AttachmentGroupProps,
 ): { attachments: JsxElement[] } => {
-  const { files, onDelete, type } = props;
+  const { files, onDelete, type, numberOfColumns = 1 } = props;
+
+  const paddings = 32;
+
+  const gap = 8;
+
+  const widthInPercent = getWidthInPercent(paddings, gap, numberOfColumns);
 
   const attachments = useMemo(() => {
     return files.map((file) => {
@@ -22,6 +29,7 @@ export const useLogic = (
           file={file}
           onDelete={deleteHandler}
           type={type}
+          widthInPercent={`${widthInPercent}%`}
         />
       );
     });

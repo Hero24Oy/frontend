@@ -5,10 +5,8 @@ export enum AttachmentType {
   PDF = 'pdf',
 }
 
-type FileName = string;
-
 export type FileType = {
-  fileDetails: FileName | ImageSource;
+  fileDetails: string | ImageSource;
   id: number;
 };
 
@@ -17,12 +15,5 @@ export type AttachmentProps = {
   onDelete: () => void;
   type: `${AttachmentType}`;
   isSoloImage?: boolean;
+  widthInPercent?: string;
 };
-
-export type AttachmentPdfProps = Pick<AttachmentProps, 'onDelete'> & FileType;
-
-export type AttachmentImageProps = Pick<
-  AttachmentProps,
-  'onDelete' | 'isSoloImage'
-> &
-  FileType;

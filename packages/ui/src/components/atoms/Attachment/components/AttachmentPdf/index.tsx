@@ -3,16 +3,19 @@ import { Paperclip } from 'lucide-react-native';
 import { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
-import { AttachmentPdfProps } from '../../types';
-import { RemoveButton } from '../RemoveButton';
+import { AttachmentProps, FileType } from '../../types';
 
 import { HStack } from '$atoms/HStack';
+import { IconButton } from '$atoms/IconButton';
 import { Text } from '$atoms/Text';
 import { VStack } from '$atoms/VStack';
 import { StyledSelectDivider } from '$components/styled';
+import { DeleteIcon } from '$icons';
 import { Color } from '$theme';
 
-export const AttachmentPdf: FC<AttachmentPdfProps> = (props) => {
+type Props = Pick<AttachmentProps, 'onDelete'> & FileType;
+
+export const AttachmentPdf: FC<Props> = (props) => {
   const { fileDetails, onDelete } = props;
 
   return (
@@ -24,7 +27,7 @@ export const AttachmentPdf: FC<AttachmentPdfProps> = (props) => {
             {fileDetails as string}
           </Text>
         </HStack>
-        <RemoveButton onPress={onDelete} />
+        <IconButton size="sm" icon={DeleteIcon} onPress={onDelete} />
       </HStack>
       <StyledSelectDivider />
     </VStack>

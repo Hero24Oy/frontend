@@ -1,8 +1,5 @@
-import { StyleSheet } from 'react-native';
+import { addEmptyContainers } from './helpers';
 
-import { addEmptyContainers, sliceIntoRows } from './helpers';
-
-import { HStack } from '$components/atoms/HStack';
 import { JsxElement } from '$types';
 
 export const useLogic = (
@@ -21,25 +18,5 @@ export const useLogic = (
     attachments,
   );
 
-  const slicedComponents = sliceIntoRows(
-    numberOfRows,
-    numberOfColumns,
-    componentsWithFullRows,
-  );
-
-  const groupedRows = slicedComponents.map(
-    (row: JsxElement[], index: number) => (
-      <HStack key={index} style={styles.rowContainer}>
-        {...row}
-      </HStack>
-    ),
-  );
-
-  return { groupedRows };
+  return { components: componentsWithFullRows };
 };
-
-const styles = StyleSheet.create({
-  rowContainer: {
-    gap: 8,
-  },
-});

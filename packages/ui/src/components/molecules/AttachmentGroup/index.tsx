@@ -7,7 +7,7 @@ import { useLogic } from './useLogic';
 export const AttachmentGroup: FC<AttachmentGroupProps> = (props) => {
   const { type, numberOfColumns, ...restProps } = props;
 
-  const { attachments } = useLogic({ type, ...restProps });
+  const { attachments } = useLogic({ type, numberOfColumns, ...restProps });
 
   const GroupComponent = AttachmentGroupMapper[type];
 
@@ -17,3 +17,5 @@ export const AttachmentGroup: FC<AttachmentGroupProps> = (props) => {
     </GroupComponent>
   );
 };
+
+export * from './helpers';

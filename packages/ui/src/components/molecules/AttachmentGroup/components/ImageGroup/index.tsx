@@ -5,25 +5,28 @@ import { AttachmentGroupProps } from '../../types';
 
 import { useLogic } from './useLogic';
 
-import { VStack } from '$components/atoms';
+import { HStack } from '$atoms/HStack';
 import { JsxElement } from '$types';
 
-type Props = {
-  children: JsxElement[];
-} & Pick<AttachmentGroupProps, 'numberOfColumns'>;
+type Props = { children: JsxElement[] } & Pick<
+  AttachmentGroupProps,
+  'numberOfColumns'
+>;
 
 export const ImageGroup: FC<Props> = (props) => {
-  const { numberOfColumns, children } = props;
+  const { numberOfColumns = 1, children = [] } = props;
 
-  const columns = numberOfColumns || 1;
+  const { components } = useLogic(children, numberOfColumns);
 
-  const { groupedRows } = useLogic(children, columns);
-
-  return <VStack style={styles.container}>{groupedRows}</VStack>;
+  return <HStack style={styles.container}>{components}</HStack>;
 };
 
 const styles = StyleSheet.create({
   container: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     gap: 8,
+    flexWrap: 'wrap',
   },
 });
