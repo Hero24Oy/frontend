@@ -2,21 +2,23 @@ import { useMemo } from 'react';
 import { Dimensions } from 'react-native';
 
 type Params = {
-  divisor?: number;
-  externalPaddingsSum?: number;
-  gap?: number;
+  externalPaddingsSum: number;
+  gap: number;
+  numberOfColumns: number;
 };
 
 export const useDynamicWidth = (params: Params) => {
-  const { divisor = 2, externalPaddingsSum = 0, gap = 0 } = params;
+  const { numberOfColumns, externalPaddingsSum, gap } = params;
 
   const dynamicWidth = useMemo(() => {
     const screenWidth = Dimensions.get('screen').width;
-    const sumOfGaps = (divisor - 1) * gap;
-    const width = (screenWidth - externalPaddingsSum - sumOfGaps) / divisor;
+    const sumOfGaps = (numberOfColumns - 1) * gap;
+
+    const width =
+      (screenWidth - externalPaddingsSum - sumOfGaps) / numberOfColumns;
 
     return width;
-  }, [divisor, externalPaddingsSum, gap]);
+  }, [numberOfColumns, externalPaddingsSum, gap]);
 
   return { dynamicWidth };
 };

@@ -5,9 +5,21 @@ import { AttachmentGroupProps } from './types';
 import { useLogic } from './useLogic';
 
 export const AttachmentGroup: FC<AttachmentGroupProps> = (props) => {
-  const { type, gap } = props;
+  const {
+    type,
+    gap = 0,
+    externalPaddingsSum = 0,
+    numberOfColumns = 1,
+    ...restProps
+  } = props;
 
-  const { attachments } = useLogic(props);
+  const { attachments } = useLogic({
+    gap,
+    externalPaddingsSum,
+    numberOfColumns,
+    type,
+    ...restProps,
+  });
 
   const GroupComponent = attachmentGroupMapper[type];
 

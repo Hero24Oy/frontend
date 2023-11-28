@@ -6,19 +6,14 @@ import { AttachmentProps, FileType } from '../../types';
 import { IconButton } from '$atoms/IconButton';
 import { Image } from '$atoms/Image';
 import { View } from '$atoms/View';
-import { useDynamicWidth } from '$hooks';
 import { DeleteIcon } from '$icons';
 
-type Props = Omit<AttachmentProps, 'file' | 'type'> & FileType;
+type Props = Pick<AttachmentProps, 'onDelete' | 'width'> & FileType;
 
 export const ImageAttachment: FC<Props> = (props) => {
-  const { fileDetails, onDelete, width, ...restProps } = props;
+  const { fileDetails, onDelete, width } = props;
 
-  const { dynamicWidth } = useDynamicWidth(restProps);
-
-  const containerWidth = width || dynamicWidth;
-
-  const styles = useStyles(containerWidth);
+  const styles = useStyles(width);
 
   return (
     <View style={styles.container}>
@@ -34,9 +29,16 @@ export const ImageAttachment: FC<Props> = (props) => {
   );
 };
 
-export const useStyles = (containerWidth: number) => {
+export const useStyles = (containerWidth?: number) => {
+  let containerFlex = 1;
+
+  if (containerWidth) {
+    containerFlex = 0;
+  }
+
   return StyleSheet.create({
     container: {
+      flex: containerFlex,
       position: 'relative',
       overflow: 'hidden',
       borderRadius: 8,

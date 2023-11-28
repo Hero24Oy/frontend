@@ -5,19 +5,19 @@ import { AttachmentGroupProps, UseLogicReturnType } from './types';
 import { Attachment } from '$atoms/Attachment';
 import { useDynamicWidth } from '$hooks';
 
-export const useLogic = (props: AttachmentGroupProps): UseLogicReturnType => {
-  const {
-    files,
-    onDelete,
-    type,
-    externalPaddingsSum,
-    gap,
-    numberOfColumns = 1,
-  } = props;
+type Props = {
+  externalPaddingsSum: number;
+  gap: number;
+  numberOfColumns: number;
+} & Pick<AttachmentGroupProps, 'onDelete' | 'files' | 'type'>;
+
+export const useLogic = (props: Props): UseLogicReturnType => {
+  const { files, onDelete, type, externalPaddingsSum, gap, numberOfColumns } =
+    props;
 
   const { dynamicWidth } = useDynamicWidth({
     externalPaddingsSum,
-    divisor: numberOfColumns,
+    numberOfColumns,
     gap,
   });
 
