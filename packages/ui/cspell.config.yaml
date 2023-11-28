@@ -1,6 +1,7 @@
 words:
   - actionsheet
+  - ellipsize
   - gluestack
-  - pressable
-  - Onest
   - lucide
+  - Onest
+  - pressable

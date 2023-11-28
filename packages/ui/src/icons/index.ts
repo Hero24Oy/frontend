@@ -11,6 +11,7 @@ export * from './Google';
 export * from './Apple';
 export * from './Right';
 export * from './Lock';
+export * from './Paperclip';
 export * from './Upload';
 export * from './File';
 export * from './Camera';

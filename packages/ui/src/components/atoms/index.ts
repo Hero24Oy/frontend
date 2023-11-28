@@ -24,3 +24,4 @@ export * from './RadioItem';
 export * from './ProgressBar';
 export * from './Switch';
 export * from './ScrollView';
+export * from './Attachment';
