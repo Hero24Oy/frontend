@@ -5,13 +5,9 @@ import { AttachmentGroupProps } from './types';
 import { useLogic } from './useLogic';
 
 export const AttachmentGroup: FC<AttachmentGroupProps> = (props) => {
-  const { type, gap, ...restProps } = props;
+  const { type, gap } = props;
 
-  const { attachments } = useLogic({
-    type,
-    gap,
-    ...restProps,
-  });
+  const { attachments } = useLogic(props);
 
   const GroupComponent = attachmentGroupMapper[type];
 
