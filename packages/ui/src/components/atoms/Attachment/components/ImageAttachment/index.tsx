@@ -30,11 +30,7 @@ export const ImageAttachment: FC<Props> = (props) => {
 };
 
 export const useStyles = (containerWidth?: number) => {
-  let containerFlex = 1;
-
-  if (containerWidth) {
-    containerFlex = 0;
-  }
+  const containerFlex = containerWidth ? 0 : 1;
 
   return StyleSheet.create({
     container: {
