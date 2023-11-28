@@ -14,9 +14,7 @@ type Props = Omit<AttachmentProps, 'file' | 'type'> & FileType;
 export const ImageAttachment: FC<Props> = (props) => {
   const { fileDetails, onDelete, width, ...restProps } = props;
 
-  const { dynamicWidth } = useDynamicWidth({
-    ...restProps,
-  });
+  const { dynamicWidth } = useDynamicWidth(restProps);
 
   const containerWidth = width || dynamicWidth;
 
