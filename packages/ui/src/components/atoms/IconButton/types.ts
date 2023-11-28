@@ -7,5 +7,5 @@ export type IconButtonSize = Extract<Size, 'sm' | 'md' | 'lg'>;
 
 export type GluestackIconButtonProps = Pick<
   ComponentProps<typeof Button>,
-  'isDisabled' | 'onPress'
+  'isDisabled' | 'onPress' | 'style'
 >;
