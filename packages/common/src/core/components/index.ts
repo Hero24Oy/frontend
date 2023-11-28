@@ -4,4 +4,5 @@ export * from './StackKeyboardAwareScrollView';
 export * from './ExpoStack';
 export * from './HeadlessExpoStack';
 export * from './StackLayout';
+export * from './DateInput';
 export * from './UploadDocuments';

@@ -1,2 +1,2 @@
-export const selfEmployedImage: number = require('./selfEmployed.png');
-export const companyHeroImage: number = require('./companyHero.png');
+export const individualHeroImage: number = require('./individualHero.png');
+export const professionalHeroImage: number = require('./professionalHero.png');

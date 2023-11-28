@@ -1,24 +1,25 @@
 import { useRouter } from 'expo-router';
+import { HeroType } from 'hero24-types';
 
-import { HeroType, useProfileCreationStore } from '$modules/Profile/stores';
+import { useProfileCreationStore } from '$modules/Profile/stores';
 
 export const useLogic = () => {
   const router = useRouter();
   const { setWelcome } = useProfileCreationStore();
 
-  const companyHeroHandler = () => {
+  const professionalHeroHandler = () => {
     setWelcome({ heroType: HeroType.PROFESSIONAL });
-    router.push('/company-info');
+    router.push('/professional-info/');
   };
 
   // TODO replace with proper path after screen will be ready
-  const selfEmployedHandler = () => {
+  const individualHeroHandler = () => {
     setWelcome({ heroType: HeroType.INDIVIDUAL });
-    router.push('/');
+    router.push('/individual-info/');
   };
 
   return {
-    companyHeroHandler,
-    selfEmployedHandler,
+    professionalHeroHandler,
+    individualHeroHandler,
   };
 };
