@@ -1,20 +1,38 @@
-import { FieldValues } from 'react-hook-form';
+import { FieldValues, useController } from 'react-hook-form';
 
 import { UploadMultipleDocumentsProps, UseLogicReturnType } from './types';
 
-type Params = Pick<
-  UploadMultipleDocumentsProps<FieldValues>,
-  'files' | 'maxAttachments'
+import { useActionsheet } from '$core/hooks';
+
+type Params<Type extends FieldValues> = Pick<
+  UploadMultipleDocumentsProps<Type>,
+  'files' | 'maxAttachments' | 'name' | 'control' | 'actionsheetItems'
 >;
 
-export const useLogic = (params: Params): UseLogicReturnType => {
-  const { files, maxAttachments } = params;
+export const useLogic = <Type extends FieldValues>(
+  props: Params<Type>,
+): UseLogicReturnType => {
+  const { files, maxAttachments, name, control, actionsheetItems } = props;
 
-  const numberOfAttachments = files ? files.length : 0;
+  const {
+    fieldState: { error },
+  } = useController({ name, control });
 
-  const isAttachments = numberOfAttachments > 0;
+  const { items, isOpen, onOpen, onClose } = useActionsheet(actionsheetItems);
 
-  const isUploadButton = numberOfAttachments < maxAttachments;
+  const attachmentsAmount = files?.length || 0;
 
-  return { isAttachments, isUploadButton };
+  const hasAttachments = attachmentsAmount > 0;
+
+  const showUploadButton = attachmentsAmount < maxAttachments;
+
+  return {
+    hasAttachments,
+    showUploadButton,
+    error,
+    items,
+    isOpen,
+    onOpen,
+    onClose,
+  };
 };

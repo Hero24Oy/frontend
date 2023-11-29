@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import { FieldValues, useController } from 'react-hook-form';
+import { FieldValues } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
 
 import {
@@ -16,8 +16,6 @@ import { UploadButton } from '../UploadDocument';
 import { UploadMultipleDocumentsProps } from './types';
 import { useLogic } from './useLogic';
 
-import { useActionsheet } from '$core/hooks';
-
 export const UploadMultipleDocuments = <Type extends FieldValues>(
   props: UploadMultipleDocumentsProps<Type>,
 ): ReactElement => {
@@ -33,13 +31,14 @@ export const UploadMultipleDocuments = <Type extends FieldValues>(
     ...restProps
   } = props;
 
-  const {
-    fieldState: { error },
-  } = useController({ name, control });
-
-  const { onOpen, ...params } = useActionsheet(actionsheetItems);
-
-  const { isAttachments, isUploadButton } = useLogic({ files, maxAttachments });
+  const { hasAttachments, showUploadButton, error, onOpen, ...restParams } =
+    useLogic({
+      files,
+      maxAttachments,
+      name,
+      control,
+      actionsheetItems,
+    });
 
   return (
     <VStack style={styles.container}>
@@ -49,18 +48,13 @@ export const UploadMultipleDocuments = <Type extends FieldValues>(
 
       {label && <Text variant="small">{label}</Text>}
 
-      {isAttachments && (
+      {hasAttachments && (
         <AttachmentGroup files={files as FileType[]} {...restProps} />
       )}
 
-      {isUploadButton && <UploadButton onPress={onOpen} error={error} />}
+      {showUploadButton && <UploadButton onPress={onOpen} error={error} />}
 
-      <Actionsheet
-        showDragIndicator
-        title={actionsheetTitle}
-        onOpen={onOpen}
-        {...params}
-      />
+      <Actionsheet showDragIndicator title={actionsheetTitle} {...restParams} />
     </VStack>
   );
 };

@@ -3,14 +3,16 @@ import { GestureResponderEvent } from 'react-native';
 
 import { Item } from '@hero24/ui';
 
-type ReturnType = {
+export type UseActionsheetReturnType = {
   isOpen: boolean;
   items: Item[];
   onClose: () => void;
   onOpen: () => void;
 };
 
-export const useActionsheet = (actionsheetItems: Item[]): ReturnType => {
+export const useActionsheet = (
+  actionsheetItems: Item[],
+): UseActionsheetReturnType => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const onClose = (): void => setIsOpen(false);

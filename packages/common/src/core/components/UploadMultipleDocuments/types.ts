@@ -1,8 +1,10 @@
-import { FieldValues } from 'react-hook-form';
+import { FieldError, FieldValues } from 'react-hook-form';
 
 import { AttachmentGroupProps, FileType, Maybe } from '@hero24/ui';
 
 import { UploadDocumentsProps } from '../UploadDocument';
+
+import { UseActionsheetReturnType } from '$core/hooks';
 
 export type UploadMultipleDocumentsProps<Type extends FieldValues> = {
   files: Maybe<FileType[]>;
@@ -16,6 +18,7 @@ export type UploadMultipleDocumentsProps<Type extends FieldValues> = {
   Omit<UploadDocumentsProps<Type>, 'onDelete' | 'attachmentWidth' | 'file'>;
 
 export type UseLogicReturnType = {
-  isAttachments: boolean;
-  isUploadButton: boolean;
-};
+  error: FieldError | undefined;
+  hasAttachments: boolean;
+  showUploadButton: boolean;
+} & UseActionsheetReturnType;
