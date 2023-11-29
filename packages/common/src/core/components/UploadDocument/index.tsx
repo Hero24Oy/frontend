@@ -27,14 +27,13 @@ export const UploadDocument = <Type extends FieldValues>(
     fieldState: { error },
   } = useController({ name, control });
 
-  const { items, isActionsheetOpen, onCloseActionsheet, onOpenActionsheet } =
-    useActionsheet(actionsheetItems);
+  const { items, onOpen, ...restParams } = useActionsheet(actionsheetItems);
 
   return (
     <VStack style={styles.container}>
       <InputTitle value={title} />
 
-      {!file && <UploadButton onPress={onOpenActionsheet} error={error} />}
+      {!file && <UploadButton onPress={onOpen} error={error} />}
 
       {file && (
         <Attachment file={file} width={attachmentWidth} {...restProps} />
@@ -44,8 +43,7 @@ export const UploadDocument = <Type extends FieldValues>(
         showDragIndicator
         items={items}
         title={actionsheetTitle}
-        isOpen={isActionsheetOpen}
-        onClose={onCloseActionsheet}
+        {...restParams}
       />
     </VStack>
   );

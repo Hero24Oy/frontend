@@ -30,9 +30,6 @@ export const UploadMultipleDocuments = <Type extends FieldValues>(
     control,
     actionsheetItems,
     actionsheetTitle,
-    gap = 0,
-    externalPaddingsSum = 0,
-    numberOfColumns = 1,
     ...restProps
   } = props;
 
@@ -53,13 +50,7 @@ export const UploadMultipleDocuments = <Type extends FieldValues>(
       {label && <Text variant="small">{label}</Text>}
 
       {isAttachments && (
-        <AttachmentGroup
-          files={files as FileType[]}
-          gap={gap}
-          externalPaddingsSum={externalPaddingsSum}
-          numberOfColumns={numberOfColumns}
-          {...restProps}
-        />
+        <AttachmentGroup files={files as FileType[]} {...restProps} />
       )}
 
       {isUploadButton && <UploadButton onPress={onOpen} error={error} />}
