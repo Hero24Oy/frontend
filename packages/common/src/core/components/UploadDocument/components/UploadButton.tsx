@@ -1,16 +1,16 @@
 import { FC } from 'react';
+import { FieldError } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
 
-import { Button, Color, Text, UploadIcon, VStack } from '@hero24/ui';
-
-import { UploadDocumentsProps } from '../../types';
+import { Button, InputHelper, UploadIcon, VStack } from '@hero24/ui';
 
 type Props = {
+  error?: FieldError;
   onPress?: () => void;
-} & Pick<UploadDocumentsProps, 'isRequired'>;
+};
 
 export const UploadButton: FC<Props> = (props) => {
-  const { isRequired, onPress } = props;
+  const { error, onPress } = props;
 
   return (
     <VStack style={styles.container}>
@@ -23,11 +23,7 @@ export const UploadButton: FC<Props> = (props) => {
       >
         Upload
       </Button>
-      {isRequired && (
-        <Text style={styles.error} variant="small">
-          Is required
-        </Text>
-      )}
+      <InputHelper error={error} />
     </VStack>
   );
 };
@@ -35,9 +31,5 @@ export const UploadButton: FC<Props> = (props) => {
 const styles = StyleSheet.create({
   container: {
     gap: 4,
-  },
-  error: {
-    color: Color.GREY_01,
-    fontWeight: '400',
   },
 });

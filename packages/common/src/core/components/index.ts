@@ -5,4 +5,5 @@ export * from './ExpoStack';
 export * from './HeadlessExpoStack';
 export * from './StackLayout';
 export * from './DateInput';
-export * from './UploadDocuments';
+export * from './UploadDocument';
+export * from './UploadMultipleDocuments';
