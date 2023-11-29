@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { GestureResponderEvent } from 'react-native';
 
 import { Item } from '@hero24/ui';
@@ -17,19 +17,21 @@ export const useActionsheet = (actionsheetItems: Item[]): ReturnType => {
 
   const onOpen = (): void => setIsOpen(true);
 
-  const items: Item[] = actionsheetItems.map((item) => {
-    return {
-      ...item,
-      onPress: (event: GestureResponderEvent) => {
-        if (!item.onPress) {
-          return;
-        }
+  const items: Item[] = useMemo(
+    () =>
+      actionsheetItems.map((item) => ({
+        ...item,
+        onPress: (event: GestureResponderEvent) => {
+          if (!item.onPress) {
+            return;
+          }
 
-        item.onPress(event);
-        onClose();
-      },
-    };
-  });
+          item.onPress(event);
+          onClose();
+        },
+      })),
+    [actionsheetItems],
+  );
 
   return {
     items,
