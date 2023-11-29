@@ -25,3 +25,5 @@ export const AttachmentGroup: FC<AttachmentGroupProps> = (props) => {
 
   return <GroupComponent gap={gap}>{attachments}</GroupComponent>;
 };
+
+export * from './types';

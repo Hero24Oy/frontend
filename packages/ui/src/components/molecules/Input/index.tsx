@@ -87,3 +87,5 @@ const styles = StyleSheet.create({
 });
 
 export * from './types';
+
+export * from './components';
