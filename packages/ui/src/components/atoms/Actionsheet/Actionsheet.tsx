@@ -17,7 +17,6 @@ import { ActionsheetItems } from './ActionsheetItems';
 import { GluestackActionsheetProps, Item } from './types';
 
 import { Heading } from '$atoms/Heading';
-import { Color } from '$theme';
 
 type Props = {
   items: Item[];
