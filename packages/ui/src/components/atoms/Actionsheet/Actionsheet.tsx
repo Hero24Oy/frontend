@@ -7,7 +7,7 @@
 import {
   Actionsheet as GluestackActionsheet,
   ActionsheetBackdrop,
-  ActionsheetContent as GluestackActionsheetContent,
+  ActionsheetContent,
 } from '@gluestack-ui/themed';
 import { FC } from 'react';
 
@@ -29,11 +29,11 @@ export const Actionsheet: FC<Props> = (props) => {
   return (
     <GluestackActionsheet {...restProps}>
       <ActionsheetBackdrop />
-      <GluestackActionsheetContent>
+      <ActionsheetContent>
         {showDragIndicator && <ActionsheetDragIndicator />}
         {title && <Heading variant="H5">{title}</Heading>}
         <ActionsheetItems items={items} />
-      </GluestackActionsheetContent>
+      </ActionsheetContent>
     </GluestackActionsheet>
   );
 };
