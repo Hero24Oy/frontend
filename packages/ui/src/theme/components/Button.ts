@@ -20,7 +20,7 @@ export type ButtonThemeVariants = {
   variant: Record<`${ButtonVariant}`, SxValues<ViewStyle>>;
 };
 
-const ButtonTheme = {
+const customButtonConfig = {
   theme: {
     gap: 4,
     [DescendantStyleName.TEXT]: {
@@ -474,4 +474,4 @@ const ButtonTheme = {
   },
 } satisfies ComponentTheme<PressableProps, ButtonThemeVariants>;
 
-export const Button = merge(config.components.Button, ButtonTheme);
+export const Button = merge(config.components.Button, customButtonConfig);

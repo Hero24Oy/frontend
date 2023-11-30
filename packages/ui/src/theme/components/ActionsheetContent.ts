@@ -4,7 +4,7 @@ import { ViewProps } from 'react-native';
 
 import { ComponentTheme } from '$theme/types';
 
-export const ActionsheetContentTheme = {
+const customActionsheetContentConfig = {
   theme: {
     alignItems: 'flex-start',
   },
@@ -12,5 +12,5 @@ export const ActionsheetContentTheme = {
 
 export const ActionsheetContent = merge(
   config.components.ActionsheetContent,
-  ActionsheetContentTheme,
+  customActionsheetContentConfig,
 );

@@ -10,7 +10,7 @@ export type SwitchThemeVariants = {
   size: Record<SwitchSize, SxValues<SwitchProps>>;
 };
 
-const SwitchTheme = {
+const customSwitchConfig = {
   theme: {
     defaultProps: {
       trackColor: { false: Color.GREY_03, true: Color.RED_00 },
@@ -39,4 +39,4 @@ const SwitchTheme = {
   },
 } satisfies ComponentTheme<SwitchProps, SwitchThemeVariants>;
 
-export const Switch = merge(config.components.Switch, SwitchTheme);
+export const Switch = merge(config.components.Switch, customSwitchConfig);
