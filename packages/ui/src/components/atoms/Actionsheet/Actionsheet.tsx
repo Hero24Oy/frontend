@@ -7,16 +7,15 @@
 import {
   Actionsheet as GluestackActionsheet,
   ActionsheetBackdrop,
-  ActionsheetContent,
 } from '@gluestack-ui/themed';
 import { FC } from 'react';
-import { StyleSheet } from 'react-native';
 
 import { ActionsheetDragIndicator } from './ActionsheetDragIndicator';
 import { ActionsheetItems } from './ActionsheetItems';
 import { GluestackActionsheetProps, Item } from './types';
 
 import { Heading } from '$atoms/Heading';
+import { StyledActionsheetContent } from '$components/styled';
 
 type Props = {
   items: Item[];
@@ -30,17 +29,11 @@ export const Actionsheet: FC<Props> = (props) => {
   return (
     <GluestackActionsheet {...restProps}>
       <ActionsheetBackdrop />
-      <ActionsheetContent style={styles.container}>
+      <StyledActionsheetContent>
         {showDragIndicator && <ActionsheetDragIndicator />}
         {title && <Heading variant="H5">{title}</Heading>}
         <ActionsheetItems items={items} />
-      </ActionsheetContent>
+      </StyledActionsheetContent>
     </GluestackActionsheet>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'flex-start',
-  },
-});
