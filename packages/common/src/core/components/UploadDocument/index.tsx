@@ -1,33 +1,30 @@
 import { ReactElement } from 'react';
-import { FieldValues, useController } from 'react-hook-form';
+import { FieldValues } from 'react-hook-form';
 import { StyleSheet } from 'react-native';
 
 import { Actionsheet, Attachment, Color, InputTitle, VStack } from '@hero24/ui';
 
 import { UploadButton } from './components';
 import { UploadDocumentsProps } from './types';
-
-import { useActionsheet } from '$core/hooks';
+import { useLogic } from './useLogic';
 
 export const UploadDocument = <Type extends FieldValues>(
   props: UploadDocumentsProps<Type>,
 ): ReactElement => {
   const {
-    actionsheetItems,
-    control,
-    name,
     file,
     title,
     actionsheetTitle,
     attachmentWidth,
+    onDelete,
+    type,
     ...restProps
   } = props;
 
-  const {
-    fieldState: { error },
-  } = useController({ name, control });
-
-  const { items, onOpen, ...restParams } = useActionsheet(actionsheetItems);
+  const { error, onOpen, items, ...restParams } = useLogic({
+    file,
+    ...restProps,
+  });
 
   return (
     <VStack style={styles.container}>
@@ -36,7 +33,12 @@ export const UploadDocument = <Type extends FieldValues>(
       {!file && <UploadButton onPress={onOpen} error={error} />}
 
       {file && (
-        <Attachment file={file} width={attachmentWidth} {...restProps} />
+        <Attachment
+          file={file}
+          width={attachmentWidth}
+          onDelete={onDelete}
+          type={type}
+        />
       )}
 
       <Actionsheet
