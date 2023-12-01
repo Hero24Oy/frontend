@@ -31,6 +31,7 @@ export const LanguagesSelect: FC<LanguagesSelectProps> = (props) => {
       />
 
       <FullScreenModal
+        noBodyPadding
         isOpen={isOpen}
         header={{
           goBackIcon,

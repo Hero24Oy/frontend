@@ -2,10 +2,10 @@ import { FieldValues, useController } from 'react-hook-form';
 
 import { handleSelectedValues } from '../helpers';
 
-import { Props, UseLogicReturnType } from './types';
+import { Params, UseLogicReturnType } from './types';
 
 export const useLogic = <Type extends FieldValues>(
-  props: Props<Type>,
+  props: Params<Type>,
 ): UseLogicReturnType => {
   const { name, control } = props;
 

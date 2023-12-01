@@ -7,7 +7,8 @@ export const RootScreen: FC = () => {
   const { user } = useFirebaseUser();
 
   if (!user) {
-    return <Redirect href="/sign-in" />;
+    // return <Redirect href="/sign-in" />;
+    return <Redirect href="/work-data" />;
   }
 
   return <Redirect href="/home" />;

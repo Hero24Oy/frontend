@@ -6,3 +6,4 @@ export * from './BioForm';
 export * from './BioHeading';
 export * from './PaymentDataForm';
 export * from './AddressForm';
+export * from './WorkDataForm';

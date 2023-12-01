@@ -2,6 +2,8 @@ import { HeroType } from 'hero24-types';
 
 import { Country, LoadedFile, Maybe, Range } from '@hero24/common';
 
+import { ExpertiseStore } from '$modules/Profile/components/ExpertiseSelect';
+
 export type CommonHeroInfo = {
   email: string;
   name: string;
@@ -36,7 +38,7 @@ export type ProfileCreation = {
   };
   workData: {
     experience: Range | null;
-    expertise: string[];
+    expertise: ExpertiseStore | null;
     places: string[];
     certificate?: Maybe<LoadedFile>;
     insurance?: Maybe<LoadedFile>;

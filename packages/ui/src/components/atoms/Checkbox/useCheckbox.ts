@@ -1,4 +1,5 @@
-import { useCallback, useState } from 'react';
+import debounce from 'lodash/debounce';
+import { useCallback } from 'react';
 import {
   Control,
   FieldValues,
@@ -7,7 +8,8 @@ import {
   useController,
 } from 'react-hook-form';
 
-import { CheckboxOption } from './types';
+import { DEBOUNCE_TIME } from './constants';
+import { CheckboxOption, OnChangeActionParams } from './types';
 
 export const CHECKBOX_ROOT_VALUE = 'rootValue';
 
@@ -15,6 +17,7 @@ export type UseCheckboxProps<Type extends FieldValues> = {
   control: Control<Type>;
   name: Path<Type>;
   options: CheckboxOption[];
+  onChangeAction?: (params: OnChangeActionParams<Type>) => void;
 };
 
 export type UseCheckboxReturnType = {
@@ -29,17 +32,17 @@ export type UseCheckboxReturnType = {
 export const useCheckbox = <Type extends FieldValues>(
   config: UseCheckboxProps<Type>,
 ): UseCheckboxReturnType => {
-  const { control, name, options } = config;
+  const { control, name, options, onChangeAction } = config;
 
   const {
     field: { value, ref, onChange },
     fieldState: { error },
   } = useController({ name, control });
 
-  const [checkboxGroupValue, setCheckboxGroupValue] = useState<string[]>(value);
+  const currentValue: string[] = value || [];
 
-  const isAnythingChecked = checkboxGroupValue.length > 0;
-  const isEverythingChecked = checkboxGroupValue.length === options.length;
+  const isAnythingChecked = currentValue.length > 0;
+  const isEverythingChecked = currentValue.length === options.length;
   const isIndeterminate = isAnythingChecked && !isEverythingChecked;
 
   const onChangeHandler = useCallback(
@@ -53,10 +56,15 @@ export const useCheckbox = <Type extends FieldValues>(
           : options.map((option) => option.value);
       }
 
-      setCheckboxGroupValue(valuesToUpdate);
       onChange(valuesToUpdate);
+
+      if (onChangeAction) {
+        const debounceAction = debounce(onChangeAction, DEBOUNCE_TIME);
+
+        debounceAction({ value: valuesToUpdate, name });
+      }
     },
-    [options, value],
+    [options, value, onChangeAction],
   );
 
   return {
@@ -65,6 +73,6 @@ export const useCheckbox = <Type extends FieldValues>(
     ref,
     errorMessage: error?.message,
     onChange: onChangeHandler,
-    value: checkboxGroupValue,
+    value: currentValue,
   };
 };

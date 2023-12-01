@@ -17,8 +17,16 @@ import { Color } from '$theme';
 export const CheckboxGroup = <Type extends FieldValues>(
   props: CheckboxGroupProps<Type>,
 ): ReactElement => {
-  const { options, label, control, name, hasRootCheck, style, ...restProps } =
-    props;
+  const {
+    options,
+    label,
+    control,
+    name,
+    hasRootCheck,
+    style,
+    onChangeAction,
+    ...restProps
+  } = props;
 
   const {
     isIndeterminate,
@@ -31,6 +39,7 @@ export const CheckboxGroup = <Type extends FieldValues>(
     control,
     name,
     options,
+    onChangeAction,
   });
 
   return (
@@ -68,6 +77,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   error: {
+    paddingLeft: 6,
+    paddingTop: 4,
     color: Color.GREY_01,
   },
 });

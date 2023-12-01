@@ -38,7 +38,7 @@ export const profileCreationInitialState: ProfileCreation = {
   ...professionalCreationInfoInitialState,
   ...individualCreationInfoInitialState,
   workData: {
-    expertise: [],
+    expertise: null,
     experience: null,
     places: [],
     insurance: null,

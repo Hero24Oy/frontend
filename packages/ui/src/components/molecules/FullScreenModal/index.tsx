@@ -19,10 +19,11 @@ export type Props = {
   isOpen: boolean;
   body?: JsxElement;
   footer?: JsxElement;
+  hasBodyPadding?: boolean;
 };
 
 export const FullScreenModal: FC<Props> = (props) => {
-  const { footer, body, isOpen, header } = props;
+  const { footer, body, isOpen, header, hasBodyPadding } = props;
 
   return (
     <GluestackModal size="full" isOpen={isOpen}>
@@ -30,7 +31,7 @@ export const FullScreenModal: FC<Props> = (props) => {
       <ModalContent style={styles.content}>
         <Header {...header} />
         <ScrollView>
-          <ModalBody style={styles.body}>{body}</ModalBody>
+          <ModalBody style={!hasBodyPadding && styles.body}>{body}</ModalBody>
         </ScrollView>
         <ModalFooter style={styles.footer}>{footer}</ModalFooter>
       </ModalContent>

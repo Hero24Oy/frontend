@@ -10,7 +10,9 @@ export const handleSelectedValues = (
   if (Array.isArray(selectedValue)) {
     const inputText = selectedValue[0];
 
-    return { inputText, badgeValue: selectedValue.length - 1 };
+    const badgeValue = selectedValue.length ? selectedValue.length - 1 : 0;
+
+    return { inputText: inputText || NOT_SELECTED, badgeValue };
   }
 
   return { inputText: selectedValue ?? NOT_SELECTED, badgeValue: 0 };

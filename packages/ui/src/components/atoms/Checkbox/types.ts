@@ -14,6 +14,11 @@ export type CheckboxOptionsProps = {
   size?: Size;
 };
 
+export type OnChangeActionParams<Type extends FieldValues> = {
+  name: Path<Type>;
+  value: string[];
+};
+
 // we may add check that controller with such name is a array of string
 export type CheckboxGroupProps<
   Type extends FieldValues,
@@ -22,6 +27,7 @@ export type CheckboxGroupProps<
   control: Control<Type>;
   name: Path<Type>;
   hasRootCheck?: HasRootCheck;
+  onChangeAction?: (params: OnChangeActionParams<Type>) => void;
   style?: LayoutStyles;
 } & CheckboxOptionsProps &
   (HasRootCheck extends true

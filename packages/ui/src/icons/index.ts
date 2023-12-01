@@ -12,3 +12,4 @@ export * from './Apple';
 export * from './Right';
 export * from './Lock';
 export * from './Paperclip';
+export * from './Info';

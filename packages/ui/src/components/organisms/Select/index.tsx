@@ -16,7 +16,10 @@ export const Select = <Type extends FieldValues>(
 ): JsxElement => {
   const { control, name, hasDivider, label, ...restProps } = props;
 
-  const { inputText, badgeValue } = useLogic({ control, name });
+  const { inputText, badgeValue } = useLogic({
+    control,
+    name,
+  });
 
   return (
     <StyledSelect {...restProps}>
