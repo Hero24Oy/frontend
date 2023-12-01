@@ -2,11 +2,12 @@ import { useCallback } from 'react';
 
 import { getMaskedEmail } from './utils';
 
+import { StrictType } from '$core';
 import { useResetPasswordByEmail } from '$modules/Auth/hooks';
 import { useEmailAuthStore } from '$modules/Auth/stores';
 
 export const useLogic = () => {
-  const { email } = useEmailAuthStore<'strict'>();
+  const { email } = useEmailAuthStore<StrictType.STRICT>();
 
   const { resetPassword } = useResetPasswordByEmail({});
 

@@ -4,5 +4,9 @@ export enum ValidationHints {
   INVALID_PHONE = 'Invalid phone number',
   INVALID_EMAIL = 'This field must be valid email',
   INVALID_POSTCODE = 'This field must be valid postcode',
+  INVALID_DATE = 'Please enter valid date',
+  INVALID_SOCIAL_ID = 'Invalid social security ID',
   INVALID_IBAN = 'Invalid IBAN',
+  FIELD_NOT_CHANGED = 'Field must be changed',
+  INVALID_COUNTRY = 'Invalid country',
 }

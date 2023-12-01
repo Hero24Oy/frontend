@@ -1,14 +1,13 @@
 import { create } from 'zustand';
 
-import { Maybe } from '$core';
+import { Maybe, StrictType } from '$core';
 
 // TODO move to common when phone auth is merged
-type StrictTyping = 'strict' | 'notStrict';
-
-export type EmailAuthStore<Strict extends StrictTyping = 'notStrict'> = {
-  email: Strict extends 'strict' ? string : Maybe<string>;
-  setEmail: (email: string) => void;
-};
+export type EmailAuthStore<Strict extends StrictType = StrictType.NOT_STRICT> =
+  {
+    email: Strict extends StrictType.STRICT ? string : Maybe<string>;
+    setEmail: (email: string) => void;
+  };
 
 const useStore = create<EmailAuthStore>((set) => ({
   email: undefined,
@@ -16,7 +15,7 @@ const useStore = create<EmailAuthStore>((set) => ({
 }));
 
 export const useEmailAuthStore = <
-  Strict extends StrictTyping = 'notStrict',
+  Strict extends StrictType = StrictType.NOT_STRICT,
 >(): EmailAuthStore<Strict> => {
   const store = useStore();
 
